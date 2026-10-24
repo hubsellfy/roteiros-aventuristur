@@ -187,3 +187,27 @@ html.dark .border-r { border-right-width: 0.5px; }
 html.dark .trek-dash .atlas-card,
 html.dark .trek-dash .btn-secondary,
 html.dark .trek-dash .seg button.on { border-width: 0.5px; }
+
+/* ── Azul padrão da Aventuristur nos botões (degradê do card das artes e do site) ── */
+:root { --accent-gradient: linear-gradient(165deg, #0a6fc2, #0c3f78); }
+:root[data-scheme] { --accent-gradient: linear-gradient(165deg, var(--accent), color-mix(in srgb, var(--accent) 62%, #000)); }
+html.dark:not([data-scheme]) {
+  --accent-text: #ffffff;
+  --accent-hover: #0b5fae;
+}
+html .bg-accent,
+html [style*="background: var(--accent)"],
+html .trek-dash .btn-primary,
+html .trek-dash .fab-new-trip,
+html .trek-dash .fx-swap,
+html .trek-dash .add-trip-card .circ {
+  background-image: var(--accent-gradient);
+}
+html .hover\:bg-accent-hover:hover { background-image: none; }
+html.dark:not([data-scheme]) .trek-dash .btn-primary,
+html.dark:not([data-scheme]) .trek-dash .fab-new-trip,
+html.dark:not([data-scheme]) .trek-dash .fx-swap,
+html.dark:not([data-scheme]) .trek-dash .add-trip-card .circ { background-color: #0a6fc2; color: #ffffff; }
+html.dark .trek-dash .btn-primary,
+html.dark .trek-dash .fab-new-trip,
+html.dark .trek-dash .add-trip-card .circ { background-image: var(--accent-gradient); }
