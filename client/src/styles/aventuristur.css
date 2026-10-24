@@ -23,15 +23,15 @@ html [style*="box-shadow"]:not([style*="0 0 0 "]):is(div, section, article, li)[
 
 /* ── Painel inicial (.trek-dash) ───────────────────────────────────────── */
 html .trek-dash {
-  --bg: #f2f5fa;
-  --bg-2: #eceff4;
-  --surface: #fcfcfd;
+  --bg: #eaeceb;
+  --bg-2: #f4f5f8;
+  --surface: #ffffff;
   --surface-2: #f9fafb;
   --ink: #1a1a1c;
-  --ink-2: #4b5360;
-  --ink-3: #7b8494;
-  --line: #dfe4eb;
-  --line-2: #d7dde5;
+  --ink-2: #4b4b4c;
+  --ink-3: #686869;
+  --line: rgba(0, 0, 0, 0.08);
+  --line-2: rgba(0, 0, 0, 0.12);
   --sh-xs: none;
   --sh-sm: none;
   --sh-md: none;
@@ -43,8 +43,8 @@ html .trek-dash {
   --r-lg: 20px;
   --r-xl: 24px;
   --r-2xl: 28px;
-  --glass-bg: #fcfcfd;
-  --glass-border: #dfe4eb;
+  --glass-bg: #ffffff;
+  --glass-border: rgba(0, 0, 0, 0.08);
   --glass-shadow: none;
   --glass-shadow-hover: none;
   --glass-highlight: none;
@@ -98,27 +98,27 @@ html select.form-input { padding-right: 36px; }
 /* ── Celular (.m-root): mesmos tokens do site, superfícies sólidas em vez de vidro ───── */
 html .m-root {
   --m-ink: #1a1a1c;
-  --m-muted: #4b5360;
-  --m-faint: #7b8494;
-  --m-bg: #f2f5fa;
-  --m-scr: #f2f5fa;
-  --m-glass: #fcfcfd;
-  --m-gbr: #dfe4eb;
-  --m-card: #fcfcfd;
-  --m-cbr: #dfe4eb;
-  --m-inner: #f2f5fa;
-  --m-inbr: #dfe4eb;
+  --m-muted: #4b4b4c;
+  --m-faint: #686869;
+  --m-bg: #eaeceb;
+  --m-scr: #eaeceb;
+  --m-glass: #ffffff;
+  --m-gbr: rgba(0, 0, 0, 0.08);
+  --m-card: #ffffff;
+  --m-cbr: rgba(0, 0, 0, 0.08);
+  --m-inner: #f9fafb;
+  --m-inbr: rgba(0, 0, 0, 0.08);
   --m-act: #0a6fc2;
   --m-actfg: #ffffff;
-  --m-sheet: #fcfcfd;
-  --m-sheetop: #fcfcfd;
-  --m-shbr: #dfe4eb;
+  --m-sheet: #ffffff;
+  --m-sheetop: #ffffff;
+  --m-shbr: rgba(0, 0, 0, 0.08);
   --m-ic: rgba(10, 111, 194, 0.08);
-  --m-avbr: #fcfcfd;
-  --m-rowbr: #eceff4;
+  --m-avbr: #ffffff;
+  --m-rowbr: rgba(0, 0, 0, 0.05);
   --m-mkr: #0a6fc2;
   --m-mkfg: #ffffff;
-  --m-trackoff: #d7dde5;
+  --m-trackoff: #d4d4d6;
   font-family: var(--font-system);
 }
 html.dark .m-root {
@@ -211,3 +211,35 @@ html.dark:not([data-scheme]) .trek-dash .add-trip-card .circ { background-color:
 html.dark .trek-dash .btn-primary,
 html.dark .trek-dash .fab-new-trip,
 html.dark .trek-dash .add-trip-card .circ { background-image: var(--accent-gradient); }
+
+/* ── Claro: mesma paleta do Hubsellfy (página branca, moldura #eaeceb, cards brancos, contorno de 0,5 px) ── */
+html:not(.dark) {
+  --bg-primary: #eaeceb;
+  --bg-secondary: #f9fafb;
+  --bg-tertiary: #f4f5f8;
+  --bg-elevated: #ffffff;
+  --bg-card: #ffffff;
+  --bg-input: #ffffff;
+  --bg-hover: rgba(0, 0, 0, 0.04);
+  --bg-selected: #e4e6e5;
+  --text-primary: #1a1a1c;
+  --text-secondary: #4b4b4c;
+  --text-muted: #686869;
+  --text-faint: #8f8f90;
+  --border-primary: rgba(0, 0, 0, 0.1);
+  --border-secondary: rgba(0, 0, 0, 0.06);
+  --border-faint: rgba(0, 0, 0, 0.06);
+  --sidebar-bg: #ffffff;
+  --tooltip-bg: #ffffff;
+  --scrollbar-track: #eaeceb;
+  --scrollbar-thumb: #c9cbca;
+  --scrollbar-hover: #a8aaa9;
+}
+html .border { border-width: 0.5px; }
+html .border-t { border-top-width: 0.5px; }
+html .border-b { border-bottom-width: 0.5px; }
+html .border-l { border-left-width: 0.5px; }
+html .border-r { border-right-width: 0.5px; }
+html .trek-dash .atlas-card,
+html .trek-dash .btn-secondary,
+html .trek-dash .seg button.on { border-width: 0.5px; }
