@@ -152,7 +152,7 @@ const PLACE_BODY: DawarichAccept = { target: 'place', tripId: 7, dayId: 3 }
 // read back from the bundle so a reader of this file sees the sentence that ends
 // up on screen, and so a reworded string is a decision somebody makes here too.
 const EN = {
-  offline: 'This needs a connection — TREK is offline right now.',
+  offline: 'This needs a connection — Roteiros Aventuristur is offline right now.',
   unauthorized: 'Dawarich rejected the API key.',
   unknown: 'Something went wrong talking to Dawarich.',
   acceptError: 'Could not add this',

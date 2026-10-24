@@ -450,9 +450,9 @@ describe('DawarichConnectionSection', () => {
     // The block gets the detail, the toast stays one line: a self-hoster needs
     // to know it was the certificate and not the host being down.
     expect(
-      await screen.findByText('TREK could not reach that address. (self-signed certificate in chain)'),
+      await screen.findByText('Roteiros Aventuristur could not reach that address. (self-signed certificate in chain)'),
     ).toBeInTheDocument();
-    expect(toast.error).toHaveBeenCalledWith('TREK could not reach that address.');
+    expect(toast.error).toHaveBeenCalledWith('Roteiros Aventuristur could not reach that address.');
     expect(screen.getByText('Not connected')).toBeInTheDocument();
   });
 

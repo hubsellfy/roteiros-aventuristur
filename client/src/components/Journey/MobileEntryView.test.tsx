@@ -220,7 +220,7 @@ describe('MobileEntryView', () => {
   // phone and translated ones on a tablet (#1846). Which of the two appears is
   // decided by two different breakpoints, which is why it looked random.
   it('FE-COMP-JENTRYVIEW-018: mood, weather and the edit action follow the chosen language', async () => {
-    seedStore(useSettingsStore, { settings: buildSettings({ language: 'de' }) })
+    seedStore(useSettingsStore, { settings: buildSettings({ language: 'es' }) })
     renderView(buildEntry({
       mood: 'amazing',
       weather: 'sunny',
@@ -228,9 +228,9 @@ describe('MobileEntryView', () => {
     }))
 
     // The locale bundle is fetched, so the first paint is still English.
-    expect(await screen.findByText('Großartig')).toBeInTheDocument()
-    expect(screen.getByText('Sonnig')).toBeInTheDocument()
-    expect(screen.getByRole('button', { name: /Bearbeiten/ })).toBeInTheDocument()
+    expect(await screen.findByText('Increíble')).toBeInTheDocument()
+    expect(screen.getByText('Soleado')).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: /Editar/ })).toBeInTheDocument()
     expect(screen.queryByText('Amazing')).not.toBeInTheDocument()
     expect(screen.queryByText('Sunny')).not.toBeInTheDocument()
   })
