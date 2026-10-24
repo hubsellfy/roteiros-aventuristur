@@ -49,8 +49,8 @@ describe('MSettingsGeneral', () => {
     render(<MSettingsGeneral />);
 
     await user.click(screen.getByRole('button', { name: /English/ }));
-    await user.click(await screen.findByRole('button', { name: 'Deutsch' }));
-    expect(updateSetting).toHaveBeenCalledWith('language', 'de');
+    await user.click(await screen.findByRole('button', { name: 'Español' }));
+    expect(updateSetting).toHaveBeenCalledWith('language', 'es');
   });
 
   it('FE-MOB-SET-004: a chosen display currency is shown with its symbol', () => {

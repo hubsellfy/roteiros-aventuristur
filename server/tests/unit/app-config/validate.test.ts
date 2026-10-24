@@ -113,7 +113,7 @@ describe('validateEnvAtBoot', () => {
     ['TREK_API_DOCS_ENABLED', ' TRUE '],
     ['TREK_PLUGINS_ENABLED', ' OFF '],
     ['DEFAULT_LANGUAGE', 'EN'],
-    ['DEFAULT_LANGUAGE', 'zh-TW'],
+    ['DEFAULT_LANGUAGE', 'BR'],
     ['LOG_LEVEL', 'ERROR'],
     ['SESSION_DURATION', ' 12H '],
   ])('accepts differently-cased/padded valid %s=%s', (key, value) => {

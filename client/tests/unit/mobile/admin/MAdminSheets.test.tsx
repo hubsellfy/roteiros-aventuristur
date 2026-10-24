@@ -262,7 +262,7 @@ describe('MAdminSheets', () => {
     expect(screen.getByText(/docker pull mauriceboe\/trek:latest/)).toBeInTheDocument();
     expect(
       screen.getByText(
-        'Your TREK instance runs in Docker. To update to v3.5.0, run the following commands on your server:',
+        'Your Roteiros Aventuristur instance runs in Docker. To update to v3.5.0, run the following commands on your server:',
       ),
     ).toBeInTheDocument();
     expect(screen.queryByRole('link', { name: /update guide/ })).not.toBeInTheDocument();

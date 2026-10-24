@@ -110,7 +110,7 @@ describe('ImportCollectionModal (#2198)', () => {
     await waitFor(() => expect(screen.getByText('That file could not be read.')).toBeInTheDocument());
 
     await choose(JSON.stringify({ format: 'something.else' }));
-    await waitFor(() => expect(screen.getByText('That is not a TREK list file.')).toBeInTheDocument());
+    await waitFor(() => expect(screen.getByText('That is not a Roteiros Aventuristur list file.')).toBeInTheDocument());
   });
 
   it('FE-COMP-COLLIMPORT-008: takes a good file after a bad one, and forgets the complaint', async () => {

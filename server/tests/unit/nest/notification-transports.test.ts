@@ -218,7 +218,7 @@ describe('buildEmailHtml', () => {
 
   it('uses English i18n strings for lang=en', () => {
     const html = buildEmailHtml('Subject', 'Body', 'en');
-    expect(html).toContain('notifications enabled in TREK');
+    expect(html).toContain('notifications enabled in Roteiros Aventuristur');
   });
 
   it('uses German i18n strings for lang=de', () => {
@@ -230,7 +230,7 @@ describe('buildEmailHtml', () => {
     const en = buildEmailHtml('Subject', 'Body', 'en');
     const unknown = buildEmailHtml('Subject', 'Body', 'xx');
     // Both should have the same footer text
-    expect(unknown).toContain('notifications enabled in TREK');
+    expect(unknown).toContain('notifications enabled in Roteiros Aventuristur');
   });
 
   it('points the header logo at an inline part by Content-ID, not at a data: URI (#2507)', () => {
@@ -238,7 +238,7 @@ describe('buildEmailHtml', () => {
     // Gmail strips data: URIs and Outlook blocks them, which left a broken image
     // in the header of every mail.
     expect(html).not.toContain('data:');
-    expect(html).toMatch(/<img src="cid:[^"]+" alt="TREK" width="48" height="48"/);
+    expect(html).toMatch(/<img src="cid:[^"]+" alt="Roteiros Aventuristur" width="48" height="48"/);
   });
 });
 

@@ -57,11 +57,11 @@ describe('settingsStore', () => {
 
   describe('FE-SETTINGS-004: Language change', () => {
     it('updates language field and localStorage', async () => {
-      await useSettingsStore.getState().updateSetting('language', 'fr');
+      await useSettingsStore.getState().updateSetting('language', 'es');
 
       const state = useSettingsStore.getState();
-      expect(state.settings.language).toBe('fr');
-      expect(localStorage.getItem('app_language')).toBe('fr');
+      expect(state.settings.language).toBe('es');
+      expect(localStorage.getItem('app_language')).toBe('es');
     });
   });
 
@@ -199,9 +199,9 @@ describe('settingsStore', () => {
     it('sets language in state but does not write to localStorage', () => {
       localStorage.clear();
 
-      useSettingsStore.getState().setLanguageTransient('fr');
+      useSettingsStore.getState().setLanguageTransient('es');
 
-      expect(useSettingsStore.getState().settings.language).toBe('fr');
+      expect(useSettingsStore.getState().settings.language).toBe('es');
       expect(localStorage.getItem('app_language')).toBeNull();
     });
   });
