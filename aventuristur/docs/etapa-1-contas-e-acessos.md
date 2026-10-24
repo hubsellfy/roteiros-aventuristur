@@ -33,6 +33,7 @@ rastreabilidade do fork.
 | DNS `aventuristur.com` | confirmado | O registro `A` `app` aponta para `187.127.25.215`, com TTL de 300 segundos. |
 | Resolução pública | confirmado | `app.aventuristur.com` respondeu o IPv4 esperado nos resolvedores 1.1.1.1 e 8.8.8.8 na validação inicial. |
 | Easypanel | confirmado em leitura | O dono definiu o projeto `supabase`. Ele contém os serviços existentes `aventuristur-site` e `storage`, que foram apenas consultados e não sofreram alteração. |
+| SMTP transacional | confirmado | O domínio de envio `envia.aventuristur.com` foi validado pelo Resend. A chave de envio foi criada e guardada pelo dono fora do repositório; ela não foi lida nem retida pelo agente. |
 
 O registro DNS prepara o endereço técnico. Nenhum serviço do Roteiros
 Aventuristur, domínio no Easypanel, certificado, conta de usuário ou dado de
@@ -42,8 +43,7 @@ cliente foi publicado como parte desta etapa.
 
 | Item | Ação necessária | Onde o segredo deve ficar |
 | --- | --- | --- |
-| SMTP transacional | Criar e aprovar a conta corporativa; verificar o domínio de envio; criar credencial de envio com escopo mínimo. | Variáveis do serviço no Easypanel ou GitHub Actions Secrets. |
-| Backup externo | Criar storage privado compatível com S3, sob contrato de tratamento de dados; criar credencial limitada ao bucket de backup. | Variáveis do serviço no Easypanel ou GitHub Actions Secrets. |
+| Backup externo | Definir e criar um destino privado compatível com S3 fora da VPS principal, sob contrato de tratamento de dados; criar credencial limitada ao bucket de backup. Um storage separado na própria VPS pode isolar o projeto, mas não substitui essa cópia externa. | Variáveis do serviço no Easypanel ou GitHub Actions Secrets. |
 | Open-Meteo | Aprovar a assinatura comercial e gerar a chave da API comercial. | Variáveis do serviço no Easypanel ou GitHub Actions Secrets. |
 | Chave de criptografia | Gerar uma única vez depois de confirmar o formato exigido pela base `v4.3.4`; guardar uma cópia fora da VPS. | Variável do serviço no Easypanel e cofre seguro do dono. |
 
