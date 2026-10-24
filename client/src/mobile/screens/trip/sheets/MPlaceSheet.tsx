@@ -6,7 +6,7 @@ import {
 } from '../../../../icons'
 import MSheet from '../../../components/MSheet'
 import type { MTripSheetsProps } from '../MTripShell'
-import { useTranslation, translateApiError } from '../../../../i18n'
+import { useTranslation, translateApiError, getIntlLanguage } from '../../../../i18n'
 import { normalizeImageFile } from '../../../../utils/convertHeic'
 import { assignmentsApi } from '../../../../api/client'
 import { useTripStore } from '../../../../store/tripStore'
@@ -440,7 +440,7 @@ export default function MPlaceSheet({ planner, shell }: MTripSheetsProps) {
                     </span>
                     {d.date && (
                       <span className="flex-none font-geist text-[0.65625rem] text-m-faint">
-                        {new Date(`${d.date.slice(0, 10)}T00:00:00Z`).toLocaleDateString(planner.language, { day: 'numeric', month: 'short', timeZone: 'UTC' })}
+                        {new Date(`${d.date.slice(0, 10)}T00:00:00Z`).toLocaleDateString(getIntlLanguage(planner.language), { day: 'numeric', month: 'short', timeZone: 'UTC' })}
                       </span>
                     )}
                   </button>

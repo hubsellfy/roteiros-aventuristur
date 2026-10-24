@@ -14,7 +14,7 @@ import { getNavigationTargets } from '../../../../components/Planner/placeNaviga
 import { useSettingsStore } from '../../../../store/settingsStore'
 import { formatDistance } from '../../../../utils/units'
 import { formatClockTime } from '../../../../utils/formatters'
-import { isRtlLanguage } from '../../../../i18n'
+import { isRtlLanguage, getIntlLanguage } from '../../../../i18n'
 import type { MTripTabPanelProps } from '../MTripShell'
 import { arrivingReroutable, legReroutable, type StopRow } from '../../../../components/Roadtrip/roadtripRowModel'
 import { ARRIVING_DRIVE, type RailDrive } from '../../../../components/Roadtrip/useRouteAlternatives'
@@ -516,7 +516,7 @@ function stageDateLabel(planner: MTripTabPanelProps['planner'], dayId: number): 
   if (!day?.date) return null
   const date = new Date(`${day.date.slice(0, 10)}T00:00:00`)
   if (Number.isNaN(date.getTime())) return null
-  return new Intl.DateTimeFormat(planner.language, { weekday: 'short', day: 'numeric', month: 'short' }).format(date)
+  return new Intl.DateTimeFormat(getIntlLanguage(planner.language), { weekday: 'short', day: 'numeric', month: 'short' }).format(date)
 }
 
 /** The dry point the refuel search measures from, looked up by its leg. */

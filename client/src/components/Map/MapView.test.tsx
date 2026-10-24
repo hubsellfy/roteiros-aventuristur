@@ -5,7 +5,7 @@ import { act, fireEvent, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { resetAllStores } from '../../../tests/helpers/store'
 import { buildPlace, buildReservation } from '../../../tests/helpers/factories'
-import { MAP_MAX_ZOOM } from '../../constants/mapDefaults'
+import { MAP_MAX_ZOOM, DEFAULT_MAP_LAT, DEFAULT_MAP_LNG, DEFAULT_MAP_ZOOM } from '../../constants/mapDefaults'
 import { useAuthStore } from '../../store/authStore'
 import { CATEGORY_ICON_MAP } from '../shared/categoryIcons'
 import * as photoService from '../../services/photoService'
@@ -568,8 +568,8 @@ describe('MapView', () => {
       render(<MapView places={[buildMapPlace({ id: 1, lat: null, lng: null })]} />)
 
       const { center, zoom } = camera()
-      expect(center).toEqual([0, 0])
-      expect(zoom).toBe(2)
+      expect(center).toEqual([DEFAULT_MAP_LAT, DEFAULT_MAP_LNG])
+      expect(zoom).toBe(DEFAULT_MAP_ZOOM)
     })
   })
 

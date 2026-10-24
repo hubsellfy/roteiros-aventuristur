@@ -60,11 +60,12 @@ interface McpToken {
 }
 
 function CopyButton({ text, copied, onCopy }: { text: string; copied: boolean; onCopy: (text: string) => void }) {
+  const { t } = useTranslation()
   return (
     <button
       type="button"
       onClick={() => onCopy(text)}
-      aria-label="Copy"
+      aria-label={t('common.copy')}
       className="flex h-[34px] w-[34px] flex-none items-center justify-center rounded-full bg-[color:var(--m-ic)] text-m-ink"
     >
       {copied ? <Check size={14} className="text-[color:var(--m-st-confirmed)]" /> : <Copy size={14} />}

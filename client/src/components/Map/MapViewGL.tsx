@@ -1763,6 +1763,22 @@ export function MapViewGL({
     try { map.setConfigProperty('basemap', 'language', basemapLanguage(mapLang)) } catch { /* style/SDK may not support the basemap language property */ }
   }, [mapLang, mapReady, isMapLibre, glStyle])
 
+  // Aventuristur: OpenFreeMap (MapLibre) labels follow the UI language, falling back to the
+  // local name when a place has no translation.
+  useEffect(() => {
+    const map = mapRef.current
+    if (!map || !mapReady || !isMapLibre) return
+    try {
+      const lang = basemapLanguage(mapLang)
+      const textField = ['coalesce', ['get', `name:${lang}`], ['get', 'name:latin'], ['get', 'name']]
+      for (const layer of map.getStyle()?.layers ?? []) {
+        if (layer.type !== 'symbol' || !layer.layout || !('text-field' in layer.layout)) continue
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        map.setLayoutProperty(layer.id, 'text-field', textField as any)
+      }
+    } catch { /* style may not expose symbol layers yet */ }
+  }, [mapLang, mapReady, isMapLibre, glStyle])
+
   // Photo loading — mirrors the Leaflet MapView. Updates via RAF to batch
   // simultaneous thumb arrivals into one re-render.
   const pendingThumbsRef = useRef<Record<string, string>>({})

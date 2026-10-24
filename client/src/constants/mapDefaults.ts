@@ -1,6 +1,7 @@
-export const DEFAULT_MAP_LAT = 0
-export const DEFAULT_MAP_LNG = 0
-export const DEFAULT_MAP_ZOOM = 2
+// Aventuristur: a vista inicial do mapa abre sobre o Brasil.
+export const DEFAULT_MAP_LAT = -14.2
+export const DEFAULT_MAP_LNG = -51.9
+export const DEFAULT_MAP_ZOOM = 4
 export const DEFAULT_MAP_CENTER: [number, number] = [DEFAULT_MAP_LAT, DEFAULT_MAP_LNG]
 
 /**

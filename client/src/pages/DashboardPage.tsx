@@ -196,8 +196,8 @@ function DashboardPageDesktop(): React.ReactElement {
                   </div>
                   <button type="button"
                     className="tool-action"
-                    aria-label="Subscribe to all trips calendar"
-                    title="Subscribe to all trips"
+                    aria-label={t('dashboard.subscribeAllTrips')}
+                    title={t('dashboard.subscribeAllTrips')}
                     onClick={() => setAllSubOpen(true)}
                     style={{ width: 38, height: 38, borderRadius: 11 }}
                   >
@@ -211,8 +211,8 @@ function DashboardPageDesktop(): React.ReactElement {
               {allSubOpen && (
                 <IcsSubscribeModal
                   endpoint="/api/feed/user"
-                  title="Subscribe to all trips"
-                  description="One calendar feed for all your active trips, kept in sync automatically. Excludes archived trips and trips that ended more than 90 days ago."
+                  title={t('dashboard.subscribeAllTrips')}
+                  description={t('dashboard.subscribeAllTripsDesc')}
                   onClose={() => setAllSubOpen(false)}
                 />
               )}

@@ -9,7 +9,7 @@ import { server } from '../../../tests/helpers/msw/server'
 import { useSettingsStore } from '../../store/settingsStore'
 import { useAuthStore } from '../../store/authStore'
 import maplibregl from 'maplibre-gl'
-import { DEFAULT_MAP_ZOOM } from '../../constants/mapDefaults'
+import { DEFAULT_MAP_ZOOM, DEFAULT_MAP_LAT, DEFAULT_MAP_LNG } from '../../constants/mapDefaults'
 import { MAP_LAYER_SWITCHER_INSET } from './MapLayerSwitcher'
 import type { GeoPosition, TrackingMode } from '../../hooks/useGeolocation'
 import type { PluginMapLayer, PluginMapLayerFeature, PluginMapMarker } from '../../api/client'
@@ -763,7 +763,7 @@ describe('MapViewGL', () => {
       await act(async () => {})
 
       const { center, zoom } = mapOptions()
-      expect(center).toEqual([0, 0])
+      expect(center).toEqual([DEFAULT_MAP_LNG, DEFAULT_MAP_LAT])
       expect(zoom).toBe(DEFAULT_MAP_ZOOM)
     })
   })
