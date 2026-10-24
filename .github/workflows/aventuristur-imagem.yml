@@ -2,7 +2,8 @@ name: Imagem Roteiros Aventuristur
 
 # Builds the container image for app.aventuristur.com and publishes it to GHCR.
 # Every image carries the commit it was built from (Settings > About links to it,
-# AGPL-3.0 §13). Production deploys by SHA tag, never by "latest".
+# AGPL-3.0 §13). Com o segredo EASYPANEL_DEPLOY_URL definido, cada imagem publicada
+# na main aciona o deploy do serviço no Easypanel (que usa a tag :main).
 on:
   push:
     branches: [main]
@@ -67,3 +68,15 @@ jobs:
             org.opencontainers.image.licenses=AGPL-3.0-only
           cache-from: type=gha
           cache-to: type=gha,mode=max
+
+      - name: Acionar o deploy no Easypanel
+        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+        env:
+          EASYPANEL_DEPLOY_URL: ${{ secrets.EASYPANEL_DEPLOY_URL }}
+        run: |
+          if [ -z "$EASYPANEL_DEPLOY_URL" ]; then
+            echo "EASYPANEL_DEPLOY_URL não definido: deploy automático desligado."
+            exit 0
+          fi
+          curl --fail --silent --show-error --max-time 60 -X POST "$EASYPANEL_DEPLOY_URL"
+          echo "Deploy acionado para a imagem sha-${GITHUB_SHA}."
