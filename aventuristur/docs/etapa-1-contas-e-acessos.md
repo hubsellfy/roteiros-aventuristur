@@ -7,7 +7,7 @@ especificação no [PR #17 do repositório do site](https://github.com/hubsellfy
 Este documento registra apenas evidências técnicas da Etapa 1. Não contém
 senhas, tokens, chaves de API, URLs de gatilho ou dados de clientes.
 
-Fonte de decisão: [especificação v2 do planejador](https://github.com/hubsellfy/aventuristur/blob/claude/project-thread-qblw7q/docs/spec-planejador-viagens.md).
+Fonte de decisão: [especificação v2 do planejador](https://github.com/hubsellfy/aventuristur/blob/main/docs/spec-planejador-viagens.md).
 
 ## Base do fork
 
