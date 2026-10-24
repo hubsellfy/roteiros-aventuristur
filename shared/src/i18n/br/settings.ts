@@ -114,7 +114,7 @@ const settings: TranslationStrings = {
   'settings.about.descriptionManaged':
     'O Roteiros Aventuristur ajuda você a organizar suas viagens, da primeira ideia à última lembrança. Planejamento dos dias, orçamento, listas de bagagem, fotos e muito mais, tudo em um só lugar.',
   'settings.about.sourceTitle': 'Código-fonte',
-  'settings.about.sourceHint': 'O TREK é de código aberto, sob a licença AGPL-3.0',
+  'settings.about.sourceHint': 'O Roteiros Aventuristur é de código aberto, sob a licença AGPL-3.0',
   'settings.about.supporters.badge': 'Apoiadores Mensais',
   'settings.about.supporters.title': 'Companheiros de viagem do Roteiros Aventuristur',
   'settings.about.supporters.subtitle':
