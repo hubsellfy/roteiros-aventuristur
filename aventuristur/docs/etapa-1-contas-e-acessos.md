@@ -30,13 +30,13 @@ rastreabilidade do fork.
 | Recurso | Situação | Observação |
 | --- | --- | --- |
 | GitHub `hubsellfy` | confirmado | Permissão administrativa no repositório da Aventuristur e acesso para criar o fork. |
-| GitHub Container Registry (GHCR) | confirmado para publicação | A sessão OAuth da conta `hubsellfy` inclui o escopo `write:packages`; nenhum pacote foi criado nesta etapa. |
+| GitHub Container Registry (GHCR) | acesso preliminar confirmado | A sessão OAuth da conta `hubsellfy` inclui o escopo `write:packages`; a publicação de uma imagem ainda não foi testada. |
 | VPS Hostinger | confirmado em leitura | KVM 2 em execução; capacidade a medir novamente com o app instalado. |
 | DNS `aventuristur.com` | confirmado | O registro `A` `app` aponta para `187.127.25.215`, com TTL de 300 segundos. |
 | Resolução pública | confirmado | `app.aventuristur.com` respondeu o IPv4 esperado nos resolvedores 1.1.1.1 e 8.8.8.8 na validação inicial. |
 | Easypanel | confirmado em leitura | O dono definiu o projeto `supabase`. Ele contém os serviços existentes `aventuristur-site` e `storage`, que foram apenas consultados e não sofreram alteração. |
-| SMTP transacional | confirmado | O domínio de envio `envia.aventuristur.com` foi validado pelo Resend. A chave de envio foi criada e guardada pelo dono fora do repositório; ela não foi lida nem retida pelo agente. |
-| Chave de criptografia | confirmada | O dono gerou uma chave aleatória de 32 bytes em hexadecimal e a guardou fora da VPS. O valor não foi lido, enviado, registrado ou retido pelo agente; ele será cadastrado como segredo no Easypanel apenas na Etapa 4. |
+| SMTP transacional | domínio confirmado; envio não testado | O domínio de envio `envia.aventuristur.com` foi validado pelo Resend. O dono informou que criou e guardou a chave fora do repositório; o agente não leu a chave nem fez um envio de teste. |
+| Chave de criptografia | guarda informada pelo dono | O dono informou que gerou e guardou a chave fora da VPS. O agente não viu nem validou o valor; a configuração como segredo no Easypanel e o teste de inicialização pertencem à Etapa 4. |
 
 O registro DNS prepara o endereço técnico. Nenhum serviço do Roteiros
 Aventuristur, domínio no Easypanel, certificado, conta de usuário ou dado de
@@ -65,8 +65,11 @@ cliente foi publicado como parte desta etapa.
 ## Critério para encerrar a Etapa 1
 
 Esta etapa está pronta para revisão quando os acessos da tabela de evidências
-estiverem confirmados e seus segredos guardados nos cofres autorizados, sem
-exposição no repositório. Backup externo e Open-Meteo comercial são requisitos
-de pré-abertura da Etapa 4, não condições para encerrar a Etapa 1. A conclusão
-terá um PR próprio, com descrição das verificações e sem capturas de tela que
-revelem dados sensíveis.
+estiverem confirmados e o dono informar que guardou os segredos fora do
+repositório, sem expô-los ao agente. A configuração desses segredos nas
+variáveis do Easypanel ou do GitHub e os testes funcionais ocorrerão na Etapa
+4, antes da abertura. Backup externo e Open-Meteo comercial também são
+requisitos de pré-abertura da Etapa 4, não condições para encerrar a Etapa 1.
+As telas do aplicativo ainda não foram alteradas, portanto prints de computador
+e celular do app não se aplicam a este PR. Capturas de painéis com segredos
+ou dados de conta não devem ser anexadas.
