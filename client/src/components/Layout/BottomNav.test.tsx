@@ -53,14 +53,14 @@ describe('BottomNav', () => {
     expect(mockNavigate).toHaveBeenCalledWith('/dashboard?create=1');
   });
 
-  it('FE-COMP-BOTTOMNAV-004: dashboard label translates when language is fr', async () => {
-    seedStore(useSettingsStore, { settings: buildSettings({ language: 'fr' }) });
+  it('FE-COMP-BOTTOMNAV-004: dashboard label translates when language is es', async () => {
+    seedStore(useSettingsStore, { settings: buildSettings({ language: 'es' }) });
     render(<BottomNav />);
-    expect(await screen.findByText('Mes voyages')).toBeInTheDocument();
+    expect(await screen.findByText('Mis viajes')).toBeInTheDocument();
   });
 
-  it('FE-COMP-BOTTOMNAV-005: addon labels translate when language is fr', async () => {
-    seedStore(useSettingsStore, { settings: buildSettings({ language: 'fr' }) });
+  it('FE-COMP-BOTTOMNAV-005: addon labels translate when language is es', async () => {
+    seedStore(useSettingsStore, { settings: buildSettings({ language: 'es' }) });
     seedStore(useAddonStore, {
       addons: [
         { id: 'vacay', name: 'Vacay', type: 'global', icon: 'calendar', enabled: true },
@@ -69,9 +69,9 @@ describe('BottomNav', () => {
       ],
     });
     render(<BottomNav />);
-    expect(await screen.findByText('Vacances')).toBeInTheDocument();
+    expect(await screen.findByText('Vacaciones')).toBeInTheDocument();
     expect(await screen.findByText('Atlas')).toBeInTheDocument();
-    expect(await screen.findByText('Journal de voyage')).toBeInTheDocument();
+    expect(await screen.findByText('Travesía')).toBeInTheDocument();
   });
 
   it('FE-COMP-BOTTOMNAV-006: unknown addon id is not rendered', () => {
