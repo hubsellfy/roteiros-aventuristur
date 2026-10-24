@@ -35,6 +35,7 @@ rastreabilidade do fork.
 | Resolução pública | confirmado | `app.aventuristur.com` respondeu o IPv4 esperado nos resolvedores 1.1.1.1 e 8.8.8.8 na validação inicial. |
 | Easypanel | confirmado em leitura | O dono definiu o projeto `supabase`. Ele contém os serviços existentes `aventuristur-site` e `storage`, que foram apenas consultados e não sofreram alteração. |
 | SMTP transacional | confirmado | O domínio de envio `envia.aventuristur.com` foi validado pelo Resend. A chave de envio foi criada e guardada pelo dono fora do repositório; ela não foi lida nem retida pelo agente. |
+| Chave de criptografia | confirmada | O dono gerou uma chave aleatória de 32 bytes em hexadecimal e a guardou fora da VPS. O valor não foi lido, enviado, registrado ou retido pelo agente; ele será cadastrado como segredo no Easypanel apenas na Etapa 4. |
 
 O registro DNS prepara o endereço técnico. Nenhum serviço do Roteiros
 Aventuristur, domínio no Easypanel, certificado, conta de usuário ou dado de
@@ -46,7 +47,6 @@ cliente foi publicado como parte desta etapa.
 | --- | --- | --- |
 | Backup externo | Definir e criar um destino privado compatível com S3 fora da VPS principal, sob contrato de tratamento de dados; criar credencial limitada ao bucket de backup. Um storage separado na própria VPS pode isolar o projeto, mas não substitui essa cópia externa. | Variáveis do serviço no Easypanel ou GitHub Actions Secrets. |
 | Open-Meteo | Durante desenvolvimento e homologação, usar somente a API gratuita, sem dados reais de clientes e sem acesso de clientes. Antes de qualquer uso operacional pela agência, aprovar a assinatura comercial e gerar a chave da API comercial, ou aprovar formalmente outro fornecedor com licença comercial. | Variáveis do serviço no Easypanel ou GitHub Actions Secrets. |
-| Chave de criptografia | Gerar uma única chave aleatória de 32 bytes em hexadecimal (64 caracteres) e guardar uma cópia fora da VPS. O formato foi confirmado na base `v4.3.4`. | Variável do serviço no Easypanel e cofre seguro do dono. |
 
 ## Regras de segurança desta etapa
 
