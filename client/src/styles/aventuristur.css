@@ -54,17 +54,17 @@ html .trek-dash {
   letter-spacing: 0;
 }
 html.dark .trek-dash {
-  --bg: #0e0e11;
-  --bg-2: #17171b;
-  --surface: #131316;
-  --surface-2: #1a1a1e;
-  --ink: #fcfcfc;
-  --ink-2: #c4c4cb;
-  --ink-3: #8b8b94;
-  --line: #27272a;
-  --line-2: #303034;
-  --glass-bg: #131316;
-  --glass-border: #27272a;
+  --bg: #0a0a0a;
+  --bg-2: #141414;
+  --surface: #141414;
+  --surface-2: #1a1a1a;
+  --ink: #e8e8e8;
+  --ink-2: #c4c4c4;
+  --ink-3: #a1a1a1;
+  --line: rgba(255, 255, 255, 0.08);
+  --line-2: rgba(255, 255, 255, 0.12);
+  --glass-bg: #141414;
+  --glass-border: rgba(255, 255, 255, 0.08);
 }
 html .trek-dash .atlas-card { border: 1px solid var(--line); }
 html .trek-dash .atlas-card.passport {
@@ -122,28 +122,28 @@ html .m-root {
   font-family: var(--font-system);
 }
 html.dark .m-root {
-  --m-ink: #fcfcfc;
-  --m-muted: #c4c4cb;
-  --m-faint: #8b8b94;
-  --m-bg: #0e0e11;
-  --m-scr: #0e0e11;
-  --m-glass: #131316;
-  --m-gbr: #27272a;
-  --m-card: #131316;
-  --m-cbr: #27272a;
-  --m-inner: #1a1a1e;
-  --m-inbr: #27272a;
+  --m-ink: #e8e8e8;
+  --m-muted: #c4c4c4;
+  --m-faint: #a1a1a1;
+  --m-bg: #0a0a0a;
+  --m-scr: #0a0a0a;
+  --m-glass: #141414;
+  --m-gbr: rgba(255, 255, 255, 0.08);
+  --m-card: #141414;
+  --m-cbr: rgba(255, 255, 255, 0.08);
+  --m-inner: #1a1a1a;
+  --m-inbr: rgba(255, 255, 255, 0.08);
   --m-act: #4aa0e6;
   --m-actfg: #052e52;
-  --m-sheet: #131316;
-  --m-sheetop: #131316;
-  --m-shbr: #27272a;
+  --m-sheet: #141414;
+  --m-sheetop: #141414;
+  --m-shbr: rgba(255, 255, 255, 0.08);
   --m-ic: rgba(74, 160, 230, 0.16);
-  --m-avbr: #131316;
-  --m-rowbr: #17171b;
+  --m-avbr: #141414;
+  --m-rowbr: rgba(255, 255, 255, 0.05);
   --m-mkr: #4aa0e6;
   --m-mkfg: #052e52;
-  --m-trackoff: #303034;
+  --m-trackoff: #2e2e2f;
 }
 html .m-root * {
   backdrop-filter: none !important;
@@ -154,3 +154,36 @@ html .trek-dash .hero-trip,
 html .trek-dash .hero-trip:hover { box-shadow: none; }
 html.dark .trek-dash .fab-new-trip,
 html.dark .trek-dash .btn-primary { background: var(--accent); color: var(--accent-text); }
+
+/* ── Escuro: mesma paleta do Hubsellfy (fundo quase preto, cinzas neutros, contorno de 0,5 px) ── */
+html.dark {
+  --bg-primary: #0a0a0a;
+  --bg-secondary: #1a1a1a;
+  --bg-tertiary: #202020;
+  --bg-elevated: #141414;
+  --bg-card: #141414;
+  --bg-input: #141414;
+  --bg-hover: rgba(255, 255, 255, 0.06);
+  --bg-selected: rgba(255, 255, 255, 0.1);
+  --text-primary: #e8e8e8;
+  --text-secondary: #c4c4c4;
+  --text-muted: #a1a1a1;
+  --text-faint: #6e6e6e;
+  --border-primary: rgba(255, 255, 255, 0.08);
+  --border-secondary: rgba(255, 255, 255, 0.05);
+  --border-faint: rgba(255, 255, 255, 0.07);
+  --sidebar-bg: #000000;
+  --tooltip-bg: #1a1a1a;
+  --scrollbar-track: #0a0a0a;
+  --scrollbar-thumb: #2e2e2f;
+  --scrollbar-hover: #3f3f3f;
+  --bg-inverse: #e8e8e8;
+}
+html.dark .border { border-width: 0.5px; }
+html.dark .border-t { border-top-width: 0.5px; }
+html.dark .border-b { border-bottom-width: 0.5px; }
+html.dark .border-l { border-left-width: 0.5px; }
+html.dark .border-r { border-right-width: 0.5px; }
+html.dark .trek-dash .atlas-card,
+html.dark .trek-dash .btn-secondary,
+html.dark .trek-dash .seg button.on { border-width: 0.5px; }
