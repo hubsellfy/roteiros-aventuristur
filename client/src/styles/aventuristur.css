@@ -23,15 +23,15 @@ html [style*="box-shadow"]:not([style*="0 0 0 "]):is(div, section, article, li)[
 
 /* ── Painel inicial (.trek-dash) ───────────────────────────────────────── */
 html .trek-dash {
-  --bg: #f2f5fa;
-  --bg-2: #eceff4;
-  --surface: #fcfcfd;
+  --bg: #eaeceb;
+  --bg-2: #f4f5f8;
+  --surface: #ffffff;
   --surface-2: #f9fafb;
   --ink: #1a1a1c;
-  --ink-2: #4b5360;
-  --ink-3: #7b8494;
-  --line: #dfe4eb;
-  --line-2: #d7dde5;
+  --ink-2: #4b4b4c;
+  --ink-3: #686869;
+  --line: rgba(0, 0, 0, 0.08);
+  --line-2: rgba(0, 0, 0, 0.12);
   --sh-xs: none;
   --sh-sm: none;
   --sh-md: none;
@@ -43,8 +43,8 @@ html .trek-dash {
   --r-lg: 20px;
   --r-xl: 24px;
   --r-2xl: 28px;
-  --glass-bg: #fcfcfd;
-  --glass-border: #dfe4eb;
+  --glass-bg: #ffffff;
+  --glass-border: rgba(0, 0, 0, 0.08);
   --glass-shadow: none;
   --glass-shadow-hover: none;
   --glass-highlight: none;
@@ -54,17 +54,17 @@ html .trek-dash {
   letter-spacing: 0;
 }
 html.dark .trek-dash {
-  --bg: #0e0e11;
-  --bg-2: #17171b;
-  --surface: #131316;
-  --surface-2: #1a1a1e;
-  --ink: #fcfcfc;
-  --ink-2: #c4c4cb;
-  --ink-3: #8b8b94;
-  --line: #27272a;
-  --line-2: #303034;
-  --glass-bg: #131316;
-  --glass-border: #27272a;
+  --bg: #0a0a0a;
+  --bg-2: #141414;
+  --surface: #141414;
+  --surface-2: #1a1a1a;
+  --ink: #e8e8e8;
+  --ink-2: #c4c4c4;
+  --ink-3: #a1a1a1;
+  --line: rgba(255, 255, 255, 0.08);
+  --line-2: rgba(255, 255, 255, 0.12);
+  --glass-bg: #141414;
+  --glass-border: rgba(255, 255, 255, 0.08);
 }
 html .trek-dash .atlas-card { border: 1px solid var(--line); }
 html .trek-dash .atlas-card.passport {
@@ -98,52 +98,52 @@ html select.form-input { padding-right: 36px; }
 /* ── Celular (.m-root): mesmos tokens do site, superfícies sólidas em vez de vidro ───── */
 html .m-root {
   --m-ink: #1a1a1c;
-  --m-muted: #4b5360;
-  --m-faint: #7b8494;
-  --m-bg: #f2f5fa;
-  --m-scr: #f2f5fa;
-  --m-glass: #fcfcfd;
-  --m-gbr: #dfe4eb;
-  --m-card: #fcfcfd;
-  --m-cbr: #dfe4eb;
-  --m-inner: #f2f5fa;
-  --m-inbr: #dfe4eb;
+  --m-muted: #4b4b4c;
+  --m-faint: #686869;
+  --m-bg: #eaeceb;
+  --m-scr: #eaeceb;
+  --m-glass: #ffffff;
+  --m-gbr: rgba(0, 0, 0, 0.08);
+  --m-card: #ffffff;
+  --m-cbr: rgba(0, 0, 0, 0.08);
+  --m-inner: #f9fafb;
+  --m-inbr: rgba(0, 0, 0, 0.08);
   --m-act: #0a6fc2;
   --m-actfg: #ffffff;
-  --m-sheet: #fcfcfd;
-  --m-sheetop: #fcfcfd;
-  --m-shbr: #dfe4eb;
+  --m-sheet: #ffffff;
+  --m-sheetop: #ffffff;
+  --m-shbr: rgba(0, 0, 0, 0.08);
   --m-ic: rgba(10, 111, 194, 0.08);
-  --m-avbr: #fcfcfd;
-  --m-rowbr: #eceff4;
+  --m-avbr: #ffffff;
+  --m-rowbr: rgba(0, 0, 0, 0.05);
   --m-mkr: #0a6fc2;
   --m-mkfg: #ffffff;
-  --m-trackoff: #d7dde5;
+  --m-trackoff: #d4d4d6;
   font-family: var(--font-system);
 }
 html.dark .m-root {
-  --m-ink: #fcfcfc;
-  --m-muted: #c4c4cb;
-  --m-faint: #8b8b94;
-  --m-bg: #0e0e11;
-  --m-scr: #0e0e11;
-  --m-glass: #131316;
-  --m-gbr: #27272a;
-  --m-card: #131316;
-  --m-cbr: #27272a;
-  --m-inner: #1a1a1e;
-  --m-inbr: #27272a;
+  --m-ink: #e8e8e8;
+  --m-muted: #c4c4c4;
+  --m-faint: #a1a1a1;
+  --m-bg: #0a0a0a;
+  --m-scr: #0a0a0a;
+  --m-glass: #141414;
+  --m-gbr: rgba(255, 255, 255, 0.08);
+  --m-card: #141414;
+  --m-cbr: rgba(255, 255, 255, 0.08);
+  --m-inner: #1a1a1a;
+  --m-inbr: rgba(255, 255, 255, 0.08);
   --m-act: #4aa0e6;
   --m-actfg: #052e52;
-  --m-sheet: #131316;
-  --m-sheetop: #131316;
-  --m-shbr: #27272a;
+  --m-sheet: #141414;
+  --m-sheetop: #141414;
+  --m-shbr: rgba(255, 255, 255, 0.08);
   --m-ic: rgba(74, 160, 230, 0.16);
-  --m-avbr: #131316;
-  --m-rowbr: #17171b;
+  --m-avbr: #141414;
+  --m-rowbr: rgba(255, 255, 255, 0.05);
   --m-mkr: #4aa0e6;
   --m-mkfg: #052e52;
-  --m-trackoff: #303034;
+  --m-trackoff: #2e2e2f;
 }
 html .m-root * {
   backdrop-filter: none !important;
@@ -154,3 +154,92 @@ html .trek-dash .hero-trip,
 html .trek-dash .hero-trip:hover { box-shadow: none; }
 html.dark .trek-dash .fab-new-trip,
 html.dark .trek-dash .btn-primary { background: var(--accent); color: var(--accent-text); }
+
+/* ── Escuro: mesma paleta do Hubsellfy (fundo quase preto, cinzas neutros, contorno de 0,5 px) ── */
+html.dark {
+  --bg-primary: #0a0a0a;
+  --bg-secondary: #1a1a1a;
+  --bg-tertiary: #202020;
+  --bg-elevated: #141414;
+  --bg-card: #141414;
+  --bg-input: #141414;
+  --bg-hover: rgba(255, 255, 255, 0.06);
+  --bg-selected: rgba(255, 255, 255, 0.1);
+  --text-primary: #e8e8e8;
+  --text-secondary: #c4c4c4;
+  --text-muted: #a1a1a1;
+  --text-faint: #6e6e6e;
+  --border-primary: rgba(255, 255, 255, 0.08);
+  --border-secondary: rgba(255, 255, 255, 0.05);
+  --border-faint: rgba(255, 255, 255, 0.07);
+  --sidebar-bg: #000000;
+  --tooltip-bg: #1a1a1a;
+  --scrollbar-track: #0a0a0a;
+  --scrollbar-thumb: #2e2e2f;
+  --scrollbar-hover: #3f3f3f;
+  --bg-inverse: #e8e8e8;
+}
+html.dark .border { border-width: 0.5px; }
+html.dark .border-t { border-top-width: 0.5px; }
+html.dark .border-b { border-bottom-width: 0.5px; }
+html.dark .border-l { border-left-width: 0.5px; }
+html.dark .border-r { border-right-width: 0.5px; }
+html.dark .trek-dash .atlas-card,
+html.dark .trek-dash .btn-secondary,
+html.dark .trek-dash .seg button.on { border-width: 0.5px; }
+
+/* ── Azul padrão da Aventuristur nos botões (degradê do card das artes e do site) ── */
+:root { --accent-gradient: linear-gradient(165deg, #0a6fc2, #0c3f78); }
+:root[data-scheme] { --accent-gradient: linear-gradient(165deg, var(--accent), color-mix(in srgb, var(--accent) 62%, #000)); }
+html.dark:not([data-scheme]) {
+  --accent-text: #ffffff;
+  --accent-hover: #0b5fae;
+}
+html .bg-accent,
+html [style*="background: var(--accent)"],
+html .trek-dash .btn-primary,
+html .trek-dash .fab-new-trip,
+html .trek-dash .fx-swap,
+html .trek-dash .add-trip-card .circ {
+  background-image: var(--accent-gradient);
+}
+html .hover\:bg-accent-hover:hover { background-image: none; }
+html.dark:not([data-scheme]) .trek-dash .btn-primary,
+html.dark:not([data-scheme]) .trek-dash .fab-new-trip,
+html.dark:not([data-scheme]) .trek-dash .fx-swap,
+html.dark:not([data-scheme]) .trek-dash .add-trip-card .circ { background-color: #0a6fc2; color: #ffffff; }
+html.dark .trek-dash .btn-primary,
+html.dark .trek-dash .fab-new-trip,
+html.dark .trek-dash .add-trip-card .circ { background-image: var(--accent-gradient); }
+
+/* ── Claro: mesma paleta do Hubsellfy (página branca, moldura #eaeceb, cards brancos, contorno de 0,5 px) ── */
+html:not(.dark) {
+  --bg-primary: #eaeceb;
+  --bg-secondary: #f9fafb;
+  --bg-tertiary: #f4f5f8;
+  --bg-elevated: #ffffff;
+  --bg-card: #ffffff;
+  --bg-input: #ffffff;
+  --bg-hover: rgba(0, 0, 0, 0.04);
+  --bg-selected: #e4e6e5;
+  --text-primary: #1a1a1c;
+  --text-secondary: #4b4b4c;
+  --text-muted: #686869;
+  --text-faint: #8f8f90;
+  --border-primary: rgba(0, 0, 0, 0.1);
+  --border-secondary: rgba(0, 0, 0, 0.06);
+  --border-faint: rgba(0, 0, 0, 0.06);
+  --sidebar-bg: #ffffff;
+  --tooltip-bg: #ffffff;
+  --scrollbar-track: #eaeceb;
+  --scrollbar-thumb: #c9cbca;
+  --scrollbar-hover: #a8aaa9;
+}
+html .border { border-width: 0.5px; }
+html .border-t { border-top-width: 0.5px; }
+html .border-b { border-bottom-width: 0.5px; }
+html .border-l { border-left-width: 0.5px; }
+html .border-r { border-right-width: 0.5px; }
+html .trek-dash .atlas-card,
+html .trek-dash .btn-secondary,
+html .trek-dash .seg button.on { border-width: 0.5px; }
