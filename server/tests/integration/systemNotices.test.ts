@@ -232,75 +232,20 @@ describe('GET /api/system-notices/active', () => {
   // update for every user, whatever they did with it before, and never again on a
   // reload of the same version. Driven through the real registry entry and the real
   // dismiss route, so neither half can drift away from the other unnoticed.
-  it('shows the release notes once per update, however often they were closed before', async () => {
+  // The release notes and the thank-you/donation notices speak in the original
+  // author's voice, so the Aventuristur fork removes them from the registry.
+  it('never shows the original project\'s release notes, whatever the client announces', async () => {
     const { user } = createUser(testDb);
     testDb.prepare('UPDATE users SET login_count = 5, first_seen_version = ? WHERE id = ?').run('3.0.0', user.id);
 
-    // The client announces the release layout and the version it was built as; a
-    // bundle that predates that, or one built for another version, never gets the
-    // notice (pinned separately below).
-    const shows = async () => {
+    for (const query of [{}, { supports: 'release' }, { supports: 'release', ui: getCurrentAppVersion() }]) {
       const res = await request(app)
         .get('/api/system-notices/active')
-        .query({ supports: 'release', ui: getCurrentAppVersion() })
+        .query(query)
         .set('Cookie', authCookie(user.id));
       expect(res.status).toBe(200);
-      return res.body.some((n: { id: string }) => n.id === 'release-notes');
-    };
-    const dismiss = async () => {
-      const res = await request(app)
-        .post('/api/system-notices/release-notes/dismiss')
-        .set('Cookie', authCookie(user.id));
-      expect(res.status).toBe(204);
-    };
-
-    expect(await shows()).toBe(true);
-
-    // Closed on this version: gone for every reload after it.
-    await dismiss();
-    expect(await shows()).toBe(false);
-    expect(await shows()).toBe(false);
-
-    // The next update brings it back, although it was closed before...
-    testDb.prepare(
-      'UPDATE user_notice_dismissals SET dismissed_app_version = ? WHERE user_id = ? AND notice_id = ?'
-    ).run('4.0.0', user.id, 'release-notes');
-    expect(await shows()).toBe(true);
-    expect(await shows()).toBe(true);
-
-    // ...and closing it again holds until the one after that.
-    await dismiss();
-    expect(await shows()).toBe(false);
-  });
-
-  // Right after an update the browser still runs the bundle the service worker cached,
-  // which has neither the copy for the new release notice nor a way to tell. It would
-  // draw the keys, or its own older texts, and on close spend the notice for this whole
-  // version. So the notice waits for a client that announces the release layout AND
-  // was built for the version now running; the reload brings one.
-  it('keeps the release notes from a client that does not announce the release layout for this version', async () => {
-    const { user } = createUser(testDb);
-    testDb.prepare('UPDATE users SET login_count = 5, first_seen_version = ? WHERE id = ?').run('3.0.0', user.id);
-
-    const fetchActive = (query: Record<string, string>) => request(app)
-      .get('/api/system-notices/active')
-      .query(query)
-      .set('Cookie', authCookie(user.id));
-
-    const without = await fetchActive({});
-    expect(without.status).toBe(200);
-    expect(without.body.some((n: { id: string }) => n.id === 'release-notes')).toBe(false);
-    expect(without.body.some((n: { release?: unknown }) => n.release !== undefined)).toBe(false);
-
-    // The layout alone is the shell of the previous version after an update.
-    const layoutOnly = await fetchActive({ supports: 'release' });
-    expect(layoutOnly.body.some((n: { id: string }) => n.id === 'release-notes')).toBe(false);
-    const olderBundle = await fetchActive({ supports: 'release', ui: '4.0.0' });
-    expect(olderBundle.body.some((n: { id: string }) => n.id === 'release-notes')).toBe(false);
-
-    const matching = await fetchActive({ supports: 'release', ui: getCurrentAppVersion() });
-    expect(matching.status).toBe(200);
-    expect(matching.body.some((n: { id: string }) => n.id === 'release-notes')).toBe(true);
+      expect(res.body.some((n: { id: string }) => n.id === 'release-notes' || n.id === 'thank-you-support')).toBe(false);
+    }
   });
 });
 

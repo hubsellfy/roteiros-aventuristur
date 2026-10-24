@@ -463,7 +463,7 @@ describe('AdminSettingsTab', () => {
     renderTab();
 
     const keys = card('API Keys');
-    expect(within(keys).getByRole('img', { name: 'TREK Places API' })).toBeInTheDocument();
+    expect(within(keys).getByText('TREK Places API')).toBeInTheDocument();
     expect(within(keys).getByText('Recommended default')).toBeInTheDocument();
     // Weather needs no key, so it left a card about keys. The panel itself lives
     // on in the mobile section, where FE-MOB-ASET-019 asserts it.

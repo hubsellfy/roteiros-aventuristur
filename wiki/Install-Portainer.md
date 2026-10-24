@@ -1,6 +1,6 @@
 # Install: Portainer
 
-Install TREK on Portainer using a Stack (Docker Compose).
+Install Roteiros Aventuristur on Portainer using a Stack (Docker Compose).
 
 ## Prerequisite
 

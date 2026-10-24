@@ -12,7 +12,7 @@ You can also **right-click anywhere on the map** to create a place at that exact
 
 ## Searching for a place
 
-Place search needs no API key. Two sources answer it together: the **TREK API**, TREK's own index of 73.6 million places, and **OpenStreetMap**. The index is strongest on businesses such as restaurants, shops and hotels; OpenStreetMap is where the temples, bridges, viewpoints and stations are. What the index is, where its data comes from and what TREK sends to it is on its own page: [TREK Places API](TREK-Places-API).
+Place search needs no API key. Two sources answer it together: the **TREK API**, TREK's own index of 73.6 million places, and **OpenStreetMap**. The index is strongest on businesses such as restaurants, shops and hotels; OpenStreetMap is where the temples, bridges, viewpoints and stations are. What the index is, where its data comes from and what Roteiros Aventuristur sends to it is on its own page: [TREK Places API](TREK-Places-API).
 
 ### Suggestions while you type
 
@@ -20,11 +20,11 @@ After 2 or more characters, and a 300 ms pause, suggestions appear in a dropdown
 
 - Use **↑ / ↓** to move through them, **Enter** to pick one, **Esc** to close the list.
 - Suggestions come from the TREK API, from its index and from an OpenStreetMap layer it keeps. A suggestion from that layer shows the name that matched what you typed, with the name used on the spot underneath when the two differ.
-- Only when the TREK API has nothing does TREK ask the keyed provider (Google or Amap), or, without one, OpenStreetMap's own search service.
+- Only when the TREK API has nothing does Roteiros Aventuristur ask the keyed provider (Google or Amap), or, without one, OpenStreetMap's own search service.
 
 ### The full search
 
-Press **Enter** without picking a suggestion, or click the search button, to run a full search. It asks the TREK API and OpenStreetMap at the same time and interleaves their answers, TREK first, up to ten results. A place both of them know (within 60 metres, with a matching name) is listed once.
+Press **Enter** without picking a suggestion, or click the search button, to run a full search. It asks the TREK API and OpenStreetMap at the same time and interleaves their answers, Roteiros Aventuristur first, up to ten results. A place both of them know (within 60 metres, with a matching name) is listed once.
 
 A Google or Amap key does not change this. The keyed provider is asked only when the TREK API and OpenStreetMap both come back empty; see [Google and Amap](#google-and-amap).
 
@@ -32,7 +32,7 @@ Installed [search plugins](Plugin-Cookbook#answer-place-searches-from-your-own-i
 
 ### Where each result came from
 
-On the desktop every row, in the suggestions and in the search results, carries a small mark naming its source: **TREK**, **OpenStreetMap**, **Google** or **Amap** (高德地图, or 高德地圖 in traditional Chinese). On the phone the suggestions carry it. A list that mixes the TREK API and OpenStreetMap stays readable that way. Results from the offline cache carry no mark; see [Searching offline](#searching-offline).
+On the desktop every row, in the suggestions and in the search results, carries a small mark naming its source: **Roteiros Aventuristur**, **OpenStreetMap**, **Google** or **Amap** (高德地图, or 高德地圖 in traditional Chinese). On the phone the suggestions carry it. A list that mixes the TREK API and OpenStreetMap stays readable that way. Results from the offline cache carry no mark; see [Searching offline](#searching-offline).
 
 ### The open day steers the search
 
@@ -72,7 +72,7 @@ The key's block carries five switches under **What the key may be used for**:
 
 > **Place Autocomplete and Place Details act on every provider**, not only on Google. Switched off, the suggestion dropdown stays empty and details lookups stop for the TREK API and OpenStreetMap too; the full search keeps working. Leave both on unless that is what you want.
 
-> **API key restrictions:** TREK calls the Google Places API from the server, not the browser. If you apply **HTTP referrers** restrictions to your key in Google Cloud Console, you must also set `APP_URL` in your environment: TREK sends it as the `Referer` header on every outbound Google API request, and without it Google rejects every server-side call with `REQUEST_DENIED`. For server-side deployments, **IP address** restrictions are simpler and need no extra configuration. See [Troubleshooting](Troubleshooting) if photos are missing after adding a key.
+> **API key restrictions:** Roteiros Aventuristur calls the Google Places API from the server, not the browser. If you apply **HTTP referrers** restrictions to your key in Google Cloud Console, you must also set `APP_URL` in your environment: Roteiros Aventuristur sends it as the `Referer` header on every outbound Google API request, and without it Google rejects every server-side call with `REQUEST_DENIED`. For server-side deployments, **IP address** restrictions are simpler and need no extra configuration. See [Troubleshooting](Troubleshooting) if photos are missing after adding a key.
 
 ### With an Amap (高德地图) API key
 
@@ -80,7 +80,7 @@ The key's block carries five switches under **What the key may be used for**:
 
 Google Places is unreachable from most networks inside mainland China, and OpenStreetMap knows very little about Chinese restaurants, shops and shopping centres. With Amap selected it takes the slot Google otherwise holds: the TREK API and OpenStreetMap are still asked first, and Amap answers when they have nothing, in Chinese, with ratings, phone numbers and opening hours where Amap has them. Suggestions, place details and the reverse geocoding behind right-click-to-add-a-place go through Amap as well. Rows that came from Amap carry an Amap mark like every other source.
 
-Amap does not supply place photos here. Its images come with no licence statement TREK could show next to them, so an Amap place gets its picture from Wikimedia Commons like any other, with the credit and licence attached.
+Amap does not supply place photos here. Its images come with no licence statement Roteiros Aventuristur could show next to them, so an Amap place gets its picture from Wikimedia Commons like any other, with the credit and licence attached.
 
 A place remembers where it came from. One picked from Amap keeps its Amap id, one picked from Google keeps its Google id, and each keeps opening against the provider that knows it, whichever provider the admin selects later.
 
@@ -117,12 +117,12 @@ One credit line sits under the picture grid, and it belongs to the picture in pl
 
 ### Where the information comes from
 
-**Pictures** come from Wikimedia Commons, resolved from the place's own tags first: the Wikidata image, the lead image of its Wikipedia article, its Commons category. Only when those turn up too few does TREK look for pictures taken nearby, within 60 metres, and never for shops, restaurants, cafés and other everyday businesses. Two percent of those have a picture on Wikimedia, against 70 percent of churches, so a picture taken nearby is almost always of the building across the square. A missing picture is the honest answer there.
+**Pictures** come from Wikimedia Commons, resolved from the place's own tags first: the Wikidata image, the lead image of its Wikipedia article, its Commons category. Only when those turn up too few does Roteiros Aventuristur look for pictures taken nearby, within 60 metres, and never for shops, restaurants, cafés and other everyday businesses. Two percent of those have a picture on Wikimedia, against 70 percent of churches, so a picture taken nearby is almost always of the building across the square. A missing picture is the honest answer there.
 
 **Descriptions** come from the first source that has one:
 
 1. The OpenStreetMap `description` tag, for a place from OpenStreetMap.
-2. The Wikivoyage article, then the Wikipedia article, that the place is tagged with, in your language where one exists. TREK resolves the article from the tag rather than guessing it from the name, so an ambiguous name never pulls in the wrong article.
+2. The Wikivoyage article, then the Wikipedia article, that the place is tagged with, in your language where one exists. Roteiros Aventuristur resolves the article from the tag rather than guessing it from the name, so an ambiguous name never pulls in the wrong article.
 3. The place's own website, for a place from the TREK API: the summary the site publishes for machines, credited with the site's host name and linked back. This is what gives restaurants, shops and hotels a description at all. Your server never opens the website itself; the TREK API has read it once for everyone.
 4. Google's editorial summary, with a Google key and **Place Details** on.
 5. The article about the chain a branch belongs to, headed **About the chain** with the note *This describes the chain, not this branch.*
@@ -143,7 +143,7 @@ The TREK API answers these first, from the map centre out to a radius that cover
 
 ## Searching offline
 
-When a trip is kept for offline use, TREK also downloads the places around it from the TREK API: one request of up to 3000 places, in a box around the trip's places with some margin, at most 1.5 degrees a side (a trip spread wider gets its centre). For a city the size of Rostock that is about a megabyte. The download is repeated only when the trip's area changes, and it happens whether or not **Store map tiles offline** is on: the tiles are the big part, the places are not.
+When a trip is kept for offline use, Roteiros Aventuristur also downloads the places around it from the TREK API: one request of up to 3000 places, in a box around the trip's places with some margin, at most 1.5 degrees a side (a trip spread wider gets its centre). For a city the size of Rostock that is about a megabyte. The download is repeated only when the trip's area changes, and it happens whether or not **Store map tiles offline** is on: the tiles are the big part, the places are not.
 
 With no network, or with **Force offline mode** on, suggestions and the full search then answer from that cache: places whose name starts with or contains what you typed, ignoring case and accents, across every trip you keep offline. Picking one fills in its name, address, coordinates, website and phone from the cache. Answers from the cache carry no source mark, because they are not a live answer from anyone, and they are never written to the [Place Search Log](#place-search-log).
 
@@ -153,7 +153,7 @@ Switching a trip's offline storage off removes its cached places with the rest o
 
 > **Admin:** switch it on under **Admin → Settings → API Keys → Place Search Log**, on the desktop or the phone. It is off by default.
 
-With the log on, every time somebody picks a place from a list of search results or suggestions, TREK writes one row: what was typed, the language TREK was set to, the hint coordinate, which source answered, where in the list the picked place stood and how long the list was, and the picked place's name, id and coordinate. Coordinates are rounded to three decimals, about 100 metres. A row holds no user, no trip and no session, and a search nobody picked from leaves no row at all.
+With the log on, every time somebody picks a place from a list of search results or suggestions, Roteiros Aventuristur writes one row: what was typed, the language Roteiros Aventuristur was set to, the hint coordinate, which source answered, where in the list the picked place stood and how long the list was, and the picked place's name, id and coordinate. Coordinates are rounded to three decimals, about 100 metres. A row holds no user, no trip and no session, and a search nobody picked from leaves no row at all.
 
 It exists so a different place index can be measured against real searches later: how often was the place people actually wanted among the first five results.
 
@@ -164,13 +164,13 @@ It exists so a different place index can be measured against real searches later
 
 ## Pasting a map URL
 
-Paste a `maps.app.goo.gl/…`, `goo.gl/maps/…`, or `maps.google.*/…` URL directly into the search box and press the search button. TREK resolves it server-side and fills in the name, address, and coordinates.
+Paste a `maps.app.goo.gl/…`, `goo.gl/maps/…`, or `maps.google.*/…` URL directly into the search box and press the search button. Roteiros Aventuristur resolves it server-side and fills in the name, address, and coordinates.
 
-Amap links work the same way, as long as the link carries a coordinate: `uri.amap.com/marker?position=…` share links, map URLs with the coordinate in the address, and `surl.amap.com` short links that resolve to one of those. A bare `amap.com/place/…` POI page is an id and nothing else, and TREK answers it with an error rather than guessing where it is. Coordinates are converted from GCJ-02 to WGS-84 on the way in, so the place lands where it belongs on every other map.
+Amap links work the same way, as long as the link carries a coordinate: `uri.amap.com/marker?position=…` share links, map URLs with the coordinate in the address, and `surl.amap.com` short links that resolve to one of those. A bare `amap.com/place/…` POI page is an id and nothing else, and Roteiros Aventuristur answers it with an error rather than guessing where it is. Coordinates are converted from GCJ-02 to WGS-84 on the way in, so the place lands where it belongs on every other map.
 
 ## Entering coordinates manually
 
-**Paste** a `lat, lng` pair (e.g. `48.8566, 2.3522`) into the **Latitude** field, comma, semicolon or space separated. TREK detects the pair and fills both coordinate fields at once. This works on paste only: the coordinate fields accept digits, a decimal point and a leading minus, so typing a pair by hand drops the separator and leaves a single invalid number (`48.85662.3522`) behind. Type the two values into their own fields instead.
+**Paste** a `lat, lng` pair (e.g. `48.8566, 2.3522`) into the **Latitude** field, comma, semicolon or space separated. Roteiros Aventuristur detects the pair and fills both coordinate fields at once. This works on paste only: the coordinate fields accept digits, a decimal point and a leading minus, so typing a pair by hand drops the separator and leaves a single invalid number (`48.85662.3522`) behind. Type the two values into their own fields instead.
 
 ## Place fields
 
@@ -228,7 +228,7 @@ Drag a `.gpx`, `.kml`, or `.kmz` file onto the Places sidebar to import all wayp
 
 Imported tracks each get their own line colour so multiple routes stay apart on the map; you can override it per track from the place details. See [Map Features](Map-Features) for the details.
 
-Importing the same list again does not duplicate what is already in the trip. A place is recognised by the provider id it was imported with (Google place id, Google feature id, or OSM id) before its name or its coordinates are considered, so renaming a place in TREK, or moving its pin, does not make it come back as a second copy on the next import.
+Importing the same list again does not duplicate what is already in the trip. A place is recognised by the provider id it was imported with (Google place id, Google feature id, or OSM id) before its name or its coordinates are considered, so renaming a place in Roteiros Aventuristur, or moving its pin, does not make it come back as a second copy on the next import.
 
 > **Admin:** with a Google Maps API key in **Admin → Settings → API Keys**, the list import offers **Enrich places via Google**, which looks up each imported place to fill in photos, address and contact details, one Google lookup per place. Without a key the import works the same, just without that option.
 

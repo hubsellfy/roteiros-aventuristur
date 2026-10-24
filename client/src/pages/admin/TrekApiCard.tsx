@@ -1,6 +1,5 @@
 import React from 'react'
 import { Check, ChevronRight, Globe2, KeyRound, Library, ShieldOff, WifiOff, X } from 'lucide-react'
-import TrekMark from '../../components/shared/TrekMark'
 import type { TranslationFn } from '../../types'
 
 interface TrekApiCardProps {
@@ -70,7 +69,7 @@ export default function TrekApiCard({ t }: TrekApiCardProps): React.ReactElement
       <div className="overflow-hidden rounded-xl border border-accent/40 bg-surface-secondary/50 shadow-sm">
       <div className="px-5 pt-6 pb-4">
         <div className="flex items-start justify-between gap-4">
-          <TrekMark className="h-8 w-auto text-content" aria-label="TREK Places API" />
+          <span className="text-lg font-semibold text-content">TREK Places API</span>
         </div>
 
         <p className="mt-3 text-sm leading-relaxed text-content-secondary">

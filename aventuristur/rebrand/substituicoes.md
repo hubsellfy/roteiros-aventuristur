@@ -23,8 +23,38 @@ do cliente também o executa antes de gerar os ícones.
 | E-mail | `server/src/nest/notifications/mailer/` | título, cores, remetente visual e logo da marca |
 | PDF e link público | cliente | logos, nome e link do código substituídos nos pontos já mapeados |
 
-Esta branch ainda está em implementação, sem PR de etapa 2. Faltam a revisão
-dos textos visíveis restantes, a ajuda em `/help`, a conferência completa de
-e-mails/PDF/link público, os testes atualizados e os prints no computador e
-celular. O link de código para o commit exato da imagem no ar será concluído
-na etapa 5, conforme a especificação. Nenhuma publicação foi feita.
+## Verificação automática
+
+```bash
+node aventuristur/rebrand/check.mjs --committed
+```
+
+Roda o script duas vezes, falha se a segunda execução mudar algo ou se o
+resultado não estiver commitado, e falha se aparecer "TREK" em texto visível
+(cliente, textos de idioma, e-mails) fora da lista permitida do próprio arquivo.
+O workflow `.github/workflows/aventuristur-marca.yml` roda isso em todo PR.
+
+## O que continua mencionando o TREK de propósito
+
+- Tela "Sobre": "baseado no TREK (AGPL-3.0)".
+- Nome do serviço de busca de lugares ("TREK Places API", "índice do TREK") e dos
+  intervalos de versão de plugins, porque são coisas do projeto original.
+- Telas que ficam desligadas na v1: modo demonstração, aba de releases do original
+  (removida do menu), painel de plugins (`TREK_PLUGINS_ENABLED=false`) e o estúdio
+  do Journey (o logotipo "TREK Studio" precisa ser trocado antes de ligar o Journey).
+- Código, variáveis `TREK_*`, links e nomes de arquivo.
+
+## Pendências conhecidas da etapa 2
+
+- A ajuda em `/help` vem da pasta `wiki/` do original, em inglês, e inclui páginas
+  para quem instala o servidor. O texto agora usa o nome do produto, mas as imagens
+  da wiki ainda mostram a interface original. O manual curto em português dos
+  consultores (etapa 6) deve substituir essas páginas para o cliente.
+- O mascote do TREK (telas vazias e carregamento) segue em uso: decisão do dono
+  sobre manter ou trocar, porque o `TRADEMARKS.md` protege logos e identidade visual.
+- Os textos em português (`br`) e espanhol (`es`) das frases sobre o índice e os
+  plugins do TREK não têm a mesma proteção que o inglês e passam a usar o nome
+  do produto; ficam fora da vista do cliente (administração).
+- Os workflows herdados (imagens Docker, wiki, SonarCloud) ainda apontam para o
+  projeto original e entram na etapa 4.
+- Prints de computador e celular para a aprovação do dono.

@@ -1,6 +1,6 @@
-# TREK Wiki
+# Roteiros Aventuristur Wiki
 
-TREK is a self-hosted, real-time collaborative travel planner licensed under AGPL-3.0.
+Roteiros Aventuristur is a self-hosted, real-time collaborative travel planner licensed under AGPL-3.0.
 
 ![Dashboard](assets/DashboardWidgets.png)
 
@@ -42,7 +42,7 @@ TREK is a self-hosted, real-time collaborative travel planner licensed under AGP
 - **Collections**: a personal place library that saves places across trips into named lists, copies them into any trip, and shares them with per-member roles (see [Collections](Collections))
 - **Journey**: magazine-style travel journal with entries, photos (via Immich/Synology Photos), maps, and moods
 - **Naver List Import**: import places from shared Naver Maps lists
-- **MCP**: expose TREK to AI assistants via the Model Context Protocol (OAuth 2.1)
+- **MCP**: expose Roteiros Aventuristur to AI assistants via the Model Context Protocol (OAuth 2.1)
 - **AirTrail**: sync flights from your self-hosted AirTrail instance into trips
 - **Dawarich**: read the stays and routes your self-hosted Dawarich instance recorded, offered as suggestions you confirm; nothing is written back (see [Dawarich](Dawarich))
 - **AI Parsing**: LLM fallback that extracts bookings from confirmation files KDE Itinerary cannot read (see [AI-Booking-Import](AI-Booking-Import))
@@ -67,7 +67,7 @@ TREK is a self-hosted, real-time collaborative travel planner licensed under AGP
 - Addon management, API key storage, scheduled auto-backups
 - System notices for onboarding and announcements, including a release notes notice every user sees once after each update (see [Admin-GitHub-Releases](Admin-GitHub-Releases#release-notes-notice))
 
-> **Admin:** Most configuration lives in the Admin Panel. On first boot TREK seeds an admin account automatically: credentials come from `ADMIN_EMAIL` / `ADMIN_PASSWORD` if set, otherwise a random password is printed to the container log.
+> **Admin:** Most configuration lives in the Admin Panel. On first boot Roteiros Aventuristur seeds an admin account automatically: credentials come from `ADMIN_EMAIL` / `ADMIN_PASSWORD` if set, otherwise a random password is printed to the container log.
 
 ## Get Started
 

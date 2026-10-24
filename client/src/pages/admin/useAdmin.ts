@@ -76,7 +76,7 @@ export function useAdmin() {
     }, { replace: true })
   }, [setSearchParams])
   useEffect(() => {
-    if (managed && MANAGED_HIDDEN.includes(activeTab)) setActiveTab('users')
+    if ((managed && MANAGED_HIDDEN.includes(activeTab)) || activeTab === 'github') setActiveTab('users')
   }, [managed, activeTab, setActiveTab])
 
   const [users, setUsers] = useState<AdminUser[]>([])

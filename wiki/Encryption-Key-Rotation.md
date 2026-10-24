@@ -2,7 +2,7 @@
 
 ## What the encryption key protects
 
-TREK encrypts sensitive settings at rest using AES-256-GCM. The following values are stored encrypted in the database:
+Roteiros Aventuristur encrypts sensitive settings at rest using AES-256-GCM. The following values are stored encrypted in the database:
 
 - Google Maps API key (instance-wide, in `app_settings`; the per-user column is still read as a fallback)
 - Unsplash access key (instance-wide, in `app_settings`; the per-user column is still read as a fallback)
@@ -30,7 +30,7 @@ The encryption derives a key from `ENCRYPTION_KEY` using SHA-256 (with a domain 
 
 ## Key resolution order
 
-On startup, TREK resolves the encryption key in this order:
+On startup, Roteiros Aventuristur resolves the encryption key in this order:
 
 1. **`ENCRYPTION_KEY` environment variable** — explicit, always takes priority. When set, the value is also written to `./data/.encryption_key` so it survives container restarts if the env var is later removed.
 2. **`./data/.encryption_key` file** — present on any install that has started at least once.
@@ -39,7 +39,7 @@ On startup, TREK resolves the encryption key in this order:
 
 ## What happens if the key is lost
 
-All encrypted settings (API keys, SMTP password, OIDC secret, MFA secrets, notification tokens, etc.) become unreadable — TREK cannot decrypt them. They must be re-entered manually after the key is restored or replaced. Unencrypted data (trips, places, users, etc.) is unaffected.
+All encrypted settings (API keys, SMTP password, OIDC secret, MFA secrets, notification tokens, etc.) become unreadable — Roteiros Aventuristur cannot decrypt them. They must be re-entered manually after the key is restored or replaced. Unencrypted data (trips, places, users, etc.) is unaffected.
 
 ## Backing up the key
 
@@ -82,12 +82,12 @@ The script:
    - `trek_photos`: `passphrase`
 5. Reports counts of migrated, already-migrated, skipped (empty), and errored values.
 
-**Not covered by the script:** the document sync credentials (`document_connections.secrets` and `trip_document_links.webhook_secret`) and the instance-wide API key of the AI Parsing addon (`addons.config`). They stay encrypted under the old key and read back as empty afterwards. The AI Parsing key has to be entered again under **Admin → Addons**. A document sync binding fails with *The credentials were refused.* and cannot be repaired from the trip: the connection form only opens for a store the trip has not been connected to yet, and **Disconnect** removes the binding but keeps the stored connection. Removing the trip's row from `document_connections` takes its bindings with it and lets the trip owner connect the store again; the documents themselves stay in TREK and at the store. Rotate before trips are bound to a store where you can. See [Document-Sync](Document-Sync).
+**Not covered by the script:** the document sync credentials (`document_connections.secrets` and `trip_document_links.webhook_secret`) and the instance-wide API key of the AI Parsing addon (`addons.config`). They stay encrypted under the old key and read back as empty afterwards. The AI Parsing key has to be entered again under **Admin → Addons**. A document sync binding fails with *The credentials were refused.* and cannot be repaired from the trip: the connection form only opens for a store the trip has not been connected to yet, and **Disconnect** removes the binding but keeps the stored connection. Removing the trip's row from `document_connections` takes its bindings with it and lets the trip owner connect the store again; the documents themselves stay in Roteiros Aventuristur and at the store. Rotate before trips are bound to a store where you can. See [Document-Sync](Document-Sync).
 
 After a successful migration:
 
 1. Update `ENCRYPTION_KEY` in your environment to the new value.
-2. Restart TREK.
+2. Restart Roteiros Aventuristur.
 
 If any secrets could not be migrated, the script exits with a non-zero status and the original database backup is retained.
 

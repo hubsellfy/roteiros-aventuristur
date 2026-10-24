@@ -246,7 +246,7 @@ const settings: TranslationStrings = {
   'settings.about.descriptionManaged':
     'Roteiros Aventuristur helps you organize your trips from the first idea to the last memory. Day planning, budget, packing lists, photos and much more — all in one place.',
   'settings.about.sourceTitle': 'Source code',
-  'settings.about.sourceHint': 'Roteiros Aventuristur is open source, licensed AGPL-3.0',
+  'settings.about.sourceHint': 'TREK is open source, licensed AGPL-3.0',
   'settings.about.supporters.badge': 'Monthly Supporters',
   'settings.about.supporters.title': 'Travel companions for Roteiros Aventuristur',
   'settings.about.supporters.subtitle':

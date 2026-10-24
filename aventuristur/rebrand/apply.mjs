@@ -103,7 +103,11 @@ for (const locale of ['br', 'en', 'es']) {
     const path = resolve(dir, file);
     const content = readFileSync(path, 'utf8');
     const protectedParts = [];
-    const safe = content.replace(/https?:\/\/[^\s'"`]+|\/TREK\b/g, (part) => {
+    // Kept as written: links, and sentences that name the original project on purpose
+    // (its place index, its plugin version ranges, its maintainers).
+    const keepTrek = String.raw`TREK(?= (?:index|API|Places|maintainer|enforces|verifies|will not|cannot|lets|reads|range|versions|is open source)|\\?'s own| \{range\}| \{version\}\+)|(?<=version range for this )TREK|(?<=tested it on this )TREK|(?<=corrupt )TREK`;
+    const keep = new RegExp(String.raw`https?:\/\/[^\s'"`+'`'+String.raw`]+|\/TREK\b|${keepTrek}`, 'g');
+    const safe = content.replace(keep, (part) => {
       const marker = `__AVENTURISTUR_PROTECTED_${protectedParts.length}__`;
       protectedParts.push(part);
       return marker;
@@ -229,5 +233,71 @@ replaceExact('client/src/components/shared/ErrorBoundary.tsx', [
   ["'TREK could not start'", "'Roteiros Aventuristur não pôde iniciar'"],
   ["'TREK was updated while this tab was open. Reload to get the new version.'", "'O aplicativo foi atualizado. Recarregue a página para usar a nova versão.'"],
 ]);
+
+// The remaining visible TREK names and logos found in the stage 2 review.
+replaceExact('client/src/components/shared/TripLoadingSplash.tsx', [
+  ["title || 'TREK'", `title || '${name}'`],
+]);
+
+replaceExact('client/src/components/Settings/AccountTab.tsx', [
+  ['TREK MFA Backup Codes', `${name} - códigos de recuperação (2FA)`],
+]);
+
+// The releases tab lists the original project's releases and its author's
+// donation links; the operator updates the fork on its own schedule instead.
+replaceExact('client/src/pages/AdminPage.tsx', [
+  ["    ...(managed ? [] : [{ id: 'github', label: t('admin.tabs.github'), icon: GitBranch, group: gIntegration }]),\n", ''],
+  ['KeyRound, GitBranch, Bug', 'KeyRound, Bug'],
+]);
+replaceExact('client/src/mobile/screens/admin/MAdmin.tsx', [
+  ["    ...(managed ? [] : [{ id: 'github', label: t('admin.tabs.github'), icon: Github }]),\n", ''],
+  ['  Github,\n', ''],
+]);
+replaceExact('client/src/pages/admin/useAdmin.ts', [
+  ["if (managed && MANAGED_HIDDEN.includes(activeTab)) setActiveTab('users')", "if ((managed && MANAGED_HIDDEN.includes(activeTab)) || activeTab === 'github') setActiveTab('users')"],
+]);
+
+// TRADEMARKS.md allows the word "TREK" to describe the origin but not its logos.
+replaceExact('client/src/pages/admin/TrekApiCard.tsx', [
+  ["import TrekMark from '../../components/shared/TrekMark'\n", ''],
+  ['<TrekMark className="h-8 w-auto text-content" aria-label="TREK Places API" />', '<span className="text-lg font-semibold text-content">TREK Places API</span>'],
+]);
+replaceExact('client/src/mobile/screens/admin/MApiProviderBlocks.tsx', [
+  ["import TrekMark from '../../../components/shared/TrekMark'\n", ''],
+  ['<TrekMark className="h-6 w-auto text-m-ink" aria-label="TREK Places API" />', '<span className="text-base font-semibold text-m-ink">TREK Places API</span>'],
+]);
+
+replaceExact('client/src/mobile/screens/dashboard/MDashboard.tsx', [
+  ['aria-label="TREK"', `aria-label="${name}"`],
+]);
+replaceExact('client/src/mobile/screens/settings/MSettingsAccount.tsx', [
+  ['TREK MFA Backup Codes', `${name} - códigos de recuperação (2FA)`],
+]);
+replaceExact('client/src/mobile/screens/trip/MTripLoadingSplash.tsx', [
+  ["title || 'TREK'", `title || '${name}'`],
+]);
+replaceExact('server/src/nest/notifications/mailer/smtp-diagnostics.ts', [
+  ['from the TREK container', `from the ${name} container`],
+]);
+
+// The in-app help ("/help") is rendered from wiki/*.md. Code, links, file names and
+// the places-index names stay as written; the prose takes the product name.
+const wikiDir = resolve(root, 'wiki');
+const wikiKeep = new RegExp(
+  String.raw`\x60\x60\x60[\s\S]*?\x60\x60\x60|\x60[^\x60\n]*\x60|\]\([^)\n]*\)|https?:\/\/[^\s)>\]]+|\bTREK(?=-[A-Za-z]| Places| API| index|\\?'s own| maintainer)`,
+  'g',
+);
+for (const file of readdirSync(wikiDir).filter((entry) => entry.endsWith('.md'))) {
+  const path = resolve(wikiDir, file);
+  const content = readFileSync(path, 'utf8');
+  const kept = [];
+  const safe = content.replace(wikiKeep, (part) => {
+    kept.push(part);
+    return `__AVENTURISTUR_WIKI_${kept.length - 1}__`;
+  });
+  const branded = safe.replace(/\bTREK\b|\bTrek\b/g, name)
+    .replace(/__AVENTURISTUR_WIKI_(\d+)__/g, (_, index) => kept[Number(index)]);
+  writeIfChanged(path, branded);
+}
 
 console.log('Marca Aventuristur aplicada.');

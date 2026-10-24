@@ -1,6 +1,6 @@
 # MCP Tools and Resources
 
-TREK exposes **tools** (read and write actions) and **resources** (read-only `trek://` URIs). Tools are registered per-session based on OAuth scopes and enabled addons.
+Roteiros Aventuristur exposes **tools** (read and write actions) and **resources** (read-only `trek://` URIs). Tools are registered per-session based on OAuth scopes and enabled addons.
 
 Every built-in tool checks its arguments against its published schema before anything runs. An argument the tool does not declare (a misspelt field such as `stopType` for `stop_type`) is refused with `Unrecognized key`, so the AI sees the mistake and can retry rather than reporting a change that never happened. Plugin-contributed tools follow the schema their manifest declares.
 
@@ -41,7 +41,7 @@ Requires `trips:read` or `trips:write` scope.
 | `add_trip_member` | Add a user to a trip by username or email. Owner only. |
 | `remove_trip_member` | Remove a collaborator from a trip. Owner only. |
 | `leave_trip` | Leave a trip you were invited to, giving up your own access. Use this rather than `remove_trip_member` when the user means themselves. The owner cannot leave their own trip. Requires `trips:write`. |
-| `create_trip_guest` | Add a travelling companion who has no TREK account. Assignable to budget splits, packing and day participants; never signs in, never emailed. Owner only. |
+| `create_trip_guest` | Add a travelling companion who has no Roteiros Aventuristur account. Assignable to budget splits, packing and day participants; never signs in, never emailed. Owner only. |
 | `rename_trip_guest` | Rename a guest on a trip. Owner only. |
 | `delete_trip_guest` | Delete a guest and re-split the expenses they were part of. Owner only. |
 | `copy_trip` | Duplicate a trip (days, places, itinerary, packing, budget, reservations). Packing items reset to unchecked. |
@@ -182,7 +182,7 @@ Requires `places:read` or `places:write` scope.
 | `get_place_details` | `geo:read` | Fetch detailed information (hours, photos, ratings) about a place by its Google Place ID. |
 | `reverse_geocode` | `geo:read` | Get a human-readable address for given coordinates. |
 | `resolve_maps_url` | `geo:read` | Resolve a Google Maps or Amap (高德地图) share URL to coordinates and place name. |
-| `search_pois` | `geo:read` | List places of one or more categories inside a map rectangle, the MCP side of the category buttons on the trip map. Answers from TREK's place index where it can and from OpenStreetMap (Overpass) otherwise, names the source of each result, and never calls Google. |
+| `search_pois` | `geo:read` | List places of one or more categories inside a map rectangle, the MCP side of the category buttons on the trip map. Answers from Roteiros Aventuristur's place index where it can and from OpenStreetMap (Overpass) otherwise, names the source of each result, and never calls Google. |
 | `search_airports` | `geo:read` | Search for airports by name, city, or IATA code. Returns IATA code, name, city, country, timezone. |
 | `get_airport` | `geo:read` | Look up an airport by IATA code (e.g. `"ZRH"`, `"CDG"`). |
 | `get_weather` | `weather:read` | Get a weather forecast for a location and date. |
@@ -273,7 +273,7 @@ Photo bytes are never returned: those are image URLs the app renders.
 
 | Tool | Description |
 |---|---|
-| `list_help_topics` | List the bundled help pages. Answers "how do I do X in TREK?" without guessing. |
+| `list_help_topics` | List the bundled help pages. Answers "how do I do X in Roteiros Aventuristur?" without guessing. |
 | `get_help_page` | Read one help page. |
 | `list_addons` | Which addons and collaboration features this instance has enabled. Worth calling when a tool you expected is not in the list: an addon that is off removes its tools exactly the way a missing scope does. |
 | `get_trip_warnings` | Warnings plugins have raised about a trip. A plugin raising one is telling the user something is wrong, so it is worth reading before reviewing an itinerary. |

@@ -1,14 +1,14 @@
 # Route Optimization
 
-TREK calculates walking and driving times between your places and can reorder them to minimize total travel distance.
+Roteiros Aventuristur calculates walking and driving times between your places and can reorder them to minimize total travel distance.
 
 ![Route Optimization](assets/OptimizeRoute.png)
 
 ## Route calculation
 
-TREK uses **OSRM** (Open Source Routing Machine) to calculate routes between consecutive places in the selected day. No API key is required. By default that is the public FOSSGIS OSRM, which allows about one request a second. An admin can point TREK at an OSRM of their own under **Admin → User Defaults** (**Own routing engine**, restart required); see [Road-Trip](Road-Trip#routing-engines).
+Roteiros Aventuristur uses **OSRM** (Open Source Routing Machine) to calculate routes between consecutive places in the selected day. No API key is required. By default that is the public FOSSGIS OSRM, which allows about one request a second. An admin can point Roteiros Aventuristur at an OSRM of their own under **Admin → User Defaults** (**Own routing engine**, restart required); see [Road-Trip](Road-Trip#routing-engines).
 
-The route toggle in the day-plan footer offers a **Driving** and a **Walking** profile (each routed on the matching OSRM network). Installed plugins can add further profiles: a plugin with the `routeProvider` hook — for example an e-mobility plugin that plans charging stops — appears as an extra mode next to Driving/Walking. When such a profile is selected, that plugin computes the day's route: its geometry is drawn on the map, planned stops (e.g. chargers) appear as small dots on the line, and the leg connectors show the plugin's travel times plus any note it attaches ("25 min charge"). If the plugin fails or times out, TREK falls back to straight lines exactly as it does on an OSRM outage.
+The route toggle in the day-plan footer offers a **Driving** and a **Walking** profile (each routed on the matching OSRM network). Installed plugins can add further profiles: a plugin with the `routeProvider` hook — for example an e-mobility plugin that plans charging stops — appears as an extra mode next to Driving/Walking. When such a profile is selected, that plugin computes the day's route: its geometry is drawn on the map, planned stops (e.g. chargers) appear as small dots on the line, and the leg connectors show the plugin's travel times plus any note it attaches ("25 min charge"). If the plugin fails or times out, Roteiros Aventuristur falls back to straight lines exactly as it does on an OSRM outage.
 
 That toggle sets the **day's** default travel mode. It is stored on the day, so each day of a trip can differ and the choice survives a reload.
 

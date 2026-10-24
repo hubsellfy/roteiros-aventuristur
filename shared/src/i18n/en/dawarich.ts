@@ -4,7 +4,7 @@ const dawarich: TranslationStrings = {
   // ── Connection ─────────────────────────────────────────────────────────────
   'dawarich.title': 'Dawarich',
   'dawarich.intro':
-    'Connect your own Dawarich instance to see where you actually went. Roteiros Aventuristur reads it and suggests journal entries, places and countries — nothing is added until you confirm it, and nothing is written back to Dawarich.',
+    'Connect your own Dawarich instance to see where you actually went. TREK reads it and suggests journal entries, places and countries — nothing is added until you confirm it, and nothing is written back to Dawarich.',
   'dawarich.url': 'Instance address',
   'dawarich.apiKey': 'API key',
   'dawarich.apiKeyPlaceholder': 'Paste your Dawarich API key',
@@ -56,7 +56,7 @@ const dawarich: TranslationStrings = {
   'dawarich.error.not_connected': 'No Dawarich instance is connected yet.',
   'dawarich.error.addon_disabled': 'The Dawarich addon is switched off for this instance.',
   'dawarich.error.offline': 'This needs a connection — Roteiros Aventuristur is offline right now.',
-  'dawarich.error.invalid_url': 'Roteiros Aventuristur cannot use that address.',
+  'dawarich.error.invalid_url': 'TREK cannot use that address.',
   'dawarich.warning.private_ip': 'That address resolves to a private IP ({ip}). Make sure that is what you meant — the server may need ALLOW_INTERNAL_NETWORK=true to reach it.',
   'dawarich.error.unknown': 'Something went wrong talking to Dawarich.',
 

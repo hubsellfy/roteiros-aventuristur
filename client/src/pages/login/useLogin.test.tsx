@@ -325,9 +325,9 @@ describe('useLogin — OIDC callback', () => {
 
     // Switching language rebuilds `t`, which the callback effect depends on.
     await act(async () => {
-      useSettingsStore.getState().setLanguageLocal('de');
+      useSettingsStore.getState().setLanguageLocal('es');
     });
-    await waitFor(() => expect(useSettingsStore.getState().settings.language).toBe('de'));
+    await waitFor(() => expect(useSettingsStore.getState().settings.language).toBe('es'));
 
     expect(exchanges).toBe(1);
     expect(mockNavigate).toHaveBeenCalledTimes(1);
@@ -380,19 +380,19 @@ describe('useLogin — OIDC callback', () => {
 
 describe('useLogin — language detection', () => {
   it('FE-LOGIN-HOOK-022: adopts the browser language when nothing is stored', async () => {
-    setLanguages(['de-DE', 'de']);
+    setLanguages(['es-ES', 'es']);
     const { result } = renderLogin();
     await ready(result);
 
-    expect(useSettingsStore.getState().settings.language).toBe('de');
+    expect(useSettingsStore.getState().settings.language).toBe('es');
   });
 
   it('FE-LOGIN-HOOK-023: falls back to the server default when the browser language is unsupported', async () => {
     setLanguages(['xh-ZA']);
-    server.use(http.get('/api/config', () => HttpResponse.json({ defaultLanguage: 'fr' })));
+    server.use(http.get('/api/config', () => HttpResponse.json({ defaultLanguage: 'es' })));
 
     const { result } = renderLogin();
-    await waitFor(() => expect(useSettingsStore.getState().settings.language).toBe('fr'));
+    await waitFor(() => expect(useSettingsStore.getState().settings.language).toBe('es'));
     await ready(result);
   });
 

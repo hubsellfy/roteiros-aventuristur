@@ -1,6 +1,6 @@
 # Environment Variables
 
-Complete reference for all environment variables TREK reads.
+Complete reference for all environment variables Roteiros Aventuristur reads.
 
 ## How to Set Variables
 
@@ -16,7 +16,7 @@ Complete reference for all environment variables TREK reads.
 
 ## Startup Validation
 
-TREK checks almost all of this surface once at boot. A variable that is **unset or blank** falls back to its documented
+Roteiros Aventuristur checks almost all of this surface once at boot. A variable that is **unset or blank** falls back to its documented
 default; a variable that is **present but malformed** aborts startup, with an aggregated report naming every
 offending value:
 
@@ -27,7 +27,7 @@ Invalid environment configuration:
 ```
 
 In Docker this crash-loops the container until the value is corrected or removed. Boolean switches accept
-`true`/`false`, `1`/`0`, `on`/`off`, `yes`/`no` in any casing — anything else counts as malformed. Variables TREK
+`true`/`false`, `1`/`0`, `on`/`off`, `yes`/`no` in any casing — anything else counts as malformed. Variables Roteiros Aventuristur
 does not know are passed through untouched.
 
 `TREK_DB_JOURNAL_MODE` and `TREK_DB_SYNCHRONOUS` are exceptions: they log a warning and fall back instead of
@@ -54,18 +54,18 @@ like `NODE_ENV=staging` still boots.
 | `SESSION_DURATION_REMEMBER` | Session length used when the user **ticks "Remember me"** on login: a longer-lived JWT `exp` claim plus a **persistent** `trek_session` cookie whose `maxAge` matches, so the session survives browser restarts. Same `ms`-style format and the same startup validation as `SESSION_DURATION`. Also the lifetime of every SSO session when `OIDC_ONLY=true`, where the login page has no such switch.                                                                                                                                                                                                                                     | `30d`                           |
 | `ALLOWED_ORIGINS`           | Comma-separated origins for CORS and email notification links                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | same-origin                     |
 | `ALLOW_INTERNAL_NETWORK`    | Allow outbound requests to private/RFC-1918 IPs. Set `true` if Immich, a document store bound through [Document-Sync](Document-Sync) or other integrated services are on your local network. Loopback (`127.x`) and link-local (`169.254.x`) addresses remain blocked regardless, apart from a link-local address listed in `ALLOW_LINK_LOCAL_IPS`.                                                                                                                                                                                                                                                 | `false`                         |
-| `ALLOW_LINK_LOCAL_IPS`      | Single link-local addresses (`169.254.x.x`) TREK may reach after all, comma-separated. Meant for the host gateway of a rootless Podman container, `169.254.1.2`, with an identity provider or another service behind it. OIDC, AI Parsing, plugin OAuth and your own routing engines reach a listed address directly; the other integrations treat it as internal, so they also need `ALLOW_INTERNAL_NETWORK=true`. `169.254.169.x` and `169.254.170.x`, where cloud providers serve metadata and credentials, cannot be listed, and an entry that is not a single link-local IPv4 aborts startup. See [Internal-Network-Access](Internal-Network-Access#a-link-local-address-you-need). | unset |
+| `ALLOW_LINK_LOCAL_IPS`      | Single link-local addresses (`169.254.x.x`) Roteiros Aventuristur may reach after all, comma-separated. Meant for the host gateway of a rootless Podman container, `169.254.1.2`, with an identity provider or another service behind it. OIDC, AI Parsing, plugin OAuth and your own routing engines reach a listed address directly; the other integrations treat it as internal, so they also need `ALLOW_INTERNAL_NETWORK=true`. `169.254.169.x` and `169.254.170.x`, where cloud providers serve metadata and credentials, cannot be listed, and an entry that is not a single link-local IPv4 aborts startup. See [Internal-Network-Access](Internal-Network-Access#a-link-local-address-you-need). | unset |
 | `APP_URL`                   | Public base URL (e.g. `https://trek.example.com`). Required when OIDC is enabled — must match the redirect URI registered with your IdP. Also used as the base URL for email notification links and subscribable calendar feed URLs (the `webcal://`/`https://` links the Subscribe dialog hands to Google/Apple/Outlook).                                                                                                                                                                                                          | —                               |
-| `TREK_WIKI_DIR`             | Where the in-app Help pages (`/help`) read their content from. TREK ships this wiki and serves it from disk, so the docs always match the version you are running. You should not need to set this — it is an escape hatch for unusual layouts. If the directory cannot be found, Help falls back to fetching the repository's `wiki/` folder from the `main` branch on GitHub (which can be ahead of the release you are running, and needs outbound network access).                                                               | the bundled `wiki/` directory   |
+| `TREK_WIKI_DIR`             | Where the in-app Help pages (`/help`) read their content from. Roteiros Aventuristur ships this wiki and serves it from disk, so the docs always match the version you are running. You should not need to set this — it is an escape hatch for unusual layouts. If the directory cannot be found, Help falls back to fetching the repository's `wiki/` folder from the `main` branch on GitHub (which can be ahead of the release you are running, and needs outbound network access).                                                               | the bundled `wiki/` directory   |
 
 ### `HOST` — Source and Proxmox installs only
 
-By default TREK binds to all network interfaces (`0.0.0.0`), which is the correct behaviour inside a container because
+By default Roteiros Aventuristur binds to all network interfaces (`0.0.0.0`), which is the correct behaviour inside a container because
 Docker handles port exposure at the host level. Setting `HOST` overrides the bind address at the Node.js level.
 
-**When to use it:** only when running TREK directly on a host (git sources or
+**When to use it:** only when running Roteiros Aventuristur directly on a host (git sources or
 the [Proxmox community script](Install-Proxmox)) and you need to restrict which interface the server listens on — for
-example, to expose TREK only on a LAN interface while keeping it off the public-facing one.
+example, to expose Roteiros Aventuristur only on a LAN interface while keeping it off the public-facing one.
 
 **Never set `HOST` in Docker, Docker Compose, Helm, or Unraid deployments.** Use Docker's
 `-p <host-ip>:<host-port>:<container-port>` syntax or your orchestrator's port binding instead.
@@ -93,7 +93,7 @@ Setting `ENCRYPTION_KEY` explicitly is recommended so you can back it up indepen
 
 ### `DEFAULT_LANGUAGE` — Supported Codes
 
-You can set `DEFAULT_LANGUAGE` to any of the 23 languages TREK ships. The currently supported codes are:
+You can set `DEFAULT_LANGUAGE` to any of the 23 languages Roteiros Aventuristur ships. The currently supported codes are:
 
 | Code    | Language           |
 |---------|--------------------|
@@ -121,15 +121,15 @@ You can set `DEFAULT_LANGUAGE` to any of the 23 languages TREK ships. The curren
 | `vi`    | Tiếng Việt         |
 | `ca`    | Català             |
 
-If you set a code that isn't on this list, TREK refuses to start and prints
+If you set a code that isn't on this list, Roteiros Aventuristur refuses to start and prints
 `DEFAULT_LANGUAGE="…": must be one of: …`. Leave the variable unset to use English (`en`). This list grows as new
-translations are added to TREK.
+translations are added to Roteiros Aventuristur.
 
 ---
 
 ## Outbound HTTP(S) Proxy
 
-TREK can route supported outbound HTTP(S) requests through a proxy by setting the standard variables below. Outbound
+Roteiros Aventuristur can route supported outbound HTTP(S) requests through a proxy by setting the standard variables below. Outbound
 proxying is disabled by default.
 
 | Variable      | Description                                                   | Default |
@@ -139,14 +139,14 @@ proxying is disabled by default.
 | `NO_PROXY`    | Comma-separated hosts or domains that should bypass the proxy | —       |
 
 > **Note:** Proxy environment variables apply to requests made through Node.js's default HTTP dispatcher. Requests
-> handled by TREK's SSRF protection use a dedicated dispatcher and do not use the environment proxy.
+> handled by Roteiros Aventuristur's SSRF protection use a dedicated dispatcher and do not use the environment proxy.
 
 > **Container only.** Node ignores these variables unless it is started with `NODE_USE_ENV_PROXY=1`, and the official
 > image sets that for you. On a source or Proxmox install, set `NODE_USE_ENV_PROXY=1` alongside them or nothing will
 > change. On Helm the image already has it, but the chart's ConfigMap does not declare `HTTP_PROXY`, `HTTPS_PROXY` or
 > `NO_PROXY`, so a value under `env:` is dropped; patch the three onto the Deployment instead.
 
-> **Set `NO_PROXY`.** Without it every request goes to the proxy, including the ones TREK makes to itself, such as the
+> **Set `NO_PROXY`.** Without it every request goes to the proxy, including the ones Roteiros Aventuristur makes to itself, such as the
 > container health check. `localhost,127.0.0.1` is a sensible minimum; add your own hosts as needed.
 
 ---
@@ -160,11 +160,11 @@ full explanation.
 |---------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------|
 | `FORCE_HTTPS`             | When `true`: 301-redirects HTTP→HTTPS, sends HSTS (`max-age=31536000`), adds CSP `upgrade-insecure-requests`, forces cookie `secure` flag. Only useful behind a TLS proxy. Your proxy must send `X-Forwarded-Proto: https`.                                                             | `false`          |
 | `HSTS_INCLUDE_SUBDOMAINS` | When `true`: adds the `includeSubDomains` directive to the HSTS header, extending HTTPS enforcement to all subdomains. Only effective when HSTS is active (`FORCE_HTTPS=true` or `NODE_ENV=production`). Leave `false` if you run other services on sibling subdomains over plain HTTP. | `false`          |
-| `TRUST_PROXY`             | Number of trusted proxy hops. Tells Express how far into `X-Forwarded-For` to look for the real client IP, and where to read `X-Forwarded-Proto`. Count your hops: with two proxies in front of TREK and `TRUST_PROXY=1`, the IP on every audit row is the inner proxy's. `0` trusts nothing and always uses the socket address. Not required for the `FORCE_HTTPS` redirect, which reads the `X-Forwarded-Proto` header directly — set it for correct client IPs in the audit log, and for the `COOKIE_SECURE` auto-derivation, which goes through `req.secure`. | `1` (production) |
+| `TRUST_PROXY`             | Number of trusted proxy hops. Tells Express how far into `X-Forwarded-For` to look for the real client IP, and where to read `X-Forwarded-Proto`. Count your hops: with two proxies in front of Roteiros Aventuristur and `TRUST_PROXY=1`, the IP on every audit row is the inner proxy's. `0` trusts nothing and always uses the socket address. Not required for the `FORCE_HTTPS` redirect, which reads the `X-Forwarded-Proto` header directly — set it for correct client IPs in the audit log, and for the `COOKIE_SECURE` auto-derivation, which goes through `req.secure`. | `1` (production) |
 | `COOKIE_SECURE`           | Controls the `secure` flag on the `trek_session` cookie. Auto-derived as `true` when `NODE_ENV=production`, when `FORCE_HTTPS=true`, or when the request itself arrived over TLS on the outermost hop (`X-Forwarded-Proto: https` with `TRUST_PROXY` set). Set to `false` only as an escape hatch for LAN testing without TLS — not recommended in production.                                                   | auto             |
 
 > **Warning:** `FORCE_HTTPS=true` behind a proxy that does not forward `X-Forwarded-Proto: https` causes a
-> redirect loop — every request looks like plain HTTP to TREK and gets 301'd again. Fix the proxy to send the
+> redirect loop — every request looks like plain HTTP to Roteiros Aventuristur and gets 301'd again. Fix the proxy to send the
 > header. Setting `TRUST_PROXY` does not help: the redirect accepts the raw `X-Forwarded-Proto: https` header on
 > its own, whatever `trust proxy` is set to. (`TRUST_PROXY` only feeds the second half of the check, `req.secure`,
 > which additionally covers a proxy chain that sends a comma-joined `X-Forwarded-Proto` — and production already
@@ -266,11 +266,11 @@ Request bodies validated with Zod are documented automatically from the same sch
 
 | Variable                    | Description                                                                                                                                                                                             | Default       |
 |-----------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|
-| `KITINERARY_EXTRACTOR_PATH` | Full path to the `kitinerary-extractor` binary. When unset, TREK searches `/usr/lib/*/libexec/kf6/kitinerary-extractor` and then `PATH`. Set this if you install the binary to a non-standard location. | auto-detected |
+| `KITINERARY_EXTRACTOR_PATH` | Full path to the `kitinerary-extractor` binary. When unset, Roteiros Aventuristur searches `/usr/lib/*/libexec/kf6/kitinerary-extractor` and then `PATH`. Set this if you install the binary to a non-standard location. | auto-detected |
 
-The official TREK Docker image bundles the binary automatically: on both amd64 and arm64 it installs
+The official Roteiros Aventuristur Docker image bundles the binary automatically: on both amd64 and arm64 it installs
 `libkitinerary-bin` via apt (Debian trixie) and symlinks it to `/usr/local/bin/kitinerary-extractor`, which the image
-also pins via `KITINERARY_EXTRACTOR_PATH`. When running TREK from source, install `libkitinerary-bin` (Debian trixie /
+also pins via `KITINERARY_EXTRACTOR_PATH`. When running Roteiros Aventuristur from source, install `libkitinerary-bin` (Debian trixie /
 Ubuntu 25.04+). There is no static binary to download; to run a newer extractor than your distribution
 packages, build one and point `KITINERARY_EXTRACTOR_PATH` at it, or derive an image from the official one with your own
 apt sources. The extractor's version is in the startup log and in `GET /api/admin/system-info` (admin only) — worth
@@ -293,15 +293,15 @@ An admin can switch the backend under **Admin → Settings → API Keys → Tran
 
 | Variable          | Description                                                                                                                                                                                                                             | Default                     |
 |-------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------|
-| `TRANSIT_API_URL` | Base URL of the transit routing API. TREK's server proxies requests to it. Point this at your own self-hosted [MOTIS](https://github.com/motis-project/motis) instance if you want zero third-party egress. A trailing slash is stripped. | `https://api.transitous.org` |
+| `TRANSIT_API_URL` | Base URL of the transit routing API. Roteiros Aventuristur's server proxies requests to it. Point this at your own self-hosted [MOTIS](https://github.com/motis-project/motis) instance if you want zero third-party egress. A trailing slash is stripped. | `https://api.transitous.org` |
 
-When left at the default, using the transit feature makes the TREK **server** send outbound HTTPS requests to `api.transitous.org` (with an identifying User-Agent, as the Transitous usage policy asks). No transit request is made until a user actually searches for a journey.
+When left at the default, using the transit feature makes the Roteiros Aventuristur **server** send outbound HTTPS requests to `api.transitous.org` (with an identifying User-Agent, as the Transitous usage policy asks). No transit request is made until a user actually searches for a journey.
 
 ---
 
 ## Image Search (Unsplash)
 
-TREK can search [Unsplash](https://unsplash.com/) for **trip cover images** and **place images**. By default the server queries Unsplash's public web endpoint **without an API key**, so no configuration is needed on most installs.
+Roteiros Aventuristur can search [Unsplash](https://unsplash.com/) for **trip cover images** and **place images**. By default the server queries Unsplash's public web endpoint **without an API key**, so no configuration is needed on most installs.
 
 Some hosting environments — commonly VPS and datacenter IP ranges (and many Kubernetes clusters) — are **blocked or rate-limited** by that unauthenticated endpoint, which surfaces in the UI as **"Unsplash search unavailable"**. Configuring a free Unsplash Access Key switches the server to Unsplash's official, authenticated API (`api.unsplash.com`), which is not subject to that block. See [issue #1449](https://github.com/liketrek/TREK/issues/1449).
 
@@ -334,7 +334,7 @@ On Helm both go under `env:` in `values.yaml`. The chart passes `TREK_PLACES_ENA
 ## Place Search (Amap / 高德地图)
 
 Google Places is unreachable from most networks inside mainland China, and OpenStreetMap's coverage of Chinese POIs
-(restaurants, shops, the things a trip is actually made of) is thin and rarely in Chinese. TREK can put
+(restaurants, shops, the things a trip is actually made of) is thin and rarely in Chinese. Roteiros Aventuristur can put
 [Amap (高德地图)](https://lbs.amap.com/) in the slot Google otherwise holds: the TREK Places index and OpenStreetMap
 still answer first, Amap answers when they have nothing, and autocomplete, place details and reverse geocoding go
 through it. There is an Amap basemap to match (see [[Map Settings|Map-Settings]]).
@@ -361,7 +361,7 @@ it the provider.
 
 ### Coordinates
 
-Amap speaks **GCJ-02**, the offset datum Chinese law requires published maps to use; everything TREK stores is
+Amap speaks **GCJ-02**, the offset datum Chinese law requires published maps to use; everything Roteiros Aventuristur stores is
 **WGS-84**. The conversion happens at the boundary, in both directions, so what lands in the database, in a GPX export
 or on a map is always WGS-84: a place added through Amap and opened in OpenStreetMap later is in the right spot. The
 place also keeps the Amap id it was found by, so it keeps opening against Amap whichever provider is selected later.
@@ -413,8 +413,8 @@ next key rotation or admin reset would quietly switch the file back to WAL.
 | Variable                  | Description                                                                                                                                                                                                                                                                                                                | Default             |
 |---------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------|
 | `IDEMPOTENCY_TTL_SECONDS` | How long (in seconds) stored idempotency keys are kept before garbage collection. The offline client replays queued mutations with their `X-Idempotency-Key` on reconnect, so this must exceed the longest expected offline window or a replay could create a duplicate. Invalid values abort startup. | `2592000` (30 days) |
-| `NOMINATIM_URL`           | Custom HTTP(S) Nominatim base URL for every geocoding call the server makes: place search, reverse lookup, place details and the Atlas region fill. When set it **replaces** the public OpenStreetMap service for all of them, with no fallback, so point it at an instance whose import covers the places your users plan and that speaks the Nominatim API (`/search`, `/reverse`, `/lookup`). Photon, Geoapify and LocationIQ are not drop-in replacements. TREK keeps its client-side spacing of roughly one request a second whichever instance answers, so this changes where the requests go, not how fast they are sent. Unset or blank uses the default. With the TREK Places API on, suggestions while typing come from the TREK API's own OpenStreetMap layer and reach Nominatim only when the TREK API has nothing. | `https://nominatim.openstreetmap.org` |
-| `OVERPASS_URL`            | Custom [Overpass API](https://wiki.openstreetmap.org/wiki/Overpass_API) endpoint(s), comma-separated, for the map's category buttons, the Road trip search along the drive and the `search_pois` MCP tool whenever the TREK Places API has no answer or is switched off. When set it **replaces** the bundled public mirrors: point it at an internal or self-hosted Overpass instance when the public mirrors are unreachable from your network (e.g. firewalled/locked-down egress in a Kubernetes cluster). Entries that aren't valid `http(s)` URLs are ignored. If you don't run your own Overpass but the public mirrors throttle TREK, first make sure `APP_URL` (or `ALLOWED_ORIGINS`) is set: that alone gives outbound Overpass/Nominatim requests a unique User-Agent, which the public mirrors rate-limit far less. One request is not covered: the tag lookup behind an OpenStreetMap place's details (website, phone, Wikidata) still goes to `overpass-api.de` whatever this is set to, and where that host is unreachable those details fall back to the tags Nominatim returns. | bundled public mirrors |
+| `NOMINATIM_URL`           | Custom HTTP(S) Nominatim base URL for every geocoding call the server makes: place search, reverse lookup, place details and the Atlas region fill. When set it **replaces** the public OpenStreetMap service for all of them, with no fallback, so point it at an instance whose import covers the places your users plan and that speaks the Nominatim API (`/search`, `/reverse`, `/lookup`). Photon, Geoapify and LocationIQ are not drop-in replacements. Roteiros Aventuristur keeps its client-side spacing of roughly one request a second whichever instance answers, so this changes where the requests go, not how fast they are sent. Unset or blank uses the default. With the TREK Places API on, suggestions while typing come from the TREK API's own OpenStreetMap layer and reach Nominatim only when the TREK API has nothing. | `https://nominatim.openstreetmap.org` |
+| `OVERPASS_URL`            | Custom [Overpass API](https://wiki.openstreetmap.org/wiki/Overpass_API) endpoint(s), comma-separated, for the map's category buttons, the Road trip search along the drive and the `search_pois` MCP tool whenever the TREK Places API has no answer or is switched off. When set it **replaces** the bundled public mirrors: point it at an internal or self-hosted Overpass instance when the public mirrors are unreachable from your network (e.g. firewalled/locked-down egress in a Kubernetes cluster). Entries that aren't valid `http(s)` URLs are ignored. If you don't run your own Overpass but the public mirrors throttle Roteiros Aventuristur, first make sure `APP_URL` (or `ALLOWED_ORIGINS`) is set: that alone gives outbound Overpass/Nominatim requests a unique User-Agent, which the public mirrors rate-limit far less. One request is not covered: the tag lookup behind an OpenStreetMap place's details (website, phone, Wikidata) still goes to `overpass-api.de` whatever this is set to, and where that host is unreachable those details fall back to the tags Nominatim returns. | bundled public mirrors |
 | `OVERPASS_TIMEOUT_MS`     | Per-endpoint timeout (in milliseconds) for Overpass POI requests. Endpoints race in parallel and one that hasn't answered within this window is abandoned so a faster mirror can win. The query itself gives Overpass 20 seconds of work, so a lower value hangs up on answers that were still coming; that is why the default rose from `12000` in 4.3.0. Drop any lower value you set by hand, and raise it only for a slow self-hosted Overpass instance. Invalid values abort startup. | `25000` |
 | `LLM_TIMEOUT_MS`          | How long (in milliseconds) one AI-parsing call may take before it is abandoned. One ceiling for every provider, applied to the abort signal and to the underlying HTTP client alike. The default is generous so heavier parsing work fits without a code change; lower it if you use a cloud provider and would rather fail fast. Invalid values abort startup. | `900000` (15 min) |
 
@@ -424,7 +424,7 @@ next key rotation or admin reset would quietly switch the file back to WAL.
 
 ## Demo Mode
 
-Demo mode runs TREK as a public, self-resetting sandbox. Not intended for regular deployments.
+Demo mode runs Roteiros Aventuristur as a public, self-resetting sandbox. Not intended for regular deployments.
 
 | Variable           | Description                                                                                                                                                                                                                                                                 | Default          |
 |--------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------|
@@ -452,7 +452,7 @@ The plugin system is **on by default**. The runtime and the Admin → Plugins pa
 | `TREK_PLUGIN_PERMISSIONS`         | Set to any falsy value (`off`, `false`, `0`, `no` — any casing) to opt **out** of the Node.js OS-level permission sandbox for plugin child processes (not recommended). A truthy value, or leaving it unset, keeps the sandbox on; anything outside that set is rejected at boot.                                                            | `on`                                                                                |
 | `TREK_PLUGIN_ALLOW_PRIVATE_EGRESS`| Set to `on` to let a plugin's declared outbound hosts resolve to private/internal addresses (e.g. a service on your LAN). By default connections to private, loopback, link-local and metadata addresses are refused. | off (private egress blocked)                                                        |
 | `TREK_PLUGINS_DEV_LINK`           | **Development only.** Set to any truthy value (`1`, `true`, `on`, `yes` — any casing) to enable *dev-link*: registering a plugin from a local build directory and hot-reloading it against a live instance's data. Dev-linked code bypasses the install-time signature/integrity checks and (under `npm run dev`) runs with the OS permission jail off, so it must never be reachable in production — absent, blank or an explicitly falsy value (`0`, `false`, `off`, `no`) keeps it off. Data access is still fully gated by the capability host. | off (disabled)                                                                      |
-| `TREK_PLUGINS_IGNORE_TREK_RANGE` | Set to any truthy value (`1`, `true`, `on`, `yes` — any casing) to turn the plugin **TREK-version gate** into a warning. A plugin whose `trek` range does not admit the running TREK — or that declares no range at all — can then be installed (registry, sideload, dev-link), updated and activated, and "install latest" takes the newest published version rather than the newest compatible one. Every bypass is logged, the install response carries a `trekRangeBypassed` marker, and the admin panel shows a *Version checks off* pill, a warning dialog before/after each such install, and a persistent chip on the row. Use it only when a plugin author has not yet updated their range for your TREK: nothing guarantees the plugin works, and in rare cases a mismatched plugin can corrupt TREK data. The plugin-API version gate is **not** lifted. Absent, blank or falsy keeps the gate hard. | off (gate enforced) |
+| `TREK_PLUGINS_IGNORE_TREK_RANGE` | Set to any truthy value (`1`, `true`, `on`, `yes` — any casing) to turn the plugin **TREK-version gate** into a warning. A plugin whose `trek` range does not admit the running Roteiros Aventuristur — or that declares no range at all — can then be installed (registry, sideload, dev-link), updated and activated, and "install latest" takes the newest published version rather than the newest compatible one. Every bypass is logged, the install response carries a `trekRangeBypassed` marker, and the admin panel shows a *Version checks off* pill, a warning dialog before/after each such install, and a persistent chip on the row. Use it only when a plugin author has not yet updated their range for your Roteiros Aventuristur: nothing guarantees the plugin works, and in rare cases a mismatched plugin can corrupt Roteiros Aventuristur data. The plugin-API version gate is **not** lifted. Absent, blank or falsy keeps the gate hard. | off (gate enforced) |
 | `TREK_PLUGIN_AI_PER_DAY`          | Per-plugin **daily** cap on shared-LLM broker calls (`ai.complete` / `ai.extract`). Bounds how much a single plugin can spend on the admin's LLM quota per UTC day, independent of its granted permissions. Counts persist across restarts within the same day; set to `0` to disable the AI broker entirely. Generous by design — only bites a runaway plugin. | `200`                                                                               |
 | `TREK_PLUGIN_NOTIFY_PER_DAY`      | Per-plugin **daily** cap on user-notification broker calls (`notify.send`), so one plugin can't spam a user. Same UTC-day window and restart-safe counting as `TREK_PLUGIN_AI_PER_DAY`; set to `0` to disable the notify broker. | `100`                                                                               |
 | `TREK_PLUGIN_RPC_PER_SEC`         | Sustained rate limit (calls **per second**) for a plugin's host RPC calls (`ctx.*`) once its burst allowance is spent. Prevents a tight-loop plugin from starving the single-threaded host. | `20`                                                                                |

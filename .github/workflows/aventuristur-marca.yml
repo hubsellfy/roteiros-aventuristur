@@ -1,0 +1,31 @@
+name: Marca Aventuristur
+
+# Garante que a troca de marca é repetível e que nenhum "TREK" visível sobrou
+# fora da lista permitida em aventuristur/rebrand/check.mjs.
+on:
+  pull_request:
+    paths:
+      - 'aventuristur/**'
+      - 'client/**'
+      - 'server/src/**'
+      - 'shared/src/**'
+      - 'wiki/**'
+      - '.github/workflows/aventuristur-marca.yml'
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  marca:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci --ignore-scripts
+      - name: Verificar a marca
+        run: node aventuristur/rebrand/check.mjs --committed

@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import { Check, ChevronRight, Globe2, KeyRound, Library, ShieldOff, WifiOff, X } from 'lucide-react'
-import TrekMark from '../../../components/shared/TrekMark'
 import { useTranslation } from '../../../i18n'
 
 /**
@@ -96,7 +95,7 @@ export function MTrekApiBlock() {
 
       <div className="overflow-hidden rounded-[16px] border border-[color:var(--m-act)] bg-[color:var(--m-ic)]">
         <div className="px-[14px] pt-[18px] pb-[13px]">
-          <TrekMark className="h-6 w-auto text-m-ink" aria-label="TREK Places API" />
+          <span className="text-base font-semibold text-m-ink">TREK Places API</span>
           <p className="mt-[9px] text-[0.8125rem] leading-relaxed text-m-muted">{t('admin.trekApi.tagline')}</p>
           <ul className="mt-3 grid grid-cols-1 gap-[7px]">
             {facts.map(({ Icon, text }) => (

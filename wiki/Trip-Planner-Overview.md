@@ -71,11 +71,11 @@ While online, drag an end-of-day map label along the driving route or onto a vis
 
 The map marks pauses with a moon and day number beside a place or above the route. These markers disappear when zoomed out beyond level 6.
 
-> **AI / MCP:** `get_roadtrip_context` reads saved days, visits, pins, stays, vias, followed tracks and day endings. `calculate_roadtrip` calculates arrivals, day splits, driving limits and vehicle-range warnings on the server, using the same planning logic as the browser. No open TREK tab is needed. Pauses remain calculated markers, never places or bookings. `get_roadtrip_settings` and `update_roadtrip_settings` read and change the shared driving preferences for the specified trip; changes update connected views for all its travellers. Place and assignment tools edit stops, stay durations, times and ordering. `set_assignment_end_day` and `set_day_boundary` set or clear individual day endings. `search_roadtrip_corridor` finds stops along a calculated day, with name, charging and route-section filters. `import_trip_gpx` imports tracks; the via tools edit their routing handles. See [MCP-Addon-Tools](MCP-Addon-Tools) for units, scopes and incomplete results.
+> **AI / MCP:** `get_roadtrip_context` reads saved days, visits, pins, stays, vias, followed tracks and day endings. `calculate_roadtrip` calculates arrivals, day splits, driving limits and vehicle-range warnings on the server, using the same planning logic as the browser. No open Roteiros Aventuristur tab is needed. Pauses remain calculated markers, never places or bookings. `get_roadtrip_settings` and `update_roadtrip_settings` read and change the shared driving preferences for the specified trip; changes update connected views for all its travellers. Place and assignment tools edit stops, stay durations, times and ordering. `set_assignment_end_day` and `set_day_boundary` set or clear individual day endings. `search_roadtrip_corridor` finds stops along a calculated day, with name, charging and route-section filters. `import_trip_gpx` imports tracks; the via tools edit their routing handles. See [MCP-Addon-Tools](MCP-Addon-Tools) for units, scopes and incomplete results.
 
 ## Mobile Layout
 
-On screens narrower than 768 px, TREK does not squeeze the three-pane layout — it opens a dedicated mobile trip screen instead: a day-chip rail under the top bar, a switch between the day plan and a full-screen map, and a bottom dock for the other tabs. Tablets and desktops (768 px and up) get the three-pane layout described above.
+On screens narrower than 768 px, Roteiros Aventuristur does not squeeze the three-pane layout — it opens a dedicated mobile trip screen instead: a day-chip rail under the top bar, a switch between the day plan and a full-screen map, and a bottom dock for the other tabs. Tablets and desktops (768 px and up) get the three-pane layout described above.
 
 ## Undo
 
@@ -120,11 +120,11 @@ Driving settings also controls **Show in Days too** under **Service stops**. It 
 
 Clicking a result brings it into view on the map, which is how you tell which side of the road it is on. **Clear results** above the list empties both the list and its pins, along with the name, section, plug and power filters.
 
-**Add manually**, beside Search, is for the stop the search does not know about: a good share of the chargers standing at a junction are in no OpenStreetMap extract. Look the place up by name and TREK works out which leg of which day it belongs on, measured against the drawn route. **Add between** offers every leg of every routed day if that guess is wrong, and a place well away from the route is accepted rather than refused, with a note saying how far off it sits. From there it opens the same dialog a found result does, so the kind of stop and the time spent there are chosen in one place.
+**Add manually**, beside Search, is for the stop the search does not know about: a good share of the chargers standing at a junction are in no OpenStreetMap extract. Look the place up by name and Roteiros Aventuristur works out which leg of which day it belongs on, measured against the drawn route. **Add between** offers every leg of every routed day if that guess is wrong, and a place well away from the route is accepted rather than refused, with a note saying how far off it sits. From there it opens the same dialog a found result does, so the kind of stop and the time spent there are chosen in one place.
 
 > **AI / MCP:** `search_roadtrip_corridor` uses the same combined sources and reports `failedSources`.
 
-In Roadtrip, open the three-dot menu beside the day selector to import a Google Maps directions link. Preview the ordered stops, choose a day, then confirm. Resolved stops are appended to that day; unresolved locations are marked and skipped. TREK calculates its own route between the stops. Import needs an online connection and permission to edit places and days.
+In Roadtrip, open the three-dot menu beside the day selector to import a Google Maps directions link. Preview the ordered stops, choose a day, then confirm. Resolved stops are appended to that day; unresolved locations are marked and skipped. Roteiros Aventuristur calculates its own route between the stops. Import needs an online connection and permission to edit places and days.
 
 > **AI / MCP:** Use preview_google_maps_route to inspect a link, then import_google_maps_route to append the reviewed stops to a trip day.
 
@@ -138,7 +138,7 @@ GDACS warning popups show the current episode score when supplied, falling back 
 
 ### Accommodation portals in Roadtrip
 
-The Add as a stop dialog offers trivago and CHECK24 for hotels, or PiNCAMP and Pitchup for campsites. The portal opens in a new tab without adding a stop or making a booking. trivago receives the search text; PiNCAMP receives a geographic area extending roughly 20 km from the stop; Pitchup receives the stop coordinates. All three receive the trip dates when both days have dates and departure is after arrival. Review the destination, dates and guest count on the portal. CHECK24 requires a manual search. The dialog asks only for the **Check-in** time, in the shared TREK time picker; the check-out is a booking detail and is entered under Days.
+The Add as a stop dialog offers trivago and CHECK24 for hotels, or PiNCAMP and Pitchup for campsites. The portal opens in a new tab without adding a stop or making a booking. trivago receives the search text; PiNCAMP receives a geographic area extending roughly 20 km from the stop; Pitchup receives the stop coordinates. All three receive the trip dates when both days have dates and departure is after arrival. Review the destination, dates and guest count on the portal. CHECK24 requires a manual search. The dialog asks only for the **Check-in** time, in the shared Roteiros Aventuristur time picker; the check-out is a booking detail and is entered under Days.
 
 All Looking for categories, including accommodation, are added as Roadtrip service stops. In Roadtrip mode, Edit in a planned place's details opens the stop dialog with its saved duration and check-in time. Saving updates the existing stop; More details still opens the full place editor. The shared stop-type contract also accepts hotel through MCP.
 
