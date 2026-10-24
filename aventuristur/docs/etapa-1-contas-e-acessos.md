@@ -2,9 +2,10 @@
 
 ## Estado
 
-Em andamento. Este documento registra apenas evidências técnicas e pendências
-da Etapa 1 da especificação do Roteiros Aventuristur. Não contém senhas,
-tokens, chaves de API, URLs de gatilho ou dados de clientes.
+Pronta para revisão, condicionada à aprovação da alteração de sequência da
+especificação no [PR #17 do repositório do site](https://github.com/hubsellfy/aventuristur/pull/17).
+Este documento registra apenas evidências técnicas da Etapa 1. Não contém
+senhas, tokens, chaves de API, URLs de gatilho ou dados de clientes.
 
 Fonte de decisão: [especificação v2 do planejador](https://github.com/hubsellfy/aventuristur/blob/claude/project-thread-qblw7q/docs/spec-planejador-viagens.md).
 
@@ -41,12 +42,12 @@ O registro DNS prepara o endereço técnico. Nenhum serviço do Roteiros
 Aventuristur, domínio no Easypanel, certificado, conta de usuário ou dado de
 cliente foi publicado como parte desta etapa.
 
-## Pendências que dependem do dono
+## Itens transferidos para a Etapa 4
 
-| Item | Ação necessária | Onde o segredo deve ficar |
+| Item | Decisão de sequência | Regra de abertura |
 | --- | --- | --- |
-| Backup externo | Definir e criar um destino privado compatível com S3 fora da VPS principal, sob contrato de tratamento de dados; criar credencial limitada ao bucket de backup. Um storage separado na própria VPS pode isolar o projeto, mas não substitui essa cópia externa. | Variáveis do serviço no Easypanel ou GitHub Actions Secrets. |
-| Open-Meteo | Durante desenvolvimento e homologação, usar somente a API gratuita, sem dados reais de clientes e sem acesso de clientes. Antes de qualquer uso operacional pela agência, aprovar a assinatura comercial e gerar a chave da API comercial, ou aprovar formalmente outro fornecedor com licença comercial. | Variáveis do serviço no Easypanel ou GitHub Actions Secrets. |
+| Backup externo | Definir e criar, na Etapa 4, destino privado compatível com S3 fora da VPS principal, com credencial limitada ao bucket. Um storage separado na própria VPS não substitui a cópia externa. | Sem backup externo, retenção e restauração comprovada, o app não abre aos clientes. |
+| Open-Meteo comercial | Durante desenvolvimento e homologação, usar somente a API gratuita, sem dados reais de clientes e sem acesso de clientes. Na Etapa 4, aprovar a assinatura comercial e gerar a chave da API. | Sem a assinatura comercial e sua validação na homologação, o app não abre aos clientes com o clima ligado. |
 
 ## Regras de segurança desta etapa
 
@@ -63,7 +64,9 @@ cliente foi publicado como parte desta etapa.
 
 ## Critério para encerrar a Etapa 1
 
-Esta etapa só pode ser marcada como pronta quando as contas acima existirem e
-as credenciais estiverem guardadas nos cofres autorizados, sem serem expostas
-no repositório. A conclusão terá um PR próprio, com descrição das verificações
-e sem capturas de tela que revelem dados sensíveis.
+Esta etapa está pronta para revisão quando os acessos da tabela de evidências
+estiverem confirmados e seus segredos guardados nos cofres autorizados, sem
+exposição no repositório. Backup externo e Open-Meteo comercial são requisitos
+de pré-abertura da Etapa 4, não condições para encerrar a Etapa 1. A conclusão
+terá um PR próprio, com descrição das verificações e sem capturas de tela que
+revelem dados sensíveis.
