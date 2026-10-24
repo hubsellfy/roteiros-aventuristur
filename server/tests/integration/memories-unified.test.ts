@@ -349,15 +349,15 @@ describe('Unified album-link management', () => {
     const trip = createTrip(testDb, user.id);
     addAlbumLink(testDb, trip.id, user.id, 'immich', 'album-enabled');
 
-    // Disable the immich provider
-    testDb.prepare('UPDATE photo_providers SET enabled = 0 WHERE id = ?').run('immich');
+    // Disable every provider (this fork enables them all by default)
+    testDb.prepare('UPDATE photo_providers SET enabled = 0').run();
 
     const res = await request(app)
       .get(albumLinksUrl(trip.id))
       .set('Cookie', authCookie(user.id));
 
     // Re-enable for future tests
-    testDb.prepare('UPDATE photo_providers SET enabled = 1 WHERE id = ?').run('immich');
+    testDb.prepare('UPDATE photo_providers SET enabled = 1').run();
 
     expect(res.status).toBe(400); // no providers enabled → error
   });
