@@ -103,30 +103,30 @@ describe('offline language fallback', () => {
   })
 
   it('SETTINGS-LANG-001: loadSettings mirrors the account language for the next launch', async () => {
-    vi.mocked(settingsApi.get).mockResolvedValue({ settings: { language: 'fr' } } as never)
+    vi.mocked(settingsApi.get).mockResolvedValue({ settings: { language: 'es' } } as never)
     await useSettingsStore.getState().loadSettings()
-    expect(localStorage.getItem('app_language_server')).toBe('fr')
+    expect(localStorage.getItem('app_language_server')).toBe('es')
   })
 
   it('SETTINGS-LANG-002: the mirror never claims to be an explicit choice', async () => {
-    vi.mocked(settingsApi.get).mockResolvedValue({ settings: { language: 'fr' } } as never)
+    vi.mocked(settingsApi.get).mockResolvedValue({ settings: { language: 'es' } } as never)
     await useSettingsStore.getState().loadSettings()
     expect(localStorage.getItem('app_language')).toBeNull()
   })
 
   it('SETTINGS-LANG-003: a cold start with no explicit choice boots in the mirrored language', async () => {
-    localStorage.setItem('app_language_server', 'fr')
+    localStorage.setItem('app_language_server', 'es')
     vi.resetModules()
     const fresh = await import('./settingsStore')
-    expect(fresh.DEFAULT_SETTINGS.language).toBe('fr')
+    expect(fresh.DEFAULT_SETTINGS.language).toBe('es')
   })
 
   it('SETTINGS-LANG-004: an explicit in-app choice outranks the mirror', async () => {
-    localStorage.setItem('app_language', 'de')
-    localStorage.setItem('app_language_server', 'fr')
+    localStorage.setItem('app_language', 'en')
+    localStorage.setItem('app_language_server', 'es')
     vi.resetModules()
     const fresh = await import('./settingsStore')
-    expect(fresh.DEFAULT_SETTINGS.language).toBe('de')
+    expect(fresh.DEFAULT_SETTINGS.language).toBe('en')
   })
 
   // The account of the user who just signed in decides, and an account without a
@@ -151,12 +151,12 @@ describe('offline language fallback', () => {
   })
 
   it('SETTINGS-LANG-007: forgetServerLanguage drops the mirror and leaves the explicit choice alone', () => {
-    localStorage.setItem('app_language', 'de')
+    localStorage.setItem('app_language', 'en')
     localStorage.setItem('app_language_server', 'ja')
 
     forgetServerLanguage()
 
     expect(localStorage.getItem('app_language_server')).toBeNull()
-    expect(localStorage.getItem('app_language')).toBe('de')
+    expect(localStorage.getItem('app_language')).toBe('en')
   })
 })
