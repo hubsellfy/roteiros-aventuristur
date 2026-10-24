@@ -32,6 +32,7 @@ rastreabilidade do fork.
 | VPS Hostinger | confirmado em leitura | KVM 2 em execução; capacidade a medir novamente com o app instalado. |
 | DNS `aventuristur.com` | confirmado | O registro `A` `app` aponta para `187.127.25.215`, com TTL de 300 segundos. |
 | Resolução pública | confirmado | `app.aventuristur.com` respondeu o IPv4 esperado nos resolvedores 1.1.1.1 e 8.8.8.8 na validação inicial. |
+| Easypanel | confirmado em leitura | O dono definiu o projeto `supabase`. Ele contém os serviços existentes `aventuristur-site` e `storage`, que foram apenas consultados e não sofreram alteração. |
 
 O registro DNS prepara o endereço técnico. Nenhum serviço do Roteiros
 Aventuristur, domínio no Easypanel, certificado, conta de usuário ou dado de
@@ -44,7 +45,6 @@ cliente foi publicado como parte desta etapa.
 | SMTP transacional | Criar e aprovar a conta corporativa; verificar o domínio de envio; criar credencial de envio com escopo mínimo. | Variáveis do serviço no Easypanel ou GitHub Actions Secrets. |
 | Backup externo | Criar storage privado compatível com S3, sob contrato de tratamento de dados; criar credencial limitada ao bucket de backup. | Variáveis do serviço no Easypanel ou GitHub Actions Secrets. |
 | Open-Meteo | Aprovar a assinatura comercial e gerar a chave da API comercial. | Variáveis do serviço no Easypanel ou GitHub Actions Secrets. |
-| Easypanel | Confirmar o projeto e o acesso administrativo; não criar nem publicar serviços antes da Etapa 4. | Painel do Easypanel; nunca no repositório. |
 | Chave de criptografia | Gerar uma única vez depois de confirmar o formato exigido pela base `v4.3.4`; guardar uma cópia fora da VPS. | Variável do serviço no Easypanel e cofre seguro do dono. |
 
 ## Regras de segurança desta etapa
