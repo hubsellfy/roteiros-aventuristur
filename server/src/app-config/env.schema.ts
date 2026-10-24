@@ -163,6 +163,8 @@ export const envSchema = z.object({
   DEMO_ADMIN_PASS: anyString,
 
   // Aventuristur: trip retention (LGPD)
+  OPEN_METEO_API_KEY: anyString,
+  OPEN_METEO_CUSTOMER_ARCHIVE_HOST: anyString,
   RETENTION_MONTHS: integer(1, 120, 'must be a whole number of months between 1 and 120'),
   RETENTION_DRY_RUN: boolStr,
 
