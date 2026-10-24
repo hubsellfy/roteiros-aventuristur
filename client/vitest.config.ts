@@ -6,7 +6,10 @@ import { readFileSync } from 'node:fs';
 const UI_VERSION = JSON.parse(readFileSync(new URL('./package.json', import.meta.url), 'utf8')).version;
 
 export default defineConfig({
-  define: { __TREK_UI_VERSION__: JSON.stringify(UI_VERSION) },
+  define: {
+    __TREK_UI_VERSION__: JSON.stringify(UI_VERSION),
+    __APP_COMMIT__: JSON.stringify('abc1234def5678abc1234def5678abc1234def56'),
+  },
   plugins: [react()],
   test: {
     alias: [rtlTextAlias, plyrSpriteAlias],

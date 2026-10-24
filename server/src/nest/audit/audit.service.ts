@@ -14,6 +14,7 @@ const ACTION_LABELS: Record<string, string> = {
   'settings.api_keys_update': 'updated API keys',
   'trip.create': 'created trip',
   'trip.delete': 'deleted trip',
+  'trip.retention_delete': 'erased trip after the retention period',
   'admin.user_role_change': 'changed user role',
   'admin.user_delete': 'deleted user',
   'admin.plugin_retrust': "re-trusted a plugin's author signing key",

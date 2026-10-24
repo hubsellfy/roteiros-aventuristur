@@ -20,7 +20,11 @@ const DEV_PORT = Number(process.env.TREK_DEV_PORT) || 5173;
 const API_TARGET = process.env.TREK_DEV_API || 'http://localhost:3001';
 
 export default defineConfig(({ mode }) => ({
-  define: { __TREK_UI_VERSION__: JSON.stringify(UI_VERSION) },
+  define: {
+    __TREK_UI_VERSION__: JSON.stringify(UI_VERSION),
+    // Commit this bundle was built from (set by the image build). The About tab links to it.
+    __APP_COMMIT__: JSON.stringify(process.env.APP_COMMIT_SHA ?? ''),
+  },
   plugins: [
     react(),
     mode === 'analyze' &&

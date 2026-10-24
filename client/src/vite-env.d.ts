@@ -3,3 +3,4 @@
 
 /** The version this bundle was built as (client/package.json), set by `define` in vite.config.js. */
 declare const __TREK_UI_VERSION__: string;
+declare const __APP_COMMIT__: string;

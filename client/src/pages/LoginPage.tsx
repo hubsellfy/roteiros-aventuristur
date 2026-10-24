@@ -1053,6 +1053,12 @@ export default function LoginPage(): React.ReactElement {
                   </button>
                 </form>
 
+                <p style={{ textAlign: 'center', marginTop: 16, fontSize: 'calc(12px * var(--fs-scale-body, 1))', color: '#9ca3af' }}>
+                  <a href="/privacidade" style={{ color: 'inherit', textDecoration: 'underline' }}>Política de Privacidade</a>
+                  {' · '}
+                  <a href="/termos" style={{ color: 'inherit', textDecoration: 'underline' }}>Termos de Uso</a>
+                </p>
+
                 {/* Toggle login/register */}
                 {showRegisterOption && appConfig?.has_users && !appConfig?.demo_mode && !passwordChangeStep && (
                   <p

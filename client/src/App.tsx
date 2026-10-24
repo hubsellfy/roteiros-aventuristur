@@ -41,6 +41,7 @@ import { managedRoutes } from './managed'
 const PluginPage = lazyWithRetry(() => import('./pages/PluginPage'))
 const ForgotPasswordPage = lazyWithRetry(() => import('./pages/ForgotPasswordPage'))
 const ResetPasswordPage = lazyWithRetry(() => import('./pages/ResetPasswordPage'))
+const LegalPage = lazyWithRetry(() => import('./pages/LegalPage'))
 const DashboardPage = lazyWithRetry(() => import('./pages/DashboardPage'))
 const TripPlannerPage = lazyWithRetry(() => import('./pages/TripPlannerPage'))
 const FilesPage = lazyWithRetry(() => import('./pages/FilesPage'))
@@ -398,6 +399,8 @@ export default function App() {
           <Route path="/register" element={<PublicRoute redirectAuthed><LoginPage /></PublicRoute>} />
           <Route path="/forgot-password" element={<PublicRoute><ForgotPasswordPage /></PublicRoute>} />
           <Route path="/reset-password" element={<PublicRoute><ResetPasswordPage /></PublicRoute>} />
+          <Route path="/privacidade" element={<PublicRoute><LegalPage kind="privacidade" /></PublicRoute>} />
+          <Route path="/termos" element={<PublicRoute><LegalPage kind="termos" /></PublicRoute>} />
           {/* OAuth 2.1 consent page — intentionally outside ProtectedRoute */}
           <Route path="/oauth/consent" element={<PublicRoute><OAuthAuthorizePage /></PublicRoute>} />
           <Route
