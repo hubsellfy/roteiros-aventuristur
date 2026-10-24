@@ -7,7 +7,7 @@ const help: TranslationStrings = {
   'help.contents': 'Contents',
   'help.noResults': 'No matching pages.',
   'help.errorTitle': "Couldn't load this page",
-  'help.errorBody': 'The help content is fetched from the TREK wiki. Check your connection and try again.',
+  'help.errorBody': 'The help content is fetched from the Roteiros Aventuristur wiki. Check your connection and try again.',
 };
 
 export default help;
