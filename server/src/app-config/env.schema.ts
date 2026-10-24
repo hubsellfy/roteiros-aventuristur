@@ -162,6 +162,10 @@ export const envSchema = z.object({
   DEMO_ADMIN_EMAIL: anyString,
   DEMO_ADMIN_PASS: anyString,
 
+  // Aventuristur: trip retention (LGPD)
+  RETENTION_MONTHS: integer(1, 120, 'must be a whole number of months between 1 and 120'),
+  RETENTION_DRY_RUN: boolStr,
+
   // API docs / plugins
   TREK_API_DOCS_ENABLED: boolStr,
   TREK_PLUGINS_ENABLED: boolStr,

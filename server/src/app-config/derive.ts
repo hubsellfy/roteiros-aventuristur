@@ -320,6 +320,14 @@ export function deriveDb(raw: RawEnv) {
   };
 }
 
+/** Aventuristur: raw retention settings; src/nest/retention parses and applies the fail-closed rules. */
+export function deriveRetention(raw: RawEnv) {
+  return {
+    months: raw.RETENTION_MONTHS,
+    dryRun: raw.RETENTION_DRY_RUN,
+  };
+}
+
 export function derivePaths(raw: RawEnv) {
   return {
     wikiDir: raw.TREK_WIKI_DIR,
@@ -337,6 +345,7 @@ export function deriveNet(raw: RawEnv) {
 export function deriveAll(raw: RawEnv) {
   return {
     app: deriveApp(raw),
+    retention: deriveRetention(raw),
     http: deriveHttp(raw),
     session: deriveSession(raw),
     managed: deriveManaged(raw),
