@@ -463,8 +463,9 @@ describe('upsertConnection required fields', () => {
 
 describe('enabledProviderIds', () => {
   it('names only the providers an admin switched on, in the order the shelf shows them', () => {
-    // Every document provider ships OFF, so an empty answer on a fresh install
-    // is the correct one and a non-empty one would be a policy change.
+    // Upstream ships every document provider OFF; this fork's last migration turns
+    // them all on, so the test starts from the upstream state.
+    testDb.prepare('UPDATE document_providers SET enabled = 0').run();
     expect(svc.enabledProviderIds()).toEqual([]);
     testDb.prepare("UPDATE document_providers SET enabled = 1 WHERE id IN ('nextcloud', 'paperless')").run();
     expect(svc.enabledProviderIds()).toEqual(['paperless', 'nextcloud']);

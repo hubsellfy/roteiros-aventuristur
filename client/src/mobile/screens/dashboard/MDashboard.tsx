@@ -228,9 +228,8 @@ export default function MDashboard(): React.ReactElement {
           aria-label="Roteiros Aventuristur"
           className="flex flex-none items-center gap-[7px]"
         >
-          <span className="flex h-[38px] w-[38px] items-center justify-center rounded-[11px] bg-[#101013]">{/* theme-lint-disable — brand tile stays black in both themes */}
-            <img src="/icons/icon-white.svg" alt="" className="block h-[22px] w-[22px]" />
-          </span>
+          <img src="/logo-dark.svg" alt="" className="block h-[26px] dark:hidden" />
+          <img src="/logo-light.svg" alt="" className="hidden h-[26px] dark:block" />
         </button>
         <div className="min-w-0 flex-1" />
         <MIconBtn ariaLabel={t('notifications.title')} onClick={() => navigate('/notifications')}>

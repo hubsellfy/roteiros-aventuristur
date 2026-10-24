@@ -111,6 +111,7 @@ describe('MCP authentication', () => {
   // then checks auth (401). In test DB the addon may be disabled.
 
   it('MCP-001 — POST /mcp without auth returns 403 (addon disabled before auth check)', async () => {
+    testDb.prepare("UPDATE addons SET enabled = 0 WHERE id = 'mcp'").run();
     const res = await request(app)
       .post('/mcp')
       .send({ jsonrpc: '2.0', method: 'initialize', id: 1 });
@@ -119,11 +120,13 @@ describe('MCP authentication', () => {
   });
 
   it('MCP-001 — GET /mcp without auth returns 403 (addon disabled)', async () => {
+    testDb.prepare("UPDATE addons SET enabled = 0 WHERE id = 'mcp'").run();
     const res = await request(app).get('/mcp');
     expect(res.status).toBe(403);
   });
 
   it('MCP-001 — DELETE /mcp without auth returns 403 (addon disabled)', async () => {
+    testDb.prepare("UPDATE addons SET enabled = 0 WHERE id = 'mcp'").run();
     const res = await request(app)
       .delete('/mcp')
       .set('Mcp-Session-Id', 'fake-session-id');

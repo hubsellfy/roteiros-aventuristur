@@ -28,7 +28,7 @@ const storage: TranslationStrings = {
   'storage.discardAndReload': 'Descartar minhas alterações e recarregar',
   'storage.configError.banner':
     'Falha ao carregar as configurações de armazenamento salvas — salvar irá substituí-las: {error}',
-  'storage.backends.title': 'Backends',
+  'storage.backends.title': 'Destinos de armazenamento',
   'storage.backends.add': 'Adicionar backend',
   'storage.backends.usedBy': 'Usado por: {categories}',
   'storage.backends.unused': 'Não atribuído a nenhuma categoria',

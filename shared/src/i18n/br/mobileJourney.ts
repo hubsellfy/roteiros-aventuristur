@@ -8,7 +8,7 @@ const mobileJourney: TranslationStrings = {
   'mobileJourney.placesCount': '{count} lugares',
   'mobileJourney.daysCount': '{count} dias',
   'mobileJourney.time': 'Hora',
-  'mobileJourney.tags': 'Tags',
+  'mobileJourney.tags': 'Etiquetas',
   'mobileJourney.addTag': 'Adicionar tag',
   'mobileJourney.uploadFromDevice': 'Enviar do dispositivo',
   'mobileJourney.browseProvider': 'Navegar em {name}',

@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Copy, Check, CalendarPlus, Calendar } from '../../icons'
+import { useTranslation } from '../../i18n'
 
 interface SubscribeLinksProps {
   httpsUrl: string
@@ -98,6 +99,7 @@ export function SubscribeLinks({ httpsUrl, webcalUrl }: SubscribeLinksProps) {
 function UrlRow({ label, hint, url, copied, onCopy }: {
   label: string; hint: string; url: string; copied: boolean; onCopy: () => void
 }) {
+  const { t } = useTranslation()
   return (
     <div style={{ marginBottom: 12 }}>
       <div style={{ fontSize: 11, fontWeight: 500, marginBottom: 5, color: 'var(--text-primary)' }}>
@@ -116,7 +118,7 @@ function UrlRow({ label, hint, url, copied, onCopy }: {
         </div>
         <button type="button"
           onClick={onCopy}
-          title="Copy"
+          title={t('common.copy')}
           style={{
             flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center',
             width: 28, height: 28, borderRadius: 6,

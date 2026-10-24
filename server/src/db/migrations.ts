@@ -5285,6 +5285,15 @@ function runMigrations(db: Database.Database): void {
         END
       `);
     },
+    // Aventuristur: todos os recursos do TREK ligados por padrão (addons, provedores de fotos,
+    // provedores de documentos e controle de bagagem). Roda uma vez; depois disso o
+    // administrador decide em Admin > Addons.
+    () => {
+      db.prepare('UPDATE addons SET enabled = 1').run();
+      db.prepare('UPDATE photo_providers SET enabled = 1').run();
+      db.prepare('UPDATE document_providers SET enabled = 1').run();
+      db.prepare("INSERT OR REPLACE INTO app_settings (key, value) VALUES ('bag_tracking_enabled', 'true')").run();
+    },
   ];
 
   if (currentVersion < migrations.length) {

@@ -78,23 +78,23 @@ const oauth: TranslationStrings = {
     'Criar, atualizar e revogar links de compartilhamento públicos para jornadas',
   'oauth.authorize.authorizing': 'Authorizing…', // en-fallback
   'oauth.authorize.loading': 'Loading…', // en-fallback
-  'oauth.authorize.errorTitle': 'Authorization Error', // en-fallback
-  'oauth.authorize.loginTitle': 'Sign in to continue', // en-fallback
-  'oauth.authorize.loginDescription': '{client} wants access to your Roteiros Aventuristur account. Please sign in first.', // en-fallback
-  'oauth.authorize.loginButton': 'Sign in to Roteiros Aventuristur', // en-fallback
-  'oauth.authorize.requestLabel': 'Authorization Request', // en-fallback
-  'oauth.authorize.requestDescription': 'This application is requesting access to your Roteiros Aventuristur account.', // en-fallback
-  'oauth.authorize.trustNote': 'Only grant access to applications you trust. Your data stays on your server.', // en-fallback
-  'oauth.authorize.selectScope': 'Select at least one scope', // en-fallback
-  'oauth.authorize.approveOneScope': 'Approve ({count} scope)', // en-fallback
-  'oauth.authorize.approveManyScopes': 'Approve ({count} scopes)', // en-fallback
-  'oauth.authorize.approveAccess': 'Approve Access', // en-fallback
-  'oauth.authorize.deny': 'Deny', // en-fallback
-  'oauth.authorize.choosePermissions': 'Choose which permissions to grant', // en-fallback
-  'oauth.authorize.permissionsRequested': 'Permissions requested', // en-fallback
-  'oauth.authorize.alwaysIncluded': 'Always included', // en-fallback
-  'oauth.authorize.alwaysTool.listTrips': 'List your trips so the AI can discover trip IDs', // en-fallback
-  'oauth.authorize.alwaysTool.getTripSummary': 'Read a trip overview needed to use any other tool', // en-fallback
+  'oauth.authorize.errorTitle': 'Erro de autorização', // en-fallback
+  'oauth.authorize.loginTitle': 'Entre para continuar', // en-fallback
+  'oauth.authorize.loginDescription': '{client} quer acessar sua conta do Roteiros Aventuristur. Entre primeiro.', // en-fallback
+  'oauth.authorize.loginButton': 'Entrar no Roteiros Aventuristur', // en-fallback
+  'oauth.authorize.requestLabel': 'Pedido de autorização', // en-fallback
+  'oauth.authorize.requestDescription': 'Este aplicativo está pedindo acesso à sua conta do Roteiros Aventuristur.', // en-fallback
+  'oauth.authorize.trustNote': 'Conceda acesso apenas a aplicativos em que você confia. Seus dados ficam no seu servidor.', // en-fallback
+  'oauth.authorize.selectScope': 'Selecione pelo menos uma permissão', // en-fallback
+  'oauth.authorize.approveOneScope': 'Aprovar ({count} permissão)', // en-fallback
+  'oauth.authorize.approveManyScopes': 'Aprovar ({count} permissões)', // en-fallback
+  'oauth.authorize.approveAccess': 'Aprovar acesso', // en-fallback
+  'oauth.authorize.deny': 'Negar', // en-fallback
+  'oauth.authorize.choosePermissions': 'Escolha quais permissões conceder', // en-fallback
+  'oauth.authorize.permissionsRequested': 'Permissões solicitadas', // en-fallback
+  'oauth.authorize.alwaysIncluded': 'Sempre incluído', // en-fallback
+  'oauth.authorize.alwaysTool.listTrips': 'Listar suas viagens para que a IA descubra os IDs das viagens', // en-fallback
+  'oauth.authorize.alwaysTool.getTripSummary': 'Ler o resumo de uma viagem, necessário para usar qualquer outra ferramenta', // en-fallback
   'oauth.scope.group.files': 'Arquivos',
   'oauth.scope.group.settings': 'Configurações',
   'oauth.scope.files:read.label': 'Ver arquivos da viagem',

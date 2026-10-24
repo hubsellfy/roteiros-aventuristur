@@ -279,7 +279,7 @@ export function CustomDatePicker({
           }}
           onBlur={handleTextSubmit}
           placeholder="DD.MM.YYYY"
-          aria-label="Enter date manually"
+          aria-label={t('common.datepicker.enterManually')}
           style={{
             width: '100%',
             padding: '8px 14px',

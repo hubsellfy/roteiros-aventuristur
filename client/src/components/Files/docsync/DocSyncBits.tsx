@@ -77,11 +77,11 @@ export function StateBadge({ state, compact }: { state: string; compact?: boolea
 
 /** "2h ago", or "never" when a binding has not run yet. */
 export function LastRun({ at }: { at: string | null }) {
-  const { t, language, locale } = useTranslation()
+  const { t, locale } = useTranslation()
   if (!at) return <span className="text-content-faint">{t('docsync.binding.neverRun')}</span>
   const ms = Date.parse(at)
   if (Number.isNaN(ms)) return null
-  return <span title={new Date(ms).toLocaleString(locale)}>{relativeTime(ms, language)}</span>
+  return <span title={new Date(ms).toLocaleString(locale)}>{relativeTime(ms, locale)}</span>
 }
 
 /**

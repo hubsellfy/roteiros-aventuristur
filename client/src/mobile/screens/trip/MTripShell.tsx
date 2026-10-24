@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState, type ComponentType, type ReactNode } from 'react'
+import { getIntlLanguage } from '../../../i18n'
 import { findFocusDayId } from '../../../components/Planner/today'
 import {
   CalendarDays, ChevronDown, ChevronLeft, Download, FileDown, List, Map as MapIcon, MoreHorizontal,
@@ -189,7 +190,7 @@ function dayChipLabel(day: Day, language: string, fallback: string): string {
   if (day.date) {
     const date = new Date(`${day.date.slice(0, 10)}T00:00:00`)
     if (!Number.isNaN(date.getTime())) {
-      return `${new Intl.DateTimeFormat(language, { weekday: 'short' }).format(date)} ${date.getDate()}`
+      return `${new Intl.DateTimeFormat(getIntlLanguage(language), { weekday: 'short' }).format(date)} ${date.getDate()}`
     }
   }
   return fallback

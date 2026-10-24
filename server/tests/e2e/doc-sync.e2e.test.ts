@@ -163,6 +163,7 @@ describe('Document sync e2e (real guards + real services + temp SQLite)', () => 
     tripId = createTrip(db as never, ownerId, { title: 'Japan', start_date: '2026-10-01', end_date: '2026-10-07' }).id;
     db.prepare('INSERT INTO trip_members (trip_id, user_id) VALUES (?, ?)').run(tripId, memberId);
     // Providers are off by default, exactly as a fresh install ships them.
+    db.prepare('UPDATE document_providers SET enabled = 0').run();
     db.prepare("UPDATE document_providers SET enabled = 1 WHERE id IN ('paperless', 'nextcloud')").run();
 
     app = await build();

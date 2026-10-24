@@ -36,14 +36,14 @@ import { normalizeAppearance } from '@trek/shared'
 import '../styles/dashboard.css'
 
 const GRADIENTS = [
-  'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-  'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
-  'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
-  'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)',
-  'linear-gradient(135deg, #fa709a 0%, #fee140 100%)',
-  'linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%)',
-  'linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%)',
-  'linear-gradient(135deg, #96fbc4 0%, #f9f586 100%)',
+  'linear-gradient(135deg, #0a6fc2 0%, #074c86 100%)',
+  'linear-gradient(135deg, #4aa0e6 0%, #0a6fc2 100%)',
+  'linear-gradient(135deg, #ffbf3f 0%, #f0a000 100%)',
+  'linear-gradient(135deg, #0c3f78 0%, #0a6fc2 100%)',
+  'linear-gradient(135deg, #30cfd0 0%, #0a6fc2 100%)',
+  'linear-gradient(135deg, #f0a000 0%, #c2410c 100%)',
+  'linear-gradient(135deg, #38bdf8 0%, #1d4ed8 100%)',
+  'linear-gradient(135deg, #0b4886 0%, #4aa0e6 100%)',
 ]
 function tripGradient(id: number): string { return GRADIENTS[id % GRADIENTS.length] }
 
@@ -196,8 +196,8 @@ function DashboardPageDesktop(): React.ReactElement {
                   </div>
                   <button type="button"
                     className="tool-action"
-                    aria-label="Subscribe to all trips calendar"
-                    title="Subscribe to all trips"
+                    aria-label={t('dashboard.subscribeAllTrips')}
+                    title={t('dashboard.subscribeAllTrips')}
                     onClick={() => setAllSubOpen(true)}
                     style={{ width: 38, height: 38, borderRadius: 11 }}
                   >
@@ -211,8 +211,8 @@ function DashboardPageDesktop(): React.ReactElement {
               {allSubOpen && (
                 <IcsSubscribeModal
                   endpoint="/api/feed/user"
-                  title="Subscribe to all trips"
-                  description="One calendar feed for all your active trips, kept in sync automatically. Excludes archived trips and trips that ended more than 90 days ago."
+                  title={t('dashboard.subscribeAllTrips')}
+                  description={t('dashboard.subscribeAllTripsDesc')}
                   onClose={() => setAllSubOpen(false)}
                 />
               )}

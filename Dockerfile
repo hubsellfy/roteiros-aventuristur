@@ -123,6 +123,9 @@ RUN mkdir -p /app/data/logs /app/uploads/files /app/uploads/covers /app/uploads/
 ENV NODE_ENV=production
 ENV NODE_USE_ENV_PROXY=1
 ENV PORT=3000
+# Padrões da Aventuristur (as variáveis do Easypanel têm prioridade)
+ENV DEFAULT_LANGUAGE=br
+ENV TZ=America/Sao_Paulo
 ARG APP_VERSION=dev
 ENV APP_VERSION=${APP_VERSION}
 
