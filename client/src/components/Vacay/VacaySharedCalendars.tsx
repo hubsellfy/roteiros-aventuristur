@@ -1,6 +1,6 @@
 import { createPortal } from 'react-dom'
 import { useState } from 'react'
-import { Share2, Eye, EyeOff, Loader2, X } from 'lucide-react'
+import { Share2, Eye, EyeOff, Loader2, X } from '../../icons'
 import { useVacayStore } from '../../store/vacayStore'
 import { useTranslation } from '../../i18n'
 import { getApiErrorMessage } from '../../types'

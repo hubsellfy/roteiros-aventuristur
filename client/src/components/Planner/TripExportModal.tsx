@@ -1,6 +1,6 @@
 import { useState, type ReactNode } from 'react'
-import { CalendarDays, CalendarPlus, ChevronRight, Download, FileText, Loader2, MapPin, Route as RouteIcon } from 'lucide-react'
-import type { LucideIcon } from 'lucide-react'
+import { CalendarDays, CalendarPlus, ChevronRight, Download, FileText, Loader2, MapPin, Route as RouteIcon } from '../../icons'
+import type { LucideIcon } from '../../icons'
 import Modal from '../shared/Modal'
 import { IcsSubscribeModal } from './IcsSubscribeModal'
 import { useToast } from '../shared/Toast'

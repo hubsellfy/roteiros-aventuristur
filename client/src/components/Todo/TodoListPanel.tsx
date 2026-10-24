@@ -13,7 +13,7 @@ import { formatDate as fmtDate } from '../../utils/formatters'
 import {
   CheckSquare, Square, Plus, ChevronRight, Flag,
   X, Check, Calendar, User, FolderPlus, AlertCircle, ListChecks, Inbox, CheckCheck, Trash2,
-} from 'lucide-react'
+} from '../../icons'
 import type { TodoItem } from '../../types'
 
 import { KAT_COLORS, PRIO_CONFIG, katColor, type FilterType, type Member } from './todoListModel'

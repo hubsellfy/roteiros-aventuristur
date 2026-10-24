@@ -1,4 +1,4 @@
-import { Plus, MoreHorizontal } from 'lucide-react'
+import { Plus, MoreHorizontal } from '../../icons'
 import type { NavItemDef } from '../Layout/navItems'
 
 /**

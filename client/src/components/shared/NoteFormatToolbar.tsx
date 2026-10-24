@@ -1,5 +1,5 @@
 import { useRef } from 'react'
-import { Bold, Italic, Strikethrough, List, ListOrdered, Link2, Quote, Code } from 'lucide-react'
+import { Bold, Italic, Strikethrough, List, ListOrdered, Link2, Quote, Code } from '../../icons'
 import { useTranslation } from '../../i18n'
 
 type FormatAction =

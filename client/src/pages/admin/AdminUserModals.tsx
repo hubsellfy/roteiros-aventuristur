@@ -7,7 +7,7 @@ import {
   EyeOff,
   Fingerprint,
   RefreshCw,
-} from 'lucide-react';
+} from '../../icons';
 import React from 'react';
 import { adminApi } from '../../api/client';
 import CustomSelect from '../../components/shared/CustomSelect';

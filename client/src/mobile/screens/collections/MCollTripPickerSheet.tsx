@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
-import { CalendarDays, Copy, Loader2, MapPin, Search } from 'lucide-react'
+import { CalendarDays, Copy, Loader2, MapPin, Search } from '../../../icons'
 import type { TranslationFn } from '../../../types'
 import { tripsApi } from '../../../api/client'
 import { useTranslation } from '../../../i18n'

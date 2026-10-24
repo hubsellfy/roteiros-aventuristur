@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useState, Suspense } from 'react'
-import { Box, Check, ChevronDown, Globe2, Layers, Map, Save } from 'lucide-react'
+import { Box, Check, ChevronDown, Globe2, Layers, Map, Save } from '../../../icons'
 import { useTranslation } from '../../../i18n'
 import { useSettingsStore } from '../../../store/settingsStore'
 import { useAuthStore } from '../../../store/authStore'

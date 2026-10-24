@@ -10,7 +10,7 @@ import {
   Lightbulb,
   Loader2,
   Tag,
-} from 'lucide-react';
+} from '../../icons';
 import { useEffect, useState } from 'react';
 import apiClient from '../../api/client';
 import { getLocaleForLanguage, useTranslation } from '../../i18n';

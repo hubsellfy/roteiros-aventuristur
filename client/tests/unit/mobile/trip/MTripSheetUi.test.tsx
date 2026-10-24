@@ -1,5 +1,5 @@
 import { describe, expect, it, vi } from 'vitest'
-import { Home } from 'lucide-react'
+import { Home } from '../../../../src/icons'
 import {
   ActionCircle,
   Eyebrow,

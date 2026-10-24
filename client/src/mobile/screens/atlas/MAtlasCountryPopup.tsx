@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
-import { ChevronRight, MapPin, Star, Trash2 } from 'lucide-react'
-import type { LucideIcon } from 'lucide-react'
+import { ChevronRight, MapPin, Star, Trash2 } from '../../../icons'
+import type { LucideIcon } from '../../../icons'
 import apiClient from '../../../api/client'
 import { continentForCountry } from '@trek/shared'
 import { findBucketDuplicate, isBucketDuplicateError, withCountryMarkedVisited } from '../../../pages/atlas/atlasModel'

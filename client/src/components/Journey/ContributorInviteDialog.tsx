@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { X, Check, UserPlus } from 'lucide-react'
+import { X, Check, UserPlus } from '../../icons'
 import { journeyApi, authApi } from '../../api/client'
 import { useTranslation } from '../../i18n'
 import { useToast } from '../shared/Toast'

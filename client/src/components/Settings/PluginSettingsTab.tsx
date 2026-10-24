@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Save, Loader2, Link2, Unlink, CheckCircle } from 'lucide-react'
+import { Save, Loader2, Link2, Unlink, CheckCircle } from '../../icons'
 import PluginIcon from '../shared/PluginIcon'
 import PluginFrame from '../Plugins/PluginFrame'
 import { pluginsApi, type PluginUserSettingField, type PluginAction } from '../../api/client'

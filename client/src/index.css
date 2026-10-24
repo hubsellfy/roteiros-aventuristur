@@ -685,36 +685,36 @@ input[type="number"], input[type="time"], input[type="date"], input[type="dateti
   --z-notice: 99998;  /* app-wide system and release notices */
   --z-toast: 100000;  /* toasts, tooltips, context menus */
 
-  --font-system: 'Poppins', -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', system-ui, sans-serif;
-  /* Secondary "subtext"/caption tier renders in Geist; primary text + headings stay Poppins. */
-  --font-subtext: 'Geist Sans', 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  --font-system: 'Inter Tight', -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', system-ui, sans-serif;
+  /* Mesma família do site da Aventuristur em todos os níveis de texto. */
+  --font-subtext: 'Inter Tight', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
   --sp-1: 4px;
   --sp-2: 8px;
   --sp-3: 12px;
   --sp-4: 16px;
   --sp-6: 24px;
-  --radius-sm: 8px;
-  --radius-md: 12px;
-  --radius-lg: 16px;
-  --radius-xl: 20px;
-  --shadow-card: 0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.04);
+  --radius-sm: 12px;
+  --radius-md: 16px;
+  --radius-lg: 20px;
+  --radius-xl: 24px;
+  --shadow-card: none; /* cards sem sombra, como no site */
   --shadow-elevated: 0 4px 16px rgba(0,0,0,0.1);
 
   /* Theme colors */
   --bg-primary: #ffffff;
-  --bg-secondary: #f8fafc;
-  --bg-tertiary: #f1f5f9;
+  --bg-secondary: #f2f5fa;
+  --bg-tertiary: #eceff4;
   --bg-elevated: rgba(250,250,250,0.82);
   --bg-card: #ffffff;
   --bg-input: #ffffff;
   --bg-hover: rgba(0,0,0,0.03);
   --bg-selected: #e2e8f0;
-  --text-primary: #111827;
+  --text-primary: #1a1a1c;
   --text-secondary: #374151;
   --text-muted: #6b7280;
   --text-faint: #9ca3af;
-  --border-primary: #e5e7eb;
-  --border-secondary: #f3f4f6;
+  --border-primary: #dfe4eb;
+  --border-secondary: #eceff4;
   --border-faint: rgba(0,0,0,0.06);
   --accent: #0a6fc2;
   --accent-text: #ffffff;
@@ -948,8 +948,8 @@ input[type="number"], input[type="time"], input[type="date"], input[type="dateti
 }
 
 :root[data-scheme="amber"] {
-  --accent: #d97706; --accent-text: #ffffff; --accent-on: #b45309;
-  --accent-hover: #b45309; --accent-subtle: #fffbeb;
+  --accent: #f0a000; --accent-text: #1a1a1c; --accent-on: #9a6700;
+  --accent-hover: #d98f00; --accent-subtle: #fffbeb;
 }
 .dark[data-scheme="amber"] {
   --accent: #f59e0b; --accent-text: #1c1917; --accent-on: #fcd34d;
@@ -1013,26 +1013,27 @@ input[type="number"], input[type="time"], input[type="date"], input[type="dateti
    the default scheme nothing here matches (zero change for existing users).
    TEMPORARY scaffold — the Phase-8 codemod migrates these to bg-accent and this
    block shrinks file-by-file until it is deleted. */
-html[data-scheme]:not([data-scheme="default"]) :is(.bg-slate-900, .bg-gray-900, .bg-zinc-900, .bg-neutral-900, .bg-black) {
+html :is(.bg-slate-900, .bg-gray-900, .bg-zinc-900, .bg-neutral-900, .bg-black) {
   background-color: var(--accent) !important;
   color: var(--accent-text) !important;
+  border-radius: 9999px; /* botões em pílula, como no site */
 }
-html[data-scheme]:not([data-scheme="default"]) :is(.bg-slate-900, .bg-gray-900, .bg-zinc-900, .bg-neutral-900, .bg-black):hover {
+html :is(.bg-slate-900, .bg-gray-900, .bg-zinc-900, .bg-neutral-900, .bg-black):hover {
   background-color: var(--accent-hover) !important;
 }
-html[data-scheme]:not([data-scheme="default"])
+html
   :is(.hover\:bg-slate-900, .hover\:bg-slate-800, .hover\:bg-slate-700, .hover\:bg-gray-900, .hover\:bg-gray-800, .hover\:bg-black):hover {
   background-color: var(--accent-hover) !important;
   color: var(--accent-text) !important;
 }
-html[data-scheme]:not([data-scheme="default"]) :is(.bg-indigo-500, .bg-indigo-600, .bg-indigo-700) {
+html :is(.bg-indigo-500, .bg-indigo-600, .bg-indigo-700) {
   background-color: var(--accent) !important;
   color: var(--accent-text) !important;
 }
-html[data-scheme]:not([data-scheme="default"]) :is(.text-indigo-400, .text-indigo-500, .text-indigo-600, .text-indigo-700) {
+html :is(.text-indigo-400, .text-indigo-500, .text-indigo-600, .text-indigo-700) {
   color: var(--accent-on) !important;
 }
-html[data-scheme]:not([data-scheme="default"])
+html
   :is(.border-indigo-500, .border-indigo-600, .ring-indigo-500, .ring-indigo-600) {
   border-color: var(--accent) !important;
 }
@@ -1232,8 +1233,8 @@ body {
 .form-input {
   width: 100%;
   border: 1px solid var(--border-primary);
-  border-radius: 10px;
-  padding: 8px 14px;
+  border-radius: 9999px;
+  padding: 8px 18px;
   font-size: 13px;
   font-family: inherit;
   outline: none;
@@ -1243,7 +1244,11 @@ body {
   transition: border-color 0.15s;
 }
 .form-input:focus {
-  border-color: var(--text-faint);
+  border-color: var(--accent);
+}
+textarea.form-input {
+  border-radius: 20px;
+  padding: 12px 18px;
 }
 .form-input::placeholder {
   color: var(--text-faint);

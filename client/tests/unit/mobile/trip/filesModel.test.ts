@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { FileText, Image as ImageIcon, Ticket } from 'lucide-react';
+import { FileText, Image as ImageIcon, Ticket } from '../../../../src/icons';
 import {
   FILE_FILTERS,
   buildFileLinkLabels,

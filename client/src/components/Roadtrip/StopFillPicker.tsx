@@ -1,6 +1,6 @@
 import { useRoadtripSettings } from '../../hooks/useRoadtripSettings'
 import React from 'react'
-import { RotateCcw } from 'lucide-react'
+import { RotateCcw } from '../../icons'
 import { useTranslation } from '../../i18n/TranslationContext'
 import { useSettingsStore } from '../../store/settingsStore'
 import { formatDistance } from '../../utils/units'

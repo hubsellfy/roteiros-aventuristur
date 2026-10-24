@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
-import { Plus, Edit2, Trash2, Pipette } from 'lucide-react'
+import { Plus, Edit2, Trash2, Pipette } from '../../../icons'
 import { categoriesApi } from '../../../api/client'
 import { useToast } from '../../../components/shared/Toast'
 import { CATEGORY_ICON_MAP, ICON_LABELS, getCategoryIcon } from '../../../components/shared/categoryIcons'

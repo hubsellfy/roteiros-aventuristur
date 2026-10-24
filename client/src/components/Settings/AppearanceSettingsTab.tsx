@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { Paintbrush, Eye, LayoutDashboard, Sun, Moon, Monitor, RotateCcw } from 'lucide-react'
+import { Paintbrush, Eye, LayoutDashboard, Sun, Moon, Monitor, RotateCcw } from '../../icons'
 import { useTranslation } from '../../i18n'
 import { useSettingsStore } from '../../store/settingsStore'
 import { useToast } from '../shared/Toast'

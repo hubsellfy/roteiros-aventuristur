@@ -1,4 +1,4 @@
-import { ArrowLeft } from 'lucide-react'
+import { ArrowLeft } from '../icons'
 import { Link } from 'react-router'
 import type { LegalKind } from '../brand/legalContent'
 import { useLegalDocument } from './legal/useLegalDocument'

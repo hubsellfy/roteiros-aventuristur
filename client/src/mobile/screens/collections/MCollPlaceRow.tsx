@@ -1,4 +1,4 @@
-import { Check, MapPin } from 'lucide-react'
+import { Check, MapPin } from '../../../icons'
 import type { CollectionPlace, CollectionStatus } from '@trek/shared'
 import type { TranslationFn } from '../../../types'
 import { nextStatus } from '../../../pages/collections/collectionsModel'

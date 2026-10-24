@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router'
-import { Bell, Link2, Send } from 'lucide-react'
+import { Bell, Link2, Send } from '../../../icons'
 import { useTranslation } from '../../../i18n'
 import { notificationsApi, settingsApi } from '../../../api/client'
 import { useToast } from '../../../components/shared/Toast'

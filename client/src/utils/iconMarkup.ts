@@ -69,7 +69,7 @@ function serializeProps(props: ElementProps): string {
     const value = props[name]
     if (value === undefined || value === null || value === false) continue
     if (typeof value === 'function' || typeof value === 'symbol' || typeof value === 'object') continue
-    out += ` ${ATTRIBUTE_NAMES[name] ?? name}="${escape(value === true ? '' : (value as string | number))}"`
+    out += ` ${ATTRIBUTE_NAMES[name] ?? name}="${escape(value === true ? (name.startsWith('aria-') ? 'true' : '') : (value as string | number))}"`
   }
   return out
 }
@@ -84,6 +84,8 @@ function serialize(node: unknown): string {
   const props = (element.props ?? {}) as ElementProps
 
   if (typeof type === 'string') {
+    const raw = (props.dangerouslySetInnerHTML as { __html?: string } | undefined)?.__html
+    if (typeof raw === 'string') return `<${type}${serializeProps(props)}>${raw}</${type}>`
     return `<${type}${serializeProps(props)}>${serialize(props.children)}</${type}>`
   }
   if (typeof type === 'object' && type !== null && (type as ForwardRefComponent).$$typeof === FORWARD_REF) {

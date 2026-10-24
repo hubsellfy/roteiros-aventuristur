@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { BookOpen, FileText, Printer, Scissors, X } from 'lucide-react'
+import { BookOpen, FileText, Printer, Scissors, X } from '../../icons'
 import type { BookDocument } from '@trek/shared'
 import { BookSheetsView } from './BookSheetsView'
 import { sheetBox, sheetsFor, type SheetMode } from './bookSheets'

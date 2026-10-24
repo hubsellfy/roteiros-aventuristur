@@ -1,3 +1,4 @@
+import { readEnv } from '../../app-config';
 import { readCappedJson } from '../../utils/cappedFetch';
 
 // Open-Meteo sits on the request path as a third party: without a deadline a hung
@@ -34,10 +35,13 @@ const MAX_WEATHER_BYTES = 1024 * 1024;
  * archive host is not documented there, so it can be overridden with
  * `OPEN_METEO_CUSTOMER_ARCHIVE_HOST`; confirm it against the subscription docs.
  */
-export function withOpenMeteoKey(url: string, env: NodeJS.ProcessEnv = process.env): string {
-  const key = env.OPEN_METEO_API_KEY?.trim();
+export function withOpenMeteoKey(
+  url: string,
+  config: { apiKey?: string; archiveHost?: string } = readEnv().openMeteo,
+): string {
+  const key = config.apiKey?.trim();
   if (!key) return url;
-  const archiveHost = env.OPEN_METEO_CUSTOMER_ARCHIVE_HOST?.trim() || 'customer-archive-api.open-meteo.com';
+  const archiveHost = config.archiveHost?.trim() || 'customer-archive-api.open-meteo.com';
   const customerUrl = url
     .replace('https://archive-api.open-meteo.com/', `https://${archiveHost}/`)
     .replace('https://api.open-meteo.com/', 'https://customer-api.open-meteo.com/');

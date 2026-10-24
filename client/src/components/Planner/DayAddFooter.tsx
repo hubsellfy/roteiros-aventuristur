@@ -1,5 +1,5 @@
 import { useId, useState } from 'react'
-import { CalendarPlus, Plus } from 'lucide-react'
+import { CalendarPlus, Plus } from '../../icons'
 import { dayDate } from '../../utils/dayLabel'
 import type { DayAddControls } from '../../utils/dayAdd'
 

@@ -1,6 +1,6 @@
 import React from 'react'
 import { SCOPE_GROUPS } from '../api/oauthScopes'
-import { Lock, ShieldCheck, AlertTriangle, Loader2, LogIn } from 'lucide-react'
+import { Lock, ShieldCheck, AlertTriangle, Loader2, LogIn } from '../icons'
 import { useTranslation } from '../i18n'
 import { useOAuthAuthorize } from './oauthAuthorize/useOAuthAuthorize'
 

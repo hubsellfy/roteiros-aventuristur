@@ -1,5 +1,5 @@
 import React, { useMemo, useRef, useState } from 'react'
-import { Upload, FileJson, Loader2, MapPin, Tag, AlertCircle, Route, Info, Plus, FolderInput, Check, Search, Bookmark } from 'lucide-react'
+import { Upload, FileJson, Loader2, MapPin, Tag, AlertCircle, Route, Info, Plus, FolderInput, Check, Search, Bookmark } from '../../icons'
 import Modal from '../shared/Modal'
 import { MAX_COLLECTION_FILE_PLACES, type Collection, type CollectionFile } from '@trek/shared'
 import type { TranslationFn } from '../../types'

@@ -1,5 +1,5 @@
 import { createPortal } from 'react-dom'
-import { Clock } from 'lucide-react'
+import { Clock } from '../../icons'
 
 interface TimeConfirmState {
   dayId: number

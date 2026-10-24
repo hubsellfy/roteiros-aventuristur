@@ -1,8 +1,8 @@
 import {
   BedDouble, Bike, Bookmark, Camera, CheckCircle2, Circle, CircleSlash, Coffee,
   Landmark, MapPin, ShoppingBag, TrainFront, Trees, Umbrella, Utensils,
-} from 'lucide-react'
-import type { LucideIcon } from 'lucide-react'
+} from '../../../icons'
+import type { LucideIcon } from '../../../icons'
 import type { CollectionStatus } from '@trek/shared'
 import { getCategoryIcon } from '../../../components/shared/categoryIcons'
 

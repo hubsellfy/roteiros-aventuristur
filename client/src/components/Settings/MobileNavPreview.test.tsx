@@ -1,6 +1,6 @@
 // FE-COMP-NAVPREVIEW-001 to FE-COMP-NAVPREVIEW-006
 import { render, screen } from '../../../tests/helpers/render';
-import { LayoutGrid, CalendarDays, Globe, Compass } from 'lucide-react';
+import { LayoutGrid, CalendarDays, Globe, Compass } from '../../icons';
 import type { NavItemDef } from '../Layout/navItems';
 import MobileNavPreview from './MobileNavPreview';
 

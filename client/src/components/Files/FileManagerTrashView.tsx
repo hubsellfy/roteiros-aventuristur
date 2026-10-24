@@ -1,4 +1,4 @@
-import { Trash2 } from 'lucide-react'
+import { Trash2 } from '../../icons'
 import type { FileManagerState } from './useFileManager'
 import { FileRow } from './FileManagerRow'
 

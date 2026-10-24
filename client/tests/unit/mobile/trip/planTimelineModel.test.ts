@@ -1,5 +1,5 @@
 import { describe, expect, it, vi } from 'vitest'
-import { Cloud, CloudLightning, CloudRain, CloudSnow, Sun, Wind } from 'lucide-react'
+import { Cloud, CloudLightning, CloudRain, CloudSnow, Sun, Wind } from '../../../../src/icons'
 import {
   breaksChronology, buildPlanRows, cityPillsForDay, findUpNext, getTransitMeta, hotelChipsForDay,
   hotelLegsForDay, itemHasTime, parseReservationMeta, transportSubtitle, weatherIconFor,

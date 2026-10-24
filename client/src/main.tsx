@@ -2,22 +2,17 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { BrowserRouter } from 'react-router'
 import App from './App'
-// Self-hosted Poppins (bundled, same-origin) so the app font can't be blocked by
-// ad/tracker blockers the way the Google Fonts CDN can.
-import '@fontsource/poppins/300.css'
-import '@fontsource/poppins/400.css'
-import '@fontsource/poppins/500.css'
-import '@fontsource/poppins/600.css'
-import '@fontsource/poppins/700.css'
+// Self-hosted Inter Tight (fonte do site da Aventuristur), empacotada para não depender de CDN.
+import '@fontsource/inter-tight/300.css'
+import '@fontsource/inter-tight/400.css'
+import '@fontsource/inter-tight/500.css'
+import '@fontsource/inter-tight/600.css'
+import '@fontsource/inter-tight/700.css'
 // MuseoModerno for the login wordmark — same reasoning, it used to come from the
 // Google Fonts CDN via a render-blocking <link> in index.html.
 import '@fontsource/museomoderno/400.css'
 import '@fontsource/museomoderno/700.css'
 import '@fontsource/museomoderno/800.css'
-// Geist Sans (self-hosted too) — used only for secondary "subtext" via --font-subtext.
-import '@fontsource/geist-sans/400.css'
-import '@fontsource/geist-sans/500.css'
-import '@fontsource/geist-sans/600.css'
 // Leaflet CSS bundled from node_modules instead of unpkg: the service worker
 // cached the CDN stylesheet as an opaque response, which the browser then
 // rejected, breaking the Atlas/trip maps (#1497). Bundling keeps it same-origin
@@ -25,6 +20,7 @@ import '@fontsource/geist-sans/600.css'
 // several .leaflet-* styles.
 import 'leaflet/dist/leaflet.css'
 import './index.css'
+import './styles/aventuristur.css'
 // Native HTML5 drag-and-drop never fires on touch input, so the planner's place /
 // day reordering was dead on Android and iOS. The `drag-drop-touch` polyfill synthesises
 // the standard drag events from touch gestures over draggable elements (#1265). It is

@@ -13,8 +13,8 @@ import {
   Settings2,
   SlidersHorizontal,
   User,
-} from 'lucide-react'
-import type { LucideIcon } from 'lucide-react'
+} from '../../../icons'
+import type { LucideIcon } from '../../../icons'
 import { useTranslation } from '../../../i18n'
 import { useSettings } from '../../../pages/settings/useSettings'
 import { useAuthStore } from '../../../store/authStore'

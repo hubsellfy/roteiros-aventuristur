@@ -1,5 +1,5 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest'
-import { FolderOpen, Users } from 'lucide-react'
+import { FolderOpen, Users } from '../../../../src/icons'
 import MMehrSheet from '../../../../src/mobile/screens/trip/sheets/MMehrSheet'
 import type { MTripShellApi, TripPlanner } from '../../../../src/mobile/screens/trip/MTripShell'
 import type { TripFile, TripMember } from '../../../../src/types'

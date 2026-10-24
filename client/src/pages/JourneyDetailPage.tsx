@@ -12,7 +12,7 @@ import { Outlet } from 'react-router'
 import {
   ArrowLeft, MoreHorizontal, List, Grid, MapPin,
   Plus, ChevronUp, ChevronDown, Eye, EyeOff, BookOpen, Image, Search, X,
-} from 'lucide-react'
+} from '../icons'
 import MobileMapTimeline from '../components/Journey/MobileMapTimeline'
 import JourneyDayDawarich from '../components/Journey/JourneyDayDawarich'
 import MobileEntryView from '../components/Journey/MobileEntryView'

@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import {
   KeyRound, Plus, Trash2, Copy, Check, AlertTriangle, Briefcase, CalendarDays, MapPin,
   StickyNote, Ticket, Hotel, Users, Star, BarChart3, type LucideIcon,
-} from 'lucide-react'
+} from '../../icons'
 import { PUBLIC_API_SCOPES, type PublicApiScope } from '@trek/shared'
 import Section from './Section'
 import Modal from '../shared/Modal'

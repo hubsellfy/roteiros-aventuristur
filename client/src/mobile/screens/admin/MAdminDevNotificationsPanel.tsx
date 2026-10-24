@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react'
 import {
   Bell, Zap, CheckCircle, Navigation, Calendar, Clock, Image,
   MessageSquare, Tag, UserPlus, Download, MapPin, Loader2,
-} from 'lucide-react'
-import type { LucideIcon } from 'lucide-react'
+} from '../../../icons'
+import type { LucideIcon } from '../../../icons'
 import { adminApi, tripsApi } from '../../../api/client'
 import { useAuthStore } from '../../../store/authStore'
 import { useToast } from '../../../components/shared/Toast'

@@ -1,5 +1,5 @@
 import { createPortal } from 'react-dom'
-import { X, MapPin, Ticket, Check } from 'lucide-react'
+import { X, MapPin, Ticket, Check } from '../../icons'
 import { filesApi } from '../../api/client'
 import type { Place, Reservation, Day } from '../../types'
 import type { FileManagerState } from './useFileManager'

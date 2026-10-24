@@ -14,7 +14,7 @@ import {
   Ticket,
   Train,
   Wallet,
-} from 'lucide-react';
+} from '../icons';
 import { createElement, useEffect, useRef } from 'react';
 import { renderIconMarkup } from '../utils/iconMarkup';
 import { MapContainer, Marker, Polyline, TileLayer, Tooltip, useMap } from 'react-leaflet';

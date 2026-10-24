@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import { adminApi } from '../../api/client'
 import { useTranslation } from '../../i18n'
-import { RefreshCw, ClipboardList } from 'lucide-react'
+import { RefreshCw, ClipboardList } from '../../icons'
 
 interface AuditEntry {
   id: number

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { PlugZap, Coins, ChevronDown } from 'lucide-react'
+import { PlugZap, Coins, ChevronDown } from '../../icons'
 import type { ChargingInfo as Info } from '@trek/shared'
 import { useTranslation } from '../../i18n/TranslationContext'
 import { useTripStore } from '../../store/tripStore'

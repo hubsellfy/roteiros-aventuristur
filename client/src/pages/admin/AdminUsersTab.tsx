@@ -1,6 +1,6 @@
 import React from 'react'
 import CustomSelect from '../../components/shared/CustomSelect'
-import { Shield, Trash2, Edit2, UserPlus, Link2, Copy, Plus } from 'lucide-react'
+import { Shield, Trash2, Edit2, UserPlus, Link2, Copy, Plus } from '../../icons'
 import Modal from '../../components/shared/Modal'
 import PermissionsPanel from '../../components/Admin/PermissionsPanel'
 import type { TranslationFn } from '../../types'

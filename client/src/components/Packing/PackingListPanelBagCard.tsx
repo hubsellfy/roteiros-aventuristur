@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { X, Plus, Check } from 'lucide-react'
+import { X, Plus, Check } from '../../icons'
 import type { PackingItem, PackingBag } from '../../types'
 import type { TripMember } from './usePackingListPanel'
 

@@ -1,5 +1,5 @@
-import { Sparkles, Sun, Minus, Moon, CloudRain, CloudSun, Cloud, CloudLightning, Snowflake, Thermometer, ThermometerSnowflake } from 'lucide-react'
-import type { LucideIcon } from 'lucide-react'
+import { Sparkles, Sun, Minus, Moon, CloudRain, CloudSun, Cloud, CloudLightning, Snowflake, Thermometer, ThermometerSnowflake } from '../../icons'
+import type { LucideIcon } from '../../icons'
 
 export interface MoodDef {
   id: string

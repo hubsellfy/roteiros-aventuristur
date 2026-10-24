@@ -1,4 +1,4 @@
-import { RotateCw, AlertTriangle } from 'lucide-react'
+import { RotateCw, AlertTriangle } from '../../icons'
 import { useTranslation } from '../../i18n'
 import { Tooltip } from '../shared/Tooltip'
 import { POI_CATEGORIES } from './poiCategories'

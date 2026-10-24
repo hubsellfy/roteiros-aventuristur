@@ -1,5 +1,5 @@
 import React, { ChangeEvent } from 'react'
-import { Mail, ArrowLeft, CheckCircle2, Terminal } from 'lucide-react'
+import { Mail, ArrowLeft, CheckCircle2, Terminal } from '../icons'
 import { useTranslation } from '../i18n'
 import { useForgotPassword } from './forgotPassword/useForgotPassword'
 

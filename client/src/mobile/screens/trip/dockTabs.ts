@@ -1,5 +1,5 @@
-import { Map as MapIcon, TrainFront, Ticket, Wallet, PackageCheck, Route } from 'lucide-react'
-import type { LucideIcon } from 'lucide-react'
+import { Map as MapIcon, TrainFront, Ticket, Wallet, PackageCheck, Route } from '../../../icons'
+import type { LucideIcon } from '../../../icons'
 
 /**
  * Which trip sections get a seat in the phone dock, and in which order.

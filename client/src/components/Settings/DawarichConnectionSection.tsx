@@ -1,5 +1,5 @@
 import React from 'react'
-import { Save, Plug, RefreshCw, Unplug } from 'lucide-react'
+import { Save, Plug, RefreshCw, Unplug } from '../../icons'
 import { useTranslation } from '../../i18n'
 import { useDawarichConnection } from '../../hooks/useDawarichConnection'
 import DawarichIcon from '../shared/DawarichIcon'

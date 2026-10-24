@@ -1,5 +1,5 @@
 import React from 'react'
-import { Check, ChevronRight, Globe2, KeyRound, Library, ShieldOff, WifiOff, X } from 'lucide-react'
+import { Check, ChevronRight, Globe2, KeyRound, Library, ShieldOff, WifiOff, X } from '../../icons'
 import type { TranslationFn } from '../../types'
 
 interface TrekApiCardProps {

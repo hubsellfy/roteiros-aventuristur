@@ -1,4 +1,4 @@
-import { AlertTriangle, Check, CloudOff, Eye, RefreshCw } from 'lucide-react'
+import { AlertTriangle, Check, CloudOff, Eye, RefreshCw } from '../../icons'
 import type { BookRecord } from '@trek/shared'
 import type { SaveState } from './useBookStore'
 

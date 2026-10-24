@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { History, RefreshCw } from 'lucide-react'
+import { History, RefreshCw } from '../../icons'
 import { pluginsApi } from '../../api/client'
 import { useTranslation } from '../../i18n'
 

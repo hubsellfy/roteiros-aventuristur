@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react'
-import { Map as MapIcon, Settings2 } from 'lucide-react'
+import { Map as MapIcon, Settings2 } from '../../icons'
 import { adminApi } from '../../api/client'
 import { useTranslation } from '../../i18n'
 import { useToast } from '../shared/Toast'

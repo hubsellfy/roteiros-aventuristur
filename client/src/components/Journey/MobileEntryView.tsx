@@ -3,7 +3,7 @@ import {
   Laugh, Smile, Meh, Frown,
   Sun, CloudSun, Cloud, CloudRain, CloudLightning, Snowflake,
   ThumbsUp, ThumbsDown,
-} from 'lucide-react'
+} from '../../icons'
 import JournalBody from './JournalBody'
 import { useTranslation } from '../../i18n'
 import { formatLocationName } from '../../utils/formatters'

@@ -1,4 +1,4 @@
-import { AlertTriangle, Route } from 'lucide-react'
+import { AlertTriangle, Route } from '../../icons'
 import { useTranslation } from '../../i18n'
 import { Tooltip } from '../shared/Tooltip'
 import { profileIcon } from '../Planner/DayPlanSidebarRouteConnector'

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Plane, Save } from 'lucide-react'
+import { Plane, Save } from '../../icons'
 import { useTranslation } from '../../i18n'
 import { useToast } from '../shared/Toast'
 import { airtrailApi } from '../../api/client'

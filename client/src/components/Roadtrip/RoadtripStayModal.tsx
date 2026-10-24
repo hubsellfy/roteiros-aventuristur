@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react'
-import { AlertTriangle, Hourglass, Minus, Plus, ArrowRight } from 'lucide-react'
+import { AlertTriangle, Hourglass, Minus, Plus, ArrowRight } from '../../icons'
 import Modal from '../shared/Modal'
 import { useTranslation } from '../../i18n/TranslationContext'
 import { useSettingsStore } from '../../store/settingsStore'

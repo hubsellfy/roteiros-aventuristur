@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import Modal from '../shared/Modal'
-import { Calendar, Camera, Search, X, UserPlus, Bell } from 'lucide-react'
+import { Calendar, Camera, Search, X, UserPlus, Bell } from '../../icons'
 import { tripsApi, authApi } from '../../api/client'
 import CustomSelect from '../shared/CustomSelect'
 import { useAuthStore } from '../../store/authStore'

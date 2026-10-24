@@ -1,4 +1,4 @@
-import { Car, Footprints, Hotel, Zap } from 'lucide-react'
+import { Car, Footprints, Hotel, Zap } from '../../icons'
 import type { RouteSegment } from '../../types'
 
 // Walking gets the foot icon; a plugin route profile ('plugin:…') gets the bolt —

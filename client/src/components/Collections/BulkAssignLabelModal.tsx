@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Check, Loader2, Settings2, Tags } from 'lucide-react'
+import { Check, Loader2, Settings2, Tags } from '../../icons'
 import Modal from '../shared/Modal'
 import type { CollectionLabel } from '@trek/shared'
 import type { TranslationFn } from '../../types'

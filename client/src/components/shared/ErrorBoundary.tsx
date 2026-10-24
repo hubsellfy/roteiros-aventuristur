@@ -1,5 +1,5 @@
 import React from 'react'
-import { AlertTriangle, RefreshCw, RotateCcw } from 'lucide-react'
+import { AlertTriangle, RefreshCw, RotateCcw } from '../../icons'
 import { useTranslation } from '../../i18n'
 import { isChunkLoadError, reloadOnceForChunk, reloadOntoCurrentBuild } from '../../utils/chunkReload'
 

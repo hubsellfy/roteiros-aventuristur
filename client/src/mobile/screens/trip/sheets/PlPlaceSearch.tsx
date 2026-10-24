@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
-import { Loader2, RotateCcw, Search } from 'lucide-react'
+import { Loader2, RotateCcw, Search } from '../../../../icons'
 import { mapsApi } from '../../../../api/client'
 import { useAuthStore } from '../../../../store/authStore'
 import { offersGoogleRetry, selectGoogleHoldsSlot, sourceLabelFor } from '../../../../utils/placeSource'

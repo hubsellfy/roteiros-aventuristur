@@ -1,5 +1,5 @@
-import { Hotel, Utensils, ShoppingCart, Bus, Plane, Ticket, Camera, ShoppingBag, FileText, HeartPulse, Coins, MoreHorizontal, Fuel, ParkingCircle } from 'lucide-react'
-import type { LucideIcon } from 'lucide-react'
+import { Hotel, Utensils, ShoppingCart, Bus, Plane, Ticket, Camera, ShoppingBag, FileText, HeartPulse, Coins, MoreHorizontal, Fuel, ParkingCircle } from '../../icons'
+import type { LucideIcon } from '../../icons'
 import { COST_CATEGORIES, type CostCategory } from '@trek/shared'
 
 /**

@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { AlertTriangle, CheckCircle, ExternalLink, Fingerprint, Trash2 } from 'lucide-react'
+import { AlertTriangle, CheckCircle, ExternalLink, Fingerprint, Trash2 } from '../../../icons'
 import { adminApi } from '../../../api/client'
 import type { TranslationFn } from '../../../types'
 import type { useAdmin } from '../../../pages/admin/useAdmin'

@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { AlertTriangle, Check, Loader2, ShieldAlert } from 'lucide-react'
+import { AlertTriangle, Check, Loader2, ShieldAlert } from '../../../icons'
 import Modal from '../../shared/Modal'
 import ToggleSwitch from '../../Settings/ToggleSwitch'
 import { useTranslation } from '../../../i18n/TranslationContext'

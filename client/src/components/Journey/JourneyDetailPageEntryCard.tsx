@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react'
 import { createPortal } from 'react-dom'
-import { MapPin, Clock, MoreHorizontal, Pencil, Trash2, Plus, RouteOff, X } from 'lucide-react'
+import { MapPin, Clock, MoreHorizontal, Pencil, Trash2, Plus, RouteOff, X } from '../../icons'
 import { formatLocationName } from '../../utils/formatters'
 import { useTranslation } from '../../i18n'
 import { pluginsApi } from '../../api/client'

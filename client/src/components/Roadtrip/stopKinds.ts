@@ -1,4 +1,4 @@
-import { Fuel, Zap, ParkingSquare, Tent, Utensils, Camera, BedDouble, type LucideIcon } from 'lucide-react'
+import { Fuel, Zap, ParkingSquare, Tent, Utensils, Camera, BedDouble, type LucideIcon } from '../../icons'
 import { SERVICE_COLORS, SERVICE_STOP_TYPES } from './roadtripModel'
 import type { RoadtripStopType } from '@trek/shared'
 

@@ -7,7 +7,7 @@ import {
   Bell, Zap, ArrowRight, CheckCircle, Navigation, User,
   Calendar, Clock, Image, MessageSquare, Tag, UserPlus,
   Download, MapPin,
-} from 'lucide-react'
+} from '../../icons'
 
 interface Trip {
   id: number

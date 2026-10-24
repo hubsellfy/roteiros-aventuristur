@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Fingerprint, Plus, Trash2, Pencil, Check, X } from 'lucide-react'
+import { Fingerprint, Plus, Trash2, Pencil, Check, X } from '../../icons'
 import { startRegistration } from '@simplewebauthn/browser'
 import { useTranslation } from '../../i18n'
 import { useToast } from '../shared/Toast'

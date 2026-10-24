@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { AlertTriangle } from 'lucide-react'
+import { AlertTriangle } from '../../icons'
 import { useTranslation } from '../../i18n'
 
 type T = (k: string, p?: Record<string, unknown>) => string

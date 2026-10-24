@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { ChevronDown } from 'lucide-react'
+import { ChevronDown } from '../../../icons'
 import {
   STORAGE_BACKEND_TYPES,
   STORAGE_BACKEND_TYPE_IDS,

@@ -328,6 +328,14 @@ export function deriveRetention(raw: RawEnv) {
   };
 }
 
+/** Aventuristur: Open-Meteo commercial subscription (apikey + customer hosts); both optional. */
+export function deriveOpenMeteo(raw: RawEnv) {
+  return {
+    apiKey: raw.OPEN_METEO_API_KEY,
+    archiveHost: raw.OPEN_METEO_CUSTOMER_ARCHIVE_HOST,
+  };
+}
+
 export function derivePaths(raw: RawEnv) {
   return {
     wikiDir: raw.TREK_WIKI_DIR,
@@ -346,6 +354,7 @@ export function deriveAll(raw: RawEnv) {
   return {
     app: deriveApp(raw),
     retention: deriveRetention(raw),
+    openMeteo: deriveOpenMeteo(raw),
     http: deriveHttp(raw),
     session: deriveSession(raw),
     managed: deriveManaged(raw),

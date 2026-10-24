@@ -7,19 +7,21 @@ export default {
   ],
   theme: {
     extend: {
+      // Raios do design system do site da Aventuristur (cards 20px, botões e campos em pílula).
+      borderRadius: { md: '12px', lg: '16px', xl: '20px', '2xl': '24px', '3xl': '28px' },
       colors: {
         primary: {
-          50: '#eef2ff',
-          100: '#e0e7ff',
-          200: '#c7d2fe',
-          300: '#a5b4fc',
-          400: '#818cf8',
-          500: '#6366f1',
-          600: '#4f46e5',
-          700: '#4338ca',
-          800: '#3730a3',
-          900: '#312e81',
-          950: '#1e1b4b',
+          50: '#eef6fd',
+          100: '#d9ebfa',
+          200: '#b4d7f5',
+          300: '#7db9ec',
+          400: '#4aa0e6',
+          500: '#0a6fc2',
+          600: '#085ea6',
+          700: '#074c86',
+          800: '#063a66',
+          900: '#052e52',
+          950: '#031d36',
         },
         planner: {
           day: '#f8fafc',

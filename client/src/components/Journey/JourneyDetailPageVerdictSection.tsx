@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Check, Minus, ChevronDown } from 'lucide-react'
+import { Check, Minus, ChevronDown } from '../../icons'
 import { useTranslation } from '../../i18n'
 
 export function VerdictSection({ pros, cons }: { pros: string[]; cons: string[] }) {

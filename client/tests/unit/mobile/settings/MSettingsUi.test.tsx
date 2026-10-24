@@ -1,6 +1,6 @@
 // FE-MOB-SETUI-001 to FE-MOB-SETUI-019
 import { describe, it, expect, vi } from 'vitest';
-import { Globe } from 'lucide-react';
+import { Globe } from '../../../../src/icons';
 import { render, screen, fireEvent } from '../../../helpers/render';
 import {
   MSetCard,

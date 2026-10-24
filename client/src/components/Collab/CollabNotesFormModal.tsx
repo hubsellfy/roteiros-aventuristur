@@ -1,6 +1,6 @@
 import { createPortal } from 'react-dom'
 import { useState, useRef } from 'react'
-import { Plus, X } from 'lucide-react'
+import { Plus, X } from '../../icons'
 import { useCanDo } from '../../store/permissionsStore'
 import { useTripStore } from '../../store/tripStore'
 import { FONT } from './CollabNotes.constants'

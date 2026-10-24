@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { FileText, MapPin, Pencil, Trash2 } from 'lucide-react'
+import { FileText, MapPin, Pencil, Trash2 } from '../../../../icons'
 import MDancingTrek from '../../../components/MDancingTrek'
 import { RES_ICONS } from '../../../../components/Planner/DayPlanSidebar.constants'
 import { splitReservationDateTime, formatTime, cleanAmountText } from '../../../../utils/formatters'
