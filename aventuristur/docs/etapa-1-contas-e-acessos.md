@@ -1,0 +1,65 @@
+# Etapa 1 — contas e acessos
+
+## Estado
+
+Em andamento. Este documento registra apenas evidências técnicas e pendências
+da Etapa 1 da especificação do Roteiros Aventuristur. Não contém senhas,
+tokens, chaves de API, URLs de gatilho ou dados de clientes.
+
+Fonte de decisão: [especificação v2 do planejador](https://github.com/hubsellfy/aventuristur/blob/claude/project-thread-qblw7q/docs/spec-planejador-viagens.md).
+
+## Base do fork
+
+| Item | Valor verificado |
+| --- | --- |
+| Repositório público | `https://github.com/hubsellfy/roteiros-aventuristur` |
+| Código de origem | `https://github.com/liketrek/TREK` |
+| Base selecionada | tag `v4.3.4` |
+| Commit da tag | `d80577480c672799154ea9912918d906d16c0a75` |
+| Remoto de atualização | `upstream` → `https://github.com/liketrek/TREK.git` |
+| Remoto do fork | `origin` → `https://github.com/hubsellfy/roteiros-aventuristur.git` |
+
+A branch `main` do fork começa exatamente nesse commit da tag. `LICENSE` e
+`NOTICE.md` vieram intactos da base. A tag é anotada, mas não tem assinatura
+criptográfica; a identificação acima é a referência verificável usada para a
+rastreabilidade do fork.
+
+## Acessos e infraestrutura comprovados
+
+| Recurso | Situação | Observação |
+| --- | --- | --- |
+| GitHub `hubsellfy` | confirmado | Permissão administrativa no repositório da Aventuristur e acesso para criar o fork. |
+| VPS Hostinger | confirmado em leitura | KVM 2 em execução; capacidade a medir novamente com o app instalado. |
+| DNS `aventuristur.com` | confirmado | O registro `A` `app` aponta para `187.127.25.215`, com TTL de 300 segundos. |
+| Resolução pública | confirmado | `app.aventuristur.com` respondeu o IPv4 esperado nos resolvedores 1.1.1.1 e 8.8.8.8 na validação inicial. |
+
+O registro DNS prepara o endereço técnico. Nenhum serviço do Roteiros
+Aventuristur, domínio no Easypanel, certificado, conta de usuário ou dado de
+cliente foi publicado como parte desta etapa.
+
+## Pendências que dependem do dono
+
+| Item | Ação necessária | Onde o segredo deve ficar |
+| --- | --- | --- |
+| SMTP transacional | Criar e aprovar a conta corporativa; verificar o domínio de envio; criar credencial de envio com escopo mínimo. | Variáveis do serviço no Easypanel ou GitHub Actions Secrets. |
+| Backup externo | Criar storage privado compatível com S3, sob contrato de tratamento de dados; criar credencial limitada ao bucket de backup. | Variáveis do serviço no Easypanel ou GitHub Actions Secrets. |
+| Open-Meteo | Aprovar a assinatura comercial e gerar a chave da API comercial. | Variáveis do serviço no Easypanel ou GitHub Actions Secrets. |
+| Easypanel | Confirmar o projeto e o acesso administrativo; não criar nem publicar serviços antes da Etapa 4. | Painel do Easypanel; nunca no repositório. |
+| Chave de criptografia | Gerar uma única vez depois de confirmar o formato exigido pela base `v4.3.4`; guardar uma cópia fora da VPS. | Variável do serviço no Easypanel e cofre seguro do dono. |
+
+## Regras de segurança desta etapa
+
+- Nenhum segredo deve ser enviado por chat, registrado em arquivo, commit,
+  issue, PR, print ou log.
+- Nenhum dado real de cliente entra no fork, nos testes ou na homologação.
+- A imagem, o serviço de homologação, o serviço de produção, o backup diário
+  e o domínio configurado no Easypanel pertencem à Etapa 4.
+- A abertura de `app.aventuristur.com` aos clientes exige autorização explícita
+  do dono depois do checklist completo da especificação.
+
+## Critério para encerrar a Etapa 1
+
+Esta etapa só pode ser marcada como pronta quando as contas acima existirem e
+as credenciais estiverem guardadas nos cofres autorizados, sem serem expostas
+no repositório. A conclusão terá um PR próprio, com descrição das verificações
+e sem capturas de tela que revelem dados sensíveis.
