@@ -27,11 +27,19 @@ function replaceExact(relativePath, replacements) {
   const path = resolve(root, relativePath);
   let content = readFileSync(path, 'utf8');
   for (const [before, after] of replacements) {
-    if (content.includes(after)) continue;
     if (content.includes(before)) content = content.replaceAll(before, after);
-    else throw new Error(`Rebrand: trecho esperado ausente em ${relativePath}: ${before}`);
+    else if (!content.includes(after)) throw new Error(`Rebrand: trecho esperado ausente em ${relativePath}: ${before}`);
   }
   writeIfChanged(path, content);
+}
+
+function appendAfterOnce(relativePath, anchor, addition) {
+  const path = resolve(root, relativePath);
+  const content = readFileSync(path, 'utf8');
+  if (content.includes(addition)) return;
+  const position = content.lastIndexOf(anchor);
+  if (position < 0) throw new Error(`Rebrand: âncora esperada ausente em ${relativePath}`);
+  writeIfChanged(path, content.slice(0, position + anchor.length) + addition + content.slice(position + anchor.length));
 }
 
 function replaceBlock(relativePath, start, end, replacement) {
@@ -110,11 +118,12 @@ for (const locale of ['br', 'en', 'es']) {
 // They cannot be presented as Aventuristur messages by simply renaming the app.
 replaceExact('server/src/systemNotices/registry.ts', [
   ['export const SYSTEM_NOTICES: SystemNotice[] = [', 'const UPSTREAM_SYSTEM_NOTICES: SystemNotice[] = ['],
-  [
-    '\n];\n',
-    "\n];\nexport const SYSTEM_NOTICES: SystemNotice[] = UPSTREAM_SYSTEM_NOTICES.filter((notice) => notice.id !== 'release-notes' && notice.id !== 'thank-you-support');\n",
-  ],
 ]);
+appendAfterOnce(
+  'server/src/systemNotices/registry.ts',
+  '\n];\n',
+  "export const SYSTEM_NOTICES: SystemNotice[] = UPSTREAM_SYSTEM_NOTICES.filter((notice) => notice.id !== 'release-notes' && notice.id !== 'thank-you-support');\n",
+);
 
 replaceExact('client/src/pages/SettingsPage.tsx', [
   ['...(appVersion && !managed', '...(appVersion'],
