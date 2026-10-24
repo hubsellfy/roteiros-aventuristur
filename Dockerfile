@@ -24,6 +24,9 @@ COPY client/scripts/patch-maplibre.mjs ./client/scripts/
 RUN npm ci --workspace=client
 COPY --from=shared-builder /app/shared/dist ./shared/dist
 COPY client/ ./client/
+# Aventuristur: the commit the bundle is built from, linked in Settings > About (AGPL-3.0 §13).
+ARG APP_COMMIT_SHA=
+ENV APP_COMMIT_SHA=${APP_COMMIT_SHA}
 RUN npm run build --workspace=client
 
 # ── Stage 3: server ──────────────────────────────────────────────────────────
