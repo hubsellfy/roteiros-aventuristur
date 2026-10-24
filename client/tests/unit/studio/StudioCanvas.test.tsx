@@ -34,15 +34,15 @@ describe('StudioCanvas', () => {
     seedStore(useSettingsStore, { settings: buildSettings({ language: 'br' }) })
     mountSelected()
 
-    // The locale bundle is fetched, so the first paint is still English.
+    // The locale bundle is fetched, so the first paint is still English; the assertions wait for it.
     expect(await screen.findByTitle('Duplicar')).toBeInTheDocument()
     expect(screen.getAllByTitle('Girar')).toHaveLength(4)
     expect(screen.getByTitle('Girar à esquerda')).toBeInTheDocument()
     expect(screen.getByTitle('Girar à direita')).toBeInTheDocument()
-    expect(screen.getByTitle('Bring to front')).toBeInTheDocument()
-    expect(screen.getByTitle('Send to back')).toBeInTheDocument()
-    expect(screen.getByTitle('Lock')).toBeInTheDocument()
-    expect(screen.getByTitle('Delete')).toBeInTheDocument()
+    expect(screen.getByTitle('Trazer para a frente')).toBeInTheDocument()
+    expect(screen.getByTitle('Enviar para trás')).toBeInTheDocument()
+    expect(screen.getByTitle('Bloquear')).toBeInTheDocument()
+    expect(screen.getByTitle('Excluir')).toBeInTheDocument()
     expect(screen.queryByTitle('Rotate')).not.toBeInTheDocument()
   })
 
@@ -50,7 +50,7 @@ describe('StudioCanvas', () => {
     seedStore(useSettingsStore, { settings: buildSettings({ language: 'br' }) })
     mountSelected(true)
 
-    expect(await screen.findByTitle('Unlock')).toBeInTheDocument()
+    expect(await screen.findByTitle('Desbloquear')).toBeInTheDocument()
     // A locked element keeps its handles hidden, so nothing rotates it by accident.
     expect(screen.queryByTitle('Girar')).not.toBeInTheDocument()
   })
