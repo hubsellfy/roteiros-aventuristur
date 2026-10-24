@@ -3,7 +3,7 @@ import { avatarSrc } from '../../utils/avatarSrc'
 import { useTripStore } from '../../store/tripStore'
 import { useSettingsStore } from '../../store/settingsStore'
 import { useTranslation } from '../../i18n'
-import { MapPin, Clock, Users, Sparkles } from 'lucide-react'
+import { MapPin, Clock, Users, Sparkles } from '../../icons'
 import EmptyState from '../shared/EmptyState'
 import { localToday } from '../Planner/today'
 

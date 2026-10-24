@@ -1,5 +1,5 @@
 // FE-ADMSTAT-001 to FE-ADMSTAT-003
-import { Users } from 'lucide-react';
+import { Users } from '../../icons';
 import { describe, expect, it } from 'vitest';
 import { render, screen } from '../../../tests/helpers/render';
 import AdminStatCard from './AdminStatCard';

@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState, useCallback } from 'react'
 import { useNavigate } from 'react-router'
-import { Bookmark, BookmarkCheck, Check, CheckCircle2, Loader2, Plus, X } from 'lucide-react'
+import { Bookmark, BookmarkCheck, Check, CheckCircle2, Loader2, Plus, X } from '../../icons'
 import MSheet from '../../mobile/components/MSheet'
 import MIconBtn from '../../mobile/components/MIconBtn'
 import { useToast } from '../shared/Toast'

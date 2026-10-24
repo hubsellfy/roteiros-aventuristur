@@ -8,7 +8,7 @@ import {
   Radio, Luggage, Globe, Image, CalendarDays, Bell, Info, History, PauseCircle,
   Wallet, Puzzle, MapPin, ListChecks, Pencil, Tag, FileText, Route, Navigation, Clock, LocateFixed, Palette, Bot,
   Loader2,
-} from 'lucide-react'
+} from '../../icons'
 import PluginIcon from '../shared/PluginIcon'
 import { adminApi } from '../../api/client'
 import { useInstanceSettings } from './useInstanceSettings'

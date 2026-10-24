@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
-import { Check, ChevronDown, Clock, Crown, Loader2, LogOut, UserPlus, X } from 'lucide-react'
+import { Check, ChevronDown, Clock, Crown, Loader2, LogOut, UserPlus, X } from '../../../icons'
 import type { CollectionMember, CollectionRole } from '@trek/shared'
 import { COLLECTION_ROLES } from '@trek/shared'
 import type { TranslationFn } from '../../../types'

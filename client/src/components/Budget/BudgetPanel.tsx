@@ -1,4 +1,4 @@
-import { Plus, Calculator, Download } from 'lucide-react'
+import { Plus, Calculator, Download } from '../../icons'
 import CustomSelect from '../shared/CustomSelect'
 import { currenciesWith, SYMBOLS } from './BudgetPanel.constants'
 import { useBudgetPanel } from './useBudgetPanel'

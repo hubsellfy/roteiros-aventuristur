@@ -1,4 +1,4 @@
-import { Check, CheckCircle2, Loader2, Tag, Trash2, Bookmark } from 'lucide-react'
+import { Check, CheckCircle2, Loader2, Tag, Trash2, Bookmark } from '../../icons'
 import Tooltip from '../shared/Tooltip'
 import type { SidebarState } from './usePlacesSidebar'
 

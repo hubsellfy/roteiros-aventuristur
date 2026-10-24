@@ -1,6 +1,6 @@
 import {
   X, Check, CheckCheck, Luggage, Package, FolderPlus, Download,
-} from 'lucide-react'
+} from '../../icons'
 import type { PackingState } from './usePackingListPanel'
 
 export function PackingHeader(S: PackingState) {

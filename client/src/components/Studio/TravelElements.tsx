@@ -6,7 +6,7 @@ import type {
 import {
   Camera, CalendarDays, Footprints, Globe, MapPin, Navigation, Route,
   type LucideIcon,
-} from 'lucide-react'
+} from '../../icons'
 import { fontStack } from './bookFonts'
 import { brightness } from './folioColour'
 import { COUNTRY_SHAPES, countryParts, countryWorldPath, projectMercator, unprojectMercator } from './countryShapes'

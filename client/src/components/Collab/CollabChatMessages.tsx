@@ -1,5 +1,5 @@
 import React from 'react'
-import { Trash2, Reply, ChevronUp } from 'lucide-react'
+import { Trash2, Reply, ChevronUp } from '../../icons'
 import { URL_REGEX } from './CollabChat.constants'
 import { formatTime, formatDateSeparator, shouldShowDateSeparator } from './CollabChat.helpers'
 import { MessageText } from './CollabChatMessageText'

@@ -1,4 +1,4 @@
-import { CloudOff, Loader2, RotateCcw } from 'lucide-react'
+import { CloudOff, Loader2, RotateCcw } from '../../icons'
 import { useTranslation } from '../../i18n'
 import type { SharedTripLoadError } from './sharedTripModel'
 

@@ -1,5 +1,5 @@
-import { Cloud, CloudDrizzle, CloudLightning, CloudRain, CloudSnow, Sun, Wind } from 'lucide-react'
-import type { LucideIcon } from 'lucide-react'
+import { Cloud, CloudDrizzle, CloudLightning, CloudRain, CloudSnow, Sun, Wind } from '../../../../icons'
+import type { LucideIcon } from '../../../../icons'
 import {
   TRANSPORT_TYPES, getAssignmentReservations, getDisplayTimeForDay, getSpanPhase, getTransportRouteEndpoints, hidesOnMiddleDay,
   parseTimeToMinutes,

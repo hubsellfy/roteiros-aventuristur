@@ -1,6 +1,6 @@
 import React from 'react'
 import { authApi, notificationsApi } from '../../api/client'
-import { Save } from 'lucide-react'
+import { Save } from '../../icons'
 import type { TranslationFn } from '../../types'
 import type { useAdmin } from './useAdmin'
 import AdminNotificationsPanel from './AdminNotificationsPanel'

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { createPortal } from 'react-dom'
-import { AlertTriangle, Info, AlertCircle } from 'lucide-react'
+import { AlertTriangle, Info, AlertCircle } from '../../icons'
 import { pluginsApi } from '../../api/client'
 import { usePluginStore } from '../../store/pluginStore'
 

@@ -1,9 +1,9 @@
 import { useEffect, useMemo, useState, useCallback } from 'react'
-import type { LucideIcon } from 'lucide-react'
+import type { LucideIcon } from '../../../../icons'
 import {
   Briefcase, Check, CheckCheck, ChevronDown, ChevronUp, HandHelping,
   Download, LayoutTemplate, MoreHorizontal, Package, Pencil, Plus, RotateCcw, Save as SaveIcon, Trash2, UserPlus, UserRound,
-} from 'lucide-react'
+} from '../../../../icons'
 import MDancingTrek from '../../../components/MDancingTrek'
 import { useAuthStore } from '../../../../store/authStore'
 import { useAddonStore } from '../../../../store/addonStore'

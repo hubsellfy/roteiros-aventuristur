@@ -1,4 +1,4 @@
-import { ArrowLeft, ArrowRight } from 'lucide-react'
+import { ArrowLeft, ArrowRight } from '../../../icons'
 import { useTranslation } from '../../../i18n/TranslationContext'
 import { DOCUMENT_PROVIDER_ICONS } from '../../shared/DocumentProviderIcons'
 import TrekIcon from '../../shared/TrekIcon'

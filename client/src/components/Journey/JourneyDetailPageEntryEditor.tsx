@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState, useRef, type SyntheticEvent } from 'react'
 import { localIsoDate } from '../../utils/localDate'
-import { X, Plus, Image, Minus, Check, MapPin, Locate, Camera, Play } from 'lucide-react'
+import { X, Plus, Image, Minus, Check, MapPin, Locate, Camera, Play } from '../../icons'
 import { normalizeImageFiles } from '../../utils/convertHeic'
 import { isVideoFile } from '../../utils/videoPoster'
 import { type ResilientResult, type UploadProgress } from '../../utils/uploadQueue'

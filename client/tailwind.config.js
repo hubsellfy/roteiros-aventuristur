@@ -7,6 +7,8 @@ export default {
   ],
   theme: {
     extend: {
+      // Raios do design system do site da Aventuristur (cards 20px, botões e campos em pílula).
+      borderRadius: { md: '12px', lg: '16px', xl: '20px', '2xl': '24px', '3xl': '28px' },
       colors: {
         primary: {
           50: '#eef6fd',

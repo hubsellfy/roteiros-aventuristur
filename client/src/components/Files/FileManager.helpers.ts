@@ -1,4 +1,4 @@
-import { FileText, FileImage, File, FileVideo, Plane, Train, Car, Ship, Bus, Sailboat, Bike, CarTaxiFront, Route } from 'lucide-react'
+import { FileText, FileImage, File, FileVideo, Plane, Train, Car, Ship, Bus, Sailboat, Bike, CarTaxiFront, Route } from '../../icons'
 import { downloadFile } from '../../utils/fileDownload'
 
 export function isImage(mimeType?: string | null) {

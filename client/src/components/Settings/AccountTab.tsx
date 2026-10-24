@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { User, Save, Lock, KeyRound, AlertTriangle, Shield, Camera, Trash2, Copy, Download, Printer } from 'lucide-react'
+import { User, Save, Lock, KeyRound, AlertTriangle, Shield, Camera, Trash2, Copy, Download, Printer } from '../../icons'
 import { useNavigate, useSearchParams } from 'react-router'
 import { useTranslation } from '../../i18n'
 import { useAuthStore } from '../../store/authStore'

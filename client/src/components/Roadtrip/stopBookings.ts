@@ -1,4 +1,4 @@
-import { Ticket, type LucideIcon } from 'lucide-react'
+import { Ticket, type LucideIcon } from '../../icons'
 import { isCarrierType, isRentalType, isStoredStop } from '@trek/shared/roadtrip'
 import { RES_ICONS } from '../Planner/DayPlanSidebar.constants'
 import { hidesOnMiddleDay } from '../../utils/dayMerge'

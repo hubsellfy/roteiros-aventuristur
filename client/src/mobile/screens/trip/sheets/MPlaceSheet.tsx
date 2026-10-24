@@ -3,7 +3,7 @@ import DawarichIcon from '../../../../components/shared/DawarichIcon'
 import {
   Bookmark, Camera, ChevronRight, ExternalLink, Loader2, Map as MapIcon, Navigation, Paperclip,
   Pencil, Phone, Plus, Route, Trash2, Upload, X,
-} from 'lucide-react'
+} from '../../../../icons'
 import MSheet from '../../../components/MSheet'
 import type { MTripSheetsProps } from '../MTripShell'
 import { useTranslation, translateApiError } from '../../../../i18n'

@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Copy, Check, CalendarPlus, Calendar } from 'lucide-react'
+import { Copy, Check, CalendarPlus, Calendar } from '../../icons'
 
 interface SubscribeLinksProps {
   httpsUrl: string

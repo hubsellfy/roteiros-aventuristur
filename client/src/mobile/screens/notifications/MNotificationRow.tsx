@@ -1,6 +1,6 @@
 import { useState, type HTMLAttributes } from 'react'
 import { useNavigate } from 'react-router'
-import { ArrowRight, Bell, Check, Trash2, X } from 'lucide-react'
+import { ArrowRight, Bell, Check, Trash2, X } from '../../../icons'
 import { useTranslation } from '../../../i18n'
 import { useInAppNotificationStore, InAppNotification } from '../../../store/inAppNotificationStore'
 import MChip from '../../components/MChip'

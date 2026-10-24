@@ -14,7 +14,7 @@ import {
   Upload,
   Users,
   Wallet,
-} from 'lucide-react';
+} from '../../icons';
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from '../../i18n';
 

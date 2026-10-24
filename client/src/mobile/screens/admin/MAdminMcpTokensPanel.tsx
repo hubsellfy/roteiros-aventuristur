@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
-import { Key, Trash2, User, Loader2, Shield } from 'lucide-react'
+import { Key, Trash2, User, Loader2, Shield } from '../../../icons'
 import { adminApi } from '../../../api/client'
 import { useToast } from '../../../components/shared/Toast'
 import { useTranslation } from '../../../i18n'

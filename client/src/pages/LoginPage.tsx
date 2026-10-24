@@ -10,33 +10,13 @@ import {
   Plane,
   Shield,
   User,
-} from 'lucide-react';
+} from '../icons';
 import React from 'react';
 import ToggleSwitch from '../components/Settings/ToggleSwitch';
 import { SUPPORTED_LANGUAGES, useTranslation } from '../i18n';
 import { useLogin } from './login/useLogin';
 import LoginWorld from './login/LoginWorld';
 import { clearSignedOut } from '../utils/signedOut'
-
-/** Fixed so the sky does not reshuffle on every render. */
-const STARFIELD = [
-  { top: 6, left: 12, size: 1, opacity: 0.3, delay: 0 },
-  { top: 11, left: 68, size: 2, opacity: 0.22, delay: 1.4 },
-  { top: 17, left: 34, size: 1, opacity: 0.35, delay: 2.6 },
-  { top: 22, left: 84, size: 1, opacity: 0.25, delay: 0.7 },
-  { top: 28, left: 19, size: 2, opacity: 0.2, delay: 3.1 },
-  { top: 33, left: 57, size: 1, opacity: 0.32, delay: 1.9 },
-  { top: 39, left: 91, size: 1, opacity: 0.24, delay: 2.2 },
-  { top: 46, left: 8, size: 1, opacity: 0.28, delay: 0.4 },
-  { top: 52, left: 73, size: 2, opacity: 0.18, delay: 3.6 },
-  { top: 58, left: 42, size: 1, opacity: 0.3, delay: 1.1 },
-  { top: 64, left: 88, size: 1, opacity: 0.26, delay: 2.9 },
-  { top: 71, left: 26, size: 1, opacity: 0.22, delay: 0.9 },
-  { top: 77, left: 63, size: 1, opacity: 0.3, delay: 3.3 },
-  { top: 83, left: 15, size: 2, opacity: 0.2, delay: 1.7 },
-  { top: 88, left: 79, size: 1, opacity: 0.27, delay: 2.4 },
-  { top: 93, left: 48, size: 1, opacity: 0.23, delay: 0.2 },
-];
 
 export default function LoginPage(): React.ReactElement {
   const { t, language } = useTranslation();
@@ -96,14 +76,14 @@ export default function LoginPage(): React.ReactElement {
 
   const inputBase: React.CSSProperties = {
     width: '100%',
-    padding: '11px 12px 11px 40px',
-    border: '1px solid #e5e7eb',
-    borderRadius: 12,
+    padding: '11px 18px 11px 44px',
+    border: '1px solid #d7dde5',
+    borderRadius: 9999,
     fontSize: 'calc(14px * var(--fs-scale-body, 1))',
     fontFamily: 'inherit',
     outline: 'none',
-    color: '#111827',
-    background: 'white',
+    color: '#1a1a1c',
+    background: '#fcfcfd',
     boxSizing: 'border-box',
     transition: 'border-color 0.15s',
   };
@@ -132,8 +112,6 @@ export default function LoginPage(): React.ReactElement {
               margin: '12px 0 0',
               fontSize: 'calc(clamp(15px, 1.35vw, 21px) * var(--fs-scale-title, 1))',
               color: 'rgba(255,255,255,0.62)',
-              fontFamily: "'MuseoModerno', sans-serif",
-              textTransform: 'lowercase',
               whiteSpace: 'nowrap',
               textShadow: '0 2px 10px rgba(4,8,20,0.6)',
             }}
@@ -323,107 +301,6 @@ export default function LoginPage(): React.ReactElement {
         )}
       </div>
 
-      {/* Left — branding */}
-      <div
-        style={{
-          display: 'none',
-          width: '55%',
-          background: '#070c1a',
-          flexDirection: 'column',
-          justifyContent: 'center',
-          alignItems: 'center',
-          padding: '60px 48px',
-          position: 'relative',
-          overflow: 'hidden',
-        }}
-        className="lg-panel"
-      >
-        <style>{`@media(min-width:1024px){.lg-panel{display:flex!important}}`}</style>
-
-        {/* Aurora — three drifting colour fields. They are the whole background:
-            deep indigo, a cold cyan and a warm violet, blurred past recognition so
-            what is left is the gradient, not the shapes. */}
-        <div className="login-aurora login-aurora-a" />
-        <div className="login-aurora login-aurora-b" />
-        <div className="login-aurora login-aurora-c" />
-
-        {/* Depth: a handful of pinpricks, far enough back to read as distance. */}
-        <div style={{ position: 'absolute', inset: 0, overflow: 'hidden' }}>
-          {STARFIELD.map((s, i) => (
-            <div
-              key={i}
-              className="login-star"
-              style={{
-                position: 'absolute',
-                width: s.size,
-                height: s.size,
-                borderRadius: '50%',
-                background: 'white',
-                opacity: s.opacity,
-                top: `${s.top}%`,
-                left: `${s.left}%`,
-                animationDelay: `${s.delay}s`,
-              }}
-            />
-          ))}
-        </div>
-
-        {/* Coastlines as a dot map, with routes lighting up between cities across
-            it. The geometry is TREK's own Atlas bundle, baked in at build time
-            because this screen is unauthenticated. */}
-        <LoginWorld />
-
-        {/* No max-width: the tagline stays on one line, so the block is allowed to
-            use the whole panel rather than wrapping inside it. */}
-        <div style={{ position: 'relative', zIndex: 1, maxWidth: '100%', textAlign: 'center' }}>
-          {/* Logo. The soft dark halo is what separates it from the dot map behind —
-              wide and low-opacity rather than a hard drop shadow, so it reads as the
-              map dimming around the mark instead of an outline. */}
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 12 }}>
-            <img
-              src="/logo-light.svg"
-              alt="Roteiros Aventuristur"
-              style={{
-                height: 'clamp(58px, 5.2vw, 84px)',
-                filter: 'drop-shadow(0 2px 10px rgba(4,8,20,0.55)) drop-shadow(0 0 34px rgba(4,8,20,0.45))',
-              }}
-            />
-          </div>
-
-          <h2
-            style={{
-              margin: 0,
-              // Scales with the panel so it stays on one line in every language.
-              fontSize: 'calc(clamp(32px, 2.95vw, 46px) * var(--fs-scale-title, 1))',
-              fontWeight: 700,
-              color: 'white',
-              lineHeight: 1.15,
-              letterSpacing: '-0.02em',
-              fontFamily: "'MuseoModerno', sans-serif",
-              textTransform: 'lowercase',
-              whiteSpace: 'nowrap',
-              textShadow: '0 2px 10px rgba(4,8,20,0.55), 0 0 34px rgba(4,8,20,0.5)',
-            }}
-          >
-            {t('login.tagline')}
-          </h2>
-          <p
-            style={{
-              margin: '10px 0 0',
-              // Must never wrap: the panel is a fixed share of the viewport, so the
-              // size follows it and a long translation shrinks instead of breaking.
-              fontSize: 'calc(clamp(11px, 1.05vw, 16px) * var(--fs-scale-subtitle, 1))',
-              whiteSpace: 'nowrap',
-              color: 'rgba(255,255,255,0.62)',
-              lineHeight: 1.7,
-              textShadow: '0 1px 8px rgba(4,8,20,0.6), 0 0 24px rgba(4,8,20,0.45)',
-            }}
-          >
-            {t('login.description')}
-          </p>
-        </div>
-      </div>
-
       {/* Right — form */}
       <div
         style={{
@@ -432,24 +309,21 @@ export default function LoginPage(): React.ReactElement {
           alignItems: 'center',
           justifyContent: 'center',
           padding: '32px 24px',
-          background: '#f9fafb',
+          background: '#f2f5fa',
         }}
       >
         <div style={{ width: '100%', maxWidth: 400 }}>
           {/* Mobile logo */}
           <div
-            style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 6, marginBottom: 36 }}
+            style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 6, marginBottom: 28 }}
             className="mobile-logo"
           >
-            <style>{`@media(min-width:1024px){.mobile-logo{display:none!important}}`}</style>
             <img src="/logo-dark.svg" alt="Roteiros Aventuristur" style={{ height: 48 }} />
             <p
               style={{
                 margin: 0,
                 fontSize: 'calc(16px * var(--fs-scale-subtitle, 1))',
                 color: '#9ca3af',
-                fontFamily: "'MuseoModerno', sans-serif",
-                textTransform: 'lowercase',
                 whiteSpace: 'nowrap',
               }}
             >
@@ -459,11 +333,9 @@ export default function LoginPage(): React.ReactElement {
 
           <div
             style={{
-              background: 'white',
+              background: '#fcfcfd',
               borderRadius: 20,
-              border: '1px solid #e5e7eb',
-              padding: '36px 32px',
-              boxShadow: '0 2px 16px rgba(0,0,0,0.06)',
+              padding: '48px 32px',
             }}
           >
             {oidcOnly ? (
@@ -996,10 +868,10 @@ export default function LoginPage(): React.ReactElement {
                       marginTop: 4,
                       width: '100%',
                       padding: '12px',
-                      background: '#111827',
+                      background: '#0a6fc2',
                       color: 'white',
                       border: 'none',
-                      borderRadius: 12,
+                      borderRadius: 9999,
                       fontSize: 'calc(14px * var(--fs-scale-body, 1))',
                       fontWeight: 700,
                       cursor: isLoading ? 'default' : 'pointer',
@@ -1012,10 +884,10 @@ export default function LoginPage(): React.ReactElement {
                       transition: 'opacity 0.15s',
                     }}
                     onMouseEnter={(e: React.MouseEvent<HTMLButtonElement>) => {
-                      if (!isLoading) e.currentTarget.style.background = '#1f2937';
+                      if (!isLoading) e.currentTarget.style.background = '#074c86';
                     }}
                     onMouseLeave={(e: React.MouseEvent<HTMLButtonElement>) =>
-                      (e.currentTarget.style.background = '#111827')
+                      (e.currentTarget.style.background = '#0a6fc2')
                     }
                   >
                     {isLoading ? (

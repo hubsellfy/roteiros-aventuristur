@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { categoriesApi } from '../../api/client'
 import { useToast } from '../shared/Toast'
-import { Plus, Edit2, Trash2, Pipette } from 'lucide-react'
+import { Plus, Edit2, Trash2, Pipette } from '../../icons'
 import { CATEGORY_ICON_MAP, ICON_LABELS, getCategoryIcon } from '../shared/categoryIcons'
 import { useTranslation } from '../../i18n'
 import { getApiErrorMessage } from '../../types'

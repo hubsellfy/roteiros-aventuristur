@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react'
-import { Camera, Loader2, X } from 'lucide-react'
+import { Camera, Loader2, X } from '../../icons'
 import PlaceAvatar from './PlaceAvatar'
 import { Tooltip } from './Tooltip'
 import { normalizeImageFile } from '../../utils/convertHeic'

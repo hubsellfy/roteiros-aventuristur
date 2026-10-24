@@ -7,7 +7,7 @@ import { useToast } from '../../../components/shared/Toast'
 import {
   Puzzle, ListChecks, Wallet, FileText, CalendarDays, Globe, Briefcase, Image, Terminal, Link2, Compass, BookOpen,
   MessageCircle, StickyNote, BarChart3, Sparkles, Luggage, Plane, Server, Cloud, Bookmark, Check, Loader2,
-} from 'lucide-react'
+} from '../../../icons'
 import DawarichIcon from '../../../components/shared/DawarichIcon'
 import AirTrailIcon from '../../../components/shared/AirTrailIcon'
 import { DOCUMENT_PROVIDER_ICONS } from '../../../components/shared/DocumentProviderIcons'

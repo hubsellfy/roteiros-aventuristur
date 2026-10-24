@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router'
-import { Lock } from 'lucide-react'
+import { Lock } from '../../icons'
 import { useTranslation } from '../../i18n'
 import { notificationsApi, settingsApi } from '../../api/client'
 import { useToast } from '../shared/Toast'

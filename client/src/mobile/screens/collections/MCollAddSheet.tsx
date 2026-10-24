@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Check, Loader2, MapPin, Search, X } from 'lucide-react'
+import { Check, Loader2, MapPin, Search, X } from '../../../icons'
 import type { CollectionStatus } from '@trek/shared'
 import type { Category, TranslationFn } from '../../../types'
 import { mapsApi } from '../../../api/client'

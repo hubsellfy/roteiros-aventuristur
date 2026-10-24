@@ -1,4 +1,4 @@
-import { ExternalLink, FileText } from 'lucide-react'
+import { ExternalLink, FileText } from '../../icons'
 import { isHttpUrl, linkHost } from './sharedTripModel'
 
 /**

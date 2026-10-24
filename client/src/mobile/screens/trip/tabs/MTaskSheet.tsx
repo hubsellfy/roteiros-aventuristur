@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { Check, Flag, Plus, User } from 'lucide-react'
+import { Check, Flag, Plus, User } from '../../../../icons'
 import type { TodoCreateItemRequest, TodoUpdateItemRequest } from '@trek/shared'
 import MSheet from '../../../components/MSheet'
 import { CustomDatePicker } from '../../../../components/shared/CustomDateTimePicker'

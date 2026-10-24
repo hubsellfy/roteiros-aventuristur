@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react'
-import { Check, FileDown } from 'lucide-react'
+import { Check, FileDown } from '../../../../icons'
 import { placesApi } from '../../../../api/client'
 import { Eyebrow, FormSheetFooter } from './PlSheetChrome'
 import type { TripPlanner } from '../MTripShell'

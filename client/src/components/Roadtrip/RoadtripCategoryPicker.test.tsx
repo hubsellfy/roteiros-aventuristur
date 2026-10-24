@@ -1,6 +1,6 @@
 import React from 'react'
 import { describe, it, expect, vi } from 'vitest'
-import { Fuel, Zap, Utensils } from 'lucide-react'
+import { Fuel, Zap, Utensils } from '../../icons'
 import { fireEvent, render, screen, within } from '../../../tests/helpers/render'
 import RoadtripCategoryPicker from './RoadtripCategoryPicker'
 

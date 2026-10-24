@@ -84,6 +84,8 @@ function serialize(node: unknown): string {
   const props = (element.props ?? {}) as ElementProps
 
   if (typeof type === 'string') {
+    const raw = (props.dangerouslySetInnerHTML as { __html?: string } | undefined)?.__html
+    if (typeof raw === 'string') return `<${type}${serializeProps(props)}>${raw}</${type}>`
     return `<${type}${serializeProps(props)}>${serialize(props.children)}</${type}>`
   }
   if (typeof type === 'object' && type !== null && (type as ForwardRefComponent).$$typeof === FORWARD_REF) {

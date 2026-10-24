@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react'
-import { ChevronDown, ChevronUp } from 'lucide-react'
+import { ChevronDown, ChevronUp } from '../../../../icons'
 import type { ReservationTraveler } from '@trek/shared'
 import { avatarSrc } from '../../../../utils/avatarSrc'
 import GuestBadge from '../../../../components/shared/GuestBadge'

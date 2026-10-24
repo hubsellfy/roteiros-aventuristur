@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react'
-import { RefreshCw, ClipboardList } from 'lucide-react'
+import { RefreshCw, ClipboardList } from '../../../icons'
 import { adminApi } from '../../../api/client'
 import { useTranslation } from '../../../i18n'
 import { MAdminButton } from './MAdminUi'

@@ -1,4 +1,4 @@
-import { Calendar, Camera, Check, ChevronRight, Play, X } from 'lucide-react';
+import { Calendar, Camera, Check, ChevronRight, Play, X } from '../../icons';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { memoriesApi } from '../../api/client';
 import { useTranslation } from '../../i18n';

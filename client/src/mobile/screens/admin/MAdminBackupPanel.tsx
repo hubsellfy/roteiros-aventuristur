@@ -9,7 +9,7 @@ import {
   RotateCcw,
   Trash2,
   Upload,
-} from 'lucide-react'
+} from '../../../icons'
 import { backupApi } from '../../../api/client'
 import { useToast } from '../../../components/shared/Toast'
 import { useTranslation } from '../../../i18n'

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { ChevronDown, ChevronRight } from 'lucide-react'
+import { ChevronDown, ChevronRight } from '../../icons'
 import type { DawarichSuggestion, DawarichSuggestionTarget } from '@trek/shared'
 import { useTranslation } from '../../i18n'
 import DawarichIcon from '../shared/DawarichIcon'

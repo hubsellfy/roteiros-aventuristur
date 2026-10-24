@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react'
-import { Sparkles, Save, ChevronDown } from 'lucide-react'
+import { Sparkles, Save, ChevronDown } from '../../../icons'
 import { useTranslation } from '../../../i18n'
 import { useToast } from '../../../components/shared/Toast'
 import { useSettingsStore } from '../../../store/settingsStore'

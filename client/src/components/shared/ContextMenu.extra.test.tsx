@@ -1,6 +1,6 @@
 // FE-W4CTX-001 to FE-W4CTX-010
 import { describe, it, expect, vi, afterEach } from 'vitest'
-import { Trash2 } from 'lucide-react'
+import { Trash2 } from '../../icons'
 import { renderHook, act } from '@testing-library/react'
 import { render, screen, fireEvent } from '../../../tests/helpers/render'
 import { ContextMenu, useContextMenu } from './ContextMenu'

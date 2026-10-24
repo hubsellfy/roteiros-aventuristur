@@ -1,6 +1,6 @@
-import * as LucideIcons from 'lucide-react'
+import * as LucideIcons from '../../icons'
 import { resolvePluginIcon } from '../shared/PluginIcon'
-import type { LucideIcon } from 'lucide-react'
+import type { LucideIcon } from '../../icons'
 
 /**
  * Every drawing in lucide, as a list a picker can show.

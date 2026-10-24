@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react'
-import { Car, Fuel, Zap } from 'lucide-react'
+import { Car, Fuel, Zap } from '../../../../icons'
 import MSheet from '../../../components/MSheet'
 import MToggle from '../../../components/MToggle'
 import type { MTripSheetsProps } from '../MTripShell'

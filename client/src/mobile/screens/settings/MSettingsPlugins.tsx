@@ -6,7 +6,7 @@
  * booleans, a picker sheet for selects and an MConfirmSheet for danger actions.
  */
 import { Fragment, useEffect, useState } from 'react'
-import { Save, Loader2, Link2, Unlink, CheckCircle, ChevronDown, History, RefreshCw } from 'lucide-react'
+import { Save, Loader2, Link2, Unlink, CheckCircle, ChevronDown, History, RefreshCw } from '../../../icons'
 import { resolvePluginIcon } from '../../../components/shared/PluginIcon'
 import PluginFrame from '../../../components/Plugins/PluginFrame'
 import { pluginsApi, type PluginUserSettingField, type PluginAction } from '../../../api/client'

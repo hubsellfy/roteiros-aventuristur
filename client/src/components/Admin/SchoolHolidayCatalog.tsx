@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Plus, Trash2 } from 'lucide-react'
+import { Plus, Trash2 } from '../../icons'
 import { useTranslation } from '../../i18n'
 import { useSchoolHolidayCatalog } from './useSchoolHolidayCatalog'
 import SchoolHolidayRegionEditor, { holidayButtonClass, holidayInputClass } from './SchoolHolidayRegionEditor'

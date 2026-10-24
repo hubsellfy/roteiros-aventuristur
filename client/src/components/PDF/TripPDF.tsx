@@ -1,7 +1,7 @@
 // Trip PDF via browser print window
 import { createElement } from 'react'
 import { getCategoryIcon } from '../shared/categoryIcons'
-import { FileText, Info, Clock, MapPin, Navigation, Train, Plane, Bus, Car, Ship, Sailboat, Bike, CarTaxiFront, Route, Coffee, Ticket, Star, Heart, Camera, Flag, Lightbulb, AlertTriangle, ShoppingBag, Bookmark, Hotel, LogIn, LogOut, KeyRound, BedDouble, Utensils, Users, ParkingSquare, LucideIcon } from 'lucide-react'
+import { FileText, Info, Clock, MapPin, Navigation, Train, Plane, Bus, Car, Ship, Sailboat, Bike, CarTaxiFront, Route, Coffee, Ticket, Star, Heart, Camera, Flag, Lightbulb, AlertTriangle, ShoppingBag, Bookmark, Hotel, LogIn, LogOut, KeyRound, BedDouble, Utensils, Users, ParkingSquare, LucideIcon } from '../../icons'
 import { accommodationsApi, mapsApi, pluginsApi } from '../../api/client'
 import type { Trip, Day, Place, Category, AssignmentsMap, DayNote, DistanceUnit } from '../../types'
 import { isDayInAccommodationRange, getDayOrder } from '../../utils/dayOrder'

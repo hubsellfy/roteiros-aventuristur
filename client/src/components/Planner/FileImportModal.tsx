@@ -1,7 +1,7 @@
 import React from 'react'
 import { createPortal } from 'react-dom'
 import { useState, useRef, useEffect } from 'react'
-import { Upload } from 'lucide-react'
+import { Upload } from '../../icons'
 import { useTranslation } from '../../i18n'
 import { useToast } from '../shared/Toast'
 import { placesApi } from '../../api/client'

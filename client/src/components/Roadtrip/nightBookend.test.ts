@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { BedDouble } from 'lucide-react'
+import { BedDouble } from '../../icons'
 import { BOOKEND_DISC, BOOKEND_ICON, bookendBadge, bookendBooking, leavesAfterCheckOut, staysAtTheirPlaces } from './nightBookend'
 import type { BookendReading } from './roadtripRowModel'
 import { serviceColor } from './roadtripModel'

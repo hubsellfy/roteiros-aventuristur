@@ -1,0 +1,93 @@
+/* ============================================================================
+   Design system da Aventuristur aplicado ao app (mesmas cores, raios e regras do site):
+   cards sem sombra e com borda fina, botões e campos em pílula, azul da marca como ação
+   principal. Fica por último e usa `html` na frente dos seletores para vencer as folhas
+   das telas (dashboard.css etc.), que carregam depois. Valores vêm de site/src/styles/variables.css.
+   ============================================================================ */
+
+/* ── Sem sombra nos cards ─────────────────────────────────────────────────
+   Mantém anéis de foco/seleção (box-shadow "0 0 0 …") e as camadas flutuantes
+   (diálogos, menus, tooltips), que precisam se destacar do que está atrás. */
+html :is(.shadow, .shadow-sm, .shadow-md, .shadow-lg, .shadow-xl, .shadow-2xl):not([role="dialog"]):not([role="menu"]):not([role="listbox"]):not([role="tooltip"]) {
+  box-shadow: none !important;
+}
+html [style*="box-shadow"]:not([style*="0 0 0 "]):not([role="dialog"]):not([role="menu"]):not([role="listbox"]):not([role="tooltip"]):not([aria-modal="true"]) {
+  box-shadow: none !important;
+}
+html [style*="box-shadow"]:not([style*="0 0 0 "]):is(div, section, article, li)[style*="border-radius"] {
+  border: 1px solid var(--border-primary);
+}
+
+/* ── Painel inicial (.trek-dash) ───────────────────────────────────────── */
+html .trek-dash {
+  --bg: #f2f5fa;
+  --bg-2: #eceff4;
+  --surface: #fcfcfd;
+  --surface-2: #f9fafb;
+  --ink: #1a1a1c;
+  --ink-2: #4b5360;
+  --ink-3: #7b8494;
+  --line: #dfe4eb;
+  --line-2: #d7dde5;
+  --sh-xs: none;
+  --sh-sm: none;
+  --sh-md: none;
+  --sh-lg: none;
+  --sh-xl: none;
+  --r-xs: 12px;
+  --r-sm: 16px;
+  --r-md: 20px;
+  --r-lg: 20px;
+  --r-xl: 24px;
+  --r-2xl: 28px;
+  --glass-bg: #fcfcfd;
+  --glass-border: #dfe4eb;
+  --glass-shadow: none;
+  --glass-shadow-hover: none;
+  --glass-highlight: none;
+  --glass-blur: none;
+  font-family: var(--font-system);
+  font-feature-settings: normal;
+  letter-spacing: 0;
+}
+html.dark .trek-dash {
+  --bg: #181d26;
+  --bg-2: #1f252f;
+  --surface: #0f1217;
+  --surface-2: #13171e;
+  --ink: #fcfcfc;
+  --ink-2: #c4cad4;
+  --ink-3: #8b94a3;
+  --line: #2a333e;
+  --line-2: #303b49;
+  --glass-bg: #0f1217;
+  --glass-border: #2a333e;
+}
+html .trek-dash .atlas-card { border: 1px solid var(--line); }
+html .trek-dash .atlas-card.passport {
+  background: linear-gradient(135deg, #0a6fc2 0%, #074c86 100%);
+  border: none;
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+html .trek-dash .atlas-card.passport .value .unit { color: oklch(1 0 0 / .75); }
+html .trek-dash .btn-primary,
+html .trek-dash .fab-new-trip {
+  background: var(--accent);
+  color: var(--accent-text);
+  border-radius: 9999px;
+  box-shadow: none;
+}
+html .trek-dash .btn-primary:hover,
+html .trek-dash .fab-new-trip:hover { background: var(--accent-hover); }
+html .trek-dash .btn-secondary { border: 1px solid var(--line-2); border-radius: 9999px; box-shadow: none; }
+html .trek-dash .fx-swap,
+html .trek-dash .add-trip-card .circ { background: var(--accent); color: var(--accent-text); box-shadow: none; }
+html.dark .trek-dash .add-trip-card .circ { background: var(--accent); color: var(--accent-text); }
+html .trek-dash .seg { border-radius: 9999px; }
+html .trek-dash .seg button { border-radius: 9999px; }
+html .trek-dash .seg button.on { box-shadow: none; border: 1px solid var(--line); }
+
+/* ── Campos e botões de formulário ────────────────────────────────────── */
+html select.form-input { padding-right: 36px; }

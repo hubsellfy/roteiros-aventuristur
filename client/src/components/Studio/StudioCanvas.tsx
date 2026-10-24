@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { ChevronsDown, ChevronsUp, Copy, Lock, RotateCcw, RotateCw, Trash2, Unlock } from 'lucide-react'
+import { ChevronsDown, ChevronsUp, Copy, Lock, RotateCcw, RotateCw, Trash2, Unlock } from '../../icons'
 import type { BookElement, BookPageSetup, BookSpread } from '@trek/shared'
 import { SpreadFold, SpreadView } from './SpreadView'
 import { PeerCursors } from './PeerCursors'

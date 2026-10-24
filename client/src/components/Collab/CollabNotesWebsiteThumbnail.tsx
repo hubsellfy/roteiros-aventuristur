@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { ExternalLink } from 'lucide-react'
+import { ExternalLink } from '../../icons'
 import { collabApi } from '../../api/client'
 import { safeExternalHref } from '../../utils/safeUrl'
 

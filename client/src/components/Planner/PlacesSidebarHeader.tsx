@@ -1,4 +1,4 @@
-import { Search, Plus, X, Upload, FileDown, ChevronDown, Check, MapPin, Star, CalendarPlus, CalendarDays } from 'lucide-react'
+import { Search, Plus, X, Upload, FileDown, ChevronDown, Check, MapPin, Star, CalendarPlus, CalendarDays } from '../../icons'
 import { getCategoryIcon } from '../shared/categoryIcons'
 import Tooltip from '../shared/Tooltip'
 import CustomSelect from '../shared/CustomSelect'

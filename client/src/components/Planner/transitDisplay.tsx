@@ -1,5 +1,5 @@
 import React from 'react'
-import { Footprints, MoveRight, type LucideIcon } from 'lucide-react'
+import { Footprints, MoveRight, type LucideIcon } from '../../icons'
 
 /**
  * Shared display bits for public-transit entries (#1065) — the timeline row,

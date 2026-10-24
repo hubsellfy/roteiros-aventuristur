@@ -2,7 +2,7 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import {
   Camera, Check, ChevronDown, ChevronUp, Compass, Copy, FileDown, Files, ImageIcon, LayoutTemplate,
   Plus, Search, Shapes, Trash2, Upload, X,
-} from 'lucide-react'
+} from '../../icons'
 import type { BookElement, BookPageSetup, JourneyStats } from '@trek/shared'
 import { useElementSize } from '../../hooks/useElementSize'
 import { useStudioStore } from '../../store/studioStore'

@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useState, useCallback } from 'react'
 import { useNavigate } from 'react-router'
-import { Bookmark, BookmarkCheck, Check, CheckCircle2, Loader2, Plus } from 'lucide-react'
+import { Bookmark, BookmarkCheck, Check, CheckCircle2, Loader2, Plus } from '../../icons'
 import Modal from '../shared/Modal'
 import { useToast } from '../shared/Toast'
 import { useTranslation } from '../../i18n'

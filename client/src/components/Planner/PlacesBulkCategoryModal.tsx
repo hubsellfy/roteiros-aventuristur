@@ -1,5 +1,5 @@
 import { createPortal } from 'react-dom'
-import { X, MapPin } from 'lucide-react'
+import { X, MapPin } from '../../icons'
 import { getCategoryIcon } from '../shared/categoryIcons'
 import { useTranslation } from '../../i18n'
 import type { Category } from '../../types'

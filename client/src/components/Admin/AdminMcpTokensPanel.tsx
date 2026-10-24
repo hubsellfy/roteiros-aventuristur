@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { adminApi } from '../../api/client'
 import { useToast } from '../shared/Toast'
-import { Key, Trash2, User, Loader2, Shield } from 'lucide-react'
+import { Key, Trash2, User, Loader2, Shield } from '../../icons'
 import { useTranslation } from '../../i18n'
 
 interface AdminOAuthSession {

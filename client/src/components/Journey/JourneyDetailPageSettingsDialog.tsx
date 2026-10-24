@@ -1,6 +1,6 @@
 import { useState, useRef } from 'react'
 import { useNavigate } from 'react-router'
-import { X, ImagePlus, Plus, Trash2, UserPlus, Archive, ArchiveRestore, Undo2 } from 'lucide-react'
+import { X, ImagePlus, Plus, Trash2, UserPlus, Archive, ArchiveRestore, Undo2 } from '../../icons'
 import { useJourneyStore } from '../../store/journeyStore'
 import { useTranslation } from '../../i18n'
 import { journeyApi } from '../../api/client'

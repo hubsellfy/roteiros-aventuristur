@@ -1,6 +1,6 @@
 import React from 'react';
-import * as LucideIcons from 'lucide-react';
-import { ArrowLeftRight, Car, Landmark, Search, Sparkles } from 'lucide-react';
+import * as LucideIcons from '../../icons';
+import { ArrowLeftRight, Car, Landmark, Search, Sparkles } from '../../icons';
 import DawarichIcon from '../shared/DawarichIcon';
 import { NextcloudIcon, OpenCloudIcon, PaperlessIcon, PapraIcon, SynologyDriveIcon } from '../shared/DocumentProviderIcons';
 import TrekMark from '../shared/TrekMark';

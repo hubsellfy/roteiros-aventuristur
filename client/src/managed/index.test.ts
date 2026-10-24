@@ -7,7 +7,7 @@
  * repository carries none of them.
  */
 import { describe, it, expect } from 'vitest'
-import { Briefcase } from 'lucide-react'
+import { Briefcase } from '../icons'
 import {
   managedAdminTabs,
   managedNavItems,

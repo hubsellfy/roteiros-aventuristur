@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest'
 import { createElement } from 'react'
 import { renderToStaticMarkup } from 'react-dom/server'
-import * as lucide from 'lucide-react'
+import * as lucide from '../icons'
 import { renderIconMarkup } from './iconMarkup'
 
 /**
@@ -32,7 +32,7 @@ const PROP_SHAPES: Record<string, unknown>[] = [
 describe('renderIconMarkup parity with react-dom/server', () => {
   it('FE-UTIL-ICONMARKUP-001: the icon set is actually found', () => {
     // Guards against a lucide restructure silently turning this suite into a no-op.
-    expect(ICONS.length).toBeGreaterThan(1000)
+    expect(ICONS.length).toBeGreaterThan(300)
   })
 
   it('FE-UTIL-ICONMARKUP-002: every exported icon serializes byte-identically', () => {

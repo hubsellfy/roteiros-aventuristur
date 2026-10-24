@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Link, List, Grid, MapPin, Check } from 'lucide-react'
+import { Link, List, Grid, MapPin, Check } from '../../icons'
 import { journeyApi } from '../../api/client'
 import { useTranslation } from '../../i18n'
 import { useToast } from '../shared/Toast'

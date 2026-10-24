@@ -7,7 +7,7 @@ import VacayPersons from '../components/Vacay/VacayPersons'
 import VacaySharedCalendars from '../components/Vacay/VacaySharedCalendars'
 import VacayStats from '../components/Vacay/VacayStats'
 import VacaySettings from '../components/Vacay/VacaySettings'
-import { Plus, Minus, ChevronLeft, ChevronRight, Settings, CalendarDays, AlertTriangle, Eye, Pencil, Trash2, Unlink, ShieldCheck, SlidersHorizontal } from 'lucide-react'
+import { Plus, Minus, ChevronLeft, ChevronRight, Settings, CalendarDays, AlertTriangle, Eye, Pencil, Trash2, Unlink, ShieldCheck, SlidersHorizontal } from '../icons'
 import Modal from '../components/shared/Modal'
 import { useVacay } from './vacay/useVacay'
 

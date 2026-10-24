@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { createPortal } from 'react-dom'
-import { Star } from 'lucide-react'
+import { Star } from '../../icons'
 import { avatarSrc } from '../../utils/avatarSrc'
 import { useAuthStore } from '../../store/authStore'
 import { useTranslation } from '../../i18n'

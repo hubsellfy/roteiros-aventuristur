@@ -1,6 +1,6 @@
 import { createPortal } from 'react-dom'
 import { useState, useEffect } from 'react'
-import { X, ExternalLink, Loader2 } from 'lucide-react'
+import { X, ExternalLink, Loader2 } from '../../icons'
 import { getAuthUrl } from '../../api/authUrl'
 import { openFile } from '../../utils/fileDownload'
 import type { NoteFile } from './CollabNotes.types'

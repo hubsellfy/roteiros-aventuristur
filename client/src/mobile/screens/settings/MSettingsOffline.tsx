@@ -8,7 +8,7 @@
  * markup differs between the two shells.
  */
 import { useState } from 'react'
-import { RefreshCw, Trash2, Database, CloudOff, Download, Check, GitMerge, Map as MapIcon, AlertTriangle } from 'lucide-react'
+import { RefreshCw, Trash2, Database, CloudOff, Download, Check, GitMerge, Map as MapIcon, AlertTriangle } from '../../../icons'
 import { useOfflineSettings, offlineNoticeKey, isOfflineNoticeWarning } from '../../../components/Settings/useOfflineSettings'
 import { useTranslation } from '../../../i18n'
 import type { ConflictStrategy } from '../../../sync/offlinePrefs'

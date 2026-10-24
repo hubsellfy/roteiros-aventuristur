@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react'
-import type { LucideIcon } from 'lucide-react'
+import type { LucideIcon } from '../../../icons'
 
 /**
  * Shared building blocks of the mobile settings screen, all straight from the

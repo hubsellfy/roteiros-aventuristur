@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { MAP_CONTROL_SHADOW } from './mapControlShadow'
-import { Navigation, LocateFixed, Locate } from 'lucide-react'
+import { Navigation, LocateFixed, Locate } from '../../icons'
 import type { TrackingMode, GeoWatchErrorCode } from '../../hooks/useGeolocation'
 import { useTranslation } from '../../i18n'
 import { useToast } from '../shared/Toast'

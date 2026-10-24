@@ -1,5 +1,5 @@
-import { Building2, ChevronLeft, ChevronRight, Eye, Minus, PenLine, Pencil, Plus, Settings2, Share2, ShieldCheck, Trash2, Unlink, UserPlus } from 'lucide-react'
-import type { LucideIcon } from 'lucide-react'
+import { Building2, ChevronLeft, ChevronRight, Eye, Minus, PenLine, Pencil, Plus, Settings2, Share2, ShieldCheck, Trash2, Unlink, UserPlus } from '../../../icons'
+import type { LucideIcon } from '../../../icons'
 import MSheet from '../../components/MSheet'
 import MIconBtn from '../../components/MIconBtn'
 import MProgress from '../../components/MProgress'

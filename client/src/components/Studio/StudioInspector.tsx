@@ -2,7 +2,7 @@ import type { BookElement, BookPageNumbers, BookPageSetup, BookShapeId, JourneyS
 import {
   AlignCenter, AlignJustify, AlignLeft, AlignRight, ArrowDown, ArrowUp,
   ChevronsDown, ChevronsUp, Copy, Italic, Lock, Trash2, Unlock,
-} from 'lucide-react'
+} from '../../icons'
 import { useMemo, useRef, useState } from 'react'
 import { useStudioStore } from '../../store/studioStore'
 import { photoSrc } from './bookRender'

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { ChevronDown, ChevronRight } from 'lucide-react'
+import { ChevronDown, ChevronRight } from '../../icons'
 import { getScopesByGroup } from '../../api/oauthScopes'
 import { useTranslation } from '../../i18n'
 

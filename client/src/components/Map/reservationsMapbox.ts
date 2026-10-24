@@ -9,7 +9,7 @@
 import { createElement } from 'react'
 import { renderIconMarkup } from '../../utils/iconMarkup'
 import type mapboxgl from 'mapbox-gl'
-import { Plane, Train, Ship, Car, Bus, Sailboat, Bike, CarTaxiFront, Route, TramFront } from 'lucide-react'
+import { Plane, Train, Ship, Car, Bus, Sailboat, Bike, CarTaxiFront, Route, TramFront } from '../../icons'
 import { getTransitMapSegments } from './transitGeometry'
 import { geodesicArcs } from './flightGeodesy'
 import { cleanEndpointName } from './reservationName'

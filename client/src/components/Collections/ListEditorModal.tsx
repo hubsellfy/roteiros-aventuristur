@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { ImagePlus, Link2, Plus, Trash2, Search, Loader2 } from 'lucide-react'
+import { ImagePlus, Link2, Plus, Trash2, Search, Loader2 } from '../../icons'
 import Modal from '../shared/Modal'
 import { useCollectionStore } from '../../store/collectionStore'
 import { useToast } from '../shared/Toast'

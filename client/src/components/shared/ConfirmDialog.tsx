@@ -1,6 +1,6 @@
 import React, { useEffect, useCallback, type ReactNode } from 'react'
 import { createPortal } from 'react-dom'
-import { AlertTriangle } from 'lucide-react'
+import { AlertTriangle } from '../../icons'
 import { useTranslation } from '../../i18n'
 
 interface ConfirmDialogProps {

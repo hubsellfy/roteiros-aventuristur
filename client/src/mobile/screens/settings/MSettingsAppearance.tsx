@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { Eye, LayoutDashboard, Paintbrush, RotateCcw, Smartphone } from 'lucide-react'
+import { Eye, LayoutDashboard, Paintbrush, RotateCcw, Smartphone } from '../../../icons'
 import { useTranslation } from '../../../i18n'
 import { useSettingsStore } from '../../../store/settingsStore'
 import { useToast } from '../../../components/shared/Toast'

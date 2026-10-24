@@ -6,7 +6,7 @@ import {
   CarFront, Footprints, Bike, Zap, AlertTriangle,
   ParkingSquare, Shuffle, Fuel, Clock, Spline, Ban, Plus, RotateCcw, X, BatteryCharging, Moon, Milestone,
   type LucideIcon,
-} from 'lucide-react'
+} from '../../icons'
 import MDancingTrek from '../../mobile/components/MDancingTrek'
 import type { RefuelSearch } from './useRefuelSearch'
 import { REFUEL_EMPTY_KEY, REFUEL_WORDS, refuelBandState, type RefuelCandidate } from './refuelSuggestion'

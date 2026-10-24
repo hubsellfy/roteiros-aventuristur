@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react'
-import { ArrowLeft, Calendar, Check, ChevronRight, Loader2, MapPin, Map as MapIcon, Search, Sparkles } from 'lucide-react'
+import { ArrowLeft, Calendar, Check, ChevronRight, Loader2, MapPin, Map as MapIcon, Search, Sparkles } from '../../icons'
 import Modal from '../shared/Modal'
 import { tripsApi } from '../../api/client'
 import { collectionsApi } from '../../api/collections'

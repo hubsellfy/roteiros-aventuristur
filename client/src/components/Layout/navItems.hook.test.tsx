@@ -1,6 +1,6 @@
 // FE-W4NAVH-001 to FE-W4NAVH-005
 import { describe, it, expect, beforeEach } from 'vitest'
-import { CalendarDays, Globe, LayoutGrid } from 'lucide-react'
+import { CalendarDays, Globe, LayoutGrid } from '../../icons'
 import { renderHook } from '@testing-library/react'
 import { TranslationProvider } from '../../i18n/TranslationContext'
 import { useAddonStore } from '../../store/addonStore'

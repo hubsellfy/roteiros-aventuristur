@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
-import { AlertTriangle, ArrowRight, Minus, Plus } from 'lucide-react'
+import { AlertTriangle, ArrowRight, Minus, Plus } from '../../../../icons'
 import MSheet from '../../../components/MSheet'
 import MChip from '../../../components/MChip'
 import type { MTripSheetsProps } from '../MTripShell'

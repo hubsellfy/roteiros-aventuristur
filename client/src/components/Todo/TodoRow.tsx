@@ -1,4 +1,4 @@
-import { CheckSquare, Square, ChevronRight, Flag, Calendar, GripVertical, UserRound } from 'lucide-react'
+import { CheckSquare, Square, ChevronRight, Flag, Calendar, GripVertical, UserRound } from '../../icons'
 import { avatarSrc } from '../../utils/avatarSrc'
 import type { TodoItem } from '../../types'
 import { katColor, PRIO_CONFIG, type Member } from './todoListModel'

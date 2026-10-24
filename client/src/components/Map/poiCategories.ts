@@ -1,4 +1,4 @@
-import { Utensils, Coffee, Wine, BedDouble, Camera, Landmark, Trees, Ticket, Fuel, Zap, ParkingSquare, Tent, type LucideIcon } from 'lucide-react'
+import { Utensils, Coffee, Wine, BedDouble, Camera, Landmark, Trees, Ticket, Fuel, Zap, ParkingSquare, Tent, type LucideIcon } from '../../icons'
 // The road-trip kinds take their colour from the one place that defines it, so the
 // search result, the map pin and the road-trip rail cannot drift apart.
 import { SERVICE_COLORS } from '../Roadtrip/roadtripModel'
