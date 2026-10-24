@@ -46,7 +46,7 @@ cliente foi publicado como parte desta etapa.
 | --- | --- | --- |
 | Backup externo | Definir e criar um destino privado compatível com S3 fora da VPS principal, sob contrato de tratamento de dados; criar credencial limitada ao bucket de backup. Um storage separado na própria VPS pode isolar o projeto, mas não substitui essa cópia externa. | Variáveis do serviço no Easypanel ou GitHub Actions Secrets. |
 | Open-Meteo | Aprovar a assinatura comercial e gerar a chave da API comercial. | Variáveis do serviço no Easypanel ou GitHub Actions Secrets. |
-| Chave de criptografia | Gerar uma única vez depois de confirmar o formato exigido pela base `v4.3.4`; guardar uma cópia fora da VPS. | Variável do serviço no Easypanel e cofre seguro do dono. |
+| Chave de criptografia | Gerar uma única chave aleatória de 32 bytes em hexadecimal (64 caracteres) e guardar uma cópia fora da VPS. O formato foi confirmado na base `v4.3.4`. | Variável do serviço no Easypanel e cofre seguro do dono. |
 
 ## Regras de segurança desta etapa
 
