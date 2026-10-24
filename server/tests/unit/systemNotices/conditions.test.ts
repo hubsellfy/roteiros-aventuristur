@@ -1,5 +1,5 @@
-import { describe, it, expect } from 'vitest';
-import { evaluate } from '../../../src/systemNotices/conditions.js';
+import { describe, it, expect, vi } from 'vitest';
+import { evaluate, registerPredicate } from '../../../src/systemNotices/conditions.js';
 import type { NoticeCondition, SystemNotice } from '../../../src/systemNotices/types.js';
 
 const baseNotice: SystemNotice = {
@@ -128,5 +128,33 @@ describe('managed', () => {
     expect(evaluate(wantsSelfRun, { ...baseCtx, managed: true })).toBe(false);
     expect(evaluate(wantsManaged, { ...baseCtx, managed: true })).toBe(true);
     expect(evaluate(wantsManaged, { ...baseCtx, managed: false })).toBe(false);
+  });
+});
+
+describe('always, noTrips and custom', () => {
+  it('always passes', () => {
+    expect(evaluate(noticeWith({ kind: 'always' }), baseCtx)).toBe(true);
+  });
+
+  it('noTrips passes only for a user without trips', () => {
+    const notice = noticeWith({ kind: 'noTrips' });
+    expect(evaluate(notice, { ...baseCtx, user: { ...baseCtx.user, noTrips: 0 } })).toBe(true);
+    expect(evaluate(notice, baseCtx)).toBe(false);
+  });
+
+  it('custom runs the registered predicate and refuses an unknown one', () => {
+    registerPredicate('fork-test-predicate', (ctx) => ctx.user.role === 'admin');
+    const notice = noticeWith({ kind: 'custom', id: 'fork-test-predicate' } as NoticeCondition);
+    expect(evaluate(notice, { ...baseCtx, user: { ...baseCtx.user, role: 'admin' } })).toBe(true);
+    expect(evaluate(notice, baseCtx)).toBe(false);
+
+    const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    expect(evaluate(noticeWith({ kind: 'custom', id: 'nobody-registered-this' } as NoticeCondition), baseCtx)).toBe(false);
+    expect(warn).toHaveBeenCalled();
+    warn.mockRestore();
+  });
+
+  it('an unrecognised condition kind never passes', () => {
+    expect(evaluate(noticeWith({ kind: 'from-the-future' } as unknown as NoticeCondition), baseCtx)).toBe(false);
   });
 });
