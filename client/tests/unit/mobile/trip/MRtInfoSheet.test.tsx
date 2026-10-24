@@ -123,7 +123,7 @@ describe('MRtInfoSheet', () => {
     renderSheet({})
     expect(screen.getByText('-')).toBeInTheDocument()
     expect(screen.getByRole('img', { name: 'No range set' })).toBeInTheDocument()
-    expect(screen.getByText('Type a range, or fill in the figures below and TREK works it out.')).toBeInTheDocument()
+    expect(screen.getByText('Type a range, or fill in the figures below and Roteiros Aventuristur works it out.')).toBeInTheDocument()
   })
 
   it('FE-MOB-RTINFO-010: a half-set day window counts as no window at all', () => {

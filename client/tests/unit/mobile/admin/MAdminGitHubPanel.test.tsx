@@ -70,7 +70,7 @@ describe('MAdminGitHubPanel', () => {
     expect(screen.getByText('Report a Bug')).toBeInTheDocument();
     expect(screen.getByText('Feature Request')).toBeInTheDocument();
     expect(screen.getByText('Wiki').closest('a')).toHaveAttribute('href', 'https://github.com/mauriceboe/TREK/wiki');
-    expect(screen.getAllByText('Helps me keep building TREK')).toHaveLength(2);
+    expect(screen.getAllByText('Helps me keep building Roteiros Aventuristur')).toHaveLength(2);
   });
 
   it('FE-MOB-AGH-002: shows a spinner while the releases request is in flight', () => {

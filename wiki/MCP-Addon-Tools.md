@@ -1,6 +1,6 @@
 # MCP Addon Tools and Resources
 
-This page covers MCP tools and resources that require specific addons to be enabled on your TREK instance. For the rest of the surface (trips, places, day planning, accommodations, transport, reservations, tags, maps, and notifications — plus the Budget tools, which need the Budget addon, listed as **Costs** under **Admin → Addons**, but are documented there) see [MCP-Tools-and-Resources](MCP-Tools-and-Resources).
+This page covers MCP tools and resources that require specific addons to be enabled on your Roteiros Aventuristur instance. For the rest of the surface (trips, places, day planning, accommodations, transport, reservations, tags, maps, and notifications — plus the Budget tools, which need the Budget addon, listed as **Costs** under **Admin → Addons**, but are documented there) see [MCP-Tools-and-Resources](MCP-Tools-and-Resources).
 
 ---
 
@@ -213,7 +213,7 @@ Each tool asks for the scope of what it writes, so the scopes differ per tool. T
 
 | Tool | Purpose | Scope |
 |---|---|---|
-| `list_dawarich_suggestions` | List the stays TREK pulled from the caller's Dawarich for review, optionally for one trip or one state (`new`, `accepted`, `dismissed`); 50 by default, up to 200 | `journey:read` |
+| `list_dawarich_suggestions` | List the stays Roteiros Aventuristur pulled from the caller's Dawarich for review, optionally for one trip or one state (`new`, `accepted`, `dismissed`); 50 by default, up to 200 | `journey:read` |
 | `accept_dawarich_suggestion_as_place` | Turn a stay into a place on a trip, optionally on one of its days, with a corrected name, notes or coordinates | `places:write` |
 | `accept_dawarich_suggestion_as_journal_entry` | Turn a stay into a dated journal entry with a title, story, date and time | `journey:write` |
 | `mark_bucket_list_item_visited_from_dawarich` | Tick off the bucket list wish a stay was matched to, or another wish of the caller's | `atlas:write` |
@@ -222,7 +222,7 @@ Each tool asks for the scope of what it writes, so the scopes differ per tool. T
 
 ### Document sync _(Documents addon required)_
 
-`get_trip_document_sync` and `list_trip_document_sync_issues` require `files:read`; `sync_trip_documents` requires `files:write`. Any member of the trip may call them. No tool connects a store or changes a binding: that hands TREK a credential to someone's document archive, and it stays with the trip owner in the file manager. See [Document-Sync](Document-Sync).
+`get_trip_document_sync` and `list_trip_document_sync_issues` require `files:read`; `sync_trip_documents` requires `files:write`. Any member of the trip may call them. No tool connects a store or changes a binding: that hands Roteiros Aventuristur a credential to someone's document archive, and it stays with the trip owner in the file manager. See [Document-Sync](Document-Sync).
 
 | Tool | Description |
 |---|---|

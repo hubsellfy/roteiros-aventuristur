@@ -69,7 +69,7 @@ export function describeSmtpFailure(err: unknown, target: SmtpTarget, secret = '
     return { code, reason: `${where} refused the connection: nothing is listening on that port, or a firewall closed it. ${portHint(target)}` };
   }
   if (/EHOSTUNREACH|ENETUNREACH|EACCES/.test(message)) {
-    return { code, reason: `${where} is unreachable from the TREK container: ${message}` };
+    return { code, reason: `${where} is unreachable from the Roteiros Aventuristur container: ${message}` };
   }
   if (code === 'ETIMEDOUT' || /timed? ?out|Greeting never received/i.test(message)) {
     return { code, reason: `${where} did not answer in time: ${message}. Outbound mail ports are often blocked by the host or the hosting provider. ${portHint(target)}` };

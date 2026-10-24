@@ -1,12 +1,12 @@
 # MCP Scopes
 
-OAuth scopes control exactly which data your AI client can read or write in TREK. You select scopes during the OAuth consent screen or when pre-creating an OAuth client. You can revoke access at any time by deleting the OAuth client or token from your **Settings → Integrations → MCP**.
+OAuth scopes control exactly which data your AI client can read or write in Roteiros Aventuristur. You select scopes during the OAuth consent screen or when pre-creating an OAuth client. You can revoke access at any time by deleting the OAuth client or token from your **Settings → Integrations → MCP**.
 
 ![OAuth consent screen](assets/OAuthConsentDCR.png)
 
 ## All scopes
 
-TREK defines 35 scopes across 17 groups.
+Roteiros Aventuristur defines 35 scopes across 17 groups.
 
 | Group | Scope | Permission |
 |---|---|---|

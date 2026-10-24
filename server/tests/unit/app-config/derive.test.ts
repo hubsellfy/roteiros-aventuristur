@@ -45,13 +45,12 @@ describe('deriveApp', () => {
 
   it('DEFAULT_LANGUAGE resolves: case-insensitive, canonical code, en fallback', () => {
     expect(deriveApp({ DEFAULT_LANGUAGE: 'EN' }).defaultLanguage).toBe('en');
-    expect(deriveApp({ DEFAULT_LANGUAGE: 'de' }).defaultLanguage).toBe('de');
+    expect(deriveApp({ DEFAULT_LANGUAGE: 'es' }).defaultLanguage).toBe('es');
     expect(deriveApp({ DEFAULT_LANGUAGE: 'klingon' }).defaultLanguage).toBe('en');
     expect(deriveApp({}).defaultLanguage).toBe('en');
-    // Mixed-case canonical codes resolve to their canonical form (legacy could
-    // never match zh-TW and silently served English).
-    expect(deriveApp({ DEFAULT_LANGUAGE: 'zh-TW' }).defaultLanguage).toBe('zh-TW');
-    expect(deriveApp({ DEFAULT_LANGUAGE: 'zh-tw' }).defaultLanguage).toBe('zh-TW');
+    // The Aventuristur fork serves only br, en and es; any other code falls back to English.
+    expect(deriveApp({ DEFAULT_LANGUAGE: 'BR' }).defaultLanguage).toBe('br');
+    expect(deriveApp({ DEFAULT_LANGUAGE: 'zh-tw' }).defaultLanguage).toBe('en');
   });
 });
 

@@ -1,6 +1,6 @@
 # Updating
 
-How to update TREK to a newer version without losing data.
+How to update Roteiros Aventuristur to a newer version without losing data.
 
 ## Before You Update
 
@@ -36,7 +36,7 @@ docker compose up -d
 
 ## Docker Run
 
-If you started TREK with `docker run`, pull the new image and replace the container:
+If you started Roteiros Aventuristur with `docker run`, pull the new image and replace the container:
 
 ```bash
 docker pull mauriceboe/trek
@@ -78,11 +78,11 @@ See [Install-Helm](Install-Helm) for the full installation walkthrough and value
 
 ## Database Migrations
 
-TREK runs any pending database migrations automatically at startup. No manual migration steps are required after pulling a new image.
+Roteiros Aventuristur runs any pending database migrations automatically at startup. No manual migration steps are required after pulling a new image.
 
 ## After the Update
 
-The first time a user opens TREK on the desktop after an update, a notice headed **Update installed** opens on top of the app: three cards with the headline features of that release, a note from the maintainer, a **Release notes** link to the full notes on GitHub, and links for supporting the project. Every user sees it once per version. Closing it keeps it closed on that version, and the next update brings it back, a patch release included. The phone does not show it.
+The first time a user opens Roteiros Aventuristur on the desktop after an update, a notice headed **Update installed** opens on top of the app: three cards with the headline features of that release, a note from the maintainer, a **Release notes** link to the full notes on GitHub, and links for supporting the project. Every user sees it once per version. Closing it keeps it closed on that version, and the next update brings it back, a patch release included. The phone does not show it.
 
 The full notes for every version are also in the admin panel under the **GitHub** tab. See [Admin-GitHub-Releases](Admin-GitHub-Releases).
 
@@ -106,19 +106,19 @@ Two things change with 4.3.1. Neither needs a manual step on Docker, but they ar
 
 ## Encryption Key Note
 
-If you are upgrading from a version that predates the dedicated `ENCRYPTION_KEY` (i.e. you have no `ENCRYPTION_KEY` environment variable set), TREK automatically falls back to `./data/.jwt_secret` on startup and immediately promotes it to `./data/.encryption_key`. No manual steps are required — the transition is handled at first boot after the upgrade.
+If you are upgrading from a version that predates the dedicated `ENCRYPTION_KEY` (i.e. you have no `ENCRYPTION_KEY` environment variable set), Roteiros Aventuristur automatically falls back to `./data/.jwt_secret` on startup and immediately promotes it to `./data/.encryption_key`. No manual steps are required — the transition is handled at first boot after the upgrade.
 
 If you want to rotate to a new key at any point (not required for a normal update), see [Encryption-Key-Rotation](Encryption-Key-Rotation) for the full procedure.
 
 ## Proxmox VE (LXC)
 
-If you installed TREK via the [Proxmox VE Community Scripts](https://community-scripts.org/scripts/trek), run the following command inside the **LXC container** and select **Update** when prompted:
+If you installed Roteiros Aventuristur via the [Proxmox VE Community Scripts](https://community-scripts.org/scripts/trek), run the following command inside the **LXC container** and select **Update** when prompted:
 
 ```bash
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/community-scripts/ProxmoxVE/main/ct/trek.sh)"
 ```
 
-> **Tip:** Always check the [community-scripts TREK page](https://community-scripts.org/scripts/trek) to confirm the latest command before running.
+> **Tip:** Always check the [community-scripts Roteiros Aventuristur page](https://community-scripts.org/scripts/trek) to confirm the latest command before running.
 
 The script stops the service, backs up your data and uploads, applies the new release, restores the backup, and restarts. No manual steps required.
 
@@ -131,7 +131,7 @@ journalctl -u trek -n 50
 
 ## Portainer
 
-Open the **Stacks** list, click the TREK stack, then click **Redeploy**.
+Open the **Stacks** list, click the Roteiros Aventuristur stack, then click **Redeploy**.
 
 **`latest` or major-version tag** — enable the **Re-pull image and redeploy** switch before confirming. Portainer pulls the newest matching image and recreates the container.
 
@@ -147,7 +147,7 @@ See [Install-Portainer](Install-Portainer) for the full installation walkthrough
 
 ## Unraid
 
-In the Unraid Docker tab, click the TREK container and select **Update**. Unraid will pull the latest image and restart with the same volumes.
+In the Unraid Docker tab, click the Roteiros Aventuristur container and select **Update**. Unraid will pull the latest image and restart with the same volumes.
 
 ## Next Steps
 

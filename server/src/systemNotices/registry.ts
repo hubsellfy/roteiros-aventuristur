@@ -34,7 +34,7 @@ export const RETIRED_NOTICE_IDS = [
   'release-4-0-0',
 ] as const;
 
-export const SYSTEM_NOTICES: SystemNotice[] = [
+const UPSTREAM_SYSTEM_NOTICES: SystemNotice[] = [
   // ── Release notes: what the current release brought, and a note from the maintainer ──
   // One entry for every release. Each big release swaps the copy (the release_notes
   // keys) and the version below, and keeps this id. `recurring: 'per-version'` brings
@@ -188,3 +188,4 @@ export const SYSTEM_NOTICES: SystemNotice[] = [
     minVersion: '3.0.14',
   },
 ];
+export const SYSTEM_NOTICES: SystemNotice[] = UPSTREAM_SYSTEM_NOTICES.filter((notice) => notice.id !== 'release-notes' && notice.id !== 'thank-you-support');

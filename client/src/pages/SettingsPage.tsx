@@ -44,7 +44,7 @@ function SettingsPageDesktop(): React.ReactElement {
     // where to support it. A customer of a hosted instance is the audience for
     // none of that, so the tab goes and the sidebar footer below carries the one
     // thing that has to stay — the link to the source (AGPL §13).
-    ...(appVersion && !managed
+    ...(appVersion
       ? [{ id: 'about', label: t('settings.tabs.about'), icon: Info }]
       : []),
   ]
@@ -75,7 +75,7 @@ function SettingsPageDesktop(): React.ReactElement {
                   // No About tab here, so this is the prominent source offer
                   // AGPL §13 asks for when people use it over a network.
                   ? <a
-                      href="https://github.com/liketrek/TREK"
+                      href="https://github.com/hubsellfy/roteiros-aventuristur"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="no-underline text-content-faint hover:text-content-secondary"

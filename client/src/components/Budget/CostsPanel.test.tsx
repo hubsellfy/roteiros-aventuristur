@@ -2242,12 +2242,12 @@ describe('CostsPanel — split maths', () => {
 })
 
 // The reworked expense modal shipped with English written straight into the JSX,
-// so the receipt panel and the split summary stayed English on a German phone
+// so the receipt panel and the split summary stayed English on a Spanish phone
 // while everything around them translated.
 describe('CostsPanel — expense modal in another language', () => {
   beforeEach(() => {
     seedAlice()
-    seedStore(useSettingsStore, { settings: buildSettings({ language: 'de', default_currency: 'EUR' }) })
+    seedStore(useSettingsStore, { settings: buildSettings({ language: 'es', default_currency: 'EUR' }) })
     clearExchangeRateCache()
   })
   afterEach(clearExchangeRateCache)
@@ -2262,12 +2262,12 @@ describe('CostsPanel — expense modal in another language', () => {
     openModal()
 
     // The locale bundle is fetched, so the first paint is still English.
-    await user.click(await screen.findByRole('button', { name: 'Beleg' }))
-    await user.click(screen.getByRole('button', { name: /Artikel hinzufügen/ }))
+    await user.click(await screen.findByRole('button', { name: 'Ticket' }))
+    await user.click(await screen.findByRole('button', { name: /Añadir artículo/ }))
 
-    expect(screen.getByPlaceholderText('Artikelname')).toBeInTheDocument()
-    expect(screen.getByText('Aufteilen auf:')).toBeInTheDocument()
-    expect(screen.getByText('Anteil pro Person')).toBeInTheDocument()
+    expect(screen.getByPlaceholderText('Nombre del artículo')).toBeInTheDocument()
+    expect(screen.getByText('Se reparte entre:')).toBeInTheDocument()
+    expect(screen.getByText('Parte de cada uno')).toBeInTheDocument()
     expect(screen.queryByText('Individual shares')).not.toBeInTheDocument()
   })
 
@@ -2276,22 +2276,22 @@ describe('CostsPanel — expense modal in another language', () => {
     openModal()
 
     await user.type(await screen.findByPlaceholderText('0,00'), '90')
-    await user.click(screen.getByRole('button', { name: 'Individuell' }))
+    await user.click(screen.getByRole('button', { name: 'Custom' }))
 
     // Nothing entered yet, so the whole 90 is still unaccounted for.
-    expect(screen.getByText('Summe der Anteile: €0.00 von €90.00 (es fehlen €90.00)')).toBeInTheDocument()
+    expect(screen.getByText('Suma de las partes: €0.00 de €90.00 (faltan €90.00)')).toBeInTheDocument()
 
     const shares = screen.getAllByPlaceholderText('45,00')
     await user.type(shares[0], '90')
-    expect(screen.getByText('Aufteilung passt zur Summe')).toBeInTheDocument()
+    expect(screen.getByText('El reparto cuadra con el total')).toBeInTheDocument()
 
     await user.type(shares[1], '10')
-    expect(screen.getByText('Summe der Anteile: €100.00 von €90.00 (€10.00 zu viel)')).toBeInTheDocument()
+    expect(screen.getByText('Suma de las partes: €100.00 de €90.00 (sobran €10.00)')).toBeInTheDocument()
 
     // Back to the equal split: a member taken out of it is marked, not dropped.
-    await user.click(screen.getByRole('button', { name: 'Gleichmäßig' }))
+    await user.click(screen.getByRole('button', { name: 'Equally' }))
     await user.click(screen.getByRole('button', { name: /bob/i }))
-    expect(screen.getByText('Nicht dabei')).toBeInTheDocument()
+    expect(screen.getByText('Excluido')).toBeInTheDocument()
     expect(screen.queryByText('Excluded')).not.toBeInTheDocument()
   })
 })

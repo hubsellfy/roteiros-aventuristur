@@ -52,29 +52,29 @@ export function buildEmailHtml(
     <tr><td align="center">
       <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width: 480px; background: #ffffff; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 24px rgba(0,0,0,0.06);">
         <!-- Header -->
-        <tr><td style="background: linear-gradient(135deg, #000000 0%, #1a1a2e 100%); padding: 32px 32px 28px; text-align: center;">
-          <img src="cid:${EMAIL_LOGO_CID}" alt="TREK" width="48" height="48" style="border-radius: 14px; margin-bottom: 14px; display: block; margin-left: auto; margin-right: auto;" />
-          <div style="color: #ffffff; font-size: 24px; font-weight: 700; letter-spacing: -0.5px;">TREK</div>
-          <div style="color: rgba(255,255,255,0.4); font-size: 10px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; margin-top: 4px;">Travel Resource &amp; Exploration Kit</div>
+        <tr><td style="background: linear-gradient(135deg, #0B4886 0%, #0a6fc2 100%); padding: 32px 32px 28px; text-align: center;">
+          <img src="cid:${EMAIL_LOGO_CID}" alt="Roteiros Aventuristur" width="48" height="48" style="border-radius: 14px; margin-bottom: 14px; display: block; margin-left: auto; margin-right: auto;" />
+          <div style="color: #ffffff; font-size: 24px; font-weight: 700; letter-spacing: -0.5px;">Roteiros Aventuristur</div>
+          <div style="color: rgba(255,255,255,0.4); font-size: 10px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; margin-top: 4px;">Sua viagem, bem organizada</div>
         </td></tr>
         <!-- Content -->
         <tr><td style="padding: 32px 32px 16px;">
           <h1 style="margin: 0 0 8px; font-size: 18px; font-weight: 700; color: #111827; line-height: 1.3;">${safeSubject}</h1>
-          <div style="width: 32px; height: 3px; background: #111827; border-radius: 2px; margin-bottom: 20px;"></div>
+          <div style="width: 32px; height: 3px; background: #0a6fc2; border-radius: 2px; margin-bottom: 20px;"></div>
           <p style="margin: 0; font-size: 14px; color: #4b5563; line-height: 1.7; white-space: pre-wrap;">${safeBody}</p>
         </td></tr>
         <!-- CTA -->
         ${
           appUrl
             ? `<tr><td style="padding: 8px 32px 32px; text-align: center;">
-          <a href="${ctaHref}" style="display: inline-block; padding: 12px 28px; background: #111827; color: #ffffff; font-size: 13px; font-weight: 600; text-decoration: none; border-radius: 10px; letter-spacing: 0.2px;">${s.openTrek}</a>
+          <a href="${ctaHref}" style="display: inline-block; padding: 12px 28px; background: #0a6fc2; color: #ffffff; font-size: 13px; font-weight: 600; text-decoration: none; border-radius: 10px; letter-spacing: 0.2px;">${s.openTrek}</a>
         </td></tr>`
             : ''
         }
         <!-- Footer -->
         <tr><td style="padding: 20px 32px; background: #f9fafb; border-top: 1px solid #f3f4f6; text-align: center;">
           <p style="margin: 0 0 8px; font-size: 11px; color: #9ca3af; line-height: 1.5;">${s.footer}<br>${s.manage}</p>
-          <p style="margin: 0; font-size: 10px; color: #d1d5db;">${s.madeWith} <span style="color: #ef4444;">&hearts;</span> by Maurice &middot; <a href="https://github.com/liketrek/TREK" style="color: #9ca3af; text-decoration: none;">GitHub</a></p>
+          <p style="margin: 0; font-size: 10px; color: #d1d5db;">${s.madeWith} <span style="color: #ef4444;">&hearts;</span> Aventuristur &middot; <a href="https://github.com/hubsellfy/roteiros-aventuristur" style="color: #9ca3af; text-decoration: none;">GitHub</a></p>
         </td></tr>
       </table>
     </td></tr>
@@ -99,7 +99,7 @@ export function buildPasswordResetHtml(
     <p style="margin:0 0 16px 0; font-size:16px;">${safeGreeting},</p>
     <p style="margin:0 0 20px 0; font-size:15px; line-height:1.6;">${safeBody}</p>
     <p style="margin:28px 0;">
-      <a href="${resetUrl}" style="display:inline-block;padding:14px 28px;background:#111827;color:#fff;text-decoration:none;border-radius:10px;font-weight:600;font-size:15px;">${safeCta}</a>
+      <a href="${resetUrl}" style="display:inline-block;padding:14px 28px;background:#0a6fc2;color:#fff;text-decoration:none;border-radius:10px;font-weight:600;font-size:15px;">${safeCta}</a>
     </p>
     <p style="margin:0 0 10px 0; font-size:13px; color:#6B7280;">${safeExpiry}</p>
     <p style="margin:0; font-size:13px; color:#6B7280;">${safeIgnore}</p>

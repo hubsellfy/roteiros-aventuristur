@@ -473,13 +473,13 @@ const admin: TranslationStrings = {
   'admin.plugins.security.title': 'How plugins are contained — and the limits',
   'admin.plugins.security.isolationTitle': 'Every plugin runs boxed in',
   'admin.plugins.security.isolationBody':
-    "A plugin runs as its own locked-down process that can only read its own files. It cannot read your database, your login secret or your encryption key, cannot start other programs, and cannot write files anywhere. Its interface runs in a sealed browser frame that can't read your session cookie or touch the TREK page around it.",
+    "A plugin runs as its own locked-down process that can only read its own files. It cannot read your database, your login secret or your encryption key, cannot start other programs, and cannot write files anywhere. Its interface runs in a sealed browser frame that can't read your session cookie or touch the Roteiros Aventuristur page around it.",
   'admin.plugins.security.permsTitle': 'What the permissions mean',
   'admin.plugins.security.permsBody':
     "The permissions shown before you install are a hard limit that TREK enforces while the plugin runs — it literally cannot do anything that isn't on the list. But they tell you what a plugin can do, not what it actually does. A plugin allowed to read your trips and reach a server can send your trips to that server, so read the permissions and the outbound hosts, not just the description.",
   'admin.plugins.security.limitsTitle': "What we can't promise",
   'admin.plugins.security.limitsBody':
-    "The isolation is a strong software boundary, not an absolute one. A plugin acts with exactly the rights you approve, so within those rights it can behave differently than its description suggests, and it can send data it legitimately holds to the hosts it declared. TREK does not read or judge what a plugin's code actually does.",
+    "The isolation is a strong software boundary, not an absolute one. A plugin acts with exactly the rights you approve, so within those rights it can behave differently than its description suggests, and it can send data it legitimately holds to the hosts it declared. Roteiros Aventuristur does not read or judge what a plugin's code actually does.",
   'admin.plugins.security.worstTitle': 'The worst case',
   'admin.plugins.security.worstBody':
     "A hostile plugin you turn on can misuse the data and connections you granted it — for example, leak the trips it is allowed to read. It cannot steal passwords, forge an admin login, run commands on your server, or reach data you didn't grant. The damage stays inside what you approved, and turning the plugin off stops it.",
@@ -516,7 +516,7 @@ const admin: TranslationStrings = {
     'Nothing ties this version to its author — the files match the registry, but they carry no author signature.',
   'admin.plugins.security.trustTitle': 'The bottom line',
   'admin.plugins.security.trustBody':
-    'Installing a plugin is like installing any third-party app: only add code from authors you trust, and when in doubt, inspect it yourself first. TREK takes no responsibility for third-party plugins.',
+    'Installing a plugin is like installing any third-party app: only add code from authors you trust, and when in doubt, inspect it yourself first. Roteiros Aventuristur takes no responsibility for third-party plugins.',
   'admin.plugins.runtimeOn': 'Runtime on',
   'admin.plugins.tabDiscover': 'Discover',
   'admin.plugins.searchPlaceholder': 'Search plugins…',
@@ -625,7 +625,7 @@ const admin: TranslationStrings = {
   'admin.plugins.metaReviewed': 'Reviewed on',
   'admin.plugins.downloads': 'Downloads',
   'admin.addons.title': 'Addons',
-  'admin.addons.subtitle': 'Enable or disable features to customize your TREK experience.',
+  'admin.addons.subtitle': 'Enable or disable features to customize your Roteiros Aventuristur experience.',
   'admin.addons.catalog.packing.name': 'Lists',
   'admin.addons.catalog.packing.description': 'Packing lists and to-do tasks for your trips',
   'admin.addons.catalog.budget.name': 'Costs',
@@ -670,7 +670,7 @@ const admin: TranslationStrings = {
   'admin.weather.title': 'Weather Data',
   'admin.weather.badge': 'Since March 24, 2026',
   'admin.weather.description':
-    'TREK uses Open-Meteo as its weather data source. Open-Meteo is a free, open-source weather service — no API key required.',
+    'Roteiros Aventuristur uses Open-Meteo as its weather data source. Open-Meteo is a free, open-source weather service — no API key required.',
   'admin.weather.forecast': '16-day forecast',
   'admin.weather.forecastDesc': 'Previously 5 days (OpenWeatherMap)',
   'admin.weather.climate': 'Historical climate data',
@@ -729,14 +729,14 @@ const admin: TranslationStrings = {
   'admin.github.loading': 'Loading...',
   'admin.github.error': 'Failed to load releases',
   'admin.github.by': 'by',
-  'admin.github.support': 'Helps me keep building TREK',
+  'admin.github.support': 'Helps me keep building Roteiros Aventuristur',
   'admin.update.available': 'Update available',
-  'admin.update.text': 'TREK {version} is available. You are running {current}.',
+  'admin.update.text': 'Roteiros Aventuristur {version} is available. You are running {current}.',
   'admin.update.button': 'View on GitHub',
   'admin.update.install': 'Install Update',
   'admin.update.confirmTitle': 'Install Update?',
   'admin.update.confirmText':
-    'TREK will be updated from {current} to {version}. The server will restart automatically afterwards.',
+    'Roteiros Aventuristur will be updated from {current} to {version}. The server will restart automatically afterwards.',
   'admin.update.dataInfo': 'All your data (trips, users, API keys, uploads, Vacay, Atlas, budgets) will be preserved.',
   'admin.update.warning': 'The app will be briefly unavailable during the restart.',
   'admin.update.confirm': 'Update Now',
@@ -747,9 +747,9 @@ const admin: TranslationStrings = {
   'admin.update.backupLink': 'Go to Backup',
   'admin.update.howTo': 'How to Update',
   'admin.update.dockerText':
-    'Your TREK instance runs in Docker. To update to {version}, run the following commands on your server:',
+    'Your Roteiros Aventuristur instance runs in Docker. To update to {version}, run the following commands on your server:',
   'admin.update.nonDockerText':
-    'This TREK instance is not running in Docker. To update to {version}, re-run the install or update method you used — for example, on Proxmox Community Scripts run the update from the LXC console:',
+    'This Roteiros Aventuristur instance is not running in Docker. To update to {version}, re-run the install or update method you used — for example, on Proxmox Community Scripts run the update from the LXC console:',
   'admin.update.wikiLink': 'Open the update guide',
   'admin.update.reloadHint': 'Please reload the page in a few seconds.',
   'admin.tabs.permissions': 'Permissions',

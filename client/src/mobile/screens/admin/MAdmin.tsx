@@ -10,7 +10,6 @@ import {
   ChevronLeft,
   Database,
   FileText,
-  Github,
   HardDrive,
   Map,
   Plug,
@@ -94,7 +93,6 @@ export default function MAdmin() {
     ...(mcpEnabled ? [{ id: 'mcp-tokens', label: t('admin.tabs.mcpTokens'), icon: Plug }] : []),
     // Same two the desktop list drops: releases and backup schedule belong to
     // whoever operates the install.
-    ...(managed ? [] : [{ id: 'github', label: t('admin.tabs.github'), icon: Github }]),
     ...(managed ? [] : [{ id: 'backup', label: t('admin.tabs.backup'), icon: Database }]),
     { id: 'audit', label: t('admin.tabs.audit'), icon: ScrollText },
     ...(devMode ? [{ id: 'dev-notifications', label: 'Dev: Notifications', icon: Bug }] : []),

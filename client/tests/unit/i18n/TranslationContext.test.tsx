@@ -69,35 +69,37 @@ describe('TranslationProvider', () => {
   });
 
   it('FE-COMP-I18NCTX-005: loads another locale and exposes its language and locale', async () => {
-    withLanguage('de');
+    withLanguage('es');
     render(<TranslationProvider><Probe tKey="common.save" /></TranslationProvider>);
 
-    expect(screen.getByTestId('language').textContent).toBe('de');
-    await waitFor(() => expect(screen.getByTestId('value').textContent).toBe('Speichern'));
-    expect(screen.getByTestId('locale').textContent).toBe('de-DE');
+    expect(screen.getByTestId('language').textContent).toBe('es');
+    await waitFor(() => expect(screen.getByTestId('value').textContent).toBe('Guardar'));
+    expect(screen.getByTestId('locale').textContent).toBe('es-ES');
   });
 
   it('FE-COMP-I18NCTX-006: falls back to the English string for a key a locale is missing', async () => {
-    withLanguage('de');
+    withLanguage('es');
     render(<TranslationProvider><Probe tKey="does.not.exist" /></TranslationProvider>);
     await waitFor(() => expect(screen.getByTestId('value').textContent).toBe('does.not.exist'));
   });
 
   it('FE-COMP-I18NCTX-007: writes lang and ltr direction onto the html element', () => {
-    withLanguage('de');
+    withLanguage('es');
     render(<TranslationProvider><Probe tKey="common.save" /></TranslationProvider>);
 
-    expect(document.documentElement.lang).toBe('de');
+    expect(document.documentElement.lang).toBe('es');
     expect(document.documentElement.dir).toBe('ltr');
   });
 
-  it('FE-COMP-I18NCTX-008: switches the html element to rtl for Arabic', async () => {
+  it('FE-COMP-I18NCTX-008: switches the html element to rtl for Arabic', () => {
+    // The Aventuristur fork ships no Arabic table, so the strings stay in English,
+    // but the direction rule for an RTL code keeps working.
     withLanguage('ar');
     render(<TranslationProvider><Probe tKey="common.save" /></TranslationProvider>);
 
     expect(document.documentElement.lang).toBe('ar');
     expect(document.documentElement.dir).toBe('rtl');
-    await waitFor(() => expect(screen.getByTestId('value').textContent).not.toBe('Save'));
+    expect(screen.getByTestId('value').textContent).toBe('Save');
   });
 
   it('FE-COMP-I18NCTX-009: keeps the English table for an unknown language code', () => {
@@ -115,7 +117,7 @@ describe('TranslationProvider', () => {
   });
 
   it('FE-COMP-I18NCTX-011: a locale arriving after a second switch does not win', async () => {
-    withLanguage('de');
+    withLanguage('es');
     render(<TranslationProvider><Probe tKey="common.save" /></TranslationProvider>);
 
     // Switch back before the German chunk lands — the cancelled loader must not

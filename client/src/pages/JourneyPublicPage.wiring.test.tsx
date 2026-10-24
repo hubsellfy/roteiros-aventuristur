@@ -235,19 +235,19 @@ describe('JourneyPublicPage wiring', () => {
 
   it('FE-JRN-PUBWIRE-015: the language picker switches the stored UI language', () => {
     const { hook } = setup({ showLangPicker: true });
-    const german = screen.getByRole('button', { name: 'Deutsch' });
+    const german = screen.getByRole('button', { name: 'Español' });
     fireEvent.mouseEnter(german);
     expect(german).toHaveStyle({ background: 'var(--bg-hover)' });
     fireEvent.mouseLeave(german);
 
     fireEvent.click(german);
-    expect(useSettingsStore.getState().settings.language).toBe('de');
+    expect(useSettingsStore.getState().settings.language).toBe('es');
     expect(hook.setShowLangPicker).toHaveBeenCalledWith(false);
   });
 
   it('FE-JRN-PUBWIRE-016: the picker button toggles the dropdown', () => {
     const { hook } = setup();
-    expect(screen.queryByRole('button', { name: 'Deutsch' })).not.toBeInTheDocument();
+    expect(screen.queryByRole('button', { name: 'Español' })).not.toBeInTheDocument();
     fireEvent.click(screen.getByRole('button', { name: 'English' }));
     const toggle = (hook.setShowLangPicker as ReturnType<typeof vi.fn>).mock.calls[0][0] as (v: boolean) => boolean;
     expect(toggle(false)).toBe(true);

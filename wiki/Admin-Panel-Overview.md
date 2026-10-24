@@ -1,6 +1,6 @@
 # Admin Panel Overview
 
-The Admin Panel is the central control surface for TREK instance operators. It is only accessible to users with the `admin` role.
+The Admin Panel is the central control surface for Roteiros Aventuristur instance operators. It is only accessible to users with the `admin` role.
 
 ## Accessing the Admin Panel
 
@@ -34,7 +34,7 @@ The Admin Panel is divided into tabs. Most tabs are always visible; a few appear
 
 On desktop and mobile, **User Defaults** includes optional **Own routing engine** and **Own Valhalla instance** fields in the map section. Changes save when you leave the field; **reset** restores the built-in default.
 
-With both fields empty, TREK uses public OSRM servers for routing and the public FOSSGIS Valhalla for avoiding toll roads, motorways and ferries. Configuring only a custom routing instance disables the public Valhalla fallback. After entering a custom server URL, restart TREK and reload the page. See [Road-Trip](Road-Trip#routing-engines).
+With both fields empty, Roteiros Aventuristur uses public OSRM servers for routing and the public FOSSGIS Valhalla for avoiding toll roads, motorways and ferries. Configuring only a custom routing instance disables the public Valhalla fallback. After entering a custom server URL, restart Roteiros Aventuristur and reload the page. See [Road-Trip](Road-Trip#routing-engines).
 
 > **AI / MCP:** These fields configure the routing services the planner and the road trip MCP tools use, and do not change stored trip data.
 

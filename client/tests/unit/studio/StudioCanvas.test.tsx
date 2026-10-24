@@ -31,27 +31,27 @@ describe('StudioCanvas', () => {
   // English written into the JSX, so they stayed English while the panels
   // around them followed the reader's language.
   it('FE-COMP-STUDIOCANVAS-001: the quickbar and the rotation handles are translated', async () => {
-    seedStore(useSettingsStore, { settings: buildSettings({ language: 'de' }) })
+    seedStore(useSettingsStore, { settings: buildSettings({ language: 'br' }) })
     mountSelected()
 
     // The locale bundle is fetched, so the first paint is still English.
-    expect(await screen.findByTitle('Duplizieren')).toBeInTheDocument()
-    expect(screen.getAllByTitle('Drehen')).toHaveLength(4)
-    expect(screen.getByTitle('Nach links drehen')).toBeInTheDocument()
-    expect(screen.getByTitle('Nach rechts drehen')).toBeInTheDocument()
-    expect(screen.getByTitle('Ganz nach vorn')).toBeInTheDocument()
-    expect(screen.getByTitle('Ganz nach hinten')).toBeInTheDocument()
-    expect(screen.getByTitle('Sperren')).toBeInTheDocument()
-    expect(screen.getByTitle('Löschen')).toBeInTheDocument()
+    expect(await screen.findByTitle('Duplicar')).toBeInTheDocument()
+    expect(screen.getAllByTitle('Girar')).toHaveLength(4)
+    expect(screen.getByTitle('Girar à esquerda')).toBeInTheDocument()
+    expect(screen.getByTitle('Girar à direita')).toBeInTheDocument()
+    expect(screen.getByTitle('Bring to front')).toBeInTheDocument()
+    expect(screen.getByTitle('Send to back')).toBeInTheDocument()
+    expect(screen.getByTitle('Lock')).toBeInTheDocument()
+    expect(screen.getByTitle('Delete')).toBeInTheDocument()
     expect(screen.queryByTitle('Rotate')).not.toBeInTheDocument()
   })
 
   it('FE-COMP-STUDIOCANVAS-002: the lock button names the press that follows, in the same language', async () => {
-    seedStore(useSettingsStore, { settings: buildSettings({ language: 'de' }) })
+    seedStore(useSettingsStore, { settings: buildSettings({ language: 'br' }) })
     mountSelected(true)
 
-    expect(await screen.findByTitle('Entsperren')).toBeInTheDocument()
+    expect(await screen.findByTitle('Unlock')).toBeInTheDocument()
     // A locked element keeps its handles hidden, so nothing rotates it by accident.
-    expect(screen.queryByTitle('Drehen')).not.toBeInTheDocument()
+    expect(screen.queryByTitle('Girar')).not.toBeInTheDocument()
   })
 })

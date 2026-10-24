@@ -245,7 +245,7 @@ describe('Tool: update_display_settings', () => {
         start_page: 'active_trip',
         start_trip_tab: 'finanzplan',
         default_currency: 'JPY',
-        language: 'ja',
+        language: 'es',
         temperature_unit: 'celsius',
         distance_unit: 'metric',
         time_format: '24h',
@@ -255,7 +255,7 @@ describe('Tool: update_display_settings', () => {
       expect(data.updated).toBe(8);
       expect(data.settings.start_trip_tab).toBe('finanzplan');
       expect(data.settings.dark_mode).toBe('auto');
-      expect(data.settings.language).toBe('ja');
+      expect(data.settings.language).toBe('es');
     });
   });
 
@@ -402,9 +402,9 @@ describe('Tool: update_display_settings, refusals', () => {
     await withHarness(user.id, async (h) => {
       const bad = await update(h, { language: 'xx' });
       expect(bad.isError).toBe(true);
-      const good = await update(h, { language: 'fr' });
+      const good = await update(h, { language: 'es' });
       expect(good.isError).toBeFalsy();
-      expect(readSetting(user.id, 'language')).toBe('fr');
+      expect(readSetting(user.id, 'language')).toBe('es');
     });
   });
 

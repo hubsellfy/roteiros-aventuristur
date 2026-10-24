@@ -2,11 +2,11 @@
 
 ## "Access token required" when changing password on first login
 
-**Cause:** The session cookie has the `Secure` flag set, which means the browser will only send it over HTTPS. When accessing TREK over plain HTTP (e.g. `http://192.168.1.x:3000`), the browser silently drops the cookie and the server sees no session — returning "Access token required".
+**Cause:** The session cookie has the `Secure` flag set, which means the browser will only send it over HTTPS. When accessing Roteiros Aventuristur over plain HTTP (e.g. `http://192.168.1.x:3000`), the browser silently drops the cookie and the server sees no session — returning "Access token required".
 
 **Fix:** Choose one of the following options:
 
-**Option 1 — Use HTTPS.** Access TREK via HTTPS with a valid SSL certificate.
+**Option 1 — Use HTTPS.** Access Roteiros Aventuristur via HTTPS with a valid SSL certificate.
 
 **Option 2 — Disable the Secure flag.** Set `COOKIE_SECURE=false` in your Docker environment to allow the session cookie to be sent over plain HTTP:
 
@@ -79,7 +79,7 @@ Without these headers, the WebSocket handshake fails and real-time sync will not
 
 **Cause:** `FORCE_HTTPS=true` is set but your reverse proxy is not forwarding the `X-Forwarded-Proto: https` header, so every request looks like plain HTTP and gets redirected indefinitely.
 
-**Fix:** Ensure your proxy passes the `X-Forwarded-Proto` header to TREK. Also set `TRUST_PROXY=1` so that Express uses the forwarded IP for rate limiting and audit logs:
+**Fix:** Ensure your proxy passes the `X-Forwarded-Proto` header to Roteiros Aventuristur. Also set `TRUST_PROXY=1` so that Express uses the forwarded IP for rate limiting and audit logs:
 
 ```yaml
 environment:
@@ -89,7 +89,7 @@ environment:
 
 > **Note:** The `/api/health` endpoint is always exempt from the HTTPS redirect so that Docker health checks continue to work over plain HTTP.
 
-If you are accessing TREK directly on `http://<host>:3000` with no proxy, remove `FORCE_HTTPS` entirely. See [Environment Variables](Environment-Variables).
+If you are accessing Roteiros Aventuristur directly on `http://<host>:3000` with no proxy, remove `FORCE_HTTPS` entirely. See [Environment Variables](Environment-Variables).
 
 ---
 
@@ -159,7 +159,7 @@ docker inspect <container> --format '{{json .Mounts}}'
 
 Keep only `./data:/app/data` and `./uploads:/app/uploads`, then recreate the container. Your data in those two directories is preserved when you switch.
 
-> **Note:** Unwritable `data`/`uploads` directories are a *different* failure — they abort with a permission error (`EACCES`), not with `Cannot find module`. TREK creates the subdirectories it needs on startup (`data/logs`, `data/backups`, `data/tmp`, `uploads/files`, `uploads/covers`, `uploads/avatars`, `uploads/photos`, `uploads/journey`, `uploads/places`). The container's `chown` step (which runs as root before dropping to `node`) normally corrects ownership, but if your host filesystem is read-only or permissions are locked down, grant write access manually:
+> **Note:** Unwritable `data`/`uploads` directories are a *different* failure — they abort with a permission error (`EACCES`), not with `Cannot find module`. Roteiros Aventuristur creates the subdirectories it needs on startup (`data/logs`, `data/backups`, `data/tmp`, `uploads/files`, `uploads/covers`, `uploads/avatars`, `uploads/photos`, `uploads/journey`, `uploads/places`). The container's `chown` step (which runs as root before dropping to `node`) normally corrects ownership, but if your host filesystem is read-only or permissions are locked down, grant write access manually:
 >
 > ```bash
 > sudo chown -R 1000:1000 ./data ./uploads
@@ -183,7 +183,7 @@ sudo dmesg -T | grep -iE 'apparmor|denied'
 # apparmor="DENIED" operation="exec" ... info="no new privs"
 ```
 
-This affects **any** image, not just TREK, and is a known snap limitation ([snapd bug #1908448](https://bugs.launchpad.net/snapd/+bug/1908448)). Setting `apparmor=unconfined` on the container does **not** help — that only swaps the *container's* profile, while the denial comes from the *daemon's* (snap's) confinement, which a container-level option cannot reach.
+This affects **any** image, not just Roteiros Aventuristur, and is a known snap limitation ([snapd bug #1908448](https://bugs.launchpad.net/snapd/+bug/1908448)). Setting `apparmor=unconfined` on the container does **not** help — that only swaps the *container's* profile, while the denial comes from the *daemon's* (snap's) confinement, which a container-level option cannot reach.
 
 **Fix:** Install Docker from the official apt repository instead of the snap. Your data is safe as long as it lives in host bind-mounts (`./data`, `./uploads`):
 
@@ -199,7 +199,7 @@ docker compose up -d
 
 ## Container won't start: `Syntax error: end of file unexpected (expecting "fi")`
 
-**Symptoms:** The container restarts in a loop and the log holds a single line, with no TREK banner and no Node error:
+**Symptoms:** The container restarts in a loop and the log holds a single line, with no Roteiros Aventuristur banner and no Node error:
 
 ```
 TREK: 1: Syntax error: end of file unexpected (expecting "fi")
@@ -215,7 +215,7 @@ Once a container is in this state it stays broken across restarts and image pull
 
 In Portainer, open the container → **Duplicate/Edit** → **Command & logging**, empty the **Command** field completely, then deploy. An empty field means "use the image's command". Recreating the container from the image, or redeploying it as a stack, has the same effect.
 
-> **Note:** `COOKIE_SECURE=false` is still the right setting if you reach TREK over plain HTTP — without it the browser will not send the session cookie and you cannot log in. Set it, just not by editing the container in place. Change environment variables by editing the **stack** and redeploying it; see [Install: Portainer](Install-Portainer).
+> **Note:** `COOKIE_SECURE=false` is still the right setting if you reach Roteiros Aventuristur over plain HTTP — without it the browser will not send the session cookie and you cannot log in. Set it, just not by editing the container in place. Change environment variables by editing the **stack** and redeploying it; see [Install: Portainer](Install-Portainer).
 
 Current images run their start-up logic from a script file, and their command is a single word with nothing left for a UI to mangle.
 
@@ -223,7 +223,7 @@ Current images run their start-up logic from a script file, and their command is
 
 ## Encryption key regenerated on restart — stored secrets stop working
 
-**Cause:** On every startup, TREK resolves its encryption key in this order: (1) `ENCRYPTION_KEY` env var, (2) `data/.encryption_key` file, (3) legacy `data/.jwt_secret` fallback, (4) auto-generate a fresh key. If neither the env var nor the `data/` volume is persisted — for example after recreating a container without a volume mount — a new random key is generated and all stored secrets (SMTP password, OIDC client secret, API keys, MFA TOTP seeds) become unrecoverable.
+**Cause:** On every startup, Roteiros Aventuristur resolves its encryption key in this order: (1) `ENCRYPTION_KEY` env var, (2) `data/.encryption_key` file, (3) legacy `data/.jwt_secret` fallback, (4) auto-generate a fresh key. If neither the env var nor the `data/` volume is persisted — for example after recreating a container without a volume mount — a new random key is generated and all stored secrets (SMTP password, OIDC client secret, API keys, MFA TOTP seeds) become unrecoverable.
 
 **Fix:** Ensure `./data:/app/data` is mounted as a persistent volume so `data/.encryption_key` survives restarts. Alternatively, pin the key explicitly:
 
@@ -238,7 +238,7 @@ See [Encryption Key Rotation](Encryption-Key-Rotation) for how to retrieve or ro
 
 ## OIDC login returns "APP_URL is not configured"
 
-**Cause:** When OIDC is enabled, TREK needs to know its own public URL to build the redirect URI. It resolves this from (1) `APP_URL` env var, (2) the first entry in `ALLOWED_ORIGINS`, (3) `http://localhost:<PORT>` as a last resort. Step (3) always produces a value, so the message in the heading is a guard that never actually fires. What you get instead, with `APP_URL` and `ALLOWED_ORIGINS` both unset, is a redirect URI of `http://localhost:<PORT>/api/auth/oidc/callback` — and the provider rejects it as an unregistered `redirect_uri`.
+**Cause:** When OIDC is enabled, Roteiros Aventuristur needs to know its own public URL to build the redirect URI. It resolves this from (1) `APP_URL` env var, (2) the first entry in `ALLOWED_ORIGINS`, (3) `http://localhost:<PORT>` as a last resort. Step (3) always produces a value, so the message in the heading is a guard that never actually fires. What you get instead, with `APP_URL` and `ALLOWED_ORIGINS` both unset, is a redirect URI of `http://localhost:<PORT>/api/auth/oidc/callback` — and the provider rejects it as an unregistered `redirect_uri`.
 
 **Fix:** Set `APP_URL` to the public URL of your instance:
 
@@ -251,7 +251,7 @@ environment:
 
 ## OIDC login fails with issuer mismatch
 
-**Cause:** TREK validates that the `issuer` field in the provider's discovery document matches the configured `OIDC_ISSUER`. Trailing slashes are stripped from both sides before the comparison, so `https://auth.example.com` and `https://auth.example.com/` are the same value here — the difference is somewhere else: a realm path the provider adds, an internal hostname configured where the provider advertises the public one, or `http://` against `https://`.
+**Cause:** Roteiros Aventuristur validates that the `issuer` field in the provider's discovery document matches the configured `OIDC_ISSUER`. Trailing slashes are stripped from both sides before the comparison, so `https://auth.example.com` and `https://auth.example.com/` are the same value here — the difference is somewhere else: a realm path the provider adds, an internal hostname configured where the provider advertises the public one, or `http://` against `https://`.
 
 **Fix:** Check the exact issuer value your provider advertises and match it:
 
@@ -261,7 +261,7 @@ curl -s https://<your-oidc-issuer>/.well-known/openid-configuration | jq .issuer
 
 Set `OIDC_ISSUER` to that exact string.
 
-> **Note:** The mismatch is only fatal while no custom discovery URL is set. With `OIDC_DISCOVERY_URL` configured — which is how Authentik realm paths are usually wired up — TREK treats the discovery document's issuer as the canonical one, logs `[OIDC] Discovery doc issuer … differs from configured OIDC_ISSUER …` and continues.
+> **Note:** The mismatch is only fatal while no custom discovery URL is set. With `OIDC_DISCOVERY_URL` configured — which is how Authentik realm paths are usually wired up — Roteiros Aventuristur treats the discovery document's issuer as the canonical one, logs `[OIDC] Discovery doc issuer … differs from configured OIDC_ISSUER …` and continues.
 
 ---
 
@@ -269,7 +269,7 @@ Set `OIDC_ISSUER` to that exact string.
 
 **Cause:** Not the SSRF guard, despite what it looks like. All four OIDC calls (discovery, token, userinfo, JWKS) go through the admin-configured fetch path, which deliberately **allows** loopback and private/LAN targets: a Keycloak or Authentik on `192.168.x` or `10.x` is a supported setup and needs no extra variable. `ALLOW_INTERNAL_NETWORK` belongs to the guard on *user*-supplied URLs and changes nothing about OIDC. The only addresses that path refuses are link-local and cloud-metadata ones (`169.254.0.0/16`, `fe80::/10`), which fail with `Requests to link-local / cloud-metadata addresses are not allowed`. A provider behind the host gateway of a rootless Podman container resolves to `169.254.1.2` and fails exactly like that; list that address in `ALLOW_LINK_LOCAL_IPS`, see [Internal-Network-Access](Internal-Network-Access#a-link-local-address-you-need).
 
-Versions 4.3.0 to 4.3.2 also failed like that when the provider's hostname had an IPv6 link-local (`fe80::`) record next to its LAN address, which many LAN DNS servers hand out. From 4.3.3 on, TREK leaves such an address out and connects over the LAN address, so only a hostname that resolves to nothing but link-local or metadata addresses still fails.
+Versions 4.3.0 to 4.3.2 also failed like that when the provider's hostname had an IPv6 link-local (`fe80::`) record next to its LAN address, which many LAN DNS servers hand out. From 4.3.3 on, Roteiros Aventuristur leaves such an address out and connects over the LAN address, so only a hostname that resolves to nothing but link-local or metadata addresses still fails.
 
 **Fix:** Look for the reasons an internal provider actually fails. A failed discovery fetch answers `500 { "error": "OIDC login failed" }` and logs the real message as `[OIDC] Login error: …`, so start there:
 
@@ -278,7 +278,7 @@ docker logs <container> 2>&1 | grep "OIDC"
 ```
 
 - **The container cannot reach the issuer.** Test from inside it, not from your desktop — the container has its own DNS and its own network: `docker exec <container> wget -qO- https://<issuer>/.well-known/openid-configuration`. A `Could not resolve hostname` in the log is this.
-- **The issuer is not HTTPS.** In production TREK refuses a plain-HTTP issuer up front with `400 { "error": "OIDC issuer must use HTTPS in production" }`, before any request goes out.
+- **The issuer is not HTTPS.** In production Roteiros Aventuristur refuses a plain-HTTP issuer up front with `400 { "error": "OIDC issuer must use HTTPS in production" }`, before any request goes out.
 - **The provider's certificate is not trusted by the container.** A self-signed certificate on an internal Keycloak fails the TLS handshake; issue it from a CA the container trusts.
 
 ---
@@ -297,7 +297,7 @@ docker logs <container> 2>&1 | grep -E "SMTP test email (sent|failed)|SMTP test 
 |-----------------------|----------------|
 | `rejected the credentials` (`code=EAUTH`) | Wrong SMTP user or password. Mailboxes with 2FA normally need an app-specific password, not the account one. |
 | `refused the connection` | Nothing is listening on that port, or a firewall closed it. |
-| `did not answer in time` | The port is filtered, or 465 and 587 are swapped: TREK dials 465 with implicit TLS and every other port in plain mode with STARTTLS. |
+| `did not answer in time` | The port is filtered, or 465 and 587 are swapped: Roteiros Aventuristur dials 465 with implicit TLS and every other port in plain mode with STARTTLS. |
 | `could not be resolved` | The container's DNS cannot resolve the host. Test with `docker exec <container> nc -zv <SMTP_HOST> <SMTP_PORT>`. |
 | `TLS certificate ... was not accepted` | Turn on **Skip TLS certificate check** (or `SMTP_SKIP_TLS_VERIFY=true`) for an internal relay carrying its own certificate. |
 | `rejected the envelope` | The from address usually has to belong to the authenticated mailbox. |
@@ -317,7 +317,7 @@ docker logs <container> 2>&1 | grep -E "SMTP test email (sent|failed)|SMTP test 
    ```bash
    docker logs <container> 2>&1 | grep -E "Password reset email failed|Email send failed"
    ```
-   If neither matches, check whether the mail ever left at all — TREK needs a host, a port **and** a from-address (`SMTP_HOST` / `SMTP_PORT` / `SMTP_FROM`, or the same three fields under **Admin > Notifications**). With any one of them missing it skips SMTP entirely and logs `Password reset link issued (no SMTP)` plus the `===== PASSWORD RESET LINK =====` block instead of any error:
+   If neither matches, check whether the mail ever left at all — Roteiros Aventuristur needs a host, a port **and** a from-address (`SMTP_HOST` / `SMTP_PORT` / `SMTP_FROM`, or the same three fields under **Admin > Notifications**). With any one of them missing it skips SMTP entirely and logs `Password reset link issued (no SMTP)` plus the `===== PASSWORD RESET LINK =====` block instead of any error:
    ```bash
    docker logs <container> 2>&1 | grep "no SMTP"
    ```
@@ -328,7 +328,7 @@ docker logs <container> 2>&1 | grep -E "SMTP test email (sent|failed)|SMTP test 
    docker exec <container> nc -zv <SMTP_HOST> <SMTP_PORT>
    ```
 
-> **Note:** If no SMTP is configured at all, TREK prints the reset link directly to the server logs (`===== PASSWORD RESET LINK =====`). This is useful for initial setup or self-hosted installs without email.
+> **Note:** If no SMTP is configured at all, Roteiros Aventuristur prints the reset link directly to the server logs (`===== PASSWORD RESET LINK =====`). This is useful for initial setup or self-hosted installs without email.
 
 ---
 
@@ -367,7 +367,7 @@ If `ALLOWED_ORIGINS` is not set, the default is **same-origin only** — cross-o
 
 **Cause:** The browser Clipboard API (`navigator.clipboard`) is only available in a [secure context](https://developer.mozilla.org/en-US/docs/Web/Security/Secure_Contexts), so on plain HTTP at a non-localhost address it is undefined.
 
-TREK works around this where it matters most. The share-link and invite-link buttons in the trip **Members** dialog, the journey share link, and the calendar-subscribe URLs fall back to a hidden textarea plus the deprecated `document.execCommand('copy')`, which is not secure-context gated — **those keep working over plain HTTP**, on desktop and mobile alike.
+Roteiros Aventuristur works around this where it matters most. The share-link and invite-link buttons in the trip **Members** dialog, the journey share link, and the calendar-subscribe URLs fall back to a hidden textarea plus the deprecated `document.execCommand('copy')`, which is not secure-context gated — **those keep working over plain HTTP**, on desktop and mobile alike.
 
 The remaining copy buttons call `navigator.clipboard` directly and have no fallback:
 
@@ -377,8 +377,8 @@ The remaining copy buttons call `navigator.clipboard` directly and have no fallb
 
 **Fix:** For those buttons, one of:
 
-- Access TREK over HTTPS with a valid SSL certificate.
-- Access TREK directly from `http://localhost:<port>` — browsers treat `localhost` as a secure context for the Clipboard API.
+- Access Roteiros Aventuristur over HTTPS with a valid SSL certificate.
+- Access Roteiros Aventuristur directly from `http://localhost:<port>` — browsers treat `localhost` as a secure context for the Clipboard API.
 
 Failing that, select the value shown in the field and copy it manually; every one of these buttons sits next to the text it copies.
 
@@ -386,11 +386,11 @@ Failing that, select the value shown in the field and copy it manually; every on
 
 ## Place photos not loading / place thumbnail shows default map pin (Google Maps API key configured)
 
-**Cause:** When a Google Maps API key is set, TREK fetches photo references and image bytes from the Google Places API on the server side. If the server-side call is rejected or returns no photos, the `/place-photo/:id` endpoint answers `200 { "photoUrl": null }` and the place falls back to the default map-pin thumbnail. The image proxy behind it, `/place-photo/:id/bytes`, answers `204 No Content` when it has nothing cached — neither endpoint returns 404, so a trip full of photo-less places cannot trip a 404 rate limit in a reverse proxy or IPS. The most common causes are:
+**Cause:** When a Google Maps API key is set, Roteiros Aventuristur fetches photo references and image bytes from the Google Places API on the server side. If the server-side call is rejected or returns no photos, the `/place-photo/:id` endpoint answers `200 { "photoUrl": null }` and the place falls back to the default map-pin thumbnail. The image proxy behind it, `/place-photo/:id/bytes`, answers `204 No Content` when it has nothing cached — neither endpoint returns 404, so a trip full of photo-less places cannot trip a 404 rate limit in a reverse proxy or IPS. The most common causes are:
 
-1. **HTTP referrer restriction on the API key.** Google Cloud Console lets you restrict a key to specific HTTP referrers. Because TREK calls Google from the server (not the browser), it sends a `Referer` header only when `APP_URL` is set — the header is the value of `APP_URL`. If `APP_URL` is not set, TREK sends no `Referer` header at all, and a referrer-restricted key rejects a request with no referrer just as it rejects a wrong one.
+1. **HTTP referrer restriction on the API key.** Google Cloud Console lets you restrict a key to specific HTTP referrers. Because Roteiros Aventuristur calls Google from the server (not the browser), it sends a `Referer` header only when `APP_URL` is set — the header is the value of `APP_URL`. If `APP_URL` is not set, Roteiros Aventuristur sends no `Referer` header at all, and a referrer-restricted key rejects a request with no referrer just as it rejects a wrong one.
 
-2. **Wrong key restriction type.** API keys restricted by **HTTP referrers** are designed for browser-side JavaScript. For a self-hosted server application, use **IP address** restrictions instead — add the public IP of your TREK server and no `APP_URL` configuration is needed.
+2. **Wrong key restriction type.** API keys restricted by **HTTP referrers** are designed for browser-side JavaScript. For a self-hosted server application, use **IP address** restrictions instead — add the public IP of your Roteiros Aventuristur server and no `APP_URL` configuration is needed.
 
 3. **Places API (New) not enabled.** The key must have **Places API (New)** enabled in Google Cloud Console under APIs & Services → Enabled APIs. Enabling only the legacy Places API is not sufficient.
 
@@ -425,7 +425,7 @@ If the response is `{}` or `{"error": {...}}`, the key or its restrictions are b
 
 ## MCP OAuth flow does not initiate / "Connect" redirects but authentication never starts
 
-**Cause:** TREK advertises its OAuth 2.1 issuer and authorization endpoint from its resolved public base URL (`APP_URL`, else the first entry of `ALLOWED_ORIGINS`, else `http://localhost:<PORT>`; the resolved value is kept only if it is `https://` or `localhost`/`127.0.0.1`). If that resolution lands on `http://localhost:<PORT>`, external clients (Claude.ai, Claude Desktop) cannot reach the authorization endpoint and the OAuth handshake never completes.
+**Cause:** Roteiros Aventuristur advertises its OAuth 2.1 issuer and authorization endpoint from its resolved public base URL (`APP_URL`, else the first entry of `ALLOWED_ORIGINS`, else `http://localhost:<PORT>`; the resolved value is kept only if it is `https://` or `localhost`/`127.0.0.1`). If that resolution lands on `http://localhost:<PORT>`, external clients (Claude.ai, Claude Desktop) cannot reach the authorization endpoint and the OAuth handshake never completes.
 
 **Fix:** Set `APP_URL` to the public URL of your instance:
 
@@ -434,9 +434,9 @@ environment:
   - APP_URL=https://trek.example.com
 ```
 
-Restart the container after adding the variable. Once set, clicking **Connect** in the MCP client should redirect to your TREK instance and complete the OAuth flow normally.
+Restart the container after adding the variable. Once set, clicking **Connect** in the MCP client should redirect to your Roteiros Aventuristur instance and complete the OAuth flow normally.
 
-> **Note:** Set `APP_URL` for any MCP OAuth integration. TREK resolves its public base URL **once**, in this order: (1) `APP_URL`, (2) the first entry of `ALLOWED_ORIGINS`, (3) `http://localhost:<PORT>` as a last resort — a step is skipped only when the value is unset or not a valid URL. The winner is then checked for MCP: only an `https://` URL or a `localhost` / `127.0.0.1` host is kept; anything else is replaced by `http://localhost:<PORT>`, which external MCP clients cannot reach. Because only the resolved winner is checked, a valid but plain-HTTP `APP_URL` (e.g. `http://trek.internal.lan`) is **not** rescued by an `https://` entry in `ALLOWED_ORIGINS` — it still ends up on localhost.
+> **Note:** Set `APP_URL` for any MCP OAuth integration. Roteiros Aventuristur resolves its public base URL **once**, in this order: (1) `APP_URL`, (2) the first entry of `ALLOWED_ORIGINS`, (3) `http://localhost:<PORT>` as a last resort — a step is skipped only when the value is unset or not a valid URL. The winner is then checked for MCP: only an `https://` URL or a `localhost` / `127.0.0.1` host is kept; anything else is replaced by `http://localhost:<PORT>`, which external MCP clients cannot reach. Because only the resolved winner is checked, a valid but plain-HTTP `APP_URL` (e.g. `http://trek.internal.lan`) is **not** rescued by an `https://` entry in `ALLOWED_ORIGINS` — it still ends up on localhost.
 
 ---
 
@@ -464,7 +464,7 @@ The session limit no longer rejects requests: at the cap, the server closes the 
 
 There are two reasons the header goes missing:
 
-1. **TREK 3.3.0 and earlier** did not send `Access-Control-Expose-Headers: Mcp-Session-Id`. Without it, browser-based clients — Claude.ai, Claude Desktop connectors, MCP Inspector — are forbidden by the browser from reading the session id, no matter how the proxy is configured. **Fix: upgrade** — no proxy change will help.
+1. **Roteiros Aventuristur 3.3.0 and earlier** did not send `Access-Control-Expose-Headers: Mcp-Session-Id`. Without it, browser-based clients — Claude.ai, Claude Desktop connectors, MCP Inspector — are forbidden by the browser from reading the session id, no matter how the proxy is configured. **Fix: upgrade** — no proxy change will help.
 2. **A reverse proxy stripping the header.** Nginx and Caddy forward it by default, so this only happens if you have a `proxy_hide_header` directive or a response-header allowlist in front of `/mcp`. See [Reverse-Proxy](Reverse-Proxy).
 
 **How to tell which:** from the machine running the proxy, ask for a session and look at the response headers.
@@ -498,7 +498,7 @@ the client (check that your reverse proxy forwards it).
 
 ## MCP requests blocked by Cloudflare WAF (Bot Fight Mode)
 
-**Cause:** When TREK is proxied through Cloudflare, **Bot Fight Mode** and **Super Bot Fight Mode** classify server-to-server requests as bots and block them at the WAF level — before the request ever reaches TREK. Their exit-node IPs have low reputation scores in Cloudflare's threat intelligence and the User-Agent matches Cloudflare's automated-traffic heuristics. TREK itself never receives the request, so there is nothing in TREK's logs; the block is silent from TREK's perspective.
+**Cause:** When Roteiros Aventuristur is proxied through Cloudflare, **Bot Fight Mode** and **Super Bot Fight Mode** classify server-to-server requests as bots and block them at the WAF level — before the request ever reaches Roteiros Aventuristur. Their exit-node IPs have low reputation scores in Cloudflare's threat intelligence and the User-Agent matches Cloudflare's automated-traffic heuristics. Roteiros Aventuristur itself never receives the request, so there is nothing in Roteiros Aventuristur's logs; the block is silent from Roteiros Aventuristur's perspective.
 
 This affects **ChatGPT** and **Google account linking (Gemini, Assistant)**. Claude.ai is not affected.
 
@@ -506,7 +506,7 @@ Note that Bot Fight Mode does **not** honour IP allowlists, so adding the provid
 
 Symptoms:
 - ChatGPT shows a connection error or times out immediately after OAuth completes.
-- With Google account linking the symptom looks different, and more confusing: the browser part succeeds (you approve the consent screen and are redirected back), then linking fails. Google exchanges the authorization code from its own servers, and that call is what gets blocked. In TREK's logs you see `POST /api/oauth/authorize` answered `200` and then **no** `POST /oauth/token` at all.
+- With Google account linking the symptom looks different, and more confusing: the browser part succeeds (you approve the consent screen and are redirected back), then linking fails. Google exchanges the authorization code from its own servers, and that call is what gets blocked. In Roteiros Aventuristur's logs you see `POST /api/oauth/authorize` answered `200` and then **no** `POST /oauth/token` at all.
 - Cloudflare's Security → Events log shows blocked requests to `/mcp` or `/oauth/token` with action `block` and source `bfm` (Bot Fight Mode) or `managed_rule`.
 
 **Fix — Option 1: Disable Bot Fight Mode (free plan and paid plan)**

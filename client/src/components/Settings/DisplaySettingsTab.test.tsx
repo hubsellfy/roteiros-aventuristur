@@ -57,8 +57,8 @@ describe('DisplaySettingsTab', () => {
     const updateSetting = vi.fn().mockResolvedValue(undefined);
     seedStore(useSettingsStore, { settings: buildSettings({ language: 'en' }), updateSetting });
     render(<DisplaySettingsTab />);
-    await user.click(screen.getByText('Deutsch'));
-    expect(updateSetting).toHaveBeenCalledWith('language', 'de');
+    await user.click(screen.getByText('Español'));
+    expect(updateSetting).toHaveBeenCalledWith('language', 'es');
   });
 
   it('FE-COMP-DISPLAY-016: active language button is visually highlighted', () => {
@@ -246,9 +246,9 @@ describe('DisplaySettingsTab – Compact language picker', () => {
     const wrap = mobileLangWrap();
 
     await user.click(within(wrap).getByRole('button'));
-    await user.click(within(wrap).getByText('Deutsch').closest('button')!);
+    await user.click(within(wrap).getByText('Español').closest('button')!);
 
-    expect(updateSetting).toHaveBeenCalledWith('language', 'de');
+    expect(updateSetting).toHaveBeenCalledWith('language', 'es');
     expect(within(wrap).getAllByRole('button')).toHaveLength(1);
   });
 
@@ -259,7 +259,7 @@ describe('DisplaySettingsTab – Compact language picker', () => {
     const wrap = mobileLangWrap();
 
     await user.click(within(wrap).getByRole('button'));
-    await user.click(within(wrap).getByText('Deutsch').closest('button')!);
+    await user.click(within(wrap).getByText('Español').closest('button')!);
 
     expect(await screen.findByText('Language locked')).toBeInTheDocument();
   });
@@ -269,7 +269,7 @@ describe('DisplaySettingsTab – Compact language picker', () => {
     seedFailing('Language locked');
     render(<><ToastContainer /><DisplaySettingsTab /></>);
 
-    await user.click(screen.getByText('Deutsch'));
+    await user.click(screen.getByText('Español'));
 
     expect(await screen.findByText('Language locked')).toBeInTheDocument();
   });
@@ -293,7 +293,7 @@ describe('DisplaySettingsTab – Compact language picker', () => {
     const wrap = mobileLangWrap();
 
     await user.click(within(wrap).getByRole('button'));
-    fireEvent.mouseDown(within(wrap).getByText('Deutsch'));
+    fireEvent.mouseDown(within(wrap).getByText('Español'));
 
     expect(within(wrap).getAllByRole('button').length).toBeGreaterThan(1);
   });

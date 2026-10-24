@@ -367,10 +367,10 @@ describe('SharedTripPage', () => {
       fireEvent.click(langButton);
 
       // Language options should now be visible
-      expect(screen.getByRole('button', { name: /deutsch/i })).toBeInTheDocument();
+      expect(screen.getByRole('button', { name: /português/i })).toBeInTheDocument();
 
       // Select a different language
-      fireEvent.click(screen.getByRole('button', { name: /deutsch/i }));
+      fireEvent.click(screen.getByRole('button', { name: /português/i }));
 
       // Dropdown should close — Español is no longer visible
       expect(screen.queryByRole('button', { name: /español/i })).toBeNull();
@@ -503,8 +503,8 @@ describe('SharedTripPage', () => {
   });
 
   describe('FE-PAGE-SHARED-018: untitled day uses the translated day label (#1296)', () => {
-    it('renders the day-number label via i18n (German), not a hardcoded English string', async () => {
-      seedStore(useSettingsStore, { settings: buildSettings({ language: 'de' }) });
+    it('renders the day-number label via i18n (Brazilian Portuguese), not a hardcoded English string', async () => {
+      seedStore(useSettingsStore, { settings: buildSettings({ language: 'br' }) });
       const day = { id: 101, trip_id: 1, day_number: 1, date: '2026-07-01', title: null, notes: null };
       server.use(
         http.get('/api/shared/:token', () => HttpResponse.json({
@@ -523,11 +523,11 @@ describe('SharedTripPage', () => {
         })),
       );
       renderSharedTrip('test-token');
-      // The untitled day shows the German label "Tag 1", proving the hardcoded English
+      // The untitled day shows the Portuguese label "Dia 1", proving the hardcoded English
       // "Day 1" was replaced by the i18n key t('dayplan.dayN'). It appears twice since
       // the day picker above the map was added (#1962): once as a chip, once on the card.
-      await waitFor(() => expect(screen.getAllByText('Tag 1')).toHaveLength(2));
-      const labels = screen.getAllByText('Tag 1');
+      await waitFor(() => expect(screen.getAllByText('Dia 1')).toHaveLength(2));
+      const labels = screen.getAllByText('Dia 1');
       // One of each: the picker chip carries aria-pressed, the day card's header aria-expanded.
       expect(labels.filter((el) => el.closest('[aria-pressed]'))).toHaveLength(1);
       expect(labels.filter((el) => el.closest('[aria-expanded]'))).toHaveLength(1);
@@ -1432,7 +1432,7 @@ describe('SharedTripPage', () => {
       await open('langhover-token', payload());
 
       fireEvent.click(screen.getByRole('button', { name: /english/i }));
-      const option = screen.getByRole('button', { name: /deutsch/i });
+      const option = screen.getByRole('button', { name: /português/i });
 
       fireEvent.mouseEnter(option);
       expect(option.style.background).toBe('var(--bg-hover)');

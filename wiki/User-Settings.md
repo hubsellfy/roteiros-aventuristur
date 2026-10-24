@@ -1,12 +1,12 @@
 # User Settings
 
-The Settings page lets you personalise every aspect of TREK — appearance, maps, notifications, offline behaviour, and your account.
+The Settings page lets you personalise every aspect of Roteiros Aventuristur — appearance, maps, notifications, offline behaviour, and your account.
 
 ## Navigating to Settings
 
 Open the user menu in the top navigation bar and select **Settings**. The page opens on the **General** tab by default.
 
-If your account requires MFA setup, TREK redirects you directly to the **Account** tab (via `?mfa=required`).
+If your account requires MFA setup, Roteiros Aventuristur redirects you directly to the **Account** tab (via `?mfa=required`).
 
 ## Tabs
 
@@ -28,7 +28,7 @@ The General tab controls the following preferences, all saved immediately on cha
 
 **Startup**
 
-- **Start page** — open TREK on the dashboard (the default) or straight in your active trip.
+- **Start page** — open Roteiros Aventuristur on the dashboard (the default) or straight in your active trip.
 - **Start tab** — which planner tab that trip opens on, e.g. Costs for entering expenses on the road.
 
 **Language & region**
@@ -62,7 +62,7 @@ The Map tab requires an explicit **Save** action after making changes.
 
 **Provider** — choose between:
 
-- **Leaflet** — The default. Pick from built-in presets (OpenStreetMap, OpenStreetMap DE, OpenFreeMap Positron/Bright, CartoDB Light/Dark, Stadia Smooth, Amap (高德地图) road and satellite) or enter a custom tile URL template. The Amap presets draw in the offset GCJ-02 datum, which TREK corrects for; see [Map-Settings](Map-Settings). OpenFreeMap Positron is what an unconfigured map draws; the CartoDB presets need an API key.
+- **Leaflet** — The default. Pick from built-in presets (OpenStreetMap, OpenStreetMap DE, OpenFreeMap Positron/Bright, CartoDB Light/Dark, Stadia Smooth, Amap (高德地图) road and satellite) or enter a custom tile URL template. The Amap presets draw in the offset GCJ-02 datum, which Roteiros Aventuristur corrects for; see [Map-Settings](Map-Settings). OpenFreeMap Positron is what an unconfigured map draws; the CartoDB presets need an API key.
 - **Mapbox GL** (Experimental) — Vector tiles with 3D buildings and terrain. Requires a public Mapbox access token (`pk.*`). Supports built-in style presets (Mapbox Standard, Standard Satellite, Streets, Outdoors, Light, Dark, Satellite, Satellite Streets, Navigation Day, Navigation Night) or a custom `mapbox://styles/USER/ID` URL. Additional options:
   - **3D Buildings & Terrain** — Pitch and real 3D building extrusions (works on every style including satellite).
   - **High Quality Mode** (Experimental) — Antialiasing + globe projection for sharper edges. May impact performance on lower-end devices.
@@ -94,7 +94,7 @@ If your account was linked via SSO, an **SSO** badge appears next to your role a
 The Integrations tab is only visible when a **photo provider** (Immich or Synology Photos), **MCP**, **AirTrail**, **AI Parsing** or **Dawarich** is enabled. Each section then appears with its own addon, so the tab holds only what your instance actually runs:
 
 - **Photo Providers** (only when a photo provider is enabled) — Configure Immich, Synology Photos, and other photo integrations. One card appears per enabled provider.
-- **AirTrail** (only when the AirTrail addon is enabled) — Instance URL and API key for your self-hosted AirTrail, plus a self-signed-certificate switch and a **Write changes back to AirTrail** toggle (off by default: AirTrail is the source of truth and TREK only reads from it). **Test connection** reports how many flights it can see. The key is stored encrypted and never prefilled — leaving the field blank keeps the stored one.
+- **AirTrail** (only when the AirTrail addon is enabled) — Instance URL and API key for your self-hosted AirTrail, plus a self-signed-certificate switch and a **Write changes back to AirTrail** toggle (off by default: AirTrail is the source of truth and Roteiros Aventuristur only reads from it). **Test connection** reports how many flights it can see. The key is stored encrypted and never prefilled — leaving the field blank keeps the stored one.
 - **Dawarich** (only when the Dawarich addon is enabled): the **Instance address** and **API key** of your own Dawarich, a self-signed-certificate switch, **Test connection** and **Disconnect**. The key is stored encrypted and never handed back. See [Dawarich](Dawarich).
 - **AI parsing** (only when the AI Parsing addon is enabled) — The provider (OpenAI or Anthropic), model and API key used to extract bookings from your uploaded files, plus **Send documents as images** for vision-capable models. This is the per-user fallback: it only takes effect when your administrator has not configured a model for the whole instance. A local Ollama endpoint is not offered here — that is set up once, instance-wide, in the admin settings (#1772). See [AI-Booking-Import](AI-Booking-Import).
 - **API Keys** (whenever the tab is shown): read-only keys for the public API, so other software can read your trips. **Create key** names the key and lets you narrow **what this key may read** to single areas; the key is shown once. See [Public-API](Public-API).
