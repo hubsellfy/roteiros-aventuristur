@@ -29,6 +29,7 @@ rastreabilidade do fork.
 | Recurso | Situação | Observação |
 | --- | --- | --- |
 | GitHub `hubsellfy` | confirmado | Permissão administrativa no repositório da Aventuristur e acesso para criar o fork. |
+| GitHub Container Registry (GHCR) | confirmado para publicação | A sessão OAuth da conta `hubsellfy` inclui o escopo `write:packages`; nenhum pacote foi criado nesta etapa. |
 | VPS Hostinger | confirmado em leitura | KVM 2 em execução; capacidade a medir novamente com o app instalado. |
 | DNS `aventuristur.com` | confirmado | O registro `A` `app` aponta para `187.127.25.215`, com TTL de 300 segundos. |
 | Resolução pública | confirmado | `app.aventuristur.com` respondeu o IPv4 esperado nos resolvedores 1.1.1.1 e 8.8.8.8 na validação inicial. |
