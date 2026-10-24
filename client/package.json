@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "prebuild": "node ../aventuristur/rebrand/apply.mjs && node scripts/patch-maplibre.mjs && node scripts/generate-icons.mjs",
+    "prebuild": "(test ! -f ../aventuristur/rebrand/apply.mjs || node ../aventuristur/rebrand/apply.mjs) && node scripts/patch-maplibre.mjs && node scripts/generate-icons.mjs",
     "build": "vite build",
     "build:analyze": "vite build --mode analyze",
     "preview": "vite preview",
