@@ -45,7 +45,7 @@ cliente foi publicado como parte desta etapa.
 | Item | Ação necessária | Onde o segredo deve ficar |
 | --- | --- | --- |
 | Backup externo | Definir e criar um destino privado compatível com S3 fora da VPS principal, sob contrato de tratamento de dados; criar credencial limitada ao bucket de backup. Um storage separado na própria VPS pode isolar o projeto, mas não substitui essa cópia externa. | Variáveis do serviço no Easypanel ou GitHub Actions Secrets. |
-| Open-Meteo | Aprovar a assinatura comercial e gerar a chave da API comercial. | Variáveis do serviço no Easypanel ou GitHub Actions Secrets. |
+| Open-Meteo | Durante desenvolvimento e homologação, usar somente a API gratuita, sem dados reais de clientes e sem acesso de clientes. Antes de qualquer uso operacional pela agência, aprovar a assinatura comercial e gerar a chave da API comercial, ou aprovar formalmente outro fornecedor com licença comercial. | Variáveis do serviço no Easypanel ou GitHub Actions Secrets. |
 | Chave de criptografia | Gerar uma única chave aleatória de 32 bytes em hexadecimal (64 caracteres) e guardar uma cópia fora da VPS. O formato foi confirmado na base `v4.3.4`. | Variável do serviço no Easypanel e cofre seguro do dono. |
 
 ## Regras de segurança desta etapa
@@ -53,6 +53,9 @@ cliente foi publicado como parte desta etapa.
 - Nenhum segredo deve ser enviado por chat, registrado em arquivo, commit,
   issue, PR, print ou log.
 - Nenhum dado real de cliente entra no fork, nos testes ou na homologação.
+- A API gratuita do Open-Meteo é uma permissão temporária de desenvolvimento e
+  homologação; ela não autoriza abrir o produto ao uso operacional ou aos
+  clientes da agência.
 - A imagem, o serviço de homologação, o serviço de produção, o backup diário
   e o domínio configurado no Easypanel pertencem à Etapa 4.
 - A abertura de `app.aventuristur.com` aos clientes exige autorização explícita
