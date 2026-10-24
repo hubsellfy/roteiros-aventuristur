@@ -15,6 +15,8 @@ const map = JSON.parse(readFileSync(resolve(here, 'iconsax-map.json'), 'utf8'))
 // Exceções documentadas: o Iconsax não tem "check" simples (só dentro de círculo/quadrado).
 const custom = {
   check: '<path d="M4.5 12.75L9.5 17.75L19.5 6.75" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>',
+  // Talheres (garfo e faca): o Iconsax não tem; mesmo traço de 1,5 px dos demais.
+  utensils: '<path d="M7 3v6.5a2.5 2.5 0 0 0 5 0V3M9.5 3v18M17 21V3c-2.2 1.2-3.5 3.7-3.5 6.5V13H17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>',
   check2: '<path d="M2.5 12.75L7.5 17.75L17.5 6.75M12 16.25L13.25 17.5L21.5 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>',
 }
 
