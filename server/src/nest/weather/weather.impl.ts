@@ -25,6 +25,26 @@ function hourIndexFromTime(time?: string): number | null {
 const MAX_WEATHER_BYTES = 1024 * 1024;
 
 /**
+ * Open-Meteo's free API is for non-commercial use only. A paid subscription gets an
+ * API key and its own hosts, so when `OPEN_METEO_API_KEY` is set every request is
+ * moved to the customer host and carries the key as `apikey`. Without the variable
+ * the URL is returned untouched, which is the original behaviour.
+ *
+ * The forecast host is `customer-api.open-meteo.com` (Open-Meteo pricing page). The
+ * archive host is not documented there, so it can be overridden with
+ * `OPEN_METEO_CUSTOMER_ARCHIVE_HOST`; confirm it against the subscription docs.
+ */
+export function withOpenMeteoKey(url: string, env: NodeJS.ProcessEnv = process.env): string {
+  const key = env.OPEN_METEO_API_KEY?.trim();
+  if (!key) return url;
+  const archiveHost = env.OPEN_METEO_CUSTOMER_ARCHIVE_HOST?.trim() || 'customer-archive-api.open-meteo.com';
+  const customerUrl = url
+    .replace('https://archive-api.open-meteo.com/', `https://${archiveHost}/`)
+    .replace('https://api.open-meteo.com/', 'https://customer-api.open-meteo.com/');
+  return `${customerUrl}${customerUrl.includes('?') ? '&' : '?'}apikey=${encodeURIComponent(key)}`;
+}
+
+/**
  * Open-Meteo GET with the shared deadline and the size cap.
  *
  * The body is read through the cap rather than buffered with .json(): Open-Meteo
@@ -33,7 +53,7 @@ const MAX_WEATHER_BYTES = 1024 * 1024;
  * response, because the status and `reason` are what shape its error.
  */
 async function fetchOpenMeteo(url: string): Promise<{ response: Response; data: OpenMeteoForecast }> {
-  const response = await fetch(url, { signal: AbortSignal.timeout(WEATHER_TIMEOUT_MS) });
+  const response = await fetch(withOpenMeteoKey(url), { signal: AbortSignal.timeout(WEATHER_TIMEOUT_MS) });
   const data = await readCappedJson<OpenMeteoForecast>(response, MAX_WEATHER_BYTES);
   if (!data) {
     throw new ApiError(502, 'Open-Meteo API error');

@@ -1,0 +1,84 @@
+diff --git a/server/src/nest/weather/weather.impl.ts b/server/src/nest/weather/weather.impl.ts
+index 8a6dfb7..e6a7a57 100644
+--- a/server/src/nest/weather/weather.impl.ts
++++ b/server/src/nest/weather/weather.impl.ts
+@@ -24,6 +24,26 @@ function hourIndexFromTime(time?: string): number | null {
+ // misbehaving, not that the trip got longer.
+ const MAX_WEATHER_BYTES = 1024 * 1024;
+ 
++/**
++ * Open-Meteo's free API is for non-commercial use only. A paid subscription gets an
++ * API key and its own hosts, so when `OPEN_METEO_API_KEY` is set every request is
++ * moved to the customer host and carries the key as `apikey`. Without the variable
++ * the URL is returned untouched, which is the original behaviour.
++ *
++ * The forecast host is `customer-api.open-meteo.com` (Open-Meteo pricing page). The
++ * archive host is not documented there, so it can be overridden with
++ * `OPEN_METEO_CUSTOMER_ARCHIVE_HOST`; confirm it against the subscription docs.
++ */
++export function withOpenMeteoKey(url: string, env: NodeJS.ProcessEnv = process.env): string {
++  const key = env.OPEN_METEO_API_KEY?.trim();
++  if (!key) return url;
++  const archiveHost = env.OPEN_METEO_CUSTOMER_ARCHIVE_HOST?.trim() || 'customer-archive-api.open-meteo.com';
++  const customerUrl = url
++    .replace('https://archive-api.open-meteo.com/', `https://${archiveHost}/`)
++    .replace('https://api.open-meteo.com/', 'https://customer-api.open-meteo.com/');
++  return `${customerUrl}${customerUrl.includes('?') ? '&' : '?'}apikey=${encodeURIComponent(key)}`;
++}
++
+ /**
+  * Open-Meteo GET with the shared deadline and the size cap.
+  *
+@@ -33,7 +53,7 @@ const MAX_WEATHER_BYTES = 1024 * 1024;
+  * response, because the status and `reason` are what shape its error.
+  */
+ async function fetchOpenMeteo(url: string): Promise<{ response: Response; data: OpenMeteoForecast }> {
+-  const response = await fetch(url, { signal: AbortSignal.timeout(WEATHER_TIMEOUT_MS) });
++  const response = await fetch(withOpenMeteoKey(url), { signal: AbortSignal.timeout(WEATHER_TIMEOUT_MS) });
+   const data = await readCappedJson<OpenMeteoForecast>(response, MAX_WEATHER_BYTES);
+   if (!data) {
+     throw new ApiError(502, 'Open-Meteo API error');
+diff --git a/server/tests/unit/nest/weather/weather.impl.test.ts b/server/tests/unit/nest/weather/weather.impl.test.ts
+index 295aa84..2f73e4e 100644
+--- a/server/tests/unit/nest/weather/weather.impl.test.ts
++++ b/server/tests/unit/nest/weather/weather.impl.test.ts
+@@ -14,6 +14,7 @@ import {
+   cacheKey,
+   getWeather,
+   getDetailedWeather,
++  withOpenMeteoKey,
+   ApiError,
+   type WeatherResult,
+ } from '../../../../src/nest/weather/weather.impl';
+@@ -1094,3 +1095,31 @@ describe('size cap on the Open-Meteo body', () => {
+     expect(result.temp).toBe(15);
+   });
+ });
++
++// ── withOpenMeteoKey ─────────────────────────────────────────────────────────
++
++describe('withOpenMeteoKey', () => {
++  const forecast = 'https://api.open-meteo.com/v1/forecast?latitude=1&longitude=2';
++  const archive = 'https://archive-api.open-meteo.com/v1/archive?latitude=1&longitude=2';
++
++  it('leaves the URL untouched without a key', () => {
++    expect(withOpenMeteoKey(forecast, {})).toBe(forecast);
++    expect(withOpenMeteoKey(archive, { OPEN_METEO_API_KEY: '   ' })).toBe(archive);
++  });
++
++  it('moves forecast requests to the customer host and adds the key', () => {
++    expect(withOpenMeteoKey(forecast, { OPEN_METEO_API_KEY: 'abc123' }))
++      .toBe('https://customer-api.open-meteo.com/v1/forecast?latitude=1&longitude=2&apikey=abc123');
++  });
++
++  it('moves archive requests to the customer archive host, which can be overridden', () => {
++    expect(withOpenMeteoKey(archive, { OPEN_METEO_API_KEY: 'abc123' }))
++      .toBe('https://customer-archive-api.open-meteo.com/v1/archive?latitude=1&longitude=2&apikey=abc123');
++    expect(withOpenMeteoKey(archive, { OPEN_METEO_API_KEY: 'abc123', OPEN_METEO_CUSTOMER_ARCHIVE_HOST: 'archive.example.test' }))
++      .toBe('https://archive.example.test/v1/archive?latitude=1&longitude=2&apikey=abc123');
++  });
++
++  it('encodes the key so it cannot break out of the query string', () => {
++    expect(withOpenMeteoKey(forecast, { OPEN_METEO_API_KEY: 'a&b=c' })).toContain('&apikey=a%26b%3Dc');
++  });
++});
