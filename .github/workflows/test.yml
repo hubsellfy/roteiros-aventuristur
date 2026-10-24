@@ -242,20 +242,32 @@ jobs:
     # have secrets, so only fork PRs are filtered out. (The implicit success()
     # on this expression also keeps the job skipped when a preflight fails.)
     if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
+    # Aventuristur fork: the AIStor licence belongs to the original project and is
+    # not a secret here. Without it the suite is reported as skipped, not failed.
+    env:
+      MINIO_LICENSE_KEY: ${{ secrets.MINIO_LICENSE_KEY }}
 
     steps:
+      - name: Report the missing licence
+        if: env.MINIO_LICENSE_KEY == ''
+        run: echo "::notice::MINIO_LICENSE_KEY not set in this fork; the S3 contract suite was skipped."
+
       - uses: actions/checkout@v6
+        if: env.MINIO_LICENSE_KEY != ''
 
       - uses: actions/setup-node@v6
+        if: env.MINIO_LICENSE_KEY != ''
         with:
           node-version: 24
           cache: npm
           cache-dependency-path: package-lock.json
 
       - name: Install dependencies
+        if: env.MINIO_LICENSE_KEY != ''
         run: npm ci
 
       - name: Ensure @swc/core's Linux binary for unplugin-swc
+        if: env.MINIO_LICENSE_KEY != ''
         # The lockfile was generated on Windows and omits @swc/core's Linux
         # optional native binary, so npm ci/install skips it on the runner.
         # Install the matching version explicitly so the server's SWC transform
@@ -265,12 +277,15 @@ jobs:
           npm install --no-save --legacy-peer-deps "@swc/core-linux-x64-gnu@$SWC_VERSION"
 
       - name: Build shared
+        if: env.MINIO_LICENSE_KEY != ''
         run: npm run build --workspace=shared
 
       - name: Write MinIO license
+        if: env.MINIO_LICENSE_KEY != ''
         run: printf '%s' "${{ secrets.MINIO_LICENSE_KEY }}" > minio-licence.key
 
       - name: Start MinIO
+        if: env.MINIO_LICENSE_KEY != ''
         # `services:` can't pass the `server /data --license ...` command to
         # the AIStor image, so it starts via docker run. 127.0.0.1 endpoint is
         # load-bearing: aws-lite picks path-style only for IP/localhost hosts,
@@ -282,6 +297,7 @@ jobs:
             quay.io/minio/aistor/minio:RELEASE.2026-08-07T18-34-35Z server /data --license /minio.license
 
       - name: Wait for MinIO
+        if: env.MINIO_LICENSE_KEY != ''
         # curl was removed from the AIStor image — poll from the runner instead.
         # 60 x 2s gives a wider margin on cold runners than the 30 x 1s the
         # pre-6fbff835 job used.
@@ -295,6 +311,7 @@ jobs:
           exit 1
 
       - name: Run the S3 driver contract suite
+        if: env.MINIO_LICENSE_KEY != ''
         # No --coverage: the src/nest/storage/** 94/84/97/94 pin must keep
         # holding from hermetic tests alone. The suite's beforeAll creates
         # the trek-test bucket idempotently — no separate bucket-init step.
@@ -444,39 +461,53 @@ jobs:
     # show a collapse that did not happen. The preflight gates already stop it
     # transitively through these four, so they aren't repeated here.
     needs: [server-coverage, client-coverage, shared-coverage, plugin-sdk-coverage]
+    # Aventuristur fork: the SonarCloud project belongs to the original project.
+    # Without SONAR_TOKEN the scan is skipped instead of failing the run.
+    env:
+      SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
     steps:
+      - name: Report the missing token
+        if: env.SONAR_TOKEN == ''
+        run: echo "::notice::SONAR_TOKEN not set in this fork; the Sonar scan was skipped."
+
       - uses: actions/checkout@v6
+        if: env.SONAR_TOKEN != ''
         with:
           # Sonar reads git blame to date each issue and to decide what counts
           # as new code. A shallow clone leaves it blind to both.
           fetch-depth: 0
 
       - name: Download server coverage
+        if: env.SONAR_TOKEN != ''
         uses: actions/download-artifact@v6
         with:
           name: sonar-server-coverage
           path: server/coverage/
 
       - name: Download client coverage
+        if: env.SONAR_TOKEN != ''
         uses: actions/download-artifact@v6
         with:
           name: sonar-client-coverage
           path: client/coverage/
 
       - name: Download shared coverage
+        if: env.SONAR_TOKEN != ''
         uses: actions/download-artifact@v6
         with:
           name: sonar-shared-coverage
           path: shared/coverage/
 
       - name: Download plugin-sdk coverage
+        if: env.SONAR_TOKEN != ''
         uses: actions/download-artifact@v6
         with:
           name: sonar-plugin-sdk-coverage
           path: plugin-sdk/coverage/
 
       - name: Scan
+        if: env.SONAR_TOKEN != ''
         uses: SonarSource/sonarqube-scan-action@v8
         env:
           # SonarQube Cloud is the scan action's default host, so no
