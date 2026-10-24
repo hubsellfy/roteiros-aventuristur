@@ -5285,12 +5285,14 @@ function runMigrations(db: Database.Database): void {
         END
       `);
     },
-    // Aventuristur: recursos de planejamento ligados por padrão (Coleções, Road trip e
-    // Journey) e o planejador de férias pessoais (Vacay) desligado, por não servir ao
-    // atendimento. Roda uma vez; depois disso o administrador decide em Admin > Addons.
+    // Aventuristur: todos os recursos do TREK ligados por padrão (addons, provedores de fotos,
+    // provedores de documentos e controle de bagagem). Roda uma vez; depois disso o
+    // administrador decide em Admin > Addons.
     () => {
-      db.prepare("UPDATE addons SET enabled = 1 WHERE id IN ('collections', 'roadtrip', 'journey')").run();
-      db.prepare("UPDATE addons SET enabled = 0 WHERE id = 'vacay'").run();
+      db.prepare('UPDATE addons SET enabled = 1').run();
+      db.prepare('UPDATE photo_providers SET enabled = 1').run();
+      db.prepare('UPDATE document_providers SET enabled = 1').run();
+      db.prepare("INSERT OR REPLACE INTO app_settings (key, value) VALUES ('bag_tracking_enabled', 'true')").run();
     },
   ];
 
