@@ -174,7 +174,7 @@ describe('CollectionHero', () => {
 
     // Export asks which format first (#2301).
     await userEvent.click(actions[1]);
-    await userEvent.click(screen.getByRole('menuitem', { name: /TREK list/ }));
+    await userEvent.click(screen.getByRole('menuitem', { name: /Roteiros Aventuristur list/ }));
     expect(onExport).toHaveBeenCalledWith('trek');
   });
 

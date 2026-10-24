@@ -72,9 +72,9 @@ describe('MobileTopBar', () => {
     expect(screen.queryByText('testuser')).not.toBeInTheDocument();
   });
 
-  it('FE-COMP-MOBILETOPBAR-007: profile label translates when language is fr', async () => {
-    seedStore(useSettingsStore, { settings: buildSettings({ language: 'fr' }) });
+  it('FE-COMP-MOBILETOPBAR-007: profile label translates when language is es', async () => {
+    seedStore(useSettingsStore, { settings: buildSettings({ language: 'es' }) });
     render(<MobileTopBar />, { initialEntries: ['/dashboard'] });
-    expect(await screen.findByRole('button', { name: 'Profil' })).toBeInTheDocument();
+    expect(await screen.findByRole('button', { name: 'Perfil' })).toBeInTheDocument();
   });
 });

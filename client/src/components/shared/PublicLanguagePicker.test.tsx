@@ -10,8 +10,8 @@ describe('PublicLanguagePicker', () => {
   })
 
   it('FE-PUBLANG-001: the trigger keeps the current language as its accessible name', () => {
-    render(<PublicLanguagePicker locale="de-DE" open={false} onOpenChange={vi.fn()} />)
-    expect(screen.getByRole('button', { name: 'Deutsch' })).toBeInTheDocument()
+    render(<PublicLanguagePicker locale="es-ES" open={false} onOpenChange={vi.fn()} />)
+    expect(screen.getByRole('button', { name: 'Español' })).toBeInTheDocument()
   })
 
   // `br` and `zh-TW` are whole values, not prefixes: matching the prefix first
@@ -20,8 +20,8 @@ describe('PublicLanguagePicker', () => {
     const { unmount } = render(<PublicLanguagePicker locale="br" open={false} onOpenChange={vi.fn()} />)
     expect(screen.getByRole('button', { name: 'Português (Brasil)' })).toBeInTheDocument()
     unmount()
-    render(<PublicLanguagePicker locale="zh-TW" open={false} onOpenChange={vi.fn()} />)
-    expect(screen.getByRole('button', { name: '繁體中文' })).toBeInTheDocument()
+    render(<PublicLanguagePicker locale="en-US" open={false} onOpenChange={vi.fn()} />)
+    expect(screen.getByRole('button', { name: 'English' })).toBeInTheDocument()
   })
 
   it('FE-PUBLANG-002: an unknown locale falls back to the generic label', () => {
@@ -32,7 +32,7 @@ describe('PublicLanguagePicker', () => {
   it('FE-PUBLANG-003: closed renders no options at all', () => {
     render(<PublicLanguagePicker locale="en" open={false} onOpenChange={vi.fn()} />)
     expect(screen.queryByTestId('public-language-menu')).toBeNull()
-    expect(screen.queryByRole('button', { name: 'Deutsch' })).toBeNull()
+    expect(screen.queryByRole('button', { name: 'Español' })).toBeNull()
   })
 
   it('FE-PUBLANG-004: open lists every supported language', () => {
@@ -73,8 +73,8 @@ describe('PublicLanguagePicker', () => {
   it('FE-PUBLANG-008: picking a language stores it locally and closes the menu', () => {
     const onOpenChange = vi.fn()
     render(<PublicLanguagePicker locale="en" open onOpenChange={onOpenChange} />)
-    fireEvent.click(screen.getByRole('button', { name: 'Deutsch' }))
-    expect(useSettingsStore.getState().settings.language).toBe('de')
+    fireEvent.click(screen.getByRole('button', { name: 'Español' }))
+    expect(useSettingsStore.getState().settings.language).toBe('es')
     expect(onOpenChange).toHaveBeenCalledWith(false)
   })
 
@@ -89,7 +89,7 @@ describe('PublicLanguagePicker', () => {
     const onOpenChange = vi.fn()
     const { container } = render(<PublicLanguagePicker locale="en" open onOpenChange={onOpenChange} />)
     fireEvent.mouseDown(within(container).getByRole('button', { name: 'English' }))
-    fireEvent.mouseDown(screen.getByRole('button', { name: 'Deutsch' }))
+    fireEvent.mouseDown(screen.getByRole('button', { name: 'Español' }))
     expect(onOpenChange).not.toHaveBeenCalled()
     fireEvent.mouseDown(document.body)
     expect(onOpenChange).toHaveBeenCalledWith(false)
@@ -97,7 +97,7 @@ describe('PublicLanguagePicker', () => {
 
   it('FE-PUBLANG-011: hovering an option paints and clears its background', () => {
     render(<PublicLanguagePicker locale="en" open onOpenChange={vi.fn()} />)
-    const option = screen.getByRole('button', { name: 'Deutsch' })
+    const option = screen.getByRole('button', { name: 'Español' })
     fireEvent.mouseEnter(option)
     expect(option.style.background).toBe('var(--bg-hover)')
     fireEvent.mouseLeave(option)
@@ -105,9 +105,9 @@ describe('PublicLanguagePicker', () => {
   })
 
   it('FE-PUBLANG-012: the current language is marked for assistive tech', () => {
-    render(<PublicLanguagePicker locale="de" open onOpenChange={vi.fn()} />)
+    render(<PublicLanguagePicker locale="es" open onOpenChange={vi.fn()} />)
     const menu = within(screen.getByTestId('public-language-menu'))
-    expect(menu.getByRole('button', { name: 'Deutsch' })).toHaveAttribute('aria-current', 'true')
+    expect(menu.getByRole('button', { name: 'Español' })).toHaveAttribute('aria-current', 'true')
     expect(menu.getByRole('button', { name: 'English' })).toHaveAttribute('aria-current', 'false')
   })
 })

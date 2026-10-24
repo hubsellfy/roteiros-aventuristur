@@ -42,7 +42,7 @@ describe('CollectionExportMenu (#2301)', () => {
     expect(trigger()).toHaveAttribute('aria-expanded', 'true');
     expect(trigger()).toHaveAttribute('aria-controls', menu.id);
     expect(items().map(item => item.textContent)).toEqual([
-      'TREK list.trekcollection.jsonFor another TREK, with labels and status',
+      'Roteiros Aventuristur list.trekcollection.jsonFor another Roteiros Aventuristur, with labels and status',
       'GPX.gpxWaypoints for OsmAnd, Organic Maps, Garmin and other map apps',
     ]);
   });
