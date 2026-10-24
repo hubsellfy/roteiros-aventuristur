@@ -11,6 +11,9 @@
 html :is(.shadow, .shadow-sm, .shadow-md, .shadow-lg, .shadow-xl, .shadow-2xl):not([role="dialog"]):not([role="menu"]):not([role="listbox"]):not([role="tooltip"]) {
   box-shadow: none !important;
 }
+html [class*="shadow-["]:not([role="dialog"]):not([role="menu"]):not([role="listbox"]):not([role="tooltip"]) {
+  box-shadow: none !important;
+}
 html [style*="box-shadow"]:not([style*="0 0 0 "]):not([role="dialog"]):not([role="menu"]):not([role="listbox"]):not([role="tooltip"]):not([aria-modal="true"]) {
   box-shadow: none !important;
 }
@@ -51,17 +54,17 @@ html .trek-dash {
   letter-spacing: 0;
 }
 html.dark .trek-dash {
-  --bg: #181d26;
-  --bg-2: #1f252f;
-  --surface: #0f1217;
-  --surface-2: #13171e;
+  --bg: #0e0e11;
+  --bg-2: #17171b;
+  --surface: #131316;
+  --surface-2: #1a1a1e;
   --ink: #fcfcfc;
-  --ink-2: #c4cad4;
-  --ink-3: #8b94a3;
-  --line: #2a333e;
-  --line-2: #303b49;
-  --glass-bg: #0f1217;
-  --glass-border: #2a333e;
+  --ink-2: #c4c4cb;
+  --ink-3: #8b8b94;
+  --line: #27272a;
+  --line-2: #303034;
+  --glass-bg: #131316;
+  --glass-border: #27272a;
 }
 html .trek-dash .atlas-card { border: 1px solid var(--line); }
 html .trek-dash .atlas-card.passport {
@@ -91,3 +94,63 @@ html .trek-dash .seg button.on { box-shadow: none; border: 1px solid var(--line)
 
 /* ── Campos e botões de formulário ────────────────────────────────────── */
 html select.form-input { padding-right: 36px; }
+
+/* ── Celular (.m-root): mesmos tokens do site, superfícies sólidas em vez de vidro ───── */
+html .m-root {
+  --m-ink: #1a1a1c;
+  --m-muted: #4b5360;
+  --m-faint: #7b8494;
+  --m-bg: #f2f5fa;
+  --m-scr: #f2f5fa;
+  --m-glass: #fcfcfd;
+  --m-gbr: #dfe4eb;
+  --m-card: #fcfcfd;
+  --m-cbr: #dfe4eb;
+  --m-inner: #f2f5fa;
+  --m-inbr: #dfe4eb;
+  --m-act: #0a6fc2;
+  --m-actfg: #ffffff;
+  --m-sheet: #fcfcfd;
+  --m-sheetop: #fcfcfd;
+  --m-shbr: #dfe4eb;
+  --m-ic: rgba(10, 111, 194, 0.08);
+  --m-avbr: #fcfcfd;
+  --m-rowbr: #eceff4;
+  --m-mkr: #0a6fc2;
+  --m-mkfg: #ffffff;
+  --m-trackoff: #d7dde5;
+  font-family: var(--font-system);
+}
+html.dark .m-root {
+  --m-ink: #fcfcfc;
+  --m-muted: #c4c4cb;
+  --m-faint: #8b8b94;
+  --m-bg: #0e0e11;
+  --m-scr: #0e0e11;
+  --m-glass: #131316;
+  --m-gbr: #27272a;
+  --m-card: #131316;
+  --m-cbr: #27272a;
+  --m-inner: #1a1a1e;
+  --m-inbr: #27272a;
+  --m-act: #4aa0e6;
+  --m-actfg: #052e52;
+  --m-sheet: #131316;
+  --m-sheetop: #131316;
+  --m-shbr: #27272a;
+  --m-ic: rgba(74, 160, 230, 0.16);
+  --m-avbr: #131316;
+  --m-rowbr: #17171b;
+  --m-mkr: #4aa0e6;
+  --m-mkfg: #052e52;
+  --m-trackoff: #303034;
+}
+html .m-root * {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+html .trek-dash .hero-trip,
+html .trek-dash .hero-trip:hover { box-shadow: none; }
+html.dark .trek-dash .fab-new-trip,
+html.dark .trek-dash .btn-primary { background: var(--accent); color: var(--accent-text); }

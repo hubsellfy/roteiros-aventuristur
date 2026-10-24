@@ -18,6 +18,9 @@ const custom = {
   check2: '<path d="M2.5 12.75L7.5 17.75L17.5 6.75M12 16.25L13.25 17.5L21.5 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>',
 }
 
+// O traço (cor, espessura, pontas) fica no <svg> do componente, para `stroke`/`strokeWidth` funcionarem.
+const bare = (markup) => markup.replace(/ stroke(-width|-linecap|-linejoin|-miterlimit)?="[^"]*"/g, '')
+
 const byName = {}
 for (const file of readdirSync(dataDir)) {
   const json = JSON.parse(readFileSync(resolve(dataDir, file), 'utf8'))
@@ -33,12 +36,14 @@ const inner = (svg) =>
     .replace(/<defs>[\s\S]*?<\/defs>/g, '')
     .replace(/ clip-path="[^"]*"/g, '')
     .replace(/(stroke|fill)="(?!none|currentColor)[^"]*"/g, '$1="currentColor"')
+    .replace(/ stroke(-width|-linecap|-linejoin|-miterlimit)?="[^"]*"/g, '')
+    .replace(/>\s+</g, '><')
     .trim()
 const used = new Map()
 for (const [lucide, target] of Object.entries(map)) {
   const [ref, rotate] = target.split('@')
   if (ref.startsWith('=')) {
-    used.set(lucide, { body: custom[ref.slice(1)] })
+    used.set(lucide, { body: bare(custom[ref.slice(1)]) })
     continue
   }
   const entry = byName[ref]?.linear

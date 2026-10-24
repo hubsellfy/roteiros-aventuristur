@@ -69,7 +69,7 @@ function serializeProps(props: ElementProps): string {
     const value = props[name]
     if (value === undefined || value === null || value === false) continue
     if (typeof value === 'function' || typeof value === 'symbol' || typeof value === 'object') continue
-    out += ` ${ATTRIBUTE_NAMES[name] ?? name}="${escape(value === true ? '' : (value as string | number))}"`
+    out += ` ${ATTRIBUTE_NAMES[name] ?? name}="${escape(value === true ? (name.startsWith('aria-') ? 'true' : '') : (value as string | number))}"`
   }
   return out
 }

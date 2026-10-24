@@ -123,10 +123,10 @@ describe('an icon on the page', () => {
 })
 
 describe('the icon list the picker is built from', () => {
-  it('holds the whole of lucide, over a thousand drawings', () => {
-    expect(ICON_NAMES.length).toBeGreaterThan(1000)
+  it('holds the whole Iconsax set mapped for the app', () => {
+    expect(ICON_NAMES.length).toBeGreaterThan(300)
     expect(ICON_NAMES).toContain('Plane')
-    expect(ICON_NAMES).toContain('MountainSnow')
+    expect(ICON_NAMES).toContain('CloudSnow')
   })
 
   it('leaves out the Lucide-prefixed alias of a name it already has', () => {
@@ -153,27 +153,27 @@ describe('the icon list the picker is built from', () => {
 
 describe('searching the icon list', () => {
   it('finds a compound name by its first word', () => {
-    expect(searchIcons('mountain')).toContain('MountainSnow')
+    expect(searchIcons('cloud')).toContain('CloudSnow')
   })
 
   /* The second half is the part somebody types when they want the snowy one. */
   it('finds a compound name by its second word', () => {
-    expect(searchIcons('snow')).toContain('MountainSnow')
+    expect(searchIcons('snow')).toContain('CloudSnow')
   })
 
   it('finds it from both words, in either order', () => {
-    expect(searchIcons('snow mountain')).toContain('MountainSnow')
-    expect(searchIcons('mountain snow')).toContain('MountainSnow')
+    expect(searchIcons('snow cloud')).toContain('CloudSnow')
+    expect(searchIcons('cloud snow')).toContain('CloudSnow')
   })
 
   it('ignores case and stray spacing', () => {
-    expect(searchIcons('MOUNTAIN')).toContain('MountainSnow')
-    expect(searchIcons('  Snow  ')).toContain('MountainSnow')
+    expect(searchIcons('CLOUD')).toContain('CloudSnow')
+    expect(searchIcons('  Snow  ')).toContain('CloudSnow')
   })
 
   it('narrows as words are added rather than widening', () => {
     const snow = searchIcons('snow')
-    const both = searchIcons('snow mountain')
+    const both = searchIcons('snow cloud')
     expect(snow.length).toBeGreaterThan(both.length)
     expect(both.every(name => snow.includes(name))).toBe(true)
   })
@@ -190,7 +190,7 @@ describe('searching the icon list', () => {
 
 describe('names and the starter shelf', () => {
   it('spaces a PascalCase name out for the tooltip', () => {
-    expect(iconLabel('MountainSnow')).toBe('Mountain Snow')
+    expect(iconLabel('CloudSnow')).toBe('Cloud Snow')
     expect(iconLabel('CloudRain')).toBe('Cloud Rain')
     expect(iconLabel('Plane')).toBe('Plane')
   })

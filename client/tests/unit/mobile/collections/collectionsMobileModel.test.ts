@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { Bike, Landmark } from 'lucide-react'
+import { Bike, Landmark } from '../../../../src/icons'
 import {
   CATEGORY_SPEC, categoryMeta, STATUS_SPEC, tint, UNCATEGORIZED_META,
 } from '../../../../src/mobile/screens/collections/collectionsMobileModel'
