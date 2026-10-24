@@ -78,8 +78,8 @@ const dayplan: TranslationStrings = {
   'dayplan.mobile.allAssigned': 'Todos os lugares atribuídos',
   'dayplan.mobile.noMatch': 'Sem correspondência',
   'dayplan.mobile.createNew': 'Criar novo lugar',
-  'dayplan.expandAll': 'Expand all days', // en-fallback
-  'dayplan.collapseAll': 'Collapse all days', // en-fallback
+  'dayplan.expandAll': 'Expandir todos os dias', // en-fallback
+  'dayplan.collapseAll': 'Recolher todos os dias', // en-fallback
   'dayplan.reorderDays': 'Reordenar dias',
   'dayplan.reorderTitle': 'Reordenar dias',
   'dayplan.reorderHint': 'Os lugares, notas e reservas de um dia se movem junto com ele.',

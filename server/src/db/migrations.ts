@@ -5285,6 +5285,13 @@ function runMigrations(db: Database.Database): void {
         END
       `);
     },
+    // Aventuristur: recursos de planejamento ligados por padrão (Coleções, Road trip e
+    // Journey) e o planejador de férias pessoais (Vacay) desligado, por não servir ao
+    // atendimento. Roda uma vez; depois disso o administrador decide em Admin > Addons.
+    () => {
+      db.prepare("UPDATE addons SET enabled = 1 WHERE id IN ('collections', 'roadtrip', 'journey')").run();
+      db.prepare("UPDATE addons SET enabled = 0 WHERE id = 'vacay'").run();
+    },
   ];
 
   if (currentVersion < migrations.length) {

@@ -52,18 +52,18 @@ const common: TranslationStrings = {
   'common.justNow': 'agora mesmo',
   'common.hoursAgo': 'há {count}h',
   'common.daysAgo': 'há {count}d',
-  'common.datepicker.prevMonth': 'Previous month', // en-fallback
-  'common.datepicker.nextMonth': 'Next month', // en-fallback
-  'common.datepicker.prevYear': 'Previous year', // en-fallback
-  'common.datepicker.nextYear': 'Next year', // en-fallback
-  'common.datepicker.prevYears': 'Previous years', // en-fallback
-  'common.datepicker.nextYears': 'Next years', // en-fallback
-  'common.datepicker.selectMonth': 'Select month', // en-fallback
-  'common.datepicker.selectYear': 'Select year', // en-fallback
-  'common.datepicker.enterManually': 'Enter date manually', // en-fallback
-  'common.datepicker.typeDate': 'Type a date', // en-fallback
-  'common.datepicker.dialog': 'Date picker', // en-fallback
-  'common.datepicker.clearDate': 'Clear date', // en-fallback
+  'common.datepicker.prevMonth': 'Mês anterior', // en-fallback
+  'common.datepicker.nextMonth': 'Próximo mês', // en-fallback
+  'common.datepicker.prevYear': 'Ano anterior', // en-fallback
+  'common.datepicker.nextYear': 'Próximo ano', // en-fallback
+  'common.datepicker.prevYears': 'Anos anteriores', // en-fallback
+  'common.datepicker.nextYears': 'Próximos anos', // en-fallback
+  'common.datepicker.selectMonth': 'Selecionar mês', // en-fallback
+  'common.datepicker.selectYear': 'Selecionar ano', // en-fallback
+  'common.datepicker.enterManually': 'Digitar a data', // en-fallback
+  'common.datepicker.typeDate': 'Digite uma data', // en-fallback
+  'common.datepicker.dialog': 'Seletor de data', // en-fallback
+  'common.datepicker.clearDate': 'Limpar data', // en-fallback
   'common.errorTitle': 'Un dra bennak a zo aet a-dreuz',
   'common.errorBody': 'Al lodenn-mañ eus an arload n\'a ket en-dro ken. Hoc\'h roadennoù a zo diarvar.',
   'common.errorPanelTitle': 'N\'eus ket bet gallet diskwel al lodenn-mañ',

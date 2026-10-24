@@ -243,3 +243,8 @@ html .border-r { border-right-width: 0.5px; }
 html .trek-dash .atlas-card,
 html .trek-dash .btn-secondary,
 html .trek-dash .seg button.on { border-width: 0.5px; }
+
+/* ── Título do destaque do painel: menor, para caber nomes de viagem de clientes ── */
+html .trek-dash .hero-title { font-size: 72px; letter-spacing: -0.035em; }
+@media (max-width: 1280px) { html .trek-dash .hero-title { font-size: 56px; } }
+@media (max-width: 720px) { html .trek-dash .hero-title { font-size: 36px; } }

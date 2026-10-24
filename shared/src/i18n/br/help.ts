@@ -2,12 +2,12 @@ import type { TranslationStrings } from '../types';
 
 // English fallback until 'br' is translated.
 const help: TranslationStrings = {
-  'help.title': 'Help & Docs',
-  'help.search': 'Search docs…',
-  'help.contents': 'Contents',
-  'help.noResults': 'No matching pages.',
-  'help.errorTitle': "Couldn't load this page",
-  'help.errorBody': 'The help content is fetched from the Roteiros Aventuristur wiki. Check your connection and try again.',
+  'help.title': 'Ajuda e documentação',
+  'help.search': 'Buscar na documentação…',
+  'help.contents': 'Conteúdo',
+  'help.noResults': 'Nenhuma página encontrada.',
+  'help.errorTitle': 'Não foi possível carregar esta página',
+  'help.errorBody': 'O conteúdo de ajuda vem da wiki do Roteiros Aventuristur. Verifique sua conexão e tente novamente.',
 };
 
 export default help;
