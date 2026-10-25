@@ -1062,6 +1062,43 @@ describe('useTripPlanner — add place entry points', () => {
     expect(mapsApi.reverse).not.toHaveBeenCalled()
   })
 
+  it('FE-TP-HOOK-049A: a place the assistant recommended is added and assigned to the confirmed day', async () => {
+    seedTrip()
+    const { result } = await renderPlanner()
+    const card = {
+      ref: 'p1', name: 'Cantina Bella', address: 'Rua A', lat: 1, lng: 2, googlePlaceId: 'g1', osmId: null,
+      rating: 4.6, ratingCount: 10, openNow: null, reason: null, summary: null, topReview: null,
+      website: 'https://w', mapsUrl: null, dayId: 7,
+    }
+    let ok = false
+    await act(async () => { ok = await result.current.addAssistantPlace(card, 7) })
+
+    expect(ok).toBe(true)
+    expect(actions.addPlace).toHaveBeenCalledWith(42, expect.objectContaining({
+      name: 'Cantina Bella', lat: 1, lng: 2, google_place_id: 'g1', website: 'https://w',
+    }))
+    expect(actions.assignPlaceToDay).toHaveBeenCalledWith(42, 7, 900)
+    expect(toasts.some(t => t.type === 'success')).toBe(true)
+  })
+
+  it('FE-TP-HOOK-049B: without a day the assistant place only joins the trip, and a failure toasts', async () => {
+    seedTrip()
+    const { result } = await renderPlanner()
+    const card = {
+      ref: 'p1', name: 'X', address: null, lat: 1, lng: 2, googlePlaceId: null, osmId: 'n/1',
+      rating: null, ratingCount: null, openNow: null, reason: null, summary: null, topReview: null,
+      website: null, mapsUrl: null, dayId: null,
+    }
+    await act(async () => { await result.current.addAssistantPlace(card, null) })
+    expect(actions.assignPlaceToDay).not.toHaveBeenCalled()
+
+    actions.addPlace.mockRejectedValueOnce(new Error('nope'))
+    let ok = true
+    await act(async () => { ok = await result.current.addAssistantPlace(card, null) })
+    expect(ok).toBe(false)
+    expect(toasts.some(t => t.type === 'error')).toBe(true)
+  })
+
   it('FE-TP-HOOK-050: the pool editor resolves a place\'s lone assignment for its times', async () => {
     const place = buildPlace({ id: 1, lat: 1, lng: 2 })
     seedTrip({

@@ -17,7 +17,7 @@ import { getDayOrder } from '../../utils/dayOrder'
 import { TRANSPORT_TYPES, timedSlot } from '../../utils/dayMerge'
 import { isOvernightCategory } from '../../components/Roadtrip/stopKinds'
 import { parsedItemToDraft, isTransportItem, isUnplaceableItem, type BookingReviewDraft } from '../../components/Planner/parsedItemToDraft'
-import type { BookingImportPreviewItem } from '@trek/shared'
+import type { AssistantCard, BookingImportPreviewItem } from '@trek/shared'
 import { accommodationRepo } from '../../repo/accommodationRepo'
 import { offlineDb, getImportFiles, deleteImportFiles } from '../../db/offlineDb'
 import { isEffectivelyOffline } from '../../sync/networkMode'
@@ -930,6 +930,35 @@ export function useTripPlanner() {
       defaultEndDayId: rest[1]?.id ?? rest[0]?.id ?? dayId,
     }
   }, [days])
+
+  /**
+   * Adds a place the travel assistant recommended, once the traveller confirmed it.
+   * Goes through the ordinary place routes, so permissions and the day's route
+   * behave exactly as they do for a place added by hand.
+   */
+  const addAssistantPlace = useCallback(async (card: AssistantCard, dayId: number | null): Promise<boolean> => {
+    if (!can('place_edit', trip)) return false
+    try {
+      const place = await tripActions.addPlace(tripId, {
+        name: card.name,
+        lat: card.lat,
+        lng: card.lng,
+        address: card.address,
+        website: card.website || undefined,
+        google_place_id: card.googlePlaceId || undefined,
+        osm_id: card.osmId || undefined,
+      })
+      if (place?.id && dayId) {
+        await tripActions.assignPlaceToDay(tripId, dayId, place.id)
+        updateRouteForDay(dayId)
+      }
+      toast.success(t('trip.toast.placeAdded'))
+      return true
+    } catch (err: unknown) {
+      toast.error(err instanceof Error ? err.message : t('common.unknownError'))
+      return false
+    }
+  }, [tripId, tripActions, trip, updateRouteForDay, toast, t])
 
   const handlePoiClick = useCallback((poi: Parameters<typeof openAddPlaceFromPoi>[0]) => {
     if (!can('place_edit', trip)) return
@@ -2869,7 +2898,7 @@ export function useTripPlanner() {
     isMobile, isTouch,
     expandedDayIds, setExpandedDayIds, mapPlaces,
     route, routeSegments, routeInfo, setRoute, setRouteInfo, updateRouteForDay,
-    handleSelectDay, handlePlaceClick, handleMarkerClick, handleMapClick, handleMapContextMenu, openAddPlaceFromPoi, handlePoiClick,
+    handleSelectDay, handlePlaceClick, handleMarkerClick, handleMapClick, handleMapContextMenu, openAddPlaceFromPoi, handlePoiClick, addAssistantPlace,
     handleSavePlace, openPlaceEditor, handleDeletePlace, confirmDeletePlace, confirmDeletePlaces, confirmChangeCategory,
     handleAssignToDay, handleMoveToDay, handleRemoveAssignment, handleReorder, handleReorderDays, handleAddDay, dayAdd, handleUpdateDayTitle,
     ...dayDelete,

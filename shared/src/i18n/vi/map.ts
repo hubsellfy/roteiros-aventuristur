@@ -29,6 +29,15 @@ const map: TranslationStrings = {
   'map.overview.unrouted': 'Không thể tính {count} chặng, nên khoảng cách chưa đầy đủ.',
   'map.overview.dayUnrouted': 'Không thể tính {count} chặng của ngày này',
   'poi.ask': 'Hỏi',
-  'poi.askSoon': 'Sắp tới bạn có thể trò chuyện với trợ lý du lịch tại đây.',
+  'assistant.placeholder': 'Hỏi về chuyến đi của bạn…',
+  'assistant.welcome': 'Xin chào! Tôi có thể gợi ý nhà hàng và hoạt động, xem điểm đánh giá và nhận xét trên Google, và thêm địa điểm vào lịch trình của bạn. Bạn muốn lên kế hoạch gì?',
+  'assistant.suggest1': 'Ăn trưa ở đâu gần đây?',
+  'assistant.suggest2': 'Lên kế hoạch cho một buổi chiều rảnh',
+  'assistant.suggest3': 'Điểm tham quan được đánh giá cao nhất',
+  'assistant.error': 'Hiện tôi chưa thể trả lời. Vui lòng thử lại.',
+  'assistant.addToDay': 'Thêm vào ngày {n}',
+  'assistant.addToTrip': 'Thêm vào lịch trình',
+  'assistant.added': 'Đã thêm',
+  'assistant.source': 'Dữ liệu từ Google Maps',
 };
 export default map;

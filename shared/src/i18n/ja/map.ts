@@ -29,6 +29,15 @@ const map: TranslationStrings = {
   'map.overview.unrouted': '{count}区間のルートを計算できなかったため、距離は不完全です。',
   'map.overview.dayUnrouted': 'この日の{count}区間のルートを計算できませんでした',
   'poi.ask': '質問する',
-  'poi.askSoon': 'まもなく、ここで旅行アシスタントとチャットできるようになります。',
+  'assistant.placeholder': '旅行について聞いてみましょう…',
+  'assistant.welcome': 'こんにちは！レストランやアクティビティの提案、Googleの評価とクチコミの確認、旅程への場所の追加ができます。何を計画しますか？',
+  'assistant.suggest1': 'この近くでランチできる場所は？',
+  'assistant.suggest2': '自由な午後のプランを作って',
+  'assistant.suggest3': '評価の高い観光スポット',
+  'assistant.error': '今は回答できませんでした。もう一度お試しください。',
+  'assistant.addToDay': '{n}日目に追加',
+  'assistant.addToTrip': '旅程に追加',
+  'assistant.added': '追加済み',
+  'assistant.source': 'Googleマップのデータ',
 };
 export default map;

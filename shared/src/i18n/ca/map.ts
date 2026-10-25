@@ -29,6 +29,15 @@ const map: TranslationStrings = {
   'map.overview.unrouted': 'No s’han pogut calcular {count} tram(s), per això les distàncies són incompletes.',
   'map.overview.dayUnrouted': 'No s’han pogut calcular {count} tram(s) d’aquest dia',
   'poi.ask': 'Pregunta',
-  'poi.askSoon': 'Aviat podràs parlar aquí amb l\'assistent de viatges.',
+  'assistant.placeholder': 'Pregunta sobre el teu viatge…',
+  'assistant.welcome': 'Hola! Puc suggerir restaurants i activitats, consultar valoracions i ressenyes de Google i afegir llocs al teu itinerari. Què vols planificar?',
+  'assistant.suggest1': 'On dinar prop d’aquí?',
+  'assistant.suggest2': 'Organitza’m una tarda lliure',
+  'assistant.suggest3': 'Atraccions més ben valorades',
+  'assistant.error': 'Ara no he pogut respondre. Torna-ho a provar.',
+  'assistant.addToDay': 'Afegeix al dia {n}',
+  'assistant.addToTrip': 'Afegeix a l’itinerari',
+  'assistant.added': 'Afegit',
+  'assistant.source': 'Dades de Google Maps',
 };
 export default map;

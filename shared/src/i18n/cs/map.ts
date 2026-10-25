@@ -29,6 +29,15 @@ const map: TranslationStrings = {
   'map.overview.unrouted': '{count} úsek(ů) se nepodařilo spočítat, vzdálenosti jsou neúplné.',
   'map.overview.dayUnrouted': '{count} úsek(ů) tohoto dne se nepodařilo spočítat',
   'poi.ask': 'Zeptejte se',
-  'poi.askSoon': 'Brzy zde budete moci chatovat s cestovním asistentem.',
+  'assistant.placeholder': 'Zeptejte se na svůj výlet…',
+  'assistant.welcome': 'Ahoj! Mohu navrhnout restaurace a aktivity, zjistit hodnocení a recenze z Googlu a přidat místa do vašeho itineráře. Co chcete naplánovat?',
+  'assistant.suggest1': 'Kde se tady poblíž naobědvat?',
+  'assistant.suggest2': 'Naplánuj mi volné odpoledne',
+  'assistant.suggest3': 'Nejlépe hodnocené atrakce',
+  'assistant.error': 'Teď jsem nemohl odpovědět. Zkuste to znovu.',
+  'assistant.addToDay': 'Přidat do dne {n}',
+  'assistant.addToTrip': 'Přidat do itineráře',
+  'assistant.added': 'Přidáno',
+  'assistant.source': 'Data z Map Google',
 };
 export default map;

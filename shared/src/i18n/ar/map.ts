@@ -29,6 +29,15 @@ const map: TranslationStrings = {
   'map.overview.unrouted': 'تعذّر حساب {count} مرحلة، لذا المسافات غير مكتملة.',
   'map.overview.dayUnrouted': 'تعذّر حساب {count} مرحلة من هذا اليوم',
   'poi.ask': 'اسأل',
-  'poi.askSoon': 'سيمكنك قريبًا التحدث مع مساعد السفر هنا.',
+  'assistant.placeholder': 'اسأل عن رحلتك…',
+  'assistant.welcome': 'مرحبًا! يمكنني اقتراح مطاعم وأنشطة، والاطلاع على تقييمات ومراجعات Google، وإضافة أماكن إلى برنامج رحلتك. ماذا تريد أن نخطط؟',
+  'assistant.suggest1': 'أين يمكنني تناول الغداء قريبًا من هنا؟',
+  'assistant.suggest2': 'خطط لي عصرًا حرًا',
+  'assistant.suggest3': 'أفضل المعالم تقييمًا',
+  'assistant.error': 'لم أتمكن من الرد الآن. حاول مرة أخرى.',
+  'assistant.addToDay': 'أضف إلى اليوم {n}',
+  'assistant.addToTrip': 'أضف إلى البرنامج',
+  'assistant.added': 'تمت الإضافة',
+  'assistant.source': 'بيانات من خرائط Google',
 };
 export default map;

@@ -29,6 +29,15 @@ const map: TranslationStrings = {
   'map.overview.unrouted': 'Nie udało się wyznaczyć {count} odcinka/odcinków, więc odległości są niepełne.',
   'map.overview.dayUnrouted': 'Nie udało się wyznaczyć {count} odcinka/odcinków tego dnia',
   'poi.ask': 'Zapytaj',
-  'poi.askSoon': 'Wkrótce będziesz mógł tu rozmawiać z asystentem podróży.',
+  'assistant.placeholder': 'Zapytaj o swoją podróż…',
+  'assistant.welcome': 'Cześć! Mogę podpowiedzieć restauracje i atrakcje, sprawdzić oceny i opinie z Google oraz dodać miejsca do planu podróży. Co chcesz zaplanować?',
+  'assistant.suggest1': 'Gdzie zjeść obiad w pobliżu?',
+  'assistant.suggest2': 'Zaplanuj mi wolne popołudnie',
+  'assistant.suggest3': 'Najlepiej oceniane atrakcje',
+  'assistant.error': 'Nie mogę teraz odpowiedzieć. Spróbuj ponownie.',
+  'assistant.addToDay': 'Dodaj do dnia {n}',
+  'assistant.addToTrip': 'Dodaj do planu',
+  'assistant.added': 'Dodano',
+  'assistant.source': 'Dane z Map Google',
 };
 export default map;
