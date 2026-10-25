@@ -230,8 +230,7 @@ export default function MDashboard(): React.ReactElement {
           aria-label="Roteiros Aventuristur"
           className="flex flex-none items-center gap-[7px]"
         >
-          <img src="/logo-dark.svg" alt="" className="block h-[26px] dark:hidden" />
-          <img src="/logo-light.svg" alt="" className="hidden h-[26px] dark:block" />
+          <img src="/logo-icon.svg" alt="Roteiros Aventuristur" className="block h-[34px]" />
         </button>
         <div className="min-w-0 flex-1" />
         <MIconBtn ariaLabel={t('notifications.title')} onClick={() => navigate('/notifications')}>

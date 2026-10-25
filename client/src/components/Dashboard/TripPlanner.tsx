@@ -41,7 +41,7 @@ export default function TripPlanner({ pending, onCreated, onRetry, onRemove }: T
   const { t } = useTranslation()
   const form = useTripPlanForm(onCreated)
 
-  const styleOptions = TRIP_PLAN_STYLES.map(value => ({ value, label: t(`dashboard.plan.style.${value}`) }))
+  const styleOptions = TRIP_PLAN_STYLES.filter(value => value !== 'equilibrado').map(value => ({ value, label: t(`dashboard.plan.style.${value}`) }))
   const travelerOptions = TRAVELER_OPTIONS.map(n => ({
     value: n,
     label: n === 1 ? t('dashboard.plan.travelersOne') : t('dashboard.plan.travelersMany', { count: n }),
@@ -139,7 +139,7 @@ export default function TripPlanner({ pending, onCreated, onRetry, onRemove }: T
 
           <div className="md:col-span-2">
             <Field label={t('dashboard.plan.style')}>
-              <CustomSelect pill value={form.style} onChange={v => form.setStyle(TRIP_PLAN_STYLES.find(x => x === v) ?? 'equilibrado')} options={styleOptions} />
+              <CustomSelect pill value={form.style} onChange={v => form.setStyle(TRIP_PLAN_STYLES.find(x => x === v) ?? 'economico')} options={styleOptions} />
             </Field>
           </div>
         </div>

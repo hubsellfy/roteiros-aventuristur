@@ -27,7 +27,7 @@ export function useTripPlanForm(onCreated: () => void) {
   const [budget, setBudget] = useState('')
   const [budgetMode, setBudgetMode] = useState<'person' | 'total'>('person')
   const [travelers, setTravelers] = useState(2)
-  const [style, setStyle] = useState<TripPlanStyle>('equilibrado')
+  const [style, setStyle] = useState<TripPlanStyle>('economico')
   const [submitting, setSubmitting] = useState(false)
   const [error, setError] = useState<string | null>(null)
 

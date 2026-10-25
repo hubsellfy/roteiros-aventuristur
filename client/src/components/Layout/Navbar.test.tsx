@@ -346,12 +346,12 @@ describe('Navbar styling and menu details', () => {
     expect(nav().style.background).toBe('rgba(255, 255, 255, 0.72)');
   });
 
-  it('FE-W5NAV-002: dark mode swaps the bar and logo assets', () => {
+  it('FE-W5NAV-002: dark mode swaps the bar background', () => {
     seedStore(useSettingsStore, { settings: buildSettings({ dark_mode: 'dark' }) });
     render(<Navbar />);
 
     expect(nav().style.background).toBe('rgba(9, 9, 11, 0.95)');
-    expect(document.querySelector('img[src="/logo-light.svg"]')).not.toBeNull();
+    expect(document.querySelector('img[src="/logo-icon.svg"]')).not.toBeNull();
 
     Object.defineProperty(window, 'scrollY', { value: 40, configurable: true });
     fireEvent.scroll(window);

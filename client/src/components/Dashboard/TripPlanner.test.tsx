@@ -7,7 +7,7 @@ vi.mock('../../hooks/useTripPlanForm', () => ({
     destination: '', setDestination: vi.fn(), origin: '', setOrigin: vi.fn(),
     startDate: '', changeStart: vi.fn(), endDate: '', setEndDate: vi.fn(),
     budget: '', setBudget: vi.fn(), budgetMode: 'person', setBudgetMode: vi.fn(),
-    travelers: 2, setTravelers: vi.fn(), style: 'equilibrado', setStyle: vi.fn(),
+    travelers: 2, setTravelers: vi.fn(), style: 'economico', setStyle: vi.fn(),
     submitting: false, error: 'dashboard.plan.errDestination', submit: vi.fn(),
   }),
 }))

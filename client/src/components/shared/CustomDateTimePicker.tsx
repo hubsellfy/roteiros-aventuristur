@@ -326,7 +326,7 @@ export function CustomDatePicker({
               padding: compact ? '4px 6px' : pill ? '12px 18px' : '8px 14px',
               borderRadius: compact ? 4 : pill ? 999 : 10,
               border: borderless ? 'none' : '1px solid var(--border-primary)',
-              background: borderless ? 'transparent' : 'var(--bg-input)',
+              background: borderless ? 'transparent' : pill ? 'var(--bg-card)' : 'var(--bg-input)',
               color: displayValue ? 'var(--text-primary)' : 'var(--text-faint)',
               fontSize: pill ? 'calc(15px * var(--fs-scale-body, 1))' : 'calc(13px * var(--fs-scale-body, 1))',
               fontFamily: 'inherit',
