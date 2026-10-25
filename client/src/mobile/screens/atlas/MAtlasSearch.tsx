@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { ChevronRight, Search } from 'lucide-react'
+import { ChevronRight, Search } from '../../../icons'
 import { useTranslation } from '../../../i18n'
 
 interface CountryOption {

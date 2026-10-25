@@ -1,6 +1,6 @@
 import React from 'react'
 import { useTranslation } from '../../i18n'
-import { RefreshCw, ClipboardList, Loader2 } from 'lucide-react'
+import { RefreshCw, ClipboardList, Loader2 } from '../../icons'
 import { fs } from '../shared/DialogShell'
 import { SETTINGS_BUTTON, SettingsCard, SettingsHint, StatusPill } from '../Settings/settingsKit'
 import { useAuditLog } from './useAuditLog'

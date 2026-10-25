@@ -1,5 +1,5 @@
 import { useId, useState } from 'react'
-import { Link2, Search } from 'lucide-react'
+import { Link2, Search } from '../../icons'
 import { useTranslation } from '../../i18n'
 import { DialogButton, DialogFooter, DialogHeader, DialogShell, DialogTile, FooterSpacer, NEUTRAL_TINT, fs } from '../shared/DialogShell'
 import { INPUT } from '../shared/dialogParts'

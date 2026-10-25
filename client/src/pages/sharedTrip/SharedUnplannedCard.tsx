@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { ChevronDown, ChevronRight, MapPin } from 'lucide-react'
+import { ChevronDown, ChevronRight, MapPin } from '../../icons'
 import { fs, NEUTRAL_TINT } from '../../components/shared/DialogShell'
 import { SoftPill } from '../../components/Planner/planParts'
 import { useTranslation } from '../../i18n'

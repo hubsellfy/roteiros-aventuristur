@@ -19,7 +19,7 @@ import {
   Trash2,
   X,
   type LucideIcon,
-} from 'lucide-react'
+} from '../../../icons'
 import { STORAGE_CATEGORIES, type StorageTestResponse } from '@trek/shared'
 import { useTranslation } from '../../../i18n'
 import { formatBytes } from '../../../utils/formatBytes'

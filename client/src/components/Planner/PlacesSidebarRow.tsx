@@ -1,7 +1,7 @@
 import React, { useId } from 'react'
 import Markdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
-import { Plus, Check, Star } from 'lucide-react'
+import { Plus, Check, Star } from '../../icons'
 import PlaceAvatar from '../shared/PlaceAvatar'
 import { Tooltip } from '../shared/Tooltip'
 import { fs } from '../shared/DialogShell'

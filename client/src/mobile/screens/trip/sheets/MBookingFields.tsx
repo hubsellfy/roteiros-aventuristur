@@ -1,4 +1,4 @@
-import { Check, Trash2 } from 'lucide-react';
+import { Check, Trash2 } from '../../../../icons';
 import type { ReactNode } from 'react';
 
 import { SPLIT_COLORS } from '../../../../components/Budget/BudgetPanel.constants';

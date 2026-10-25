@@ -10,7 +10,7 @@ import {
   Heart, Star, CreditCard, Wifi,
   Luggage, Backpack, Zap,
   LucideIcon,
-} from 'lucide-react'
+} from '../../icons'
 
 export const CATEGORY_ICON_MAP: Record<string, LucideIcon> = {
   MapPin, Building2, BedDouble, UtensilsCrossed, Landmark, ShoppingBag,

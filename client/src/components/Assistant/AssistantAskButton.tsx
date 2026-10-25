@@ -1,4 +1,4 @@
-import { Sparkles } from 'lucide-react';
+import { Sparkles } from '../../icons';
 import { useMatch } from 'react-router';
 
 import { useTranslation } from '../../i18n';

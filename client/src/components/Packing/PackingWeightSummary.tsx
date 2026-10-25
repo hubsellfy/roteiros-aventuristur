@@ -1,4 +1,4 @@
-import { Users } from 'lucide-react'
+import { Users } from '../../icons'
 import { Tooltip } from '../shared/Tooltip'
 import type { PersonLoad } from './packingListPanel.helpers'
 

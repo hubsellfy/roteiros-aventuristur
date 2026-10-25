@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Check, ChevronRight, Library, X } from 'lucide-react'
+import { Check, ChevronRight, Library, X } from '../../../icons'
 import { TREK_API_SOURCES as SOURCES, trekApiFacts, trekApiFields } from '../../../components/Admin/trekApiModel'
 import { useTranslation } from '../../../i18n'
 

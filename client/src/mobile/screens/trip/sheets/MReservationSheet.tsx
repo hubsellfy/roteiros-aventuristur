@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
-import { Link2, Ticket } from 'lucide-react'
+import { Link2, Ticket } from '../../../../icons'
 import MSheet from '../../../components/MSheet'
 import { MBookingCodeStatus, MBookingNotes, MBookingTravelers } from './MBookingFields'
 import { useAddonStore } from '../../../../store/addonStore'

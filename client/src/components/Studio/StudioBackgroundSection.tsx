@@ -1,5 +1,5 @@
 import { bookElementId, spreadPaint, withSpreadPaintByHand, type BookPageSetup } from '@trek/shared';
-import { Check, CopyCheck, ImageOff } from 'lucide-react';
+import { Check, CopyCheck, ImageOff } from '../../icons';
 import { useEffect, useMemo, useState } from 'react';
 import { useStudioStore } from '../../store/studioStore';
 import { photoSrc } from './bookRender';

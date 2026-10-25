@@ -1,4 +1,4 @@
-import { CalendarDays, CalendarRange } from 'lucide-react';
+import { CalendarDays, CalendarRange } from '../../../icons';
 import { useId } from 'react';
 import { useTranslation } from '../../../i18n';
 import {

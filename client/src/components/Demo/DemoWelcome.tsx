@@ -1,4 +1,4 @@
-import { ArrowLeft, ArrowRight, Clock, ExternalLink, Images, RotateCcw } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Clock, ExternalLink, Images, RotateCcw } from '../../icons';
 import { lazy, Suspense, useId } from 'react';
 import { useTranslation } from '../../i18n';
 import {

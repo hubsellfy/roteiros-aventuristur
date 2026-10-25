@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react'
-import { ChevronDown, ChevronRight, MapPin, BookOpen, Check, X, RotateCcw, AlertTriangle, Clock, Hourglass, CalendarDays, Briefcase, Gauge, History, Unplug } from 'lucide-react'
+import { ChevronDown, ChevronRight, MapPin, BookOpen, Check, X, RotateCcw, AlertTriangle, Clock, Hourglass, CalendarDays, Briefcase, Gauge, History, Unplug } from '../../icons'
 import type { DawarichAccept, DawarichSuggestion, DawarichSuggestionTarget } from '@trek/shared'
 import { useTranslation } from '../../i18n'
 import { useDawarichSuggestions } from '../../hooks/useDawarichSuggestions'

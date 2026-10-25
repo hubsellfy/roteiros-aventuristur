@@ -20,7 +20,7 @@ import {
   Ungroup,
   Unlock,
   type LucideIcon,
-} from 'lucide-react';
+} from '../../icons';
 import { useRef, useState } from 'react';
 
 import { useStudioStore } from '../../store/studioStore';

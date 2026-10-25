@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { Paperclip, Link2, FileText } from 'lucide-react'
+import { Paperclip, Link2, FileText } from '../../icons'
 import { useTranslation } from '../../i18n'
 import type { TripFile } from '../../types'
 

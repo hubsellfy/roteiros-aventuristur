@@ -18,7 +18,7 @@ import {
   Sun,
   ThumbsDown,
   ThumbsUp,
-} from 'lucide-react';
+} from '../icons';
 import { DAY_COLORS } from '../components/Journey/dayColors';
 import JournalBody from '../components/Journey/JournalBody';
 import JourneyLayeredMap from '../components/Journey/JourneyLayeredMap';

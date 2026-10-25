@@ -1,5 +1,5 @@
 import type { PackingListCard as PackingCard, PackingCardGroup } from '@trek/shared';
-import { Backpack, Check } from 'lucide-react';
+import { Backpack, Check } from '../../../../icons';
 
 import { useTranslation } from '../../../../i18n';
 import { SoftPill } from '../../../Planner/planParts';

@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { createPortal } from 'react-dom'
 import { useNavigate } from 'react-router'
-import { BookOpen, Download, Maximize2, Minus, Plus } from 'lucide-react'
+import { BookOpen, Download, Maximize2, Minus, Plus } from '../../icons'
 import { useJourneyStudio } from '../../pages/journeyStudio/useJourneyStudio'
 import { useTranslation } from '../../i18n'
 import { foliosOf } from './bookSheets'

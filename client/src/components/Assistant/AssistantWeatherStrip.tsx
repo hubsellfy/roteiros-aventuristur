@@ -1,5 +1,5 @@
 import type { AssistantWeatherDay } from '@trek/shared';
-import { Droplet } from 'lucide-react';
+import { Droplet } from '../../icons';
 import { createElement } from 'react';
 
 import { useTranslation } from '../../i18n';

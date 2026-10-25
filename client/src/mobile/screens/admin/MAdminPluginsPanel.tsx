@@ -4,7 +4,7 @@ import {
   ArrowUpCircle, Github, ExternalLink, ChevronDown, Check, Lock, Search, Link2, KeyRound, ShieldAlert,
   SlidersHorizontal, ArrowUpDown, CircleDot, MoreHorizontal, RotateCw, Database,
   Globe, Info, History, PauseCircle, Puzzle, Bot,
-} from 'lucide-react'
+} from '../../../icons'
 import PluginIcon from '../../../components/shared/PluginIcon'
 import { type RangeWarning } from '../../../components/Admin/useRangeBypass'
 import { deriveCaps } from '../../../components/Admin/pluginCaps'

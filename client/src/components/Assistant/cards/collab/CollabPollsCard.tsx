@@ -1,5 +1,5 @@
 import type { AssistantMessage, CollabPollCard, CollabPollsCard as PollsCard } from '@trek/shared';
-import { BarChart3, Clock, Lock, TriangleAlert } from 'lucide-react';
+import { BarChart3, Clock, Lock, TriangleAlert } from '../../../../icons';
 
 import { useTranslation } from '../../../../i18n';
 import { avatarSrc } from '../../../../utils/avatarSrc';

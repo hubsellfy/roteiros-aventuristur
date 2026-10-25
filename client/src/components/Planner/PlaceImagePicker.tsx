@@ -1,5 +1,5 @@
 import type { PlacePhotoCandidate } from '@trek/shared';
-import { Check, ImageOff, ImagePlus, Loader2 } from 'lucide-react';
+import { Check, ImageOff, ImagePlus, Loader2 } from '../../icons';
 import React, { useEffect, useRef, useState } from 'react';
 import { placePictureRepo } from '../../repo/placePictureRepo';
 import type { TranslationFn, TripFile } from '../../types';

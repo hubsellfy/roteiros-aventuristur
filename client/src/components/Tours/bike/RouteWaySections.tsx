@@ -1,4 +1,4 @@
-import { Info } from 'lucide-react';
+import { Info } from '../../../icons';
 import { useMemo, type ReactNode } from 'react';
 import { useTranslation } from '../../../i18n';
 import { useSettingsStore } from '../../../store/settingsStore';

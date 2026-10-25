@@ -1,4 +1,4 @@
-import { Check, ChevronDown, Clock } from 'lucide-react';
+import { Check, ChevronDown, Clock } from '../../../icons';
 import type { MouseEvent } from 'react';
 import { useTranslation } from '../../../i18n';
 import { useSettingsStore } from '../../../store/settingsStore';

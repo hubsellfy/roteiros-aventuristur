@@ -1,5 +1,5 @@
 import { AuiIf, ThreadPrimitive } from '@assistant-ui/react';
-import { ArrowDown, FileUp, MapPin } from 'lucide-react';
+import { ArrowDown, FileUp, MapPin } from '../../icons';
 import { useMemo, useRef } from 'react';
 
 import { useTranslation } from '../../i18n';

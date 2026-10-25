@@ -1,5 +1,5 @@
 import type { PaddleGeometry, PaddleObstacleKind } from '@trek/shared';
-import { MapPinPlus } from 'lucide-react';
+import { MapPinPlus } from '../../../icons';
 import { useTranslation } from '../../../i18n';
 import { fs } from '../../shared/DialogShell';
 import { placeOf } from './paddleObstaclePlace';

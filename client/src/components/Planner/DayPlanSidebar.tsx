@@ -7,7 +7,7 @@ declare global { interface Window { __dragData: DragDataPayload | null } }
 import React, { useState, useEffect, useLayoutEffect, useRef, useMemo, useCallback } from 'react'
 import { avatarSrc } from '../../utils/avatarSrc'
 import { safeHttpUrl } from '../../utils/safeUrl'
-import { ChevronDown, ChevronRight, ChevronUp, Compass, RotateCcw, ExternalLink, Pencil, GripVertical, Ticket, Plus, FileText, Trash2, Car, Lock, Hotel, Eraser, Route as RouteIcon, RouteOff, Bookmark, StickyNote, TramFront, Zap, MapPin, Globe } from 'lucide-react'
+import { ChevronDown, ChevronRight, ChevronUp, Compass, RotateCcw, ExternalLink, Pencil, GripVertical, Ticket, Plus, FileText, Trash2, Car, Lock, Hotel, Eraser, Route as RouteIcon, RouteOff, Bookmark, StickyNote, TramFront, Zap, MapPin, Globe } from '../../icons'
 import type { PlannedTransitLeg } from './transitLeg'
 import { useTransitLegPlanner } from './useTransitLegPlanner'
 import { WalkLateLine } from '../Tours/walk/WalkTransitNote'

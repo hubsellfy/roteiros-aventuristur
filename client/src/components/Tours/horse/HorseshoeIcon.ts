@@ -1,4 +1,4 @@
-import { createLucideIcon } from 'lucide-react';
+import { createLucideIcon } from '../../../icons';
 
 /**
  * HOR-01: a horseshoe, the ride's own symbol, drawn on lucide's grid (24,

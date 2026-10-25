@@ -1,5 +1,5 @@
 import React, { useEffect, useId, useState } from 'react'
-import { ParkingSquare, Hourglass, AlertTriangle, BedDouble } from 'lucide-react'
+import { ParkingSquare, Hourglass, AlertTriangle, BedDouble } from '../../icons'
 import { DialogButton, DialogFooter, DialogHeader, DialogSection, DialogShell, DialogTile, FooterSpacer, NEUTRAL_TINT, fs } from '../shared/DialogShell'
 import { PANEL, Segmented } from '../shared/dialogParts'
 import CustomTimePicker from '../shared/CustomTimePicker'

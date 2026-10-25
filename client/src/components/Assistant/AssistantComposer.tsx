@@ -1,5 +1,5 @@
 import { AuiIf, ComposerPrimitive, useAui, useAuiState } from '@assistant-ui/react';
-import { ArrowUp, CalendarDays, MapPin, Paperclip, Square, X } from 'lucide-react';
+import { ArrowUp, CalendarDays, MapPin, Paperclip, Square, X } from '../../icons';
 import { type ReactNode, useEffect, useRef } from 'react';
 
 import { useTranslation } from '../../i18n';

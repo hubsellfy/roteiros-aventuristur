@@ -1,5 +1,5 @@
 import React, { useId } from 'react'
-import { Search, Bookmark, ArrowRight, Loader2 } from 'lucide-react'
+import { Search, Bookmark, ArrowRight, Loader2 } from '../../icons'
 import { DialogButton, DialogFooter, DialogHeader, DialogShell, DialogTile, FooterSpacer, NEUTRAL_TINT, fs } from '../shared/DialogShell'
 import { INPUT } from '../shared/dialogParts'
 import { useTranslation } from '../../i18n'

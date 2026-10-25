@@ -1,4 +1,4 @@
-import { Loader2 } from 'lucide-react';
+import { Loader2 } from '../../icons';
 import React from 'react';
 import { createPortal } from 'react-dom';
 import type { Place } from '../../types';

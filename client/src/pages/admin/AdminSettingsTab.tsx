@@ -4,7 +4,7 @@ import { getApiErrorMessage } from '../../types'
 import {
   AlertTriangle, CheckCircle, Eye, EyeOff, FileType, Fingerprint, KeyRound, Loader2, LockKeyhole, LogIn,
   RefreshCw, Save, ShieldCheck, XCircle,
-} from 'lucide-react'
+} from '../../icons'
 import ToggleSwitch from '../../components/Settings/ToggleSwitch'
 import CustomSelect from '../../components/shared/CustomSelect'
 import { fs } from '../../components/shared/DialogShell'

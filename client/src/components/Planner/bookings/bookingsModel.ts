@@ -1,7 +1,7 @@
 import {
   Plane, Hotel, Utensils, Train, Car, Ship, Bus, Sailboat, CableCar, Bike, CarTaxiFront, Route, Ticket, FileText,
   TramFront, Users, ParkingSquare, type LucideIcon,
-} from 'lucide-react'
+} from '../../../icons'
 import type { AssignmentsMap, Day, Reservation } from '../../../types'
 import { splitReservationDateTime } from '../../../utils/formatters'
 import { parseReservationMetadata } from '../../../utils/flightLegs'

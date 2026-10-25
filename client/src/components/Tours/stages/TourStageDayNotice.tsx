@@ -1,4 +1,4 @@
-import { CalendarX2 } from 'lucide-react';
+import { CalendarX2 } from '../../../icons';
 import { useTranslation } from '../../../i18n';
 import { useTripStore } from '../../../store/tripStore';
 import type { TourPlannerController } from '../planner/useTourPlanner';

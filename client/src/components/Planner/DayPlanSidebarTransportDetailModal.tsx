@@ -1,5 +1,5 @@
 import { useId, type ReactNode } from 'react'
-import { CalendarDays, Clock, ExternalLink, FileText, Pencil } from 'lucide-react'
+import { CalendarDays, Clock, ExternalLink, FileText, Pencil } from '../../icons'
 import Markdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import remarkBreaks from 'remark-breaks'

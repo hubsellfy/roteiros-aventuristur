@@ -5,7 +5,7 @@ import {
   ArrowUpCircle, Github, ExternalLink, ChevronDown, Check, Lock, Search, Link2, KeyRound, ShieldAlert,
   SlidersHorizontal, ArrowUpDown, CircleDot, MoreHorizontal, RotateCw, Database,
   Globe, Info, History, PauseCircle, Puzzle, Bot, Loader2,
-} from 'lucide-react'
+} from '../../icons'
 import PluginIcon from '../shared/PluginIcon'
 import { useInstanceSettings } from './useInstanceSettings'
 import { type RangeWarning } from './useRangeBypass'

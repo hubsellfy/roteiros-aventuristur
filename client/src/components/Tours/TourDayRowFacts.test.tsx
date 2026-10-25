@@ -1,5 +1,5 @@
 import type { TourListItem } from '@trek/shared';
-import { Bike, Footprints, Mountain, Route } from 'lucide-react';
+import { Bike, Footprints, Mountain, Route } from '../../icons';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { paddleBench } from '../../../tests/helpers/paddleCheck';
 import { fireEvent, render, screen } from '../../../tests/helpers/render';

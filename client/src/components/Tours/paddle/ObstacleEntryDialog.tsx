@@ -1,5 +1,5 @@
 import type { TourObstacleEntry } from '@trek/shared';
-import { ExternalLink } from 'lucide-react';
+import { ExternalLink } from '../../../icons';
 import { useId } from 'react';
 import { useTranslation } from '../../../i18n';
 import { useSettingsStore } from '../../../store/settingsStore';

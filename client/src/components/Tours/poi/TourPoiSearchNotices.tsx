@@ -1,4 +1,4 @@
-import { AlertTriangle, Expand, RefreshCw, WifiOff } from 'lucide-react';
+import { AlertTriangle, Expand, RefreshCw, WifiOff } from '../../../icons';
 import { useTranslation } from '../../../i18n';
 import { formatDistance } from '../../../utils/units';
 import { TOUR_POI_LOOKS } from '../../Map/poiCategories';

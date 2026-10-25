@@ -1,4 +1,4 @@
-import { Info, MountainSnow } from 'lucide-react';
+import { Info, MountainSnow } from '../../../icons';
 import type { ReactNode } from 'react';
 import { useTranslation } from '../../../i18n';
 import { useSettingsStore } from '../../../store/settingsStore';

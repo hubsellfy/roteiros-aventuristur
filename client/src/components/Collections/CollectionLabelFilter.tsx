@@ -1,5 +1,5 @@
 import React from 'react'
-import { Plus, Settings2, Tags } from 'lucide-react'
+import { Plus, Settings2, Tags } from '../../icons'
 import type { LabelOption } from '../../pages/collections/collectionsModel'
 import type { TranslationFn } from '../../types'
 

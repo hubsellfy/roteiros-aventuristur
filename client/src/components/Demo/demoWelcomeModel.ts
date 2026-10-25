@@ -1,4 +1,4 @@
-import type { LucideIcon } from 'lucide-react';
+import type { LucideIcon } from '../../icons';
 import {
   BookImage,
   Bookmark,
@@ -19,7 +19,7 @@ import {
   UserLock,
   Users,
   WifiOff,
-} from 'lucide-react';
+} from '../../icons';
 
 /** One thing a visitor can try in the demo right away: a tile of the welcome dialog. */
 interface DemoFeature {

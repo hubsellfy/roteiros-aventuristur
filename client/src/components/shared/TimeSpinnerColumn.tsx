@@ -1,4 +1,4 @@
-import { ChevronDown, ChevronUp } from 'lucide-react';
+import { ChevronDown, ChevronUp } from '../../icons';
 import type { CSSProperties, ReactNode } from 'react';
 import { spinnerButtonStyle } from './timeSpinnerStyle';
 

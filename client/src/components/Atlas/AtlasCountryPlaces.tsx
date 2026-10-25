@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Briefcase, ChevronRight, MapPin, Search, X } from 'lucide-react'
+import { Briefcase, ChevronRight, MapPin, Search, X } from '../../icons'
 import { useTranslation } from '../../i18n'
 import { groupCountryPlaces, type CountryDetail } from '../../pages/atlas/atlasModel'
 

@@ -1,6 +1,6 @@
 // FE-PLANNER-BKMODEL-001 to FE-PLANNER-BKMODEL-044
 import { describe, it, expect } from 'vitest';
-import { Plane, TramFront, FileText, Hotel } from 'lucide-react';
+import { Plane, TramFront, FileText, Hotel } from '../../../icons';
 import { buildAssignment, buildDay, buildPlace, buildReservation } from '../../../../tests/helpers/factories';
 import type { Day, Reservation, ReservationEndpoint } from '../../../types';
 import {

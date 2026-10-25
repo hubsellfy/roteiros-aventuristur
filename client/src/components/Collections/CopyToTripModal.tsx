@@ -1,5 +1,5 @@
 import React, { useId } from 'react'
-import { Search, MapPin, Loader2, Copy, CalendarDays } from 'lucide-react'
+import { Search, MapPin, Loader2, Copy, CalendarDays } from '../../icons'
 import { DialogButton, DialogFooter, DialogHeader, DialogShell, DialogTile, FooterSpacer, NEUTRAL_TINT, fs } from '../shared/DialogShell'
 import { INPUT } from '../shared/dialogParts'
 import type { TranslationFn } from '../../types'

@@ -1,5 +1,5 @@
 import type { MouseEvent, ReactNode } from 'react'
-import { Bookmark, CheckCheck, CheckCircle2, Loader2, Tag, Trash2, X } from 'lucide-react'
+import { Bookmark, CheckCheck, CheckCircle2, Loader2, Tag, Trash2, X } from '../../icons'
 import { fs } from '../shared/DialogShell'
 import { Tooltip } from '../shared/Tooltip'
 import type { SidebarState } from './usePlacesSidebar'

@@ -1,6 +1,6 @@
 // FE-UTIL-DAYLINES-001 to FE-UTIL-DAYLINES-010
 import { describe, it, expect } from 'vitest'
-import { BedDouble, BedSingle, CalendarCheck, CalendarClock, CalendarPlus } from 'lucide-react'
+import { BedDouble, BedSingle, CalendarCheck, CalendarClock, CalendarPlus } from '../icons'
 import { dayChips, deleteDayLines, impactLines, shrinkTripLines } from './dayImpactLines'
 import type { DayDeleteImpact, StayImpact } from './dayDeleteImpact'
 import type { TripRangeImpact } from './tripRangeImpact'

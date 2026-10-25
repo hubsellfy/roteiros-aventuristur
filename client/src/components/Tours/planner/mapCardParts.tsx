@@ -1,4 +1,4 @@
-import { Check, Clock, Loader2, MoveHorizontal, Route, TrendingDown, TrendingUp, X } from 'lucide-react';
+import { Check, Clock, Loader2, MoveHorizontal, Route, TrendingDown, TrendingUp, X } from '../../../icons';
 import { useEffect, type ReactNode } from 'react';
 import { useTranslation } from '../../../i18n';
 import type { DistanceUnit } from '../../../types';

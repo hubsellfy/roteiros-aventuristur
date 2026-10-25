@@ -4,7 +4,7 @@
 // copy of this: which booking types count, the great-circle arcs per leg and the
 // route/duration labels. The drawing itself stays in each renderer.
 
-import { Bike, Bus, CableCar, Car, CarTaxiFront, Plane, Route, Sailboat, Ship, Train, TramFront } from 'lucide-react';
+import { Bike, Bus, CableCar, Car, CarTaxiFront, Plane, Route, Sailboat, Ship, Train, TramFront } from '../../icons';
 import type { Reservation, ReservationEndpoint } from '../../types';
 import { haversineKm } from '../../utils/geo';
 import { geodesicArcs } from './flightGeodesy';

@@ -19,7 +19,7 @@ import {
   Ticket,
   Trash2,
   Wallet,
-} from 'lucide-react';
+} from '../../../icons';
 
 import type { CardMapLook } from '../../../types/assistantMap';
 import type { CardRules } from '../assistantParts';

@@ -1,5 +1,5 @@
 import type { TourListItem } from '@trek/shared';
-import { FileDown, Footprints, Library, Loader2, PenLine, Plus } from 'lucide-react';
+import { FileDown, Footprints, Library, Loader2, PenLine, Plus } from '../../../icons';
 import type { ReactNode } from 'react';
 import { useTranslation } from '../../../i18n';
 import { PopoverItem } from '../../Packing/PackingPopover';

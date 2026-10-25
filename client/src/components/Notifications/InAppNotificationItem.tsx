@@ -1,5 +1,5 @@
 import React from 'react'
-import { Check, X, ArrowRight, Trash2, CheckCheck, Mail } from 'lucide-react'
+import { Check, X, ArrowRight, Trash2, CheckCheck, Mail } from '../../icons'
 import { useTranslation } from '../../i18n'
 import type { InAppNotification } from '../../store/inAppNotificationStore'
 import { compactTime, useNotificationItemActions } from './useNotificationItemActions'

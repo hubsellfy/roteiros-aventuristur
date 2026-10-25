@@ -17,7 +17,7 @@ import {
   Snowflake,
   TriangleAlert,
   Waves,
-} from 'lucide-react';
+} from '../../../../icons';
 
 import type { RouteLineSpec, RouteUse } from '../../../../types/assistantMap';
 import type { EntityTarget, PackLook } from '../cardTypes';

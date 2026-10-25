@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { createPortal } from 'react-dom'
-import { ChevronDown, Globe } from 'lucide-react'
+import { ChevronDown, Globe } from '../../icons'
 import { SUPPORTED_LANGUAGES } from '../../i18n'
 import { useSettingsStore } from '../../store/settingsStore'
 import { useAnchoredPosition } from '../../hooks/useAnchoredPosition'

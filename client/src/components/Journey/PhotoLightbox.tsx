@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback, useRef } from 'react'
-import { ChevronLeft, ChevronRight, X, ZoomIn, ZoomOut } from 'lucide-react'
+import { ChevronLeft, ChevronRight, X, ZoomIn, ZoomOut } from '../../icons'
 import VideoPlayer from './VideoPlayerLazy'
 import { usePhotoZoom } from './usePhotoZoom'
 import { Tooltip } from '../shared/Tooltip'

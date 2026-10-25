@@ -1,6 +1,6 @@
 import React, { useId, useState, type ReactNode } from 'react'
 import CustomSelect from '../../components/shared/CustomSelect'
-import { Shield, Trash2, Edit2, UserPlus, Link2, Copy, Plus, Users } from 'lucide-react'
+import { Shield, Trash2, Edit2, UserPlus, Link2, Copy, Plus, Users } from '../../icons'
 import PermissionsPanel from '../../components/Admin/PermissionsPanel'
 import { Tooltip } from '../../components/shared/Tooltip'
 import ConfirmDialog from '../../components/shared/ConfirmDialog'

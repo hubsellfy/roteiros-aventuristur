@@ -2,7 +2,7 @@ import type { BookPageSetup } from '@trek/shared'
 import {
   MAX_BOOK_LAYOUTS, bookLayoutPreview as layoutPreview, bookLayoutRole as layoutRole, nextBookLayoutName as nextLayoutName,
 } from '@trek/shared'
-import { BookmarkPlus, Trash2 } from 'lucide-react'
+import { BookmarkPlus, Trash2 } from '../../icons'
 import { useStudioStore } from '../../store/studioStore'
 import { Tooltip } from '../shared/Tooltip'
 import { SpreadView } from './SpreadView'

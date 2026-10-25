@@ -12,7 +12,7 @@ import {
   UserMinus,
   UserPlus,
   UserRound,
-} from 'lucide-react';
+} from '../../../../icons';
 import { useState, type ReactNode } from 'react';
 import CustomSelect from '../../../../components/shared/CustomSelect';
 import { TripJournalLinkSection } from '../../../../components/Trips/TripJournalLinkSection';

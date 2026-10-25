@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState, type MouseEvent as ReactMouseEvent, type ReactNode } from 'react'
-import { Search, Plus, X, Upload, Loader2, FileDown, ListPlus, Check, Star, CalendarPlus, CalendarDays, ChevronDown, Tag, Globe2, ArrowDownUp } from 'lucide-react'
+import { Search, Plus, X, Upload, Loader2, FileDown, ListPlus, Check, Star, CalendarPlus, CalendarDays, ChevronDown, Tag, Globe2, ArrowDownUp } from '../../icons'
 import { Tooltip } from '../shared/Tooltip'
 import { ContextMenu, useContextMenu } from '../shared/ContextMenu'
 import { NEUTRAL_TINT, fs } from '../shared/DialogShell'

@@ -1,4 +1,4 @@
-import { Loader2, Plug, Save, Unplug } from 'lucide-react';
+import { Loader2, Plug, Save, Unplug } from '../../icons';
 import React from 'react';
 import { useTranslation } from '../../i18n';
 import { EditorField, GRID_2, INPUT } from '../shared/dialogParts';

@@ -1,5 +1,5 @@
 import { BOOK_COLOR_TOKENS, bookThemeColor, type BookColorToken, type BookTheme } from '@trek/shared';
-import { Unlink } from 'lucide-react';
+import { Unlink } from '../../../icons';
 import '../../../styles/studio-theme.css';
 
 /**

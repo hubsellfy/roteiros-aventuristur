@@ -5,7 +5,7 @@
  * group cards, a square tri-state group selector and tap-to-toggle scope rows
  * with a confirm-coloured check.
  */
-import { Check, ChevronDown, ChevronRight, Minus } from 'lucide-react'
+import { Check, ChevronDown, ChevronRight, Minus } from '../../../icons'
 import { useScopeSelection } from '../../../components/OAuth/useScopeSelection'
 import { useTranslation } from '../../../i18n'
 

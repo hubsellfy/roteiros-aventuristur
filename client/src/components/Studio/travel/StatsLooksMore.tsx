@@ -1,4 +1,4 @@
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight } from '../../../icons';
 import { inkOn } from './badgeLook';
 import { hatch, roughBox, roughCircle, roughLine, seeded } from './sketch';
 import { fitAll, fitCaption, fitType, gridOf, type Figure } from './statsFit';

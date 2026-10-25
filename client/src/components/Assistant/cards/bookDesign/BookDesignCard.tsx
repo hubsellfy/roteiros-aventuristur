@@ -1,5 +1,5 @@
 import type { AssistantMessage, BookDesignCard, TrekCard } from '@trek/shared';
-import { CircleSlash, Files, History, ImageOff, Palette, TriangleAlert, Type } from 'lucide-react';
+import { CircleSlash, Files, History, ImageOff, Palette, TriangleAlert, Type } from '../../../../icons';
 import { lazy, Suspense } from 'react';
 
 import { useTranslation } from '../../../../i18n';

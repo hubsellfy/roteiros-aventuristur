@@ -3,7 +3,7 @@ import {
   type SchoolHolidayRegionDetail,
   type SchoolHolidayRegionRequest,
 } from '@trek/shared';
-import { ChevronRight, GraduationCap, Loader2, MapPinned, Plus, Trash2, WifiOff } from 'lucide-react';
+import { ChevronRight, GraduationCap, Loader2, MapPinned, Plus, Trash2, WifiOff } from '../../../icons';
 import { useState } from 'react';
 import { useSchoolHolidayCatalog } from '../../../components/Admin/useSchoolHolidayCatalog';
 import { CustomDatePicker } from '../../../components/shared/CustomDateTimePicker';

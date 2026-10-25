@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { Check, ChevronDown, Users } from 'lucide-react'
+import { Check, ChevronDown, Users } from '../../icons'
 import type { ReservationTraveler } from '@trek/shared'
 import { SPLIT_COLORS } from '../Budget/BudgetPanel.constants'
 import type { TripMember } from '../Budget/BudgetPanelMemberChips'

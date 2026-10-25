@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from 'react'
-import { X } from 'lucide-react'
+import { X } from '../../icons'
 import { pluginsApi, type ViewContribution } from '../../api/client'
 import { useToast } from '../shared/Toast'
 import PluginFrame from './PluginFrame'

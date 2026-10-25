@@ -1,5 +1,5 @@
 import type { AssistantMessage, AtlasPassportCard } from '@trek/shared';
-import { CalendarClock, Flame, Globe2, Plane } from 'lucide-react';
+import { CalendarClock, Flame, Globe2, Plane } from '../../../../icons';
 
 import { useTranslation } from '../../../../i18n';
 import { SoftPill, WhiteBadge } from '../../../Planner/planParts';

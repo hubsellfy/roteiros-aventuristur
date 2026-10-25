@@ -1,4 +1,4 @@
-import { Check, Loader2, MapPin, Search, X } from 'lucide-react'
+import { Check, Loader2, MapPin, Search, X } from '../../../icons'
 import type { Category, TranslationFn } from '../../../types'
 import { STATUS_ORDER } from '../../../pages/collections/collectionsModel'
 import MSheet from '../../components/MSheet'

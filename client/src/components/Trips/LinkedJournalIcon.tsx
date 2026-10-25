@@ -1,4 +1,4 @@
-import { BookOpen, Link2 } from 'lucide-react';
+import { BookOpen, Link2 } from '../../icons';
 
 /**
  * The trip's Journal tab: a book with a link on its corner, because the journal

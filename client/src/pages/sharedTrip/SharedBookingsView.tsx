@@ -1,4 +1,4 @@
-import { Ticket, Train } from 'lucide-react'
+import { Ticket, Train } from '../../icons'
 import type { Day, Reservation } from '../../types'
 import { fs } from '../../components/shared/DialogShell'
 import { SoftPill } from '../../components/Planner/planParts'

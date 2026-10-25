@@ -1,4 +1,4 @@
-import { AlertTriangle, Loader2, Search, WifiOff, X } from 'lucide-react'
+import { AlertTriangle, Loader2, Search, WifiOff, X } from '../../../../icons'
 import MIconBtn from '../../../components/MIconBtn'
 import { formatDistance } from '../../../../utils/units'
 import { useSettingsStore } from '../../../../store/settingsStore'

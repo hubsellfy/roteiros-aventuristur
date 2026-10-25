@@ -8,7 +8,7 @@ import {
   RotateCcw,
   Trash2,
   Upload,
-} from 'lucide-react'
+} from '../../../icons'
 import {
   DAYS_OF_MONTH,
   DAYS_OF_WEEK,

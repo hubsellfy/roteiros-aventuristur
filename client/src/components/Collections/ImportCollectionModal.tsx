@@ -1,5 +1,5 @@
 import React, { useId, useMemo, useRef, useState } from 'react'
-import { Upload, FileDown, FileJson, Loader2, MapPin, Tag, AlertCircle, Route, Info, Plus, FolderInput, Check, Search, Bookmark } from 'lucide-react'
+import { Upload, FileDown, FileJson, Loader2, MapPin, Tag, AlertCircle, Route, Info, Plus, FolderInput, Check, Search, Bookmark } from '../../icons'
 import { DialogButton, DialogFooter, DialogHeader, DialogShell, DialogTile, FooterSpacer, NEUTRAL_TINT, fs } from '../shared/DialogShell'
 import { EditorField, INPUT } from '../shared/dialogParts'
 import { MAX_COLLECTION_FILE_PLACES, type Collection, type CollectionFile } from '@trek/shared'

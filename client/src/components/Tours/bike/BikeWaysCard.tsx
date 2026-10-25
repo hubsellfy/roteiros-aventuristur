@@ -1,5 +1,5 @@
 import type { BikeProfile } from '@trek/shared';
-import { AlertTriangle, Layers, Loader2, RefreshCw, WifiOff } from 'lucide-react';
+import { AlertTriangle, Layers, Loader2, RefreshCw, WifiOff } from '../../../icons';
 import { useMemo } from 'react';
 import { useTranslation } from '../../../i18n';
 import { useSettingsStore } from '../../../store/settingsStore';

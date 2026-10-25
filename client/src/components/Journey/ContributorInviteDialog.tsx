@@ -1,5 +1,5 @@
 import { useEffect, useId, useState } from 'react'
-import { X, Check, UserPlus, Search, Loader2 } from 'lucide-react'
+import { X, Check, UserPlus, Search, Loader2 } from '../../icons'
 import { journeyApi, authApi } from '../../api/client'
 import { useTranslation } from '../../i18n'
 import { useToast } from '../shared/Toast'

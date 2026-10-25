@@ -1,7 +1,7 @@
 import '../../styles/studio-assistant.css';
 import '../Assistant/assistant.css';
 
-import { ImageIcon, MessageSquare } from 'lucide-react';
+import { ImageIcon, MessageSquare } from '../../icons';
 import { type KeyboardEvent, useCallback, useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router';
 

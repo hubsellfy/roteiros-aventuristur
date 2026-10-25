@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { Archive, ArchiveRestore, Bell, Camera, Search, X } from 'lucide-react'
+import { Archive, ArchiveRestore, Bell, Camera, Search, X } from '../../../icons'
 import { useTranslation } from '../../../i18n'
 import { useCanDo } from '../../../store/permissionsStore'
 import { useSettingsStore } from '../../../store/settingsStore'

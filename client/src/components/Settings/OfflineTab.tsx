@@ -11,7 +11,7 @@
  * `MSettingsOffline`; this file is the desktop markup over it.
  */
 import React, { useState } from 'react'
-import { RefreshCw, Trash2, Database, CloudOff, Download, Check, GitMerge, Map as MapIcon, AlertTriangle } from 'lucide-react'
+import { RefreshCw, Trash2, Database, CloudOff, Download, Check, GitMerge, Map as MapIcon, AlertTriangle } from '../../icons'
 import Section from './Section'
 import ToggleSwitch from './ToggleSwitch'
 import { SettingRow, SettingRows, SettingsHint, StatusPill, SETTINGS_BUTTON, SETTINGS_BUTTON_DANGER } from './settingsKit'

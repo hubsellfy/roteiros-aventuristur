@@ -1,4 +1,4 @@
-import { CalendarDays, Copy, Loader2, MapPin, Search } from 'lucide-react'
+import { CalendarDays, Copy, Loader2, MapPin, Search } from '../../../icons'
 import type { TranslationFn } from '../../../types'
 import { useTripCopyPicker } from '../../../components/Collections/useTripCopyPicker'
 import MSheet from '../../components/MSheet'

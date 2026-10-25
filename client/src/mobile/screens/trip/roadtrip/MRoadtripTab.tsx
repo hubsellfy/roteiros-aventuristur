@@ -1,5 +1,5 @@
 import { Fragment, useCallback, useMemo, useRef } from 'react'
-import { AlertTriangle, MapPin, Navigation } from 'lucide-react'
+import { AlertTriangle, MapPin, Navigation } from '../../../../icons'
 import { useMPlanDaySwipe } from '../plan/useMPlanDaySwipe'
 import { showStopOnMap, useMRoadtrip } from './useMRoadtrip'
 import { useMRtCorridor } from './useMRtCorridor'

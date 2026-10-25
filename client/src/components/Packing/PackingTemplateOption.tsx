@@ -1,4 +1,4 @@
-import { Package } from 'lucide-react';
+import { Package } from '../../icons';
 import type { TranslationFn } from '../../types';
 
 interface PackingTemplateOptionProps {

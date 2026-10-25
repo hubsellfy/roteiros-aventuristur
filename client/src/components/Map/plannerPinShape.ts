@@ -1,4 +1,4 @@
-import { Moon } from 'lucide-react';
+import { Moon } from '../../icons';
 import { createElement } from 'react';
 import { renderIconMarkup } from '../../utils/iconMarkup';
 

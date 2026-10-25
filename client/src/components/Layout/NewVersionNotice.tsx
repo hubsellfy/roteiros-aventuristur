@@ -14,7 +14,7 @@
  * outlived a deploy.
  */
 import React, { useState } from 'react'
-import { RefreshCw, X } from 'lucide-react'
+import { RefreshCw, X } from '../../icons'
 import { useServerVersionStore } from '../../store/serverVersionStore'
 import { useNetworkMode } from '../../hooks/useNetworkMode'
 import { offersNewBuild, switchToServerVersion } from '../../utils/versionHandover'

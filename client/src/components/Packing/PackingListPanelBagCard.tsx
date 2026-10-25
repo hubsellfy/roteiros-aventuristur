@@ -1,6 +1,6 @@
 import { useState, useRef, useCallback } from 'react'
 import { createPortal } from 'react-dom'
-import { X, Plus } from 'lucide-react'
+import { X, Plus } from '../../icons'
 import type { PackingItem, PackingBag } from '../../types'
 import type { TripMember } from './usePackingListPanel'
 import { PopoverItem } from './PackingPopover'

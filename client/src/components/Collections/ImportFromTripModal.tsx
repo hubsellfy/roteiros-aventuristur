@@ -1,5 +1,5 @@
 import React, { useEffect, useId, useMemo, useState } from 'react'
-import { ArrowLeft, Calendar, Check, ChevronRight, ListPlus, Loader2, MapPin, Map as MapIcon, Search, Sparkles } from 'lucide-react'
+import { ArrowLeft, Calendar, Check, ChevronRight, ListPlus, Loader2, MapPin, Map as MapIcon, Search, Sparkles } from '../../icons'
 import { DialogButton, DialogFooter, DialogHeader, DialogShell, DialogTile, FooterSpacer, NEUTRAL_TINT, fs } from '../shared/DialogShell'
 import { INPUT } from '../shared/dialogParts'
 import { Tooltip } from '../shared/Tooltip'

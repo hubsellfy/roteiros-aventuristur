@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router'
-import { ArrowLeft, CheckCheck, Trash2 } from 'lucide-react'
+import { ArrowLeft, CheckCheck, Trash2 } from '../../../icons'
 import MDancingTrek from '../../components/MDancingTrek'
 import ConfirmDialog from '../../../components/shared/ConfirmDialog'
 import { useTranslation } from '../../../i18n'

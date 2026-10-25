@@ -5,7 +5,7 @@ import {
   type PaddleBoatType,
   type PaddleWaterContext,
 } from '@trek/shared';
-import { Info } from 'lucide-react';
+import { Info } from '../../../icons';
 import { useState } from 'react';
 import { useTranslation } from '../../../i18n';
 import { SoftPill } from '../../Planner/planParts';

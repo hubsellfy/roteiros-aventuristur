@@ -1,4 +1,4 @@
-import { Car, Hotel, Ticket } from 'lucide-react';
+import { Car, Hotel, Ticket } from '../../icons';
 import React from 'react';
 import { useTranslation } from '../../i18n';
 import type { Accommodation, Reservation } from '../../types';

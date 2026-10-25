@@ -1,4 +1,4 @@
-import { MapPin } from 'lucide-react'
+import { MapPin } from '../../../../icons'
 import MDancingTrek from '../../../components/MDancingTrek'
 import { RES_ICONS } from '../../../../components/Planner/DayPlanSidebar.constants'
 import { formatTime, formatPriceText } from '../../../../utils/formatters'

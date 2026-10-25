@@ -1,5 +1,5 @@
 import { useId, useState } from 'react'
-import { CalendarRange, Trash2 } from 'lucide-react'
+import { CalendarRange, Trash2 } from '../../icons'
 import { schoolHolidayRegionRequestSchema, type SchoolHolidayRegionDetail, type SchoolHolidayRegionRequest } from '@trek/shared'
 import { useTranslation } from '../../i18n'
 import ConfirmDialog from '../shared/ConfirmDialog'

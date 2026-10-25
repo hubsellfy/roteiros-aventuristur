@@ -15,7 +15,7 @@ import {
   Undo2,
   X,
   type LucideIcon,
-} from 'lucide-react';
+} from '../../../icons';
 import { useEffect, useRef } from 'react';
 import { useTranslation } from '../../../i18n';
 import { useSettingsStore } from '../../../store/settingsStore';

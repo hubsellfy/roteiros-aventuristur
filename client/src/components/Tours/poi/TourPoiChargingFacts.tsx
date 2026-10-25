@@ -1,5 +1,5 @@
 import type { TourPoiCharging } from '@trek/shared';
-import { Bike, Plug } from 'lucide-react';
+import { Bike, Plug } from '../../../icons';
 import type { ReactElement } from 'react';
 import { useTranslation } from '../../../i18n';
 import { SoftPill, WhiteBadge } from '../../Planner/planParts';

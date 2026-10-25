@@ -1,4 +1,4 @@
-import { Clock, ShieldCheck } from 'lucide-react';
+import { Clock, ShieldCheck } from '../../../icons';
 import { useTranslation } from '../../../i18n';
 import { SoftPill } from '../../Planner/planParts';
 import { formatPlannedTourDuration } from '../tourPresentation';

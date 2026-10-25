@@ -1,5 +1,5 @@
 import React, { useId, useState } from 'react'
-import { Check, Loader2, Settings2, Tags } from 'lucide-react'
+import { Check, Loader2, Settings2, Tags } from '../../icons'
 import { DialogButton, DialogFooter, DialogHeader, DialogShell, DialogTile, FooterSpacer, NEUTRAL_TINT, fs } from '../shared/DialogShell'
 import type { CollectionLabel } from '@trek/shared'
 import type { TranslationFn } from '../../types'

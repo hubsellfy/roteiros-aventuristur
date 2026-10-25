@@ -1,4 +1,4 @@
-import { ArrowRight, Clock, Footprints, MoveRight } from 'lucide-react'
+import { ArrowRight, Clock, Footprints, MoveRight } from '../../../icons'
 import { useTranslation } from '../../../i18n'
 import { TransitMetaBadges, type TransitLegDisplay } from '../transitDisplay'
 import { BOX, fs } from './bookingParts'

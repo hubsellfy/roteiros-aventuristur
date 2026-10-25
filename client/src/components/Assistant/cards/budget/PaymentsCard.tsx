@@ -1,5 +1,5 @@
 import type { CardPayment, CardPerson, PaymentsCard as PaymentsCardData } from '@trek/shared';
-import { ArrowLeftRight, ArrowRight, CalendarDays } from 'lucide-react';
+import { ArrowLeftRight, ArrowRight, CalendarDays } from '../../../../icons';
 
 import { useTranslation } from '../../../../i18n';
 import { SoftPill } from '../../../Planner/planParts';

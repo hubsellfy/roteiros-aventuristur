@@ -1,4 +1,4 @@
-import { ChevronRight, Luggage } from 'lucide-react';
+import { ChevronRight, Luggage } from '../../icons';
 import { useEffect, useRef } from 'react';
 
 import { useTranslation } from '../../i18n';

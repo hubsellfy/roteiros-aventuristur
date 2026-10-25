@@ -1,5 +1,5 @@
 import { useEffect, useId } from 'react'
-import { PencilLine, type LucideIcon } from 'lucide-react'
+import { PencilLine, type LucideIcon } from '../../icons'
 import { useTranslation } from '../../i18n'
 import { DialogButton, DialogFooter, DialogHeader, DialogShell, DialogTile, FooterSpacer, NEUTRAL_TINT } from './DialogShell'
 

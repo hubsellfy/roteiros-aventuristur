@@ -1,4 +1,4 @@
-import { BarChart3, Link2, MessageCircle, Sparkles, StickyNote } from 'lucide-react';
+import { BarChart3, Link2, MessageCircle, Sparkles, StickyNote } from '../../../icons';
 
 export interface Addon {
   id: string;

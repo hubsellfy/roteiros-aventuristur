@@ -10,7 +10,7 @@ import {
   Settings,
   Trash2,
   X,
-} from 'lucide-react';
+} from '../../icons';
 import { type HTMLAttributes, type MouseEvent, useRef, useState } from 'react';
 import { useNavigate } from 'react-router';
 

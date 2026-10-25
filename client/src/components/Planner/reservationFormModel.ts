@@ -1,4 +1,4 @@
-import { FileText, Hotel, ParkingSquare, Ticket, Users, Utensils, type LucideIcon } from 'lucide-react';
+import { FileText, Hotel, ParkingSquare, Ticket, Users, Utensils, type LucideIcon } from '../../icons';
 
 import type { Accommodation, Day, Place, Reservation } from '../../types';
 import { parseReservationMetadata } from '../../utils/flightLegs';

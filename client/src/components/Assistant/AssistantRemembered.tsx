@@ -1,4 +1,4 @@
-import { BookmarkCheck, Pencil } from 'lucide-react';
+import { BookmarkCheck, Pencil } from '../../icons';
 import { useEffect, useState } from 'react';
 
 import { useTranslation } from '../../i18n';

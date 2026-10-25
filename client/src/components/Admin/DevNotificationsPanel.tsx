@@ -6,7 +6,7 @@ import { useDevNotifications } from './useDevNotifications'
 import {
   Bell, Zap, CheckCircle, Navigation, User, Calendar, Clock, Image, MessageSquare, Tag, UserPlus,
   Download, MapPin, ChevronDown, FlaskConical, Loader2, Map as MapIcon, ShieldCheck,
-} from 'lucide-react'
+} from '../../icons'
 
 /** A native select in the editors' box look, with the chevron the CustomSelect draws. */
 const SELECT = `${INPUT} appearance-none pe-9`

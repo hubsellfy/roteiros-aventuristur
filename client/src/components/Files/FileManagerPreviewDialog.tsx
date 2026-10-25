@@ -1,4 +1,4 @@
-import { Download, ExternalLink, FileText } from 'lucide-react';
+import { Download, ExternalLink, FileText } from '../../icons';
 import type { ReactNode } from 'react';
 import { useId } from 'react';
 import type { DialogShellProps } from '../shared/DialogShell';

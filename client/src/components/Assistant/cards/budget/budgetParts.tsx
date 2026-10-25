@@ -1,5 +1,5 @@
 import type { CardExpense, CardMoney, CardPerson } from '@trek/shared';
-import { ArrowRight, Check, StickyNote } from 'lucide-react';
+import { ArrowRight, Check, StickyNote } from '../../../../icons';
 
 import { useTranslation } from '../../../../i18n';
 import { catMeta } from '../../../Budget/costsCategories';

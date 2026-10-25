@@ -1,5 +1,5 @@
 import React from 'react'
-import { Fuel, Milestone, Plus, RotateCcw, X, Zap } from 'lucide-react'
+import { Fuel, Milestone, Plus, RotateCcw, X, Zap } from '../../icons'
 import MDancingTrek from '../../mobile/components/MDancingTrek'
 import type { RefuelSearch } from './useRefuelSearch'
 import { REFUEL_EMPTY_KEY, REFUEL_WORDS, refuelBandState, type RefuelCandidate } from './refuelSuggestion'

@@ -1,5 +1,5 @@
 import React, { useState, useCallback, useId } from 'react'
-import { Plus, Trash2, X, BarChart3, Lock, Clock } from 'lucide-react'
+import { Plus, Trash2, X, BarChart3, Lock, Clock } from '../../icons'
 import { RoundAction } from '../Planner/bookings/bookingParts'
 import CollabPanelHead, { HEAD_ACTION } from './CollabPanelHead'
 import { PollChip, PollOptionRow } from './CollabPollOption'

@@ -1,6 +1,6 @@
 // PCM-001 to PCM-019: the check bench of a paddle tour in one pill, how the dates of the checklist read, where the
 // camera goes for an entry and the order the checklist lists its rows in (PAD-06, PAD-09).
-import { Ban, CircleDashed, ListChecks } from 'lucide-react';
+import { Ban, CircleDashed, ListChecks } from '../../../icons';
 import { describe, expect, it } from 'vitest';
 
 import type { PaddleCheck, PaddleCheckData } from '@trek/shared';

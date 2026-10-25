@@ -1,4 +1,4 @@
-import { AlertTriangle, CheckCircle2, CopyPlus, Loader2, Replace, Route, X } from 'lucide-react';
+import { AlertTriangle, CheckCircle2, CopyPlus, Loader2, Replace, Route, X } from '../../../icons';
 import type { ReactNode } from 'react';
 import { useTranslation } from '../../../i18n';
 import { useSettingsStore } from '../../../store/settingsStore';

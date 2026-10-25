@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react'
-import { ExternalLink, FileText, Link2, Paperclip, X } from 'lucide-react'
+import { ExternalLink, FileText, Link2, Paperclip, X } from '../../../../icons'
 import { openFile } from '../../../../utils/fileDownload'
 import type { TripFile } from '../../../../types'
 import type { TripPlanner } from '../MTripShell'

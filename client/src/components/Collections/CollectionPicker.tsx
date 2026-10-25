@@ -1,5 +1,5 @@
 import React, { useEffect, useId, useMemo, useRef, useState } from 'react'
-import { Search, Bookmark, Loader2, ChevronDown, Check, Layers, Plus, SearchX } from 'lucide-react'
+import { Search, Bookmark, Loader2, ChevronDown, Check, Layers, Plus, SearchX } from '../../icons'
 import PlaceAvatar from '../shared/PlaceAvatar'
 import { collectionsApi } from '../../api/collections'
 import { loadUnionPlaces } from '../../store/collectionUnion'

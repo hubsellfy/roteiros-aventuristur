@@ -20,7 +20,7 @@ import {
   Sparkles,
   Sun,
   Users,
-} from 'lucide-react';
+} from '../../../../icons';
 
 /**
  * How the states of a journal entry read in the chat, the way the journal

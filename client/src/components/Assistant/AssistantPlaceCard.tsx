@@ -1,5 +1,5 @@
 import type { AssistantFoundPlace } from '@trek/shared';
-import { Check, MapPin, Plus, Route, Star } from 'lucide-react';
+import { Check, MapPin, Plus, Route, Star } from '../../icons';
 import { createElement, type ReactNode, useRef } from 'react';
 
 import { useTranslation } from '../../i18n';

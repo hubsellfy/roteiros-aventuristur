@@ -1,5 +1,5 @@
 import React from 'react'
-import { Sparkles, Save } from 'lucide-react'
+import { Sparkles, Save } from '../../icons'
 import { useTranslation } from '../../i18n'
 import { useLlmConnection, type LlmProvider as Provider } from './useLlmConnection'
 import Section from './Section'

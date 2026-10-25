@@ -1,4 +1,4 @@
-import { Plus, MoreHorizontal } from 'lucide-react'
+import { Plus, MoreHorizontal } from '../../icons'
 import type { NavItemDef } from '../Layout/navItems'
 
 /** One circle of the dock: the card surface on a hairline ring, the icon in the secondary ink. */

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Check, Library, X } from 'lucide-react'
+import { Check, Library, X } from '../../icons'
 import { fs } from '../../components/shared/DialogShell'
 import { StatusPill } from '../../components/Settings/settingsKit'
 import FoldSummary from './FoldSummary'
@@ -51,7 +51,7 @@ export default function TrekApiCard({ t }: TrekApiCardProps): React.ReactElement
             A pill beside the mark rather than a banner, so it does not shout
             over the settings around it. */}
         <div className="flex flex-wrap items-center justify-between gap-2">
-          <TrekMark className="h-7 w-auto text-content" aria-label="TREK Places API" />
+          <span className="text-base font-bold text-content">TREK Places API</span>
           <StatusPill tone="accent">{t('admin.trekApi.badgeDefault')}</StatusPill>
         </div>
 

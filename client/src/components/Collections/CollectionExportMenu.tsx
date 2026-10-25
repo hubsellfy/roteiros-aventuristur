@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useId, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
-import { Download, FileJson, Loader2, Route, type LucideIcon } from 'lucide-react'
+import { Download, FileJson, Loader2, Route, type LucideIcon } from '../../icons'
 import type { TranslationFn } from '../../types'
 import { useAnchoredPosition } from '../../hooks/useAnchoredPosition'
 import { COLLECTION_FILE_EXTENSION, COLLECTION_GPX_EXTENSION, type CollectionExportFormat } from './collectionFile'

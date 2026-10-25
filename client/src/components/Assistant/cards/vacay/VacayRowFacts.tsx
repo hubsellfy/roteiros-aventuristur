@@ -1,5 +1,5 @@
 import type { VacayCard, VacayCardProposal, VacayProposalNote } from '@trek/shared';
-import { CalendarDays, Coffee, Sun, SunDim } from 'lucide-react';
+import { CalendarDays, Coffee, Sun, SunDim } from '../../../../icons';
 
 import { useTranslation } from '../../../../i18n';
 import { safeHexColor } from '../../../../utils/safeColor';

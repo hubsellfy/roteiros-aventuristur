@@ -1,6 +1,6 @@
 import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
-import { Navigation } from 'lucide-react'
+import { Navigation } from '../../icons'
 import type { NavigationTarget } from '../Planner/placeNavigation'
 import { navigationTargetLabel, openNavigationTarget } from '../Planner/placeNavigation'
 import { useTranslation } from '../../i18n'

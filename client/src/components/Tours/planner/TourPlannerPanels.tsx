@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState, type ReactNode } from 'react'
 import type { PlannableTourType, TourListItem } from '@trek/shared'
-import { AlertTriangle, ArrowLeft, History, Loader2, MapPin, Mountain, Plus, Redo2, Route, Trash2, Undo2 } from 'lucide-react'
+import { AlertTriangle, ArrowLeft, History, Loader2, MapPin, Mountain, Plus, Redo2, Route, Trash2, Undo2 } from '../../../icons'
 import type { Day } from '../../../types'
 import { useTranslation } from '../../../i18n'
 import { useSettingsStore } from '../../../store/settingsStore'

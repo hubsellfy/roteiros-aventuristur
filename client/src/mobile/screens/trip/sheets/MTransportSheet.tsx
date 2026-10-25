@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { ArrowRight, Footprints, Paperclip, Pencil, Route as RouteIcon, Trash2 } from 'lucide-react'
+import { ArrowRight, Footprints, Paperclip, Pencil, Route as RouteIcon, Trash2 } from '../../../../icons'
 import MSheet from '../../../components/MSheet'
 import type { MTripSheetsProps } from '../MTripShell'
 import { useTranslation } from '../../../../i18n'

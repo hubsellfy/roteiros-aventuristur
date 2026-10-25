@@ -1,5 +1,5 @@
 import { useId, useState } from 'react'
-import { Plus, Tags, Trash2 } from 'lucide-react'
+import { Plus, Tags, Trash2 } from '../../icons'
 import { NOTE_COLORS } from './CollabNotes.constants'
 import { EditableCatName } from './CollabNotesEditableCatName'
 import { originalCategoryName } from './CollabNotes.helpers'

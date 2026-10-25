@@ -1,4 +1,4 @@
-import { CalendarCheck2, CalendarDays, CalendarPlus, CalendarX2, ChevronDown, Loader2 } from 'lucide-react';
+import { CalendarCheck2, CalendarDays, CalendarPlus, CalendarX2, ChevronDown, Loader2 } from '../../../icons';
 import type { MouseEvent } from 'react';
 import { useTranslation } from '../../../i18n';
 import type { Day } from '../../../types';

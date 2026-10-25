@@ -19,7 +19,7 @@ import {
   Pipette,
   Ungroup,
   type LucideIcon,
-} from 'lucide-react';
+} from '../../icons';
 
 import { useStudioStore } from '../../store/studioStore';
 import '../../styles/studio-panels.css';

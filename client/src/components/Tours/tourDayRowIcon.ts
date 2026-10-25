@@ -1,4 +1,4 @@
-import { Activity, Bike, Footprints, Mountain, MountainSnow, Route, Waves, type LucideIcon } from 'lucide-react';
+import { Activity, Bike, Footprints, Mountain, MountainSnow, Route, Waves, type LucideIcon } from '../../icons';
 import { Horseshoe } from './horse/HorseshoeIcon';
 
 export function tourDayRowIcon(type: string): LucideIcon {

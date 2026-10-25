@@ -4,7 +4,7 @@ import PageShell from '../components/Layout/PageShell'
 import HelpAnchor from '../components/Help/HelpAnchor'
 import { PageSpinner } from '../components/shared/Spinner'
 import FileManager from '../components/Files/FileManager'
-import { ArrowLeft } from 'lucide-react'
+import { ArrowLeft } from '../icons'
 import { useTranslation } from '../i18n'
 import { useFiles } from './files/useFiles'
 

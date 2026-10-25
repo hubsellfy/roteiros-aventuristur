@@ -1,5 +1,5 @@
 import type { TripJournalCandidate, TripJournalLinkRole } from '@trek/shared';
-import { AlertTriangle, BookOpen, Link2, Unlink, Users } from 'lucide-react';
+import { AlertTriangle, BookOpen, Link2, Unlink, Users } from '../../icons';
 import { useState, type ReactNode } from 'react';
 import { useTranslation } from '../../i18n';
 import ConfirmDialog from '../shared/ConfirmDialog';

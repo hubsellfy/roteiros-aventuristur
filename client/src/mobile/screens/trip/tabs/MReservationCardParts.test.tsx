@@ -1,6 +1,6 @@
 // FE-COMP-MRESCARD-001 to FE-COMP-MRESCARD-010
 import { fireEvent, render, screen } from '@testing-library/react';
-import { Hotel, Plane } from 'lucide-react';
+import { Hotel, Plane } from '../../../../icons';
 import { describe, expect, it, vi } from 'vitest';
 
 import type { useReservationCard } from '../../../../components/Planner/bookings/useReservationCard';

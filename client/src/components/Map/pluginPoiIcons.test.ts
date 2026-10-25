@@ -1,7 +1,7 @@
 // FE-COMP-PLUGINPOIICON-001 to FE-COMP-PLUGINPOIICON-004
 import { describe, it, expect } from 'vitest'
-import * as Lucide from 'lucide-react'
-import { MapPin, Signpost } from 'lucide-react'
+import * as Lucide from '../../icons'
+import { MapPin, Signpost } from '../../icons'
 import { PLUGIN_POI_ICONS } from '@trek/shared'
 import { POI_DEFAULT_COLOR, pluginPoiColor, resolvePluginPoiIcon } from './pluginPoiIcons'
 

@@ -1,5 +1,5 @@
 import type { TourListItem } from '@trek/shared';
-import { CalendarDays, CalendarRange } from 'lucide-react';
+import { CalendarDays, CalendarRange } from '../../../icons';
 import type { useTranslation } from '../../../i18n';
 import type { AssignmentsMap, Day } from '../../../types';
 import type { useContextMenu } from '../../shared/ContextMenu';

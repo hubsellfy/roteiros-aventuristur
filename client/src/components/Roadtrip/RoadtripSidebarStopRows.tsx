@@ -1,5 +1,5 @@
 import React from 'react'
-import { ParkingSquare, Zap } from 'lucide-react'
+import { ParkingSquare, Zap } from '../../icons'
 import ChargingInfo from './ChargingInfo'
 import { useRoadtripSettings } from '../../hooks/useRoadtripSettings'
 import { useTranslation } from '../../i18n/TranslationContext'

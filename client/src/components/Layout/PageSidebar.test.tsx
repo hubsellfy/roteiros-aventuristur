@@ -1,7 +1,7 @@
 // FE-W4PSB-001 to FE-W4PSB-012
 import type { ComponentProps } from 'react'
 import { describe, it, expect, vi } from 'vitest'
-import { Bell, Palette, Shield } from 'lucide-react'
+import { Bell, Palette, Shield } from '../../icons'
 import { render, screen, fireEvent, within } from '../../../tests/helpers/render'
 import PageSidebar, { type PageSidebarTab } from './PageSidebar'
 

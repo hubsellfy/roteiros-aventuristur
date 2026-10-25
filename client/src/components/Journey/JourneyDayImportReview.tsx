@@ -1,4 +1,4 @@
-import { Clock, FilePen, Loader2, RefreshCw, Route, Users } from 'lucide-react';
+import { Clock, FilePen, Loader2, RefreshCw, Route, Users } from '../../icons';
 import { useTranslation } from '../../i18n';
 import { useSettingsStore } from '../../store/settingsStore';
 import { formatClockTime } from '../../utils/formatters';

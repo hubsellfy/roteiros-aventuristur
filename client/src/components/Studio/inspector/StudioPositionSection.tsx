@@ -1,5 +1,5 @@
 import type { BookElement } from '@trek/shared';
-import { RotateCcw, RotateCw } from 'lucide-react';
+import { RotateCcw, RotateCw } from '../../../icons';
 
 import { NumField, Section, Switch } from '../StudioControls';
 import { turned } from '../stickerLibrary';

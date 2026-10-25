@@ -1,5 +1,5 @@
 import type { BookingCard as BookingCardData, BookingItem } from '@trek/shared';
-import { ArrowUpRight, MapPin, type LucideIcon } from 'lucide-react';
+import { ArrowUpRight, MapPin, type LucideIcon } from '../../../../icons';
 
 import { useTranslation } from '../../../../i18n';
 import { Tooltip } from '../../../shared/Tooltip';

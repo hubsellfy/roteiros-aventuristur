@@ -1,5 +1,5 @@
 import React from 'react'
-import { Loader2, Plane, Save } from 'lucide-react'
+import { Loader2, Plane, Save } from '../../icons'
 import { useTranslation } from '../../i18n'
 import { useAirTrailSettings } from './useAirTrailSettings'
 import AirTrailIcon from '../shared/AirTrailIcon'

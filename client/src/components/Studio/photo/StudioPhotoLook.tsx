@@ -13,7 +13,7 @@ import {
   type BookPhotoElement,
   type PhotoAdjustment,
 } from '@trek/shared';
-import { FlipHorizontal2, Printer, RotateCcw, TriangleAlert } from 'lucide-react';
+import { FlipHorizontal2, Printer, RotateCcw, TriangleAlert } from '../../../icons';
 
 import '../../../styles/studio-photo.css';
 import { photoEdgesInUse } from '../inspector/inspectorModel';

@@ -1,5 +1,5 @@
 import { useEffect, useId, useRef, useState } from 'react'
-import { BookOpen, FileText, Printer, Scissors } from 'lucide-react'
+import { BookOpen, FileText, Printer, Scissors } from '../../icons'
 import { DialogButton, DialogFooter, DialogHeader, DialogSection, DialogShell, DialogTile, FooterSpacer, NEUTRAL_TINT, fs } from '../shared/DialogShell'
 import type { BookDocument } from '@trek/shared'
 import { BookSheetsView } from './BookSheetsView'

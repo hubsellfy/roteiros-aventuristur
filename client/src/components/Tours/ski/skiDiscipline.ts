@@ -1,5 +1,5 @@
 import type { SkiDiscipline, SkiTechnique, TourListItem } from '@trek/shared';
-import { CableCar, createLucideIcon, Snowflake, Spline, TrendingUp, type LucideIcon } from 'lucide-react';
+import { CableCar, createLucideIcon, Snowflake, Spline, TrendingUp, type LucideIcon } from '../../../icons';
 
 /**
  * SKI-02: a snowboard seen from above, laid across the square with its two

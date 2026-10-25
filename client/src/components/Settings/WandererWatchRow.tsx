@@ -1,4 +1,4 @@
-import { BellRing } from 'lucide-react';
+import { BellRing } from '../../icons';
 import React from 'react';
 import { useTranslation } from '../../i18n';
 import { fs } from '../shared/DialogShell';

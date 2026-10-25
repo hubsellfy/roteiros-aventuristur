@@ -1,4 +1,4 @@
-import { ShieldOff } from 'lucide-react';
+import { ShieldOff } from '../../../icons';
 import { useState } from 'react';
 import type { TranslationFn } from '../../../types';
 import MSheet from '../../components/MSheet';

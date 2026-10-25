@@ -10,7 +10,7 @@ import {
   ShieldOff,
   UserCog,
   UserPlus,
-} from 'lucide-react';
+} from '../../icons';
 import React, { useId } from 'react';
 import { useAdminUserActions } from '../../components/Admin/useAdminUserActions';
 import CustomSelect from '../../components/shared/CustomSelect';

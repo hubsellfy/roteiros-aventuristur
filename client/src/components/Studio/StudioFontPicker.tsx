@@ -1,5 +1,5 @@
 import { BOOK_FONT_CATEGORIES, bookFontsUsed, type BookFontCategory } from '@trek/shared';
-import { Check, ChevronDown, Search, X } from 'lucide-react';
+import { Check, ChevronDown, Search, X } from '../../icons';
 import { useEffect, useId, useMemo, useRef, useState, type KeyboardEvent } from 'react';
 import { useStudioStore } from '../../store/studioStore';
 import '../../styles/studio-fonts.css';

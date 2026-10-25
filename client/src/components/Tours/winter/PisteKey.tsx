@@ -1,4 +1,4 @@
-import { CableCar, ExternalLink, Info, ZoomIn } from 'lucide-react';
+import { CableCar, ExternalLink, Info, ZoomIn } from '../../../icons';
 import { useEffect } from 'react';
 import { useTranslation } from '../../../i18n';
 import { SoftPill } from '../../Planner/planParts';

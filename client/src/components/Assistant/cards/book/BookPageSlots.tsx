@@ -8,7 +8,7 @@ import {
   type LucideIcon,
   MoveVertical,
   TriangleAlert,
-} from 'lucide-react';
+} from '../../../../icons';
 import { lazy, Suspense } from 'react';
 
 import { useTranslation } from '../../../../i18n';

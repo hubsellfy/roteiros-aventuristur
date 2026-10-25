@@ -1,6 +1,6 @@
 import { ReactNode } from 'react'
-import { Trash2, X } from 'lucide-react'
-import type { LucideIcon } from 'lucide-react'
+import { Trash2, X } from '../../../../icons'
+import type { LucideIcon } from '../../../../icons'
 import MIconBtn from '../../../components/MIconBtn'
 
 /**

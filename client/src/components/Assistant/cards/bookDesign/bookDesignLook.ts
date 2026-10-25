@@ -1,4 +1,4 @@
-import { BookmarkMinus, BookmarkPlus, Copy, Palette, Ruler, Sparkles } from 'lucide-react';
+import { BookmarkMinus, BookmarkPlus, Copy, Palette, Ruler, Sparkles } from '../../../../icons';
 
 import type { PackLook } from '../cardTypes';
 

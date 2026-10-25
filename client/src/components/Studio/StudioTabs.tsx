@@ -1,4 +1,4 @@
-import type { LucideIcon } from 'lucide-react';
+import type { LucideIcon } from '../../icons';
 import { useRef, type HTMLAttributes, type KeyboardEvent, type ReactNode } from 'react';
 
 import '../../styles/studio-panels.css';

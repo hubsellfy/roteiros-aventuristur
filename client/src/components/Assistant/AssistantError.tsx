@@ -1,4 +1,4 @@
-import { CircleAlert, WifiOff } from 'lucide-react';
+import { CircleAlert, WifiOff } from '../../icons';
 import { useNavigate } from 'react-router';
 
 import { useNetworkMode } from '../../hooks/useNetworkMode';

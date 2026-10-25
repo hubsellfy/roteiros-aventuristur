@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
-import type { LucideIcon } from 'lucide-react'
-import { FileSpreadsheet, FileText, Printer, Upload } from 'lucide-react'
+import type { LucideIcon } from '../../icons'
+import { FileSpreadsheet, FileText, Printer, Upload } from '../../icons'
 import { useTranslation } from '../../i18n'
 import PackingPrintPreview from './PackingPrintPreview'
 import { usePackingExport, type PackingView } from './usePackingExport'

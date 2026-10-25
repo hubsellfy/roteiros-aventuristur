@@ -1,4 +1,4 @@
-import { ArrowUp, Clock, Ruler } from 'lucide-react';
+import { ArrowUp, Clock, Ruler } from '../../../icons';
 import { formatDistance, formatElevation } from '../../../utils/units';
 import { plannedTotalText, tourPlannedTimes } from '../tourPresentation';
 import type { MeasuredTour, Translate, Unit } from './tourPreviewFacts';

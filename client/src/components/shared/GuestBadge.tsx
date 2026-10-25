@@ -1,4 +1,4 @@
-import { UserRound } from 'lucide-react'
+import { UserRound } from '../../icons'
 import { useTranslation } from '../../i18n'
 import { Tooltip } from './Tooltip'
 

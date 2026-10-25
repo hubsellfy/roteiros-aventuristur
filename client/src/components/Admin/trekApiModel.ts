@@ -1,4 +1,4 @@
-import { Globe2, KeyRound, ShieldOff, WifiOff } from 'lucide-react';
+import { Globe2, KeyRound, ShieldOff, WifiOff } from '../../icons';
 
 import type { TranslationFn } from '../../types';
 

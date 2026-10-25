@@ -1,4 +1,4 @@
-import { ExternalLink, X } from 'lucide-react';
+import { ExternalLink, X } from '../../../icons';
 import type { ReactNode } from 'react';
 import { useTranslation } from '../../../i18n';
 import { useSettingsStore } from '../../../store/settingsStore';

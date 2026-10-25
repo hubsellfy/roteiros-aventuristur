@@ -1,6 +1,6 @@
 import React from 'react'
 import { useRef, useId } from 'react'
-import { Check, FileDown, Loader2, Upload } from 'lucide-react'
+import { Check, FileDown, Loader2, Upload } from '../../icons'
 import { useTranslation } from '../../i18n'
 import { useToast } from '../shared/Toast'
 import { useTripStore } from '../../store/tripStore'

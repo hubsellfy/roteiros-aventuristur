@@ -1,5 +1,5 @@
 import { useId } from 'react'
-import { ListPlus, Loader2 } from 'lucide-react'
+import { ListPlus, Loader2 } from '../../icons'
 import ToggleSwitch from '../Settings/ToggleSwitch'
 import { DialogButton, DialogFooter, DialogHeader, DialogShell, DialogTile, FooterSpacer, NEUTRAL_TINT, fs } from '../shared/DialogShell'
 import { EditorField, INPUT, Segmented } from '../shared/dialogParts'

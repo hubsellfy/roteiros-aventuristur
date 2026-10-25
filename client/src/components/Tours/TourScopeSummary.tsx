@@ -12,7 +12,7 @@ import {
   Ruler,
   Waves,
   type LucideIcon,
-} from 'lucide-react';
+} from '../../icons';
 import { useMemo, type ComponentType } from 'react';
 import { useTranslation } from '../../i18n';
 import { useSettingsStore } from '../../store/settingsStore';

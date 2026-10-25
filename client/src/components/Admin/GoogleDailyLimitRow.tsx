@@ -1,4 +1,4 @@
-import { AlertTriangle, Check } from 'lucide-react'
+import { AlertTriangle, Check } from '../../icons'
 import { useTranslation } from '../../i18n'
 import { NumericInput } from '../shared/NumericInput'
 import { fs } from '../shared/DialogShell'

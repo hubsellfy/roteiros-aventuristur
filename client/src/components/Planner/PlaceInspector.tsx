@@ -6,7 +6,7 @@ import Markdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import remarkBreaks from 'remark-breaks'
 import { markdownLinkComponents } from '../shared/markdownLink'
-import { X, Clock, MapPin, ExternalLink, Phone, Mail, Banknote, Pencil, Plus, Minus, ChevronDown, ChevronUp, ChevronRight, FileText, Upload, File, FileImage, Star, Navigation, Mountain, Bookmark, BookmarkCheck, Copy } from 'lucide-react'
+import { X, Clock, MapPin, ExternalLink, Phone, Mail, Banknote, Pencil, Plus, Minus, ChevronDown, ChevronUp, ChevronRight, FileText, Upload, File, FileImage, Star, Navigation, Mountain, Bookmark, BookmarkCheck, Copy } from '../../icons'
 import { hoursLines, periodsFromWeek } from './placeHours'
 import PlaceAvatar from '../shared/PlaceAvatar'
 import PlacePhotoGallery from './PlacePhotoGallery'
@@ -87,8 +87,6 @@ function PhotoCredit({ imageUrl }: { imageUrl?: string | null }) {
       <span className="mt-1 block max-w-[72px] truncate text-center leading-tight text-content-faint" style={fs(9)}>{credit}</span>
     </Tooltip>
   )
-}
-
 }
 
 function formatFileSize(bytes) {

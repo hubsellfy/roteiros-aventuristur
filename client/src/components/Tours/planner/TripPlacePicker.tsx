@@ -1,4 +1,4 @@
-import { Check, MapPinned, Search, X } from 'lucide-react';
+import { Check, MapPinned, Search, X } from '../../../icons';
 import { useId, useMemo, useState } from 'react';
 import { useTranslation } from '../../../i18n';
 import { useSettingsStore } from '../../../store/settingsStore';

@@ -1,4 +1,4 @@
-import { History, RefreshCw } from 'lucide-react'
+import { History, RefreshCw } from '../../icons'
 import { useTranslation } from '../../i18n'
 import { Tooltip } from '../shared/Tooltip'
 import { fs } from '../shared/DialogShell'

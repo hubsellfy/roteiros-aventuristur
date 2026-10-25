@@ -12,7 +12,7 @@ import {
   Lightbulb,
   Loader2,
   Tag,
-} from 'lucide-react';
+} from '../../icons';
 import { type ComponentType, type CSSProperties, type ReactNode } from 'react';
 import { useTranslation } from '../../i18n';
 import { escapeReleaseHtml as escapeHtml, parseReleaseNotes } from '../../utils/releaseNotes';

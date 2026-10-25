@@ -1,4 +1,4 @@
-import { AlertTriangle, Route } from 'lucide-react'
+import { AlertTriangle, Route } from '../../icons'
 import { useTranslation } from '../../i18n'
 import { MapTogglePill } from './MapTogglePill'
 import { routeModeIcon } from '../Planner/routeModes'

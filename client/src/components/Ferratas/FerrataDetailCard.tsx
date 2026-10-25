@@ -1,4 +1,4 @@
-import { Check, ExternalLink, MapPinPlus, MoveHorizontal, Route, X } from 'lucide-react';
+import { Check, ExternalLink, MapPinPlus, MoveHorizontal, Route, X } from '../../icons';
 
 import type { Ferrata } from '@trek/shared';
 

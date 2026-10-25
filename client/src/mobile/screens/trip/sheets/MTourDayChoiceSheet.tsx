@@ -1,4 +1,4 @@
-import { CalendarDays, CalendarRange } from 'lucide-react';
+import { CalendarDays, CalendarRange } from '../../../../icons';
 import { tourDayChoices, type TourDayHow, type TourDayQuestion } from '../../../../components/Tours/stages/stageSpread';
 import { useTranslation } from '../../../../i18n';
 import MConfirmSheet from '../../settings/MConfirmSheet';

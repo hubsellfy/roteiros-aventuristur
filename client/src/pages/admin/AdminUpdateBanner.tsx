@@ -1,5 +1,5 @@
 import React from 'react'
-import { ArrowUpCircle, ExternalLink, Download } from 'lucide-react'
+import { ArrowUpCircle, ExternalLink, Download } from '../../icons'
 import type { TranslationFn } from '../../types'
 import type { UpdateInfo } from './adminModel'
 import { fs } from '../../components/shared/DialogShell'

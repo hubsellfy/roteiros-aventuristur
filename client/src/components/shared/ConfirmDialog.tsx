@@ -1,6 +1,6 @@
 import React, { useEffect, useCallback, type ReactNode } from 'react'
 import { createPortal } from 'react-dom'
-import { AlertTriangle, HelpCircle } from 'lucide-react'
+import { AlertTriangle, HelpCircle } from '../../icons'
 import { useTranslation } from '../../i18n'
 import { useIsPhone } from '../../mobile/useIsPhone'
 import { DialogTile, NEUTRAL_TINT, fs } from './DialogShell'

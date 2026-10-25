@@ -1,5 +1,5 @@
 import { useEffect, useId, useState, useRef, type SyntheticEvent } from 'react'
-import { Briefcase, X, Plus, Image, Minus, Check, MapPin, Locate, Camera, Play, Loader2, NotebookPen } from 'lucide-react'
+import { Briefcase, X, Plus, Image, Minus, Check, MapPin, Locate, Camera, Play, Loader2, NotebookPen } from '../../icons'
 import { isVideoFile } from '../../utils/videoPoster'
 import { type ResilientResult, type UploadProgress } from '../../utils/uploadQueue'
 import { useTranslation } from '../../i18n'

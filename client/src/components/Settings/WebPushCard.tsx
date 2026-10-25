@@ -1,5 +1,5 @@
 import React from 'react'
-import { BellRing } from 'lucide-react'
+import { BellRing } from '../../icons'
 import { useTranslation } from '../../i18n'
 import { useWebPush } from '../../hooks/useWebPush'
 import { fs } from '../shared/DialogShell'

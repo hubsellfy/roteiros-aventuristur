@@ -2,7 +2,7 @@ import {
   Accessibility, Bath, Bike, Droplet, Droplets, Footprints, Heart, Info, Landmark, MapPin,
   Mountain, MountainSnow, PlugZap, Signpost, Star, Tent, TentTree, Trees, Waves, Zap,
   type LucideIcon,
-} from 'lucide-react'
+} from '../../icons'
 import { isPluginPoiColor, isPluginPoiIcon, type PluginPoiIcon } from '@trek/shared'
 
 /**

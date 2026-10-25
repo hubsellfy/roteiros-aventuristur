@@ -1,7 +1,7 @@
 // FE-COMP-MBADGE-001 to FE-COMP-MBADGE-006
 import { describe, expect, it } from 'vitest'
 import { render, screen } from '@testing-library/react'
-import { Route } from 'lucide-react'
+import { Route } from '../../icons'
 import MBadge from './MBadge'
 
 describe('MBadge', () => {

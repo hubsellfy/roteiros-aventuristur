@@ -1,4 +1,4 @@
-import { Key, Trash2, User, Loader2, Shield } from 'lucide-react'
+import { Key, Trash2, User, Loader2, Shield } from '../../../icons'
 import { SCOPES_PREVIEW, useMcpTokensAdmin } from '../../../components/Admin/useMcpTokensAdmin'
 import { useTranslation } from '../../../i18n'
 import { MAdminCard } from './MAdminUi'

@@ -1,5 +1,5 @@
 import type { AssistantApplied, TrekCard } from '@trek/shared';
-import { ArrowLeftRight, Wallet } from 'lucide-react';
+import { ArrowLeftRight, Wallet } from '../../../../icons';
 
 import type { PackLook } from '../cardTypes';
 import { costsTarget } from './budgetModel';

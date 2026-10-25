@@ -1,4 +1,4 @@
-import { RefreshCw } from 'lucide-react';
+import { RefreshCw } from '../../icons';
 import type React from 'react';
 import { useTranslation } from '../../i18n';
 import ToggleSwitch from '../Settings/ToggleSwitch';

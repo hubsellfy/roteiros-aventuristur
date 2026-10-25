@@ -6,7 +6,7 @@ import type {
   CollectionListsCard,
   CollectionPlacesCard,
 } from '@trek/shared';
-import { Bookmark, Info, Tag } from 'lucide-react';
+import { Bookmark, Info, Tag } from '../../../../icons';
 import type { ReactNode } from 'react';
 
 import { useTranslation } from '../../../../i18n';

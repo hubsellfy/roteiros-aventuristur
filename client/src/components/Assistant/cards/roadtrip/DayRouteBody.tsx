@@ -1,5 +1,5 @@
 import type { DayRouteCard } from '@trek/shared';
-import { MapPinPlus, Spline, Waypoints } from 'lucide-react';
+import { MapPinPlus, Spline, Waypoints } from '../../../../icons';
 
 import { useTranslation } from '../../../../i18n';
 import { SoftPill } from '../../../Planner/planParts';

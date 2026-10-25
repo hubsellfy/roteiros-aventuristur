@@ -1,4 +1,4 @@
-import { Cloud, CloudDrizzle, CloudLightning, CloudRain, CloudSnow, Sun, Wind, type LucideIcon } from 'lucide-react';
+import { Cloud, CloudDrizzle, CloudLightning, CloudRain, CloudSnow, Sun, Wind, type LucideIcon } from '../../icons';
 
 /** The icon for each weather condition the forecast names. */
 export const WEATHER_ICON_MAP: Record<string, LucideIcon> = {

@@ -19,7 +19,7 @@ import {
   Ticket,
   Wallet,
   type LucideIcon,
-} from 'lucide-react';
+} from '../../../../icons';
 import { useRef, type ReactNode } from 'react';
 
 import { useTranslation } from '../../../../i18n';

@@ -1,4 +1,4 @@
-import { Ban, Check, Plus } from 'lucide-react'
+import { Ban, Check, Plus } from '../../../../icons'
 import { getCategoryIcon } from '../../../../components/shared/categoryIcons'
 import { useNewCategory } from '../../../../components/Planner/usePlaceForm'
 import { FIELD_CLS } from './PlSheetChrome'

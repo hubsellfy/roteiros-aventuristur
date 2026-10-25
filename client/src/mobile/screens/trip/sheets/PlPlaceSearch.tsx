@@ -1,4 +1,4 @@
-import { Loader2, RotateCcw, Search } from 'lucide-react'
+import { Loader2, RotateCcw, Search } from '../../../../icons'
 import { offersGoogleRetry } from '../../../../utils/placeSource'
 import { usePlaceSearch, type MapsPlace } from '../../../../components/Planner/usePlaceSearch'
 import { FIELD_CLS } from './PlSheetChrome'

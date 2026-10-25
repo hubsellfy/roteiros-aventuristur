@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react'
 import { createPortal } from 'react-dom'
-import { ChevronDown, Plus } from 'lucide-react'
+import { ChevronDown, Plus } from '../../icons'
 import { POPOVER } from '../Packing/packingPopoverStyles'
 import { PopoverItem } from '../Packing/PackingPopover'
 import { PILL, fs } from './DialogShell'

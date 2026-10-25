@@ -1,5 +1,5 @@
 import React from 'react'
-import { HelpCircle } from 'lucide-react'
+import { HelpCircle } from '../../icons'
 import { useTranslation } from '../../i18n'
 import { useHelpStore } from '../../store/helpStore'
 

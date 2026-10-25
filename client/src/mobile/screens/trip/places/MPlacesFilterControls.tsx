@@ -1,5 +1,5 @@
 import { ReactNode } from 'react'
-import { Check, MapPin, Star } from 'lucide-react'
+import { Check, MapPin, Star } from '../../../../icons'
 import MChip from '../../../components/MChip'
 import { useTripStore } from '../../../../store/tripStore'
 import { getCategoryIcon } from '../../../../components/shared/categoryIcons'

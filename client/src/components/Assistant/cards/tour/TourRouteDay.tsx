@@ -1,5 +1,5 @@
 import type { TourRouteCard, TourRouteSchedule } from '@trek/shared';
-import { Clock, Droplet, Sunrise, Sunset } from 'lucide-react';
+import { Clock, Droplet, Sunrise, Sunset } from '../../../../icons';
 import { createElement } from 'react';
 
 import { useTranslation } from '../../../../i18n';

@@ -1,5 +1,5 @@
 import type { JourneyRecordedDay, JourneyRecordingPreview } from '@trek/shared';
-import { AlertTriangle, Clock, Info, Loader2, RefreshCw, Route, Users } from 'lucide-react';
+import { AlertTriangle, Clock, Info, Loader2, RefreshCw, Route, Users } from '../../icons';
 import { useState, type ReactNode } from 'react';
 import { useTranslation } from '../../i18n';
 import { useSettingsStore } from '../../store/settingsStore';

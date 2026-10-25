@@ -1,4 +1,4 @@
-import { Check, Eye, MapPin, Ship, Unlink } from 'lucide-react';
+import { Check, Eye, MapPin, Ship, Unlink } from '../../../icons';
 import { useTranslation } from '../../../i18n';
 import { useSettingsStore } from '../../../store/settingsStore';
 import { formatDistance } from '../../../utils/units';

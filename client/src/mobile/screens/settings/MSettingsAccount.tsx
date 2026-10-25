@@ -15,7 +15,7 @@ import {
   Trash2,
   User,
   X,
-} from 'lucide-react'
+} from '../../../icons'
 import { useTranslation } from '../../../i18n'
 import { MSetCard, MSetEyebrow, MSetInput, MSetButton, MSetHint } from './MSettingsUi'
 import MConfirmSheet from './MConfirmSheet'

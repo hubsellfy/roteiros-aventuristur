@@ -3,7 +3,7 @@ import { useVacayStore } from '../../store/vacayStore'
 import { useTranslation } from '../../i18n'
 import { windowMonths } from '../../vacay/yearWindow'
 import VacayMonthCard from './VacayMonthCard'
-import { Building2, MousePointer2 } from 'lucide-react'
+import { Building2, MousePointer2 } from '../../icons'
 import { useVacayCalendarLogic } from './useVacayCalendarLogic'
 
 type HoverTip = { date: string; top: number; left: number }

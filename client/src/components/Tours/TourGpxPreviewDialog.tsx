@@ -1,5 +1,5 @@
 import type { TourFileLeftOut, TourGpxImportFields } from '@trek/shared';
-import { AlertTriangle, Ban, Clock, FileDown, Layers, MapPin, Shapes } from 'lucide-react';
+import { AlertTriangle, Ban, Clock, FileDown, Layers, MapPin, Shapes } from '../../icons';
 import { useId, useMemo } from 'react';
 import { OFM_POSITRON } from '../../constants/mapDefaults';
 import { useTileUrl } from '../../hooks/useTileUrl';

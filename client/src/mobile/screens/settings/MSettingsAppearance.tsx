@@ -1,5 +1,5 @@
 import React from 'react'
-import { Eye, LayoutDashboard, Paintbrush, RotateCcw, Smartphone } from 'lucide-react'
+import { Eye, LayoutDashboard, Paintbrush, RotateCcw, Smartphone } from '../../../icons'
 import { useTranslation } from '../../../i18n'
 import { APPEARANCE_SCHEMES, CUSTOM_ACCENT_PRESETS } from '../../../theme/schemes'
 import { APPEARANCE_SCALE_MIN, APPEARANCE_SCALE_MAX, type AppearanceConfig } from '@trek/shared'

@@ -1,4 +1,4 @@
-import { Lock, Unlock } from 'lucide-react'
+import { Lock, Unlock } from '../../icons'
 import { useTranslation } from '../../i18n'
 import { MapTogglePill } from './MapTogglePill'
 

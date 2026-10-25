@@ -244,8 +244,14 @@ replaceExact('client/src/components/shared/TripLoadingSplash.tsx', [
   ["title || 'TREK'", `title || '${name}'`],
 ]);
 
-replaceExact('client/src/components/Settings/AccountTab.tsx', [
+replaceExact('client/src/components/Settings/useAccountSettings.ts', [
   ['TREK MFA Backup Codes', `${name} - códigos de recuperação (2FA)`],
+]);
+replaceExact('client/src/pages/sharedTrip/SharedChrome.tsx', [
+  ['<strong className="text-content">TREK</strong>', `<strong className="text-content">${name}</strong>`],
+]);
+replaceExact('client/src/utils/fileShare.ts', [
+  ["navigator.canShare({ title: 'TREK', text: 'TREK' })", `navigator.canShare({ title: '${name}', text: '${name}' })`],
 ]);
 
 // The releases tab lists the original project's releases and its author's
@@ -266,6 +272,7 @@ replaceExact('client/src/pages/admin/useAdmin.ts', [
 replaceExact('client/src/pages/admin/TrekApiCard.tsx', [
   ["import TrekMark from '../../components/shared/TrekMark'\n", ''],
   ['<TrekMark className="h-8 w-auto text-content" aria-label="TREK Places API" />', '<span className="text-lg font-semibold text-content">TREK Places API</span>'],
+  ['<TrekMark className="h-7 w-auto text-content" aria-label="TREK Places API" />', '<span className="text-lg font-semibold text-content">TREK Places API</span>'],
 ]);
 replaceExact('client/src/mobile/screens/admin/MApiProviderBlocks.tsx', [
   ["import TrekMark from '../../../components/shared/TrekMark'\n", ''],
@@ -274,9 +281,6 @@ replaceExact('client/src/mobile/screens/admin/MApiProviderBlocks.tsx', [
 
 replaceExact('client/src/mobile/screens/dashboard/MDashboard.tsx', [
   ['aria-label="TREK"', `aria-label="${name}"`],
-]);
-replaceExact('client/src/mobile/screens/settings/MSettingsAccount.tsx', [
-  ['TREK MFA Backup Codes', `${name} - códigos de recuperação (2FA)`],
 ]);
 replaceExact('client/src/mobile/screens/trip/MTripLoadingSplash.tsx', [
   ["title || 'TREK'", `title || '${name}'`],

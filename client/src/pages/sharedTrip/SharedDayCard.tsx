@@ -1,4 +1,4 @@
-import { ChevronDown, ChevronRight, Hotel } from 'lucide-react'
+import { ChevronDown, ChevronRight, Hotel } from '../../icons'
 import { fs, NEUTRAL_TINT } from '../../components/shared/DialogShell'
 import { getCategoryIcon } from '../../components/shared/categoryIcons'
 import { Tooltip } from '../../components/shared/Tooltip'

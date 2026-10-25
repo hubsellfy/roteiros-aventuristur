@@ -1,5 +1,5 @@
 import type { TourListItem } from '@trek/shared';
-import { Gauge } from 'lucide-react';
+import { Gauge } from '../../../icons';
 import { useTranslation } from '../../../i18n';
 import { useSettingsStore } from '../../../store/settingsStore';
 import { fs } from '../../shared/DialogShell';

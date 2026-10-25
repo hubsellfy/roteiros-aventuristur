@@ -1,6 +1,6 @@
 import React, { useId } from 'react'
-import { Bell, BellRing, CalendarClock, Mail, Save, Send, Smartphone, Webhook } from 'lucide-react'
-import type { LucideIcon } from 'lucide-react'
+import { Bell, BellRing, CalendarClock, Mail, Save, Send, Smartphone, Webhook } from '../../icons'
+import type { LucideIcon } from '../../icons'
 import type { TranslationFn } from '../../types'
 import type { useAdmin } from './useAdmin'
 import AdminNotificationsPanel from './AdminNotificationsPanel'

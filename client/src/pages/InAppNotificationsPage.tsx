@@ -1,5 +1,5 @@
 import React from 'react'
-import { Bell, CheckCheck, Trash2 } from 'lucide-react'
+import { Bell, CheckCheck, Trash2 } from '../icons'
 import { useTranslation } from '../i18n'
 import PageShell from '../components/Layout/PageShell'
 import HelpAnchor from '../components/Help/HelpAnchor'

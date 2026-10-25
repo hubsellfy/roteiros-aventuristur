@@ -15,7 +15,7 @@ import {
   Search,
   User,
   type LucideIcon,
-} from 'lucide-react';
+} from '../../../icons';
 import type { ReactNode } from 'react';
 import { Link } from 'react-router';
 import { useTranslation } from '../../../i18n';

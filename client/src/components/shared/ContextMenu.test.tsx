@@ -1,7 +1,7 @@
 import { render, screen, fireEvent, act } from '../../../tests/helpers/render';
 import userEvent from '@testing-library/user-event';
 import { ContextMenu } from './ContextMenu';
-import { Trash2, Edit } from 'lucide-react';
+import { Trash2, Edit } from '../../icons';
 
 const makeMenu = (x = 100, y = 200, overrides?: object[]) => ({
   x,

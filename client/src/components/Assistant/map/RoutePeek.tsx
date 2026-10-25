@@ -1,4 +1,4 @@
-import { X } from 'lucide-react';
+import { X } from '../../../icons';
 import { useMemo } from 'react';
 
 import { useTranslation } from '../../../i18n';

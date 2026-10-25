@@ -2,7 +2,7 @@
 import { describe, it, expect, vi } from 'vitest';
 import { render, screen } from '../../../tests/helpers/render';
 import userEvent from '@testing-library/user-event';
-import { StickyNote } from 'lucide-react';
+import { StickyNote } from '../../icons';
 import CollabPanelHead, { HEAD_ACTION } from './CollabPanelHead';
 
 describe('CollabPanelHead', () => {

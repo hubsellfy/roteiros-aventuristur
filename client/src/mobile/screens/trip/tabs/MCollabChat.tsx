@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
-import { ArrowUp, ChevronUp, ImagePlus, Loader2, Reply, Trash2 } from 'lucide-react'
+import { ArrowUp, ChevronUp, ImagePlus, Loader2, Reply, Trash2 } from '../../../../icons'
 import MDancingTrek from '../../../components/MDancingTrek'
 import CollabAssistantBadge from '../../../../components/Collab/CollabAssistantBadge'
 import { useCollabChatData } from '../../../../components/Collab/useCollabChatData'

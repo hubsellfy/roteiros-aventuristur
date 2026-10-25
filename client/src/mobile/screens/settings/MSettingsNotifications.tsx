@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router'
-import { Bell, Link2, Lock, Send } from 'lucide-react'
+import { Bell, Link2, Lock, Send } from '../../../icons'
 import { WEB_PUSH_CHANNEL_ID } from '@trek/shared'
 import { useTranslation } from '../../../i18n'
 import { MSetCard, MSetEyebrow, MSetInput, MSetButton, MSetHint } from './MSettingsUi'

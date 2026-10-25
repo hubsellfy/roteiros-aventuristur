@@ -6,7 +6,7 @@ import type {
   TodoCardItem,
   TodoListCard,
 } from '@trek/shared';
-import { Check, Circle, CircleDashed, type LucideIcon, PencilLine, Plus, Trash2, Users } from 'lucide-react';
+import { Check, Circle, CircleDashed, type LucideIcon, PencilLine, Plus, Trash2, Users } from '../../../../icons';
 
 import { KAT_COLORS as PACKING_COLORS } from '../../../Packing/packingListPanel.constants';
 import { katColor as packingHashColor } from '../../../Packing/packingListPanel.helpers';

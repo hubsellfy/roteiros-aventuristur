@@ -1,5 +1,5 @@
 import React, { useId } from 'react'
-import { Bookmark, BookmarkCheck, Check, CheckCircle2, Loader2, Plus } from 'lucide-react'
+import { Bookmark, BookmarkCheck, Check, CheckCircle2, Loader2, Plus } from '../../icons'
 import { DialogButton, DialogFooter, DialogHeader, DialogShell, DialogTile, FooterSpacer, NEUTRAL_TINT, PILL, fs } from '../shared/DialogShell'
 import { useTranslation } from '../../i18n'
 import StatusBadge from './StatusBadge'

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Camera, Save, RefreshCw } from 'lucide-react'
+import { Camera, Save, RefreshCw } from '../../../icons'
 import { useTranslation } from '../../../i18n'
 import { MSetCard, MSetEyebrow, MSetRow, MSetInput, MSetButton, MSetHint } from './MSettingsUi'
 import MToggle from '../../components/MToggle'

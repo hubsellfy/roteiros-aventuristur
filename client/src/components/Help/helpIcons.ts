@@ -8,7 +8,7 @@ import {
   ArrowUpDown, Backpack, BatteryCharging, BedDouble, BellRing, Bike, Blocks, CableCar, Car, CloudDownload, CopyPlus, FileDown, FilePen, FileSpreadsheet, FolderInput, Footprints, History, Info, Layers, MailCheck, MapPinned, Moon, Mountain, MountainSnow, MoveRight, NotebookPen, PackagePlus, Pin, Receipt, Rotate3d, RouteOff, Shuffle, Spline, TriangleAlert, Waves, Wind,
   PaintBucket, Sticker, Type,
   type LucideIcon,
-} from 'lucide-react'
+} from '../../icons'
 import type { HelpIcon } from '../../help/types'
 
 /** The registry names icons; the components draw them. Unknown names fall back to the compass. */

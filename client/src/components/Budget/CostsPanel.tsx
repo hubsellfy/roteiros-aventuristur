@@ -1,5 +1,5 @@
 import { Fragment, useState, useMemo, useCallback, useId, type ReactNode } from 'react'
-import { ArrowDown, ArrowUp, BarChart3, Plus, Search, ArrowRight, ArrowLeftRight, Check, RotateCcw, Pencil, Trash2, AlertCircle, Download, StickyNote, ChevronDown, Receipt, Paperclip, ScanLine, Users } from 'lucide-react'
+import { ArrowDown, ArrowUp, BarChart3, Plus, Search, ArrowRight, ArrowLeftRight, Check, RotateCcw, Pencil, Trash2, AlertCircle, Download, StickyNote, ChevronDown, Receipt, Paperclip, ScanLine, Users } from '../../icons'
 import { useTripStore } from '../../store/tripStore'
 import { useCanDo } from '../../store/permissionsStore'
 import { useToast } from '../shared/Toast'

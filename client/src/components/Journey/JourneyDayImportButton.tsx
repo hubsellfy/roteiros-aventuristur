@@ -1,4 +1,4 @@
-import { ListChecks } from 'lucide-react';
+import { ListChecks } from '../../icons';
 import type React from 'react';
 import { useTranslation } from '../../i18n';
 import { fs } from '../shared/DialogShell';

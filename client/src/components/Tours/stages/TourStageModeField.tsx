@@ -1,4 +1,4 @@
-import { Moon, Sun } from 'lucide-react';
+import { Moon, Sun } from '../../../icons';
 import { useState } from 'react';
 import { useTranslation } from '../../../i18n';
 import ConfirmDialog from '../../shared/ConfirmDialog';

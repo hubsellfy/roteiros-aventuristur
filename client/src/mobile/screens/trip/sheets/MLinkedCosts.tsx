@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { ChevronRight, Link2, Link2Off, Plus, Search, Trash2 } from 'lucide-react'
+import { ChevronRight, Link2, Link2Off, Plus, Search, Trash2 } from '../../../../icons'
 import { useTranslation } from '../../../../i18n'
 import { useTripStore } from '../../../../store/tripStore'
 import { useSettingsStore } from '../../../../store/settingsStore'

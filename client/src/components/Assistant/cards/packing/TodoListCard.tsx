@@ -1,5 +1,5 @@
 import type { TodoListCard as TodoCard, TodoCardGroup, TodoCardItem } from '@trek/shared';
-import { CalendarDays, Flag, ListTodo, PencilLine, StickyNote, Tag, User } from 'lucide-react';
+import { CalendarDays, Flag, ListTodo, PencilLine, StickyNote, Tag, User } from '../../../../icons';
 
 import { useTranslation } from '../../../../i18n';
 import { type PillTone, SoftPill, WhiteBadge } from '../../../Planner/planParts';

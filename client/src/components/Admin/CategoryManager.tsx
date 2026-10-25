@@ -1,5 +1,5 @@
 import { useId } from 'react'
-import { Plus, Pencil, Trash2, Pipette, Tags, Loader2 } from 'lucide-react'
+import { Plus, Pencil, Trash2, Pipette, Tags, Loader2 } from '../../icons'
 import { DialogButton, DialogFooter, DialogHeader, DialogSection, DialogShell, DialogTile, FooterSpacer, NEUTRAL_TINT, fs } from '../shared/DialogShell'
 import { Tooltip } from '../shared/Tooltip'
 import ConfirmDialog from '../shared/ConfirmDialog'

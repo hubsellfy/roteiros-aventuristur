@@ -1,4 +1,4 @@
-import { Users } from 'lucide-react';
+import { Users } from '../../../../icons';
 
 import { useTranslation } from '../../../../i18n';
 import { SoftPill } from '../../../Planner/planParts';

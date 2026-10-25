@@ -1,5 +1,5 @@
 import type { TourFixedLeg } from '@trek/shared';
-import { Footprints, Ship } from 'lucide-react';
+import { Footprints, Ship } from '../../../icons';
 import { useTranslation } from '../../../i18n';
 import { fs } from '../../shared/DialogShell';
 import { Tooltip } from '../../shared/Tooltip';

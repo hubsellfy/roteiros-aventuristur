@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { ExternalLink, Navigation, Phone, Plus, X } from 'lucide-react'
+import { ExternalLink, Navigation, Phone, Plus, X } from '../../../../icons'
 import MSheet from '../../../components/MSheet'
 import type { MTripSheetsProps } from '../MTripShell'
 import { useTranslation, getIntlLanguage } from '../../../../i18n'

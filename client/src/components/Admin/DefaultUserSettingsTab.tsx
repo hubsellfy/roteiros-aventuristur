@@ -1,5 +1,5 @@
 import React from 'react'
-import { Loader2, Map as MapIcon, Settings2 } from 'lucide-react'
+import { Loader2, Map as MapIcon, Settings2 } from '../../icons'
 import { useTranslation } from '../../i18n'
 import Section from '../Settings/Section'
 import { SettingRows, SettingsHint } from '../Settings/settingsKit'

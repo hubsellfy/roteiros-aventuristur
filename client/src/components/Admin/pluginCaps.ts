@@ -3,7 +3,7 @@ import {
   AlertTriangle, ArrowRight, Bell, Bot, CalendarDays, Clock, Database, FileText, Image, LayoutDashboard, ListChecks,
   LocateFixed, Luggage, MapPin, MapPinned, Navigation, Palette, Pencil, Radio, Route, Search, Tag, Users, Wallet,
   type LucideIcon,
-} from 'lucide-react'
+} from '../../icons'
 import { pluginPoiCategoryLabel } from '@trek/shared'
 import { readPoiCategories } from '../../store/pluginStore'
 import { pluginPoiColor, resolvePluginPoiIcon } from '../Map/pluginPoiIcons'

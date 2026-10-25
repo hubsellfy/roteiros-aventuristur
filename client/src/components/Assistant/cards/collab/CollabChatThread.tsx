@@ -1,5 +1,5 @@
 import type { CollabBubbleCard } from '@trek/shared';
-import { Check, Clock, Paperclip, TriangleAlert } from 'lucide-react';
+import { Check, Clock, Paperclip, TriangleAlert } from '../../../../icons';
 
 import { useTranslation } from '../../../../i18n';
 import { useSettingsStore } from '../../../../store/settingsStore';

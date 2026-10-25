@@ -1,5 +1,5 @@
 import { useEffect, useId, useRef, useState, type ReactNode } from 'react'
-import { Globe, Hash, Map as MapIcon, Stamp } from 'lucide-react'
+import { Globe, Hash, Map as MapIcon, Stamp } from '../../icons'
 import type { BookElement, BookPageSetup, JourneyStats } from '@trek/shared'
 import { bookElementId as uid } from '@trek/shared'
 import { useStudioStore } from '../../store/studioStore'

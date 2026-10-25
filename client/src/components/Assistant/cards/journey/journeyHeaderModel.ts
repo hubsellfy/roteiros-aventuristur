@@ -13,7 +13,7 @@ import {
   Sparkles,
   ThumbsUp,
   type LucideIcon,
-} from 'lucide-react';
+} from '../../../../icons';
 
 /**
  * The pure side of a change of a journal itself: the glyph and name of each

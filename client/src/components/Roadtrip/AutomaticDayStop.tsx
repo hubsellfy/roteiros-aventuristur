@@ -1,4 +1,4 @@
-import { ArrowRight, Moon, Sunrise } from 'lucide-react'
+import { ArrowRight, Moon, Sunrise } from '../../icons'
 import type { RoadtripStop } from './useRoadtripRoutes'
 import type { ScheduleEntry } from './roadtripModel'
 import { useTranslation } from '../../i18n/TranslationContext'

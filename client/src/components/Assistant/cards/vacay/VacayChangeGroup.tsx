@@ -1,4 +1,4 @@
-import { TriangleAlert } from 'lucide-react';
+import { TriangleAlert } from '../../../../icons';
 
 import { useTranslation } from '../../../../i18n';
 import { SoftPill } from '../../../Planner/planParts';

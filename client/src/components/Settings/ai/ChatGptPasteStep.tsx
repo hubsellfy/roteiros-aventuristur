@@ -1,4 +1,4 @@
-import { ClipboardPaste, ExternalLink, Globe, Loader2 } from 'lucide-react';
+import { ClipboardPaste, ExternalLink, Globe, Loader2 } from '../../../icons';
 import React, { useId } from 'react';
 import { useTranslation } from '../../../i18n';
 import { CHATGPT_USAGE_URL, providerLabel } from '../../Assistant/providerCatalog';

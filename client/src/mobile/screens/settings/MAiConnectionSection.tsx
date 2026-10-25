@@ -1,5 +1,5 @@
 import type { AiConnectionView } from '@trek/shared';
-import { ChevronDown, Loader2, LogOut, MessageCircle, Sparkles, Unplug } from 'lucide-react';
+import { ChevronDown, Loader2, LogOut, MessageCircle, Sparkles, Unplug } from '../../../icons';
 import React, { useState } from 'react';
 import { useAssistantCostEstimates, useAssistantMapFollow } from '../../../components/Assistant/useAssistantMapFollow';
 import DemoLock from '../../../components/Demo/DemoLock';

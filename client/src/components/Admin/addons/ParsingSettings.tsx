@@ -1,5 +1,5 @@
 import { asLlmVision, LLM_VISION_MODES, type LlmVision } from '@trek/shared';
-import { Check, RefreshCw } from 'lucide-react';
+import { Check, RefreshCw } from '../../../icons';
 import React, { useId } from 'react';
 import { useTranslation } from '../../../i18n';
 import { ProviderMark } from '../../Settings/ai/AiConnectPanel';

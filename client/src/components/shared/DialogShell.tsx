@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState, type ButtonHTMLAttributes, type ClipboardEvent, type CSSProperties, type FormEvent, type KeyboardEvent as ReactKeyboardEvent, type ReactNode } from 'react'
 import { createPortal } from 'react-dom'
-import { Trash2, X } from 'lucide-react'
+import { Trash2, X } from '../../icons'
 import { useTranslation } from '../../i18n'
 import { lockBodyScroll } from '../../utils/bodyScrollLock'
 import { Tooltip } from './Tooltip'

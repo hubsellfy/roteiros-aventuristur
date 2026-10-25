@@ -1,5 +1,5 @@
 import type { AssistantMessage, CollabNoteCard, CollabNotesCard as NotesCard } from '@trek/shared';
-import { Link2, Paperclip, Pin, PinOff, StickyNote, Tag, Type } from 'lucide-react';
+import { Link2, Paperclip, Pin, PinOff, StickyNote, Tag, Type } from '../../../../icons';
 import type { ReactNode } from 'react';
 import Markdown, { type Components } from 'react-markdown';
 import remarkBreaks from 'remark-breaks';

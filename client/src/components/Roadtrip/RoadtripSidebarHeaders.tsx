@@ -1,6 +1,6 @@
 import React from 'react'
 import { useElementSize } from '../../hooks/useElementSize'
-import { AlertTriangle, Ban, CarFront, ChevronDown, ChevronRight, MapPin, Spline } from 'lucide-react'
+import { AlertTriangle, Ban, CarFront, ChevronDown, ChevronRight, MapPin, Spline } from '../../icons'
 import { useRoadtripSettings } from '../../hooks/useRoadtripSettings'
 import { useTranslation } from '../../i18n/TranslationContext'
 import { Tooltip } from '../shared/Tooltip'

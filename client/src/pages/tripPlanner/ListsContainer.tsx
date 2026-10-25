@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { PackageCheck, ListTodo, ListPlus, Download, Plus, FolderPlus } from 'lucide-react'
+import { PackageCheck, ListTodo, ListPlus, Download, Plus, FolderPlus } from '../../icons'
 import ApplyTemplateButton from '../../components/Packing/ApplyTemplateButton'
 import PackingExportMenu from '../../components/Packing/PackingExportMenu'
 import { useTranslation } from '../../i18n'

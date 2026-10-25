@@ -16,7 +16,7 @@ import {
   Settings2,
   Type,
   Unlink,
-} from 'lucide-react';
+} from '../../../../icons';
 
 import type { PackLook } from '../cardTypes';
 import { journalTarget } from './journeyCardModel';

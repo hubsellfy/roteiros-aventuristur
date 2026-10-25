@@ -1,6 +1,6 @@
 import type { BookElement, BookPageNumbers, BookPageSetup, BookSpread, JourneyStats } from '@trek/shared'
 import { withThemeLinks } from '@trek/shared'
-import { ClipboardCopy, Copy, Lock, Trash2, Unlock } from 'lucide-react'
+import { ClipboardCopy, Copy, Lock, Trash2, Unlock } from '../../icons'
 import type { ReactNode } from 'react'
 import { useStudioStore } from '../../store/studioStore'
 import { Tooltip } from '../shared/Tooltip'

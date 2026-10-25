@@ -1,5 +1,5 @@
 import type { TourListItem } from '@trek/shared';
-import { AlertTriangle } from 'lucide-react';
+import { AlertTriangle } from '../../icons';
 import { useId, useMemo } from 'react';
 
 import type { Assignment } from '../../types';

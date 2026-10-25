@@ -1,5 +1,5 @@
 import type { AssistantMessage, JourneyEntryLook } from '@trek/shared';
-import { ArrowUpRight, BookOpen } from 'lucide-react';
+import { ArrowUpRight, BookOpen } from '../../../../icons';
 import { useMemo } from 'react';
 
 import { useTranslation } from '../../../../i18n';

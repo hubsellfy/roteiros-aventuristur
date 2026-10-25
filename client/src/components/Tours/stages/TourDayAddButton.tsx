@@ -1,4 +1,4 @@
-import { ChevronDown, Plus } from 'lucide-react';
+import { ChevronDown, Plus } from '../../../icons';
 import type { MouseEvent } from 'react';
 import { useTranslation } from '../../../i18n';
 import { ContextMenu, useContextMenu } from '../../shared/ContextMenu';

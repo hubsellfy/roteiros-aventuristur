@@ -1,4 +1,4 @@
-import { MapPin } from 'lucide-react';
+import { MapPin } from '../../icons';
 
 import { useTranslation } from '../../i18n';
 import { toolStepKey } from './assistantModel';

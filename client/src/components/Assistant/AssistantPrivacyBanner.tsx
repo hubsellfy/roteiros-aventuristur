@@ -1,4 +1,4 @@
-import { ChevronDown, ShieldCheck } from 'lucide-react';
+import { ChevronDown, ShieldCheck } from '../../icons';
 import { useState } from 'react';
 
 import { useTranslation } from '../../i18n';

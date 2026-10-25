@@ -1,4 +1,4 @@
-import { Mountain } from 'lucide-react';
+import { Mountain } from '../../../icons';
 import { useMemo } from 'react';
 import { useTranslation } from '../../../i18n';
 import { SoftPill } from '../../Planner/planParts';

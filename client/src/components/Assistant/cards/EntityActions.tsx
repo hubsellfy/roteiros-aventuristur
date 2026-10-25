@@ -1,5 +1,5 @@
 import type { AssistantApplied, TrekCard } from '@trek/shared';
-import { ArrowUpRight, MapPin } from 'lucide-react';
+import { ArrowUpRight, MapPin } from '../../../icons';
 
 import { useTranslation } from '../../../i18n';
 import { Tooltip } from '../../shared/Tooltip';

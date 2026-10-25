@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Loader2, RotateCcw, Trash2 } from 'lucide-react'
+import { Loader2, RotateCcw, Trash2 } from '../../../../icons'
 import MSheet from '../../../components/MSheet'
 import MConfirmSheet from '../../settings/MConfirmSheet'
 import type { TripPlanner } from '../MTripShell'

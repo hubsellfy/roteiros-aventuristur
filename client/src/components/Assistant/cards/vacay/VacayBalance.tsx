@@ -1,4 +1,4 @@
-import { ArrowRight, CalendarDays, TriangleAlert } from 'lucide-react';
+import { ArrowRight, CalendarDays, TriangleAlert } from '../../../../icons';
 import type { CSSProperties, ReactNode } from 'react';
 
 import { useTranslation } from '../../../../i18n';

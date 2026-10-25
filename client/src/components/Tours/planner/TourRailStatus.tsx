@@ -1,4 +1,4 @@
-import { AlertTriangle, Circle, Loader2, RotateCcw, Route } from 'lucide-react';
+import { AlertTriangle, Circle, Loader2, RotateCcw, Route } from '../../../icons';
 import type { ReactNode } from 'react';
 import { useTranslation } from '../../../i18n';
 import { useTourFerrataCrossingStore } from '../../../store/tourFerrataCrossingStore';

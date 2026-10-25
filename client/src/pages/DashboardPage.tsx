@@ -20,7 +20,7 @@ import {
   Plus, Edit2, Trash2, Archive, ArchiveRestore, Copy, ArrowRight, MapPin,
   Plane, Hotel, Utensils, Clock, RefreshCw, ArrowRightLeft, Calendar,
   LayoutGrid, List, Ticket, X, CalendarPlus, ParkingSquare, LogIn, LogOut, Search,
-} from 'lucide-react'
+} from '../icons'
 import { IcsSubscribeModal } from '../components/Planner/IcsSubscribeModal'
 import CollectionsWidget from '../components/Dashboard/CollectionsWidget'
 import TripPlanner from '../components/Dashboard/TripPlanner'

@@ -1,4 +1,4 @@
-import { Download, Loader2, Share } from 'lucide-react';
+import { Download, Loader2, Share } from '../../icons';
 import { useTranslation } from '../../i18n';
 import { BarButton } from '../Planner/planParts';
 import { DialogButton } from '../shared/DialogShell';

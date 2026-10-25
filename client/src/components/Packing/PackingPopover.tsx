@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react'
-import { Check } from 'lucide-react'
+import { Check } from '../../icons'
 
 /** An entry in a packing popover: icon column, label, a tick on the current choice (the shared look is in packingPopoverStyles.ts). */
 interface PopoverItemProps {

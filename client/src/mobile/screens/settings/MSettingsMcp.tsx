@@ -1,4 +1,4 @@
-import { Check, ChevronDown, ChevronRight, Copy, KeyRound, Plus, RefreshCw, Terminal, Trash2 } from 'lucide-react'
+import { Check, ChevronDown, ChevronRight, Copy, KeyRound, Plus, RefreshCw, Terminal, Trash2 } from '../../../icons'
 import { useTranslation } from '../../../i18n'
 import { OAUTH_PRESETS, useMcpIntegration } from '../../../components/Settings/useMcpIntegration'
 import MScopeGroupPicker from './MScopeGroupPicker'

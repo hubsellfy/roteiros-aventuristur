@@ -1,6 +1,6 @@
 import { createPortal } from 'react-dom'
 import { useState, useEffect, useRef, useCallback } from 'react'
-import { Pencil, Users, Check } from 'lucide-react'
+import { Pencil, Users, Check } from '../../icons'
 import type { BudgetItemMember } from '../../types'
 
 export interface TripMember {

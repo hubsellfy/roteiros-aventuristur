@@ -1,4 +1,4 @@
-import { X, Plus } from 'lucide-react'
+import { X, Plus } from '../../icons'
 import type { PackingState } from './usePackingListPanel'
 import { bagFillPct, bagLoadSummary, packedWeight, perPersonLoads } from './packingListPanel.helpers'
 import { BagCard } from './PackingListPanelBagCard'

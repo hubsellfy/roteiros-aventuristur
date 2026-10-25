@@ -1,4 +1,4 @@
-import { CircleCheck, TriangleAlert } from 'lucide-react';
+import { CircleCheck, TriangleAlert } from '../../icons';
 import { useMemo } from 'react';
 import { useShallow } from 'zustand/react/shallow';
 

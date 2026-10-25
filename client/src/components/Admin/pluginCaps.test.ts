@@ -1,6 +1,6 @@
 // FE-COMP-PLUGINCAPS-001 to FE-COMP-PLUGINCAPS-013
 import { describe, it, expect } from 'vitest'
-import { ArrowRight, Database, LayoutDashboard, MapPinned, Signpost, Wallet, Waves } from 'lucide-react'
+import { ArrowRight, Database, LayoutDashboard, MapPinned, Signpost, Wallet, Waves } from '../../icons'
 import { POI_CATEGORY_PERMISSION, declaredPoiCategories, deriveCaps } from './pluginCaps'
 
 const t = (key: string) => `t:${key}`

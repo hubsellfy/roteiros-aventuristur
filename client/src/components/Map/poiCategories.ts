@@ -1,4 +1,4 @@
-import { Utensils, Coffee, Wine, BedDouble, Camera, Landmark, Trees, Ticket, Fuel, Zap, ParkingSquare, Tent, Binoculars, Mountain, Warehouse, Droplet, Toilet, Sandwich, Anchor, Sailboat, Wrench, Store, BatteryCharging, type LucideIcon } from 'lucide-react'
+import { Utensils, Coffee, Wine, BedDouble, Camera, Landmark, Trees, Ticket, Fuel, Zap, ParkingSquare, Tent, Binoculars, Mountain, Warehouse, Droplet, Toilet, Sandwich, Anchor, Sailboat, Wrench, Store, BatteryCharging, type LucideIcon } from '../../icons'
 import type { TourPoiCategory } from '@trek/shared'
 import { parsePluginPoiCategoryKey, type PluginPoiDetail } from '@trek/shared'
 // The road-trip kinds take their colour from the one place that defines it, so the

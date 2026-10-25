@@ -1,5 +1,5 @@
 import { useRef } from 'react'
-import { Printer } from 'lucide-react'
+import { Printer } from '../../icons'
 import Modal from '../shared/Modal'
 import { useTranslation } from '../../i18n'
 

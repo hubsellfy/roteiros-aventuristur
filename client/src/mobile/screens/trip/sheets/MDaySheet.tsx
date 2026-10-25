@@ -1,5 +1,5 @@
 import { useEffect, useMemo } from 'react'
-import { CalendarDays, Compass, Eraser, Hotel, MapPin, Pencil, Plus, RotateCcw, Route as RouteIcon, TramFront } from 'lucide-react'
+import { CalendarDays, Compass, Eraser, Hotel, MapPin, Pencil, Plus, RotateCcw, Route as RouteIcon, TramFront } from '../../../../icons'
 import MSheet from '../../../components/MSheet'
 import type { MTripSheetsProps } from '../MTripShell'
 import { useTranslation } from '../../../../i18n'

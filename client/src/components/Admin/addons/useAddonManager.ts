@@ -1,5 +1,5 @@
 import type { AdminFeatureToggleResponse } from '@trek/shared';
-import { Bike, Footprints, MountainSnow } from 'lucide-react';
+import { Bike, Footprints, MountainSnow } from '../../../icons';
 import { useEffect, useEffectEvent, useState } from 'react';
 
 import { adminApi } from '../../../api/client';

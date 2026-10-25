@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { useSearchParams } from 'react-router'
-import { ChevronLeft, MapPin, Grid3x3, MoreHorizontal, Play, Image, Camera, EyeOff, Settings2, X, Route, ListChecks } from 'lucide-react'
+import { ChevronLeft, MapPin, Grid3x3, MoreHorizontal, Play, Image, Camera, EyeOff, Settings2, X, Route, ListChecks } from '../../../icons'
 import JourneyLayeredMap from '../../../components/Journey/JourneyLayeredMap'
 import PhotoLightbox from '../../../components/Journey/PhotoLightbox'
 import ContributorInviteDialog from '../../../components/Journey/ContributorInviteDialog'

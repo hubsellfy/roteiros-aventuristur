@@ -1,5 +1,5 @@
 import { type ReactNode } from 'react'
-import { Tag, Calendar, ExternalLink, ChevronDown, ChevronUp, Loader2, Heart, Coffee, Bug, Lightbulb, BookOpen } from 'lucide-react'
+import { Tag, Calendar, ExternalLink, ChevronDown, ChevronUp, Loader2, Heart, Coffee, Bug, Lightbulb, BookOpen } from '../../../icons'
 import { useTranslation } from '../../../i18n'
 import { useGithubReleases } from '../../../components/Admin/useGithubReleases'
 import { escapeReleaseHtml as escapeHtml, parseReleaseNotes } from '../../../utils/releaseNotes'

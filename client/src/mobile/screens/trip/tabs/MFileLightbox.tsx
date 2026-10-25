@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { createPortal } from 'react-dom'
-import { ChevronLeft, ChevronRight, Download, ExternalLink, X } from 'lucide-react'
+import { ChevronLeft, ChevronRight, Download, ExternalLink, X } from '../../../../icons'
 import { downloadFile, openFile } from '../../../../utils/fileDownload'
 import { lockBodyScroll } from '../../../../utils/bodyScrollLock'
 import { useMediaLightbox } from '../../../../components/Files/useMediaLightbox'

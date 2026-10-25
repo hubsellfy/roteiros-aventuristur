@@ -1,5 +1,5 @@
 import type { CSSProperties } from 'react'
-import { Check, ChevronRight, Flag, Calendar, GripVertical, UserRound } from 'lucide-react'
+import { Check, ChevronRight, Flag, Calendar, GripVertical, UserRound } from '../../icons'
 import { avatarSrc } from '../../utils/avatarSrc'
 import type { TodoItem } from '../../types'
 import MarkdownText from '../shared/MarkdownText'

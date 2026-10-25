@@ -1,6 +1,6 @@
 import React, { useId, type ReactNode } from 'react'
 import { avatarSrc } from '../../utils/avatarSrc'
-import { UserPlus, UserMinus, UserX, Loader2, Clock, Crown, LogOut, Share2 } from 'lucide-react'
+import { UserPlus, UserMinus, UserX, Loader2, Clock, Crown, LogOut, Share2 } from '../../icons'
 import type { CollectionMember, CollectionRole } from '@trek/shared'
 import { DialogButton, DialogFooter, DialogHeader, DialogSection, DialogShell, DialogTile, FooterSpacer, NEUTRAL_TINT, fs } from '../shared/DialogShell'
 import ConfirmDialog from '../shared/ConfirmDialog'

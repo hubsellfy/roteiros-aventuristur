@@ -17,7 +17,7 @@ import {
   Trash2,
   Unlink,
   X,
-} from 'lucide-react';
+} from '../../../icons';
 import { useEffect, useLayoutEffect, useRef, useState, type KeyboardEvent, type ReactNode } from 'react';
 import { useTranslation } from '../../../i18n';
 import { fs } from '../../shared/DialogShell';

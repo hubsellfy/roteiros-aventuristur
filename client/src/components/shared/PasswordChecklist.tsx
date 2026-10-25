@@ -1,4 +1,4 @@
-import { Check, Circle } from 'lucide-react'
+import { Check, Circle } from '../../icons'
 import { PASSWORD_RULES, passwordRuleStates } from '@trek/shared'
 import { useTranslation } from '../../i18n'
 

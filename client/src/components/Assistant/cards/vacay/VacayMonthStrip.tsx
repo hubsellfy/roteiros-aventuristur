@@ -1,4 +1,4 @@
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight } from '../../../../icons';
 
 import { useAssistantView } from '../../assistantViewContext';
 import { useCardStrip } from '../parts/useCardStrip';

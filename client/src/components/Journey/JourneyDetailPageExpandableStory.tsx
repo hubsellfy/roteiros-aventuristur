@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef, type HTMLAttributes, type ReactNode } from 'react'
-import { ChevronRight } from 'lucide-react'
+import { ChevronRight } from '../../icons'
 import { useTranslation } from '../../i18n'
 import JournalBody from './JournalBody'
 

@@ -1,5 +1,5 @@
 import type { AssistantMessage } from '@trek/shared';
-import { CornerDownRight } from 'lucide-react';
+import { CornerDownRight } from '../../icons';
 
 import { useTranslation } from '../../i18n';
 import { chatOf, useAssistantStore } from '../../store/assistantStore';

@@ -5,7 +5,7 @@ import {
   type BookingItem,
   type TrekCard,
 } from '@trek/shared';
-import { BedDouble, CalendarCog, Hotel, Ticket } from 'lucide-react';
+import { BedDouble, CalendarCog, Hotel, Ticket } from '../../../../icons';
 
 import type { EntityTarget, PackLook } from '../cardTypes';
 

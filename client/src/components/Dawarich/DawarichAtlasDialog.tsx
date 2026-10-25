@@ -1,5 +1,5 @@
 import React, { useId, useState } from 'react'
-import { Building2, Check, CalendarDays, Globe2, Hourglass, Info, Loader2, MapPin, RefreshCw, Star } from 'lucide-react'
+import { Building2, Check, CalendarDays, Globe2, Hourglass, Info, Loader2, MapPin, RefreshCw, Star } from '../../icons'
 import type { DawarichAtlasSuggestions, DawarichBucketScan } from '@trek/shared'
 import { DAWARICH_BUCKET_MATCH_MIN_MINUTES, DAWARICH_BUCKET_MATCH_RADIUS_M } from '@trek/shared'
 import { useTranslation } from '../../i18n'

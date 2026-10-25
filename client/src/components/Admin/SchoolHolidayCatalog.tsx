@@ -1,5 +1,5 @@
 import { useId, useState } from 'react'
-import { ChevronRight, GraduationCap, Loader2, MapPinned, Plus, Trash2, WifiOff } from 'lucide-react'
+import { ChevronRight, GraduationCap, Loader2, MapPinned, Plus, Trash2, WifiOff } from '../../icons'
 import { useTranslation } from '../../i18n'
 import { useSchoolHolidayCatalog } from './useSchoolHolidayCatalog'
 import SchoolHolidayRegionEditor from './SchoolHolidayRegionEditor'

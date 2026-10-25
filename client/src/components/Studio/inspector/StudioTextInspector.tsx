@@ -1,6 +1,6 @@
 import type { BookElement, BookSpread, BookTextElement, BookTheme } from '@trek/shared';
 import { MAX_BOOK_TEXT_SIZE, formatBookCoords } from '@trek/shared';
-import { AlignCenter, AlignJustify, AlignLeft, AlignRight, Italic } from 'lucide-react';
+import { AlignCenter, AlignJustify, AlignLeft, AlignRight, Italic } from '../../../icons';
 import type { ReactNode } from 'react';
 
 import { italicTitle } from '../fontPicker';

@@ -1,5 +1,5 @@
 import { useId, useState } from 'react'
-import { Frame, Minus, Quote, Shapes, Spline, Sparkles, Square, Sticker, Type, type LucideIcon } from 'lucide-react'
+import { Frame, Minus, Quote, Shapes, Spline, Sparkles, Square, Sticker, Type, type LucideIcon } from '../../icons'
 import type { BookElement, BookPageSetup, BookShapeId } from '@trek/shared'
 import { useStudioStore } from '../../store/studioStore'
 import { FRAME_SHAPES, HOLED_SHAPES, SHAPE_GROUPS, shapeName } from './shapes'

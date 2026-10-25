@@ -1,4 +1,4 @@
-import { ArrowRight, Bookmark, Loader2, Plus, X } from 'lucide-react'
+import { ArrowRight, Bookmark, Loader2, Plus, X } from '../../../../icons'
 import MSheet from '../../../components/MSheet'
 import MIconBtn from '../../../components/MIconBtn'
 import { useTranslation } from '../../../../i18n'

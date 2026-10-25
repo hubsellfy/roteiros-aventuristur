@@ -1,5 +1,5 @@
 import React, { useEffect, useId, useState } from 'react'
-import { AlertTriangle, Check, RotateCw, Spline, Trash2 } from 'lucide-react'
+import { AlertTriangle, Check, RotateCw, Spline, Trash2 } from '../../icons'
 import { DialogButton, DialogFooter, DialogHeader, DialogShell, DialogTile, FooterSpacer, NEUTRAL_TINT, fs } from '../shared/DialogShell'
 import EmptyState from '../shared/EmptyState'
 import { useTranslation } from '../../i18n/TranslationContext'

@@ -1,5 +1,5 @@
 import type { TourActivityTotals } from '@trek/shared';
-import { Layers, type LucideIcon } from 'lucide-react';
+import { Layers, type LucideIcon } from '../../../icons';
 import { useSettingsStore } from '../../../store/settingsStore';
 import type { DistanceUnit } from '../../../types';
 import { formatDistance, formatElevation } from '../../../utils/units';

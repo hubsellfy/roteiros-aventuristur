@@ -1,5 +1,5 @@
 import type { BookPageSetup } from '@trek/shared';
-import { ChevronDown, ChevronUp, Copy, FileDown, Plus, Trash2 } from 'lucide-react';
+import { ChevronDown, ChevronUp, Copy, FileDown, Plus, Trash2 } from '../../../icons';
 import { useRef, useState, type ChangeEvent } from 'react';
 
 import { useElementSize } from '../../../hooks/useElementSize';

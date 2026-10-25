@@ -1,6 +1,6 @@
 import { useId, useLayoutEffect, useRef, useState, type ReactNode } from 'react'
 import type { TourListItem } from '@trek/shared'
-import { AlertTriangle, CalendarDays, CheckCheck, ChevronDown, Info, Plus } from 'lucide-react'
+import { AlertTriangle, CalendarDays, CheckCheck, ChevronDown, Info, Plus } from '../../icons'
 import { createElement } from 'react'
 import type { Day, DistanceUnit } from '../../types'
 import type { RouteGeometryAnalysis } from '../../utils/routeGeometry'

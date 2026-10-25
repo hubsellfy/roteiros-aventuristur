@@ -1,5 +1,5 @@
 import React, { useId } from 'react'
-import { User, Save, Lock, KeyRound, AlertTriangle, Shield, Camera, Trash2, Copy, Download, Printer, ShieldCheck } from 'lucide-react'
+import { User, Save, Lock, KeyRound, AlertTriangle, Shield, Camera, Trash2, Copy, Download, Printer, ShieldCheck } from '../../icons'
 import { useTranslation } from '../../i18n'
 import Section from './Section'
 import PasskeysSection from './PasskeysSection'

@@ -1,5 +1,5 @@
 import type { JourneyEntryLook } from '@trek/shared';
-import { CalendarDays, Globe, Images, MapPin, Play, Tag, ThumbsDown, ThumbsUp, Users } from 'lucide-react';
+import { CalendarDays, Globe, Images, MapPin, Play, Tag, ThumbsDown, ThumbsUp, Users } from '../../../../icons';
 
 import { useTranslation } from '../../../../i18n';
 import { cardDateLabel, cardPlace } from '../../../Journey/journeyCard';

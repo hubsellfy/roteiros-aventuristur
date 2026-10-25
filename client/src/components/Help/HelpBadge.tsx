@@ -1,5 +1,5 @@
 import React from 'react'
-import type { LucideIcon } from 'lucide-react'
+import type { LucideIcon } from '../../icons'
 
 /**
  * The one pill the help center is built from: section markers, counters,

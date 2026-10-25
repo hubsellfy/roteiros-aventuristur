@@ -13,7 +13,7 @@
  * headers. On mobile it hovers just above the bottom tab bar.
  */
 import React, { useState, useEffect } from 'react'
-import { WifiOff, RefreshCw, AlertTriangle, GitMerge } from 'lucide-react'
+import { WifiOff, RefreshCw, AlertTriangle, GitMerge } from '../../icons'
 import { mutationQueue } from '../../sync/mutationQueue'
 import { useNetworkMode } from '../../hooks/useNetworkMode'
 import { useTranslation } from '../../i18n'

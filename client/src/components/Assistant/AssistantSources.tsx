@@ -1,5 +1,5 @@
 import type { AssistantSources as Sources } from '@trek/shared';
-import { Globe } from 'lucide-react';
+import { Globe } from '../../icons';
 
 import { useTranslation } from '../../i18n';
 

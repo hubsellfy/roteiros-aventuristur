@@ -1,4 +1,4 @@
-import { FileText, type LucideIcon, Pencil, Trash2 } from 'lucide-react';
+import { FileText, type LucideIcon, Pencil, Trash2 } from '../../../../icons';
 
 import type { useReservationCard } from '../../../../components/Planner/bookings/useReservationCard';
 import type { useTranslation } from '../../../../i18n';

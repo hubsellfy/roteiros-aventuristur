@@ -1,4 +1,4 @@
-import { type LucideIcon, RotateCcw, TramFront } from 'lucide-react';
+import { type LucideIcon, RotateCcw, TramFront } from '../../icons';
 import { useCallback } from 'react';
 
 import { assignmentRepo } from '../../repo/assignmentRepo';

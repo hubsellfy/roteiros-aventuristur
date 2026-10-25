@@ -1,5 +1,5 @@
 import React, { useId, useMemo, useState } from 'react'
-import { Search, ArrowRight, Copy, CopyPlus, FolderInput, Loader2 } from 'lucide-react'
+import { Search, ArrowRight, Copy, CopyPlus, FolderInput, Loader2 } from '../../icons'
 import { DialogButton, DialogFooter, DialogHeader, DialogShell, DialogTile, FooterSpacer, NEUTRAL_TINT, fs } from '../shared/DialogShell'
 import { INPUT } from '../shared/dialogParts'
 import type { Collection } from '@trek/shared'

@@ -1,4 +1,4 @@
-import { Check, Lock, Minus, UsersRound } from 'lucide-react'
+import { Check, Lock, Minus, UsersRound } from '../../icons'
 import type { NotificationDefault } from '@trek/shared'
 import { useTranslation } from '../../i18n'
 import { Tooltip } from '../../components/shared/Tooltip'

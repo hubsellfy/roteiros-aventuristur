@@ -1,6 +1,6 @@
 import React from 'react';
-import * as LucideIcons from 'lucide-react';
-import { Bike, Check, Footprints, Landmark, Plane, Sailboat, Snowflake, Sparkles, Star, TrendingUp } from 'lucide-react';
+import * as LucideIcons from '../../icons';
+import { Bike, Check, Footprints, Landmark, Plane, Sailboat, Snowflake, Sparkles, Star, TrendingUp } from '../../icons';
 import './releaseNoticeVisuals.css';
 
 /*

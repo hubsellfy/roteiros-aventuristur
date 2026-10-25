@@ -1,5 +1,5 @@
 import React from 'react'
-import type { LucideIcon } from 'lucide-react'
+import type { LucideIcon } from '../../icons'
 import { SettingsCard } from './settingsKit'
 
 interface SectionProps {

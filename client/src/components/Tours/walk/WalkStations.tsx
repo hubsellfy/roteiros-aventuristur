@@ -1,5 +1,5 @@
 import type { TourListItem, TourVisitStatus } from '@trek/shared';
-import { Check, CheckCheck, Info, Redo2, SkipForward, Undo2 } from 'lucide-react';
+import { Check, CheckCheck, Info, Redo2, SkipForward, Undo2 } from '../../../icons';
 import { useTranslation } from '../../../i18n';
 import { useTourVisitStore } from '../../../store/tourVisitStore';
 import type { Assignment, AssignmentsMap, Day } from '../../../types';

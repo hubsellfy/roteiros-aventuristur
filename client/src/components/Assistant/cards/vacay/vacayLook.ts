@@ -1,5 +1,5 @@
 import type { TrekCard } from '@trek/shared';
-import { Building2, CalendarCog, CalendarDays, CalendarMinus, CalendarPlus } from 'lucide-react';
+import { Building2, CalendarCog, CalendarDays, CalendarMinus, CalendarPlus } from '../../../../icons';
 
 import type { PackLook } from '../cardTypes';
 

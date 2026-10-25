@@ -1,6 +1,6 @@
 import L from 'leaflet'
 import { createElement, useEffect, useLayoutEffect, useRef, useState, type ReactNode } from 'react'
-import { ChevronLeft, ChevronRight } from 'lucide-react'
+import { ChevronLeft, ChevronRight } from '../../icons'
 import { MapContainer, Marker, Polyline, TileLayer, Tooltip, useMap } from 'react-leaflet'
 import MarkerClusterGroup from 'react-leaflet-cluster'
 // MapView brings these sheets for the planner, and this page never mounts it.

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Trash2, Reply, ChevronUp } from 'lucide-react'
+import { Trash2, Reply, ChevronUp } from '../../icons'
 import { Tooltip } from '../shared/Tooltip'
 import { URL_REGEX } from './CollabChat.constants'
 import { formatChatClockTime, formatChatDateSeparator, isFromAssistant, shouldShowChatDateSeparator } from './collabModel'

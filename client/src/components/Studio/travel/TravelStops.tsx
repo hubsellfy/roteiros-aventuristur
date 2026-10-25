@@ -1,5 +1,5 @@
 import type { JourneyStats } from '@trek/shared';
-import { Check, RouteOff } from 'lucide-react';
+import { Check, RouteOff } from '../../../icons';
 import { useState } from 'react';
 import { Section } from '../StudioControls';
 

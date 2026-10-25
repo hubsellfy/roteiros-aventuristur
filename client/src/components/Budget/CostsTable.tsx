@@ -1,5 +1,5 @@
 import { useMemo, useRef, useState, type KeyboardEvent, type ReactNode } from 'react'
-import { ChevronDown, Lock, Pencil, Plus, Trash2 } from 'lucide-react'
+import { ChevronDown, Lock, Pencil, Plus, Trash2 } from '../../icons'
 import { useTranslation } from '../../i18n'
 import type { BudgetItem } from '../../types'
 import { NEUTRAL_TINT, fs } from '../shared/DialogShell'

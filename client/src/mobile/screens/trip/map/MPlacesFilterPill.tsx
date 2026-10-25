@@ -1,4 +1,4 @@
-import { SlidersHorizontal } from 'lucide-react'
+import { SlidersHorizontal } from '../../../../icons'
 import { MapTogglePill } from '../../../../components/Map/MapTogglePill'
 import { useTripStore } from '../../../../store/tripStore'
 import { countActivePlacesFilters } from '../../../../utils/placesFilter'

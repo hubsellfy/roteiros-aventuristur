@@ -1,5 +1,5 @@
 import { importableTourTypeSchema, type TourListItem } from '@trek/shared';
-import { ArrowUp, CheckCheck, Clock, Gauge, Pause, Ruler, type LucideIcon } from 'lucide-react';
+import { ArrowUp, CheckCheck, Clock, Gauge, Pause, Ruler, type LucideIcon } from '../../icons';
 import { createElement, useId, useState } from 'react';
 import { useTranslation } from '../../i18n';
 import { useSettingsStore } from '../../store/settingsStore';

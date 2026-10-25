@@ -4,7 +4,7 @@ import { useIsDark } from '../../../hooks/useIsDark'
 import {
   Puzzle, ListChecks, Wallet, FileText, CalendarDays, Globe, Briefcase, Image, Terminal, Link2, Compass, BookOpen,
   Sparkles, Luggage, Plane, Bookmark, Users, Loader2, Mountain, CarFront, Settings2, ChevronRight,
-} from 'lucide-react'
+} from '../../../icons'
 import DawarichIcon from '../../../components/shared/DawarichIcon'
 import AirTrailIcon from '../../../components/shared/AirTrailIcon'
 import { DOCUMENT_PROVIDER_ICONS } from '../../../components/shared/documentProviderIconMap'

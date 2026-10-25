@@ -1,5 +1,5 @@
 import type { PaddleLayout, PaddleRegionLoadState, TourFixedLeg } from '@trek/shared';
-import { Spline } from 'lucide-react';
+import { Spline } from '../../../icons';
 import { useTranslation } from '../../../i18n';
 import { useSettingsStore } from '../../../store/settingsStore';
 import type { TourFerrataCrossing } from '../../../store/tourFerrataCrossingStore';

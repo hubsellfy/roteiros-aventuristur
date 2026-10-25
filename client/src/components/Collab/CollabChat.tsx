@@ -1,5 +1,5 @@
 import { createPortal } from 'react-dom'
-import { ArrowUp, ImagePlus, Reply, Smile, X } from 'lucide-react'
+import { ArrowUp, ImagePlus, Reply, Smile, X } from '../../icons'
 import type { User } from '../../types'
 import { useCollabChat } from './useCollabChat'
 import { ChatMessages } from './CollabChatMessages'

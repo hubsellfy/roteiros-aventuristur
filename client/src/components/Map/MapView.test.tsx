@@ -10,7 +10,7 @@ import { useAuthStore } from '../../store/authStore'
 import { useSettingsStore } from '../../store/settingsStore'
 import { CATEGORY_ICON_MAP } from '../shared/categoryIcons'
 import * as photoService from '../../services/photoService'
-import { Coffee, MapPin, Mountain, Signpost, type LucideIcon } from 'lucide-react'
+import { Coffee, MapPin, Mountain, Signpost, type LucideIcon } from '../../icons'
 import { renderIconMarkup } from '../../utils/iconMarkup'
 
 const mapMock = vi.hoisted(() => ({

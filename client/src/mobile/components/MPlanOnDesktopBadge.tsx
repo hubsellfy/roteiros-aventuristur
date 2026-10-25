@@ -1,4 +1,4 @@
-import { Monitor } from 'lucide-react';
+import { Monitor } from '../../icons';
 import { useTranslation } from '../../i18n';
 
 /**

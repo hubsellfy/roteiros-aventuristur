@@ -1,5 +1,5 @@
 import type { BookBadgeElement, BookBadgeVariant } from '@trek/shared';
-import { CalendarDays, Compass, Flag, MapPin, Mountain, Route, type LucideIcon } from 'lucide-react';
+import { CalendarDays, Compass, Flag, MapPin, Mountain, Route, type LucideIcon } from '../../../icons';
 import { MOOD_CONFIG, WEATHER_CONFIG } from '../../../pages/journeyDetail/JourneyDetailPage.constants';
 import { COUNTRY_SHAPES } from '../countryShapes';
 import { FlagMark } from './FlagMark';

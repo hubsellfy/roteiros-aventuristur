@@ -1,5 +1,5 @@
 import type { CorridorCard as CorridorCardData, CorridorCardHit } from '@trek/shared';
-import { ArrowRight, Route, Search } from 'lucide-react';
+import { ArrowRight, Route, Search } from '../../../../icons';
 
 import { useTranslation } from '../../../../i18n';
 import { useSettingsStore } from '../../../../store/settingsStore';

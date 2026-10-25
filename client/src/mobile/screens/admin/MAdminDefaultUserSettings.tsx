@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { ChevronDown, Settings2 } from 'lucide-react'
+import { ChevronDown, Settings2 } from '../../../icons'
 import { useTranslation } from '../../../i18n'
 import { MapView } from '../../../components/Map/MapView'
 import { SYMBOLS, currenciesWith } from '../../../components/Budget/BudgetPanel.constants'

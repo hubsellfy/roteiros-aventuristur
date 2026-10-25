@@ -1,4 +1,4 @@
-import { BellRing, BellOff, Send } from 'lucide-react'
+import { BellRing, BellOff, Send } from '../../../icons'
 import { useTranslation } from '../../../i18n'
 import { useWebPush } from '../../../hooks/useWebPush'
 import { MSetButton, MSetEyebrow, MSetHint } from './MSettingsUi'

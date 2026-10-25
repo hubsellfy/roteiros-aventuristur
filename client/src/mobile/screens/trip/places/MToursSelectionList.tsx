@@ -1,5 +1,5 @@
 import { createElement } from 'react'
-import { Plus } from 'lucide-react'
+import { Plus } from '../../../../icons'
 import type { TourListItem } from '@trek/shared'
 import { hikeSourceBadgeLabel, ORIGIN_LABEL_KEY, tourSource } from '../../../../components/Tours/tourPresentation'
 import { tourDayRowIcon } from '../../../../components/Tours/tourDayRowIcon'

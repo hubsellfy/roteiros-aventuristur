@@ -1,7 +1,7 @@
 // FE-COMP-PLACEPOPUP-001 to FE-COMP-PLACEPOPUP-021
 import { describe, it, expect } from 'vitest'
 import { createElement } from 'react'
-import { Coffee, MapPin, Signpost, type LucideIcon } from 'lucide-react'
+import { Coffee, MapPin, Signpost, type LucideIcon } from '../../icons'
 import { renderIconMarkup } from '../../utils/iconMarkup'
 import { buildPlacePopupHtml, buildPoiPopupHtml } from './placePopup'
 import { buildPlace } from '../../../tests/helpers/factories'

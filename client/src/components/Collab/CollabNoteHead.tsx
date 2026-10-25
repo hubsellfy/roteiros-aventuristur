@@ -1,4 +1,4 @@
-import { Pin } from 'lucide-react';
+import { Pin } from '../../icons';
 import type { ReactNode } from 'react';
 
 import { fs } from '../Planner/bookings/bookingParts';

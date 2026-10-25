@@ -1,5 +1,5 @@
 import React from 'react'
-import { Bike, CarFront, Footprints, Moon, Shuffle, Zap, type LucideIcon } from 'lucide-react'
+import { Bike, CarFront, Footprints, Moon, Shuffle, Zap, type LucideIcon } from '../../icons'
 import MDancingTrek from '../../mobile/components/MDancingTrek'
 import { useTranslation } from '../../i18n/TranslationContext'
 import { Tooltip } from '../shared/Tooltip'

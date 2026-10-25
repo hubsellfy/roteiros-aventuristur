@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef, useMemo, type ReactNode } from 'react'
 import { useParams } from 'react-router'
-import { X, Trash2, ChevronUp, ChevronDown, CalendarDays } from 'lucide-react'
+import { X, Trash2, ChevronUp, ChevronDown, CalendarDays } from '../../icons'
 import ConfirmDialog from '../shared/ConfirmDialog'
 import CustomSelect from '../shared/CustomSelect'
 import { BookingCodeInput } from '../shared/BookingCode'

@@ -1,6 +1,6 @@
 import type { BookElement } from '@trek/shared';
 import { bookCoordValue, formatBookCoords, formatBookDate } from '@trek/shared';
-import { Camera } from 'lucide-react';
+import { Camera } from '../../../icons';
 
 import { MOOD_CONFIG, WEATHER_CONFIG } from '../../../pages/journeyDetail/JourneyDetailPage.constants';
 import { formatDate } from '../../../utils/formatters';

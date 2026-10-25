@@ -1,6 +1,6 @@
 import type { TourPoi, WalkTheme } from '@trek/shared';
 import { WALK_THEMES } from '@trek/shared';
-import { Clock, ExternalLink, MoveHorizontal, Route, Star, X } from 'lucide-react';
+import { Clock, ExternalLink, MoveHorizontal, Route, Star, X } from '../../../icons';
 import { useCallback, useRef } from 'react';
 import { useTranslation } from '../../../i18n';
 import { useSettingsStore } from '../../../store/settingsStore';

@@ -21,7 +21,7 @@ import {
   Route,
   Ruler,
   Upload,
-} from 'lucide-react';
+} from '../../icons';
 import { createElement, useEffect, useMemo, useRef, useState } from 'react';
 import Markdown from 'react-markdown';
 import remarkBreaks from 'remark-breaks';

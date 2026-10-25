@@ -1,5 +1,5 @@
 import type { TourActivity } from '@trek/shared';
-import { Equal, Map as MapIcon, TrendingDown, TrendingUp } from 'lucide-react';
+import { Equal, Map as MapIcon, TrendingDown, TrendingUp } from '../../../icons';
 import { useMemo, type ReactNode } from 'react';
 import { useTranslation } from '../../../i18n';
 import type { DistanceUnit } from '../../../types';

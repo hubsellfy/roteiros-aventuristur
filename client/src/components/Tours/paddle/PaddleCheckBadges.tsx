@@ -6,7 +6,7 @@ import type {
   PaddleObstacleKind,
   TourObstacleEntry,
 } from '@trek/shared';
-import { RotateCcw } from 'lucide-react';
+import { RotateCcw } from '../../../icons';
 import { useTranslation } from '../../../i18n';
 import { TourDayRowPill } from '../TourDayRowFacts';
 import { FigureBadge } from './FigureBadge';

@@ -1,4 +1,4 @@
-import { Check, ChevronDown, ClipboardPaste, Download, Redo2, Sparkles, Undo2, X } from 'lucide-react';
+import { Check, ChevronDown, ClipboardPaste, Download, Redo2, Sparkles, Undo2, X } from '../../icons';
 import { useEffect, useRef, useState, type RefObject } from 'react';
 import { useStudioStore } from '../../store/studioStore';
 import '../../styles/studio-head.css';

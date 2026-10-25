@@ -1,4 +1,4 @@
-import { CheckCircle2, Circle, MessageCircle, PackageCheck, Wallet } from 'lucide-react'
+import { CheckCircle2, Circle, MessageCircle, PackageCheck, Wallet } from '../../icons'
 import { catMeta } from '../../components/Budget/costsCategories'
 import { fs, NEUTRAL_TINT } from '../../components/shared/DialogShell'
 import { CountPill } from '../../components/Planner/bookings/bookingParts'

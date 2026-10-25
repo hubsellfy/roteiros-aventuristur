@@ -1,5 +1,5 @@
 import React from 'react'
-import { Plane, Save, RefreshCw } from 'lucide-react'
+import { Plane, Save, RefreshCw } from '../../../icons'
 import { useTranslation } from '../../../i18n'
 import { useAirTrailSettings } from '../../../components/Settings/useAirTrailSettings'
 import { MSetCard, MSetEyebrow, MSetRow, MSetInput, MSetButton, MSetHint } from './MSettingsUi'

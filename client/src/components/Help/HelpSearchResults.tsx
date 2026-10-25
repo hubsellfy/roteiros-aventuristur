@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react'
-import { Loader2, SearchX } from 'lucide-react'
+import { Loader2, SearchX } from '../../icons'
 import { useTranslation } from '../../i18n'
 import { useHelpStore } from '../../store/helpStore'
 import { allHelpGuides, guideKey, guideStepKey, guideTipKey, ctxKey } from '../../help/registry'

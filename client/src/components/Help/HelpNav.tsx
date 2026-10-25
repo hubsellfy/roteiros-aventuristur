@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { Search, LifeBuoy, ArrowUpRight, ChevronsUpDown, ChevronDown, ChevronRight, Check, MapPin, CornerDownRight } from 'lucide-react'
+import { Search, LifeBuoy, ArrowUpRight, ChevronsUpDown, ChevronDown, ChevronRight, Check, MapPin, CornerDownRight } from '../../icons'
 import { useTranslation } from '../../i18n'
 import { useHelpStore } from '../../store/helpStore'
 import { ctxKey, guideKey, guidesFor, topLevelHelpContexts, childHelpContexts, helpContextTrail } from '../../help/registry'

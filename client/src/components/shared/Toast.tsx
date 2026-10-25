@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react'
-import { CheckCircle, XCircle, AlertCircle, Info, X } from 'lucide-react'
+import { CheckCircle, XCircle, AlertCircle, Info, X } from '../../icons'
 import { useToastQueue, type ToastType } from './useToastQueue'
 
 declare global {

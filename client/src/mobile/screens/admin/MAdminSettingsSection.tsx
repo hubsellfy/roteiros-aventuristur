@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { AlertTriangle, ChevronDown, RefreshCw } from 'lucide-react'
+import { AlertTriangle, ChevronDown, RefreshCw } from '../../../icons'
 import { useAdminSettingsActions } from '../../../components/Admin/useAdminSettingsActions'
 import { placesGoogleOnlyHint } from '../../../utils/placeSource'
 import type { TranslationFn } from '../../../types'

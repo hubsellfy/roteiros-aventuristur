@@ -1,5 +1,5 @@
 import { DEFAULT_PORTAGE_EXTRA_MINUTES, MAX_PADDLE_STOP_MINUTES, type PaddleLock, type PaddleRole } from '@trek/shared';
-import { ChevronDown, Loader2, X } from 'lucide-react';
+import { ChevronDown, Loader2, X } from '../../../icons';
 import { useCallback, useState, type ReactNode } from 'react';
 import { useTranslation } from '../../../i18n';
 import { useSettingsStore } from '../../../store/settingsStore';

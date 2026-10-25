@@ -1,4 +1,4 @@
-import { RotateCcw, Save } from 'lucide-react';
+import { RotateCcw, Save } from '../../../icons';
 import { useTranslation } from '../../../i18n';
 import { DialogButton, fs } from '../../shared/DialogShell';
 import { PaddleSafetyRow } from '../paddle/PaddleSafety';

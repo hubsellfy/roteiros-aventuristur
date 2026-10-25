@@ -1,4 +1,4 @@
-import { ChevronRight, LifeBuoy } from 'lucide-react';
+import { ChevronRight, LifeBuoy } from '../../../icons';
 import { useCallback, useEffect, useId, useState } from 'react';
 import { useTranslation } from '../../../i18n';
 import {

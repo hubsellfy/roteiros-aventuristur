@@ -1,5 +1,5 @@
 import type { CollectionTourItem } from '@trek/shared';
-import { AlertTriangle, CopyPlus, Gauge, Moon, Route, Trash2, Waypoints, WifiOff } from 'lucide-react';
+import { AlertTriangle, CopyPlus, Gauge, Moon, Route, Trash2, Waypoints, WifiOff } from '../../../icons';
 import { createElement, type MouseEvent } from 'react';
 import { useTranslation } from '../../../i18n';
 import { useSettingsStore } from '../../../store/settingsStore';

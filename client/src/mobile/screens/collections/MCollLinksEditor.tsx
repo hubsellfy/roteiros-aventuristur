@@ -1,4 +1,4 @@
-import { Link2, Plus, Trash2 } from 'lucide-react'
+import { Link2, Plus, Trash2 } from '../../../icons'
 import type { CollectionLink } from '@trek/shared'
 import type { TranslationFn } from '../../../types'
 

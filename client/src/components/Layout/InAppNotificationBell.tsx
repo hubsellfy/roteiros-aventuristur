@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { createPortal } from 'react-dom'
 import { useNavigate } from 'react-router'
-import { Bell, Trash2, CheckCheck } from 'lucide-react'
+import { Bell, Trash2, CheckCheck } from '../../icons'
 import { useTranslation } from '../../i18n'
 import { useInAppNotificationStore } from '../../store/inAppNotificationStore.ts'
 import { useAuthStore } from '../../store/authStore'

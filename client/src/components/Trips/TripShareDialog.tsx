@@ -1,5 +1,5 @@
 import { useId, useState, type ReactNode } from 'react'
-import { Check, Copy, Crown, Link2, LogOut, Pencil, Plus, Settings, Trash2, UserMinus, UserPlus, UserRound, Users } from 'lucide-react'
+import { Check, Copy, Crown, Link2, LogOut, Pencil, Plus, Settings, Trash2, UserMinus, UserPlus, UserRound, Users } from '../../icons'
 import { useTranslation } from '../../i18n'
 import CustomSelect from '../shared/CustomSelect'
 import ConfirmDialog from '../shared/ConfirmDialog'

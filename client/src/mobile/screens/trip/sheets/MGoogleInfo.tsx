@@ -1,4 +1,4 @@
-import { Star } from 'lucide-react'
+import { Star } from '../../../../icons'
 import { useTranslation, getIntlLanguage } from '../../../../i18n'
 import { resolveOpenNow } from '../../../../components/Planner/placeOpenState'
 import type { PlaceDetails } from '../../../../hooks/usePlaceDetails'

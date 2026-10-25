@@ -1,5 +1,5 @@
-import { ChevronRight, MapPin, Star, Trash2 } from 'lucide-react'
-import type { LucideIcon } from 'lucide-react'
+import { ChevronRight, MapPin, Star, Trash2 } from '../../../icons'
+import type { LucideIcon } from '../../../icons'
 import MSheet from '../../components/MSheet'
 import type { AtlasController } from './atlasController'
 import { useAtlasCountryActions } from '../../../pages/atlas/useAtlasCountryActions'

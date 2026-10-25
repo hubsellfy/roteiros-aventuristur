@@ -1,4 +1,4 @@
-import { Image, Loader2, Search, Trash2 } from 'lucide-react'
+import { Image, Loader2, Search, Trash2 } from '../../../icons'
 import type { Collection } from '@trek/shared'
 import type { TranslationFn } from '../../../types'
 import { useListEditor } from '../../../components/Collections/useListEditor'

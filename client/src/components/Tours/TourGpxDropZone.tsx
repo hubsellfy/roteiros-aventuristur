@@ -1,4 +1,4 @@
-import { Ban, FileDown, Loader2 } from 'lucide-react';
+import { Ban, FileDown, Loader2 } from '../../icons';
 import { useRef, useState, type DragEvent, type ReactNode } from 'react';
 import { useTranslation } from '../../i18n';
 import { fs } from '../shared/DialogShell';

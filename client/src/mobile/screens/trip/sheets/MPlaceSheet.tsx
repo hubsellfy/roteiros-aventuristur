@@ -3,7 +3,7 @@ import DawarichIcon from '../../../../components/shared/DawarichIcon'
 import {
   Bookmark, ChevronRight, ExternalLink, Map as MapIcon, Navigation, Paperclip,
   Pencil, Phone, Plus, Route, RouteOff, Sparkles, Trash2, Upload, X,
-} from 'lucide-react'
+} from '../../../../icons'
 import { usePlaceDetails } from '../../../../hooks/usePlaceDetails'
 import MGoogleInfo from './MGoogleInfo'
 import MSheet from '../../../components/MSheet'

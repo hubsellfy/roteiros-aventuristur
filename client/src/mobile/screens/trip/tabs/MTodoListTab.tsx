@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Calendar, Check, ChevronRight, Flag, Plus } from 'lucide-react'
+import { Calendar, Check, ChevronRight, Flag, Plus } from '../../../../icons'
 import MDancingTrek from '../../../components/MDancingTrek'
 import { useAuthStore } from '../../../../store/authStore'
 import { useTranslation } from '../../../../i18n'

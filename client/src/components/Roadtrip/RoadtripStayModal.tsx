@@ -1,5 +1,5 @@
 import React, { useEffect, useId } from 'react'
-import { AlertTriangle, Hourglass, Minus, Plus, ArrowRight } from 'lucide-react'
+import { AlertTriangle, Hourglass, Minus, Plus, ArrowRight } from '../../icons'
 import { DialogButton, DialogFooter, DialogHeader, DialogShell, DialogTile, FooterSpacer, NEUTRAL_TINT, fs } from '../shared/DialogShell'
 import { useTranslation } from '../../i18n/TranslationContext'
 import { useSettingsStore } from '../../store/settingsStore'

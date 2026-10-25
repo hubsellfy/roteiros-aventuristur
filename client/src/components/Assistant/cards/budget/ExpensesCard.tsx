@@ -1,5 +1,5 @@
 import type { CardExpense, ExpensesCard as ExpensesCardData } from '@trek/shared';
-import { CalendarDays, Receipt, TriangleAlert, Wallet } from 'lucide-react';
+import { CalendarDays, Receipt, TriangleAlert, Wallet } from '../../../../icons';
 
 import { useTranslation } from '../../../../i18n';
 import { SoftPill, WhiteBadge } from '../../../Planner/planParts';

@@ -1,5 +1,5 @@
 import { plannableTourTypeSchema, type ImportableTourType, type PlannableTourType } from '@trek/shared';
-import { Check, ChevronDown } from 'lucide-react';
+import { Check, ChevronDown } from '../../../icons';
 import { createElement, useId } from 'react';
 import { useTranslation } from '../../../i18n';
 import { fs } from '../../shared/DialogShell';

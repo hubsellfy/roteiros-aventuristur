@@ -1,4 +1,4 @@
-import { Check, Lock } from 'lucide-react';
+import { Check, Lock } from '../../../icons';
 import type { ReactNode } from 'react';
 import { Tooltip } from '../../shared/Tooltip';
 

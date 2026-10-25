@@ -1,4 +1,4 @@
-import { Users, Check, X } from 'lucide-react'
+import { Users, Check, X } from '../icons'
 import { useTranslation } from '../i18n'
 import { useJoinTrip } from './join/useJoinTrip'
 

@@ -1,4 +1,4 @@
-import { MapPin } from 'lucide-react';
+import { MapPin } from '../../../../icons';
 
 import { serviceColor } from '../../../Roadtrip/roadtripModel';
 import { CORRIDOR_CATEGORY_BY_KEY } from '../../../Roadtrip/stopKinds';

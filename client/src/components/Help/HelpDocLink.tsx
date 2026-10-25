@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router'
-import { FileText, ArrowUpRight } from 'lucide-react'
+import { FileText, ArrowUpRight } from '../../icons'
 import { useHelpStore } from '../../store/helpStore'
 
 /**

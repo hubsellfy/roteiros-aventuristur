@@ -1,5 +1,5 @@
 import { useId, useState, useRef } from 'react'
-import { Plus, StickyNote, X } from 'lucide-react'
+import { Plus, StickyNote, X } from '../../icons'
 import { DialogButton, DialogFooter, DialogHeader, DialogShell, DialogTile, FooterSpacer, NEUTRAL_TINT, fs } from '../shared/DialogShell'
 import { EditorField, INPUT, TEXTAREA } from '../shared/dialogParts'
 import { Tooltip } from '../shared/Tooltip'

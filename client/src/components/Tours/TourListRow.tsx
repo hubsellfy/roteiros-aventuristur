@@ -1,6 +1,6 @@
 import '../../styles/fadeEnd.css'
 import { useId, type ReactNode } from 'react'
-import { Eye, EyeOff } from 'lucide-react'
+import { Eye, EyeOff } from '../../icons'
 import type { TourListItem } from '@trek/shared'
 import { fs } from '../shared/DialogShell'
 import { FoldButton, TourActivityBadge, TourCautionBadge, TourDaysBadge, TourGradeTile } from './tourParts'

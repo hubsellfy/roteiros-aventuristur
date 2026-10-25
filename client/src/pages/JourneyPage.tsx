@@ -5,7 +5,7 @@ import { useTranslation, TransHtml } from '../i18n'
 import {
   Plus, Search, Sparkles, Calendar, MapPin,
   Check, X, ChevronRight, BookOpen,
-} from 'lucide-react'
+} from '../icons'
 import type { Journey } from '../store/journeyStore'
 import { computeJourneyLifecycle } from '../utils/journeyLifecycle'
 import { useJourney } from './journey/useJourney'

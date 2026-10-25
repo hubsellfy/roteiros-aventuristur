@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef, useState, type FocusEvent, type MouseEvent, type ReactNode } from 'react'
 import { createPortal } from 'react-dom'
-import { CalendarDays, ChevronLeft, ChevronRight, Clock, MapPin, Route as RouteIcon } from 'lucide-react'
+import { CalendarDays, ChevronLeft, ChevronRight, Clock, MapPin, Route as RouteIcon } from '../../../icons'
 import type { Day, Reservation } from '../../../types'
 import { useTranslation } from '../../../i18n'
 import { useSettingsStore } from '../../../store/settingsStore'

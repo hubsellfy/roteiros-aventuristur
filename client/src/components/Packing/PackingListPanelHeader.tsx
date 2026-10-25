@@ -1,6 +1,6 @@
 import {
   CheckCheck, Luggage, Package, FolderPlus, Download, Trash2, ListPlus, BookmarkPlus,
-} from 'lucide-react'
+} from '../../icons'
 import type { PackingState } from './usePackingListPanel'
 import NameDialog from '../shared/NameDialog'
 import { PackingTemplateOption } from './PackingTemplateOption'

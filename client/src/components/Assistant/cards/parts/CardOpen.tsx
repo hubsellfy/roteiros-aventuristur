@@ -1,4 +1,4 @@
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight } from '../../../../icons';
 
 import { useTranslation } from '../../../../i18n';
 import { Tooltip } from '../../../shared/Tooltip';

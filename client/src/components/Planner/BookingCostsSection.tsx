@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react'
-import { Plus, Pencil, Trash2, Link2Off } from 'lucide-react'
+import { Plus, Pencil, Trash2, Link2Off } from '../../icons'
 import { useTripStore } from '../../store/tripStore'
 import { useSettingsStore } from '../../store/settingsStore'
 import { useTranslation } from '../../i18n'

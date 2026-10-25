@@ -1,4 +1,4 @@
-import { Pencil, Trash2, Wallet } from 'lucide-react'
+import { Pencil, Trash2, Wallet } from '../../../icons'
 import Markdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import remarkBreaks from 'remark-breaks'

@@ -11,7 +11,7 @@ import {
   Plane,
   Shield,
   User,
-} from 'lucide-react';
+} from '../icons';
 import React from 'react';
 import ToggleSwitch from '../components/Settings/ToggleSwitch';
 import { SUPPORTED_LANGUAGES, useTranslation } from '../i18n';

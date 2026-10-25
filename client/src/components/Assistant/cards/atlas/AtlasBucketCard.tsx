@@ -1,5 +1,5 @@
 import type { AssistantMessage, AtlasBucketEntry, AtlasBucketCard as BucketCard } from '@trek/shared';
-import { CalendarDays, Check, NotebookPen, Star, Tag, TriangleAlert } from 'lucide-react';
+import { CalendarDays, Check, NotebookPen, Star, Tag, TriangleAlert } from '../../../../icons';
 
 import { useTranslation } from '../../../../i18n';
 import { SoftPill, WhiteBadge } from '../../../Planner/planParts';

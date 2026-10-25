@@ -10,7 +10,7 @@ import {
   Ship,
   Train,
   type LucideIcon,
-} from 'lucide-react';
+} from '../../icons';
 
 import type { Day, Reservation, ReservationEndpoint } from '../../types';
 import { orderedEndpoints, parseReservationMetadata, stripAirportCode, usesStationRoute } from '../../utils/flightLegs';

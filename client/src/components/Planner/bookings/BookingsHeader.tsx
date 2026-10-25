@@ -2,7 +2,7 @@ import { useCallback, useRef, useState, type ReactNode } from 'react'
 import {
   ArrowDownUp, CalendarDays, Check, Download, Filter, GanttChart, Layers, LayoutGrid, Plane, Plus, RotateCcw, Rows3, Upload,
   Search, SlidersHorizontal, Tag, X,
-} from 'lucide-react'
+} from '../../../icons'
 import { useTranslation } from '../../../i18n'
 import type { TripMember } from '../../Budget/BudgetPanelMemberChips'
 import ToggleSwitch from '../../Settings/ToggleSwitch'

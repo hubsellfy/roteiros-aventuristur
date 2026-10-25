@@ -1,4 +1,4 @@
-import { Clock, ExternalLink, FileText, Globe, MapPin, Phone } from 'lucide-react'
+import { Clock, ExternalLink, FileText, Globe, MapPin, Phone } from '../../icons'
 import { useTranslation } from '../../i18n'
 import { fs } from '../../components/shared/DialogShell'
 import { Tooltip } from '../../components/shared/Tooltip'

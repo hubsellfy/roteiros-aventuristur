@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState, type RefObject } from 'react'
-import { CalendarDays, ChevronDown, ChevronRight } from 'lucide-react'
+import { CalendarDays, ChevronDown, ChevronRight } from '../../icons'
 import { useTranslation } from '../../i18n'
 import { Tooltip } from '../shared/Tooltip'
 

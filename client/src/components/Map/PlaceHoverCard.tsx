@@ -1,5 +1,5 @@
 import React from 'react'
-import { MapPin, Star } from 'lucide-react'
+import { MapPin, Star } from '../../icons'
 import { getCategoryIcon } from '../shared/categoryIcons'
 import { fs } from '../shared/DialogShell'
 import { tintOf } from '../Planner/planParts'

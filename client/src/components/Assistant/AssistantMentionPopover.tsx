@@ -4,7 +4,7 @@ import {
   type TriggerItem,
   unstable_useTriggerPopoverScopeContext as useTriggerScope,
 } from '@assistant-ui/react';
-import { CalendarDays, ChevronLeft, ChevronRight, MapPin, Ticket } from 'lucide-react';
+import { CalendarDays, ChevronLeft, ChevronRight, MapPin, Ticket } from '../../icons';
 import { type MouseEvent, useEffect, useRef } from 'react';
 
 import { useTranslation } from '../../i18n';

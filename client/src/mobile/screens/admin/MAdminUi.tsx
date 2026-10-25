@@ -1,5 +1,5 @@
 import { InputHTMLAttributes, ReactNode, useState } from 'react'
-import { Eye, EyeOff, Loader2, X } from 'lucide-react'
+import { Eye, EyeOff, Loader2, X } from '../../../icons'
 import { useTranslation } from '../../../i18n'
 import MIconBtn from '../../components/MIconBtn'
 

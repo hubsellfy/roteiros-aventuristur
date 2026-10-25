@@ -1,5 +1,5 @@
 import type { TransitCard as TransitCardData, TransitCardItinerary } from '@trek/shared';
-import { ArrowRight, TrainFront } from 'lucide-react';
+import { ArrowRight, TrainFront } from '../../../../icons';
 import { useState } from 'react';
 
 import { useTranslation } from '../../../../i18n';

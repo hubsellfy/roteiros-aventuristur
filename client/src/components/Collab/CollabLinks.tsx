@@ -1,6 +1,6 @@
 import { cloneElement, CSSProperties, FormEvent, ReactElement, useEffect, useId, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
-import { ExternalLink, Link2, Pencil, Pin, Plus, Trash2, X } from 'lucide-react'
+import { ExternalLink, Link2, Pencil, Pin, Plus, Trash2, X } from '../../icons'
 import CollabPanelHead, { HEAD_ACTION } from './CollabPanelHead'
 import { DialogButton, DialogFooter, DialogHeader, DialogShell, DialogTile, FooterSpacer, NEUTRAL_TINT } from '../shared/DialogShell'
 import { EditorField, INPUT } from '../shared/dialogParts'

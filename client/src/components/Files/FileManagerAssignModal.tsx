@@ -1,5 +1,5 @@
 import { useId } from 'react'
-import { MapPin, Ticket, Check, Paperclip } from 'lucide-react'
+import { MapPin, Ticket, Check, Paperclip } from '../../icons'
 import type { Place, Reservation, Day, TripFile } from '../../types'
 import type { FileManagerState } from './useFileManager'
 import { TRANSPORT_TYPES } from './FileManager.constants'

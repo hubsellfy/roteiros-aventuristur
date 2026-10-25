@@ -1,5 +1,5 @@
 import { useState, useId, type HTMLAttributes } from 'react'
-import { UserPlus, Check, Loader2, Clock, Palette } from 'lucide-react'
+import { UserPlus, Check, Loader2, Clock, Palette } from '../../icons'
 import { useVacayStore } from '../../store/vacayStore'
 import { useAuthStore } from '../../store/authStore'
 import { useTranslation } from '../../i18n'

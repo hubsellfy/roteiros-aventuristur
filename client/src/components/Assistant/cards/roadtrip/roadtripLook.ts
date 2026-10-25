@@ -1,5 +1,5 @@
 import type { AssistantApplied, DayRouteCard } from '@trek/shared';
-import { Flag, Move, Pin, Route, RouteOff, SlidersHorizontal, Spline, TrainFront, Waypoints } from 'lucide-react';
+import { Flag, Move, Pin, Route, RouteOff, SlidersHorizontal, Spline, TrainFront, Waypoints } from '../../../../icons';
 
 import type { GhostPoint, RouteLineSpec, RouteUse } from '../../../../types/assistantMap';
 import type { EntityTarget, PackLook } from '../cardTypes';

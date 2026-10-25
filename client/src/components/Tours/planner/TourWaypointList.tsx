@@ -18,7 +18,7 @@ import {
   Trash2,
   Unlink,
   Waves,
-} from 'lucide-react';
+} from '../../../icons';
 import { Fragment, useState, type MouseEvent, type ReactNode } from 'react';
 import { useTranslation } from '../../../i18n';
 import {

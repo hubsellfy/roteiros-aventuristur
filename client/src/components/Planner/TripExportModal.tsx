@@ -1,6 +1,6 @@
 import { useId, useState } from 'react'
-import { CalendarDays, CalendarPlus, ChevronRight, Download, FileText, Loader2, MapPin, Route as RouteIcon, UserRound } from 'lucide-react'
-import type { LucideIcon } from 'lucide-react'
+import { CalendarDays, CalendarPlus, ChevronRight, Download, FileText, Loader2, MapPin, Route as RouteIcon, UserRound } from '../../icons'
+import type { LucideIcon } from '../../icons'
 import { DialogHeader, DialogSection, DialogShell, DialogTile, NEUTRAL_TINT, fs } from '../shared/DialogShell'
 import { IcsSubscribeModal } from './IcsSubscribeModal'
 import { SoftPill } from './planParts'

@@ -1,5 +1,5 @@
 import type { AssistantMessage, AtlasCountryCard as CountryCard } from '@trek/shared';
-import { Briefcase, Globe2, MapPin, Radio } from 'lucide-react';
+import { Briefcase, Globe2, MapPin, Radio } from '../../../../icons';
 
 import { useTranslation } from '../../../../i18n';
 import { SoftPill, WhiteBadge } from '../../../Planner/planParts';

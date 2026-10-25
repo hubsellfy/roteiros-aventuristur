@@ -1,7 +1,7 @@
 import { useState, useEffect, useMemo } from 'react'
 import { useAuthStore } from '../../store/authStore'
 import { useTranslation } from '../../i18n'
-import { MessageCircle, StickyNote, Link2, BarChart3, Sparkles } from 'lucide-react'
+import { MessageCircle, StickyNote, Link2, BarChart3, Sparkles } from '../../icons'
 import CollabChat from './CollabChat'
 import CollabNotes from './CollabNotes'
 import CollabPolls from './CollabPolls'

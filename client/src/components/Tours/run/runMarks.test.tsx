@@ -1,5 +1,5 @@
 import type { TourListItem } from '@trek/shared';
-import { Activity } from 'lucide-react';
+import { Activity } from '../../../icons';
 import { describe, expect, it } from 'vitest';
 import { render, screen } from '../../../../tests/helpers/render';
 import TourDayRowFacts, { TourDayRowPills } from '../TourDayRowFacts';

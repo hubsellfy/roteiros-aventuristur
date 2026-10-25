@@ -1,5 +1,5 @@
 import type { RoadtripRulesCard } from '@trek/shared';
-import { Flag, SlidersHorizontal } from 'lucide-react';
+import { Flag, SlidersHorizontal } from '../../../../icons';
 
 import { useTranslation } from '../../../../i18n';
 import type { ChangeItem } from '../../assistantParts';

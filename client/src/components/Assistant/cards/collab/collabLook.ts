@@ -1,5 +1,5 @@
 import type { TrekCard } from '@trek/shared';
-import { BarChart3, MessageCircle, StickyNote } from 'lucide-react';
+import { BarChart3, MessageCircle, StickyNote } from '../../../../icons';
 
 import type { EntityTarget, PackLook } from '../cardTypes';
 

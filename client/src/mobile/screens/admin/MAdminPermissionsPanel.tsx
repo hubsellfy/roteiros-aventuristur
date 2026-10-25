@@ -2,7 +2,7 @@ import React from 'react'
 import { useTranslation } from '../../../i18n'
 import { PermissionLevel } from '../../../store/permissionsStore'
 import { CATEGORIES, LEVEL_LABELS, usePermissionsAdmin } from '../../../components/Admin/usePermissionsAdmin'
-import { Save, RotateCcw } from 'lucide-react'
+import { Save, RotateCcw } from '../../../icons'
 import { MAdminButton, MAdminCard } from './MAdminUi'
 
 export default function MAdminPermissionsPanel(): React.ReactElement {

@@ -1,4 +1,4 @@
-import { Route } from 'lucide-react';
+import { Route } from '../../../icons';
 import { useTranslation } from '../../../i18n';
 import type { TourPlannerController } from '../planner/useTourPlanner';
 import { TourNotice } from '../tourParts';

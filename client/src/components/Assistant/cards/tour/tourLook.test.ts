@@ -8,7 +8,7 @@
  * route and for the way a change replaces.
  */
 import type { AssistantApplied } from '@trek/shared';
-import { Route } from 'lucide-react';
+import { Route } from '../../../../icons';
 import { describe, expect, it } from 'vitest';
 
 import { GENTLE, HIKE, HIKE_LINE, SAVED } from '../../../../../tests/helpers/assistantTour';

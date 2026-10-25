@@ -1,5 +1,5 @@
 import { Fragment, type ReactNode } from 'react'
-import { Save, Loader2, Link2, Unlink, CheckCircle, Puzzle, Zap } from 'lucide-react'
+import { Save, Loader2, Link2, Unlink, CheckCircle, Puzzle, Zap } from '../../icons'
 import { resolvePluginIcon } from '../shared/PluginIcon'
 import CustomSelect from '../shared/CustomSelect'
 import ConfirmDialog from '../shared/ConfirmDialog'

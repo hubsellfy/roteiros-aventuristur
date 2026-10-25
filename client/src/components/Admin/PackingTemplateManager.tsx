@@ -1,5 +1,5 @@
 import { useTranslation } from '../../i18n'
-import { Plus, Trash2, Pencil, Package, X, Check, ChevronRight, FolderPlus, Loader2 } from 'lucide-react'
+import { Plus, Trash2, Pencil, Package, X, Check, ChevronRight, FolderPlus, Loader2 } from '../../icons'
 import { fs } from '../shared/DialogShell'
 import { Tooltip } from '../shared/Tooltip'
 import ConfirmDialog from '../shared/ConfirmDialog'

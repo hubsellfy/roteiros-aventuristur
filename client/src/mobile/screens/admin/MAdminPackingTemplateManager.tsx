@@ -1,7 +1,7 @@
 import { ReactNode } from 'react'
 import { usePackingTemplateAdmin } from '../../../components/Admin/usePackingTemplateAdmin'
 import { useTranslation } from '../../../i18n'
-import { Plus, Trash2, Edit2, Package, X, Check, ChevronDown, ChevronRight, FolderPlus } from 'lucide-react'
+import { Plus, Trash2, Edit2, Package, X, Check, ChevronDown, ChevronRight, FolderPlus } from '../../../icons'
 import { MAdminButton, MAdminCard, MAdminCardHead, MAdminInput } from './MAdminUi'
 import MConfirmSheet from '../settings/MConfirmSheet'
 

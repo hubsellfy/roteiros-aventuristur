@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState, type ReactNode, type Ref } from 'react'
 import {
   AlertTriangle, Clock, Footprints, Fuel, Hourglass, MapPin, Moon, Navigation, Pencil, X,
-} from 'lucide-react'
+} from '../../../../icons'
 import MSheet from '../../../components/MSheet'
 import MIconBtn from '../../../components/MIconBtn'
 import MListRow from '../../../components/MListRow'

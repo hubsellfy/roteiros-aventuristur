@@ -1,5 +1,5 @@
 import type { BookPageSetup } from '@trek/shared';
-import { ImagePlus, Upload } from 'lucide-react';
+import { ImagePlus, Upload } from '../../../icons';
 import { useId, useState } from 'react';
 
 import { useStudioStore } from '../../../store/studioStore';

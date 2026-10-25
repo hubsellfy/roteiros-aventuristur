@@ -1,5 +1,5 @@
 import React from 'react'
-import { Footprints, MoveRight, type LucideIcon } from 'lucide-react'
+import { Footprints, MoveRight, type LucideIcon } from '../../icons'
 import { useIsPhone } from '../../mobile/useIsPhone'
 
 /**

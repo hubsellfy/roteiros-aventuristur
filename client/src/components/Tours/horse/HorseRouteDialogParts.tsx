@@ -1,5 +1,5 @@
 import { horseAccessTone, type HorseRoute } from '@trek/shared';
-import { AlertTriangle, ArrowLeft, ArrowLeftRight, ArrowRight, Link2, Spline } from 'lucide-react';
+import { AlertTriangle, ArrowLeft, ArrowLeftRight, ArrowRight, Link2, Spline } from '../../../icons';
 import { useId } from 'react';
 import { useTranslation } from '../../../i18n';
 import type { DistanceUnit } from '../../../types';

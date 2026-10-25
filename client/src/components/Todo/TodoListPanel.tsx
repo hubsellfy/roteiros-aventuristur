@@ -4,7 +4,7 @@ import { useTripStore } from '../../store/tripStore'
 import { useCanDo } from '../../store/permissionsStore'
 import { useToast } from '../shared/Toast'
 import { useTranslation } from '../../i18n'
-import { Check, Plus, Flag, X, Calendar, User, AlertCircle, Inbox, CheckCheck, Trash2, ListPlus, ListTodo } from 'lucide-react'
+import { Check, Plus, Flag, X, Calendar, User, AlertCircle, Inbox, CheckCheck, Trash2, ListPlus, ListTodo } from '../../icons'
 import type { TodoItem } from '../../types'
 
 import { katColor, taskInputStyle, taskUpdatePayload, type FilterType, type Member, type TaskFieldValues } from './todoListModel'

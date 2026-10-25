@@ -1,5 +1,5 @@
 import type { CardExpense, ExpensesCard } from '@trek/shared';
-import { CalendarDays, MapPin, Receipt, Tag } from 'lucide-react';
+import { CalendarDays, MapPin, Receipt, Tag } from '../../../../icons';
 
 import { useTranslation } from '../../../../i18n';
 import { catMeta } from '../../../Budget/costsCategories';

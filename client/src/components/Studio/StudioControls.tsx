@@ -1,5 +1,5 @@
 import { useId, useState, type ReactNode } from 'react'
-import { Check, ChevronDown } from 'lucide-react'
+import { Check, ChevronDown } from '../../icons'
 import ToggleSwitch from '../Settings/ToggleSwitch'
 
 /**

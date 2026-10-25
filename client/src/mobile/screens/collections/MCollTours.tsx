@@ -1,5 +1,5 @@
 import type { CollectionTourItem, CollectionTourTarget } from '@trek/shared';
-import { ArrowRight, Check, CopyPlus, Loader2, Route, Trash2 } from 'lucide-react';
+import { ArrowRight, Check, CopyPlus, Loader2, Route, Trash2 } from '../../../icons';
 import { createElement } from 'react';
 import ConfirmDialog from '../../../components/shared/ConfirmDialog';
 import { fs } from '../../../components/shared/DialogShell';

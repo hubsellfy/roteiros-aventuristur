@@ -1,5 +1,5 @@
-import { File, FileText, Files, FolderOpen, Image as ImageIcon, Star, StickyNote, Ticket, FileSpreadsheet } from 'lucide-react'
-import type { LucideIcon } from 'lucide-react'
+import { File, FileText, Files, FolderOpen, Image as ImageIcon, Star, StickyNote, Ticket, FileSpreadsheet } from '../../../../icons'
+import type { LucideIcon } from '../../../../icons'
 import {
   PHONE_FILE_FILTER_RULES, getFileTypeCategory, linkedFileTargets,
   matchesFileFilter as matchesSharedFileFilter, type FileTypeCategory,

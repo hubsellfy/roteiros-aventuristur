@@ -1,4 +1,4 @@
-import { Wallet } from 'lucide-react'
+import { Wallet } from '../../icons'
 import { NEUTRAL_TINT, fs } from '../shared/DialogShell'
 
 interface DayPlanSidebarFooterProps {

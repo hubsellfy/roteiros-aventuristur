@@ -1,5 +1,5 @@
 import { HORSE_ROUTES_ATTRIBUTION, type HorseRoute } from '@trek/shared';
-import { AlertTriangle, ArrowRight, ChevronRight, Loader2, RefreshCw, Search, WifiOff, ZoomIn } from 'lucide-react';
+import { AlertTriangle, ArrowRight, ChevronRight, Loader2, RefreshCw, Search, WifiOff, ZoomIn } from '../../../icons';
 import { useState } from 'react';
 import { useTranslation } from '../../../i18n';
 import { useSettingsStore } from '../../../store/settingsStore';

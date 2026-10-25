@@ -1,5 +1,5 @@
 import type { TripChatCard, TripChatPhase } from '@trek/shared';
-import { Luggage } from 'lucide-react';
+import { Luggage } from '../../../../icons';
 
 import { useTranslation } from '../../../../i18n';
 import { type PillTone, SoftPill, WhiteBadge } from '../../../Planner/planParts';

@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
-import { X } from 'lucide-react'
+import { X } from '../../icons'
 import { useTranslation } from '../../i18n'
 import { useHelpStore } from '../../store/helpStore'
 import { useHelpShortcut } from '../../hooks/useHelpShortcut'

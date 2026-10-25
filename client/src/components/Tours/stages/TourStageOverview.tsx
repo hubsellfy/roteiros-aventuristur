@@ -1,5 +1,5 @@
 import type { TourListItem } from '@trek/shared';
-import { ArrowDown, ArrowUp, ArrowUpRight, Clock, Loader2, Ruler, Sigma, type LucideIcon } from 'lucide-react';
+import { ArrowDown, ArrowUp, ArrowUpRight, Clock, Loader2, Ruler, Sigma, type LucideIcon } from '../../../icons';
 import { useTranslation } from '../../../i18n';
 import { useSettingsStore } from '../../../store/settingsStore';
 import type { Day } from '../../../types';

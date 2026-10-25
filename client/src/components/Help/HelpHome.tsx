@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router'
-import { ArrowRight, ArrowUpRight, BookOpen, LayoutList, ListOrdered, Compass, ChevronRight, Camera, LayoutGrid } from 'lucide-react'
+import { ArrowRight, ArrowUpRight, BookOpen, LayoutList, ListOrdered, Compass, ChevronRight, Camera, LayoutGrid } from '../../icons'
 import { useTranslation } from '../../i18n'
 import { useHelpStore, docTitle } from '../../store/helpStore'
 import { ctxKey, ctxBulletKey, guideKey, guidesFor, helpMedia, docsRoute, helpContextTrail, childHelpContexts } from '../../help/registry'

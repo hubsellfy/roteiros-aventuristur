@@ -1,5 +1,5 @@
 import React from 'react'
-import { BellRing, Loader2 } from 'lucide-react'
+import { BellRing, Loader2 } from '../../icons'
 import { useAdminNotificationMatrix } from '../../components/Admin/useAdminNotificationMatrix'
 import { useToast } from '../../components/shared/Toast'
 import ToggleSwitch from '../../components/Settings/ToggleSwitch'

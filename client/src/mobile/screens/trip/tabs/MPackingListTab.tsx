@@ -1,10 +1,10 @@
 import { useMemo, useState } from 'react'
-import type { LucideIcon } from 'lucide-react'
+import type { LucideIcon } from '../../../../icons'
 import {
   Briefcase, Check, CheckCheck, ChevronDown, ChevronUp, HandHelping, Minus,
   Download, FileSpreadsheet, FileText, LayoutTemplate, MoreHorizontal, Package, Pencil, Plus, Printer, RotateCcw, Save as SaveIcon,
   Trash2, UserPlus, UserRound,
-} from 'lucide-react'
+} from '../../../../icons'
 import MDancingTrek from '../../../components/MDancingTrek'
 import { useAuthStore } from '../../../../store/authStore'
 import { useAddonStore } from '../../../../store/addonStore'

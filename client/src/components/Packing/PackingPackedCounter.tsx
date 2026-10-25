@@ -1,5 +1,5 @@
 import type { CSSProperties } from 'react'
-import { Minus, Plus } from 'lucide-react'
+import { Minus, Plus } from '../../icons'
 import { useTranslation } from '../../i18n'
 import { Tooltip } from '../shared/Tooltip'
 

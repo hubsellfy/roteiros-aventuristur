@@ -1,4 +1,4 @@
-import { Moon } from 'lucide-react';
+import { Moon } from '../../../icons';
 import type { useTranslation } from '../../../i18n';
 import { focusRouteProfileAtDistance } from '../../../utils/routeGeometry';
 import type { useContextMenu } from '../../shared/ContextMenu';

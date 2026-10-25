@@ -2,7 +2,7 @@
 import React from 'react'
 import { describe, it, expect, beforeEach } from 'vitest'
 import { act, renderHook, waitFor } from '@testing-library/react'
-import { MapPin, Signpost, Waves } from 'lucide-react'
+import { MapPin, Signpost, Waves } from '../../icons'
 import type { PluginPoiCategory } from '@trek/shared'
 import { TranslationProvider } from '../../i18n'
 import { usePluginStore, type ActivePlugin } from '../../store/pluginStore'

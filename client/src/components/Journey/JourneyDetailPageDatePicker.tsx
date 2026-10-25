@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { localIsoDate } from '../../utils/localDate'
-import { ArrowLeft, ChevronRight, Calendar } from 'lucide-react'
+import { ArrowLeft, ChevronRight, Calendar } from '../../icons'
 import { useTranslation } from '../../i18n'
 import { useWeekStartDay } from '../../hooks/useWeekStartDay'
 import { leadingBlanks, weekdayLabels } from '../../utils/calendarWeek'

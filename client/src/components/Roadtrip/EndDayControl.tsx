@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Moon } from 'lucide-react'
+import { Moon } from '../../icons'
 import { useTranslation } from '../../i18n/TranslationContext'
 import ToggleSwitch from '../Settings/ToggleSwitch'
 

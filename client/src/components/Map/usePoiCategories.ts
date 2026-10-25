@@ -1,5 +1,5 @@
 import { useMemo } from 'react'
-import type { LucideIcon } from 'lucide-react'
+import type { LucideIcon } from '../../icons'
 import { pluginPoiCategoryKey, pluginPoiCategoryLabel } from '@trek/shared'
 import { useTranslation } from '../../i18n'
 import { usePluginStore, type ActivePlugin } from '../../store/pluginStore'

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router'
-import { CheckCircle2, Lightbulb, ArrowUpRight, ChevronRight, Maximize2, ListOrdered, Camera, Link2 } from 'lucide-react'
+import { CheckCircle2, Lightbulb, ArrowUpRight, ChevronRight, Maximize2, ListOrdered, Camera, Link2 } from '../../icons'
 import { useTranslation } from '../../i18n'
 import { useHelpStore, docTitle } from '../../store/helpStore'
 import { guideKey, guideStepKey, guideTipKey, helpMedia, docsRoute, getHelpGuide, getHelpContext, ctxKey, helpContextTrail } from '../../help/registry'

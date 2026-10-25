@@ -5,7 +5,7 @@ import {
   CaseLower,
   CaseSensitive,
   CaseUpper,
-} from 'lucide-react';
+} from '../../icons';
 
 import type { BookElement, BookSpread, BookTextElement } from '@trek/shared';
 import { bookTextIsDrawn, bookTextPaintFill } from '@trek/shared';

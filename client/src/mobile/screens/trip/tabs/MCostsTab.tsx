@@ -2,7 +2,7 @@ import { useEffect, useMemo, useRef, useState, type ReactNode } from 'react'
 import {
   AlertCircle, ArrowDown, ArrowLeftRight, ArrowRight, ArrowUp, Check, ChevronDown, ChevronUp,
   Layers, Pencil, Plus, RotateCcw, StickyNote, Trash2, Receipt,
-} from 'lucide-react'
+} from '../../../../icons'
 import MDancingTrek from '../../../components/MDancingTrek'
 import { useTranslation } from '../../../../i18n'
 import { formatMoney, localizeAmountInput, zeroAmountInput } from '../../../../utils/formatters'

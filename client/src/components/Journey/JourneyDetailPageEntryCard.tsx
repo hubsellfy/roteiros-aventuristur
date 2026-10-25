@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { MapPin, Clock, Pencil, Trash2, Plus, PencilLine, RouteOff, X } from 'lucide-react'
+import { MapPin, Clock, Pencil, Trash2, Plus, PencilLine, RouteOff, X } from '../../icons'
 import { formatLocationName } from '../../utils/formatters'
 import { useTranslation } from '../../i18n'
 import { pluginsApi } from '../../api/client'

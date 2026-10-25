@@ -2,7 +2,7 @@
 import { describe, it, expect, vi } from 'vitest';
 import { render, screen, fireEvent } from '../../../tests/helpers/render';
 import userEvent from '@testing-library/user-event';
-import { Pencil, Trash2 } from 'lucide-react';
+import { Pencil, Trash2 } from '../../icons';
 import { BarButton, MoreButton, PANEL_BAR, SoftPill, TimePill, WhiteBadge, tintOf } from './planParts';
 
 describe('BarButton', () => {

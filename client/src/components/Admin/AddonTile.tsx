@@ -1,7 +1,7 @@
 import { Children, type ReactNode, isValidElement, useId, useState } from 'react'
 import ToggleSwitch from '../Settings/ToggleSwitch'
 import { fs } from '../shared/DialogShell'
-import { ChevronDown } from 'lucide-react'
+import { ChevronDown } from '../../icons'
 import { useTranslation } from '../../i18n'
 
 /** How many of the shelf's rows are switched on, read from the rows' own `enabled`. */

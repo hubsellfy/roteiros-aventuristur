@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { ChevronDown, Languages, Map, Rocket } from 'lucide-react'
+import { ChevronDown, Languages, Map, Rocket } from '../../../icons'
 import { useTranslation, SUPPORTED_LANGUAGES } from '../../../i18n'
 import { useSettingSaver } from '../../../components/Settings/useSettingSaver'
 import { SYMBOLS, currenciesWith } from '../../../components/Budget/BudgetPanel.constants'

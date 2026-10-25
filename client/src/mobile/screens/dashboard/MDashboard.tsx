@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import {
   Archive, ArchiveRestore, ArrowRight, Bell, CalendarDays, CalendarPlus, Copy,
   LayoutGrid, List, MapPin, Pencil, Plus, RefreshCw, Sparkles, Trash2, Users,
-} from 'lucide-react'
+} from '../../../icons'
 import { useTranslation } from '../../../i18n'
 import MDancingTrek from '../../components/MDancingTrek'
 import { useDashboard } from '../../../pages/dashboard/useDashboard'

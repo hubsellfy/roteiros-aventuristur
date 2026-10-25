@@ -1,5 +1,5 @@
 import type { CSSProperties, ReactNode } from 'react'
-import { AlertCircle, ChevronDown, ChevronUp, FileText, Plane } from 'lucide-react'
+import { AlertCircle, ChevronDown, ChevronUp, FileText, Plane } from '../../../icons'
 import type { Reservation, TripFile } from '../../../types'
 import type { ReservationTraveler } from '@trek/shared'
 import { useTranslation } from '../../../i18n'

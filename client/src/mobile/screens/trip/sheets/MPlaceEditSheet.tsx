@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState, type ClipboardEvent } from 'react'
-import { MapPin } from 'lucide-react'
+import { MapPin } from '../../../../icons'
 import MSheet from '../../../components/MSheet'
 import {
   DEFAULT_FORM,

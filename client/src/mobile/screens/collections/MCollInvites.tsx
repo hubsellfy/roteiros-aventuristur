@@ -1,4 +1,4 @@
-import { Check } from 'lucide-react';
+import { Check } from '../../../icons';
 import type { IncomingCollectionInvite } from '../../../store/collectionStore';
 import type { TranslationFn } from '../../../types';
 import { CancelPill, Eyebrow, PrimaryPill } from './MCollSheetKit';

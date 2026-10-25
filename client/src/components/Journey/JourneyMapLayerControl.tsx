@@ -1,4 +1,4 @@
-import { CalendarRange, Images, Info, Loader2, NotebookPen, Route } from 'lucide-react';
+import { CalendarRange, Images, Info, Loader2, NotebookPen, Route } from '../../icons';
 import type { ComponentType, ReactNode } from 'react';
 import { useTranslation } from '../../i18n';
 import { FROSTED_SHELL, segmentStyle } from '../Map/mapControlShadow';

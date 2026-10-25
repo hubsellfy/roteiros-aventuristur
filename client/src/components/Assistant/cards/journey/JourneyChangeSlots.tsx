@@ -11,7 +11,7 @@ import {
   ThumbsDown,
   ThumbsUp,
   Type,
-} from 'lucide-react';
+} from '../../../../icons';
 
 import { useTranslation } from '../../../../i18n';
 import { cardDateLabel } from '../../../Journey/journeyCard';

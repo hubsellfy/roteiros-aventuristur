@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Flag, ListPlus, Plus, User } from 'lucide-react'
+import { Flag, ListPlus, Plus, User } from '../../icons'
 import { useTranslation } from '../../i18n'
 import { avatarSrc } from '../../utils/avatarSrc'
 import CustomSelect from '../shared/CustomSelect'

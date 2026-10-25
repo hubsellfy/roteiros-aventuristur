@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback, useId, type ReactNode } from 'react'
 import { createPortal } from 'react-dom'
-import { X, RefreshCw, Calendar, Power } from 'lucide-react'
+import { X, RefreshCw, Calendar, Power } from '../../icons'
 import { SubscribeLinks } from './SubscribeLinks'
 import { useIsPhone } from '../../mobile/useIsPhone'
 import { useTranslation } from '../../i18n'

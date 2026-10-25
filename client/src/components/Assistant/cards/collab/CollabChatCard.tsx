@@ -1,5 +1,5 @@
 import type { AssistantMessage, CollabChatCard as ChatCard } from '@trek/shared';
-import { MessageCircle } from 'lucide-react';
+import { MessageCircle } from '../../../../icons';
 
 import { useTranslation } from '../../../../i18n';
 import type { ChangeItem } from '../../assistantParts';

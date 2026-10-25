@@ -1,4 +1,4 @@
-import { Download, Trash2, Plus, RefreshCw, RotateCcw, Upload, Clock, Check, HardDrive, Loader2 } from 'lucide-react'
+import { Download, Trash2, Plus, RefreshCw, RotateCcw, Upload, Clock, Check, HardDrive, Loader2 } from '../../icons'
 import { useTranslation } from '../../i18n'
 import CustomSelect from '../shared/CustomSelect'
 import ConfirmDialog from '../shared/ConfirmDialog'

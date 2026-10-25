@@ -1,5 +1,5 @@
 import { Fragment } from 'react'
-import { Upload, Star } from 'lucide-react'
+import { Upload, Star } from '../../icons'
 import type { FileManagerState } from './useFileManager'
 import { FileRow } from './FileManagerRow'
 import { usePluginViewContributions, PluginCardFooter } from '../Plugins/PluginContributions'

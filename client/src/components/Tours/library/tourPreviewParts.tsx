@@ -1,4 +1,4 @@
-import { Loader2, Spline } from 'lucide-react';
+import { Loader2, Spline } from '../../../icons';
 import { useMemo } from 'react';
 import { OFM_POSITRON } from '../../../constants/mapDefaults';
 import { useTileUrl } from '../../../hooks/useTileUrl';

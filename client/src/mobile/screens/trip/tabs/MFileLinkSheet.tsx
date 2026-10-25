@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react'
-import { Check, Link2, Loader2, MapPin, Ticket, TrainFront } from 'lucide-react'
-import type { LucideIcon } from 'lucide-react'
+import { Check, Link2, Loader2, MapPin, Ticket, TrainFront } from '../../../../icons'
+import type { LucideIcon } from '../../../../icons'
 import MSheet from '../../../components/MSheet'
 import { PHONE_FILE_LINK_RULES, toggleFileLink, type FileLinkField } from '../../../../components/Files/fileActions'
 import { linkedFileIds } from '../../../../components/Files/fileListRules'

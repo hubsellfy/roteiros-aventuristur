@@ -1,5 +1,5 @@
 import type { TourListItem } from '@trek/shared';
-import { Clock } from 'lucide-react';
+import { Clock } from '../../icons';
 import { isRtlLanguage, useTranslation } from '../../i18n';
 import { useSettingsStore } from '../../store/settingsStore';
 import type { Assignment } from '../../types';

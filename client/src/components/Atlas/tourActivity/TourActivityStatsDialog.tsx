@@ -1,5 +1,5 @@
 import type { TourActivityTotals, TourTypeKey } from '@trek/shared';
-import { Footprints } from 'lucide-react';
+import { Footprints } from '../../../icons';
 import { createElement, useId } from 'react';
 import { useTranslation } from '../../../i18n';
 import type { DistanceUnit } from '../../../types';

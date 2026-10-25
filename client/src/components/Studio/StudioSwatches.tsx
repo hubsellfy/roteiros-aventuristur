@@ -1,5 +1,5 @@
 import { useRef } from 'react'
-import { BookOpen, History, Image } from 'lucide-react'
+import { BookOpen, History, Image } from '../../icons'
 import { useStudioPalette } from './paint/paletteModel'
 import '../../styles/studio-paint.css'
 

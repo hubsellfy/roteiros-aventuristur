@@ -1,5 +1,5 @@
 import { useRef, type KeyboardEvent } from 'react'
-import { Paperclip, Pencil, Trash2, Wallet } from 'lucide-react'
+import { Paperclip, Pencil, Trash2, Wallet } from '../../../icons'
 import type { Reservation } from '../../../types'
 import { useTranslation } from '../../../i18n'
 import { BlurredCode } from '../../shared/BookingCode'

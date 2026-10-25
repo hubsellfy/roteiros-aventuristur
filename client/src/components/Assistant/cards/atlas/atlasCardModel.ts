@@ -6,7 +6,7 @@ import {
   CONTINENT_MAP,
   type TrekCard,
 } from '@trek/shared';
-import { Briefcase, CalendarClock, Check, CircleDashed, Lightbulb, type LucideIcon } from 'lucide-react';
+import { Briefcase, CalendarClock, Check, CircleDashed, Lightbulb, type LucideIcon } from '../../../../icons';
 
 import type { PillTone } from '../../../Planner/planParts';
 import type { ChangeItem } from '../../assistantParts';

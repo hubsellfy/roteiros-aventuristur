@@ -1,6 +1,6 @@
 import type { BookPageNumbers, BookPageSetup } from '@trek/shared';
 import { BOOK_THEME_PRESETS } from '@trek/shared';
-import { MousePointerClick, Palette } from 'lucide-react';
+import { MousePointerClick, Palette } from '../../../icons';
 
 import { useStudioStore } from '../../../store/studioStore';
 import '../../../styles/studio-panels.css';

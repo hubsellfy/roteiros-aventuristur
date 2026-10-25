@@ -1,4 +1,4 @@
-import { AlertTriangle, Bookmark, BookmarkPlus, Loader2, MapPin, WifiOff } from 'lucide-react';
+import { AlertTriangle, Bookmark, BookmarkPlus, Loader2, MapPin, WifiOff } from '../../../icons';
 import { useId } from 'react';
 import { useTranslation } from '../../../i18n';
 import { WhiteBadge } from '../../Planner/planParts';

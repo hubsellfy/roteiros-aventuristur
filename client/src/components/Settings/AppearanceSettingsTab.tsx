@@ -1,5 +1,5 @@
 import React, { type ReactNode } from 'react'
-import { Paintbrush, Eye, LayoutDashboard, Sun, Moon, Monitor, RotateCcw } from 'lucide-react'
+import { Paintbrush, Eye, LayoutDashboard, Sun, Moon, Monitor, RotateCcw } from '../../icons'
 import { useTranslation } from '../../i18n'
 import { DialogSection, fs } from '../shared/DialogShell'
 import { Segmented } from '../shared/dialogParts'

@@ -1,4 +1,4 @@
-import { MountainSnow, Pencil } from 'lucide-react';
+import { MountainSnow, Pencil } from '../../../icons';
 import { useTranslation } from '../../../i18n';
 import { fs } from '../../shared/DialogShell';
 import { FigureBadge } from '../paddle/FigureBadge';

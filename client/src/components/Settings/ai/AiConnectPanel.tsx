@@ -1,5 +1,5 @@
 import type { AiApiKeyKind, AiConnectionScope, AiParsingPrefill } from '@trek/shared';
-import { ChevronRight, KeyRound, Loader2, Server, ShieldCheck } from 'lucide-react';
+import { ChevronRight, KeyRound, Loader2, Server, ShieldCheck } from '../../../icons';
 import React, { useId, useState } from 'react';
 import { useTranslation } from '../../../i18n';
 import { useAssistantStore } from '../../../store/assistantStore';

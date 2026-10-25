@@ -1,5 +1,5 @@
 import type { TourActivitySummary } from '@trek/shared';
-import { Footprints, ListOrdered } from 'lucide-react';
+import { Footprints, ListOrdered } from '../../../icons';
 import { useState } from 'react';
 import { useTranslation } from '../../../i18n';
 import type { DistanceUnit } from '../../../types';

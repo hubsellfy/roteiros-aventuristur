@@ -1,5 +1,5 @@
 import { useState, type ReactNode } from 'react'
-import { CalendarDays, Copy, FolderOpen, Pencil, RefreshCw, MapPin, Route as RouteIcon, Wallet } from 'lucide-react'
+import { CalendarDays, Copy, FolderOpen, Pencil, RefreshCw, MapPin, Route as RouteIcon, Wallet } from '../../../icons'
 import Markdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import remarkBreaks from 'remark-breaks'

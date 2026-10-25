@@ -1,4 +1,4 @@
-import { Hotel } from 'lucide-react'
+import { Hotel } from '../../icons'
 import type { RouteSegment } from '../../types'
 import { fs } from '../shared/DialogShell'
 import { routeModeIcon } from './routeModes'

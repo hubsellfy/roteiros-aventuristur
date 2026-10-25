@@ -1,4 +1,4 @@
-import { ListTodo, Luggage } from 'lucide-react';
+import { ListTodo, Luggage } from '../../../../icons';
 
 import type { EntityLook, PackLook } from '../cardTypes';
 

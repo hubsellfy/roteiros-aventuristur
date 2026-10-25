@@ -1,5 +1,5 @@
 import { useEffect, useId, useLayoutEffect, useRef, useState } from 'react'
-import { GripVertical, ArrowUp, ArrowDown, ArrowUpDown, Trash2, AlertTriangle } from 'lucide-react'
+import { GripVertical, ArrowUp, ArrowDown, ArrowUpDown, Trash2, AlertTriangle } from '../../icons'
 import { DialogFooter, DialogHeader, DialogShell, DialogTile, FooterSpacer, NEUTRAL_TINT, fs } from '../shared/DialogShell'
 import Tooltip from '../shared/Tooltip'
 import DayImpactList from '../shared/DayImpactList'

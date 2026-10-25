@@ -1,5 +1,5 @@
 import type { CollectionCardLabel, CollectionCardList, CollectionCardPlace, CollectionStatus } from '@trek/shared';
-import { Star } from 'lucide-react';
+import { Star } from '../../../../icons';
 import type { CSSProperties } from 'react';
 
 import { useTranslation } from '../../../../i18n';

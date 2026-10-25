@@ -1,6 +1,6 @@
 // FE-COMP-POIAPPEAR-001 to FE-COMP-POIAPPEAR-005
 import { describe, it, expect } from 'vitest'
-import { Coffee, Fuel, MapPin, Signpost } from 'lucide-react'
+import { Coffee, Fuel, MapPin, Signpost } from '../../icons'
 import { poiAppearance, POI_CATEGORIES, ROADTRIP_POI_CATEGORIES } from './poiCategories'
 import { POI_DEFAULT_COLOR } from './pluginPoiIcons'
 

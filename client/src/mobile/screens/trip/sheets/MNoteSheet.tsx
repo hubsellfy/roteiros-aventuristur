@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import MSheet from '../../../components/MSheet'
-import { ChevronDown } from 'lucide-react'
+import { ChevronDown } from '../../../../icons'
 import { NOTE_COLORS } from '@trek/shared'
 import { DAY_NOTE_DETAIL_MAX, NOTE_ICONS, dayNoteNearLimit, getNoteIcon } from '../../../../components/Planner/DayPlanSidebar.constants'
 import { noteSurface } from '../../../../components/Planner/noteSurface'

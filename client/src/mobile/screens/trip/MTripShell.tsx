@@ -3,7 +3,7 @@ import { findFocusDayId, findTodayDayId } from '../../../components/Planner/toda
 import { takeResumeDay } from '../../../utils/resumeRoute'
 import {
   CalendarCheck, CalendarDays, ChevronDown, ChevronLeft, Download, FileDown, FolderSync, List, Map as MapIcon, MoreHorizontal, Plane, Plus, Route, Rows3, SlidersHorizontal, Trash2, Upload,
-} from 'lucide-react'
+} from '../../../icons'
 import { useTripPlanner } from '../../../pages/tripPlanner/useTripPlanner'
 import { pickDockTabs } from './dockTabs'
 import MBadge from '../../components/MBadge'

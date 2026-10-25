@@ -6,7 +6,7 @@ import {
   type TourObstacleEntry,
   type TourOwnEntry,
 } from '@trek/shared';
-import { Ban, CircleDashed, ListChecks, type LucideIcon } from 'lucide-react';
+import { Ban, CircleDashed, ListChecks, type LucideIcon } from '../../../icons';
 
 type Translate = (key: string, params?: Record<string, string | number>) => string;
 

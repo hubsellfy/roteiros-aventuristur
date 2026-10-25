@@ -1,5 +1,5 @@
 import { useEffect, useId, useMemo, useState } from 'react'
-import { AlertCircle, ArrowRight, Check, FolderSync, Loader2, Plus } from 'lucide-react'
+import { AlertCircle, ArrowRight, Check, FolderSync, Loader2, Plus } from '../../../icons'
 import { DialogHeader, DialogShell, DialogTile, NEUTRAL_TINT } from '../../shared/DialogShell'
 import { useTranslation } from '../../../i18n/TranslationContext'
 import { DOCUMENT_PROVIDER_ICONS } from '../../shared/documentProviderIconMap'

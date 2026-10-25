@@ -1,4 +1,4 @@
-import { BedDouble, ChevronDown, ChevronUp, Clock, Footprints, Pencil, Route, StickyNote, Ticket, X, Zap } from 'lucide-react'
+import { BedDouble, ChevronDown, ChevronUp, Clock, Footprints, Pencil, Route, StickyNote, Ticket, X, Zap } from '../../../../icons'
 import { routeModeIcon } from '../../../../components/Planner/routeModes'
 import type { ReactNode, MouseEvent, CSSProperties } from 'react'
 import PlaceAvatar from '../../../../components/shared/PlaceAvatar'

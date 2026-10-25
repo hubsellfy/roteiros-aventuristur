@@ -1,5 +1,5 @@
 import type { StationImportance } from '@trek/shared';
-import { MapPin, ShieldCheck } from 'lucide-react';
+import { MapPin, ShieldCheck } from '../../../icons';
 import { useId, useState } from 'react';
 import { useTranslation } from '../../../i18n';
 import ToggleSwitch from '../../Settings/ToggleSwitch';

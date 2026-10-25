@@ -1,5 +1,5 @@
 import React from 'react'
-import { Fingerprint, Plus, Trash2, Pencil, Check, X, AlertTriangle } from 'lucide-react'
+import { Fingerprint, Plus, Trash2, Pencil, Check, X, AlertTriangle } from '../../icons'
 import { useTranslation } from '../../i18n'
 import Section from './Section'
 import { Tooltip } from '../shared/Tooltip'

@@ -1,4 +1,4 @@
-import { Check, Loader2, Sparkles } from 'lucide-react';
+import { Check, Loader2, Sparkles } from '../../../icons';
 import React, { useId, useState } from 'react';
 import { useTranslation } from '../../../i18n';
 import ToggleSwitch from '../../Settings/ToggleSwitch';

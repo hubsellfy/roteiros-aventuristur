@@ -1,6 +1,6 @@
 import React, { useEffect, useCallback, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
-import { X } from 'lucide-react'
+import { X } from '../../icons'
 import { lockBodyScroll } from '../../utils/bodyScrollLock'
 import { useTranslation } from '../../i18n'
 import { Tooltip } from './Tooltip'

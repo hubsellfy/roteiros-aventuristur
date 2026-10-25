@@ -1,5 +1,5 @@
 import type { WalkImportPreviewResponse, WalkImportStation } from '@trek/shared';
-import { AlertTriangle, ExternalLink, Footprints, Link2, Loader2, MapPinOff, Route } from 'lucide-react';
+import { AlertTriangle, ExternalLink, Footprints, Link2, Loader2, MapPinOff, Route } from '../../../icons';
 import { useId, type FormEvent } from 'react';
 import { useTranslation } from '../../../i18n';
 import { EditorField, INPUT } from '../../shared/dialogParts';

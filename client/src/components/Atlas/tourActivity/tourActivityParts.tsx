@@ -9,7 +9,7 @@ import {
   Loader2,
   Ruler,
   WifiOff,
-} from 'lucide-react';
+} from '../../../icons';
 import { createElement } from 'react';
 import { useTranslation } from '../../../i18n';
 import { PillSelect } from '../../shared/dialogParts';

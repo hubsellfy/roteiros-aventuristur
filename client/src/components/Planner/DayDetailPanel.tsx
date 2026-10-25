@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useId, type ReactNode } from 'react'
-import { X, CloudRain, Wind, Droplets, Sunrise, Sunset, Hotel, Calendar, MapPin, LogIn, LogOut, Pencil, ChevronsDown, ChevronsUp, ArrowRight, Check, Moon, type LucideIcon } from 'lucide-react'
+import { X, CloudRain, Wind, Droplets, Sunrise, Sunset, Hotel, Calendar, MapPin, LogIn, LogOut, Pencil, ChevronsDown, ChevronsUp, ArrowRight, Check, Moon, type LucideIcon } from '../../icons'
 import type { WeatherResult } from '@trek/shared'
 import { usePluginViewContributions, PluginCardFooter } from '../Plugins/PluginContributions'
 import { usePluginStore } from '../../store/pluginStore'

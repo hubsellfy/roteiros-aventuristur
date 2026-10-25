@@ -1,5 +1,5 @@
 import { useId } from 'react'
-import { Download, FileDown } from 'lucide-react'
+import { Download, FileDown } from '../../icons'
 import type { PackingState } from './usePackingListPanel'
 import { PACKING_IMPORT_ACCEPT } from './packingListPanel.constants'
 import { DialogButton, DialogFooter, DialogHeader, DialogShell, DialogTile, FooterSpacer, NEUTRAL_TINT, fs } from '../shared/DialogShell'

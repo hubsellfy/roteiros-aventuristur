@@ -1,5 +1,5 @@
 import type { AssistantChangeEffect, AssistantMessage } from '@trek/shared';
-import { ArrowRightLeft, Minus, Sparkles } from 'lucide-react';
+import { ArrowRightLeft, Minus, Sparkles } from '../../icons';
 import { useMemo } from 'react';
 import { useShallow } from 'zustand/react/shallow';
 

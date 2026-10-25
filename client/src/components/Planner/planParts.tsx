@@ -1,5 +1,5 @@
 import type { MouseEvent, ReactNode, Ref } from 'react'
-import { Clock, MoreHorizontal, type LucideIcon } from 'lucide-react'
+import { Clock, MoreHorizontal, type LucideIcon } from '../../icons'
 import { Tooltip } from '../shared/Tooltip'
 import { ContextMenu, useContextMenu } from '../shared/ContextMenu'
 import { fs } from '../shared/DialogShell'

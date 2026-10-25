@@ -1,4 +1,4 @@
-import { Clock, MoveHorizontal, TrendingUp } from 'lucide-react';
+import { Clock, MoveHorizontal, TrendingUp } from '../../../../icons';
 import type { ReactNode } from 'react';
 
 import type { DistanceUnit } from '../../../../types';

@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { Check, ChevronDown, X } from 'lucide-react'
+import { Check, ChevronDown, X } from '../../icons'
 import { formatDate } from '../../utils/formatters'
 import type { JourneySource, StudioT } from './StudioSidebar'
 import type { PhotoFilter } from './photoFilter'

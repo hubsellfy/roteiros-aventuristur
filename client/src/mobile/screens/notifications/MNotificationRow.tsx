@@ -1,5 +1,5 @@
 import type { HTMLAttributes } from 'react'
-import { ArrowRight, Bell, Check, Mail, Trash2, X } from 'lucide-react'
+import { ArrowRight, Bell, Check, Mail, Trash2, X } from '../../../icons'
 import { useTranslation } from '../../../i18n'
 import type { InAppNotification } from '../../../store/inAppNotificationStore'
 import { compactTime, useNotificationItemActions } from '../../../components/Notifications/useNotificationItemActions'

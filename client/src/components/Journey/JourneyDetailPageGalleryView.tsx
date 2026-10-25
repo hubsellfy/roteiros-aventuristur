@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from 'react'
-import { RefreshCw, Camera, X, Play } from 'lucide-react'
+import { RefreshCw, Camera, X, Play } from '../../icons'
 import { useJourneyStore } from '../../store/journeyStore'
 import { useTranslation } from '../../i18n'
 import { useToast } from '../shared/Toast'

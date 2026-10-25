@@ -7,7 +7,7 @@ import { useTranslation } from '../../i18n'
 import {
   Check, Trash2, Plus, Pencil, Package, GripVertical, UserRound, HandHelping,
   MoreHorizontal, ChevronDown, ChevronRight,
-} from 'lucide-react'
+} from '../../icons'
 import type { PackingItem, PackingBag } from '../../types'
 import { katColor, packedOf } from './packingListPanel.helpers'
 import { PACKING_PLACEHOLDER_NAME } from './packingListPanel.constants'

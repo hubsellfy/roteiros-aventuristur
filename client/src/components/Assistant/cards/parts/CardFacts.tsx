@@ -1,4 +1,4 @@
-import { ArrowRight, type LucideIcon } from 'lucide-react';
+import { ArrowRight, type LucideIcon } from '../../../../icons';
 import type { ReactNode } from 'react';
 
 import { useTranslation } from '../../../../i18n';

@@ -1,7 +1,7 @@
 import { createPortal } from 'react-dom'
 import { useEffect, useRef, useState } from 'react'
 import { useNavigate } from 'react-router'
-import { Loader2, CheckCircle2, AlertCircle, AlertTriangle, X } from 'lucide-react'
+import { Loader2, CheckCircle2, AlertCircle, AlertTriangle, X } from '../../icons'
 import { useTranslation } from '../../i18n'
 import { useToast } from '../shared/Toast'
 import { addListener, removeListener } from '../../api/websocket'

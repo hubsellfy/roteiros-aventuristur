@@ -1,4 +1,4 @@
-import { Bookmark, BookmarkCheck } from 'lucide-react';
+import { Bookmark, BookmarkCheck } from '../../../../icons';
 
 import type { PackLook } from '../cardTypes';
 import { appliedListTarget, appliedPlaceOnMap, appliedPlaceTarget } from './collectionCardModel';

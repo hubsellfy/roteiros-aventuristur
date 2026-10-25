@@ -1,5 +1,5 @@
 import { useCallback, useRef } from 'react'
-import { Briefcase, Plus, X } from 'lucide-react'
+import { Briefcase, Plus, X } from '../../icons'
 import type { PackingState } from './usePackingListPanel'
 import { bagFillPct, bagLoadSummary, packedWeight, perPersonLoads } from './packingListPanel.helpers'
 import { BagCard } from './PackingListPanelBagCard'

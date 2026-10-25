@@ -1,5 +1,5 @@
 import React, { useId } from 'react'
-import { HardDrive } from 'lucide-react'
+import { HardDrive } from '../../../icons'
 import {
   STORAGE_BACKEND_TYPE_IDS,
   type StorageBackend,

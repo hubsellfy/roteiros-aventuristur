@@ -1,5 +1,5 @@
 import React from 'react'
-import { Bookmark, ArrowRight, MapPin } from 'lucide-react'
+import { Bookmark, ArrowRight, MapPin } from '../../icons'
 import { useNavigate } from 'react-router'
 import { useTranslation } from '../../i18n'
 import { entityGradient } from '../../utils/gradients'

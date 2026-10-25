@@ -1,5 +1,5 @@
 import type { ComponentType, ReactNode } from 'react'
-import { CalendarDays, Eye, Heart } from 'lucide-react'
+import { CalendarDays, Eye, Heart } from '../../icons'
 import { useTranslation } from '../../i18n'
 import { fs } from '../../components/shared/DialogShell'
 import { SlidingTabs } from '../../components/shared/SlidingTabs'
@@ -156,7 +156,7 @@ export function SharedFooter() {
           <img src="/icons/icon.svg" alt="Roteiros Aventuristur" width="34" height="34" className="rounded-[10px] shadow-sm" />
           <div>
             <div className="text-content-muted" style={fs(13, 'body')}>
-              {t('shared.sharedVia')} <strong className="text-content">TREK</strong>
+              {t('shared.sharedVia')} <strong className="text-content">Roteiros Aventuristur</strong>
             </div>
             <div className="text-content-faint" style={fs(12, 'body')}>{t('shared.footerTagline')}</div>
           </div>

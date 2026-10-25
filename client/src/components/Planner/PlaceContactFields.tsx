@@ -1,5 +1,5 @@
 import { useEffect, useId, useRef, useState } from 'react'
-import { Copy, Mail, Phone, RotateCcw, X } from 'lucide-react'
+import { Copy, Mail, Phone, RotateCcw, X } from '../../icons'
 import type { PlaceOpeningHours } from '@trek/shared'
 import CustomTimePicker from '../shared/CustomTimePicker'
 import { Tooltip } from '../shared/Tooltip'

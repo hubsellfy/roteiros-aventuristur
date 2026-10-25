@@ -1,5 +1,5 @@
 import React from 'react'
-import { Zap } from 'lucide-react'
+import { Zap } from '../../icons'
 import { useTranslation } from '../../i18n'
 import type { HelpGuideSize } from '../../help/types'
 import HelpBadge from './HelpBadge'

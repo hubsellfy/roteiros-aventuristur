@@ -1,4 +1,4 @@
-import { CopyPlus, History, RefreshCw, Save, X } from 'lucide-react';
+import { CopyPlus, History, RefreshCw, Save, X } from '../../../icons';
 import { useId, useState } from 'react';
 import { useTranslation } from '../../../i18n';
 import ConfirmDialog from '../../shared/ConfirmDialog';

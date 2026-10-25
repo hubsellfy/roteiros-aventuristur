@@ -1,4 +1,4 @@
-import { ChevronRight, Settings2, Sparkles } from 'lucide-react';
+import { ChevronRight, Settings2, Sparkles } from '../../../icons';
 import React from 'react';
 import { useTranslation } from '../../../i18n';
 import { StatusPill } from '../../Settings/settingsKit';

@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
-import { Plane } from 'lucide-react'
+import { Plane } from '../../icons'
 import { airportsApi } from '../../api/client'
 import { useTranslation } from '../../i18n'
 import { useSuggestionDropdown } from './useSuggestionDropdown'

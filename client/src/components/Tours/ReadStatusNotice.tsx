@@ -1,4 +1,4 @@
-import { AlertTriangle, Loader2, RefreshCw, WifiOff } from 'lucide-react';
+import { AlertTriangle, Loader2, RefreshCw, WifiOff } from '../../icons';
 import { useTranslation } from '../../i18n';
 import { fs } from '../shared/DialogShell';
 import { CardAction, TourNotice } from './tourParts';

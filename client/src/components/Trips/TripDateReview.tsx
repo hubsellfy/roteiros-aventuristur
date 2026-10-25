@@ -1,4 +1,4 @@
-import { AlertTriangle } from 'lucide-react'
+import { AlertTriangle } from '../../icons'
 import { useTranslation } from '../../i18n'
 import DayImpactList from '../shared/DayImpactList'
 import { dayChips, shrinkTripLines, type ShiftMode } from '../../utils/dayImpactLines'

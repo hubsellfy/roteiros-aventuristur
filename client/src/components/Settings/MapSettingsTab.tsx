@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, useId, Suspense, type ReactNode } from 'react'
-import { Map, Save, Layers, Box, ChevronDown, Check, Globe2, type LucideIcon } from 'lucide-react'
+import { Map, Save, Layers, Box, ChevronDown, Check, Globe2, type LucideIcon } from '../../icons'
 import { useTranslation } from '../../i18n'
 import CustomSelect from '../shared/CustomSelect'
 import { fs } from '../shared/DialogShell'

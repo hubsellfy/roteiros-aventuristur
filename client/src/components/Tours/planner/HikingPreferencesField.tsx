@@ -1,5 +1,5 @@
 import { HIKING_PREFERENCE_KEYS, type HikingPreferenceKey } from '@trek/shared';
-import { ChartNoAxesColumnIncreasing, Mountain, Ship } from 'lucide-react';
+import { ChartNoAxesColumnIncreasing, Mountain, Ship } from '../../../icons';
 import type { ComponentType } from 'react';
 import { useTranslation } from '../../../i18n';
 import { BOX } from '../../Planner/bookings/bookingParts';

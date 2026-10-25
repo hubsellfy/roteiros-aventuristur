@@ -1,5 +1,5 @@
 import type { TourSourceHint, TourSourceHintState } from '@trek/shared';
-import { HelpCircle, History, PenLine, type LucideIcon } from 'lucide-react';
+import { HelpCircle, History, PenLine, type LucideIcon } from '../../../icons';
 import { useTranslation } from '../../../i18n';
 import { SoftPill } from '../../Planner/planParts';
 import { Tooltip } from '../../shared/Tooltip';

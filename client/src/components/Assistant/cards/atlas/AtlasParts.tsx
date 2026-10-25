@@ -1,5 +1,5 @@
 import type { AssistantChangeVerbKey, AtlasStatusAfter } from '@trek/shared';
-import { Star } from 'lucide-react';
+import { Star } from '../../../../icons';
 
 import { useTranslation } from '../../../../i18n';
 import CountryFlag from '../../../shared/CountryFlag';

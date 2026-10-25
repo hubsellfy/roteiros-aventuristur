@@ -1,5 +1,5 @@
 import { importableTourTypeSchema, type TourLibraryItem, type TourTypeKey } from '@trek/shared';
-import { AlertTriangle, CopyPlus, Library, Loader2, Search, WifiOff } from 'lucide-react';
+import { AlertTriangle, CopyPlus, Library, Loader2, Search, WifiOff } from '../../../icons';
 import { useId } from 'react';
 import { useTranslation } from '../../../i18n';
 import { useSettingsStore } from '../../../store/settingsStore';

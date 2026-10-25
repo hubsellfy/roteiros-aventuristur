@@ -1,5 +1,5 @@
 import { useId, useState } from 'react'
-import { AlertTriangle, Check, Loader2, Plug, ShieldAlert } from 'lucide-react'
+import { AlertTriangle, Check, Loader2, Plug, ShieldAlert } from '../../../icons'
 import { DialogButton, DialogFooter, DialogHeader, DialogShell, DialogTile, FooterSpacer, NEUTRAL_TINT } from '../../shared/DialogShell'
 import { Tooltip } from '../../shared/Tooltip'
 import ToggleSwitch from '../../Settings/ToggleSwitch'

@@ -1,4 +1,4 @@
-import { Anchor, Bike, Footprints, Loader2, Map as MapIcon, MapPinPlus, Mountain, MountainSnow, Rotate3d, Satellite } from 'lucide-react'
+import { Anchor, Bike, Footprints, Loader2, Map as MapIcon, MapPinPlus, Mountain, MountainSnow, Rotate3d, Satellite } from '../../icons'
 import type { PaddleMapLayer } from '../Tours/paddle/paddleMapLayer'
 import { PisteKeyButton } from '../Tours/winter/PisteKey'
 import type { ComponentType } from 'react'

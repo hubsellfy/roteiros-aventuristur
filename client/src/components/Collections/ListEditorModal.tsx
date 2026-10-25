@@ -1,5 +1,5 @@
 import React, { useId } from 'react'
-import { Bookmark, ImagePlus, Trash2, Search, Loader2 } from 'lucide-react'
+import { Bookmark, ImagePlus, Trash2, Search, Loader2 } from '../../icons'
 import { DeleteButton, DialogButton, DialogFooter, DialogHeader, DialogSection, DialogShell, DialogTile, FooterSpacer, fs } from '../shared/DialogShell'
 import { AddRowButton, EditorField, INPUT, TEXTAREA } from '../shared/dialogParts'
 import { Tooltip } from '../shared/Tooltip'

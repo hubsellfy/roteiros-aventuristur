@@ -10,7 +10,7 @@ import {
   type LucideIcon,
   Tag,
   Wallet,
-} from 'lucide-react';
+} from '../../icons';
 
 import { useTranslation } from '../../i18n';
 import { FactChange } from './cards/parts/CardFacts';

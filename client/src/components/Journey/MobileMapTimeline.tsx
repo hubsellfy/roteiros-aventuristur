@@ -1,5 +1,5 @@
 import { useRef, useEffect } from 'react'
-import { Plus } from 'lucide-react'
+import { Plus } from '../../icons'
 import JourneyLayeredMap from './JourneyLayeredMap'
 import type { JourneyMapLayersView } from './useJourneyMapLayers'
 import type { MapPhoto } from './journeyPhotoLayer'

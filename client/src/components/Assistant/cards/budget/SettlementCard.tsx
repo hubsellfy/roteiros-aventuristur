@@ -1,5 +1,5 @@
 import type { SettlementCard as SettlementCardData } from '@trek/shared';
-import { Check, Scale, TriangleAlert } from 'lucide-react';
+import { Check, Scale, TriangleAlert } from '../../../../icons';
 
 import { useTranslation } from '../../../../i18n';
 import { Eyebrow } from '../../../Planner/bookings/bookingParts';

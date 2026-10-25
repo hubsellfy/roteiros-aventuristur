@@ -1,5 +1,5 @@
 import { useId } from 'react'
-import { MapPin, Tag } from 'lucide-react'
+import { MapPin, Tag } from '../../icons'
 import { getCategoryIcon } from '../shared/categoryIcons'
 import { DialogButton, DialogFooter, DialogHeader, DialogShell, DialogTile, FooterSpacer, NEUTRAL_TINT, fs } from '../shared/DialogShell'
 import { useTranslation } from '../../i18n'

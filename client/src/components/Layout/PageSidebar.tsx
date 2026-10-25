@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react'
-import { Menu, X, type LucideIcon } from 'lucide-react'
+import { Menu, X, type LucideIcon } from '../../icons'
 
 export interface PageSidebarTab {
   id: string

@@ -1,5 +1,5 @@
 import type { PaddleRegionAutoMode, PaddleRegionPending } from '@trek/shared';
-import { Ban, CloudDownload, Hand, Loader2, Power, Sparkles } from 'lucide-react';
+import { Ban, CloudDownload, Hand, Loader2, Power, Sparkles } from '../../../icons';
 import { useTranslation } from '../../../i18n';
 import { ChoiceChips, SettingRows, SETTINGS_BUTTON, SettingsHint, StatusPill } from '../../Settings/settingsKit';
 import { LABEL, Segmented } from '../../shared/dialogParts';

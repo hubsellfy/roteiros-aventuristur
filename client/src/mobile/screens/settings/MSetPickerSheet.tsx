@@ -1,5 +1,5 @@
 import { ReactNode } from 'react'
-import { Check } from 'lucide-react'
+import { Check } from '../../../icons'
 import MSheet from '../../components/MSheet'
 
 export interface MSetPickerOption {

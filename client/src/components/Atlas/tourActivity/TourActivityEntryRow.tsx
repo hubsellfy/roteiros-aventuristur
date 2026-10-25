@@ -1,5 +1,5 @@
 import type { TourActivityStatsEntry } from '@trek/shared';
-import { Ban, Briefcase, CalendarDays, Footprints, Loader2, Repeat, RotateCcw } from 'lucide-react';
+import { Ban, Briefcase, CalendarDays, Footprints, Loader2, Repeat, RotateCcw } from '../../../icons';
 import { useNavigate } from 'react-router';
 import { useTranslation } from '../../../i18n';
 import { formatDate } from '../../../utils/formatters';

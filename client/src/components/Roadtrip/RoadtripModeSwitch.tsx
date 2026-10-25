@@ -1,5 +1,5 @@
 import React from 'react'
-import { CalendarDays, Route } from 'lucide-react'
+import { CalendarDays, Route } from '../../icons'
 import { useTranslation } from '../../i18n/TranslationContext'
 import { NEUTRAL_TINT } from '../shared/DialogShell'
 

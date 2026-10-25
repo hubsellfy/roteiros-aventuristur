@@ -1,5 +1,5 @@
 import type { HorseRoute } from '@trek/shared';
-import { ArrowRight, ExternalLink, Plus } from 'lucide-react';
+import { ArrowRight, ExternalLink, Plus } from '../../../icons';
 import { useId } from 'react';
 import { useTranslation } from '../../../i18n';
 import { useSettingsStore } from '../../../store/settingsStore';

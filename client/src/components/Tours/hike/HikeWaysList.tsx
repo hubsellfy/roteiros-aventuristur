@@ -1,4 +1,4 @@
-import { Info, RefreshCw, SlidersHorizontal } from 'lucide-react';
+import { Info, RefreshCw, SlidersHorizontal } from '../../../icons';
 import { useTranslation } from '../../../i18n';
 import { useSettingsStore } from '../../../store/settingsStore';
 import { formatDistance } from '../../../utils/units';

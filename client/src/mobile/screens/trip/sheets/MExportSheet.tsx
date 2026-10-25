@@ -1,5 +1,5 @@
 import { useState, type ReactNode } from 'react'
-import { CalendarPlus, ChevronRight, FileDown, Share2, UserRound } from 'lucide-react'
+import { CalendarPlus, ChevronRight, FileDown, Share2, UserRound } from '../../../../icons'
 import MSheet from '../../../components/MSheet'
 import { IcsSubscribeModal } from '../../../../components/Planner/IcsSubscribeModal'
 import { useTripStore } from '../../../../store/tripStore'
@@ -7,7 +7,7 @@ import { useTranslation } from '../../../../i18n'
 import { useTripExport } from '../../../../components/Planner/useTripExport'
 import { INNER_CLS, TileHeader } from './MTripSheetUi'
 import type { MTripSheetsProps } from '../MTripShell'
-import type { LucideIcon } from 'lucide-react'
+import type { LucideIcon } from '../../../../icons'
 
 /**
  * Export sheet ('export', opened from the Mehr sheet): the desktop day-plan

@@ -1,5 +1,5 @@
 import type { AssistantChangePreview, TrekCardKind } from '@trek/shared';
-import { Check, Undo2 } from 'lucide-react';
+import { Check, Undo2 } from '../../../icons';
 import { Fragment, type ReactNode } from 'react';
 
 import { useTranslation } from '../../../i18n';

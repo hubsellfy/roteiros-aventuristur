@@ -1,4 +1,4 @@
-import { Search, X } from 'lucide-react';
+import { Search, X } from '../../icons';
 
 /**
  * The search field of a Studio panel: the photos and entries of the journey,

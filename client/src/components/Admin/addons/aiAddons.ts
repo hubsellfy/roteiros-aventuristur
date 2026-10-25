@@ -1,4 +1,4 @@
-import { Cable, type LucideIcon, MessagesSquare, ScanText } from 'lucide-react';
+import { Cable, type LucideIcon, MessagesSquare, ScanText } from '../../../icons';
 import type { Addon } from './addonModel';
 
 /**

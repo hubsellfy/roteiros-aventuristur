@@ -1,5 +1,5 @@
 import type { AssistantChangeRow, JourneyHeaderCard, JourneyHeaderTrip } from '@trek/shared';
-import { AlignLeft, Luggage, Type } from 'lucide-react';
+import { AlignLeft, Luggage, Type } from '../../../../icons';
 
 import { useTranslation } from '../../../../i18n';
 import { type PillTone, SoftPill } from '../../../Planner/planParts';

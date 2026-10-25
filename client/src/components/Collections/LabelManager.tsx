@@ -1,5 +1,5 @@
 import React, { useId, useState } from 'react'
-import { Plus, Settings2, Trash2, Loader2 } from 'lucide-react'
+import { Plus, Settings2, Trash2, Loader2 } from '../../icons'
 import { DialogButton, DialogHeader, DialogSection, DialogShell, DialogTile, NEUTRAL_TINT, fs } from '../shared/DialogShell'
 import { INPUT, PANEL } from '../shared/dialogParts'
 import { Tooltip } from '../shared/Tooltip'

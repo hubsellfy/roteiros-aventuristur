@@ -1,7 +1,7 @@
 import React from 'react'
 import { createPortal } from 'react-dom'
 import { useState, useRef, useEffect, useMemo } from 'react'
-import { Plane, X, Check } from 'lucide-react'
+import { Plane, X, Check } from '../../icons'
 import type { AirtrailFlight, AirtrailImportResult } from '@trek/shared'
 import { useTranslation } from '../../i18n'
 import { useToast } from '../shared/Toast'

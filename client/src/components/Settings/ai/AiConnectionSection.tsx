@@ -1,5 +1,5 @@
 import type { AiConnectionKind, AiConnectionView } from '@trek/shared';
-import { Loader2, LogOut, MessageCircle, Sparkles, Unplug } from 'lucide-react';
+import { Loader2, LogOut, MessageCircle, Sparkles, Unplug } from '../../../icons';
 import React from 'react';
 import { useTranslation } from '../../../i18n';
 import { useAssistantCostEstimates, useAssistantMapFollow } from '../../Assistant/useAssistantMapFollow';

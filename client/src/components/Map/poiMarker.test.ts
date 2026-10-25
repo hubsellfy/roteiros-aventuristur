@@ -1,7 +1,7 @@
 // FE-COMP-POIMARKER-001 to FE-COMP-POIMARKER-008
 import { describe, it, expect } from 'vitest'
 import { createElement } from 'react'
-import { Coffee, MapPin, Signpost, type LucideIcon } from 'lucide-react'
+import { Coffee, MapPin, Signpost, type LucideIcon } from '../../icons'
 import { PLUGIN_POI_DETAILS_MAX } from '@trek/shared'
 import { renderIconMarkup } from '../../utils/iconMarkup'
 import { POI_CATEGORIES } from './poiCategories'

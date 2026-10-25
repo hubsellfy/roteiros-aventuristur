@@ -1,6 +1,6 @@
 import { createPortal } from 'react-dom'
 import { useId, useRef, useState } from 'react'
-import { ScanLine, X } from 'lucide-react'
+import { ScanLine, X } from '../../icons'
 import { useTranslation } from '../../i18n'
 import { useIsPhone } from '../../mobile/useIsPhone'
 import { DialogButton, DialogFooter, DialogHeader, DialogShell, DialogTile, FooterSpacer, NEUTRAL_TINT, fs } from '../shared/DialogShell'

@@ -1,5 +1,5 @@
 import type { BookMetric, BookUnits } from '@trek/shared';
-import { CalendarDays, Camera, Footprints, Globe, MapPin, Navigation, Route, type LucideIcon } from 'lucide-react';
+import { CalendarDays, Camera, Footprints, Globe, MapPin, Navigation, Route, type LucideIcon } from '../../../icons';
 import { lighterWeight, nearestWeight } from '../bookFonts';
 
 /**

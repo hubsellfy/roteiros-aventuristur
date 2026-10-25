@@ -1,4 +1,4 @@
-import { ScanLine } from 'lucide-react'
+import { ScanLine } from '../../../../icons'
 import MIconBtn from '../../../components/MIconBtn'
 import { useReceiptScan } from '../../../../components/Budget/useReceiptScan'
 import { ReceiptScanModal } from '../../../../components/Budget/ReceiptScanModal'

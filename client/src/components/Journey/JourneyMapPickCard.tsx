@@ -1,5 +1,5 @@
 import type { JourneyMapPlace, JourneyMapStay } from '@trek/shared';
-import { CalendarRange, ChevronLeft, ChevronRight, Clock, MapPin, NotebookPen, X } from 'lucide-react';
+import { CalendarRange, ChevronLeft, ChevronRight, Clock, MapPin, NotebookPen, X } from '../../icons';
 import { useEffect, useState } from 'react';
 import { useTranslation } from '../../i18n';
 import { SoftPill, WhiteBadge } from '../Planner/planParts';

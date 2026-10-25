@@ -1,4 +1,4 @@
-import { BedDouble, Clock, type LucideIcon, MapPin, Ticket, TriangleAlert, X } from 'lucide-react';
+import { BedDouble, Clock, type LucideIcon, MapPin, Ticket, TriangleAlert, X } from '../../icons';
 import { useEffect, useState } from 'react';
 
 import { useNetworkMode } from '../../hooks/useNetworkMode';

@@ -1,4 +1,4 @@
-import { AlertTriangle } from 'lucide-react';
+import { AlertTriangle } from '../../../icons';
 import { useLayoutEffect, useRef, useState, type ReactNode } from 'react';
 import { useTranslation } from '../../../i18n';
 import { SoftPill } from '../../Planner/planParts';

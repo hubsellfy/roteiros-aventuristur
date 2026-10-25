@@ -1,4 +1,4 @@
-import { Pencil } from 'lucide-react'
+import { Pencil } from '../../icons'
 import EndDayControl, { type EndDayControlProps } from './EndDayControl'
 import { useTranslation } from '../../i18n/TranslationContext'
 import { useSettingsStore } from '../../store/settingsStore'

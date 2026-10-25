@@ -1,4 +1,4 @@
-import { ArrowLeftRight } from 'lucide-react';
+import { ArrowLeftRight } from '../../../icons';
 import { useTranslation } from '../../../i18n';
 import { useSettingsStore } from '../../../store/settingsStore';
 import { formatDistance } from '../../../utils/units';

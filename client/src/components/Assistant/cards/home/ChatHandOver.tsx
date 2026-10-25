@@ -1,4 +1,4 @@
-import { ArrowRight, MessageSquareText } from 'lucide-react';
+import { ArrowRight, MessageSquareText } from '../../../../icons';
 
 import { useTranslation } from '../../../../i18n';
 import { type AssistantChatTrip, useAssistantView } from '../../assistantViewContext';

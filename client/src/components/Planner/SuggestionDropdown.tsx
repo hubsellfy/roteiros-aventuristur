@@ -1,4 +1,4 @@
-import { MapPin, X } from 'lucide-react';
+import { MapPin, X } from '../../icons';
 import type React from 'react';
 import { useTranslation } from '../../i18n';
 import { MAP_CONTROL_SHADOW } from '../Map/mapControlShadow';

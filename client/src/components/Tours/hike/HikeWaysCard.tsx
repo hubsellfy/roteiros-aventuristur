@@ -1,4 +1,4 @@
-import { Footprints, Layers, MountainSnow, Signpost } from 'lucide-react';
+import { Footprints, Layers, MountainSnow, Signpost } from '../../../icons';
 import type { ReactNode } from 'react';
 import { useTranslation } from '../../../i18n';
 import ToggleSwitch from '../../Settings/ToggleSwitch';

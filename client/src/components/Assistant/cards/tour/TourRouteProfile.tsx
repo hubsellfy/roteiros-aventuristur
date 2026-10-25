@@ -1,5 +1,5 @@
 import type { TourRouteCard } from '@trek/shared';
-import { Clock, Mountain, MoveHorizontal, TrendingUp } from 'lucide-react';
+import { Clock, Mountain, MoveHorizontal, TrendingUp } from '../../../../icons';
 import { useMemo } from 'react';
 
 import { useTranslation } from '../../../../i18n';

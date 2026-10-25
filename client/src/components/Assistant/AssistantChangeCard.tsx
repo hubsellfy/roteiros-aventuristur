@@ -1,4 +1,4 @@
-import { Check, CheckCheck, ListChecks, LoaderCircle, MapPin, Undo2 } from 'lucide-react';
+import { Check, CheckCheck, ListChecks, LoaderCircle, MapPin, Undo2 } from '../../icons';
 import { type ReactNode, useEffect, useMemo, useState } from 'react';
 
 import { useTranslation } from '../../i18n';

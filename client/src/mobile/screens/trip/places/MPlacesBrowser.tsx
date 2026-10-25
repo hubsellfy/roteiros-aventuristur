@@ -2,7 +2,7 @@ import { ReactNode, useEffect, useMemo, useState } from 'react'
 import {
   Bookmark, CheckCheck, CheckCircle2, Download, ListChecks, Loader2, Plus,
   SlidersHorizontal, Tag, Trash2, X,
-} from 'lucide-react'
+} from '../../../../icons'
 import MDancingTrek from '../../../components/MDancingTrek'
 import { useAddonStore } from '../../../../store/addonStore'
 import PlaceAvatar from '../../../../components/shared/PlaceAvatar'

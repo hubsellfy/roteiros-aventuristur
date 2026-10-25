@@ -14,7 +14,7 @@ import { MAP_LAYER_SWITCHER_INSET } from './MapLayerSwitcher'
 import type { GeoPosition, TrackingMode } from '../../hooks/useGeolocation'
 import type { PluginMapLayer, PluginMapLayerFeature, PluginMapMarker } from '../../api/client'
 import type { Poi } from './poiCategories'
-import { Coffee, type LucideIcon } from 'lucide-react'
+import { Coffee, type LucideIcon } from '../../icons'
 import { renderIconMarkup } from '../../utils/iconMarkup'
 import type { RouteVia } from '../../types'
 

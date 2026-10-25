@@ -1,5 +1,5 @@
 import { useMemo } from 'react'
-import { Bike, Car, Footprints, Zap, type LucideIcon } from 'lucide-react'
+import { Bike, Car, Footprints, Zap, type LucideIcon } from '../../icons'
 import { useTranslation } from '../../i18n'
 import { usePluginStore } from '../../store/pluginStore'
 

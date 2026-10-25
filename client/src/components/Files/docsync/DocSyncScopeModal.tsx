@@ -1,5 +1,5 @@
 import { useId, useMemo, useState } from 'react'
-import { FolderPlus, Loader2, Search } from 'lucide-react'
+import { FolderPlus, Loader2, Search } from '../../../icons'
 import { DialogHeader, DialogShell, DialogTile, NEUTRAL_TINT } from '../../shared/DialogShell'
 import { useTranslation } from '../../../i18n/TranslationContext'
 import type { DocSyncConnection, useDocSync } from './useDocSync'

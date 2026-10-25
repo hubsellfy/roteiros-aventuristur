@@ -14,7 +14,7 @@ import {
   Trash2,
   Waves,
   WifiOff,
-} from 'lucide-react';
+} from '../../../icons';
 import {
   AUTO_LOAD_MODES,
   autoLoadSizes,

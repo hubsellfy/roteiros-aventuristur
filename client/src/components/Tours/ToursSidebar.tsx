@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useRef } from 'react'
-import { EyeOff, FileDown } from 'lucide-react'
+import { EyeOff, FileDown } from '../../icons'
 import type { TourListItem } from '@trek/shared'
 import type { Day } from '../../types'
 import { useTranslation } from '../../i18n'

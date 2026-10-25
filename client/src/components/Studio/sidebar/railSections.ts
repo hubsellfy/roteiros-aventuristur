@@ -1,4 +1,4 @@
-import { Compass, Files, ImageIcon, Layers, LayoutTemplate, Palette, Shapes, type LucideIcon } from 'lucide-react';
+import { Compass, Files, ImageIcon, Layers, LayoutTemplate, Palette, Shapes, type LucideIcon } from '../../../icons';
 
 /**
  * The sections of the rail, in the order a book is made.

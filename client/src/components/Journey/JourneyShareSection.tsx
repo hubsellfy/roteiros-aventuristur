@@ -1,4 +1,4 @@
-import { Link, List, Grid, MapPin, Check, CalendarRange, Route } from 'lucide-react'
+import { Link, List, Grid, MapPin, Check, CalendarRange, Route } from '../../icons'
 import { useTranslation } from '../../i18n'
 import { fs } from '../shared/DialogShell'
 import { Tooltip } from '../shared/Tooltip'

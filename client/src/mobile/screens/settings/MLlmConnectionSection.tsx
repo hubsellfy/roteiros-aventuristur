@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Sparkles, Save, ChevronDown } from 'lucide-react'
+import { Sparkles, Save, ChevronDown } from '../../../icons'
 import { useTranslation } from '../../../i18n'
 import { useLlmConnection, type LlmProvider as Provider } from '../../../components/Settings/useLlmConnection'
 import { MSetCard, MSetEyebrow, MSetSelectRow, MSetRow, MSetInput, MSetButton, MSetHint } from './MSettingsUi'

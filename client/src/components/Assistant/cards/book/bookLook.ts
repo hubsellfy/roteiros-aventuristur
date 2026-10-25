@@ -1,4 +1,4 @@
-import { BookImage, BookPlus, FilePen, FilePlus, FileX, MoveVertical } from 'lucide-react';
+import { BookImage, BookPlus, FilePen, FilePlus, FileX, MoveVertical } from '../../../../icons';
 
 import { writtenRows } from '../bookDesign/bookDesignModel';
 import type { EntityTarget, PackLook } from '../cardTypes';

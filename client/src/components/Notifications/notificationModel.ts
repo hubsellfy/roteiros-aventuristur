@@ -1,4 +1,4 @@
-import type { LucideIcon } from 'lucide-react';
+import type { LucideIcon } from '../../icons';
 import {
   Backpack,
   Bell,
@@ -12,7 +12,7 @@ import {
   Sparkles,
   Ticket,
   TriangleAlert,
-} from 'lucide-react';
+} from '../../icons';
 
 import type { InAppNotification } from '../../store/inAppNotificationStore';
 

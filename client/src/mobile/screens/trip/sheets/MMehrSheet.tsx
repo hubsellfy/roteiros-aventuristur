@@ -1,5 +1,5 @@
-import { ChevronRight, FileDown, Settings, Settings2, Sparkles } from 'lucide-react'
-import type { LucideIcon } from 'lucide-react'
+import { ChevronRight, FileDown, Settings, Settings2, Sparkles } from '../../../../icons'
+import type { LucideIcon } from '../../../../icons'
 import MSheet from '../../../components/MSheet'
 import type { MTripSheetsProps } from '../MTripShell'
 import { dockTabIds } from '../dockTabs'

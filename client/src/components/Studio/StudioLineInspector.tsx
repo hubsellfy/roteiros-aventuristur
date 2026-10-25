@@ -6,7 +6,7 @@ import {
   type BookLineOrnament,
   bookLineStyled,
 } from '@trek/shared';
-import { ArrowLeftRight } from 'lucide-react';
+import { ArrowLeftRight } from '../../icons';
 import type { ReactNode } from 'react';
 
 import { useStudioStore } from '../../store/studioStore';

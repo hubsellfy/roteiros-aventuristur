@@ -1,5 +1,5 @@
 import type { PackingCardBag, PackingCardGroup, PackingCardItem } from '@trek/shared';
-import { Hash, Lock, Luggage, PackageCheck, PencilLine, Scale, Tag, Users } from 'lucide-react';
+import { Hash, Lock, Luggage, PackageCheck, PencilLine, Scale, Tag, Users } from '../../../../icons';
 
 import { useTranslation } from '../../../../i18n';
 import { safeHexColor } from '../../../../utils/safeColor';

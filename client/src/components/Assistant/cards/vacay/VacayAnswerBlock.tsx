@@ -1,6 +1,6 @@
 import type { CSSProperties } from 'react';
 
-import { Palmtree } from 'lucide-react';
+import { Palmtree } from '../../../../icons';
 
 import { useTranslation } from '../../../../i18n';
 import { safeHexColor } from '../../../../utils/safeColor';

@@ -1,5 +1,5 @@
 import type { JournalChatCard } from '@trek/shared';
-import { BookOpen } from 'lucide-react';
+import { BookOpen } from '../../../../icons';
 
 import { useTranslation } from '../../../../i18n';
 import { assistantChatKey } from '../../../../store/assistantChatKey';

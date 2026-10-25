@@ -1,4 +1,4 @@
-import { Paperclip, X } from 'lucide-react';
+import { Paperclip, X } from '../../icons';
 import React from 'react';
 import type { TranslationFn } from '../../types';
 import { fs } from '../shared/DialogShell';

@@ -9,7 +9,7 @@ import {
   Settings,
   Sparkles,
   Trash2,
-} from 'lucide-react';
+} from '../../../../icons';
 import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { useNavigate, useSearchParams } from 'react-router';
 

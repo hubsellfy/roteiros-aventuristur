@@ -1,5 +1,5 @@
 import { useCallback, useRef, useState, type ReactNode } from 'react'
-import { Check, Download, Filter, Plus, RotateCcw, Rows3, ScanLine, Search, Table2, X } from 'lucide-react'
+import { Check, Download, Filter, Plus, RotateCcw, Rows3, ScanLine, Search, Table2, X } from '../../icons'
 import { useTranslation } from '../../i18n'
 import type { TripMember } from './BudgetPanelMemberChips'
 import { Tooltip } from '../shared/Tooltip'

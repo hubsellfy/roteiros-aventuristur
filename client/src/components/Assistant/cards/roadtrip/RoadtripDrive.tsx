@@ -1,5 +1,5 @@
 import type { ChargingCard as ChargingCardData, RoadtripCard } from '@trek/shared';
-import { CalendarDays, CarFront, Crosshair, MapPin, Route, TriangleAlert, Zap } from 'lucide-react';
+import { CalendarDays, CarFront, Crosshair, MapPin, Route, TriangleAlert, Zap } from '../../../../icons';
 import { type ReactNode, useMemo, useState } from 'react';
 
 import { useTranslation } from '../../../../i18n';

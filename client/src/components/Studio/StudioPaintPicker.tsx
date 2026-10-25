@@ -7,7 +7,7 @@ import {
   type BookPattern,
   type BookPatternPaint,
 } from '@trek/shared';
-import { ArrowLeftRight, Ban, Trash2 } from 'lucide-react';
+import { ArrowLeftRight, Ban, Trash2 } from '../../icons';
 import { useRef, useState } from 'react';
 import '../../styles/studio-paint.css';
 import { NumField } from './StudioControls';

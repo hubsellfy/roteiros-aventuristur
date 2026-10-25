@@ -1,5 +1,5 @@
 import type { TourActivity, TourListItem } from '@trek/shared';
-import { AlertTriangle, Check, Clock, FileDown, Footprints, Link2, Loader2, Ruler, Upload } from 'lucide-react';
+import { AlertTriangle, Check, Clock, FileDown, Footprints, Link2, Loader2, Ruler, Upload } from '../../../icons';
 import { useId, useMemo } from 'react';
 import { useTranslation } from '../../../i18n';
 import { useSettingsStore } from '../../../store/settingsStore';

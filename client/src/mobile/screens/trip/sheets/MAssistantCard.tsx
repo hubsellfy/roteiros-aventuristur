@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import type { RoteiroCard } from '@trek/shared'
-import { ExternalLink, Plus, Star } from 'lucide-react'
+import { ExternalLink, Plus, Star } from '../../../../icons'
 import { useTranslation } from '../../../../i18n'
 import { useGooglePlacePhoto } from '../../../../hooks/useGooglePlacePhoto'
 import { safeHttpUrl } from '../../../../utils/safeUrl'

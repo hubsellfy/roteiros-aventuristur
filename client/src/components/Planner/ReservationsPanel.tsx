@@ -1,5 +1,5 @@
 import { useCallback, useMemo, type CSSProperties } from 'react'
-import { Download, Plane, Plus, SearchX } from 'lucide-react'
+import { Download, Plane, Plus, SearchX } from '../../icons'
 import { useTripStore } from '../../store/tripStore'
 import { useCanDo } from '../../store/permissionsStore'
 import { useSettingsStore } from '../../store/settingsStore'

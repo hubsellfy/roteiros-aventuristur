@@ -1,5 +1,5 @@
 import type { TourListItem, TourProvenance, TourSourceCheckResponse, TourSourceHint } from '@trek/shared';
-import { CopyPlus, Download, ExternalLink, FileDown, Loader2, PenLine, RefreshCw } from 'lucide-react';
+import { CopyPlus, Download, ExternalLink, FileDown, Loader2, PenLine, RefreshCw } from '../../../icons';
 import type { ReactNode } from 'react';
 import { useTranslation } from '../../../i18n';
 import { formatDate } from '../../../utils/formatters';

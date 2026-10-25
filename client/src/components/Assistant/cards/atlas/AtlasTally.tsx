@@ -1,4 +1,4 @@
-import { ArrowRight, Check, Globe2, MapPinned, Star } from 'lucide-react';
+import { ArrowRight, Check, Globe2, MapPinned, Star } from '../../../../icons';
 
 import { useTranslation } from '../../../../i18n';
 import { SoftPill } from '../../../Planner/planParts';

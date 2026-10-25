@@ -1,4 +1,4 @@
-import { Check, ChevronDown } from 'lucide-react';
+import { Check, ChevronDown } from '../../icons';
 import { useEffect, useRef, useState, type ReactNode } from 'react';
 import { useTranslation } from '../../i18n';
 import { fs } from '../shared/DialogShell';

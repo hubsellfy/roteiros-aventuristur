@@ -1,4 +1,4 @@
-import { BookmarkPlus } from 'lucide-react';
+import { BookmarkPlus } from '../../../icons';
 import { useTranslation } from '../../../i18n';
 import { useAddonStore } from '../../../store/addonStore';
 import { BarButton } from '../../Planner/planParts';

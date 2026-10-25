@@ -1,5 +1,5 @@
 import type { TourRouteCard } from '@trek/shared';
-import { Check, Loader2, MapPin, Plus } from 'lucide-react';
+import { Check, Loader2, MapPin, Plus } from '../../../../icons';
 
 import { useTranslation } from '../../../../i18n';
 import { SoftPill } from '../../../Planner/planParts';

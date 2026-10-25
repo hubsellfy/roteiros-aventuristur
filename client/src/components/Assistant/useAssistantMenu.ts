@@ -1,5 +1,5 @@
 import type { AssistantFocus } from '@trek/shared';
-import { CalendarCheck, CloudRain, type LucideIcon, Shuffle, Sparkles, UtensilsCrossed } from 'lucide-react';
+import { CalendarCheck, CloudRain, type LucideIcon, Shuffle, Sparkles, UtensilsCrossed } from '../../icons';
 
 import { useTranslation } from '../../i18n';
 import { useAssistantStore } from '../../store/assistantStore';

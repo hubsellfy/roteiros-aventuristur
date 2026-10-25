@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router'
-import { Bell, Lock, Plug, Send, Webhook } from 'lucide-react'
+import { Bell, Lock, Plug, Send, Webhook } from '../../icons'
 import { WEB_PUSH_CHANNEL_ID } from '@trek/shared'
 import { useTranslation } from '../../i18n'
 import ToggleSwitch from './ToggleSwitch'

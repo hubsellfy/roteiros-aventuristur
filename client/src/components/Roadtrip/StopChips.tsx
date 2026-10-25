@@ -1,5 +1,5 @@
 import React from 'react'
-import { Hourglass } from 'lucide-react'
+import { Hourglass } from '../../icons'
 import { useTranslation } from '../../i18n/TranslationContext'
 import { formatDurationShort } from './roadtripModel'
 import { DWELL_CHOICES, STOP_KINDS } from './stopKinds'

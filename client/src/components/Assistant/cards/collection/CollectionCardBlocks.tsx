@@ -1,5 +1,5 @@
 import type { CollectionListsCard, CollectionPlacesCard } from '@trek/shared';
-import { Bookmark } from 'lucide-react';
+import { Bookmark } from '../../../../icons';
 
 import { useTranslation } from '../../../../i18n';
 import { SoftPill, WhiteBadge } from '../../../Planner/planParts';

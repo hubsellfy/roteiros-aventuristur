@@ -1,4 +1,4 @@
-import { Shapes, Type } from 'lucide-react';
+import { Shapes, Type } from '../../icons';
 import { useState } from 'react';
 import { describe, expect, it, vi } from 'vitest';
 

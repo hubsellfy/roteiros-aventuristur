@@ -1,5 +1,5 @@
 import type { JourneyPhotosCard, JourneyPhotosEntry } from '@trek/shared';
-import { ArrowRight, Images, MessageSquareText, Play } from 'lucide-react';
+import { ArrowRight, Images, MessageSquareText, Play } from '../../../../icons';
 
 import { useTranslation } from '../../../../i18n';
 import { cardDateLabel } from '../../../Journey/journeyCard';

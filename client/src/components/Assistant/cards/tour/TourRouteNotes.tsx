@@ -1,5 +1,5 @@
 import type { TourRouteCard } from '@trek/shared';
-import { AlertTriangle } from 'lucide-react';
+import { AlertTriangle } from '../../../../icons';
 
 import { useTranslation } from '../../../../i18n';
 import { SoftPill } from '../../../Planner/planParts';

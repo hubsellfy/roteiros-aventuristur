@@ -1,4 +1,4 @@
-import { AlertTriangle, Undo2 } from 'lucide-react';
+import { AlertTriangle, Undo2 } from '../../../icons';
 import { useTranslation } from '../../../i18n';
 import type { TourPlannerController } from '../planner/useTourPlanner';
 import { CardAction, TourNotice } from '../tourParts';

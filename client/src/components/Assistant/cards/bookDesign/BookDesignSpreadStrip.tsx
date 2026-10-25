@@ -1,5 +1,5 @@
 import type { BookDesignCard, BookPageSetup, BookSpread } from '@trek/shared';
-import { ArrowRight, Check, TriangleAlert } from 'lucide-react';
+import { ArrowRight, Check, TriangleAlert } from '../../../../icons';
 import { type FocusEvent, useState } from 'react';
 
 import { useTranslation } from '../../../../i18n';

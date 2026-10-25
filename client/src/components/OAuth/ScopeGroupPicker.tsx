@@ -1,5 +1,5 @@
 import React from 'react'
-import { Check, ChevronDown, ChevronRight, Minus } from 'lucide-react'
+import { Check, ChevronDown, ChevronRight, Minus } from '../../icons'
 import { useTranslation } from '../../i18n'
 import { fs } from '../shared/DialogShell'
 import { SettingRows, SETTINGS_BUTTON } from '../Settings/settingsKit'

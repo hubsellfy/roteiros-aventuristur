@@ -1,5 +1,5 @@
 import type { PaddleRegionLoadState } from '@trek/shared';
-import { CloudDownload, Hourglass, Loader2, Spline } from 'lucide-react';
+import { CloudDownload, Hourglass, Loader2, Spline } from '../../../icons';
 import { useTranslation } from '../../../i18n';
 import { fs } from '../../shared/DialogShell';
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Camera, Loader2, Plug, Save } from 'lucide-react'
+import { Camera, Loader2, Plug, Save } from '../../icons'
 import { useTranslation } from '../../i18n'
 import Section from './Section'
 import ToggleSwitch from './ToggleSwitch'

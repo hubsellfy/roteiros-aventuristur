@@ -1,5 +1,5 @@
 import type { JourneyRecordedDay } from '@trek/shared';
-import { Route } from 'lucide-react';
+import { Route } from '../../icons';
 import type React from 'react';
 import { useTranslation } from '../../i18n';
 import { useSettingsStore } from '../../store/settingsStore';

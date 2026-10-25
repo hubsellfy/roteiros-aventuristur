@@ -7,7 +7,7 @@ import {
   ROUND_MIN_M,
   ROUND_TOLERANCE,
 } from '@trek/shared';
-import { AlertTriangle, Check, Loader2, Mountain, RefreshCcwDot, Search, Target } from 'lucide-react';
+import { AlertTriangle, Check, Loader2, Mountain, RefreshCcwDot, Search, Target } from '../../../icons';
 import { useState } from 'react';
 import { useTranslation } from '../../../i18n';
 import { useSettingsStore } from '../../../store/settingsStore';

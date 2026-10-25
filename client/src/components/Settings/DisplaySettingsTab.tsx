@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react'
-import { Languages, Map, ChevronDown, Rocket } from 'lucide-react'
+import { Languages, Map, ChevronDown, Rocket } from '../../icons'
 import { SUPPORTED_LANGUAGES, useTranslation } from '../../i18n'
 import { DEFAULT_SETTINGS } from '../../store/settingsStore'
 import CustomSelect from '../shared/CustomSelect'

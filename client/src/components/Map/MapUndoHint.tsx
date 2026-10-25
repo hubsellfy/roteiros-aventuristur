@@ -1,4 +1,4 @@
-import { Check, Undo2 } from 'lucide-react';
+import { Check, Undo2 } from '../../icons';
 import { fs } from '../shared/DialogShell';
 import { MAP_CONTROL_SHADOW } from './mapControlShadow';
 

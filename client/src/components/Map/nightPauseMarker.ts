@@ -1,5 +1,5 @@
 import { createElement } from 'react'
-import { Moon } from 'lucide-react'
+import { Moon } from '../../icons'
 import { escapeHtml } from '@trek/shared'
 import { renderIconMarkup } from '../../utils/iconMarkup'
 import type { RouteVia } from '../../types'

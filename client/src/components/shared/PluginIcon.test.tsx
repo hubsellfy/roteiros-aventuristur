@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest'
 import { render } from '@testing-library/react'
-import { Blocks, Stethoscope } from 'lucide-react'
+import { Blocks, Stethoscope } from '../../icons'
 import PluginIcon, { resolvePluginIcon } from './PluginIcon'
 
 describe('resolvePluginIcon', () => {

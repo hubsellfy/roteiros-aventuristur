@@ -1,6 +1,6 @@
 import { useState, useRef } from 'react'
 import { createPortal } from 'react-dom'
-import { Users, UserRound, Share2, Check, Copy, HandHelping } from 'lucide-react'
+import { Users, UserRound, Share2, Check, Copy, HandHelping } from '../../icons'
 import { useTranslation } from '../../i18n'
 import type { PackingItem } from '../../types'
 import type { TripMember } from './usePackingListPanel'

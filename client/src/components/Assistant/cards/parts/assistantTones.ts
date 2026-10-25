@@ -1,4 +1,4 @@
-import { Check, CircleSlash, LoaderCircle, type LucideIcon, TriangleAlert } from 'lucide-react';
+import { Check, CircleSlash, LoaderCircle, type LucideIcon, TriangleAlert } from '../../../../icons';
 
 import type { ChangeState } from '../../assistantParts';
 

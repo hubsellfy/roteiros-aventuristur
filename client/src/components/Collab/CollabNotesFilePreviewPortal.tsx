@@ -1,6 +1,6 @@
 import { createPortal } from 'react-dom'
 import { useState, useEffect, useId } from 'react'
-import { X, ExternalLink, FileText, Loader2 } from 'lucide-react'
+import { X, ExternalLink, FileText, Loader2 } from '../../icons'
 import { getAuthUrl } from '../../api/authUrl'
 import { openFile } from '../../utils/fileDownload'
 import { useTranslation } from '../../i18n'

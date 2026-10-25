@@ -1,5 +1,5 @@
 import React from 'react'
-import { AlertTriangle, ArrowRight, type LucideIcon } from 'lucide-react'
+import { AlertTriangle, ArrowRight, type LucideIcon } from '../../icons'
 import { useTranslation } from '../../i18n/TranslationContext'
 import { Tooltip } from '../shared/Tooltip'
 import { useSettingsStore } from '../../store/settingsStore'

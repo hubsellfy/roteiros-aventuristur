@@ -1,7 +1,7 @@
 import { useState, type ComponentType } from 'react'
 import { useTranslation } from '../../i18n'
 import { useIsDark } from '../../hooks/useIsDark'
-import { Puzzle, ListChecks, Wallet, FileText, CalendarDays, Globe, Briefcase, Image, Terminal, Link2, Compass, BookOpen, Sparkles, Luggage, Plane, Bookmark, Users, Loader2, Mountain, CarFront, Search } from 'lucide-react'
+import { Puzzle, ListChecks, Wallet, FileText, CalendarDays, Globe, Briefcase, Image, Terminal, Link2, Compass, BookOpen, Sparkles, Luggage, Plane, Bookmark, Users, Loader2, Mountain, CarFront, Search } from '../../icons'
 import EmptyState from '../shared/EmptyState'
 import DawarichIcon from '../shared/DawarichIcon'
 import AirTrailIcon from '../shared/AirTrailIcon'

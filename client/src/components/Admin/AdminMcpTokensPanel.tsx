@@ -1,5 +1,5 @@
 import { type ReactNode } from 'react'
-import { Key, Trash2, User, Loader2, Shield, KeyRound, Bot } from 'lucide-react'
+import { Key, Trash2, User, Loader2, Shield, KeyRound, Bot } from '../../icons'
 import { useTranslation } from '../../i18n'
 import ConfirmDialog from '../shared/ConfirmDialog'
 import { Tooltip } from '../shared/Tooltip'

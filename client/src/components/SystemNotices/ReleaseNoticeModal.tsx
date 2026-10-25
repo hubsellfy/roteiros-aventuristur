@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight, Heart, Infinity as InfinityIcon, X } from 'lucide-react';
+import { ArrowRight, Heart, Infinity as InfinityIcon, X } from '../../icons';
 import { useTranslation } from '../../i18n/TranslationContext.js';
 import type { SystemNoticeDTO } from '../../store/systemNoticeStore.js';
 import { ReleaseFeatureVisual } from './ReleaseNoticeVisuals.js';

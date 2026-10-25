@@ -1,4 +1,4 @@
-import { AlertTriangle, Footprints } from 'lucide-react';
+import { AlertTriangle, Footprints } from '../../../icons';
 import { useTranslation } from '../../../i18n';
 import { useSettingsStore } from '../../../store/settingsStore';
 import { formatClockTime } from '../../../utils/formatters';

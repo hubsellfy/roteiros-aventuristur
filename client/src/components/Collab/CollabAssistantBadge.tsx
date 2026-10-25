@@ -1,4 +1,4 @@
-import { Sparkles } from 'lucide-react';
+import { Sparkles } from '../../icons';
 
 import { useTranslation } from '../../i18n';
 import { Tooltip } from '../shared/Tooltip';

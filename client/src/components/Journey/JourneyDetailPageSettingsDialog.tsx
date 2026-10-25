@@ -1,5 +1,5 @@
 import { useId, useState, useRef, type ReactNode } from 'react'
-import { X, ImagePlus, Trash2, Archive, ArchiveRestore, Undo2, Settings, Crown } from 'lucide-react'
+import { X, ImagePlus, Trash2, Archive, ArchiveRestore, Undo2, Settings, Crown } from '../../icons'
 import { useTranslation } from '../../i18n'
 import ConfirmDialog from '../shared/ConfirmDialog'
 import { Tooltip } from '../shared/Tooltip'

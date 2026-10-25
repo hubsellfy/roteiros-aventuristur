@@ -1,5 +1,5 @@
 import type { JourneyDayStay } from '@trek/shared';
-import { Check, Clock, Gauge, HelpCircle, Hourglass, Link2, MapPinOff, Unlink2 } from 'lucide-react';
+import { Check, Clock, Gauge, HelpCircle, Hourglass, Link2, MapPinOff, Unlink2 } from '../../icons';
 import type { ReactNode } from 'react';
 import { useTranslation } from '../../i18n';
 import { useSettingsStore } from '../../store/settingsStore';

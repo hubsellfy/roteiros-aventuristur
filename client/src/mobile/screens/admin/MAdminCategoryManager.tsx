@@ -1,4 +1,4 @@
-import { Plus, Edit2, Trash2, Pipette } from 'lucide-react'
+import { Plus, Edit2, Trash2, Pipette } from '../../../icons'
 import { ICON_NAMES, PRESET_COLORS, useCategoryAdmin } from '../../../components/Admin/useCategoryAdmin'
 import { CATEGORY_ICON_MAP, ICON_LABELS, getCategoryIcon } from '../../../components/shared/categoryIcons'
 import { useTranslation } from '../../../i18n'

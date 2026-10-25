@@ -1,5 +1,5 @@
 import { COLLECTION_STATUSES, type CollectionStatus } from '@trek/shared';
-import { Bookmark, CheckCircle2, Circle, type LucideIcon } from 'lucide-react';
+import { Bookmark, CheckCircle2, Circle, type LucideIcon } from '../../icons';
 
 /**
  * How a saved place's status looks wherever it shows: its icon, its name and

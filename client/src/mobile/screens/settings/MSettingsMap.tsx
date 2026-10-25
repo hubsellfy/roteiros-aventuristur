@@ -1,5 +1,5 @@
 import React, { useState, Suspense } from 'react'
-import { Box, Check, ChevronDown, Globe2, Layers, Map, Save } from 'lucide-react'
+import { Box, Check, ChevronDown, Globe2, Layers, Map, Save } from '../../../icons'
 import { useTranslation } from '../../../i18n'
 import { MapView } from '../../../components/Map/MapView'
 // Same as the desktop map settings tab: on demand, and paired with one engine.

@@ -1,4 +1,4 @@
-import { MapPin, Mountain } from 'lucide-react'
+import { MapPin, Mountain } from '../../../../icons'
 import { useTranslation } from '../../../../i18n/TranslationContext'
 
 interface MPlacesToursModeSwitchProps {

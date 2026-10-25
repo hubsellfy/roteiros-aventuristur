@@ -1,5 +1,5 @@
 import React from 'react'
-import { RefreshCw, ClipboardList } from 'lucide-react'
+import { RefreshCw, ClipboardList } from '../../../icons'
 import { useAuditLog } from '../../../components/Admin/useAuditLog'
 import { useTranslation } from '../../../i18n'
 import { MAdminButton } from './MAdminUi'

@@ -1,5 +1,5 @@
 import { useMemo } from 'react'
-import { LayoutGrid, CalendarDays, Globe, Compass, Bookmark, type LucideIcon } from 'lucide-react'
+import { LayoutGrid, CalendarDays, Globe, Compass, Bookmark, type LucideIcon } from '../../icons'
 import { useTranslation } from '../../i18n'
 import { useAddonStore } from '../../store/addonStore'
 import { usePluginStore } from '../../store/pluginStore'

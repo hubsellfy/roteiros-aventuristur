@@ -1,4 +1,4 @@
-import { Map, MessageCircle, PackageCheck, Ticket, Wallet } from 'lucide-react';
+import { Map, MessageCircle, PackageCheck, Ticket, Wallet } from '../icons';
 import { useTranslation } from '../i18n';
 import { useSharedTrip } from './sharedTrip/useSharedTrip';
 import { SharedTripErrorScreen } from './sharedTrip/SharedTripErrorScreen';

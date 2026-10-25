@@ -1,5 +1,5 @@
 import { compareCodeUnits } from '@trek/shared';
-import { AlertTriangle, Info, Loader2, WifiOff } from 'lucide-react';
+import { AlertTriangle, Info, Loader2, WifiOff } from '../../../icons';
 import { useShallow } from 'zustand/react/shallow';
 import { useTranslation } from '../../../i18n';
 import { usePaddleObstacleStore } from '../../../store/paddleObstacleStore';

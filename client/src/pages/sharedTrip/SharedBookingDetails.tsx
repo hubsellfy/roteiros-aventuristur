@@ -1,4 +1,4 @@
-import { ExternalLink } from 'lucide-react'
+import { ExternalLink } from '../../icons'
 import { useTranslation } from '../../i18n'
 import { fs } from '../../components/shared/DialogShell'
 import { BOX, Block } from '../../components/Planner/bookings/bookingParts'

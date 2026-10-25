@@ -1,5 +1,5 @@
 import type { ChangeEvent, RefObject } from 'react'
-import { ExternalLink, FileText, Link2, X } from 'lucide-react'
+import { ExternalLink, FileText, Link2, X } from '../../icons'
 import { useTripStore } from '../../store/tripStore'
 import { translateApiError, useTranslation } from '../../i18n'
 import { useToast } from '../shared/Toast'
