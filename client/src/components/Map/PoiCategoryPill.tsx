@@ -63,7 +63,7 @@ export default function PoiCategoryPill({ active, onToggle, loadingKeys, errorKe
             className="text-content"
             style={{ ...PILL_BASE, ...frosted }}
           >
-            <Sparkles size={16} strokeWidth={2} />
+            <Sparkles size={16} strokeWidth={2} color="#4f9bf0" />
             {t('poi.ask')}
           </button>
         )}
