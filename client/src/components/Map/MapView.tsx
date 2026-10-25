@@ -58,9 +58,9 @@ import NightPauseTooltip from './NightPauseTooltip'
 import ClusteredPois from './ClusteredPois'
 import { NightPauseDrag } from './NightPauseDrag'
 import type { DayBoundaryControls } from './dayBoundaryDrag'
-import { formatPoiName } from '../../utils/formatPoiName'
 import { POI_LABEL_MIN_ZOOM, type Poi } from './poiCategories'
-import { pickVisibleLabels } from './poiLabelLayout'
+import { formatPoiName } from '../../utils/formatPoiName'
+import { PoiLabelPicker } from './PoiLabelPicker'
 import { poiDetailRowKey, poiDetailRows, poiPinCacheKey, poiPinParts } from './poiMarker'
 import { resolveTrackColor, hasManualTrackColor } from './trackColors'
 import { SelectedTrackLine, TrackLines } from './TrackLines'
@@ -253,29 +253,6 @@ function createPoiIcon(poi: Pick<Poi, 'category' | 'icon' | 'color'>, brandWikid
   })
   poiIconCache.set(cacheKey, icon)
   return icon
-}
-
-// Decides which pins may carry a permanent name: only those whose tag would not
-// cover another tag or pin, recomputed whenever the camera settles.
-function PoiLabelPicker({ pois, enabled, onChange }: { pois: Poi[]; enabled: boolean; onChange: (ids: Set<string | number>) => void }) {
-  const map = useMap()
-  useEffect(() => {
-    if (!enabled) { onChange(new Set()); return }
-    const update = () => {
-      const bounds = map.getBounds().pad(0.1)
-      const candidates = pois
-        .filter(p => bounds.contains([p.lat, p.lng]))
-        .map(p => {
-          const pt = map.latLngToContainerPoint([p.lat, p.lng])
-          return { id: p.osm_id, name: formatPoiName(p.name), x: pt.x, y: pt.y }
-        })
-      onChange(pickVisibleLabels(candidates))
-    }
-    update()
-    map.on('moveend zoomend', update)
-    return () => { map.off('moveend zoomend', update) }
-  }, [map, pois, enabled, onChange])
-  return null
 }
 
 /**
@@ -865,11 +842,6 @@ export const MapView = memo(function MapView({
   // tapped, as Google Maps does. Further out the names would pile up into noise.
   const poiLabels = mapZoom >= POI_LABEL_MIN_ZOOM
   const [labeledPois, setLabeledPois] = useState<Set<string | number>>(() => new Set())
-  // The picker reports on every pass; an unchanged answer must not be a new
-  // object, or the state change re-runs the picker and the render never settles.
-  const keepLabeledPois = useCallback((next: Set<string | number>) => {
-    setLabeledPois(prev => (prev.size === next.size && [...next].every(id => prev.has(id)) ? prev : next))
-  }, [])
   const poiMarkers = useMemo(() => (pois as Poi[]).map((poi: Poi) => (
     <Marker
       // A tooltip's `permanent` option is read once, so crossing the threshold
@@ -1169,7 +1141,7 @@ export const MapView = memo(function MapView({
       <SelectionController follow={followSelection} places={places} selectedPlaceId={selectedPlaceId} dayPlaces={dayPlaces} selectedPlace={selectedPlace} paddingOpts={paddingOpts} />
       <MapClickHandler onClick={onMapClick} />
       <MapContextMenuHandler onContextMenu={onMapContextMenu} />
-      <PoiLabelPicker pois={pois as Poi[]} enabled={poiLabels} onChange={keepLabeledPois} />
+      <PoiLabelPicker pois={pois as Poi[]} enabled={poiLabels} onChange={setLabeledPois} />
       <CameraHoverGuard movingRef={mapMovingRef} onMoveStart={clearHover} onZoom={setMapZoom} />
       <ViewportController onViewportChange={onViewportChange} />
       <PoiDropTarget onPoiDropOnRoute={onPoiDropOnRoute} />
