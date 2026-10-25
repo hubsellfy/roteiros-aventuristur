@@ -23,6 +23,13 @@ export const roteiroChatRequestSchema = z.object({
   /** BCP 47 language of the answer and of the place names, e.g. "pt-BR". */
   language: z.string().min(2).max(35).optional(),
   messages: z.array(roteiroMessageSchema).min(1).max(ROTEIRO_MAX_MESSAGES),
+  /** What the traveller is looking at, so "perto daqui" has a meaning. */
+  context: z
+    .object({
+      /** The day open in the planner. */
+      dayId: z.number().int().positive().optional(),
+    })
+    .optional(),
 });
 export type RoteiroChatRequest = z.infer<typeof roteiroChatRequestSchema>;
 

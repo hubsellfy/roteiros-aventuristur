@@ -19,7 +19,13 @@ const HISTORY_TURNS = 12;
  * State of one conversation with the travel assistant. The conversation lives only
  * as long as the sheet's owner keeps this hook mounted; nothing is stored.
  */
-export function useAssistantChat(tripId: number | null | undefined, language: string, fallbackError: string) {
+export function useAssistantChat(
+  tripId: number | null | undefined,
+  language: string,
+  fallbackError: string,
+  /** The day open in the planner, so "perto daqui" means near that day's stops. */
+  dayId?: number | null
+) {
   const [turns, setTurns] = useState<AssistantTurn[]>([]);
   const [loading, setLoading] = useState(false);
   const nextId = useRef(1);
@@ -38,7 +44,12 @@ export function useAssistantChat(tripId: number | null | undefined, language: st
       setTurns((prev) => [...prev, userTurn]);
       setLoading(true);
       try {
-        const res = await roteiroApi.chat({ tripId, language, messages: history });
+        const res = await roteiroApi.chat({
+          tripId,
+          language,
+          messages: history,
+          ...(dayId ? { context: { dayId } } : {}),
+        });
         setTurns((prev) => [...prev, { id: nextId.current++, role: 'assistant', text: res.reply, cards: res.cards }]);
       } catch (err: unknown) {
         // The server words its limit message for the traveller; any other failure gets the generic line.
@@ -49,7 +60,7 @@ export function useAssistantChat(tripId: number | null | undefined, language: st
         setLoading(false);
       }
     },
-    [tripId, language, loading, fallbackError]
+    [tripId, language, loading, fallbackError, dayId]
   );
 
   return { turns, loading, send };

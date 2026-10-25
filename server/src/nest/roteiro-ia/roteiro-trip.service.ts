@@ -268,7 +268,7 @@ export class RoteiroTripService implements OnApplicationBootstrap {
   ): Promise<void> {
     const language = body.language ?? 'pt-BR';
     const dayCount = dayCountOf(body.startDate, body.endDate);
-    const state: TurnState = { userId, tripId, language, known: new Map(), cards: new Map(), nextRef: 1 };
+    const state: TurnState = { userId, tripId, language, anchor: null, known: new Map(), cards: new Map(), nextRef: 1 };
     const center = await this.locate(state, body.destination);
     const messages: ChatMessage[] = [
       { role: 'system', content: planPrompt(body, dayCount, language, new Date().toISOString().slice(0, 10), center) },
