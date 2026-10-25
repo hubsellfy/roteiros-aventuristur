@@ -151,7 +151,7 @@ export default function TripPlanner({ pending, onCreated, onRetry, onRemove }: T
         <button
           type="submit"
           disabled={form.submitting}
-          className="mt-5 flex w-full items-center justify-center gap-2 rounded-full !bg-accent px-6 py-[0.9rem] text-[1rem] font-semibold !text-white transition-colors hover:!bg-accent-hover disabled:opacity-60"
+          className="mt-5 flex min-h-[3.25rem] w-full items-center justify-center gap-2 rounded-full !bg-accent px-6 py-[0.9rem] text-[1rem] font-semibold !text-white transition-colors hover:!bg-accent-hover disabled:opacity-60"
         >
           {form.submitting ? <Spinner className="h-5 w-5 border-2 border-white/40 border-t-white" /> : <Sparkles size={20} strokeWidth={1} />}
           {t('dashboard.plan.generate')}
