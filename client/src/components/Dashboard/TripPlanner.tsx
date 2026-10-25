@@ -19,7 +19,7 @@ interface TripPlannerProps {
 
 const TRAVELER_OPTIONS = [1, 2, 3, 4, 5, 6, 7, 8]
 
-const fieldCls = 'flex min-w-0 items-center gap-3 rounded-xl border border-edge bg-surface-card px-4 py-3 text-content transition-colors focus-within:border-accent'
+const fieldCls = 'flex min-w-0 items-center gap-3 rounded-full border border-edge bg-surface-card px-[18px] py-3 text-content transition-colors focus-within:border-accent'
 const inputCls = 'min-w-0 flex-1 !bg-transparent !shadow-none text-[0.9375rem] text-content outline-none placeholder:text-content-faint'
 const labelCls = 'mb-1.5 ml-1 block text-[0.6875rem] font-semibold uppercase tracking-[0.08em] text-content-muted'
 
@@ -62,7 +62,7 @@ export default function TripPlanner({ pending, onCreated, onRetry, onRemove }: T
         >
           <h2
             id="trip-planner-title"
-            className="absolute inset-x-0 bottom-9 px-6 text-center text-[2.5rem] font-normal leading-none text-white [text-shadow:0_2px_14px_rgba(10,60,120,0.45)] md:text-[3.25rem]"
+            className="absolute inset-x-0 top-5 px-6 text-center text-[1.75rem] font-normal leading-none text-white [text-shadow:0_2px_14px_rgba(10,60,120,0.45)] md:top-6 md:text-[2.25rem]"
             style={{ fontFamily: "'Indie Flower', cursive" }}
           >
             {t('dashboard.plan.title')}
@@ -102,8 +102,8 @@ export default function TripPlanner({ pending, onCreated, onRetry, onRemove }: T
           <div className="md:col-span-2">
             <span className={labelCls}>{t('dashboard.plan.dates')}</span>
             <div className="grid grid-cols-2 gap-3">
-              <CustomDatePicker value={form.startDate} onChange={form.changeStart} placeholder={t('dashboard.startDate')} />
-              <CustomDatePicker value={form.endDate} onChange={form.setEndDate} placeholder={t('dashboard.endDate')} min={form.startDate || undefined} />
+              <CustomDatePicker value={form.startDate} onChange={form.changeStart} placeholder={t('dashboard.startDate')} hideManualEntry pill />
+              <CustomDatePicker value={form.endDate} onChange={form.setEndDate} placeholder={t('dashboard.endDate')} min={form.startDate || undefined} hideManualEntry pill />
             </div>
           </div>
 
@@ -122,6 +122,7 @@ export default function TripPlanner({ pending, onCreated, onRetry, onRemove }: T
               </label>
               <div className="w-[9.5rem] flex-none">
                 <CustomSelect
+                  pill
                   value={form.budgetMode}
                   onChange={v => form.setBudgetMode(v === 'total' ? 'total' : 'person')}
                   options={[
@@ -133,12 +134,12 @@ export default function TripPlanner({ pending, onCreated, onRetry, onRemove }: T
             </div>
           </Field>
           <Field label={t('dashboard.plan.travelers')}>
-            <CustomSelect value={form.travelers} onChange={v => form.setTravelers(Number(v))} options={travelerOptions} />
+            <CustomSelect pill value={form.travelers} onChange={v => form.setTravelers(Number(v))} options={travelerOptions} />
           </Field>
 
           <div className="md:col-span-2">
             <Field label={t('dashboard.plan.style')}>
-              <CustomSelect value={form.style} onChange={v => form.setStyle(TRIP_PLAN_STYLES.find(x => x === v) ?? 'equilibrado')} options={styleOptions} />
+              <CustomSelect pill value={form.style} onChange={v => form.setStyle(TRIP_PLAN_STYLES.find(x => x === v) ?? 'equilibrado')} options={styleOptions} />
             </Field>
           </div>
         </div>

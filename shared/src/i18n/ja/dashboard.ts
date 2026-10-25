@@ -207,7 +207,7 @@ const dashboard: TranslationStrings = {
   'dashboard.plan.destination': '目的地',
   'dashboard.plan.destinationPh': '例：リスボン、オーランド、東京…',
   'dashboard.plan.origin': '出発地',
-  'dashboard.plan.originPh': '出発する都市（任意）',
+  'dashboard.plan.originPh': '出発する都市',
   'dashboard.plan.dates': '旅行の日程',
   'dashboard.plan.budget': '予算（R$）',
   'dashboard.plan.budgetPh': '任意',

@@ -209,7 +209,7 @@ const dashboard: TranslationStrings = {
   'dashboard.plan.destination': 'Напрямок',
   'dashboard.plan.destinationPh': 'Наприклад: Лісабон, Орландо, Токіо...',
   'dashboard.plan.origin': 'Звідки виїжджаєте',
-  'dashboard.plan.originPh': 'Місто відправлення (необов’язково)',
+  'dashboard.plan.originPh': 'Місто відправлення',
   'dashboard.plan.dates': 'Дати поїздки',
   'dashboard.plan.budget': 'Бюджет (R$)',
   'dashboard.plan.budgetPh': 'Необов’язково',

@@ -211,7 +211,7 @@ const dashboard: TranslationStrings = {
   'dashboard.plan.destination': 'Úti cél',
   'dashboard.plan.destinationPh': 'Például: Lisszabon, Orlando, Tokió...',
   'dashboard.plan.origin': 'Indulás innen',
-  'dashboard.plan.originPh': 'Indulási város (nem kötelező)',
+  'dashboard.plan.originPh': 'Indulási város',
   'dashboard.plan.dates': 'Utazás dátuma',
   'dashboard.plan.budget': 'Költségkeret (R$)',
   'dashboard.plan.budgetPh': 'Nem kötelező',

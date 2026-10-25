@@ -205,7 +205,7 @@ const dashboard: TranslationStrings = {
   'dashboard.plan.destination': '目的地',
   'dashboard.plan.destinationPh': '例如：里斯本、奥兰多、东京……',
   'dashboard.plan.origin': '出发地',
-  'dashboard.plan.originPh': '出发城市（可选）',
+  'dashboard.plan.originPh': '出发城市',
   'dashboard.plan.dates': '出行日期',
   'dashboard.plan.budget': '预算（R$）',
   'dashboard.plan.budgetPh': '可选',
