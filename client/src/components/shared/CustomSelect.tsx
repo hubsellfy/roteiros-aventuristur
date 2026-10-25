@@ -23,8 +23,10 @@ interface CustomSelectProps {
   searchable?: boolean
   style?: React.CSSProperties
   size?: 'sm' | 'md'
-  /** Fully rounded trigger, for forms laid out with pill-shaped fields. */
+  /** Fully rounded trigger and menu (the app's standard shape); pass false for a squarer one. */
   pill?: boolean
+  /** Grey value text, the tone of the placeholders in forms made of pill fields. */
+  muted?: boolean
   disabled?: boolean
   /**
    * How wide the open menu is.
@@ -77,7 +79,8 @@ export default function CustomSelect({
   searchable = false,
   style = {},
   size = 'md',
-  pill = false,
+  pill = true,
+  muted = false,
   disabled = false,
   menuFit = 'anchor',
 }: CustomSelectProps) {
@@ -146,10 +149,10 @@ export default function CustomSelect({
         onClick={() => { if (!disabled) { setOpen(o => !o); setSearch('') } }}
         style={{
           width: '100%', display: 'flex', alignItems: 'center', gap: 8,
-          padding: pill ? '12px 18px' : sm ? '8px 12px' : '8px 14px', borderRadius: pill ? 999 : 10,
+          padding: pill ? (sm ? '9px 16px' : '12px 18px') : sm ? '8px 12px' : '8px 14px', borderRadius: pill ? 999 : 10,
           border: '1px solid var(--border-primary)',
-          background: pill ? 'var(--bg-card)' : 'var(--bg-input)', color: 'var(--text-primary)',
-          fontSize: pill ? 'calc(15px * var(--fs-scale-body, 1))' : 'calc(13px * var(--fs-scale-body, 1))', fontWeight: 500, fontFamily: 'inherit',
+          background: pill ? 'var(--bg-card)' : 'var(--bg-input)', color: muted ? 'var(--text-faint)' : 'var(--text-primary)',
+          fontSize: pill && !sm ? 'calc(15px * var(--fs-scale-body, 1))' : 'calc(13px * var(--fs-scale-body, 1))', fontWeight: muted ? 400 : 500, fontFamily: 'inherit',
           cursor: disabled ? 'default' : 'pointer', outline: 'none', textAlign: 'left',
           transition: 'border-color 0.15s', overflow: 'hidden', minWidth: 0,
           opacity: disabled ? 0.5 : 1,
