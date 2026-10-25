@@ -207,7 +207,6 @@ const dashboard: TranslationStrings = {
   'dashboard.mobile.spotlightDayOne': '{count} dia',
   'dashboard.mobile.spotlightDaysMany': '{count} dies',
   'dashboard.plan.title': 'On anem?',
-  'dashboard.plan.subtitle': 'Explica’ns l’essencial i la IA munta l’itinerari dia a dia amb llocs reals.',
   'dashboard.plan.destination': 'Destinació',
   'dashboard.plan.destinationPh': 'Per exemple: Lisboa, Orlando, Tòquio...',
   'dashboard.plan.origin': 'Sortint de',

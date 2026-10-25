@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client'
 import { BrowserRouter } from 'react-router'
 import App from './App'
 // Self-hosted Inter Tight (fonte do site da Aventuristur), empacotada para não depender de CDN.
+import '@fontsource/indie-flower/400.css'
 import '@fontsource/inter-tight/300.css'
 import '@fontsource/inter-tight/400.css'
 import '@fontsource/inter-tight/500.css'

@@ -202,7 +202,6 @@ const dashboard: TranslationStrings = {
   'dashboard.aria.removeTimezone': '移除 {city}',
   'dashboard.dayCountRequired': '天数为必填项',
   'dashboard.plan.title': '想去哪里？',
-  'dashboard.plan.subtitle': '告诉我们基本信息，AI 会用真实地点为你逐日安排行程。',
   'dashboard.plan.destination': '目的地',
   'dashboard.plan.destinationPh': '例如：里斯本、奥兰多、东京……',
   'dashboard.plan.origin': '出发地',

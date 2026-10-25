@@ -206,7 +206,6 @@ const dashboard: TranslationStrings = {
   'dashboard.coverSearchError': 'Tìm kiếm trên Unsplash không thành công',
   'dashboard.useUnsplashPhoto': 'Dùng ảnh Unsplash của {photographer}',
   'dashboard.plan.title': 'Mình đi đâu?',
-  'dashboard.plan.subtitle': 'Cho chúng tôi biết điều cơ bản, AI sẽ lên lịch trình từng ngày với địa điểm thật.',
   'dashboard.plan.destination': 'Điểm đến',
   'dashboard.plan.destinationPh': 'Ví dụ: Lisbon, Orlando, Tokyo...',
   'dashboard.plan.origin': 'Khởi hành từ',

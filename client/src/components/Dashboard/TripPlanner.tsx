@@ -20,7 +20,7 @@ interface TripPlannerProps {
 const TRAVELER_OPTIONS = [1, 2, 3, 4, 5, 6, 7, 8]
 
 const fieldCls = 'flex min-w-0 items-center gap-3 rounded-xl border border-edge bg-surface-card px-4 py-3 text-content transition-colors focus-within:border-accent'
-const inputCls = 'min-w-0 flex-1 bg-transparent text-[0.9375rem] text-content outline-none placeholder:text-content-faint'
+const inputCls = 'min-w-0 flex-1 !bg-transparent !shadow-none text-[0.9375rem] text-content outline-none placeholder:text-content-faint'
 const labelCls = 'mb-1.5 ml-1 block text-[0.6875rem] font-semibold uppercase tracking-[0.08em] text-content-muted'
 
 function Field({ label, children }: { label: string; children: React.ReactNode }): React.ReactElement {
@@ -52,20 +52,23 @@ export default function TripPlanner({ pending, onCreated, onRetry, onRemove }: T
       <form
         onSubmit={e => { e.preventDefault(); void form.submit() }}
         noValidate
-        className="rounded-[28px] border border-edge bg-surface-card p-5 md:p-7"
+        className="overflow-hidden rounded-[28px] border border-edge bg-surface-card"
       >
-        <div className="mb-5 flex items-start gap-3">
-          <span aria-hidden className="flex h-11 w-11 flex-none items-center justify-center rounded-full bg-accent-subtle text-accent">
-            <Sparkles size={22} strokeWidth={1} />
-          </span>
-          <div className="min-w-0">
-            <h2 id="trip-planner-title" className="text-[1.375rem] font-semibold leading-tight tracking-tight text-content md:text-[1.625rem]">
-              {t('dashboard.plan.title')}
-            </h2>
-            <p className="mt-1 text-[0.875rem] leading-snug text-content-muted">{t('dashboard.plan.subtitle')}</p>
-          </div>
+        <div
+          role="img"
+          aria-hidden
+          className="relative h-40 bg-cover bg-center md:h-52"
+          style={{ backgroundImage: 'url(/images/criador-roteiro-ceu.jpg)' }}
+        >
+          <h2
+            id="trip-planner-title"
+            className="absolute inset-x-0 bottom-9 px-6 text-center text-[2.5rem] font-normal leading-none text-white [text-shadow:0_2px_14px_rgba(10,60,120,0.45)] md:text-[3.25rem]"
+            style={{ fontFamily: "'Indie Flower', cursive" }}
+          >
+            {t('dashboard.plan.title')}
+          </h2>
         </div>
-
+        <div className="relative -mt-6 rounded-t-[28px] bg-surface-card p-5 md:p-7">
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
           <Field label={t('dashboard.plan.destination')}>
             <label className={fieldCls}>
@@ -154,6 +157,7 @@ export default function TripPlanner({ pending, onCreated, onRetry, onRemove }: T
           {!form.submitting && <ArrowRight size={20} strokeWidth={1} />}
         </button>
         <p className="mt-3 text-center text-[0.75rem] leading-snug text-content-faint">{t('dashboard.plan.disclaimer')}</p>
+        </div>
       </form>
 
       {pending.length > 0 && (
