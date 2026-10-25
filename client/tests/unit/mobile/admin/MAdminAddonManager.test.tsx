@@ -82,7 +82,7 @@ describe('MAdminAddonManager', () => {
 
     await screen.findByText('No addons available');
     expect(screen.getByText('Addons')).toBeInTheDocument();
-    expect(screen.getByAltText('TREK')).toHaveAttribute('src', '/text-dark.svg');
+    expect(screen.getByAltText('Roteiros Aventuristur')).toHaveAttribute('src', '/text-dark.svg');
   });
 
   it('FE-MOB-AADD-003: the dark palette swaps the wordmark', async () => {
@@ -91,7 +91,7 @@ describe('MAdminAddonManager', () => {
     document.documentElement.classList.add('dark');
     render(<MAdminAddonManager />);
     await screen.findByText('No addons available');
-    expect(screen.getByAltText('TREK')).toHaveAttribute('src', '/text-light.svg');
+    expect(screen.getByAltText('Roteiros Aventuristur')).toHaveAttribute('src', '/text-light.svg');
   });
 
   it('FE-MOB-AADD-004: a failing load toasts the addon error', async () => {
@@ -546,11 +546,11 @@ describe('MAdminAddonManager', () => {
     seedStore(useSettingsStore, { settings: buildSettings({ dark_mode: 'auto' }) });
     render(<MAdminAddonManager />);
     await screen.findByText('No addons available');
-    expect(screen.getByAltText('TREK')).toHaveAttribute('src', '/text-dark.svg');
+    expect(screen.getByAltText('Roteiros Aventuristur')).toHaveAttribute('src', '/text-dark.svg');
 
     // applyAppearance() flips the .dark class when the OS theme changes under auto.
     act(() => document.documentElement.classList.add('dark'));
-    await waitFor(() => expect(screen.getByAltText('TREK')).toHaveAttribute('src', '/text-light.svg'));
+    await waitFor(() => expect(screen.getByAltText('Roteiros Aventuristur')).toHaveAttribute('src', '/text-light.svg'));
   });
   it('FE-MOB-AADD-030: wanderer hangs off an enabled Tours addon and saves its switch', async () => {
     const user = userEvent.setup();

@@ -1,6 +1,7 @@
-import { describe, it, expect, vi } from 'vitest';
 import { evaluate, registerPredicate } from '../../../src/systemNotices/conditions.js';
 import type { NoticeCondition, SystemNotice } from '../../../src/systemNotices/types.js';
+
+import { describe, it, expect, vi } from 'vitest';
 
 const baseNotice: SystemNotice = {
   id: 'test',
@@ -151,7 +152,9 @@ describe('always, noTrips and custom', () => {
     expect(evaluate(notice, baseCtx)).toBe(false);
 
     const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
-    expect(evaluate(noticeWith({ kind: 'custom', id: 'nobody-registered-this' } as NoticeCondition), baseCtx)).toBe(false);
+    expect(evaluate(noticeWith({ kind: 'custom', id: 'nobody-registered-this' } as NoticeCondition), baseCtx)).toBe(
+      false,
+    );
     expect(warn).toHaveBeenCalled();
     warn.mockRestore();
   });
