@@ -113,7 +113,11 @@ export default function Navbar({ tripTitle, tripId, onBack, showBack, onShare }:
       {/* Left side. flex-1 basis-0, matching the action cluster on the right, so
           the tab pill between them sits in the middle of the bar rather than
           being centred on top of both (#1983). */}
-      <div className="flex items-center gap-3 min-w-0 flex-1 basis-0">
+      <div
+        className="flex items-center gap-3 min-w-0 flex-1 basis-0"
+        // On the home screen the logo starts where the cards below it start (the page is 1800px wide, centred, with 48px side padding).
+        style={location.pathname === '/dashboard' ? { paddingLeft: 'max(32px, calc((100vw - 1800px) / 2 + 32px))' } : undefined}
+      >
         {showBack && (
           <button type="button" onClick={onBack}
             className="trek-back-btn p-1.5 rounded-lg transition-colors flex items-center gap-1.5 text-sm flex-shrink-0 text-content-muted"
@@ -158,7 +162,7 @@ export default function Navbar({ tripTitle, tripId, onBack, showBack, onShare }:
         <div
           className="trek-nav-pill min-w-0"
           style={{
-            display: 'flex', gap: 4, padding: 4, borderRadius: 14, flexShrink: 1,
+            display: 'flex', gap: 4, padding: 4, borderRadius: 999, flexShrink: 1,
             overflowX: 'auto', scrollbarWidth: 'none',
             background: dark ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.04)',
             backdropFilter: 'blur(20px) saturate(180%)', WebkitBackdropFilter: 'blur(20px) saturate(180%)',
@@ -177,7 +181,7 @@ export default function Navbar({ tripTitle, tripId, onBack, showBack, onShare }:
                 title={tab.label} aria-label={tab.label}
                 className="flex items-center gap-1.5 transition-colors"
                 style={{
-                  padding: '5px 16px', borderRadius: 9, fontSize: 'calc(13.5px * var(--fs-scale-body, 1))', fontWeight: 500,
+                  padding: '5px 16px', borderRadius: 999, fontSize: 'calc(13.5px * var(--fs-scale-body, 1))', fontWeight: 500,
                   color: isActive ? 'var(--text-primary)' : 'var(--text-muted)',
                   background: isActive ? 'var(--bg-card)' : 'transparent',
                   boxShadow: isActive ? '0 1px 2px rgba(0,0,0,0.06), 0 2px 6px rgba(0,0,0,0.05)' : 'none',
