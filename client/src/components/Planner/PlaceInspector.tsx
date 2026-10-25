@@ -41,20 +41,8 @@ import { NavigationMenu } from '../shared/NavigationMenu'
 import { resolveOpenNow, resolvePlaceTimeZone, placeWeekdayIndex } from './placeOpenState'
 import { convertHoursLine } from './placeHoursFormat'
 import type { EndDayControlProps } from '../Roadtrip/EndDayControl'
+import { usePlaceDetails } from '../../hooks/usePlaceDetails'
 import VisitControls, { type RoadtripStayControl } from '../Roadtrip/VisitControls'
-
-const detailsCache = new Map()
-
-function getSessionCache(key) {
-  try {
-    const raw = sessionStorage.getItem(key)
-    return raw ? JSON.parse(raw) : undefined
-  } catch { return undefined }
-}
-
-function setSessionCache(key, value) {
-  try { sessionStorage.setItem(key, JSON.stringify(value)) } catch {}
-}
 
 const creditCache = new Map()
 
@@ -97,24 +85,6 @@ function PhotoCredit({ imageUrl }) {
       }}
     >{credit}</span>
   )
-}
-
-function usePlaceDetails(googlePlaceId, osmId, language) {
-  const [details, setDetails] = useState(null)
-  const detailId = googlePlaceId || osmId
-  const cacheKey = `gdetails_${detailId}_${language}`
-  useEffect(() => {
-    if (!detailId) { setDetails(null); return }
-    if (detailsCache.has(cacheKey)) { setDetails(detailsCache.get(cacheKey)); return }
-    const cached = getSessionCache(cacheKey)
-    if (cached) { detailsCache.set(cacheKey, cached); setDetails(cached); return }
-    mapsApi.details(detailId, language).then(data => {
-      detailsCache.set(cacheKey, data.place)
-      setSessionCache(cacheKey, data.place)
-      setDetails(data.place)
-    }).catch(() => {})
-  }, [detailId, language])
-  return details
 }
 
 function getWeekdayIndex(dateStr, timeZone) {

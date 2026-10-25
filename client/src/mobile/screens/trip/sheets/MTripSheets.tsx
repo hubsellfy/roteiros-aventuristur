@@ -14,6 +14,7 @@ import MDaySheet from './MDaySheet'
 import MDaysSheet from './MDaysSheet'
 import MAccommodationSheet from './MAccommodationSheet'
 import MPlaceSheet from './MPlaceSheet'
+import MPoiSheet from './MPoiSheet'
 import MPlaceEditSheet from './MPlaceEditSheet'
 import MReservationSheet from './MReservationSheet'
 import MTransportFormSheet from './MTransportFormSheet'
@@ -64,6 +65,7 @@ export default function MTripSheets({ planner, shell }: MTripSheetsProps) {
     <>
       {/* ── Mobile sheets (shell.sheet routing + the place selection) ── */}
       <MPlaceSheet planner={planner} shell={shell} />
+      <MPoiSheet planner={planner} shell={shell} />
       <MDaySheet planner={planner} shell={shell} />
       <MDaysSheet planner={planner} shell={shell} />
       <MAccommodationSheet planner={planner} shell={shell} />

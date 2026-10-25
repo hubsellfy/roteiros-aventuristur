@@ -400,7 +400,7 @@ export default function MMapArea({ planner, shell }: MMapAreaProps) {
         // chain to place anything in, so there it stays the plain place form.
         onPoiClick={onStage
           ? planner.handlePoiClick
-          : marker => planner.openAddPlaceFromPoi(marker, planner.selectedDayId)}
+          : marker => shell.openSheet('poi', marker)}
         onViewportChange={poi.onViewportChange}
         onMapReady={setGlMap}
         // Other ways of driving the leg the stage asked about, and the one lit up.

@@ -646,15 +646,28 @@ function buildPluginMarkerPopup(mk: PluginMapMarker): HTMLDivElement {
 // A chain shows its logo instead of the category icon: on a corridor full of petrol
 // stations the brand is what the eye is looking for, and the server proxies it so the
 // browser never asks Wikimedia which ones are on screen.
-function createPoiMarkerElement(category: string, brandWikidata?: string | null): HTMLDivElement {
+function createPoiMarkerElement(category: string, brandWikidata?: string | null, name?: string | null): HTMLDivElement {
   const cat = POI_CATEGORY_BY_KEY[category]
   const color = cat?.color || '#6b7280'
   const svg = cat ? renderIconMarkup(createElement(cat.Icon, { size: 13, color: 'white', strokeWidth: 2.5 })) : ''
   const el = document.createElement('div')
   el.style.cssText = 'width:26px;height:26px;cursor:pointer;will-change:transform;'
   el.innerHTML = `<div style="position:relative;width:26px;height:26px;border-radius:50%;background:${color};border:2px solid #fff;box-shadow:0 1px 5px rgba(0,0,0,0.3);display:flex;align-items:center;justify-content:center;box-sizing:border-box;overflow:hidden;">${svg}${brandLogoMarkup(brandWikidata)}</div>`
+  if (name) {
+    // Aventuristur: the establishment's name beside its pin, as Google Maps does.
+    // textContent, never innerHTML: the name comes from OpenStreetMap and the index.
+    const label = document.createElement('span')
+    label.className = 'poi-pin-label'
+    label.textContent = name
+    label.style.cssText = 'position:absolute;left:30px;top:50%;transform:translateY(-50%);max-width:130px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font:600 11px/1.2 system-ui,sans-serif;color:#fff;text-shadow:0 0 3px #000,0 0 3px #000,0 1px 2px #000;pointer-events:none;display:none;'
+    el.appendChild(label)
+  }
   return el
 }
+
+// Below this zoom a screen full of names would overlap into noise, so the pins
+// show only their icon until the traveller zooms in on a neighbourhood.
+const POI_LABEL_MIN_ZOOM = 14
 
 /**
  * Kept as the one place that decides a POI pin carries no brand mark: nothing.
@@ -2010,7 +2023,7 @@ export function MapViewGL({
           continue
         }
         const poi = group.pois[0]
-        const el = createPoiMarkerElement(poi.category, poi.brand_wikidata)
+        const el = createPoiMarkerElement(poi.category, poi.brand_wikidata, poi.name)
         el.addEventListener('mouseenter', () => {
           popupRef.current?.setLngLat([poi.lng, poi.lat]).setHTML(buildPoiPopupHtml(poi)).addTo(map)
         })
@@ -2022,10 +2035,20 @@ export function MapViewGL({
         poiMarkersRef.current.push(attachPin(map, gl, pinLayerRef.current, el, poi.lng, poi.lat))
       }
     }
-    redraw()
-    if (clusterLoosely) map.on('moveend', redraw)
+    const syncLabels = () => {
+      const show = map.getZoom() >= POI_LABEL_MIN_ZOOM
+      poiMarkersRef.current.forEach(pin => {
+        const label = pin.el.querySelector<HTMLElement>('.poi-pin-label')
+        if (label) label.style.display = show ? 'block' : 'none'
+      })
+    }
+    const redrawAndLabel = () => { redraw(); syncLabels() }
+    redrawAndLabel()
+    map.on('zoomend', syncLabels)
+    if (clusterLoosely) map.on('moveend', redrawAndLabel)
     return () => {
-      map.off('moveend', redraw)
+      map.off('moveend', redrawAndLabel)
+      map.off('zoomend', syncLabels)
       poiCleanupRef.current.forEach(off => off())
       poiCleanupRef.current = []
       poiMarkersRef.current.forEach(pin => pin.remove())
