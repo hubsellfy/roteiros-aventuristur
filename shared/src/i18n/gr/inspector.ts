@@ -26,5 +26,6 @@ const inspector: TranslationStrings = {
   'inspector.trackColor': 'Χρώμα διαδρομής',
   'inspector.trackColorAuto': 'Αυτόματο χρώμα',
   'inspector.trackColorCustom': 'Επιλογή προσαρμοσμένου χρώματος',
+  'inspector.reviews': 'Κριτικές',
 };
 export default inspector;

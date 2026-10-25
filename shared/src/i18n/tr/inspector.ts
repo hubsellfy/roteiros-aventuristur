@@ -26,5 +26,6 @@ const inspector: TranslationStrings = {
   'inspector.trackColor': 'İz rengi',
   'inspector.trackColorAuto': 'Otomatik renk',
   'inspector.trackColorCustom': 'Özel renk seç',
+  'inspector.reviews': 'Yorumlar',
 };
 export default inspector;

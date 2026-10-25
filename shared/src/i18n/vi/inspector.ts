@@ -26,5 +26,6 @@ const inspector: TranslationStrings = {
   'inspector.trackColor': 'Màu đường đi',
   'inspector.trackColorAuto': 'Màu tự động',
   'inspector.trackColorCustom': 'Chọn màu tùy chỉnh',
+  'inspector.reviews': 'Đánh giá',
 };
 export default inspector;

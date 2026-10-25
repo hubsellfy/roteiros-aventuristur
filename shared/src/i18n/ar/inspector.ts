@@ -26,5 +26,6 @@ const inspector: TranslationStrings = {
   'inspector.trackColor': 'لون المسار',
   'inspector.trackColorAuto': 'لون تلقائي',
   'inspector.trackColorCustom': 'اختيار لون مخصص',
+  'inspector.reviews': 'التقييمات',
 };
 export default inspector;

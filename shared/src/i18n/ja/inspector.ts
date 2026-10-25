@@ -26,5 +26,6 @@ const inspector: TranslationStrings = {
   'inspector.trackColor': 'トラックの色',
   'inspector.trackColorAuto': '自動の色',
   'inspector.trackColorCustom': 'カスタムカラーを選択',
+  'inspector.reviews': 'クチコミ',
 };
 export default inspector;

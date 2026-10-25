@@ -1263,9 +1263,11 @@ export const mapsApi = {
   // "name, address" — which the cache matches on the folded NAME alone, so it
   // found nothing and the user got an error toast for a place that was sitting
   // in the cache all along.
-  details: (placeId: string, lang?: string, sessionToken?: string) =>
+  // `expand` adds the written reviews and the editorial summary, at the price of a
+  // heavier Google lookup; the server caches the expanded answer on its own.
+  details: (placeId: string, lang?: string, sessionToken?: string, expand = false) =>
     withCachedPlace(placeId, () =>
-      apiClient.get(`/maps/details/${encodeURIComponent(placeId)}`, { params: { lang, sessionToken } })
+      apiClient.get(`/maps/details/${encodeURIComponent(placeId)}`, { params: { lang, sessionToken, ...(expand ? { expand: 1 } : {}) } })
         .then(r => checkInDev(mapsPlaceDetailsResultSchema, r.data, 'maps.details'))),
   // Pictures and a description for a place that is being looked at but not yet
   // saved. Fans out to several providers server-side, so it takes a signal and

@@ -36,7 +36,8 @@ import { bindDayBoundaryDrag, type DayBoundaryControls } from './dayBoundaryDrag
 import NightPauseTooltip from './NightPauseTooltip'
 import PlaceHoverCard from './PlaceHoverCard'
 import { ratingBadgeHtml } from './ratingBadge'
-import { POI_CATEGORY_BY_KEY, type Poi } from './poiCategories'
+import { formatPoiName } from '../../utils/formatPoiName'
+import { POI_CATEGORY_BY_KEY, POI_LABEL_MIN_ZOOM, type Poi } from './poiCategories'
 import { resolveTrackColor, hasManualTrackColor } from './trackColors'
 import { buildPoiPopupHtml } from './placePopup'
 import { pluginsApi, type PluginMapMarker, type PluginMapLayer } from '../../api/client'
@@ -665,9 +666,6 @@ function createPoiMarkerElement(category: string, brandWikidata?: string | null,
   return el
 }
 
-// Below this zoom a screen full of names would overlap into noise, so the pins
-// show only their icon until the traveller zooms in on a neighbourhood.
-const POI_LABEL_MIN_ZOOM = 14
 
 /**
  * Kept as the one place that decides a POI pin carries no brand mark: nothing.
@@ -2023,7 +2021,7 @@ export function MapViewGL({
           continue
         }
         const poi = group.pois[0]
-        const el = createPoiMarkerElement(poi.category, poi.brand_wikidata, poi.name)
+        const el = createPoiMarkerElement(poi.category, poi.brand_wikidata, formatPoiName(poi.name))
         el.addEventListener('mouseenter', () => {
           popupRef.current?.setLngLat([poi.lng, poi.lat]).setHTML(buildPoiPopupHtml(poi)).addTo(map)
         })

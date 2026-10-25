@@ -2,7 +2,7 @@ import { describe, it, expect, vi, beforeEach } from 'vitest'
 import { render, screen, waitFor } from '@testing-library/react'
 
 vi.mock('../../../../api/client', () => ({
-  mapsApi: { search: vi.fn(), placePhoto: vi.fn(), details: vi.fn() },
+  mapsApi: { search: vi.fn(), placeEnrichment: vi.fn(), details: vi.fn() },
 }))
 vi.mock('../../../components/MSheet', () => ({
   default: ({ open, children }: { open: boolean; children: React.ReactNode }) => (open ? <div>{children}</div> : null),
@@ -32,7 +32,7 @@ function setup(sheetId = 'poi') {
 describe('MPoiSheet', () => {
   beforeEach(() => {
     vi.mocked(mapsApi.search).mockReset()
-    vi.mocked(mapsApi.placePhoto).mockReset()
+    vi.mocked(mapsApi.placeEnrichment).mockReset()
     vi.mocked(mapsApi.details).mockReset()
   })
 
@@ -52,12 +52,27 @@ describe('MPoiSheet', () => {
 
   it('FE-MOB-POISHEET-003: adds the rating and the hours Google returns for the matched place', async () => {
     vi.mocked(mapsApi.search).mockResolvedValue({ places: [{ google_place_id: 'g-9' }], source: 'google' } as never)
-    vi.mocked(mapsApi.placePhoto).mockResolvedValue({ photoUrl: null } as never)
+    vi.mocked(mapsApi.placeEnrichment).mockResolvedValue({
+      photos: [
+        { key: 'g~p0', url: '/api/maps/place-photo/g~p0/bytes', source: 'google' },
+        { key: 'g~p1', url: '/api/maps/place-photo/g~p1/bytes', source: 'google' },
+        { key: 'w1', url: '/api/maps/place-photo/w1/bytes', source: 'wikimedia' },
+      ],
+    } as never)
     vi.mocked(mapsApi.details).mockResolvedValue({
-      place: { rating: 4.7, rating_count: 321, opening_hours: ['segunda: 08:00–18:00'] },
+      place: {
+        rating: 4.7,
+        rating_count: 321,
+        opening_hours: ['segunda-feira: 08:00 – 18:00'],
+        reviews: [{ author: 'Ana', rating: 5, text: 'Café excelente e atendimento atencioso.', time: 'há 2 semanas' }],
+      },
     } as never)
     setup()
     await waitFor(() => expect(screen.getByText('4.7')).toBeTruthy())
-    expect(screen.getByText('segunda: 08:00–18:00')).toBeTruthy()
+    expect(screen.getByText('Segunda')).toBeTruthy()
+    expect(screen.getByText('08:00 – 18:00')).toBeTruthy()
+    expect(screen.getByText('Café excelente e atendimento atencioso.')).toBeTruthy()
+    // Only Google's own pictures are kept: the Wikimedia one would need a credit line.
+    await waitFor(() => expect(screen.getAllByRole('img')).toHaveLength(2))
   })
 })

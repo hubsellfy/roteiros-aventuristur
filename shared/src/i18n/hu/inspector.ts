@@ -26,5 +26,6 @@ const inspector: TranslationStrings = {
   'inspector.trackColor': 'Útvonal színe',
   'inspector.trackColorAuto': 'Automatikus szín',
   'inspector.trackColorCustom': 'Egyéni szín kiválasztása',
+  'inspector.reviews': 'Értékelések',
 };
 export default inspector;
