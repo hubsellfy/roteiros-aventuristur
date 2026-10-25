@@ -385,7 +385,7 @@ function MSpotlightCard({ trip, t, onOpen, actions }: {
       tabIndex={0}
       onClick={onOpen}
       onKeyDown={e => { if (e.key === 'Enter') onOpen() }}
-      className="relative h-[300px] cursor-pointer overflow-hidden rounded-[26px] shadow-[0_24px_56px_-22px_rgba(0,0,0,.5)]"
+      className="relative mt-[34px] h-[300px] cursor-pointer overflow-hidden rounded-[26px] shadow-[0_24px_56px_-22px_rgba(0,0,0,.5)]"
     >
       {trip.cover_image
         ? <img src={trip.cover_image} alt={trip.title} className="absolute inset-0 h-full w-full object-cover" />
