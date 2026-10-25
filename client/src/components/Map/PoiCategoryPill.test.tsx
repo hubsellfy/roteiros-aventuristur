@@ -82,11 +82,11 @@ describe('PoiCategoryPill', () => {
 
   // The phone map hands the bar the whole width between the screen margins, so
   // its segments end up the size of everything else the thumb aims at there.
-  it('FE-COMP-POIPILL-007: fullWidth stretches the bar and spreads the segments', () => {
+  it('FE-COMP-POIPILL-007: fullWidth stretches the bar and shows each category as its own pill', () => {
     pill({ fullWidth: true })
     const button = screen.getAllByRole('button')[0]
-    expect(button.style.flexGrow).toBe('1')
-    expect(button.style.width).toBe('auto')
+    expect(button.style.flex).toBe('0 0 auto')
+    expect(button.style.borderRadius).toBe('999px')
     expect((button.parentElement as HTMLElement).style.display).toBe('flex')
   })
 
@@ -133,16 +133,15 @@ describe('PoiCategoryPill', () => {
     pill({ categories: WITH_PLUGINS, fullWidth: true })
     const bar = screen.getAllByRole('button')[0].parentElement as HTMLElement
     expect(bar.style.overflowX).toBe('auto')
-    expect(bar.style.maxWidth).toBe('100%')
     // The column around it may shrink, or the bar would push past its container instead.
     expect((bar.parentElement as HTMLElement).style.minWidth).toBe('0px')
   })
 
-  it('FE-COMP-POIPILL-013: a phone segment never shrinks below the 34px touch target', () => {
+  it('FE-COMP-POIPILL-013: a phone pill never shrinks and keeps a touch target taller than 34px', () => {
     pill({ categories: WITH_PLUGINS, fullWidth: true })
     for (const button of screen.getAllByRole('button')) {
-      expect(button.style.minWidth).toBe('34px')
-      expect(button.style.height).toBe('34px')
+      expect(button.style.flex).toBe('0 0 auto')
+      expect(button.style.height).toBe('38px')
     }
   })
 

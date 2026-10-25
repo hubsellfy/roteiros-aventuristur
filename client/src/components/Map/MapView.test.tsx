@@ -818,12 +818,12 @@ describe('MapView', () => {
       expect(L.latLngBounds).not.toHaveBeenCalled()
     })
 
-    it('FE-COMP-MAPVIEW-023: falls back to the world view when no place has coordinates', () => {
+    it('FE-COMP-MAPVIEW-023: falls back to the Brazil view when no place has coordinates', () => {
       render(<MapView places={[buildMapPlace({ id: 1, lat: null, lng: null })]} />)
 
       const { center, zoom } = camera()
-      expect(center).toEqual([0, 0])
-      expect(zoom).toBe(2)
+      expect(center).toEqual([-14.2, -51.9])
+      expect(zoom).toBe(4)
     })
   })
 
