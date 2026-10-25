@@ -44,7 +44,7 @@ export default function TripPlanner({ pending, onCreated, onRetry, onRemove }: T
   const styleOptions = TRIP_PLAN_STYLES.filter(value => value !== 'equilibrado').map(value => ({ value, label: t(`dashboard.plan.style.${value}`) }))
   const travelerOptions = TRAVELER_OPTIONS.map(n => ({
     value: n,
-    label: n === 1 ? t('dashboard.plan.travelersOne') : t('dashboard.plan.travelersMany', { count: n }),
+    label: n === 1 ? t('dashboard.plan.travelersOne') : t('dashboard.plan.travelersMany', { people: n }),
   }))
 
   return (

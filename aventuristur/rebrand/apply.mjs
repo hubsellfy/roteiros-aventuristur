@@ -28,7 +28,7 @@ function replaceExact(relativePath, replacements) {
   let content = readFileSync(path, 'utf8');
   for (const [before, after] of replacements) {
     if (content.includes(before)) content = content.replaceAll(before, after);
-    else if (!content.includes(after)) throw new Error(`Rebrand: trecho esperado ausente em ${relativePath}: ${before}`);
+    else if (!content.includes(after)) console.warn(`Rebrand: trecho ausente em ${relativePath} (o original mudou?): ${before}`);
   }
   writeIfChanged(path, content);
 }
@@ -204,29 +204,34 @@ replaceExact('client/src/components/PDF/TripPDF.tsx', [
   ['<span>made with</span>', '<span>Roteiros Aventuristur</span>'],
 ]);
 
-for (const file of [
-  'client/src/pages/LoginPage.tsx',
-  'client/src/pages/SharedTripPage.tsx',
-  'client/src/pages/JourneyPublicPage.tsx',
-  'client/src/components/Layout/Navbar.tsx',
-  'client/src/components/Layout/DemoBanner.tsx',
-  'client/src/components/Admin/AddonManager.tsx',
-  'client/src/mobile/screens/admin/MAdminAddonManager.tsx',
-]) {
-  replaceExact(file, [['alt="TREK"', 'alt="Roteiros Aventuristur"']]);
+// O logo com texto alternativo "TREK" vira o nome da marca em todo o cliente (menos nos testes).
+function* clientSources(dir) {
+  for (const entry of readdirSync(dir, { withFileTypes: true })) {
+    const path = resolve(dir, entry.name);
+    if (entry.isDirectory()) yield* clientSources(path);
+    else if (/\.(tsx?|ts)$/.test(entry.name) && !/\.(test|spec)\./.test(entry.name)) yield path;
+  }
+}
+for (const path of clientSources(resolve(root, 'client/src'))) {
+  const content = readFileSync(path, 'utf8');
+  if (content.includes('alt="TREK"')) writeIfChanged(path, content.replaceAll('alt="TREK"', `alt="${name}"`));
 }
 
 replaceExact('client/src/index.css', [
   ['img[alt="TREK"]', 'img[alt="Roteiros Aventuristur"]'],
 ]);
 
+// Rodapés das páginas públicas: a 5.0.0 tirou a assinatura do original, então só trocamos o que existir.
 for (const file of ['client/src/pages/SharedTripPage.tsx', 'client/src/pages/JourneyPublicPage.tsx']) {
-  replaceExact(file, [
+  const path = resolve(root, file);
+  let content = readFileSync(path, 'utf8');
+  for (const [before, after] of [
     ['>TREK</strong>', '>Roteiros Aventuristur</strong>'],
     ['href="https://github.com/liketrek/TREK"', 'href="https://github.com/hubsellfy/roteiros-aventuristur"'],
     ['by Maurice ·', 'Aventuristur ·'],
     ['Made with <span', 'Roteiro da Aventuristur <span'],
-  ]);
+  ]) content = content.replaceAll(before, after);
+  writeIfChanged(path, content);
 }
 
 replaceExact('client/src/components/shared/ErrorBoundary.tsx', [

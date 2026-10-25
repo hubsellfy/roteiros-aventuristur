@@ -8,9 +8,11 @@ import {
   getIntlLanguage,
   isRtlLanguage,
   escapeHtml,
-  sanitizeInlineHtml,
 } from '@trek/shared'
+import { sanitizeInlineHtml } from '@trek/shared/sanitize'
 import type { TranslationStrings } from '@trek/shared/i18n'
+import { importChunk } from '../utils/chunkReload'
+import { resolveTemplate } from './resolveTemplate'
 
 export { SUPPORTED_LANGUAGES }
 
@@ -26,30 +28,7 @@ const localeLoaders: Record<SupportedLanguageCode, () => Promise<{ default: Tran
 // through this module without changing their import path.
 export { getLocaleForLanguage, getIntlLanguage, isRtlLanguage }
 
-// Detects the user's preferred language from browser/OS settings.
-// Returns null if no supported language matches.
-export function detectBrowserLanguage(): string | null {
-  if (typeof navigator === 'undefined') return null
-  const browserLangs = navigator.languages?.length
-    ? navigator.languages
-    : navigator.language ? [navigator.language] : []
-  const supported = SUPPORTED_LANGUAGES.map(l => l.value)
-
-  for (const lang of browserLangs) {
-    const exactMatch = supported.find(s => s.toLowerCase() === lang.toLowerCase())
-    if (exactMatch) return exactMatch
-
-    // pt-BR has no exact match (our code is 'br'), so map it explicitly.
-    // pt-PT and bare 'pt' are NOT mapped — they fall through to null.
-    if (lang.toLowerCase() === 'pt-br') return 'br'
-
-    const prefix = lang.split('-')[0]?.toLowerCase()
-    const prefixMatch = supported.find(s => s.toLowerCase() === prefix)
-    if (prefixMatch) return prefixMatch
-  }
-
-  return null
-}
+export { detectBrowserLanguage } from './detectBrowserLanguage'
 
 interface TranslationContextValue {
   t: (key: string, params?: Record<string, string | number>) => string
@@ -86,10 +65,13 @@ interface TranslationProviderProps {
 
 export function TranslationProvider({ children }: TranslationProviderProps) {
   const language = useSettingsStore((s) => s.settings.language) || 'en'
-  const [strings, setStrings] = useState<TranslationStrings>(en)
+  // The catalogue together with the language it belongs to: while another
+  // language loads, or when its chunk fails, the strings on screen are still
+  // the previous ones, and their plural forms follow that language's rule.
+  const [catalogue, setCatalogue] = useState<{ language: string; strings: TranslationStrings }>({ language: 'en', strings: en })
 
   useEffect(() => {
-    document.documentElement.lang = language
+    document.documentElement.lang = getIntlLanguage(language)
     document.documentElement.dir = isRtlLanguage(language) ? 'rtl' : 'ltr'
   }, [language])
 
@@ -98,8 +80,12 @@ export function TranslationProvider({ children }: TranslationProviderProps) {
     if (!loader) return
 
     let cancelled = false
-    loader().then(mod => {
-      if (!cancelled) setStrings(mod.default)
+    importChunk(loader).then(mod => {
+      // The same table for the same language keeps the state, and with it t():
+      // English arrives as the very table the provider started with.
+      if (!cancelled) {
+        setCatalogue(prev => (prev.language === language && prev.strings === mod.default ? prev : { language, strings: mod.default }))
+      }
     }).catch(err => {
       // The locale chunk can be gone after a deploy. Keep the strings we have —
       // an untranslated UI beats an unhandled rejection and a blank screen.
@@ -109,8 +95,12 @@ export function TranslationProvider({ children }: TranslationProviderProps) {
   }, [language])
 
   const value = useMemo((): TranslationContextValue => {
+    const intlLanguage = getIntlLanguage(catalogue.language)
+    const template = (key: string, params?: Record<string, string | number>): string =>
+      resolveTemplate(catalogue.strings, intlLanguage, key, params)
+
     function t(key: string, params?: Record<string, string | number>): string {
-      let val: string = (strings[key] ?? en[key] ?? key) as string
+      let val = template(key, params)
       if (params) {
         Object.entries(params).forEach(([k, v]) => {
           // Function replacement: a value carrying `$&` or `$1` (a trip named
@@ -122,7 +112,7 @@ export function TranslationProvider({ children }: TranslationProviderProps) {
     }
 
     function tHtml(key: string, params?: Record<string, string | number>): string {
-      let val: string = (strings[key] ?? en[key] ?? key) as string
+      let val = template(key, params)
       if (params) {
         Object.entries(params).forEach(([k, v]) => {
           // Escape BEFORE substitution so a user-controlled value with `<` or
@@ -137,7 +127,7 @@ export function TranslationProvider({ children }: TranslationProviderProps) {
     }
 
     return { t, tHtml, language, locale: getLocaleForLanguage(language) }
-  }, [strings, language])
+  }, [catalogue, language])
 
   return <TranslationContext value={value}>{children}</TranslationContext>
 }

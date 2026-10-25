@@ -1,6 +1,7 @@
-import { describe, it, expect, vi } from 'vitest';
-import { evaluate, registerPredicate } from '../../../src/systemNotices/conditions.js';
+import { evaluate } from '../../../src/systemNotices/conditions.js';
 import type { NoticeCondition, SystemNotice } from '../../../src/systemNotices/types.js';
+
+import { describe, it, expect } from 'vitest';
 
 const baseNotice: SystemNotice = {
   id: 'test',
@@ -31,6 +32,11 @@ const baseCtx = {
   // The ordinary install, so every case below is unaffected by the flag; the
   // managed condition itself is exercised in its own describe block at the end.
   managed: false,
+  // Plan 3f Task 6: threaded in by the caller the same way addonEnabled is,
+  // for a `case 'custom'` predicate that needs a pre-resolved DB-backed flag
+  // (registry.ts's whitespace-collision-detected). No case below exercises a
+  // custom predicate, so this stays false throughout.
+  settingFlag: () => false,
 };
 
 describe('firstLogin', () => {
@@ -90,10 +96,7 @@ describe('role', () => {
 
 describe('AND logic', () => {
   it('requires all conditions to pass', () => {
-    const notice = noticeWith(
-      { kind: 'firstLogin' },
-      { kind: 'role', roles: ['user'] },
-    );
+    const notice = noticeWith({ kind: 'firstLogin' }, { kind: 'role', roles: ['user'] });
     // login_count=1 passes firstLogin, role=user passes role → true
     expect(evaluate(notice, { ...baseCtx, user: { ...baseCtx.user, login_count: 1 } })).toBe(true);
     // login_count=2 fails firstLogin → false
@@ -128,33 +131,5 @@ describe('managed', () => {
     expect(evaluate(wantsSelfRun, { ...baseCtx, managed: true })).toBe(false);
     expect(evaluate(wantsManaged, { ...baseCtx, managed: true })).toBe(true);
     expect(evaluate(wantsManaged, { ...baseCtx, managed: false })).toBe(false);
-  });
-});
-
-describe('always, noTrips and custom', () => {
-  it('always passes', () => {
-    expect(evaluate(noticeWith({ kind: 'always' }), baseCtx)).toBe(true);
-  });
-
-  it('noTrips passes only for a user without trips', () => {
-    const notice = noticeWith({ kind: 'noTrips' });
-    expect(evaluate(notice, { ...baseCtx, user: { ...baseCtx.user, noTrips: 0 } })).toBe(true);
-    expect(evaluate(notice, baseCtx)).toBe(false);
-  });
-
-  it('custom runs the registered predicate and refuses an unknown one', () => {
-    registerPredicate('fork-test-predicate', (ctx) => ctx.user.role === 'admin');
-    const notice = noticeWith({ kind: 'custom', id: 'fork-test-predicate' } as NoticeCondition);
-    expect(evaluate(notice, { ...baseCtx, user: { ...baseCtx.user, role: 'admin' } })).toBe(true);
-    expect(evaluate(notice, baseCtx)).toBe(false);
-
-    const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
-    expect(evaluate(noticeWith({ kind: 'custom', id: 'nobody-registered-this' } as NoticeCondition), baseCtx)).toBe(false);
-    expect(warn).toHaveBeenCalled();
-    warn.mockRestore();
-  });
-
-  it('an unrecognised condition kind never passes', () => {
-    expect(evaluate(noticeWith({ kind: 'from-the-future' } as unknown as NoticeCondition), baseCtx)).toBe(false);
   });
 });

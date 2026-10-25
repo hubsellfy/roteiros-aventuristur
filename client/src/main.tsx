@@ -21,6 +21,12 @@ import '@fontsource/museomoderno/800.css'
 // several .leaflet-* styles.
 import 'leaflet/dist/leaflet.css'
 import './index.css'
+import './styles/ferratas.css'
+import './styles/paddle.css'
+import './styles/walkRoute.css'
+import './styles/bike.css'
+import './styles/horse.css'
+import './styles/hike.css'
 import './styles/aventuristur.css'
 // Native HTML5 drag-and-drop never fires on touch input, so the planner's place /
 // day reordering was dead on Android and iOS. The `drag-drop-touch` polyfill synthesises
@@ -35,10 +41,10 @@ import ErrorBoundary, { RootErrorFallback } from './components/shared/ErrorBound
 import { installGlobalErrorHandlers } from './utils/globalErrorHandlers'
 import { schedulePrecacheRepair } from './utils/serviceWorkerShell'
 
-maybeInstallTouchDragPolyfill()
+void maybeInstallTouchDragPolyfill()
 startConnectivityProbe()
 // Keep offline data (map tiles, file blobs, IndexedDB) exempt from eviction.
-requestPersistentStorage()
+void requestPersistentStorage()
 // Event handlers and async code never reach a boundary; this is where they land.
 installGlobalErrorHandlers()
 // A page the precache keeps under a stylesheet's or a script's name would be

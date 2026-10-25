@@ -19,12 +19,23 @@ export function getLocaleForLanguage(language: string): string {
   return LOCALES[language] ?? LOCALES['en'] ?? 'en-US';
 }
 
-// Returns a BCP-47 tag suitable for Intl APIs.
+// Two codes TREK uses are not the BCP-47 tag of their language: 'br' is Breton
+// and 'gr' is no language at all.
+const INTL_LANGUAGE: Partial<Record<string, string>> = { br: 'pt-BR', gr: 'el' };
+
+// Returns a BCP-47 tag suitable for Intl APIs and the document's lang attribute.
 export function getIntlLanguage(language: string): string {
-  if (language === 'br') return 'pt-BR';
+  const tag = INTL_LANGUAGE[language];
+  if (tag) return tag;
   return SUPPORTED_LANGUAGE_CODES.includes(language) ? language : 'en';
 }
 
 export function isRtlLanguage(language: string): boolean {
   return RTL_LANGUAGES.has(language);
 }
+
+// Aventuristur: o app oferece somente português do Brasil, inglês e espanhol nos seletores.
+// SUPPORTED_LANGUAGES continua completo porque o Intl, as regras de plural e a checagem de
+// paridade dos textos dependem de cada código.
+export const APP_LANGUAGE_CODES: readonly SupportedLanguageCode[] = ['br', 'en', 'es'];
+export const APP_LANGUAGES = SUPPORTED_LANGUAGES.filter((l) => APP_LANGUAGE_CODES.includes(l.value));

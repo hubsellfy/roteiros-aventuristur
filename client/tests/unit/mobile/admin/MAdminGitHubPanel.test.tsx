@@ -69,8 +69,8 @@ describe('MAdminGitHubPanel', () => {
     expect(discord).toHaveAttribute('rel', 'noopener noreferrer');
     expect(screen.getByText('Report a Bug')).toBeInTheDocument();
     expect(screen.getByText('Feature Request')).toBeInTheDocument();
-    expect(screen.getByText('Wiki').closest('a')).toHaveAttribute('href', 'https://github.com/mauriceboe/TREK/wiki');
-    expect(screen.getAllByText('Helps me keep building Roteiros Aventuristur')).toHaveLength(2);
+    expect(screen.getByText('Wiki').closest('a')).toHaveAttribute('href', 'https://github.com/liketrek/TREK/wiki');
+    expect(screen.getAllByText('Helps me keep building TREK')).toHaveLength(2);
   });
 
   it('FE-MOB-AGH-002: shows a spinner while the releases request is in flight', () => {
@@ -102,10 +102,10 @@ describe('MAdminGitHubPanel', () => {
     await renderPanel();
 
     expect(screen.getByText('Release History')).toBeInTheDocument();
-    expect(screen.getByText('Latest updates from mauriceboe/TREK')).toBeInTheDocument();
+    expect(screen.getByText('Latest updates from liketrek/TREK')).toBeInTheDocument();
     expect(screen.getByText('GitHub').closest('a')).toHaveAttribute(
       'href',
-      'https://github.com/mauriceboe/TREK/releases',
+      'https://github.com/liketrek/TREK/releases',
     );
   });
 

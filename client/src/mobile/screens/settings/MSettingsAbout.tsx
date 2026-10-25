@@ -1,4 +1,4 @@
-import { ExternalLink, Info } from 'lucide-react';
+import { ExternalLink, Info } from '../../../icons';
 import { useTranslation } from '../../../i18n';
 import { aboutCopy, buildCommit, LICENSE_URL, sourceUrl } from '../../../brand/aboutContent';
 import { MSetCard } from './MSettingsUi';

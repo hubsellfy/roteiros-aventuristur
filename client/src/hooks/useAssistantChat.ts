@@ -1,13 +1,13 @@
 import { useCallback, useRef, useState } from 'react'
-import type { AssistantCard, AssistantMessage } from '@trek/shared'
-import { assistantApi } from '../api/client'
+import type { RoteiroCard, RoteiroMessage } from '@trek/shared'
+import { roteiroApi } from '../api/client'
 import { getApiErrorMessage } from '../utils/apiError'
 
 export interface AssistantTurn {
   id: number
   role: 'user' | 'assistant'
   text: string
-  cards: AssistantCard[]
+  cards: RoteiroCard[]
   /** True for an error line shown in the assistant's voice, which is not sent back as history. */
   failed?: boolean
 }
@@ -30,14 +30,14 @@ export function useAssistantChat(tripId: number | null | undefined, language: st
     const text = raw.trim()
     if (!text || !tripId || loading) return
     const userTurn: AssistantTurn = { id: nextId.current++, role: 'user', text, cards: [] }
-    const history: AssistantMessage[] = [...turnsRef.current, userTurn]
+    const history: RoteiroMessage[] = [...turnsRef.current, userTurn]
       .filter(turn => !turn.failed)
       .slice(-HISTORY_TURNS)
       .map(turn => ({ role: turn.role, content: turn.text }))
     setTurns(prev => [...prev, userTurn])
     setLoading(true)
     try {
-      const res = await assistantApi.chat({ tripId, language, messages: history })
+      const res = await roteiroApi.chat({ tripId, language, messages: history })
       setTurns(prev => [...prev, { id: nextId.current++, role: 'assistant', text: res.reply, cards: res.cards }])
     } catch (err: unknown) {
       // The server words its limit message for the traveller; any other failure gets the generic line.

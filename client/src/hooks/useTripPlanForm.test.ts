@@ -2,7 +2,7 @@ import { describe, it, expect, vi, beforeEach } from 'vitest'
 import { renderHook, act } from '@testing-library/react'
 
 const createTripPlan = vi.fn()
-vi.mock('../api/client', () => ({ assistantApi: { createTripPlan: (...a: unknown[]) => createTripPlan(...a) } }))
+vi.mock('../api/client', () => ({ roteiroApi: { createTripPlan: (...a: unknown[]) => createTripPlan(...a) } }))
 const toast = { success: vi.fn(), error: vi.fn() }
 vi.mock('../components/shared/Toast', () => ({ useToast: () => toast }))
 vi.mock('../i18n', () => ({ useTranslation: () => ({ t: (k: string, p?: Record<string, unknown>) => (p ? `${k}:${JSON.stringify(p)}` : k), locale: 'pt-BR' }) }))

@@ -7,7 +7,7 @@ vi.mock('../../../components/MSheet', () => ({
 
 const chat = vi.fn()
 vi.mock('../../../../api/client', () => ({
-  assistantApi: { chat: (...a: unknown[]) => chat(...a) },
+  roteiroApi: { chat: (...a: unknown[]) => chat(...a) },
   mapsApi: { placeEnrichment: vi.fn().mockResolvedValue({ photos: [] }) },
 }))
 

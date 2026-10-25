@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import type { AssistantCard } from '@trek/shared'
+import type { RoteiroCard } from '@trek/shared'
 import { ExternalLink, Plus, Star } from 'lucide-react'
 import { useTranslation } from '../../../../i18n'
 import { useGooglePlacePhoto } from '../../../../hooks/useGooglePlacePhoto'
@@ -7,12 +7,12 @@ import { safeHttpUrl } from '../../../../utils/safeUrl'
 import { INNER_CLS } from './MTripSheetUi'
 
 interface Props {
-  card: AssistantCard
+  card: RoteiroCard
   language: string
   /** Day number to name on the button when the assistant proposed a day. */
   dayNumber: number | null
   canAdd: boolean
-  onAdd: (card: AssistantCard) => Promise<boolean>
+  onAdd: (card: RoteiroCard) => Promise<boolean>
 }
 
 /**
@@ -62,7 +62,7 @@ export default function MAssistantCard({ card, language, dayNumber, canAdd, onAd
               <Plus size={14} strokeWidth={2.2} />
               {state === 'added'
                 ? t('assistant.added')
-                : dayNumber != null ? t('assistant.addToDay', { n: dayNumber }) : t('assistant.addToTrip')}
+                : dayNumber != null ? t('assistant.addToDay', { day: dayNumber }) : t('assistant.addToTrip')}
             </button>
           )}
           {mapsUrl && (

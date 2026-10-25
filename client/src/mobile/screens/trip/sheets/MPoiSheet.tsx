@@ -5,7 +5,7 @@ import type { MTripSheetsProps } from '../MTripShell'
 import { useTranslation, getIntlLanguage } from '../../../../i18n'
 import { mapsApi } from '../../../../api/client'
 import { usePlaceDetails } from '../../../../hooks/usePlaceDetails'
-import { POI_CATEGORY_BY_KEY, type Poi } from '../../../../components/Map/poiCategories'
+import { poiCategoryOf, type Poi } from '../../../../components/Map/poiCategories'
 import { getNavigationTargets, openNavigationTarget } from '../../../../components/Planner/placeNavigation'
 import { NavigationMenu } from '../../../../components/shared/NavigationMenu'
 import { formatPoiName } from '../../../../utils/formatPoiName'
@@ -80,7 +80,7 @@ export default function MPoiSheet({ planner, shell }: MTripSheetsProps) {
   }, [poi?.osm_id, language])
 
   const details = usePlaceDetails(match?.googleId, null, language, true)
-  const category = poi ? POI_CATEGORY_BY_KEY[poi.category] : undefined
+  const category = poi ? poiCategoryOf(poi.category) : undefined
   const navTargets = getNavigationTargets(poi ? { name: poi.name, lat: poi.lat, lng: poi.lng } : null, details?.google_maps_url)
   const website = safeHttpUrl(poi?.website) ?? safeHttpUrl(details?.website)
   const phone = poi?.phone || details?.phone

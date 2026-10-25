@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { TRIP_PLAN_MAX_DAYS, type TripPlanStyle } from '@trek/shared'
-import { assistantApi } from '../api/client'
+import { roteiroApi } from '../api/client'
 import { useTranslation } from '../i18n'
 import { useToast } from '../components/shared/Toast'
 import { getApiErrorMessage } from '../utils/apiError'
@@ -45,7 +45,7 @@ export function useTripPlanForm(onCreated: () => void) {
   const validate = (): string | null => {
     if (destination.trim().length < 2) return t('dashboard.plan.errDestination')
     if (!startDate || !endDate || endDate < startDate) return t('dashboard.plan.errDates')
-    if (planSpanDays(startDate, endDate) > TRIP_PLAN_MAX_DAYS) return t('dashboard.plan.errDays', { max: TRIP_PLAN_MAX_DAYS })
+    if (planSpanDays(startDate, endDate) > TRIP_PLAN_MAX_DAYS) return t('dashboard.plan.errDays', { limit: TRIP_PLAN_MAX_DAYS })
     return null
   }
 
@@ -57,7 +57,7 @@ export function useTripPlanForm(onCreated: () => void) {
     const amount = Number(budget.replace(',', '.'))
     setSubmitting(true)
     try {
-      await assistantApi.createTripPlan({
+      await roteiroApi.createTripPlan({
         destination: destination.trim(),
         origin: origin.trim() || null,
         startDate,

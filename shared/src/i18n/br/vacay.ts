@@ -73,7 +73,7 @@ const vacay: TranslationStrings = {
   'vacay.blockWeekendsHint': 'Impedir entradas de férias aos sábados e domingos',
   'vacay.publicHolidays': 'Feriados nacionais',
   'vacay.schoolHolidays': 'Férias escolares',
-  'vacay.schoolHolidaysHint': 'Marca as férias escolares como uma camada visual no calendário',
+  'vacay.schoolHolidaysHint': 'Marcar as férias escolares como uma camada visual no calendário',
   'vacay.selectCountry': 'Selecione o país',
   'vacay.selectRegion': 'Selecione a região (obrigatório)',
   'vacay.addCalendar': 'Adicionar calendário',
@@ -89,10 +89,11 @@ const vacay: TranslationStrings = {
   'vacay.carryOverHint': 'Levar automaticamente os dias de férias restantes para o ano seguinte',
   'vacay.carriedOverPrevPeriod': 'do período anterior',
   'vacay.compUsedCount': '{count} banco de horas',
+  'vacay.compUsedCount.one': '{count} banco de horas',
   'vacay.yearType': 'Ano de férias',
   'vacay.yearTypeHint': 'Quando começa seu ano de férias — direito, uso e acúmulo seguem essa data',
   'vacay.yearTypeCalendar': 'Calendário',
-  'vacay.yearTypeFiscal': 'Fiscal',
+  'vacay.yearTypeFiscal': 'Fiscal', // same-as-en
   'vacay.yearTypeAnniversary': 'Admissão',
   'vacay.yearStartMonth': 'Mês inicial',
   'vacay.yearStartDay': 'Dia',
@@ -147,7 +148,7 @@ const vacay: TranslationStrings = {
   'vacay.hideFromCalendar': 'Ocultar do calendário',
   'vacay.sharedEmpty': 'Mostrem seus calendários um ao outro sem fundi-los.',
   'vacay.sharedLegend': 'Compartilhado (somente visualização)',
-  'vacay.publicHolidaysHint': 'Marca os feriados no calendário',
+  'vacay.publicHolidaysHint': 'Marcar os feriados no calendário',
   'vacay.noCalendars': 'Nenhum calendário de feriados adicionado ainda',
 };
 export default vacay;
