@@ -2,8 +2,6 @@ import { describe, it, expect, vi } from 'vitest';
 import { evaluate, registerPredicate } from '../../../src/systemNotices/conditions.js';
 import type { NoticeCondition, SystemNotice } from '../../../src/systemNotices/types.js';
 
-import { describe, it, expect } from 'vitest';
-
 const baseNotice: SystemNotice = {
   id: 'test',
   display: 'modal',
