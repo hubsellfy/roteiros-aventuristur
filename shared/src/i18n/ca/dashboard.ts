@@ -210,7 +210,7 @@ const dashboard: TranslationStrings = {
   'dashboard.plan.destination': 'Destinació',
   'dashboard.plan.destinationPh': 'Per exemple: Lisboa, Orlando, Tòquio...',
   'dashboard.plan.origin': 'Sortint de',
-  'dashboard.plan.originPh': 'Ciutat de sortida (opcional)',
+  'dashboard.plan.originPh': 'Ciutat de sortida',
   'dashboard.plan.dates': 'Dates del viatge',
   'dashboard.plan.budget': 'Pressupost (R$)',
   'dashboard.plan.budgetPh': 'Opcional',

@@ -208,7 +208,7 @@ const dashboard: TranslationStrings = {
   'dashboard.plan.destination': 'Varış noktası',
   'dashboard.plan.destinationPh': 'Örneğin: Lizbon, Orlando, Tokyo...',
   'dashboard.plan.origin': 'Kalkış yeri',
-  'dashboard.plan.originPh': 'Kalkış şehri (isteğe bağlı)',
+  'dashboard.plan.originPh': 'Kalkış şehri',
   'dashboard.plan.dates': 'Seyahat tarihleri',
   'dashboard.plan.budget': 'Bütçe (R$)',
   'dashboard.plan.budgetPh': 'İsteğe bağlı',

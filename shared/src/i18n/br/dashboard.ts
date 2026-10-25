@@ -207,7 +207,7 @@ const dashboard: TranslationStrings = {
   'dashboard.plan.destination': 'Destino',
   'dashboard.plan.destinationPh': 'Por exemplo: Gramado, Lisboa, Orlando...',
   'dashboard.plan.origin': 'Saindo de',
-  'dashboard.plan.originPh': 'Cidade de partida (opcional)',
+  'dashboard.plan.originPh': 'Cidade de partida',
   'dashboard.plan.dates': 'Datas da viagem',
   'dashboard.plan.budget': 'Orçamento (R$)',
   'dashboard.plan.budgetPh': 'Opcional',

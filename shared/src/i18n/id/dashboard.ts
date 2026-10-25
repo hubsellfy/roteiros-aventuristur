@@ -209,7 +209,7 @@ const dashboard: TranslationStrings = {
   'dashboard.plan.destination': 'Tujuan',
   'dashboard.plan.destinationPh': 'Misalnya: Lisbon, Orlando, Tokyo...',
   'dashboard.plan.origin': 'Berangkat dari',
-  'dashboard.plan.originPh': 'Kota keberangkatan (opsional)',
+  'dashboard.plan.originPh': 'Kota keberangkatan',
   'dashboard.plan.dates': 'Tanggal perjalanan',
   'dashboard.plan.budget': 'Anggaran (R$)',
   'dashboard.plan.budgetPh': 'Opsional',

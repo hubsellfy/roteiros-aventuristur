@@ -207,7 +207,7 @@ const dashboard: TranslationStrings = {
   'dashboard.plan.destination': 'Cíl cesty',
   'dashboard.plan.destinationPh': 'Například: Lisabon, Orlando, Tokio...',
   'dashboard.plan.origin': 'Odjezd z',
-  'dashboard.plan.originPh': 'Místo odjezdu (volitelné)',
+  'dashboard.plan.originPh': 'Místo odjezdu',
   'dashboard.plan.dates': 'Termín cesty',
   'dashboard.plan.budget': 'Rozpočet (R$)',
   'dashboard.plan.budgetPh': 'Volitelné',

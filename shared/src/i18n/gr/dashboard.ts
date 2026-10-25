@@ -212,7 +212,7 @@ const dashboard: TranslationStrings = {
   'dashboard.plan.destination': 'Προορισμός',
   'dashboard.plan.destinationPh': 'Για παράδειγμα: Λισαβόνα, Ορλάντο, Τόκιο...',
   'dashboard.plan.origin': 'Αναχώρηση από',
-  'dashboard.plan.originPh': 'Πόλη αναχώρησης (προαιρετικό)',
+  'dashboard.plan.originPh': 'Πόλη αναχώρησης',
   'dashboard.plan.dates': 'Ημερομηνίες ταξιδιού',
   'dashboard.plan.budget': 'Προϋπολογισμός (R$)',
   'dashboard.plan.budgetPh': 'Προαιρετικό',

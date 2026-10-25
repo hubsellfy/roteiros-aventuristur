@@ -207,7 +207,7 @@ const dashboard: TranslationStrings = {
   'dashboard.plan.destination': '목적지',
   'dashboard.plan.destinationPh': '예: 리스본, 올랜도, 도쿄...',
   'dashboard.plan.origin': '출발지',
-  'dashboard.plan.originPh': '출발 도시(선택)',
+  'dashboard.plan.originPh': '출발 도시',
   'dashboard.plan.dates': '여행 날짜',
   'dashboard.plan.budget': '예산(R$)',
   'dashboard.plan.budgetPh': '선택',

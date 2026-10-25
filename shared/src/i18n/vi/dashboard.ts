@@ -209,7 +209,7 @@ const dashboard: TranslationStrings = {
   'dashboard.plan.destination': 'Điểm đến',
   'dashboard.plan.destinationPh': 'Ví dụ: Lisbon, Orlando, Tokyo...',
   'dashboard.plan.origin': 'Khởi hành từ',
-  'dashboard.plan.originPh': 'Thành phố khởi hành (tùy chọn)',
+  'dashboard.plan.originPh': 'Thành phố khởi hành',
   'dashboard.plan.dates': 'Ngày đi',
   'dashboard.plan.budget': 'Ngân sách (R$)',
   'dashboard.plan.budgetPh': 'Tùy chọn',

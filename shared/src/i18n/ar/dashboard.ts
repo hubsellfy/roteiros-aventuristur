@@ -206,7 +206,7 @@ const dashboard: TranslationStrings = {
   'dashboard.plan.destination': 'الوجهة',
   'dashboard.plan.destinationPh': 'مثلًا: لشبونة، أورلاندو، طوكيو...',
   'dashboard.plan.origin': 'المغادرة من',
-  'dashboard.plan.originPh': 'مدينة المغادرة (اختياري)',
+  'dashboard.plan.originPh': 'مدينة المغادرة',
   'dashboard.plan.dates': 'تواريخ الرحلة',
   'dashboard.plan.budget': 'الميزانية (R$)',
   'dashboard.plan.budgetPh': 'اختياري',

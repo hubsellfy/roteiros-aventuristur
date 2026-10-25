@@ -21,6 +21,10 @@ interface CustomDatePickerProps {
   style?: React.CSSProperties;
   compact?: boolean;
   borderless?: boolean;
+  /** Hides the small keyboard button beside the trigger (typing is still possible in the popup). */
+  hideManualEntry?: boolean;
+  /** Fully rounded trigger, for forms laid out with pill-shaped fields. */
+  pill?: boolean;
   /** Read-only contexts (a shared journey, a locked form) — same as CustomTimePicker. */
   disabled?: boolean;
   // Optional inclusive ISO (YYYY-MM-DD) bounds. Dates outside the range are
@@ -36,6 +40,8 @@ export function CustomDatePicker({
   style = {},
   compact = false,
   borderless = false,
+  hideManualEntry = false,
+  pill = false,
   disabled = false,
   min,
   max,
@@ -317,12 +323,12 @@ export function CustomDatePicker({
               alignItems: 'center',
               justifyContent: 'center',
               gap: compact ? 4 : 8,
-              padding: compact ? '4px 6px' : '8px 14px',
-              borderRadius: compact ? 4 : 10,
+              padding: compact ? '4px 6px' : pill ? '12px 18px' : '8px 14px',
+              borderRadius: compact ? 4 : pill ? 999 : 10,
               border: borderless ? 'none' : '1px solid var(--border-primary)',
               background: borderless ? 'transparent' : 'var(--bg-input)',
               color: displayValue ? 'var(--text-primary)' : 'var(--text-faint)',
-              fontSize: 'calc(13px * var(--fs-scale-body, 1))',
+              fontSize: pill ? 'calc(15px * var(--fs-scale-body, 1))' : 'calc(13px * var(--fs-scale-body, 1))',
               fontFamily: 'inherit',
               cursor: disabled ? 'default' : 'pointer',
               opacity: disabled ? 0.6 : 1,
@@ -341,7 +347,7 @@ export function CustomDatePicker({
           </button>
 
           {/* Keyboard / text-input trigger (non-compact only; compact gets it in the popup footer) */}
-          {!compact && !borderless && (
+          {!compact && !borderless && !hideManualEntry && (
             <button
               type="button"
               onClick={() => {

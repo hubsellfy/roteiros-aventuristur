@@ -23,6 +23,8 @@ interface CustomSelectProps {
   searchable?: boolean
   style?: React.CSSProperties
   size?: 'sm' | 'md'
+  /** Fully rounded trigger, for forms laid out with pill-shaped fields. */
+  pill?: boolean
   disabled?: boolean
   /**
    * How wide the open menu is.
@@ -75,6 +77,7 @@ export default function CustomSelect({
   searchable = false,
   style = {},
   size = 'md',
+  pill = false,
   disabled = false,
   menuFit = 'anchor',
 }: CustomSelectProps) {
@@ -143,10 +146,10 @@ export default function CustomSelect({
         onClick={() => { if (!disabled) { setOpen(o => !o); setSearch('') } }}
         style={{
           width: '100%', display: 'flex', alignItems: 'center', gap: 8,
-          padding: sm ? '8px 12px' : '8px 14px', borderRadius: 10,
+          padding: pill ? '12px 18px' : sm ? '8px 12px' : '8px 14px', borderRadius: pill ? 999 : 10,
           border: '1px solid var(--border-primary)',
           background: 'var(--bg-input)', color: 'var(--text-primary)',
-          fontSize: 'calc(13px * var(--fs-scale-body, 1))', fontWeight: 500, fontFamily: 'inherit',
+          fontSize: pill ? 'calc(15px * var(--fs-scale-body, 1))' : 'calc(13px * var(--fs-scale-body, 1))', fontWeight: 500, fontFamily: 'inherit',
           cursor: disabled ? 'default' : 'pointer', outline: 'none', textAlign: 'left',
           transition: 'border-color 0.15s', overflow: 'hidden', minWidth: 0,
           opacity: disabled ? 0.5 : 1,

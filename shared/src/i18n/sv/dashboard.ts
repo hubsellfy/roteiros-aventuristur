@@ -207,7 +207,7 @@ const dashboard: TranslationStrings = {
   'dashboard.plan.destination': 'Resmål',
   'dashboard.plan.destinationPh': 'Till exempel: Lissabon, Orlando, Tokyo...',
   'dashboard.plan.origin': 'Reser från',
-  'dashboard.plan.originPh': 'Avreseort (valfritt)',
+  'dashboard.plan.originPh': 'Avreseort',
   'dashboard.plan.dates': 'Resdatum',
   'dashboard.plan.budget': 'Budget (R$)',
   'dashboard.plan.budgetPh': 'Valfritt',
