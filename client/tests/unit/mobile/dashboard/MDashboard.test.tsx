@@ -394,7 +394,7 @@ describe('MDashboard', () => {
     expect(setShowForm).toHaveBeenCalledWith(true);
   });
 
-  it('FE-MOB-DASH-026: currency and time zones stay off the home screen, the other widgets render', () => {
+  it('FE-MOB-DASH-026: currency and time zones start hidden, the other widgets render', () => {
     mocks.dash = buildDash();
     render(<MDashboard />);
 

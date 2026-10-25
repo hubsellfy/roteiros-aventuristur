@@ -28,9 +28,6 @@ import MNewTripSheet from './MNewTripSheet'
 import TripPlanner from '../../../components/Dashboard/TripPlanner'
 import type { MobileDashToken } from '@trek/shared'
 
-// Currency and time zones stay out of the home screen (the app is aimed at trips within Brazil).
-const HIDDEN_BLOCKS: MobileDashToken[] = ['currency', 'timezones']
-
 // Localized short date for the pills; the year only shows when it isn't the
 // current one (same rule as the desktop cards).
 function fullDate(dateStr: string | null | undefined, locale: string): string | null {
@@ -83,7 +80,7 @@ export default function MDashboard(): React.ReactElement {
 
   // Mobile-only dashboard arrangement: planner and filter row on top, then the trip list and
   // widgets in the user's chosen order (Settings → Appearance).
-  const dashOrder = useMobileDashOrder().filter(id => !HIDDEN_BLOCKS.includes(id))
+  const dashOrder = useMobileDashOrder()
   const dashVisible = useMobileDashVisibility()
 
   useEffect(() => { if (isAuthenticated) fetchUnreadCount() }, [isAuthenticated, fetchUnreadCount])

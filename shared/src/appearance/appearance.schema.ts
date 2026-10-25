@@ -62,6 +62,8 @@ const typeScaleSchema = z
 // the DOM token writer. Desktop and mobile are independent so a widget can be
 // shown on one and hidden on the other. All-true = today's full layout.
 const widgetFlag = z.boolean().catch(true).default(true);
+// Widgets that start hidden (still switchable in Settings).
+const widgetFlagOff = z.boolean().catch(false).default(false);
 
 const DEFAULT_DASHBOARD_DESKTOP = {
   sidebar: true, // master toggle for the whole right sidebar (off → center)
@@ -77,9 +79,9 @@ const DEFAULT_DASHBOARD_DESKTOP = {
 const DEFAULT_DASHBOARD_MOBILE = {
   tripsTotal: true,
   daysTraveled: true,
-  currency: true,
+  currency: false, // the app is aimed at trips within Brazil
   collections: true,
-  timezones: true,
+  timezones: false,
   upcomingReservations: true,
 };
 // Orderable blocks of the MOBILE dashboard: the trip list + the inline widgets.
@@ -114,9 +116,9 @@ const dashboardWidgetsSchema = z
       .object({
         tripsTotal: widgetFlag,
         daysTraveled: widgetFlag,
-        currency: widgetFlag,
+        currency: widgetFlagOff,
         collections: widgetFlag,
-        timezones: widgetFlag,
+        timezones: widgetFlagOff,
         upcomingReservations: widgetFlag,
       })
       .catch(DEFAULT_DASHBOARD_MOBILE)

@@ -110,7 +110,9 @@ describe('mobile dashboard order + visibility hooks', () => {
     const { result } = renderHook(() => useMobileDashVisibility());
 
     expect(result.current.collections).toBe(false);
-    expect(result.current.currency).toBe(true);
+    // Currency and time zones start hidden on the phone (switchable in Settings).
+    expect(result.current.currency).toBe(false);
+    expect(result.current.timezones).toBe(false);
   });
 });
 

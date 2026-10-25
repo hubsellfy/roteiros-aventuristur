@@ -98,7 +98,8 @@ describe('MMobileDashOrder', () => {
 
     const collectionsRow = blockRow('Collections');
     expect(collectionsRow.textContent).toContain('Hidden');
-    expect(screen.getAllByText('Hidden')).toHaveLength(1);
+    // Currency and time zones also start hidden on the phone.
+    expect(screen.getAllByText('Hidden')).toHaveLength(3);
   });
 
   it('FE-MOB-SETDORD-008: upcoming reservations follows its own mobile flag', () => {

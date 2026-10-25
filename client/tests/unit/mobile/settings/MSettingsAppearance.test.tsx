@@ -280,10 +280,11 @@ describe('MSettingsAppearance', () => {
 
     await user.click(currencySwitches[0]);
     await waitFor(() => expect(lastAppearance(updateSetting).dashboard.desktop.currency).toBe(false));
-    expect(lastAppearance(updateSetting).dashboard.mobile.currency).toBe(true);
+    // Mobile currency starts hidden, so the desktop toggle leaves it alone.
+    expect(lastAppearance(updateSetting).dashboard.mobile.currency).toBe(false);
 
     await user.click(screen.getAllByRole('switch', { name: 'Currency' })[1]);
-    await waitFor(() => expect(lastAppearance(updateSetting).dashboard.mobile.currency).toBe(false));
+    await waitFor(() => expect(lastAppearance(updateSetting).dashboard.mobile.currency).toBe(true));
   });
 
   it('FE-MOB-SETAPP-020: turning the sidebar master off disables its child toggles', async () => {
