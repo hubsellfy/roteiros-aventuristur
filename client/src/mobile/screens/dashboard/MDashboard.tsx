@@ -222,7 +222,8 @@ export default function MDashboard(): React.ReactElement {
           aria-label="Roteiros Aventuristur"
           className="flex flex-none items-center gap-[7px]"
         >
-          <img src="/logo-icon.svg" alt="Roteiros Aventuristur" className="block h-[34px]" />
+          <img src="/logo-icon.svg" alt="Roteiros Aventuristur" className="block h-[34px] dark:hidden" />
+          <img src="/logo-icon-dark.svg" alt="" aria-hidden className="hidden h-[34px] dark:block" />
         </button>
         <div className="min-w-0 flex-1" />
         {assistantAvailable && (
