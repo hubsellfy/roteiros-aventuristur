@@ -13,7 +13,8 @@ const LOADING = 'Loading the obstacles along the route …';
 const OFFLINE = 'Without a connection Roteiros Aventuristur loads no obstacle data. Check the water yourself.';
 const FAILED = 'The obstacle data could not be loaded. Check the water yourself.';
 const NO_DATA = 'No obstacle data for this area. Check weirs, locks and portages here yourself.';
-const TRUNCATED = 'Roteiros Aventuristur shows only part of the objects here; the area holds more. Check the water yourself.';
+const TRUNCATED =
+  'Roteiros Aventuristur shows only part of the objects here; the area holds more. Check the water yourself.';
 const UNKNOWN_DATE = 'an unknown date';
 
 const partialLine = (date: string): string =>
