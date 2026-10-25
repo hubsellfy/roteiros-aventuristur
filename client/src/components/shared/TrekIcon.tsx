@@ -2,7 +2,7 @@ import type { SVGProps } from 'react'
 
 /**
  * TREK's square app icon, from public/icons/icon.svg. The wordmark with the API
- * pill is `TrekMark`.
+ * pill is the upstream TrekMark.
  *
  * Inlined rather than loaded as an <img> so it takes `currentColor` and follows
  * the theme like the provider glyphs it sits next to in the document-sync flow.

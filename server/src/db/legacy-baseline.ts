@@ -47,8 +47,8 @@ export const REFUSAL = '[DB] Refusing to boot:';
  * conta até 244 nesse ponto, e os passos 245 a 258 dele ainda precisam rodar. Os dois
  * passos nossos já estão aplicados nesses bancos e entram como executados.
  */
-export const AVENTURISTUR_BASE_STEP = 244;
-export const AVENTURISTUR_STEPS = [
+const AVENTURISTUR_BASE_STEP = 244;
+const AVENTURISTUR_STEPS = [
   'Migration20260101000100_aventuristur_enable_all_addons',
   'Migration20260101000200_aventuristur_trip_ai_columns',
 ] as const;

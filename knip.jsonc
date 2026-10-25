@@ -18,7 +18,9 @@
       // it; nothing imports it by name. eslint and prettier are the workspaces'
       // own copies: the shared scripts/lib takes them handed in, and its tests
       // import the hoisted ones the server and shared declare.
-      "ignoreDependencies": ["unrun", "eslint", "prettier"]
+      // sharp: aventuristur/rebrand/apply.mjs resizes the logo with the copy the
+      // client workspace installs; the root has none of its own.
+      "ignoreDependencies": ["unrun", "eslint", "prettier", "sharp"]
     },
     "client": {
       // The app, its scripts, the Playwright specs and the server launcher
@@ -30,7 +32,10 @@
         "src/**/*.test.{ts,tsx}",
         "tests/**/*.{ts,tsx}"
       ],
-      "project": ["src/**/*.{ts,tsx}", "scripts/**/*.mjs", "tests/**/*.{ts,tsx}", "e2e/**/*.{ts,mjs}"]
+      "project": ["src/**/*.{ts,tsx}", "scripts/**/*.mjs", "tests/**/*.{ts,tsx}", "e2e/**/*.{ts,mjs}"],
+      // The fork loads Inter Tight instead; the Geist package stays in
+      // package.json so merges from upstream do not conflict on the lockfile.
+      "ignoreDependencies": ["@fontsource/geist-sans"]
     },
     "server": {
       "entry": [

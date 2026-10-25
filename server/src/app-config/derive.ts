@@ -363,7 +363,7 @@ export function deriveDb(raw: RawEnv) {
 }
 
 /** Aventuristur: raw retention settings; src/nest/retention parses and applies the fail-closed rules. */
-export function deriveRetention(raw: RawEnv) {
+function deriveRetention(raw: RawEnv) {
   return {
     months: raw.RETENTION_MONTHS,
     dryRun: raw.RETENTION_DRY_RUN,
@@ -371,7 +371,7 @@ export function deriveRetention(raw: RawEnv) {
 }
 
 /** Aventuristur: Open-Meteo commercial subscription (apikey + customer hosts); both optional. */
-export function deriveOpenMeteo(raw: RawEnv) {
+function deriveOpenMeteo(raw: RawEnv) {
   return {
     apiKey: raw.OPEN_METEO_API_KEY,
     archiveHost: raw.OPEN_METEO_CUSTOMER_ARCHIVE_HOST,

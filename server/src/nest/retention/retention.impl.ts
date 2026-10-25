@@ -4,7 +4,7 @@
  * months after its end date.
  */
 
-export const MAX_RETENTION_MONTHS = 120;
+const MAX_RETENTION_MONTHS = 120;
 
 export type RetentionConfig =
   { kind: 'disabled' } | { kind: 'invalid'; reason: string } | { kind: 'enabled'; months: number; dryRun: boolean };
