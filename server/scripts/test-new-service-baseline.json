@@ -24,6 +24,7 @@
     "tests/unit/db/connection.test.ts": 1,
     "tests/unit/db/repositories/DemoRepository.test.ts": 1,
     "tests/unit/db/repositories/MaintenanceRepository.test.ts": 2,
+    "tests/unit/db/repositories/TripsAventuristur.repository.test.ts": 1,
     "tests/unit/db/repositories/UserConnections.repository.test.ts": 3,
     "tests/unit/demo/demo-reset-sessions.test.ts": 3,
     "tests/unit/mcp/tools-airtrail.test.ts": 1,

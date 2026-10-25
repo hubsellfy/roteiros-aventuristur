@@ -87,5 +87,10 @@
   "src/nest/plugins/plugins.controller.ts#PluginsController.install": 2,
   "src/nest/plugins/plugins.controller.ts#PluginsController.update": 2,
   "src/nest/plugins/plugins.controller.ts#PluginsController.updateConfig": 3,
+  "src/nest/roteiro-ia/roteiro-chat.service.ts#RoteiroChatService.chat": 4,
+  "src/nest/roteiro-ia/roteiro-trip.service.ts#RoteiroTripService.generate": 6,
+  "src/nest/roteiro-ia/roteiro-trip.service.ts#RoteiroTripService.launch": 2,
+  "src/nest/roteiro-ia/roteiro-trip.service.ts#RoteiroTripService.retry": 2,
+  "src/nest/roteiro-ia/roteiro-trip.service.ts#RoteiroTripService.start": 2,
   "src/nest/vacay/vacay.service.ts#VacayService.updatePlan": 2
 }
