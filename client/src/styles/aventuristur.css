@@ -67,6 +67,16 @@ html.dark .trek-dash {
   --glass-border: rgba(255, 255, 255, 0.08);
 }
 html .trek-dash .atlas-card { border: 1px solid var(--line); }
+/* Contorno fino e igual em todos os cartões do painel (mesmo 0.5px do resto do app). */
+html .trek-dash .atlas-card:not(.passport),
+html .trek-dash .tool,
+html .trek-dash .trip-card,
+html .trek-dash .hero-pass-inner,
+html.dark .trek-dash .hero-pass-inner {
+  border: 0.5px solid var(--line);
+}
+html .trek-dash .hero-pass-inner::before { display: none; }
+html .trek-dash .add-trip-card { border-width: 1px; }
 html .trek-dash .atlas-card.passport {
   background: linear-gradient(135deg, #0a6fc2 0%, #074c86 100%);
   border: none;
