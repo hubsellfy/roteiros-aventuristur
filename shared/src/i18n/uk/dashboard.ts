@@ -206,7 +206,6 @@ const dashboard: TranslationStrings = {
   'dashboard.aria.removeTimezone': 'Вилучити {city}',
   'dashboard.dayCountRequired': 'Вкажіть кількість днів',
   'dashboard.plan.title': 'Куди поїдемо?',
-  'dashboard.plan.subtitle': 'Розкажіть найважливіше, і ШІ складе маршрут по днях зі справжніми місцями.',
   'dashboard.plan.destination': 'Напрямок',
   'dashboard.plan.destinationPh': 'Наприклад: Лісабон, Орландо, Токіо...',
   'dashboard.plan.origin': 'Звідки виїжджаєте',

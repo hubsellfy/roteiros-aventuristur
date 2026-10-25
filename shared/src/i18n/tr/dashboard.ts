@@ -205,7 +205,6 @@ const dashboard: TranslationStrings = {
   'dashboard.aria.removeTimezone': '{city} kaldır',
   'dashboard.dayCountRequired': 'Gün sayısı gereklidir',
   'dashboard.plan.title': 'Nereye gidiyoruz?',
-  'dashboard.plan.subtitle': 'Önemli bilgileri verin, yapay zekâ gerçek yerlerle gün gün bir rota hazırlasın.',
   'dashboard.plan.destination': 'Varış noktası',
   'dashboard.plan.destinationPh': 'Örneğin: Lizbon, Orlando, Tokyo...',
   'dashboard.plan.origin': 'Kalkış yeri',

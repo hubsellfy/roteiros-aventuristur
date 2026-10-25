@@ -206,7 +206,6 @@ const dashboard: TranslationStrings = {
   'dashboard.aria.removeTimezone': 'Eliminar {city}',
   'dashboard.dayCountRequired': 'El número de días es obligatorio',
   'dashboard.plan.title': '¿A dónde vamos?',
-  'dashboard.plan.subtitle': 'Cuéntanos lo esencial y la IA arma el itinerario día a día con lugares reales.',
   'dashboard.plan.destination': 'Destino',
   'dashboard.plan.destinationPh': 'Por ejemplo: Lisboa, Orlando, Tokio...',
   'dashboard.plan.origin': 'Saliendo de',

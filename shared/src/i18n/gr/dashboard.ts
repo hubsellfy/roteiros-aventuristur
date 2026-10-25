@@ -209,7 +209,6 @@ const dashboard: TranslationStrings = {
   'dashboard.aria.removeTimezone': 'Remove {city}', // en-fallback
   'dashboard.dayCountRequired': 'Ο αριθμός ημερών είναι υποχρεωτικός',
   'dashboard.plan.title': 'Πού πάμε;',
-  'dashboard.plan.subtitle': 'Πείτε μας τα βασικά και η ΤΝ φτιάχνει πρόγραμμα ημέρα προς ημέρα με πραγματικά μέρη.',
   'dashboard.plan.destination': 'Προορισμός',
   'dashboard.plan.destinationPh': 'Για παράδειγμα: Λισαβόνα, Ορλάντο, Τόκιο...',
   'dashboard.plan.origin': 'Αναχώρηση από',

@@ -206,7 +206,6 @@ const dashboard: TranslationStrings = {
   'dashboard.aria.removeTimezone': 'Hapus {city}',
   'dashboard.dayCountRequired': 'Jumlah hari wajib diisi',
   'dashboard.plan.title': 'Mau ke mana?',
-  'dashboard.plan.subtitle': 'Ceritakan hal pentingnya, AI akan menyusun rencana hari demi hari dengan tempat nyata.',
   'dashboard.plan.destination': 'Tujuan',
   'dashboard.plan.destinationPh': 'Misalnya: Lisbon, Orlando, Tokyo...',
   'dashboard.plan.origin': 'Berangkat dari',

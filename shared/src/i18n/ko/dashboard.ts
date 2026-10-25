@@ -204,7 +204,6 @@ const dashboard: TranslationStrings = {
   'dashboard.aria.removeTimezone': '{city} 제거',
   'dashboard.dayCountRequired': '일수는 필수입니다',
   'dashboard.plan.title': '어디로 갈까요?',
-  'dashboard.plan.subtitle': '기본 정보를 알려주시면 AI가 실제 장소로 일자별 일정을 만들어 드려요.',
   'dashboard.plan.destination': '목적지',
   'dashboard.plan.destinationPh': '예: 리스본, 올랜도, 도쿄...',
   'dashboard.plan.origin': '출발지',

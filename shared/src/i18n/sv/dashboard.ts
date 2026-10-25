@@ -204,7 +204,6 @@ const dashboard: TranslationStrings = {
   'dashboard.aria.removeTimezone': 'Ta bort {city}',
   'dashboard.dayCountRequired': 'Antalet dagar måste anges',
   'dashboard.plan.title': 'Vart ska vi åka?',
-  'dashboard.plan.subtitle': 'Berätta det viktigaste så bygger AI:n en dag-för-dag-plan med riktiga platser.',
   'dashboard.plan.destination': 'Resmål',
   'dashboard.plan.destinationPh': 'Till exempel: Lissabon, Orlando, Tokyo...',
   'dashboard.plan.origin': 'Reser från',

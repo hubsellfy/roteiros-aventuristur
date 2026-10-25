@@ -208,8 +208,6 @@ const dashboard: TranslationStrings = {
   'dashboard.aria.removeTimezone': '{city} eltávolítása',
   'dashboard.dayCountRequired': 'A napok száma kötelező',
   'dashboard.plan.title': 'Hová megyünk?',
-  'dashboard.plan.subtitle':
-    'Mondd el a lényeget, az MI pedig napról napra összeállítja az útitervet valódi helyekkel.',
   'dashboard.plan.destination': 'Úti cél',
   'dashboard.plan.destinationPh': 'Például: Lisszabon, Orlando, Tokió...',
   'dashboard.plan.origin': 'Indulás innen',
