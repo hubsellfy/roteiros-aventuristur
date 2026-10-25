@@ -1,7 +1,7 @@
 import type { TripJournalCandidate, TripJournalLinkRole } from '@trek/shared';
-import { AlertTriangle, BookOpen, Link2, Unlink, Users } from '../../icons';
 import { useState, type ReactNode } from 'react';
 import { useTranslation } from '../../i18n';
+import { AlertTriangle, BookOpen, Link2, Unlink, Users } from '../../icons';
 import ConfirmDialog from '../shared/ConfirmDialog';
 import CustomSelect from '../shared/CustomSelect';
 import { DialogButton, fs } from '../shared/DialogShell';

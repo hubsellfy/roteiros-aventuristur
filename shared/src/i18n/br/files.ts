@@ -64,7 +64,8 @@ const files: TranslationStrings = {
   'files.confirm.emptyTrash': 'Excluir permanentemente todos os arquivos na lixeira? Não é possível desfazer.',
   'files.noteLabel': 'Nota',
   'files.notePlaceholder': 'Adicione uma nota...',
-  'files.uploadNeedsConnection': 'O envio precisa de conexão. Tente de novo quando o Roteiros Aventuristur voltar a ficar online.',
+  'files.uploadNeedsConnection':
+    'O envio precisa de conexão. Tente de novo quando o Roteiros Aventuristur voltar a ficar online.',
   'files.linkNeedsConnection':
     'Remover este vínculo precisa de conexão. Tente de novo quando o Roteiros Aventuristur voltar a ficar online.',
   'files.placeFilesNeedConnection':

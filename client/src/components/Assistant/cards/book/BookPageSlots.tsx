@@ -1,4 +1,5 @@
 import type { BookCardFinding, BookPageCard } from '@trek/shared';
+import { lazy, Suspense } from 'react';
 import {
   CircleAlert,
   FilePlus,
@@ -9,7 +10,6 @@ import {
   MoveVertical,
   TriangleAlert,
 } from '../../../../icons';
-import { lazy, Suspense } from 'react';
 
 import { useTranslation } from '../../../../i18n';
 import type { PillTone } from '../../../Planner/planParts';

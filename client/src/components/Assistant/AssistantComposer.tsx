@@ -1,6 +1,6 @@
 import { AuiIf, ComposerPrimitive, useAui, useAuiState } from '@assistant-ui/react';
-import { ArrowUp, CalendarDays, MapPin, Paperclip, Square, X } from '../../icons';
 import { type ReactNode, useEffect, useRef } from 'react';
+import { ArrowUp, CalendarDays, MapPin, Paperclip, Square, X } from '../../icons';
 
 import { useTranslation } from '../../i18n';
 import { HOME_CHAT_KEY } from '../../store/assistantChatKey';

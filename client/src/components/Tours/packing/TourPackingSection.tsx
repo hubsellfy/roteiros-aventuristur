@@ -1,7 +1,7 @@
 import type { TourListItem } from '@trek/shared';
-import { AlertTriangle, ArrowUpRight, Backpack, Check, Link2, PackageOpen, Unlink } from '../../../icons';
 import type { ReactNode } from 'react';
 import { useTranslation } from '../../../i18n';
+import { AlertTriangle, ArrowUpRight, Backpack, Check, Link2, PackageOpen, Unlink } from '../../../icons';
 import type { PackingItem } from '../../../types';
 import { BOX } from '../../Planner/bookings/bookingParts';
 import { SoftPill, WhiteBadge } from '../../Planner/planParts';

@@ -1,5 +1,5 @@
-import { ArrowRight, type LucideIcon } from '../../../../icons';
 import type { ReactNode } from 'react';
+import { ArrowRight, type LucideIcon } from '../../../../icons';
 
 import { useTranslation } from '../../../../i18n';
 import { type PillTone, SoftPill } from '../../../Planner/planParts';

@@ -1,6 +1,6 @@
 import type { JourneyStats } from '@trek/shared';
-import { Check, RouteOff } from '../../../icons';
 import { useState } from 'react';
+import { Check, RouteOff } from '../../../icons';
 import { Section } from '../StudioControls';
 
 /**

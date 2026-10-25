@@ -6,7 +6,8 @@ export const ROTEIRO_TOOLS = [
     type: 'function',
     function: {
       name: 'get_trip',
-      description: 'Read the traveller\'s trip: title, dates and each day (with its id) and the places already planned on it. Call it before suggesting where to add something.',
+      description:
+        "Read the traveller's trip: title, dates and each day (with its id) and the places already planned on it. Call it before suggesting where to add something.",
       parameters: { type: 'object', properties: {}, additionalProperties: false },
     },
   },
@@ -14,7 +15,8 @@ export const ROTEIRO_TOOLS = [
     type: 'function',
     function: {
       name: 'search_places',
-      description: 'Search real places (restaurants, attractions, hotels...) on Google. Returns up to 6 candidates, each with a `ref`, rating and address. Pass near_lat/near_lng (the trip area) so results land in the right city.',
+      description:
+        'Search real places (restaurants, attractions, hotels...) on Google. Returns up to 6 candidates, each with a `ref`, rating and address. Pass near_lat/near_lng (the trip area) so results land in the right city.',
       parameters: {
         type: 'object',
         properties: {
@@ -31,7 +33,8 @@ export const ROTEIRO_TOOLS = [
     type: 'function',
     function: {
       name: 'place_details',
-      description: 'Get the Google details of a place found with search_places: rating, number of reviews, opening hours, summary and the text of visitor reviews. Use it when the traveller asks about quality, opinions or hours.',
+      description:
+        'Get the Google details of a place found with search_places: rating, number of reviews, opening hours, summary and the text of visitor reviews. Use it when the traveller asks about quality, opinions or hours.',
       parameters: {
         type: 'object',
         properties: { ref: { type: 'string', description: 'The `ref` returned by search_places' } },
@@ -44,7 +47,8 @@ export const ROTEIRO_TOOLS = [
     type: 'function',
     function: {
       name: 'recommend_place',
-      description: 'Show a place to the traveller as a card with an "add to itinerary" button. Always use it for the places you recommend. Pass day_id (from get_trip) when you propose a specific day; the traveller confirms before anything is added.',
+      description:
+        'Show a place to the traveller as a card with an "add to itinerary" button. Always use it for the places you recommend. Pass day_id (from get_trip) when you propose a specific day; the traveller confirms before anything is added.',
       parameters: {
         type: 'object',
         properties: {
@@ -67,7 +71,8 @@ export const TRIP_PLAN_TOOLS = [
     type: 'function',
     function: {
       name: 'submit_itinerary',
-      description: 'Deliver the finished itinerary. Call it exactly once, when every day has its places. Only use `ref` values returned by search_places.',
+      description:
+        'Deliver the finished itinerary. Call it exactly once, when every day has its places. Only use `ref` values returned by search_places.',
       parameters: {
         type: 'object',
         properties: {
@@ -78,7 +83,10 @@ export const TRIP_PLAN_TOOLS = [
               type: 'object',
               properties: {
                 day_number: { type: 'integer', description: '1 for the first day of the trip.' },
-                title: { type: 'string', description: 'Short theme of the day, e.g. "Centro histórico". Max 50 characters.' },
+                title: {
+                  type: 'string',
+                  description: 'Short theme of the day, e.g. "Centro histórico". Max 50 characters.',
+                },
                 items: {
                   type: 'array',
                   items: {
@@ -87,7 +95,10 @@ export const TRIP_PLAN_TOOLS = [
                       ref: { type: 'string' },
                       time: { type: 'string', description: 'Start time as HH:MM, 24h.' },
                       duration_minutes: { type: 'integer', description: 'How long the visit takes, 15 to 480.' },
-                      note: { type: 'string', description: 'One short practical tip about this stop (max 160 characters). No prices.' },
+                      note: {
+                        type: 'string',
+                        description: 'One short practical tip about this stop (max 160 characters). No prices.',
+                      },
                     },
                     required: ['ref', 'time'],
                     additionalProperties: false,
@@ -166,8 +177,12 @@ export function applyDetails(place: KnownPlace, details: Record<string, unknown>
 
   const reviews = Array.isArray(details.reviews) ? (details.reviews as Record<string, unknown>[]) : [];
   const cleaned = reviews
-    .map(r => ({ author: str(r.author) ?? '', rating: num(r.rating), text: (str(r.text) ?? '').slice(0, MAX_REVIEW_CHARS) }))
-    .filter(r => r.text)
+    .map((r) => ({
+      author: str(r.author) ?? '',
+      rating: num(r.rating),
+      text: (str(r.text) ?? '').slice(0, MAX_REVIEW_CHARS),
+    }))
+    .filter((r) => r.text)
     .slice(0, 3);
   const best = [...cleaned].sort((a, b) => (b.rating ?? 0) - (a.rating ?? 0))[0];
   if (best) place.topReview = best;

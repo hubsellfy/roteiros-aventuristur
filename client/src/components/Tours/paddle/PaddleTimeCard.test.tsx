@@ -144,7 +144,7 @@ describe('PaddleTimeCard (PAD-07)', () => {
     renderCard({ breakMinutes: 30 });
 
     const region = screen.getByRole('region', { name: 'Time estimate' });
-    expect(within(region).getByText(/^TREK starts with 4 km\/h on the water/)).toBeInTheDocument();
+    expect(within(region).getByText(/^Roteiros Aventuristur starts with 4 km\/h on the water/)).toBeInTheDocument();
     // The estimate with its breaks rides in the head, so a folded card still says it.
     expect(within(region).getByTestId('paddle-time-badge')).toHaveTextContent('3 h 50 min');
     expect(within(region).getByText('Estimate')).toBeInTheDocument();

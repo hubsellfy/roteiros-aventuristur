@@ -1,6 +1,6 @@
-import { Check, Clock, Loader2, MoveHorizontal, Route, TrendingDown, TrendingUp, X } from '../../../icons';
 import { useEffect, type ReactNode } from 'react';
 import { useTranslation } from '../../../i18n';
+import { Check, Clock, Loader2, MoveHorizontal, Route, TrendingDown, TrendingUp, X } from '../../../icons';
 import type { DistanceUnit } from '../../../types';
 import { formatDistance, formatElevation } from '../../../utils/units';
 import { MAP_CARD_GLASS } from '../../Map/mapControlShadow';

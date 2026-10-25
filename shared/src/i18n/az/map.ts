@@ -50,7 +50,8 @@ const map: TranslationStrings = {
   'map.webgl2.terrain': '3D üçün WebGL2 lazımdır, bu brauzer isə onu təqdim etmir. Xəritə 2D olaraq qalır.',
   'poi.ask': 'Soruş',
   'assistant.placeholder': 'Səyahətiniz haqqında soruşun…',
-  'assistant.welcome': 'Salam! Restoran və fəaliyyətlər təklif edə, Google reytinqlərinə və rəylərinə baxa və məkanları marşrutunuza əlavə edə bilərəm. Nə planlaşdırmaq istəyirsiniz?',
+  'assistant.welcome':
+    'Salam! Restoran və fəaliyyətlər təklif edə, Google reytinqlərinə və rəylərinə baxa və məkanları marşrutunuza əlavə edə bilərəm. Nə planlaşdırmaq istəyirsiniz?',
   'assistant.suggest1': 'Yaxınlıqda hara nahara getməli?',
   'assistant.suggest2': 'Mənim üçün boş günorta planlaşdır',
   'assistant.suggest3': 'Ən yüksək reytinqli görməli yerlər',

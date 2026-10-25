@@ -1,6 +1,6 @@
 import type { BookPageSetup } from '@trek/shared';
-import { ChevronDown, ChevronUp, Copy, FileDown, Plus, Trash2 } from '../../../icons';
 import { useRef, useState, type ChangeEvent } from 'react';
+import { ChevronDown, ChevronUp, Copy, FileDown, Plus, Trash2 } from '../../../icons';
 
 import { useElementSize } from '../../../hooks/useElementSize';
 import { useStudioStore } from '../../../store/studioStore';

@@ -1,6 +1,6 @@
-import { RefreshCw } from '../../icons';
 import type React from 'react';
 import { useTranslation } from '../../i18n';
+import { RefreshCw } from '../../icons';
 import ToggleSwitch from '../Settings/ToggleSwitch';
 import { fs } from '../shared/DialogShell';
 import type { JourneyRecordingPrepState } from './useJourneyRecordingPrep';

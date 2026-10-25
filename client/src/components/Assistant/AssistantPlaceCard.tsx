@@ -1,6 +1,6 @@
 import type { AssistantFoundPlace } from '@trek/shared';
-import { Check, MapPin, Plus, Route, Star } from '../../icons';
 import { createElement, type ReactNode, useRef } from 'react';
+import { Check, MapPin, Plus, Route, Star } from '../../icons';
 
 import { useTranslation } from '../../i18n';
 import { getCategoryIcon } from '../shared/categoryIcons';

@@ -1,5 +1,5 @@
-import { Pin } from '../../icons';
 import type { ReactNode } from 'react';
+import { Pin } from '../../icons';
 
 import { fs } from '../Planner/bookings/bookingParts';
 import { tintOf } from '../Planner/planParts';

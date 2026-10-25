@@ -1,5 +1,5 @@
-import { Moon } from '../../../icons';
 import type { useTranslation } from '../../../i18n';
+import { Moon } from '../../../icons';
 import { focusRouteProfileAtDistance } from '../../../utils/routeGeometry';
 import type { useContextMenu } from '../../shared/ContextMenu';
 import type { TourPlannerController } from '../planner/useTourPlanner';

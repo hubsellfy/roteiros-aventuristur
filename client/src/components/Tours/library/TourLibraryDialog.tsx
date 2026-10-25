@@ -1,7 +1,7 @@
 import { importableTourTypeSchema, type TourLibraryItem, type TourTypeKey } from '@trek/shared';
-import { AlertTriangle, CopyPlus, Library, Loader2, Search, WifiOff } from '../../../icons';
 import { useId } from 'react';
 import { useTranslation } from '../../../i18n';
+import { AlertTriangle, CopyPlus, Library, Loader2, Search, WifiOff } from '../../../icons';
 import { useSettingsStore } from '../../../store/settingsStore';
 import { EditorField, INPUT, PillSelect } from '../../shared/dialogParts';
 import {

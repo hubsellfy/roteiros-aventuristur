@@ -1,6 +1,6 @@
-import { MapPin, X } from '../../icons';
 import type React from 'react';
 import { useTranslation } from '../../i18n';
+import { MapPin, X } from '../../icons';
 import { MAP_CONTROL_SHADOW } from '../Map/mapControlShadow';
 
 // Over a map the field and its list take the map controls' frosted glass instead of a form box.

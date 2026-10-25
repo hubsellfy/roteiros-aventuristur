@@ -1,6 +1,6 @@
-import { ChevronDown, Plus } from '../../../icons';
 import type { MouseEvent } from 'react';
 import { useTranslation } from '../../../i18n';
+import { ChevronDown, Plus } from '../../../icons';
 import { ContextMenu, useContextMenu } from '../../shared/ContextMenu';
 import { DialogButton } from '../../shared/DialogShell';
 import { tourDayHowItems, type TourDayHowInput } from './stageSpread';

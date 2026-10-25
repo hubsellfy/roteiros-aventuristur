@@ -1,7 +1,7 @@
 import type { TourListItem } from '@trek/shared';
-import { MousePointerClick, Plus, RotateCcw, Save } from '../../../icons';
 import type { ReactNode } from 'react';
 import { useTranslation } from '../../../i18n';
+import { MousePointerClick, Plus, RotateCcw, Save } from '../../../icons';
 import { useSettingsStore } from '../../../store/settingsStore';
 import type { TrackPick } from '../../../store/trackMarkToolStore';
 import { formatDistance } from '../../../utils/units';

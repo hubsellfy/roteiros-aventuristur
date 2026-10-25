@@ -1,6 +1,6 @@
-import { Download, ExternalLink, FileText } from '../../icons';
 import type { ReactNode } from 'react';
 import { useId } from 'react';
+import { Download, ExternalLink, FileText } from '../../icons';
 import type { DialogShellProps } from '../shared/DialogShell';
 import { DialogHeader, DialogShell, DialogTile, NEUTRAL_TINT, PILL } from '../shared/DialogShell';
 import { triggerDownload } from './FileManager.helpers';

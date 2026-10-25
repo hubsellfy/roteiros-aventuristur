@@ -1,5 +1,5 @@
-import { ChevronRight } from '../../icons';
 import { useState } from 'react';
+import { ChevronRight } from '../../icons';
 
 import { useTranslation } from '../../i18n';
 import AssistantLiveStep from './AssistantLiveStep';

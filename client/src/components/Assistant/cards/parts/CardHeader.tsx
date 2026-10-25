@@ -1,5 +1,5 @@
-import type { LucideIcon } from '../../../../icons';
 import type { ReactNode } from 'react';
+import type { LucideIcon } from '../../../../icons';
 
 import { fs, NEUTRAL_TINT } from '../../../shared/DialogShell';
 import type { Tone } from './assistantTones';

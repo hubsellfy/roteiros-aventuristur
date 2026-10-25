@@ -83,7 +83,9 @@ describe('WalkImportDialog (CW-07)', () => {
     expect(rows.map((row) => row.getAttribute('data-unresolved'))).toEqual([null, 'true', null]);
     expect(screen.getByText('1 stop has no position in the link and is left out.')).toBeInTheDocument();
     expect(
-      screen.getByText('TREK plans the way between the stops again; the line drawn in Google Maps is not taken over.')
+      screen.getByText(
+        'Roteiros Aventuristur plans the way between the stops again; the line drawn in Google Maps is not taken over.'
+      )
     ).toBeInTheDocument();
     expect(screen.queryByText('A walk needs at least two stops with a position.')).toBeNull();
     expect(screen.queryByText('Loading the walk replaces the unsaved changes in the planner.')).toBeNull();
@@ -125,7 +127,9 @@ describe('WalkImportDraftNotice (CW-07)', () => {
       <WalkImportDraftNotice planner={{ draftSource: 'google_maps', mode: { type: 'new-draft' } }} />
     );
     expect(
-      screen.getByText('From a Google Maps walking route. TREK planned the way between the stops itself.')
+      screen.getByText(
+        'From a Google Maps walking route. Roteiros Aventuristur planned the way between the stops itself.'
+      )
     ).toBeInTheDocument();
     rerender(
       <WalkImportDraftNotice planner={{ draftSource: 'google_maps', mode: { type: 'edit-saved', placeId: 3 } }} />

@@ -4,6 +4,8 @@ import {
   type ObstacleDecisionRecord,
   type TourObstacleEntry,
 } from '@trek/shared';
+import { useEffect, useLayoutEffect, useRef, useState, type KeyboardEvent, type ReactNode } from 'react';
+import { useTranslation } from '../../../i18n';
 import {
   ArrowRight,
   Ban,
@@ -18,8 +20,6 @@ import {
   Unlink,
   X,
 } from '../../../icons';
-import { useEffect, useLayoutEffect, useRef, useState, type KeyboardEvent, type ReactNode } from 'react';
-import { useTranslation } from '../../../i18n';
 import { fs } from '../../shared/DialogShell';
 import { Tooltip } from '../../shared/Tooltip';
 import { CardAction, InfoDot, TourNotice } from '../tourParts';

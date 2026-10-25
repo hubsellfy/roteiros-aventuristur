@@ -43,7 +43,8 @@ const map: TranslationStrings = {
   'map.webgl2.terrain': '3D membutuhkan WebGL2, yang tidak disediakan browser ini. Peta tetap dalam 2D.',
   'poi.ask': 'Tanya',
   'assistant.placeholder': 'Tanya tentang perjalananmu…',
-  'assistant.welcome': 'Halo! Saya bisa menyarankan restoran dan kegiatan, memeriksa rating dan ulasan Google, serta menambahkan tempat ke itinerarimu. Apa yang ingin kamu rencanakan?',
+  'assistant.welcome':
+    'Halo! Saya bisa menyarankan restoran dan kegiatan, memeriksa rating dan ulasan Google, serta menambahkan tempat ke itinerarimu. Apa yang ingin kamu rencanakan?',
   'assistant.suggest1': 'Makan siang di dekat sini di mana?',
   'assistant.suggest2': 'Rencanakan sore santai untukku',
   'assistant.suggest3': 'Atraksi dengan rating terbaik',

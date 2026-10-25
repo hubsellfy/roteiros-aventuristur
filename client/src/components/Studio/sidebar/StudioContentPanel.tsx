@@ -1,6 +1,6 @@
 import type { BookPageSetup } from '@trek/shared';
-import { ImagePlus, Upload } from '../../../icons';
 import { useId, useState } from 'react';
+import { ImagePlus, Upload } from '../../../icons';
 
 import { useStudioStore } from '../../../store/studioStore';
 import { photoSrc } from '../bookRender';

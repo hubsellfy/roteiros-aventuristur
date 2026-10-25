@@ -1,6 +1,6 @@
-import { ExternalLink, X } from '../../../icons';
 import type { ReactNode } from 'react';
 import { useTranslation } from '../../../i18n';
+import { ExternalLink, X } from '../../../icons';
 import { useSettingsStore } from '../../../store/settingsStore';
 import type { DistanceUnit } from '../../../types';
 import { formatDistance } from '../../../utils/units';

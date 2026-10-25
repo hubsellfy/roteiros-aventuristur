@@ -1,6 +1,6 @@
 import type { ChargingCard as ChargingCardData, RoadtripCard } from '@trek/shared';
-import { CalendarDays, CarFront, Crosshair, MapPin, Route, TriangleAlert, Zap } from '../../../../icons';
 import { type ReactNode, useMemo, useState } from 'react';
+import { CalendarDays, CarFront, Crosshair, MapPin, Route, TriangleAlert, Zap } from '../../../../icons';
 
 import { useTranslation } from '../../../../i18n';
 import { chatOf, useAssistantStore } from '../../../../store/assistantStore';

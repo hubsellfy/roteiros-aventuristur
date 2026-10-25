@@ -53,7 +53,8 @@ const dawarich: TranslationStrings = {
   'dawarich.error.unauthorized': 'O Dawarich recusou a chave de API.',
   'dawarich.error.forbidden': 'Essa chave de API não tem permissão para ler isto.',
   'dawarich.error.not_found': 'Esta versão do Dawarich não tem esse endpoint.',
-  'dawarich.error.rate_limited': 'O Dawarich pediu que o Roteiros Aventuristur diminuísse o ritmo. Tente de novo em instantes.',
+  'dawarich.error.rate_limited':
+    'O Dawarich pediu que o Roteiros Aventuristur diminuísse o ritmo. Tente de novo em instantes.',
   'dawarich.error.server_error': 'O Dawarich respondeu com um erro.',
   'dawarich.error.invalid_response': 'Esse endereço respondeu com algo que não é o Dawarich.',
   'dawarich.error.too_large': 'O Dawarich enviou mais dados do que o Roteiros Aventuristur lê de uma vez.',

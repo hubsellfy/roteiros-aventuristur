@@ -1,6 +1,6 @@
-import { CableCar, ExternalLink, Info, ZoomIn } from '../../../icons';
 import { useEffect } from 'react';
 import { useTranslation } from '../../../i18n';
+import { CableCar, ExternalLink, Info, ZoomIn } from '../../../icons';
 import { SoftPill } from '../../Planner/planParts';
 import { LABEL, PopoverListPanel } from '../../shared/dialogParts';
 import { fs } from '../../shared/DialogShell';

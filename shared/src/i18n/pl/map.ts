@@ -49,7 +49,8 @@ const map: TranslationStrings = {
   'map.webgl2.terrain': 'Tryb 3D wymaga WebGL2, którego ta przeglądarka nie obsługuje. Mapa pozostaje w 2D.',
   'poi.ask': 'Zapytaj',
   'assistant.placeholder': 'Zapytaj o swoją podróż…',
-  'assistant.welcome': 'Cześć! Mogę podpowiedzieć restauracje i atrakcje, sprawdzić oceny i opinie z Google oraz dodać miejsca do planu podróży. Co chcesz zaplanować?',
+  'assistant.welcome':
+    'Cześć! Mogę podpowiedzieć restauracje i atrakcje, sprawdzić oceny i opinie z Google oraz dodać miejsca do planu podróży. Co chcesz zaplanować?',
   'assistant.suggest1': 'Gdzie zjeść obiad w pobliżu?',
   'assistant.suggest2': 'Zaplanuj mi wolne popołudnie',
   'assistant.suggest3': 'Najlepiej oceniane atrakcje',

@@ -1,7 +1,7 @@
 import type { CollectionTourItem } from '@trek/shared';
-import { AlertTriangle, CopyPlus, Gauge, Moon, Route, Trash2, Waypoints, WifiOff } from '../../../icons';
 import { createElement, type MouseEvent } from 'react';
 import { useTranslation } from '../../../i18n';
+import { AlertTriangle, CopyPlus, Gauge, Moon, Route, Trash2, Waypoints, WifiOff } from '../../../icons';
 import { useSettingsStore } from '../../../store/settingsStore';
 import { WhiteBadge } from '../../Planner/planParts';
 import ConfirmDialog from '../../shared/ConfirmDialog';

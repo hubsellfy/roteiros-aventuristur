@@ -247,17 +247,16 @@ describe('GET /api/system-notices/active', () => {
   // dismiss route, so neither half can drift away from the other unnoticed.
   // The release notes and the thank-you/donation notices speak in the original
   // author's voice, so the Aventuristur fork removes them from the registry.
-  it('never shows the original project\'s release notes, whatever the client announces', async () => {
+  it("never shows the original project's release notes, whatever the client announces", async () => {
     const { user } = createUser(testDb);
     await updateRows(orm, Users, { id: user.id }, { login_count: 5, first_seen_version: '3.0.0' });
 
     for (const query of [{}, { supports: 'release' }, { supports: 'release', ui: getCurrentAppVersion() }]) {
-      const res = await request(app)
-        .get('/api/system-notices/active')
-        .query(query)
-        .set('Cookie', authCookie(user.id));
+      const res = await request(app).get('/api/system-notices/active').query(query).set('Cookie', authCookie(user.id));
       expect(res.status).toBe(200);
-      expect(res.body.some((n: { id: string }) => n.id === 'release-notes' || n.id === 'thank-you-support')).toBe(false);
+      expect(res.body.some((n: { id: string }) => n.id === 'release-notes' || n.id === 'thank-you-support')).toBe(
+        false,
+      );
     }
   });
 });

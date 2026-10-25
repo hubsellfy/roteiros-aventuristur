@@ -1,6 +1,6 @@
 import type { TransitCard as TransitCardData, TransitCardItinerary } from '@trek/shared';
-import { ArrowRight, TrainFront } from '../../../../icons';
 import { useState } from 'react';
+import { ArrowRight, TrainFront } from '../../../../icons';
 
 import { useTranslation } from '../../../../i18n';
 import { safeHexColor } from '../../../../utils/safeColor';

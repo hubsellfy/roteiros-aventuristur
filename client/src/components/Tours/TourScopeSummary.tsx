@@ -1,4 +1,6 @@
 import type { TourListItem, TourTypeKey } from '@trek/shared';
+import { useMemo, type ComponentType } from 'react';
+import { useTranslation } from '../../i18n';
 import {
   ArrowDown,
   ArrowUp,
@@ -13,8 +15,6 @@ import {
   Waves,
   type LucideIcon,
 } from '../../icons';
-import { useMemo, type ComponentType } from 'react';
-import { useTranslation } from '../../i18n';
 import { useSettingsStore } from '../../store/settingsStore';
 import { useTripStore } from '../../store/tripStore';
 import { formatDistance, formatElevation } from '../../utils/units';

@@ -1,21 +1,32 @@
-import { describe, it, expect, vi, beforeEach } from 'vitest';
+import { RoteiroChatService } from '../../../src/nest/roteiro-ia/roteiro-chat.service';
+import { RoteiroIaController } from '../../../src/nest/roteiro-ia/roteiro-ia.controller';
+import { applyDetails, toCard, toKnownPlace } from '../../../src/nest/roteiro-ia/roteiro-ia.tools';
 import { HttpException } from '@nestjs/common';
+
+import { describe, it, expect, vi, beforeEach } from 'vitest';
 
 const safeFetchLlm = vi.fn();
 const limits = vi.hoisted(() => ({ daily: 40 }));
 vi.mock('../../../src/app-config', async () => {
   const actual = await vi.importActual<typeof import('../../../src/app-config')>('../../../src/app-config');
-  return { ...actual, readEnv: () => ({ ...actual.readEnv(), integrations: { ...actual.readEnv().integrations, assistantDailyLimit: limits.daily } }) };
+  return {
+    ...actual,
+    readEnv: () => ({
+      ...actual.readEnv(),
+      integrations: { ...actual.readEnv().integrations, assistantDailyLimit: limits.daily },
+    }),
+  };
 });
 vi.mock('../../../src/utils/ssrfGuard', () => ({ safeFetchLlm: (...a: unknown[]) => safeFetchLlm(...a) }));
 
-import { RoteiroChatService } from '../../../src/nest/roteiro-ia/roteiro-chat.service';
-import { applyDetails, toCard, toKnownPlace } from '../../../src/nest/roteiro-ia/roteiro-ia.tools';
-import { RoteiroIaController } from '../../../src/nest/roteiro-ia/roteiro-ia.controller';
-
 const PLACE = {
-  name: 'Cantina Bella', address: 'Rua A, 10', lat: -25.5, lng: -48.5,
-  google_place_id: 'g1', rating: 4.6, rating_count: 120,
+  name: 'Cantina Bella',
+  address: 'Rua A, 10',
+  lat: -25.5,
+  lng: -48.5,
+  google_place_id: 'g1',
+  rating: 4.6,
+  rating_count: 120,
 };
 
 function json(body: unknown, ok = true, status = 200) {
@@ -23,7 +34,9 @@ function json(body: unknown, ok = true, status = 200) {
 }
 const answer = (message: Record<string, unknown>) => json({ choices: [{ message }] });
 const toolCall = (name: string, args: Record<string, unknown>, id = 'c1') => ({
-  id, type: 'function', function: { name, arguments: JSON.stringify(args) },
+  id,
+  type: 'function',
+  function: { name, arguments: JSON.stringify(args) },
 });
 
 function make(overrides: { config?: unknown; canAccess?: boolean } = {}) {
@@ -32,9 +45,16 @@ function make(overrides: { config?: unknown; canAccess?: boolean } = {}) {
     detailsDisabled: vi.fn().mockResolvedValue(false),
     getPlaceDetailsExpanded: vi.fn().mockResolvedValue({
       place: {
-        rating: 4.7, rating_count: 130, open_now: true, summary: 'Massas artesanais',
-        opening_hours: ['seg: 11-23'], google_maps_url: 'https://maps.google.com/?cid=1',
-        reviews: [{ author: 'Ana', rating: 5, text: 'x'.repeat(400) }, { author: 'Beto', rating: 3, text: 'ok' }],
+        rating: 4.7,
+        rating_count: 130,
+        open_now: true,
+        summary: 'Massas artesanais',
+        opening_hours: ['seg: 11-23'],
+        google_maps_url: 'https://maps.google.com/?cid=1',
+        reviews: [
+          { author: 'Ana', rating: 5, text: 'x'.repeat(400) },
+          { author: 'Beto', rating: 3, text: 'ok' },
+        ],
       },
     }),
   };
@@ -47,9 +67,10 @@ function make(overrides: { config?: unknown; canAccess?: boolean } = {}) {
     canAccessTrip: vi.fn().mockResolvedValue(overrides.canAccess === false ? null : { user_id: 1 }),
     getRaw: vi.fn().mockResolvedValue({ title: 'Paraná', start_date: '2026-12-01', end_date: '2026-12-05' }),
   };
-  const config = overrides.config === undefined
-    ? { provider: 'openai', model: 'm', baseUrl: 'https://openrouter.ai/api/v1/', apiKey: 'k', multimodal: false }
-    : overrides.config;
+  const config =
+    overrides.config === undefined
+      ? { provider: 'openai', model: 'm', baseUrl: 'https://openrouter.ai/api/v1/', apiKey: 'k', multimodal: false }
+      : overrides.config;
   const llm = { resolve: vi.fn().mockResolvedValue(config) };
   const svc = new RoteiroChatService(maps as never, days as never, trips as never, llm as never);
   return { svc, maps, days, trips, llm };
@@ -58,12 +79,19 @@ function make(overrides: { config?: unknown; canAccess?: boolean } = {}) {
 const body = { tripId: 1, language: 'pt-BR', messages: [{ role: 'user' as const, content: 'onde almoçar?' }] };
 
 async function status(fn: () => Promise<unknown>) {
-  try { await fn(); } catch (e) { return (e as HttpException).getStatus(); }
+  try {
+    await fn();
+  } catch (e) {
+    return (e as HttpException).getStatus();
+  }
   return 0;
 }
 
 describe('RoteiroChatService', () => {
-  beforeEach(() => { safeFetchLlm.mockReset(); limits.daily = 40; });
+  beforeEach(() => {
+    safeFetchLlm.mockReset();
+    limits.daily = 40;
+  });
 
   it('returns the model text when no tool is needed', async () => {
     const { svc } = make();
@@ -80,13 +108,42 @@ describe('RoteiroChatService', () => {
   it('runs search, details and recommend, producing a card for a valid day', async () => {
     const { svc, maps } = make();
     safeFetchLlm
-      .mockResolvedValueOnce(answer({ content: null, tool_calls: [toolCall('get_trip', {}, 'a'), toolCall('search_places', { query: 'massa', near_lat: 1, near_lng: 2 }, 'b')] }))
-      .mockResolvedValueOnce(answer({ content: null, tool_calls: [toolCall('place_details', { ref: 'p1' }, 'c'), toolCall('recommend_place', { ref: 'p1', day_id: 7, reason: 'Boa nota' }, 'd')] }))
+      .mockResolvedValueOnce(
+        answer({
+          content: null,
+          tool_calls: [
+            toolCall('get_trip', {}, 'a'),
+            toolCall('search_places', { query: 'massa', near_lat: 1, near_lng: 2 }, 'b'),
+          ],
+        }),
+      )
+      .mockResolvedValueOnce(
+        answer({
+          content: null,
+          tool_calls: [
+            toolCall('place_details', { ref: 'p1' }, 'c'),
+            toolCall('recommend_place', { ref: 'p1', day_id: 7, reason: 'Boa nota' }, 'd'),
+          ],
+        }),
+      )
       .mockResolvedValueOnce(answer({ content: 'Sugiro a Cantina Bella no dia 1.' }));
     const res = await svc.chat(1, body);
-    expect(maps.searchPlaces).toHaveBeenCalledWith(1, 'massa', 'pt-BR', { lat: 1, lng: 2, radius: 20000 }, { googleOnly: true });
+    expect(maps.searchPlaces).toHaveBeenCalledWith(
+      1,
+      'massa',
+      'pt-BR',
+      { lat: 1, lng: 2, radius: 20000 },
+      { googleOnly: true },
+    );
     expect(res.cards).toHaveLength(1);
-    expect(res.cards[0]).toMatchObject({ ref: 'p1', name: 'Cantina Bella', dayId: 7, rating: 4.7, openNow: true, reason: 'Boa nota' });
+    expect(res.cards[0]).toMatchObject({
+      ref: 'p1',
+      name: 'Cantina Bella',
+      dayId: 7,
+      rating: 4.7,
+      openNow: true,
+      reason: 'Boa nota',
+    });
     expect(res.cards[0].topReview?.author).toBe('Ana');
     expect(res.cards[0].topReview?.text.length).toBe(280);
     // The tool result handed back to the model carries the trimmed review, not the 400 chars.
@@ -99,7 +156,9 @@ describe('RoteiroChatService', () => {
     const { svc } = make();
     safeFetchLlm
       .mockResolvedValueOnce(answer({ content: null, tool_calls: [toolCall('search_places', { query: 'x' }, 'a')] }))
-      .mockResolvedValueOnce(answer({ content: null, tool_calls: [toolCall('recommend_place', { ref: 'p1', day_id: 999 }, 'b')] }))
+      .mockResolvedValueOnce(
+        answer({ content: null, tool_calls: [toolCall('recommend_place', { ref: 'p1', day_id: 999 }, 'b')] }),
+      )
       .mockResolvedValueOnce(answer({ content: 'ok' }));
     const res = await svc.chat(1, body);
     expect(res.cards[0].dayId).toBeNull();
@@ -109,7 +168,16 @@ describe('RoteiroChatService', () => {
     const { svc, maps } = make();
     maps.searchPlaces.mockRejectedValueOnce(new Error('boom'));
     safeFetchLlm
-      .mockResolvedValueOnce(answer({ content: null, tool_calls: [toolCall('search_places', { query: 'x' }, 'a'), toolCall('place_details', { ref: 'zz' }, 'b'), toolCall('nope', {}, 'c')] }))
+      .mockResolvedValueOnce(
+        answer({
+          content: null,
+          tool_calls: [
+            toolCall('search_places', { query: 'x' }, 'a'),
+            toolCall('place_details', { ref: 'zz' }, 'b'),
+            toolCall('nope', {}, 'c'),
+          ],
+        }),
+      )
       .mockResolvedValueOnce(answer({ content: 'Não achei.' }));
     const res = await svc.chat(1, body);
     expect(res.reply).toBe('Não achei.');
@@ -119,12 +187,17 @@ describe('RoteiroChatService', () => {
     const { svc, maps } = make();
     maps.detailsDisabled.mockReturnValue(true);
     safeFetchLlm
-      .mockResolvedValueOnce(answer({ content: null, tool_calls: [
-        { id: 'a', type: 'function', function: { name: 'search_places', arguments: '{bad' } },
-        toolCall('search_places', { query: '   ' }, 'b'),
-        toolCall('search_places', { query: 'massa' }, 'c'),
-        toolCall('place_details', { ref: 'p1' }, 'd'),
-      ] }))
+      .mockResolvedValueOnce(
+        answer({
+          content: null,
+          tool_calls: [
+            { id: 'a', type: 'function', function: { name: 'search_places', arguments: '{bad' } },
+            toolCall('search_places', { query: '   ' }, 'b'),
+            toolCall('search_places', { query: 'massa' }, 'c'),
+            toolCall('place_details', { ref: 'p1' }, 'd'),
+          ],
+        }),
+      )
       .mockResolvedValueOnce(answer({ content: 'feito' }));
     expect((await svc.chat(1, body)).reply).toBe('feito');
   });
@@ -183,11 +256,18 @@ describe('RoteiroChatService', () => {
     const { svc, maps } = make();
     maps.searchPlaces.mockResolvedValue({ places: [PLACE, PLACE], source: 'google' });
     safeFetchLlm
-      .mockResolvedValueOnce(answer({ content: null, tool_calls: [toolCall('search_places', { query: 'a' }, 'a'), toolCall('search_places', { query: 'a' }, 'b')] }))
+      .mockResolvedValueOnce(
+        answer({
+          content: null,
+          tool_calls: [toolCall('search_places', { query: 'a' }, 'a'), toolCall('search_places', { query: 'a' }, 'b')],
+        }),
+      )
       .mockResolvedValueOnce(answer({ content: 'ok' }));
     await svc.chat(1, body);
     const sent = JSON.parse((safeFetchLlm.mock.calls[1][1] as { body: string }).body).messages;
-    const results = sent.filter((m: { role: string }) => m.role === 'tool').map((m: { content: string }) => JSON.parse(m.content).results);
+    const results = sent
+      .filter((m: { role: string }) => m.role === 'tool')
+      .map((m: { content: string }) => JSON.parse(m.content).results);
     expect(results[0]).toHaveLength(1);
     expect(results[1][0].ref).toBe('p1');
   });
@@ -221,7 +301,10 @@ describe('RoteiroIaController', () => {
     const retry = vi.fn().mockResolvedValue({ tripId: 9, remaining: 3 });
     const c = new RoteiroIaController({} as never, { start, retry } as never);
     const user = { id: 5, role: 'user' };
-    expect(await c.createTripPlan(user as never, { destination: 'Gramado' } as never)).toEqual({ tripId: 9, remaining: 4 });
+    expect(await c.createTripPlan(user as never, { destination: 'Gramado' } as never)).toEqual({
+      tripId: 9,
+      remaining: 4,
+    });
     expect(start).toHaveBeenCalledWith(user, { destination: 'Gramado' });
     expect(await c.retryTripPlan(user as never, 9)).toEqual({ tripId: 9, remaining: 3 });
     expect(retry).toHaveBeenCalledWith(5, 9);

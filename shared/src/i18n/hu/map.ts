@@ -44,7 +44,8 @@ const map: TranslationStrings = {
   'map.webgl2.terrain': 'A 3D-hez WebGL2 kell, amelyet ez a böngésző nem kínál. A térkép 2D-ben marad.',
   'poi.ask': 'Kérdezz',
   'assistant.placeholder': 'Kérdezz az utazásodról…',
-  'assistant.welcome': 'Szia! Tudok éttermeket és programokat javasolni, megnézem a Google értékeléseit és véleményeit, és hozzáadhatok helyeket az útitervedhez. Mit szeretnél megtervezni?',
+  'assistant.welcome':
+    'Szia! Tudok éttermeket és programokat javasolni, megnézem a Google értékeléseit és véleményeit, és hozzáadhatok helyeket az útitervedhez. Mit szeretnél megtervezni?',
   'assistant.suggest1': 'Hol lehet ebédelni a közelben?',
   'assistant.suggest2': 'Tervezz nekem egy szabad délutánt',
   'assistant.suggest3': 'A legjobbra értékelt látnivalók',

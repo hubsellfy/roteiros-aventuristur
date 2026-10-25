@@ -1083,7 +1083,8 @@ const tours: TranslationStrings = {
     'Los datos de obstáculos solo cubren una parte de la ruta (fecha de los datos: {date}). Comprueba el resto por tu cuenta.',
   'tours.paddle.obstacles.none':
     'No hay datos de obstáculos para esta zona. Comprueba aquí por tu cuenta azudes, esclusas y porteos.',
-  'tours.paddle.obstacles.offline': 'Sin conexión, Roteiros Aventuristur no carga datos de obstáculos. Comprueba el agua por tu cuenta.',
+  'tours.paddle.obstacles.offline':
+    'Sin conexión, Roteiros Aventuristur no carga datos de obstáculos. Comprueba el agua por tu cuenta.',
   'tours.paddle.obstacles.error': 'No se han podido cargar los datos de obstáculos. Comprueba el agua por tu cuenta.',
   'tours.paddle.obstacle.kind.weir': 'Azud',
   'tours.paddle.obstacle.kind.dam': 'Presa',
@@ -1249,7 +1250,8 @@ const tours: TranslationStrings = {
   'tours.paddle.failed.no_region': 'Aún no hay datos de agua para esta zona. Un administrador puede añadir la región.',
   'tours.paddle.failed.building':
     'Los datos de agua de esta región aún se están preparando. Inténtalo de nuevo en unos minutos.',
-  'tours.paddle.failed.no_water_path': 'Roteiros Aventuristur no encontró ningún camino por el agua entre estos puntos.',
+  'tours.paddle.failed.no_water_path':
+    'Roteiros Aventuristur no encontró ningún camino por el agua entre estos puntos.',
   'tours.paddle.failed.cross_region': 'Estos puntos están en dos regiones que no comparten datos de agua.',
   'tours.paddle.failed.busy': 'El planificador de rutas está ocupado. Inténtalo de nuevo en un momento.',
   'tours.paddle.failed.timeout':

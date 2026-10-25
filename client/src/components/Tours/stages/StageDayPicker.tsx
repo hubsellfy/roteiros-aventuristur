@@ -1,6 +1,6 @@
-import { CalendarCheck2, CalendarDays, CalendarPlus, CalendarX2, ChevronDown, Loader2 } from '../../../icons';
 import type { MouseEvent } from 'react';
 import { useTranslation } from '../../../i18n';
+import { CalendarCheck2, CalendarDays, CalendarPlus, CalendarX2, ChevronDown, Loader2 } from '../../../icons';
 import type { Day } from '../../../types';
 import { ContextMenu, useContextMenu } from '../../shared/ContextMenu';
 import { fs } from '../../shared/DialogShell';

@@ -843,7 +843,8 @@ const journey: TranslationStrings = {
   'journey.dayImport.routeFailed': 'The drafts are in, but the route was not kept: {reason}',
   'journey.dayImport.routeRetry': 'Keep route again',
   'journey.dayImport.stale': 'Dawarich did not answer: {reason} Showing the stays of the last sync on {date}.',
-  'journey.dayImport.staleNever': 'Dawarich did not answer: {reason} Showing the stays Roteiros Aventuristur knows already.',
+  'journey.dayImport.staleNever':
+    'Dawarich did not answer: {reason} Showing the stays Roteiros Aventuristur knows already.',
   'journey.dayImport.truncated': 'Dawarich sent only part of this day. Some stays may be missing.',
   'journey.dayImport.empty': 'Dawarich found no stays on this day.',
   'journey.prep.lastSuccess': 'Last fetched {time}.',

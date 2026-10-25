@@ -1,5 +1,5 @@
-import { AlertTriangle, Loader2, RefreshCw, WifiOff } from '../../icons';
 import { useTranslation } from '../../i18n';
+import { AlertTriangle, Loader2, RefreshCw, WifiOff } from '../../icons';
 import { fs } from '../shared/DialogShell';
 import { CardAction, TourNotice } from './tourParts';
 

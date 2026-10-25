@@ -7,8 +7,8 @@ import {
   type BookPattern,
   type BookPatternPaint,
 } from '@trek/shared';
-import { ArrowLeftRight, Ban, Trash2 } from '../../icons';
 import { useRef, useState } from 'react';
+import { ArrowLeftRight, Ban, Trash2 } from '../../icons';
 import '../../styles/studio-paint.css';
 import { NumField } from './StudioControls';
 import type { StudioT } from './StudioSidebar';

@@ -1,5 +1,5 @@
-import { CalendarX2 } from '../../../icons';
 import { useTranslation } from '../../../i18n';
+import { CalendarX2 } from '../../../icons';
 import { useTripStore } from '../../../store/tripStore';
 import type { TourPlannerController } from '../planner/useTourPlanner';
 import { TourNotice } from '../tourParts';

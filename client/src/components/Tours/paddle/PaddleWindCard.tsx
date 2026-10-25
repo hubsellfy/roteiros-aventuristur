@@ -1,7 +1,7 @@
 import { compassPointOf, type PaddleLakeStyle, type WindForecastResponse, type WindHour } from '@trek/shared';
-import { ChevronDown, RefreshCw, WifiOff, Wind } from '../../../icons';
 import { useState } from 'react';
 import { useTranslation } from '../../../i18n';
+import { ChevronDown, RefreshCw, WifiOff, Wind } from '../../../icons';
 import { formatDate } from '../../../utils/formatters';
 import { SoftPill } from '../../Planner/planParts';
 import { fs } from '../../shared/DialogShell';

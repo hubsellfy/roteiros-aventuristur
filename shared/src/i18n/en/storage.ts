@@ -22,7 +22,8 @@ const storage: TranslationStrings = {
 
   // Panel chrome
   'storage.title': 'Storage',
-  'storage.description': 'Where Roteiros Aventuristur keeps uploaded files, photos and backups. Nothing changes until you save.',
+  'storage.description':
+    'Where Roteiros Aventuristur keeps uploaded files, photos and backups. Nothing changes until you save.',
   'storage.loading': 'Loading…',
   'storage.saved': 'Storage configuration saved',
   'storage.save': 'Save changes',

@@ -1,5 +1,5 @@
-import type { LucideIcon } from '../../icons';
 import { useRef, type HTMLAttributes, type KeyboardEvent, type ReactNode } from 'react';
+import type { LucideIcon } from '../../icons';
 
 import '../../styles/studio-panels.css';
 import { rovingTarget, runsRtl } from './studioRoving';

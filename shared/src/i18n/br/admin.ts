@@ -591,8 +591,10 @@ const admin: TranslationStrings = {
     '“{name}” declara suporte ao TREK {range}, e este servidor executa {host}. O Roteiros Aventuristur só o deixa passar porque TREK_PLUGINS_IGNORE_TREK_RANGE está definido. O autor não atualizou o intervalo de versões do plugin para este Roteiros Aventuristur, então não há garantia de que funcione — e, em casos raros, um plugin incompatível pode corromper os dados do Roteiros Aventuristur. Continue apenas se aceitar esse risco.',
   'admin.plugins.rangeBypass.bodyUnknown':
     '“{name}” não declara quais versões do Roteiros Aventuristur suporta; este servidor executa {host}. O Roteiros Aventuristur só o deixa passar porque TREK_PLUGINS_IGNORE_TREK_RANGE está definido. Nada indica que o autor o tenha testado neste Roteiros Aventuristur, então não há garantia de que funcione — e, em casos raros, um plugin incompatível pode corromper os dados do Roteiros Aventuristur. Continue apenas se aceitar esse risco.',
-  'admin.plugins.dep.trekBypassed': 'Fora do seu intervalo Roteiros Aventuristur ({range}) — verificações de versão desligadas',
-  'admin.plugins.dep.trekBypassedUnknown': 'Não declara nenhum intervalo Roteiros Aventuristur — verificações de versão desligadas',
+  'admin.plugins.dep.trekBypassed':
+    'Fora do seu intervalo Roteiros Aventuristur ({range}) — verificações de versão desligadas',
+  'admin.plugins.dep.trekBypassedUnknown':
+    'Não declara nenhum intervalo Roteiros Aventuristur — verificações de versão desligadas',
   'admin.plugins.incompatible': 'Incompatível',
   'admin.plugins.accessTitle': 'O que ele pode acessar',
   'admin.plugins.connectsTitle': 'Conecta-se a',
@@ -735,7 +737,8 @@ const admin: TranslationStrings = {
   'admin.update.backupHint': 'Recomendamos criar um backup antes de atualizar.',
   'admin.update.backupLink': 'Ir para Backup',
   'admin.update.howTo': 'Como atualizar',
-  'admin.update.dockerText': 'Sua instância Roteiros Aventuristur roda no Docker. Para atualizar para {version}, execute no servidor:',
+  'admin.update.dockerText':
+    'Sua instância Roteiros Aventuristur roda no Docker. Para atualizar para {version}, execute no servidor:',
   'admin.update.nonDockerText':
     'Esta instância do Roteiros Aventuristur não está rodando no Docker. Para atualizar para {version}, execute novamente o método de instalação ou atualização que você usou — por exemplo, no Proxmox Community Scripts, execute a atualização a partir do console do LXC:',
   'admin.update.wikiLink': 'Abrir o guia de atualização',
@@ -940,7 +943,8 @@ const admin: TranslationStrings = {
   'admin.paddleRegions.requests.approve': 'Carregar',
   'admin.paddleRegions.requests.decline': 'Recusar',
   'admin.paddleRegions.origin.auto': 'Automático',
-  'admin.paddleRegions.origin.autoHint': 'O Roteiros Aventuristur carregou esta região sozinho para um passeio de remo planejado ali.',
+  'admin.paddleRegions.origin.autoHint':
+    'O Roteiros Aventuristur carregou esta região sozinho para um passeio de remo planejado ali.',
   'admin.mfa.reset': 'Redefinir 2FA',
   'admin.mfa.resetHint':
     'Desativa a autenticação em dois fatores deste usuário, por exemplo após a perda do celular. Ele é desconectado de todos os lugares e pode configurá-la novamente depois de entrar com a senha.',

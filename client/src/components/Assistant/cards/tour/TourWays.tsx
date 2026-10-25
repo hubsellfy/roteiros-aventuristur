@@ -1,6 +1,6 @@
 import type { TourRouteCard as Route } from '@trek/shared';
-import { Route as RouteIcon } from '../../../../icons';
 import { useMemo } from 'react';
+import { Route as RouteIcon } from '../../../../icons';
 
 import { useTranslation } from '../../../../i18n';
 import { chatOf, useAssistantStore } from '../../../../store/assistantStore';

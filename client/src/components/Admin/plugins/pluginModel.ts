@@ -1,6 +1,6 @@
 import { PLUGIN_PERMISSIONS } from '@trek/shared';
-import { AlertTriangle, Blocks, Puzzle } from '../../../icons';
 import type { ComponentType } from 'react';
+import { AlertTriangle, Blocks, Puzzle } from '../../../icons';
 import { bypassChip, bypassOffer, type RangeWarning, type TrekRangeBypass } from '../useRangeBypass';
 
 export interface PluginDep {

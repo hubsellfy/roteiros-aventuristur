@@ -1,5 +1,5 @@
-import { ChevronDown, ShieldCheck } from '../../icons';
 import { useState } from 'react';
+import { ChevronDown, ShieldCheck } from '../../icons';
 
 import { useTranslation } from '../../i18n';
 import { useAssistantStore } from '../../store/assistantStore';

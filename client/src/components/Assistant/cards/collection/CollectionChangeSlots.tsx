@@ -6,8 +6,8 @@ import type {
   CollectionListsCard,
   CollectionPlacesCard,
 } from '@trek/shared';
-import { Bookmark, Info, Tag } from '../../../../icons';
 import type { ReactNode } from 'react';
+import { Bookmark, Info, Tag } from '../../../../icons';
 
 import { useTranslation } from '../../../../i18n';
 import { STATUS_META } from '../../../Collections/collectionStatus';

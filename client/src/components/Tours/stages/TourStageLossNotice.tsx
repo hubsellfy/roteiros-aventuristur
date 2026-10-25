@@ -1,5 +1,5 @@
-import { AlertTriangle, Undo2 } from '../../../icons';
 import { useTranslation } from '../../../i18n';
+import { AlertTriangle, Undo2 } from '../../../icons';
 import type { TourPlannerController } from '../planner/useTourPlanner';
 import { CardAction, TourNotice } from '../tourParts';
 

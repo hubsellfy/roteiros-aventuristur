@@ -1,6 +1,6 @@
 import { AuiIf, ThreadPrimitive } from '@assistant-ui/react';
-import { ArrowDown, FileUp, MapPin } from '../../icons';
 import { useMemo, useRef } from 'react';
+import { ArrowDown, FileUp, MapPin } from '../../icons';
 
 import { useTranslation } from '../../i18n';
 import { chatOf, useAssistantStore } from '../../store/assistantStore';

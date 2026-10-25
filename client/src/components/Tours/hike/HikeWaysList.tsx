@@ -1,5 +1,5 @@
-import { Info, RefreshCw, SlidersHorizontal } from '../../../icons';
 import { useTranslation } from '../../../i18n';
+import { Info, RefreshCw, SlidersHorizontal } from '../../../icons';
 import { useSettingsStore } from '../../../store/settingsStore';
 import { formatDistance } from '../../../utils/units';
 import { SoftPill } from '../../Planner/planParts';

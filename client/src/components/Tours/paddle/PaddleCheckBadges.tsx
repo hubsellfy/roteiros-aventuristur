@@ -6,8 +6,8 @@ import type {
   PaddleObstacleKind,
   TourObstacleEntry,
 } from '@trek/shared';
-import { RotateCcw } from '../../../icons';
 import { useTranslation } from '../../../i18n';
+import { RotateCcw } from '../../../icons';
 import { TourDayRowPill } from '../TourDayRowFacts';
 import { FigureBadge } from './FigureBadge';
 import { PaddleGlyph } from './PaddleGlyph';

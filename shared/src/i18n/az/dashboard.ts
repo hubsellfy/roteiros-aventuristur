@@ -257,12 +257,14 @@ const dashboard: TranslationStrings = {
   'dashboard.plan.style.familia': 'Ailələr üçün əla',
   'dashboard.plan.style.romantica': 'Romantik qaçış',
   'dashboard.plan.generate': 'Səyahət yarat',
-  'dashboard.plan.disclaimer': 'Google məkanları ilə süni intellektin təklif etdiyi marşrut. Saatları və qiymətləri məkanda dəqiqləşdirin.',
+  'dashboard.plan.disclaimer':
+    'Google məkanları ilə süni intellektin təklif etdiyi marşrut. Saatları və qiymətləri məkanda dəqiqləşdirin.',
   'dashboard.plan.errDestination': 'Təyinatı daxil edin.',
   'dashboard.plan.errDates': 'Gediş və qayıdış tarixlərini seçin.',
   'dashboard.plan.errDays': 'Yaradıcı ən çox {limit} günlük səyahət planlaşdırır.',
   'dashboard.plan.pendingTitle': 'Marşrutunuz hazırlanır',
-  'dashboard.plan.working': 'Süni intellekt ən yaxşı məkanları seçir. Bir neçə dəqiqə çəkə bilər və tətbiqdən çıxa bilərsiniz.',
+  'dashboard.plan.working':
+    'Süni intellekt ən yaxşı məkanları seçir. Bir neçə dəqiqə çəkə bilər və tətbiqdən çıxa bilərsiniz.',
   'dashboard.plan.failed': 'Bu marşrutu tamamlaya bilmədim.',
   'dashboard.plan.retry': 'Yenidən cəhd et',
   'dashboard.plan.remove': 'Sil',

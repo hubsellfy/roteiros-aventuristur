@@ -1,7 +1,7 @@
 import type { JourneyRecordedDay } from '@trek/shared';
-import { Route } from '../../icons';
 import type React from 'react';
 import { useTranslation } from '../../i18n';
+import { Route } from '../../icons';
 import { useSettingsStore } from '../../store/settingsStore';
 import { formatDistance } from '../../utils/units';
 import DawarichIcon from '../shared/DawarichIcon';

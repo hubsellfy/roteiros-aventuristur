@@ -1,5 +1,5 @@
-import { Sparkles } from '../../icons';
 import { useMatch } from 'react-router';
+import { Sparkles } from '../../icons';
 
 import { useTranslation } from '../../i18n';
 import type { Place } from '../../types';

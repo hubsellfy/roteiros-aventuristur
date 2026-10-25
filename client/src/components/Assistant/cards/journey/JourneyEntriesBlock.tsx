@@ -1,6 +1,6 @@
 import type { AssistantMessage, JourneyEntryLook } from '@trek/shared';
-import { ArrowUpRight, BookOpen } from '../../../../icons';
 import { useMemo } from 'react';
+import { ArrowUpRight, BookOpen } from '../../../../icons';
 
 import { useTranslation } from '../../../../i18n';
 import { DAY_COLORS } from '../../../Journey/dayColors';

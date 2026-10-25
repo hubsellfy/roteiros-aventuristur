@@ -1,5 +1,5 @@
-import { type LucideIcon, RotateCcw, TramFront } from '../../icons';
 import { useCallback } from 'react';
+import { type LucideIcon, RotateCcw, TramFront } from '../../icons';
 
 import { assignmentRepo } from '../../repo/assignmentRepo';
 import type { TripStoreState } from '../../store/tripStore';

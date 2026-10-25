@@ -6,8 +6,8 @@ import type {
   TrekCardKind,
   TrekCardOf,
 } from '@trek/shared';
-import type { LucideIcon } from '../../../icons';
 import type { ComponentType } from 'react';
+import type { LucideIcon } from '../../../icons';
 
 import type { TripTabId } from '../../../constants/tripTabs';
 import type { GhostPoint, RouteLineSpec, RouteUse } from '../../../types/assistantMap';

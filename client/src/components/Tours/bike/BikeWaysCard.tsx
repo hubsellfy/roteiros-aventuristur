@@ -1,7 +1,7 @@
 import type { BikeProfile } from '@trek/shared';
-import { AlertTriangle, Layers, Loader2, RefreshCw, WifiOff } from '../../../icons';
 import { useMemo } from 'react';
 import { useTranslation } from '../../../i18n';
+import { AlertTriangle, Layers, Loader2, RefreshCw, WifiOff } from '../../../icons';
 import { useSettingsStore } from '../../../store/settingsStore';
 import { useTourRouteHighlightStore } from '../../../store/tourRouteHighlightStore';
 import { formatDistance } from '../../../utils/units';

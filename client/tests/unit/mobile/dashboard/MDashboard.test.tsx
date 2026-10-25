@@ -181,7 +181,7 @@ describe('MDashboard', () => {
     mocks.dash = buildDash({ demoMode: true });
     render(<MDashboard />);
 
-    expect(screen.getByRole('dialog')).toHaveTextContent('Welcome to TREK');
+    expect(screen.getByRole('dialog')).toHaveTextContent('Welcome to Roteiros Aventuristur');
   });
 
   it('FE-MOB-DASH-009: unread notifications mark the bell and it opens the list', () => {

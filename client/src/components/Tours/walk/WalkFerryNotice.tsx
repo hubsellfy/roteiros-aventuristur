@@ -1,5 +1,5 @@
-import { Check, Eye, MapPin, Ship, Unlink } from '../../../icons';
 import { useTranslation } from '../../../i18n';
+import { Check, Eye, MapPin, Ship, Unlink } from '../../../icons';
 import { useSettingsStore } from '../../../store/settingsStore';
 import { formatDistance } from '../../../utils/units';
 import { SoftPill } from '../../Planner/planParts';

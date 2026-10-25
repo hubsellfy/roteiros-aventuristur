@@ -199,4 +199,6 @@ const UPSTREAM_SYSTEM_NOTICES: SystemNotice[] = [
     minVersion: '3.0.14',
   },
 ];
-export const SYSTEM_NOTICES: SystemNotice[] = UPSTREAM_SYSTEM_NOTICES.filter((notice) => notice.id !== 'release-notes' && notice.id !== 'thank-you-support');
+export const SYSTEM_NOTICES: SystemNotice[] = UPSTREAM_SYSTEM_NOTICES.filter(
+  (notice) => notice.id !== 'release-notes' && notice.id !== 'thank-you-support',
+);

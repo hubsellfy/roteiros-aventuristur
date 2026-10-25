@@ -1,5 +1,5 @@
-import { RotateCcw, Save } from '../../../icons';
 import { useTranslation } from '../../../i18n';
+import { RotateCcw, Save } from '../../../icons';
 import { DialogButton, fs } from '../../shared/DialogShell';
 import { PaddleSafetyRow } from '../paddle/PaddleSafety';
 import type { TourPlannerController } from './useTourPlanner';

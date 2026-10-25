@@ -1,6 +1,6 @@
-import { Shapes, Type } from '../../icons';
 import { useState } from 'react';
 import { describe, expect, it, vi } from 'vitest';
+import { Shapes, Type } from '../../icons';
 
 import { fireEvent, render, screen } from '../../../tests/helpers/render';
 import { StudioTabPanel, StudioTabs } from './StudioTabs';

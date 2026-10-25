@@ -6,9 +6,9 @@ import type {
   TourObstacleEntry,
   TourOwnEntry,
 } from '@trek/shared';
-import { AlertTriangle, CloudOff, LifeBuoy, ListChecks, Loader2, PencilLine, Save, WifiOff } from '../../../icons';
 import { useEffect, useId, useMemo, useRef, useState, type ReactNode } from 'react';
 import { useTranslation } from '../../../i18n';
+import { AlertTriangle, CloudOff, LifeBuoy, ListChecks, Loader2, PencilLine, Save, WifiOff } from '../../../icons';
 import { useSettingsStore } from '../../../store/settingsStore';
 import { formatDistance } from '../../../utils/units';
 import { SoftPill } from '../../Planner/planParts';

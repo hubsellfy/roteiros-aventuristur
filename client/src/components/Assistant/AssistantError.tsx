@@ -1,5 +1,5 @@
-import { CircleAlert, WifiOff } from '../../icons';
 import { useNavigate } from 'react-router';
+import { CircleAlert, WifiOff } from '../../icons';
 
 import { useNetworkMode } from '../../hooks/useNetworkMode';
 import { useTranslation } from '../../i18n';

@@ -1,6 +1,6 @@
-import { ArrowLeft, ArrowRight, Clock, ExternalLink, Images, RotateCcw } from '../../icons';
 import { lazy, Suspense, useId } from 'react';
 import { useTranslation } from '../../i18n';
+import { ArrowLeft, ArrowRight, Clock, ExternalLink, Images, RotateCcw } from '../../icons';
 import {
   DialogButton,
   DialogFooter,

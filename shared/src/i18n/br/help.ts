@@ -7,7 +7,8 @@ const help: TranslationStrings = {
   'help.contents': 'Conteúdo',
   'help.noResults': 'Nenhuma página encontrada.',
   'help.errorTitle': 'Não foi possível carregar esta página',
-  'help.errorBody': 'O conteúdo da ajuda é carregado da wiki do Roteiros Aventuristur. Verifique sua conexão e tente de novo.',
+  'help.errorBody':
+    'O conteúdo da ajuda é carregado da wiki do Roteiros Aventuristur. Verifique sua conexão e tente de novo.',
 
   // center
   'help.center.button': 'Ajuda para esta tela',
@@ -654,7 +655,8 @@ const help: TranslationStrings = {
     'Quem só visualiza uma lista compartilhada também pode fazer isso. Os lugares da lista são copiados, e a lista não muda.',
   // share-list
   'help.guide.share-list.title': 'Compartilhar uma lista com alguém',
-  'help.guide.share-list.goal': 'Planeje uma lista junto com outras pessoas deste Roteiros Aventuristur, em tempo real.',
+  'help.guide.share-list.goal':
+    'Planeje uma lista junto com outras pessoas deste Roteiros Aventuristur, em tempo real.',
   'help.guide.share-list.step.1': 'Clique em Compartilhar no cabeçalho da sua lista.',
   'help.guide.share-list.step.2': 'Selecione o usuário e uma função: Visualizador, Editor ou Administrador.',
   'help.guide.share-list.step.3':
@@ -667,7 +669,8 @@ const help: TranslationStrings = {
     'Só o dono pode convidar e remover pessoas; um membro pode sair sozinho de uma lista compartilhada.',
   // export-list
   'help.guide.export-list.title': 'Exportar uma lista como arquivo',
-  'help.guide.export-list.goal': 'Passe uma lista para alguém em outro servidor Roteiros Aventuristur ou abra-a em um app de mapas.',
+  'help.guide.export-list.goal':
+    'Passe uma lista para alguém em outro servidor Roteiros Aventuristur ou abra-a em um app de mapas.',
   'help.guide.export-list.step.1': 'Clique em Exportar no cabeçalho da lista.',
   'help.guide.export-list.step.2':
     'Escolha “Lista do Roteiros Aventuristur” para usar a lista em outro Roteiros Aventuristur, com rótulos e status, ou GPX para OsmAnd, Organic Maps, Garmin e outros apps que leem waypoints.',
@@ -1392,7 +1395,8 @@ const help: TranslationStrings = {
     'As viagens abrem sem conexão. As alterações que você fizer ficam em uma fila e são enviadas quando você voltar a ficar online.',
   'help.guide.offline-prepare.tip.1':
     'Os blocos do mapa são o que mais ocupa espaço; desative-os para guardar só os dados das viagens e os documentos.',
-  'help.guide.offline-prepare.tip.2': 'Instale o Roteiros Aventuristur como app pelo navegador para ter o melhor início offline.',
+  'help.guide.offline-prepare.tip.2':
+    'Instale o Roteiros Aventuristur como app pelo navegador para ter o melhor início offline.',
   // offline-conflicts
   'help.guide.offline-conflicts.title': 'Escolher qual versão fica em um conflito de sincronização',
   'help.guide.offline-conflicts.goal':
@@ -1842,7 +1846,8 @@ const help: TranslationStrings = {
     'Desativar o complemento MCP desconecta todos os clientes de uma vez e esconde esta aba, mas não exclui nada: os tokens voltam a funcionar quando ele é reativado.',
   // release-history
   'help.guide.release-history.title': 'Verificar se há uma versão nova',
-  'help.guide.release-history.goal': 'Saiba se o seu Roteiros Aventuristur está atualizado e o que a próxima versão traz.',
+  'help.guide.release-history.goal':
+    'Saiba se o seu Roteiros Aventuristur está atualizado e o que a próxima versão traz.',
   'help.guide.release-history.step.1':
     'Quando sai uma versão mais nova, “Atualização disponível” aparece abaixo do cabeçalho da página, com a versão que você usa. “Ver no GitHub” abre a versão, e “Como atualizar” mostra os comandos para Docker ou o guia de atualização para outras instalações.',
   'help.guide.release-history.step.2':
@@ -3730,7 +3735,8 @@ const help: TranslationStrings = {
     'Uma divisão personalizada também pode ser feita em porcentagem: mude “Inserir partes como” para %, e as partes precisam somar 100 % antes de a despesa ser salva.',
   // expense-currency
   'help.guide.expense-currency.title': 'Lançar uma despesa em outra moeda',
-  'help.guide.expense-currency.goal': 'Lance o valor que está no comprovante, e o Roteiros Aventuristur salva a taxa de câmbio.',
+  'help.guide.expense-currency.goal':
+    'Lance o valor que está no comprovante, e o Roteiros Aventuristur salva a taxa de câmbio.',
   'help.guide.expense-currency.step.1':
     'Abra “Adicionar despesa”. Digite o nome no topo da janela e informe em “Valor total” exatamente o valor do comprovante, sem converter.',
   'help.guide.expense-currency.step.2':
@@ -4181,7 +4187,8 @@ const help: TranslationStrings = {
     '“Sem rodovia”, “Sem pedágio” e “Sem balsa” vêm de um segundo serviço, com modelo de velocidade próprio, então os tempos deles não podem ser comparados com os outros.',
   // roadtrip-limits
   'help.guide.roadtrip-limits.title': 'Definir o carro e os limites de direção',
-  'help.guide.roadtrip-limits.goal': 'Informe ao Roteiros Aventuristur qual veículo você dirige e quanto quer dirigir sem parar.',
+  'help.guide.roadtrip-limits.goal':
+    'Informe ao Roteiros Aventuristur qual veículo você dirige e quanto quer dirigir sem parar.',
   'help.guide.roadtrip-limits.step.1':
     '“Configurações de direção” fica abaixo da busca, na coluna da direita. Os selos mostram o que está definido; clique para abrir.',
   'help.guide.roadtrip-limits.step.2':
@@ -4309,7 +4316,8 @@ const help: TranslationStrings = {
     '“Explorar lugares no mapa” mostra a pílula de categorias para encontrar lugares próximos. “Ocultar códigos de reserva” esconde os números de confirmação até você passar o mouse ou tocar neles. “Otimizar rota a partir da hospedagem” faz o dia começar e terminar no seu hotel.',
   'help.guide.web-push-device.step.2':
     'No cartão Notificações, no topo, a coluna Push define quais eventos são enviados aos seus dispositivos.',
-  'help.guide.connect-airtrail.goal': 'Deixe o Roteiros Aventuristur importar e sincronizar os voos do seu próprio AirTrail.',
+  'help.guide.connect-airtrail.goal':
+    'Deixe o Roteiros Aventuristur importar e sincronizar os voos do seu próprio AirTrail.',
   'help.guide.connect-dawarich.goal':
     'Deixe o Roteiros Aventuristur ver por onde você realmente passou, a partir do seu próprio Dawarich.',
   'help.guide.tour-connect-wanderer.goal':
@@ -5321,7 +5329,8 @@ const help: TranslationStrings = {
     '“Atividade dos plugins”, no fim, lista cada ação que um plugin realizou em seu nome, das mais recentes para as mais antigas, com Atualizar.',
   'help.guide.language-region.tip.3':
     '“Semana começa em” define a primeira coluna de todos os seletores de data; o Férias tem a própria configuração.',
-  'help.guide.web-push-device.tip.2': 'No iPhone e no iPad, primeiro adicione o Roteiros Aventuristur à Tela de Início e abra por ali.',
+  'help.guide.web-push-device.tip.2':
+    'No iPhone e no iPad, primeiro adicione o Roteiros Aventuristur à Tela de Início e abra por ali.',
   'help.guide.connect-airtrail.step.3':
     'Clique em Salvar e depois em “Testar conexão”. O teste informa quantos voos encontrou, e o selo muda para Conectado.',
   'help.guide.connect-dawarich.step.3':

@@ -1,8 +1,8 @@
-import { Loader2, Spline } from '../../../icons';
 import { useMemo } from 'react';
 import { OFM_POSITRON } from '../../../constants/mapDefaults';
 import { useTileUrl } from '../../../hooks/useTileUrl';
 import { useTranslation } from '../../../i18n';
+import { Loader2, Spline } from '../../../icons';
 import { useSettingsStore } from '../../../store/settingsStore';
 import { MapViewAuto } from '../../Map/MapViewAuto';
 import { fs } from '../../shared/DialogShell';

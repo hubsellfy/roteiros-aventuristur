@@ -1,7 +1,7 @@
 import type { JourneyRecordedDay, JourneyRecordingPreview } from '@trek/shared';
-import { AlertTriangle, Clock, Info, Loader2, RefreshCw, Route, Users } from '../../icons';
 import { useState, type ReactNode } from 'react';
 import { useTranslation } from '../../i18n';
+import { AlertTriangle, Clock, Info, Loader2, RefreshCw, Route, Users } from '../../icons';
 import { useSettingsStore } from '../../store/settingsStore';
 import { formatDistance } from '../../utils/units';
 import { SoftPill } from '../Planner/planParts';

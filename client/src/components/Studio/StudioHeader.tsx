@@ -1,5 +1,5 @@
-import { Check, ChevronDown, ClipboardPaste, Download, Redo2, Sparkles, Undo2, X } from '../../icons';
 import { useEffect, useRef, useState, type RefObject } from 'react';
+import { Check, ChevronDown, ClipboardPaste, Download, Redo2, Sparkles, Undo2, X } from '../../icons';
 import { useStudioStore } from '../../store/studioStore';
 import '../../styles/studio-head.css';
 import HelpButton from '../Help/HelpButton';

@@ -43,7 +43,8 @@ const map: TranslationStrings = {
   'map.webgl2.terrain': '3D には WebGL2 が必要ですが、このブラウザーは対応していません。地図は 2D のままです。',
   'poi.ask': '質問する',
   'assistant.placeholder': '旅行について聞いてみましょう…',
-  'assistant.welcome': 'こんにちは！レストランやアクティビティの提案、Googleの評価とクチコミの確認、旅程への場所の追加ができます。何を計画しますか？',
+  'assistant.welcome':
+    'こんにちは！レストランやアクティビティの提案、Googleの評価とクチコミの確認、旅程への場所の追加ができます。何を計画しますか？',
   'assistant.suggest1': 'この近くでランチできる場所は？',
   'assistant.suggest2': '自由な午後のプランを作って',
   'assistant.suggest3': '評価の高い観光スポット',

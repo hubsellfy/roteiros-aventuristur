@@ -1,5 +1,5 @@
-import { ChevronDown, ChevronUp } from '../../icons';
 import type { CSSProperties, ReactNode } from 'react';
+import { ChevronDown, ChevronUp } from '../../icons';
 import { spinnerButtonStyle } from './timeSpinnerStyle';
 
 interface TimeSpinnerColumnProps {

@@ -1,5 +1,5 @@
-import { ChevronRight } from '../../icons';
 import React from 'react';
+import { ChevronRight } from '../../icons';
 
 /**
  * The clickable head of a native <details> fold on the admin settings page: a

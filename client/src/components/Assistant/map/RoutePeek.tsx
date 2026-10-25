@@ -1,5 +1,5 @@
-import { X } from '../../../icons';
 import { useMemo } from 'react';
+import { X } from '../../../icons';
 
 import { useTranslation } from '../../../i18n';
 import { chatOf, useAssistantStore } from '../../../store/assistantStore';

@@ -102,7 +102,8 @@ const dawarich: TranslationStrings = {
   'dawarich.suggestions.acceptedAs.bucket_list': 'Wish ticked off',
   'dawarich.suggestions.sourceChanged':
     'This stay has changed in Dawarich since you used it. What you wrote in Roteiros Aventuristur is untouched.',
-  'dawarich.suggestions.sourceMissing': 'This stay no longer exists in Dawarich. What you wrote in Roteiros Aventuristur is untouched.',
+  'dawarich.suggestions.sourceMissing':
+    'This stay no longer exists in Dawarich. What you wrote in Roteiros Aventuristur is untouched.',
   'dawarich.sourceStatus.suggested': 'Detected, unconfirmed',
   'dawarich.confidence.high': 'Confident detection',
   'dawarich.confidence.medium': 'Fairly confident detection',

@@ -1,7 +1,7 @@
 import type { StationImportance } from '@trek/shared';
-import { MapPin, ShieldCheck } from '../../../icons';
 import { useId, useState } from 'react';
 import { useTranslation } from '../../../i18n';
+import { MapPin, ShieldCheck } from '../../../icons';
 import ToggleSwitch from '../../Settings/ToggleSwitch';
 import { EditorField, INPUT, LABEL, Segmented } from '../../shared/dialogParts';
 import {

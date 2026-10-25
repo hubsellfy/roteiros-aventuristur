@@ -8,16 +8,22 @@
 /* ── Sem sombra nos cards ─────────────────────────────────────────────────
    Mantém anéis de foco/seleção (box-shadow "0 0 0 …") e as camadas flutuantes
    (diálogos, menus, tooltips), que precisam se destacar do que está atrás. */
-html :is(.shadow, .shadow-sm, .shadow-md, .shadow-lg, .shadow-xl, .shadow-2xl):not([role="dialog"]):not([role="menu"]):not([role="listbox"]):not([role="tooltip"]) {
+html
+  :is(.shadow, .shadow-sm, .shadow-md, .shadow-lg, .shadow-xl, .shadow-2xl):not([role='dialog']):not([role='menu']):not(
+    [role='listbox']
+  ):not([role='tooltip']) {
   box-shadow: none !important;
 }
-html [class*="shadow-["]:not([role="dialog"]):not([role="menu"]):not([role="listbox"]):not([role="tooltip"]) {
+html [class*='shadow-[']:not([role='dialog']):not([role='menu']):not([role='listbox']):not([role='tooltip']) {
   box-shadow: none !important;
 }
-html [style*="box-shadow"]:not([style*="0 0 0 "]):not([role="dialog"]):not([role="menu"]):not([role="listbox"]):not([role="tooltip"]):not([aria-modal="true"]) {
+html
+  [style*='box-shadow']:not([style*='0 0 0 ']):not([role='dialog']):not([role='menu']):not([role='listbox']):not(
+    [role='tooltip']
+  ):not([aria-modal='true']) {
   box-shadow: none !important;
 }
-html [style*="box-shadow"]:not([style*="0 0 0 "]):is(div, section, article, li)[style*="border-radius"] {
+html [style*='box-shadow']:not([style*='0 0 0 ']):is(div, section, article, li)[style*='border-radius'] {
   border: 1px solid var(--border-primary);
 }
 
@@ -66,7 +72,9 @@ html.dark .trek-dash {
   --glass-bg: #141414;
   --glass-border: rgba(255, 255, 255, 0.08);
 }
-html .trek-dash .atlas-card { border: 1px solid var(--line); }
+html .trek-dash .atlas-card {
+  border: 1px solid var(--line);
+}
 /* Contorno fino e igual em todos os cartões do painel (mesmo 0.5px do resto do app). */
 html .trek-dash .atlas-card:not(.passport),
 html .trek-dash .tool,
@@ -75,8 +83,12 @@ html .trek-dash .hero-pass-inner,
 html.dark .trek-dash .hero-pass-inner {
   border: 0.5px solid var(--line);
 }
-html .trek-dash .hero-pass-inner::before { display: none; }
-html .trek-dash .add-trip-card { border-width: 1px; }
+html .trek-dash .hero-pass-inner::before {
+  display: none;
+}
+html .trek-dash .add-trip-card {
+  border-width: 1px;
+}
 html .trek-dash .atlas-card.passport {
   background: linear-gradient(135deg, #0a6fc2 0%, #074c86 100%);
   border: none;
@@ -84,7 +96,9 @@ html .trek-dash .atlas-card.passport {
   backdrop-filter: none;
   -webkit-backdrop-filter: none;
 }
-html .trek-dash .atlas-card.passport .value .unit { color: oklch(1 0 0 / .75); }
+html .trek-dash .atlas-card.passport .value .unit {
+  color: oklch(1 0 0 / 0.75);
+}
 html .trek-dash .btn-primary,
 html .trek-dash .fab-new-trip {
   background: var(--accent);
@@ -93,17 +107,39 @@ html .trek-dash .fab-new-trip {
   box-shadow: none;
 }
 html .trek-dash .btn-primary:hover,
-html .trek-dash .fab-new-trip:hover { background: var(--accent-hover); }
-html .trek-dash .btn-secondary { border: 1px solid var(--line-2); border-radius: 9999px; box-shadow: none; }
+html .trek-dash .fab-new-trip:hover {
+  background: var(--accent-hover);
+}
+html .trek-dash .btn-secondary {
+  border: 1px solid var(--line-2);
+  border-radius: 9999px;
+  box-shadow: none;
+}
 html .trek-dash .fx-swap,
-html .trek-dash .add-trip-card .circ { background: var(--accent); color: var(--accent-text); box-shadow: none; }
-html.dark .trek-dash .add-trip-card .circ { background: var(--accent); color: var(--accent-text); }
-html .trek-dash .seg { border-radius: 9999px; }
-html .trek-dash .seg button { border-radius: 9999px; }
-html .trek-dash .seg button.on { box-shadow: none; border: 1px solid var(--line); }
+html .trek-dash .add-trip-card .circ {
+  background: var(--accent);
+  color: var(--accent-text);
+  box-shadow: none;
+}
+html.dark .trek-dash .add-trip-card .circ {
+  background: var(--accent);
+  color: var(--accent-text);
+}
+html .trek-dash .seg {
+  border-radius: 9999px;
+}
+html .trek-dash .seg button {
+  border-radius: 9999px;
+}
+html .trek-dash .seg button.on {
+  box-shadow: none;
+  border: 1px solid var(--line);
+}
 
 /* ── Campos e botões de formulário ────────────────────────────────────── */
-html select.form-input { padding-right: 36px; }
+html select.form-input {
+  padding-right: 36px;
+}
 
 /* ── Celular (.m-root): mesmos tokens do site, superfícies sólidas em vez de vidro ───── */
 html .m-root {
@@ -161,9 +197,14 @@ html .m-root * {
 }
 
 html .trek-dash .hero-trip,
-html .trek-dash .hero-trip:hover { box-shadow: none; }
+html .trek-dash .hero-trip:hover {
+  box-shadow: none;
+}
 html.dark .trek-dash .fab-new-trip,
-html.dark .trek-dash .btn-primary { background: var(--accent); color: var(--accent-text); }
+html.dark .trek-dash .btn-primary {
+  background: var(--accent);
+  color: var(--accent-text);
+}
 
 /* ── Escuro: mesma paleta do Hubsellfy (fundo quase preto, cinzas neutros, contorno de 0,5 px) ── */
 html.dark {
@@ -189,38 +230,61 @@ html.dark {
   --scrollbar-hover: #3f3f3f;
   --bg-inverse: #e8e8e8;
 }
-html.dark .border { border-width: 0.5px; }
-html.dark .border-t { border-top-width: 0.5px; }
-html.dark .border-b { border-bottom-width: 0.5px; }
-html.dark .border-l { border-left-width: 0.5px; }
-html.dark .border-r { border-right-width: 0.5px; }
+html.dark .border {
+  border-width: 0.5px;
+}
+html.dark .border-t {
+  border-top-width: 0.5px;
+}
+html.dark .border-b {
+  border-bottom-width: 0.5px;
+}
+html.dark .border-l {
+  border-left-width: 0.5px;
+}
+html.dark .border-r {
+  border-right-width: 0.5px;
+}
 html.dark .trek-dash .atlas-card,
 html.dark .trek-dash .btn-secondary,
-html.dark .trek-dash .seg button.on { border-width: 0.5px; }
+html.dark .trek-dash .seg button.on {
+  border-width: 0.5px;
+}
 
 /* ── Azul padrão da Aventuristur nos botões (degradê do card das artes e do site) ── */
-:root { --accent-gradient: linear-gradient(165deg, #0a6fc2, #0c3f78); }
-:root[data-scheme] { --accent-gradient: linear-gradient(165deg, var(--accent), color-mix(in srgb, var(--accent) 62%, #000)); }
+:root {
+  --accent-gradient: linear-gradient(165deg, #0a6fc2, #0c3f78);
+}
+:root[data-scheme] {
+  --accent-gradient: linear-gradient(165deg, var(--accent), color-mix(in srgb, var(--accent) 62%, #000));
+}
 html.dark:not([data-scheme]) {
   --accent-text: #ffffff;
   --accent-hover: #0b5fae;
 }
 html .bg-accent,
-html [style*="background: var(--accent)"],
+html [style*='background: var(--accent)'],
 html .trek-dash .btn-primary,
 html .trek-dash .fab-new-trip,
 html .trek-dash .fx-swap,
 html .trek-dash .add-trip-card .circ {
   background-image: var(--accent-gradient);
 }
-html .hover\:bg-accent-hover:hover { background-image: none; }
+html .hover\:bg-accent-hover:hover {
+  background-image: none;
+}
 html.dark:not([data-scheme]) .trek-dash .btn-primary,
 html.dark:not([data-scheme]) .trek-dash .fab-new-trip,
 html.dark:not([data-scheme]) .trek-dash .fx-swap,
-html.dark:not([data-scheme]) .trek-dash .add-trip-card .circ { background-color: #0a6fc2; color: #ffffff; }
+html.dark:not([data-scheme]) .trek-dash .add-trip-card .circ {
+  background-color: #0a6fc2;
+  color: #ffffff;
+}
 html.dark .trek-dash .btn-primary,
 html.dark .trek-dash .fab-new-trip,
-html.dark .trek-dash .add-trip-card .circ { background-image: var(--accent-gradient); }
+html.dark .trek-dash .add-trip-card .circ {
+  background-image: var(--accent-gradient);
+}
 
 /* ── Claro: mesma paleta do Hubsellfy (página branca, moldura #eaeceb, cards brancos, contorno de 0,5 px) ── */
 html:not(.dark) {
@@ -245,16 +309,39 @@ html:not(.dark) {
   --scrollbar-thumb: #c9cbca;
   --scrollbar-hover: #a8aaa9;
 }
-html .border { border-width: 0.5px; }
-html .border-t { border-top-width: 0.5px; }
-html .border-b { border-bottom-width: 0.5px; }
-html .border-l { border-left-width: 0.5px; }
-html .border-r { border-right-width: 0.5px; }
+html .border {
+  border-width: 0.5px;
+}
+html .border-t {
+  border-top-width: 0.5px;
+}
+html .border-b {
+  border-bottom-width: 0.5px;
+}
+html .border-l {
+  border-left-width: 0.5px;
+}
+html .border-r {
+  border-right-width: 0.5px;
+}
 html .trek-dash .atlas-card,
 html .trek-dash .btn-secondary,
-html .trek-dash .seg button.on { border-width: 0.5px; }
+html .trek-dash .seg button.on {
+  border-width: 0.5px;
+}
 
 /* ── Título do destaque do painel: menor, para caber nomes de viagem de clientes ── */
-html .trek-dash .hero-title { font-size: 72px; letter-spacing: -0.035em; }
-@media (max-width: 1280px) { html .trek-dash .hero-title { font-size: 56px; } }
-@media (max-width: 720px) { html .trek-dash .hero-title { font-size: 36px; } }
+html .trek-dash .hero-title {
+  font-size: 72px;
+  letter-spacing: -0.035em;
+}
+@media (max-width: 1280px) {
+  html .trek-dash .hero-title {
+    font-size: 56px;
+  }
+}
+@media (max-width: 720px) {
+  html .trek-dash .hero-title {
+    font-size: 36px;
+  }
+}

@@ -1,6 +1,6 @@
 import type { TourListItem } from '@trek/shared';
-import { CalendarDays, CalendarRange } from '../../../icons';
 import type { useTranslation } from '../../../i18n';
+import { CalendarDays, CalendarRange } from '../../../icons';
 import type { AssignmentsMap, Day } from '../../../types';
 import type { useContextMenu } from '../../shared/ContextMenu';
 import { dayMenuLabel } from '../tourDays';

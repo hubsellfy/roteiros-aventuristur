@@ -297,13 +297,19 @@ export function deriveIntegrations(raw: RawEnv) {
      */
     llmTimeoutMs: Math.floor(positiveNumberOr(raw.LLM_TIMEOUT_MS, 900_000)),
     /** Messages one traveller may send the travel assistant per day. 0 means no limit. */
-    assistantDailyLimit: raw.ASSISTANT_DAILY_LIMIT === undefined || raw.ASSISTANT_DAILY_LIMIT === '' || !Number.isFinite(Number(raw.ASSISTANT_DAILY_LIMIT))
-      ? 40
-      : Math.max(0, Math.floor(Number(raw.ASSISTANT_DAILY_LIMIT))),
+    assistantDailyLimit:
+      raw.ASSISTANT_DAILY_LIMIT === undefined ||
+      raw.ASSISTANT_DAILY_LIMIT === '' ||
+      !Number.isFinite(Number(raw.ASSISTANT_DAILY_LIMIT))
+        ? 40
+        : Math.max(0, Math.floor(Number(raw.ASSISTANT_DAILY_LIMIT))),
     /** Itineraries one traveller may have the AI build per day. 0 means no limit. */
-    assistantPlanDailyLimit: raw.ASSISTANT_PLAN_DAILY_LIMIT === undefined || raw.ASSISTANT_PLAN_DAILY_LIMIT === '' || !Number.isFinite(Number(raw.ASSISTANT_PLAN_DAILY_LIMIT))
-      ? 5
-      : Math.max(0, Math.floor(Number(raw.ASSISTANT_PLAN_DAILY_LIMIT))),
+    assistantPlanDailyLimit:
+      raw.ASSISTANT_PLAN_DAILY_LIMIT === undefined ||
+      raw.ASSISTANT_PLAN_DAILY_LIMIT === '' ||
+      !Number.isFinite(Number(raw.ASSISTANT_PLAN_DAILY_LIMIT))
+        ? 5
+        : Math.max(0, Math.floor(Number(raw.ASSISTANT_PLAN_DAILY_LIMIT))),
     /**
      * How long one AI-parsing answer may get. Unset leaves each client the cap it
      * has always sent (4096 to OpenAI-compatible servers, 8192 to Anthropic): a

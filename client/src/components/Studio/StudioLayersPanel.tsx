@@ -1,5 +1,6 @@
 import type { BookElement } from '@trek/shared';
 import { isWholeGroup } from '@trek/shared';
+import { useRef, useState } from 'react';
 import {
   Award,
   ChartColumn,
@@ -21,7 +22,6 @@ import {
   Unlock,
   type LucideIcon,
 } from '../../icons';
-import { useRef, useState } from 'react';
 
 import { useStudioStore } from '../../store/studioStore';
 import '../../styles/studio-layers.css';

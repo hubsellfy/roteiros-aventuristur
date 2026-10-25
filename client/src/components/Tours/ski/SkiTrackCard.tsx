@@ -1,5 +1,5 @@
-import { MountainSnow, Pencil } from '../../../icons';
 import { useTranslation } from '../../../i18n';
+import { MountainSnow, Pencil } from '../../../icons';
 import { fs } from '../../shared/DialogShell';
 import { FigureBadge } from '../paddle/FigureBadge';
 import { CardAction, InfoDot, RailCard, RailFacts } from '../tourParts';

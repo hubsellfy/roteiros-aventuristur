@@ -1,7 +1,7 @@
 import { HORSE_ROUTES_ATTRIBUTION, type HorseRoute } from '@trek/shared';
-import { AlertTriangle, ArrowRight, ChevronRight, Loader2, RefreshCw, Search, WifiOff, ZoomIn } from '../../../icons';
 import { useState } from 'react';
 import { useTranslation } from '../../../i18n';
+import { AlertTriangle, ArrowRight, ChevronRight, Loader2, RefreshCw, Search, WifiOff, ZoomIn } from '../../../icons';
 import { useSettingsStore } from '../../../store/settingsStore';
 import { formatDistance } from '../../../utils/units';
 import { SoftPill, WhiteBadge } from '../../Planner/planParts';

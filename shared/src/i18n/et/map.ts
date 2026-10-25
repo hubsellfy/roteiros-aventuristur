@@ -43,7 +43,8 @@ const map: TranslationStrings = {
   'map.webgl2.terrain': '3D vajab WebGL2-te, mida see brauser ei paku. Kaart jääb 2D-vaatesse.',
   'poi.ask': 'Küsi',
   'assistant.placeholder': 'Küsi oma reisi kohta…',
-  'assistant.welcome': 'Tere! Oskan soovitada restorane ja tegevusi, vaadata Google\'i hinnanguid ja arvustusi ning lisada kohti sinu marsruudile. Mida soovid planeerida?',
+  'assistant.welcome':
+    "Tere! Oskan soovitada restorane ja tegevusi, vaadata Google'i hinnanguid ja arvustusi ning lisada kohti sinu marsruudile. Mida soovid planeerida?",
   'assistant.suggest1': 'Kus siin lähedal lõunat süüa?',
   'assistant.suggest2': 'Planeeri mulle vaba pärastlõuna',
   'assistant.suggest3': 'Parima hinnanguga vaatamisväärsused',

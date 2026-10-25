@@ -1,6 +1,6 @@
-import { Mountain } from '../../../icons';
 import { useMemo } from 'react';
 import { useTranslation } from '../../../i18n';
+import { Mountain } from '../../../icons';
 import { SoftPill } from '../../Planner/planParts';
 import { Tooltip } from '../../shared/Tooltip';
 import { hardestSac, percent, unpavedShareOf, type RouteWays } from '../bike/routeWays';

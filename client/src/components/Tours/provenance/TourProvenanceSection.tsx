@@ -1,7 +1,7 @@
 import type { TourListItem, TourProvenance, TourSourceCheckResponse, TourSourceHint } from '@trek/shared';
-import { CopyPlus, Download, ExternalLink, FileDown, Loader2, PenLine, RefreshCw } from '../../../icons';
 import type { ReactNode } from 'react';
 import { useTranslation } from '../../../i18n';
+import { CopyPlus, Download, ExternalLink, FileDown, Loader2, PenLine, RefreshCw } from '../../../icons';
 import { formatDate } from '../../../utils/formatters';
 import { BOX } from '../../Planner/bookings/bookingParts';
 import { SoftPill } from '../../Planner/planParts';

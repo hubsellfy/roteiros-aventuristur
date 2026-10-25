@@ -1,4 +1,6 @@
 import { paddleLayoutOfPoints, type PaddleRole, type TourPoiCategory } from '@trek/shared';
+import { Fragment, useState, type MouseEvent, type ReactNode } from 'react';
+import { useTranslation } from '../../../i18n';
 import {
   ArrowDown,
   ArrowDownUp,
@@ -19,8 +21,6 @@ import {
   Unlink,
   Waves,
 } from '../../../icons';
-import { Fragment, useState, type MouseEvent, type ReactNode } from 'react';
-import { useTranslation } from '../../../i18n';
 import {
   useTourFerrataCrossingStore,
   type TourFerrataCrossing,

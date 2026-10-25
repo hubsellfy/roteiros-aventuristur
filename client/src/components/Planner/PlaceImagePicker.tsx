@@ -1,6 +1,6 @@
 import type { PlacePhotoCandidate } from '@trek/shared';
-import { Check, ImageOff, ImagePlus, Loader2 } from '../../icons';
 import React, { useEffect, useRef, useState } from 'react';
+import { Check, ImageOff, ImagePlus, Loader2 } from '../../icons';
 import { placePictureRepo } from '../../repo/placePictureRepo';
 import type { TranslationFn, TripFile } from '../../types';
 import { normalizeImageFile } from '../../utils/convertHeic';

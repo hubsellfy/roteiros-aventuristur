@@ -1,7 +1,7 @@
 import { plannableTourTypeSchema, type ImportableTourType, type PlannableTourType } from '@trek/shared';
-import { Check, ChevronDown } from '../../../icons';
 import { createElement, useId } from 'react';
 import { useTranslation } from '../../../i18n';
+import { Check, ChevronDown } from '../../../icons';
 import { fs } from '../../shared/DialogShell';
 import { PopoverListPanel } from '../../shared/dialogParts';
 import { usePopoverList } from '../../shared/usePopoverList';

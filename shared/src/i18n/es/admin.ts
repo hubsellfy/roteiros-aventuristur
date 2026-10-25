@@ -600,8 +600,10 @@ const admin: TranslationStrings = {
     '«{name}» declara compatibilidad con TREK {range}, y este servidor ejecuta {host}. Roteiros Aventuristur lo deja pasar solo porque TREK_PLUGINS_IGNORE_TREK_RANGE está definido. Su autor no ha actualizado el rango de versiones del plugin para este Roteiros Aventuristur, así que no hay garantía de que funcione — y en casos raros un plugin incompatible puede corromper los datos de Roteiros Aventuristur. Continúa solo si aceptas ese riesgo.',
   'admin.plugins.rangeBypass.bodyUnknown':
     '«{name}» no declara qué versiones de Roteiros Aventuristur admite; este servidor ejecuta {host}. Roteiros Aventuristur lo deja pasar solo porque TREK_PLUGINS_IGNORE_TREK_RANGE está definido. Nada indica que su autor lo haya probado en este Roteiros Aventuristur, así que no hay garantía de que funcione — y en casos raros un plugin incompatible puede corromper los datos de Roteiros Aventuristur. Continúa solo si aceptas ese riesgo.',
-  'admin.plugins.dep.trekBypassed': 'Fuera de su rango de Roteiros Aventuristur ({range}) — comprobaciones de versión desactivadas',
-  'admin.plugins.dep.trekBypassedUnknown': 'No declara ningún rango de Roteiros Aventuristur — comprobaciones de versión desactivadas',
+  'admin.plugins.dep.trekBypassed':
+    'Fuera de su rango de Roteiros Aventuristur ({range}) — comprobaciones de versión desactivadas',
+  'admin.plugins.dep.trekBypassedUnknown':
+    'No declara ningún rango de Roteiros Aventuristur — comprobaciones de versión desactivadas',
   'admin.plugins.incompatible': 'Incompatible', // same-as-en
   'admin.plugins.accessTitle': 'A qué puede acceder',
   'admin.plugins.connectsTitle': 'Se conecta a',
@@ -945,7 +947,8 @@ const admin: TranslationStrings = {
     'Cuando alguien planifica una ruta en kayak donde aún no hay datos de agua, Roteiros Aventuristur carga al momento la región más pequeña que encaja, hasta el límite de tamaño y solo unas pocas al día. Las más grandes esperan aquí como petición. A Geofabrik solo le llega el nombre de la región, nunca el lugar.',
   'admin.paddleRegions.auto.modeHint.ask':
     'Cada región nueva espera aquí hasta que un administrador la deje pasar. Si planifica un administrador, se carga al momento.',
-  'admin.paddleRegions.auto.modeHint.off': 'Roteiros Aventuristur no carga nada por su cuenta ni pide nada. Añade regiones aquí a mano.',
+  'admin.paddleRegions.auto.modeHint.off':
+    'Roteiros Aventuristur no carga nada por su cuenta ni pide nada. Añade regiones aquí a mano.',
   'admin.paddleRegions.auto.maxSize': 'Región más grande que se carga automáticamente',
   'admin.paddleRegions.auto.maxSizeHint':
     'Las regiones más grandes esperan aquí como petición. Leer una región lleva unos minutos y ocupa memoria mientras tanto.',

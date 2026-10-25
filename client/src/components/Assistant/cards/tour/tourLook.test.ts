@@ -8,8 +8,8 @@
  * route and for the way a change replaces.
  */
 import type { AssistantApplied } from '@trek/shared';
-import { Route } from '../../../../icons';
 import { describe, expect, it } from 'vitest';
+import { Route } from '../../../../icons';
 
 import { GENTLE, HIKE, HIKE_LINE, SAVED } from '../../../../../tests/helpers/assistantTour';
 import { CARD_MAP_LOOK, CARD_RULES, ENTITY_LOOK, STEP_LOOKS, VERB_LOOK } from '../cardLooks';

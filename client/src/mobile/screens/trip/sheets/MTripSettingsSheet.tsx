@@ -1,3 +1,16 @@
+import { useState, type ReactNode } from 'react';
+import CustomSelect from '../../../../components/shared/CustomSelect';
+import { TripJournalLinkSection } from '../../../../components/Trips/TripJournalLinkSection';
+import { TripMemberAvatar } from '../../../../components/Trips/TripMemberAvatar';
+import {
+  SHARE_OPTIONS,
+  SHARE_SECTIONS,
+  useShareLink,
+  useTripInviteLink,
+  useTripMembers,
+  type ListedMember,
+} from '../../../../components/Trips/useTripShare';
+import { useTranslation } from '../../../../i18n';
 import {
   Check,
   Copy,
@@ -13,19 +26,6 @@ import {
   UserPlus,
   UserRound,
 } from '../../../../icons';
-import { useState, type ReactNode } from 'react';
-import CustomSelect from '../../../../components/shared/CustomSelect';
-import { TripJournalLinkSection } from '../../../../components/Trips/TripJournalLinkSection';
-import { TripMemberAvatar } from '../../../../components/Trips/TripMemberAvatar';
-import {
-  SHARE_OPTIONS,
-  SHARE_SECTIONS,
-  useShareLink,
-  useTripInviteLink,
-  useTripMembers,
-  type ListedMember,
-} from '../../../../components/Trips/useTripShare';
-import { useTranslation } from '../../../../i18n';
 import MChip from '../../../components/MChip';
 import MSheet from '../../../components/MSheet';
 import MConfirmSheet from '../../settings/MConfirmSheet';

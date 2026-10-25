@@ -47,7 +47,8 @@ const map: TranslationStrings = {
   'map.webgl2.terrain': 'O 3D precisa de WebGL2, que este navegador não oferece. O mapa continua em 2D.',
   'poi.ask': 'Pergunte',
   'assistant.placeholder': 'Pergunte sobre a sua viagem…',
-  'assistant.welcome': 'Olá! Posso sugerir restaurantes e passeios, consultar notas e avaliações do Google e adicionar lugares ao seu roteiro. O que vamos planejar?',
+  'assistant.welcome':
+    'Olá! Posso sugerir restaurantes e passeios, consultar notas e avaliações do Google e adicionar lugares ao seu roteiro. O que vamos planejar?',
   'assistant.suggest1': 'Onde almoçar perto daqui?',
   'assistant.suggest2': 'Monte uma tarde livre para mim',
   'assistant.suggest3': 'Atrações mais bem avaliadas',

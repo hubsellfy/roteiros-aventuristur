@@ -10,8 +10,8 @@ import {
   type BookThemeFont,
   type BookThemePreset,
 } from '@trek/shared';
-import { Check, ImageIcon, RotateCcw } from '../../../icons';
 import { useMemo } from 'react';
+import { Check, ImageIcon, RotateCcw } from '../../../icons';
 import '../../../styles/studio-theme.css';
 import { useToast } from '../../shared/Toast';
 import { Choice, Line, Picks, Section, Switch } from '../StudioControls';

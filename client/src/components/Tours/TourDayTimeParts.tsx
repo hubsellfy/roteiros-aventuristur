@@ -1,6 +1,6 @@
 import type { TourListItem } from '@trek/shared';
-import { Clock } from '../../icons';
 import { isRtlLanguage, useTranslation } from '../../i18n';
+import { Clock } from '../../icons';
 import { useSettingsStore } from '../../store/settingsStore';
 import type { Assignment } from '../../types';
 import { formatTime } from '../../utils/formatters';

@@ -1,6 +1,6 @@
-import { Lock } from '../../icons';
 import type { ReactNode } from 'react';
 import { useTranslation } from '../../i18n';
+import { Lock } from '../../icons';
 import { fs } from '../shared/DialogShell';
 
 interface DemoLockProps {

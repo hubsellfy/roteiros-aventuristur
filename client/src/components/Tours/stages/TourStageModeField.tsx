@@ -1,6 +1,6 @@
-import { Moon, Sun } from '../../../icons';
 import { useState } from 'react';
 import { useTranslation } from '../../../i18n';
+import { Moon, Sun } from '../../../icons';
 import ConfirmDialog from '../../shared/ConfirmDialog';
 import { LABEL, Segmented } from '../../shared/dialogParts';
 import type { TourPlannerController } from '../planner/useTourPlanner';

@@ -1,5 +1,5 @@
-import { Clock, ShieldCheck } from '../../../icons';
 import { useTranslation } from '../../../i18n';
+import { Clock, ShieldCheck } from '../../../icons';
 import { SoftPill } from '../../Planner/planParts';
 import { formatPlannedTourDuration } from '../tourPresentation';
 import type { TourPlannerWaypoint } from './tourPlannerWaypoints';

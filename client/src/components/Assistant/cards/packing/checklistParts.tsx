@@ -1,6 +1,6 @@
 import type { CardPerson } from '@trek/shared';
-import { Check } from '../../../../icons';
 import type { ReactNode } from 'react';
+import { Check } from '../../../../icons';
 
 import { useTranslation } from '../../../../i18n';
 import { CategoryDot, CheckCircle } from '../../../Tours/packing/packingLinkParts';

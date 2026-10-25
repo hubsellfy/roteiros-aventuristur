@@ -1,5 +1,5 @@
-import { ChevronRight, Luggage } from '../../icons';
 import { useEffect, useRef } from 'react';
+import { ChevronRight, Luggage } from '../../icons';
 
 import { useTranslation } from '../../i18n';
 import EmptyState from '../shared/EmptyState';

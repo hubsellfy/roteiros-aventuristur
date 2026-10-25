@@ -1,6 +1,6 @@
-import { Check, ChevronDown } from '../../icons';
 import { useEffect, useRef, useState, type ReactNode } from 'react';
 import { useTranslation } from '../../i18n';
+import { Check, ChevronDown } from '../../icons';
 import { fs } from '../shared/DialogShell';
 import { InfoDot } from './tourParts';
 import { ORIGIN_LABEL_KEY, statusLabel } from './tourPresentation';

@@ -1,18 +1,18 @@
-import { useState } from 'react'
-import type { RoteiroCard } from '@trek/shared'
-import { ExternalLink, Plus, Star } from '../../../../icons'
-import { useTranslation } from '../../../../i18n'
-import { useGooglePlacePhoto } from '../../../../hooks/useGooglePlacePhoto'
-import { safeHttpUrl } from '../../../../utils/safeUrl'
-import { INNER_CLS } from './MTripSheetUi'
+import type { RoteiroCard } from '@trek/shared';
+import { useState } from 'react';
+import { useGooglePlacePhoto } from '../../../../hooks/useGooglePlacePhoto';
+import { useTranslation } from '../../../../i18n';
+import { ExternalLink, Plus, Star } from '../../../../icons';
+import { safeHttpUrl } from '../../../../utils/safeUrl';
+import { INNER_CLS } from './MTripSheetUi';
 
 interface Props {
-  card: RoteiroCard
-  language: string
+  card: RoteiroCard;
+  language: string;
   /** Day number to name on the button when the assistant proposed a day. */
-  dayNumber: number | null
-  canAdd: boolean
-  onAdd: (card: RoteiroCard) => Promise<boolean>
+  dayNumber: number | null;
+  canAdd: boolean;
+  onAdd: (card: RoteiroCard) => Promise<boolean>;
 }
 
 /**
@@ -21,16 +21,16 @@ interface Props {
  * confirmation — the assistant itself never writes to the trip.
  */
 export default function MAssistantCard({ card, language, dayNumber, canAdd, onAdd }: Props) {
-  const { t } = useTranslation()
-  const photo = useGooglePlacePhoto(card.googlePlaceId, card.lat, card.lng, card.name, language)
-  const [state, setState] = useState<'idle' | 'adding' | 'added'>('idle')
-  const mapsUrl = safeHttpUrl(card.mapsUrl)
+  const { t } = useTranslation();
+  const photo = useGooglePlacePhoto(card.googlePlaceId, card.lat, card.lng, card.name, language);
+  const [state, setState] = useState<'idle' | 'adding' | 'added'>('idle');
+  const mapsUrl = safeHttpUrl(card.mapsUrl);
 
   const add = async () => {
-    if (state !== 'idle') return
-    setState('adding')
-    setState((await onAdd(card)) ? 'added' : 'idle')
-  }
+    if (state !== 'idle') return;
+    setState('adding');
+    setState((await onAdd(card)) ? 'added' : 'idle');
+  };
 
   return (
     <div className={`overflow-hidden rounded-[14px] ${INNER_CLS}`}>
@@ -44,7 +44,9 @@ export default function MAssistantCard({ card, language, dayNumber, canAdd, onAd
             {card.ratingCount != null && <span>({card.ratingCount.toLocaleString(language)})</span>}
           </div>
         )}
-        {card.address && <div className="mt-[2px] font-geist text-[0.6875rem] leading-[1.4] text-m-muted">{card.address}</div>}
+        {card.address && (
+          <div className="mt-[2px] font-geist text-[0.6875rem] leading-[1.4] text-m-muted">{card.address}</div>
+        )}
         {card.reason && <div className="mt-[6px] font-geist text-[0.78125rem] leading-[1.5]">{card.reason}</div>}
         {card.topReview && (
           <blockquote className="mt-[6px] border-l-2 border-[color:var(--m-inbr)] pl-2 font-geist text-[0.71875rem] italic leading-[1.5] text-m-muted">
@@ -62,7 +64,9 @@ export default function MAssistantCard({ card, language, dayNumber, canAdd, onAd
               <Plus size={14} strokeWidth={2.2} />
               {state === 'added'
                 ? t('assistant.added')
-                : dayNumber != null ? t('assistant.addToDay', { day: dayNumber }) : t('assistant.addToTrip')}
+                : dayNumber != null
+                  ? t('assistant.addToDay', { day: dayNumber })
+                  : t('assistant.addToTrip')}
             </button>
           )}
           {mapsUrl && (
@@ -79,5 +83,5 @@ export default function MAssistantCard({ card, language, dayNumber, canAdd, onAd
         </div>
       </div>
     </div>
-  )
+  );
 }

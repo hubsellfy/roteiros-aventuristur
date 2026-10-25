@@ -1,6 +1,6 @@
 import type { TourListCard as TourList, TourListRow } from '@trek/shared';
-import { CalendarDays, Clock, MoveHorizontal, Route, TrendingUp } from '../../../../icons';
 import { useEffect } from 'react';
+import { CalendarDays, Clock, MoveHorizontal, Route, TrendingUp } from '../../../../icons';
 
 import { useTranslation } from '../../../../i18n';
 import { useAssistantStore } from '../../../../store/assistantStore';

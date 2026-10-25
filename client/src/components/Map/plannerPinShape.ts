@@ -1,5 +1,5 @@
-import { Moon } from '../../icons';
 import { createElement } from 'react';
+import { Moon } from '../../icons';
 import { renderIconMarkup } from '../../utils/iconMarkup';
 
 /** What a planner pin shows: its stop number, or (P2A-03) nothing on a shaping point, which only steers the route. */

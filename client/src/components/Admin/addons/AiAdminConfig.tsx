@@ -1,6 +1,6 @@
-import { Check, Loader2, Sparkles } from '../../../icons';
 import React, { useId, useState } from 'react';
 import { useTranslation } from '../../../i18n';
+import { Check, Loader2, Sparkles } from '../../../icons';
 import ToggleSwitch from '../../Settings/ToggleSwitch';
 import AiConnectPanel, { ProviderMark } from '../../Settings/ai/AiConnectPanel';
 import { CONNECTION_STATUS } from '../../Settings/ai/aiConnectModel';

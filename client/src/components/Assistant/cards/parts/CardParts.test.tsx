@@ -6,9 +6,9 @@
  * buttons, the people on it, and the boundary that leaves a broken card out.
  */
 import type { CardPerson } from '@trek/shared';
-import { CalendarDays, Route } from '../../../../icons';
 import type { ReactNode } from 'react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
+import { CalendarDays, Route } from '../../../../icons';
 
 import { buildUser } from '../../../../../tests/helpers/factories';
 import { fireEvent, render, screen } from '../../../../../tests/helpers/render';

@@ -1,5 +1,5 @@
-import { Paperclip, X } from '../../icons';
 import React from 'react';
+import { Paperclip, X } from '../../icons';
 import type { TranslationFn } from '../../types';
 import { fs } from '../shared/DialogShell';
 import { Tooltip } from '../shared/Tooltip';

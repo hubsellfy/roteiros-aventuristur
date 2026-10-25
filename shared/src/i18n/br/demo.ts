@@ -30,7 +30,8 @@ const demo: TranslationStrings = {
   'demo.feature.collections.title': 'Coleções',
   'demo.feature.collections.body': 'Salve lugares de várias viagens em listas suas e copie para qualquer plano.',
   'demo.feature.offline.title': 'Funciona offline',
-  'demo.feature.offline.body': 'Instale o Roteiros Aventuristur como app e mantenha planos, mapas e listas sem conexão.',
+  'demo.feature.offline.body':
+    'Instale o Roteiros Aventuristur como app e mantenha planos, mapas e listas sem conexão.',
   'demo.welcome.limitsTitle': 'Fora da demo',
   'demo.limit.uploads': 'Enviar fotos, documentos e capas',
   'demo.limit.account': 'Alterar a conta, a senha ou a 2FA',

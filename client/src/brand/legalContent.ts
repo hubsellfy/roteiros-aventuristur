@@ -105,7 +105,9 @@ const PRIVACY: LegalDocument = {
     },
     {
       title: 'Mudanças nesta política',
-      paragraphs: [`Esta é a versão de ${LEGAL_VERSION}. Quando houver mudanças relevantes, avisaremos no aplicativo ou por e-mail.`],
+      paragraphs: [
+        `Esta é a versão de ${LEGAL_VERSION}. Quando houver mudanças relevantes, avisaremos no aplicativo ou por e-mail.`,
+      ],
     },
   ],
 };

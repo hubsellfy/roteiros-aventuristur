@@ -1,7 +1,7 @@
 import { cheapestEnergy, type ChargingEnergyPrice, type ChargingInfo as Info } from '@trek/shared';
-import { ChevronDown, Coins, PlugZap } from '../../icons';
 import { useEffect, useState } from 'react';
 import { useTranslation } from '../../i18n/TranslationContext';
+import { ChevronDown, Coins, PlugZap } from '../../icons';
 import { chargingRepo } from '../../repo/chargingRepo';
 import { useTripStore } from '../../store/tripStore';
 import { isEffectivelyOffline } from '../../sync/networkMode';

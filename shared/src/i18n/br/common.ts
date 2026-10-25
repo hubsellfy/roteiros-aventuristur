@@ -80,6 +80,7 @@ const common: TranslationStrings = {
   'common.errorUpdateBody':
     'O Roteiros Aventuristur foi atualizado enquanto esta aba estava aberta. Recarregue para obter a nova versão.',
   'common.errorPluginTitle': 'Não foi possível exibir este plugin',
-  'common.needsConnection': 'Isso precisa de conexão. Tente de novo quando o Roteiros Aventuristur voltar a ficar online.',
+  'common.needsConnection':
+    'Isso precisa de conexão. Tente de novo quando o Roteiros Aventuristur voltar a ficar online.',
 };
 export default common;

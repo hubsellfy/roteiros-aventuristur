@@ -1,5 +1,5 @@
-import { Clock, MoveHorizontal, TrendingUp } from '../../../../icons';
 import type { ReactNode } from 'react';
+import { Clock, MoveHorizontal, TrendingUp } from '../../../../icons';
 
 import type { DistanceUnit } from '../../../../types';
 import { formatDistance, formatElevation } from '../../../../utils/units';

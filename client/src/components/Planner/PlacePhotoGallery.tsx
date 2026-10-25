@@ -1,6 +1,6 @@
-import { Loader2 } from '../../icons';
 import React from 'react';
 import { createPortal } from 'react-dom';
+import { Loader2 } from '../../icons';
 import type { Place } from '../../types';
 import PhotoLightbox from '../Journey/PhotoLightbox';
 import { Tooltip } from '../shared/Tooltip';

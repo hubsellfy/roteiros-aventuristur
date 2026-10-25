@@ -348,7 +348,7 @@ describe('PackingListPanel', () => {
     const { container } = render(<PackingListPanel tripId={1} items={[item1, item2]} />);
 
     // Open the MoreHorizontal context menu
-    const moreBtn = container.querySelector('svg.lucide-ellipsis')?.closest('button');
+    const moreBtn = container.querySelector('svg.lucide-more-horizontal')?.closest('button');
     expect(moreBtn).toBeTruthy();
     await user.click(moreBtn!);
 
@@ -460,7 +460,7 @@ describe('PackingListPanel', () => {
     const { container } = render(<PackingListPanel tripId={1} items={[item1, item2]} />);
 
     // Open the MoreHorizontal context menu
-    const moreBtn = container.querySelector('svg.lucide-ellipsis')?.closest('button');
+    const moreBtn = container.querySelector('svg.lucide-more-horizontal')?.closest('button');
     expect(moreBtn).toBeTruthy();
     await user.click(moreBtn!);
 
@@ -542,7 +542,7 @@ describe('PackingListPanel', () => {
     const { container } = render(<PackingListPanel tripId={1} items={[item]} />);
 
     // Open the category context menu
-    const moreBtn = container.querySelector('svg.lucide-ellipsis')?.closest('button');
+    const moreBtn = container.querySelector('svg.lucide-more-horizontal')?.closest('button');
     expect(moreBtn).toBeTruthy();
     await user.click(moreBtn!);
 
@@ -1059,7 +1059,7 @@ describe('PackingListPanel', () => {
     const { container } = render(<PackingListPanel tripId={1} items={[item1, item2]} />);
 
     // Open context menu and click Delete List
-    const moreBtn = container.querySelector('svg.lucide-ellipsis')?.closest('button');
+    const moreBtn = container.querySelector('svg.lucide-more-horizontal')?.closest('button');
     await user.click(moreBtn!);
     await user.click(await screen.findByText('Delete List'));
 

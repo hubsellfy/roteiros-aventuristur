@@ -1,5 +1,5 @@
-import { Check, Lock } from '../../../icons';
 import type { ReactNode } from 'react';
+import { Check, Lock } from '../../../icons';
 import { Tooltip } from '../../shared/Tooltip';
 
 /**

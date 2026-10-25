@@ -1,6 +1,6 @@
-import { CalendarRange, Images, Info, Loader2, NotebookPen, Route } from '../../icons';
 import type { ComponentType, ReactNode } from 'react';
 import { useTranslation } from '../../i18n';
+import { CalendarRange, Images, Info, Loader2, NotebookPen, Route } from '../../icons';
 import { FROSTED_SHELL, segmentStyle } from '../Map/mapControlShadow';
 import { LABEL, PopoverListPanel } from '../shared/dialogParts';
 import { fs } from '../shared/DialogShell';

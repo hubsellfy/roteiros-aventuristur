@@ -1,4 +1,6 @@
 import type { TourActivityBasis, TourActivityStatsEntry } from '@trek/shared';
+import { createElement } from 'react';
+import { useTranslation } from '../../../i18n';
 import {
   AlertTriangle,
   ArrowUp,
@@ -10,8 +12,6 @@ import {
   Ruler,
   WifiOff,
 } from '../../../icons';
-import { createElement } from 'react';
-import { useTranslation } from '../../../i18n';
 import { PillSelect } from '../../shared/dialogParts';
 import { fs } from '../../shared/DialogShell';
 import { Tooltip } from '../../shared/Tooltip';

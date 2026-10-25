@@ -1,7 +1,7 @@
 import { HIKING_PREFERENCE_KEYS, type HikingPreferenceKey } from '@trek/shared';
-import { ChartNoAxesColumnIncreasing, Mountain, Ship } from '../../../icons';
 import type { ComponentType } from 'react';
 import { useTranslation } from '../../../i18n';
+import { ChartNoAxesColumnIncreasing, Mountain, Ship } from '../../../icons';
 import { BOX } from '../../Planner/bookings/bookingParts';
 import ToggleSwitch from '../../Settings/ToggleSwitch';
 import { fs } from '../../shared/DialogShell';

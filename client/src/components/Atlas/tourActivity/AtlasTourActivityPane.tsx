@@ -1,7 +1,7 @@
 import type { TourActivitySummary } from '@trek/shared';
-import { Footprints, ListOrdered } from '../../../icons';
 import { useState } from 'react';
 import { useTranslation } from '../../../i18n';
+import { Footprints, ListOrdered } from '../../../icons';
 import type { DistanceUnit } from '../../../types';
 import { fs } from '../../shared/DialogShell';
 import { Tooltip } from '../../shared/Tooltip';

@@ -65,7 +65,8 @@ const files: TranslationStrings = {
   'files.noteLabel': 'Note',
   'files.notePlaceholder': 'Add a note...',
   'files.uploadNeedsConnection': 'Uploading needs a connection. Try again once Roteiros Aventuristur is back online.',
-  'files.linkNeedsConnection': 'Removing this link needs a connection. Try again once Roteiros Aventuristur is back online.',
+  'files.linkNeedsConnection':
+    'Removing this link needs a connection. Try again once Roteiros Aventuristur is back online.',
   'files.placeFilesNeedConnection':
     'Files need a connection to upload. Remove the new ones to save the place offline, or save once you are back online.',
   'files.maxSize': 'Max {count} MB',

@@ -1,6 +1,6 @@
-import { Info } from '../../../icons';
 import { useMemo, type ReactNode } from 'react';
 import { useTranslation } from '../../../i18n';
+import { Info } from '../../../icons';
 import { useSettingsStore } from '../../../store/settingsStore';
 import { useTourRouteHighlightStore } from '../../../store/tourRouteHighlightStore';
 import { formatDistance } from '../../../utils/units';

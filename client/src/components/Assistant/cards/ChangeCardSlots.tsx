@@ -1,6 +1,6 @@
 import type { AssistantChangePreview, TrekCardKind } from '@trek/shared';
-import { Check, Undo2 } from '../../../icons';
 import { Fragment, type ReactNode } from 'react';
+import { Check, Undo2 } from '../../../icons';
 
 import { useTranslation } from '../../../i18n';
 import { Tooltip } from '../../shared/Tooltip';

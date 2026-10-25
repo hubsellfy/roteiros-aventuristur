@@ -271,12 +271,14 @@ const dashboard: TranslationStrings = {
   'dashboard.plan.style.familia': 'Skvelé pre rodiny',
   'dashboard.plan.style.romantica': 'Romantický útek',
   'dashboard.plan.generate': 'Vytvoriť cestu',
-  'dashboard.plan.disclaimer': 'Plán navrhnutý umelou inteligenciou s miestami z Googlu. Časy a ceny si overte na mieste.',
+  'dashboard.plan.disclaimer':
+    'Plán navrhnutý umelou inteligenciou s miestami z Googlu. Časy a ceny si overte na mieste.',
   'dashboard.plan.errDestination': 'Zadajte cieľ.',
   'dashboard.plan.errDates': 'Vyberte dátum odchodu a návratu.',
   'dashboard.plan.errDays': 'Tvorca plánuje cesty až na {limit} dní.',
   'dashboard.plan.pendingTitle': 'Pripravujeme váš plán',
-  'dashboard.plan.working': 'Umelá inteligencia vyberá najlepšie miesta. Môže to trvať niekoľko minút a z aplikácie môžete odísť.',
+  'dashboard.plan.working':
+    'Umelá inteligencia vyberá najlepšie miesta. Môže to trvať niekoľko minút a z aplikácie môžete odísť.',
   'dashboard.plan.failed': 'Tento plán sa nepodarilo dokončiť.',
   'dashboard.plan.retry': 'Skúsiť znova',
   'dashboard.plan.remove': 'Odstrániť',

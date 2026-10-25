@@ -1,7 +1,7 @@
 import type { HorseRoute } from '@trek/shared';
-import { ArrowRight, ExternalLink, Plus } from '../../../icons';
 import { useId } from 'react';
 import { useTranslation } from '../../../i18n';
+import { ArrowRight, ExternalLink, Plus } from '../../../icons';
 import { useSettingsStore } from '../../../store/settingsStore';
 import { SoftPill } from '../../Planner/planParts';
 import {

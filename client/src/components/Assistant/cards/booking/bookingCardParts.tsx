@@ -6,6 +6,7 @@ import type {
   BookingTicket,
   BookingVenue,
 } from '@trek/shared';
+import { useRef, type ReactNode } from 'react';
 import {
   ArrowRight,
   BadgeCheck,
@@ -20,7 +21,6 @@ import {
   Wallet,
   type LucideIcon,
 } from '../../../../icons';
-import { useRef, type ReactNode } from 'react';
 
 import { useTranslation } from '../../../../i18n';
 import { ReviewPill, toneColor, toneTint, TypeTile } from '../../../Planner/bookings/bookingParts';

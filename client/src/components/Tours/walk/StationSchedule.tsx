@@ -1,6 +1,6 @@
 import { clockOf, type HoursSource, type HoursWindow, type StationFit } from '@trek/shared';
-import { AlertTriangle, Clock } from '../../../icons';
 import { useTranslation } from '../../../i18n';
+import { AlertTriangle, Clock } from '../../../icons';
 import { useSettingsStore } from '../../../store/settingsStore';
 import { formatClockTime } from '../../../utils/formatters';
 import { SoftPill } from '../../Planner/planParts';

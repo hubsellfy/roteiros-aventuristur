@@ -1,5 +1,5 @@
-import { ChevronLeft, ChevronRight } from '../../../../icons';
 import type { ReactNode } from 'react';
+import { ChevronLeft, ChevronRight } from '../../../../icons';
 
 import { useAssistantView } from '../../assistantViewContext';
 import { useCardStrip } from './useCardStrip';

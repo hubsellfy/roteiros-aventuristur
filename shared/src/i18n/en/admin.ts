@@ -919,7 +919,8 @@ const admin: TranslationStrings = {
   'admin.paddleRegions.requests.approve': 'Load',
   'admin.paddleRegions.requests.decline': 'Decline',
   'admin.paddleRegions.origin.auto': 'Automatic',
-  'admin.paddleRegions.origin.autoHint': 'Roteiros Aventuristur loaded this region by itself for a paddle tour planned there.',
+  'admin.paddleRegions.origin.autoHint':
+    'Roteiros Aventuristur loaded this region by itself for a paddle tour planned there.',
   'admin.mfa.reset': 'Reset 2FA',
   'admin.mfa.resetHint':
     'Switches off two-factor authentication for this user, for example after a lost phone. They are signed out everywhere and can set it up again after logging in with their password.',

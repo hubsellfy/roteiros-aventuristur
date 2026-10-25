@@ -853,7 +853,8 @@ const journey: TranslationStrings = {
   'journey.dayImport.routeRetry': 'Guardar la ruta otra vez',
   'journey.dayImport.stale':
     'Dawarich no respondió: {reason} Se muestran las estancias de la última sincronización del {date}.',
-  'journey.dayImport.staleNever': 'Dawarich no respondió: {reason} Se muestran las estancias que Roteiros Aventuristur ya conoce.',
+  'journey.dayImport.staleNever':
+    'Dawarich no respondió: {reason} Se muestran las estancias que Roteiros Aventuristur ya conoce.',
   'journey.dayImport.truncated': 'Dawarich solo envió una parte de este día. Puede que falten estancias.',
   'journey.dayImport.empty': 'Dawarich no encontró estancias en este día.',
   'journey.prep.lastSuccess': 'Última consulta {time}.',

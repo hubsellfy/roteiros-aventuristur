@@ -1,5 +1,5 @@
-import { ArrowLeftRight } from '../../../icons';
 import { useTranslation } from '../../../i18n';
+import { ArrowLeftRight } from '../../../icons';
 import { useSettingsStore } from '../../../store/settingsStore';
 import { formatDistance } from '../../../utils/units';
 import { fs } from '../../shared/DialogShell';

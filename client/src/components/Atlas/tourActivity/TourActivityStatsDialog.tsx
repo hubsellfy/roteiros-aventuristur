@@ -1,7 +1,7 @@
 import type { TourActivityTotals, TourTypeKey } from '@trek/shared';
-import { Footprints } from '../../../icons';
 import { createElement, useId } from 'react';
 import { useTranslation } from '../../../i18n';
+import { Footprints } from '../../../icons';
 import type { DistanceUnit } from '../../../types';
 import {
   DialogButton,

@@ -1,6 +1,6 @@
 import { BOOK_FONT_CATEGORIES, bookFontsUsed, type BookFontCategory } from '@trek/shared';
-import { Check, ChevronDown, Search, X } from '../../icons';
 import { useEffect, useId, useMemo, useRef, useState, type KeyboardEvent } from 'react';
+import { Check, ChevronDown, Search, X } from '../../icons';
 import { useStudioStore } from '../../store/studioStore';
 import '../../styles/studio-fonts.css';
 import { BOOK_FONTS, nearestWeight, type BookFontId } from './bookFonts';

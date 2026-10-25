@@ -1083,7 +1083,8 @@ const tours: TranslationStrings = {
     'Os dados de obstáculos, de {date}, cobrem só parte da rota. Confira o resto você mesmo.',
   'tours.paddle.obstacles.none':
     'Não há dados de obstáculos para esta área. Confira você mesmo os açudes, as eclusas e os transbordos daqui.',
-  'tours.paddle.obstacles.offline': 'Sem conexão, o Roteiros Aventuristur não carrega dados de obstáculos. Confira a água você mesmo.',
+  'tours.paddle.obstacles.offline':
+    'Sem conexão, o Roteiros Aventuristur não carrega dados de obstáculos. Confira a água você mesmo.',
   'tours.paddle.obstacles.error': 'Não foi possível carregar os dados de obstáculos. Confira a água você mesmo.',
   'tours.paddle.obstacle.kind.weir': 'Açude',
   'tours.paddle.obstacle.kind.dam': 'Barragem',

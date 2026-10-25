@@ -1,8 +1,8 @@
 import type { TourPoi, WalkTheme } from '@trek/shared';
 import { WALK_THEMES } from '@trek/shared';
-import { Clock, ExternalLink, MoveHorizontal, Route, Star, X } from '../../../icons';
 import { useCallback, useRef } from 'react';
 import { useTranslation } from '../../../i18n';
+import { Clock, ExternalLink, MoveHorizontal, Route, Star, X } from '../../../icons';
 import { useSettingsStore } from '../../../store/settingsStore';
 import { useTourPoiStore } from '../../../store/tourPoiStore';
 import { formatDistance } from '../../../utils/units';

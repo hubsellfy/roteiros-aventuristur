@@ -1,7 +1,7 @@
 import type { FerrataBbox } from '@trek/shared';
-import { ChevronDown, ChevronUp, Gauge, Palette, Pause, Play, RotateCcw, Scan, TrendingUp } from '../../../icons';
 import { useEffect, useLayoutEffect, useMemo, useRef, useState, type CSSProperties, type ReactNode } from 'react';
 import { useTranslation } from '../../../i18n';
+import { ChevronDown, ChevronUp, Gauge, Palette, Pause, Play, RotateCcw, Scan, TrendingUp } from '../../../icons';
 import type { DistanceUnit } from '../../../types';
 import type { DistanceIndexedProfileSample, RouteProfileFocus } from '../../../utils/routeGeometry';
 import { formatElevation } from '../../../utils/units';

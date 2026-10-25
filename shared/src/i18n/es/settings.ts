@@ -349,7 +349,8 @@ const settings: TranslationStrings = {
   'settings.webPush.enabled': 'Activado en este dispositivo',
   'settings.webPush.unsupported': 'Este navegador no puede recibir notificaciones push.',
   'settings.webPush.insecure': 'Push necesita que Roteiros Aventuristur se abra mediante HTTPS.',
-  'settings.webPush.iosInstall': 'En iPhone y iPad, añade primero Roteiros Aventuristur a la pantalla de inicio y ábrelo desde ahí.',
+  'settings.webPush.iosInstall':
+    'En iPhone y iPad, añade primero Roteiros Aventuristur a la pantalla de inicio y ábrelo desde ahí.',
   'settings.webPush.denied':
     'Las notificaciones de Roteiros Aventuristur están bloqueadas en este navegador. Permítelas en los ajustes del navegador y vuelve a intentarlo.',
   'settings.webPush.failed': 'No se pudo activar push en este dispositivo.',

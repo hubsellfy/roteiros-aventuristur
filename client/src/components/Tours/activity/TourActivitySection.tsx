@@ -1,7 +1,17 @@
 import type { TourActivity, TourListItem } from '@trek/shared';
-import { CalendarDays, CheckCheck, Clock, CloudOff, FileDown, Footprints, Plus, RefreshCw, Unlink } from '../../../icons';
 import { useMemo } from 'react';
 import { useTranslation } from '../../../i18n';
+import {
+  CalendarDays,
+  CheckCheck,
+  Clock,
+  CloudOff,
+  FileDown,
+  Footprints,
+  Plus,
+  RefreshCw,
+  Unlink,
+} from '../../../icons';
 import { useSettingsStore } from '../../../store/settingsStore';
 import { useTourActivityCompareStore } from '../../../store/tourActivityCompareStore';
 import type { AssignmentsMap, Day } from '../../../types';

@@ -1,7 +1,7 @@
 import type { TourActivityStatsEntry } from '@trek/shared';
-import { Ban, Briefcase, CalendarDays, Footprints, Loader2, Repeat, RotateCcw } from '../../../icons';
 import { useNavigate } from 'react-router';
 import { useTranslation } from '../../../i18n';
+import { Ban, Briefcase, CalendarDays, Footprints, Loader2, Repeat, RotateCcw } from '../../../icons';
 import { formatDate } from '../../../utils/formatters';
 import { formatDistance, formatElevation } from '../../../utils/units';
 import { SoftPill, WhiteBadge } from '../../Planner/planParts';

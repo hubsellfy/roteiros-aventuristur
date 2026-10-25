@@ -1,56 +1,56 @@
-import { useEffect, useRef, useState } from 'react'
-import { ExternalLink, Navigation, Phone, Plus, X } from '../../../../icons'
-import MSheet from '../../../components/MSheet'
-import type { MTripSheetsProps } from '../MTripShell'
-import { useTranslation, getIntlLanguage } from '../../../../i18n'
-import { mapsApi } from '../../../../api/client'
-import { usePlaceDetails } from '../../../../hooks/usePlaceDetails'
-import { poiCategoryOf, type Poi } from '../../../../components/Map/poiCategories'
-import { getNavigationTargets, openNavigationTarget } from '../../../../components/Planner/placeNavigation'
-import { NavigationMenu } from '../../../../components/shared/NavigationMenu'
-import { formatPoiName } from '../../../../utils/formatPoiName'
-import { safeHttpUrl } from '../../../../utils/safeUrl'
-import { ActionCircle } from './MTripSheetUi'
-import MGoogleInfo from './MGoogleInfo'
+import { useEffect, useRef, useState } from 'react';
+import { mapsApi } from '../../../../api/client';
+import { poiCategoryOf, type Poi } from '../../../../components/Map/poiCategories';
+import { getNavigationTargets, openNavigationTarget } from '../../../../components/Planner/placeNavigation';
+import { NavigationMenu } from '../../../../components/shared/NavigationMenu';
+import { usePlaceDetails } from '../../../../hooks/usePlaceDetails';
+import { useTranslation } from '../../../../i18n';
+import { ExternalLink, Navigation, Phone, Plus, X } from '../../../../icons';
+import { formatPoiName } from '../../../../utils/formatPoiName';
+import { safeHttpUrl } from '../../../../utils/safeUrl';
+import MSheet from '../../../components/MSheet';
+import type { MTripSheetsProps } from '../MTripShell';
+import MGoogleInfo from './MGoogleInfo';
+import { ActionCircle } from './MTripSheetUi';
 
 // Photos shown in the strip of a card: enough to get a feel for the place
 // without turning a tap into a gallery download.
-const MAX_PHOTOS = 6
+const MAX_PHOTOS = 6;
 
 interface GoogleMatch {
-  googleId: string
-  photos: string[]
+  googleId: string;
+  photos: string[];
 }
 
 // One lookup per establishment and language for the whole session: the search
 // and the photo are billed by Google, so reopening the same card must be free.
-const matchCache = new Map<string, Promise<GoogleMatch | null>>()
+const matchCache = new Map<string, Promise<GoogleMatch | null>>();
 
 function findGoogleMatch(poi: Poi, language: string): Promise<GoogleMatch | null> {
-  const key = `${poi.osm_id}_${language}`
-  const cached = matchCache.get(key)
-  if (cached) return cached
+  const key = `${poi.osm_id}_${language}`;
+  const cached = matchCache.get(key);
+  if (cached) return cached;
   const lookup = (async (): Promise<GoogleMatch | null> => {
-    const query = [poi.name, poi.address].filter(Boolean).join(' ')
-    const found = await mapsApi.search(query, language, { lat: poi.lat, lng: poi.lng, radius: 500 }, 'google')
-    const hit = found.places.find(p => p.google_place_id)
-    if (!hit?.google_place_id) return null
+    const query = [poi.name, poi.address].filter(Boolean).join(' ');
+    const found = await mapsApi.search(query, language, { lat: poi.lat, lng: poi.lng, radius: 500 }, 'google');
+    const hit = found.places.find((p) => p.google_place_id);
+    if (!hit?.google_place_id) return null;
     // Google's own pictures only: the other sources the enrichment fans out to
     // (Wikimedia and friends) are licensed images that would need a credit line.
     const enrichment = await mapsApi
       .placeEnrichment({ placeId: hit.google_place_id, lat: poi.lat, lng: poi.lng, name: poi.name, lang: language })
-      .catch(() => null)
+      .catch(() => null);
     const photos = (enrichment?.photos ?? [])
-      .filter(p => p.source === 'google' || p.source === 'cached')
+      .filter((p) => p.source === 'google' || p.source === 'cached')
       .slice(0, MAX_PHOTOS)
-      .map(p => p.url)
-    return { googleId: hit.google_place_id, photos }
-  })()
+      .map((p) => p.url);
+    return { googleId: hit.google_place_id, photos };
+  })();
   // A failed lookup (no Google key, quota, offline) is not remembered, so the
   // next open tries again instead of showing an empty card for the session.
-  lookup.catch(() => matchCache.delete(key))
-  matchCache.set(key, lookup)
-  return lookup
+  lookup.catch(() => matchCache.delete(key));
+  matchCache.set(key, lookup);
+  return lookup;
 }
 
 /**
@@ -61,41 +61,50 @@ function findGoogleMatch(poi: Poi, language: string): Promise<GoogleMatch | null
  * the card still carries the name, address, phone and site the pin already knew.
  */
 export default function MPoiSheet({ planner, shell }: MTripSheetsProps) {
-  const { t } = useTranslation()
-  const poi = shell.sheet?.id === 'poi' ? (shell.sheet.payload as Poi) : null
-  const language = planner.language
-  const [match, setMatch] = useState<GoogleMatch | null>(null)
-  const [navOpen, setNavOpen] = useState(false)
-  const navBtnRef = useRef<HTMLButtonElement>(null)
+  const { t } = useTranslation();
+  const poi = shell.sheet?.id === 'poi' ? (shell.sheet.payload as Poi) : null;
+  const language = planner.language;
+  const [match, setMatch] = useState<GoogleMatch | null>(null);
+  const [navOpen, setNavOpen] = useState(false);
+  const navBtnRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
-    setMatch(null)
-    setNavOpen(false)
-    if (!poi) return
-    let alive = true
-    findGoogleMatch(poi, language).then(m => { if (alive) setMatch(m) }).catch(() => {})
-    return () => { alive = false }
+    setMatch(null);
+    setNavOpen(false);
+    if (!poi) return;
+    let alive = true;
+    findGoogleMatch(poi, language)
+      .then((m) => {
+        if (alive) setMatch(m);
+      })
+      .catch(() => {});
+    return () => {
+      alive = false;
+    };
     // The pin itself is the identity: a new tap on another pin changes osm_id.
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [poi?.osm_id, language])
+  }, [poi?.osm_id, language]);
 
-  const details = usePlaceDetails(match?.googleId, null, language, true)
-  const category = poi ? poiCategoryOf(poi.category) : undefined
-  const navTargets = getNavigationTargets(poi ? { name: poi.name, lat: poi.lat, lng: poi.lng } : null, details?.google_maps_url)
-  const website = safeHttpUrl(poi?.website) ?? safeHttpUrl(details?.website)
-  const phone = poi?.phone || details?.phone
-  const canAdd = planner.can('place_edit', planner.trip)
+  const details = usePlaceDetails(match?.googleId, null, language, true);
+  const category = poi ? poiCategoryOf(poi.category) : undefined;
+  const navTargets = getNavigationTargets(
+    poi ? { name: poi.name, lat: poi.lat, lng: poi.lng } : null,
+    details?.google_maps_url
+  );
+  const website = safeHttpUrl(poi?.website) ?? safeHttpUrl(details?.website);
+  const phone = poi?.phone || details?.phone;
+  const canAdd = planner.can('place_edit', planner.trip);
 
-  const close = shell.closeSheet
+  const close = shell.closeSheet;
   const directions = () => {
-    if (navTargets.length === 1) openNavigationTarget(navTargets[0])
-    else if (navTargets.length > 1) setNavOpen(true)
-  }
+    if (navTargets.length === 1) openNavigationTarget(navTargets[0]);
+    else if (navTargets.length > 1) setNavOpen(true);
+  };
   const addToTrip = () => {
-    if (!poi) return
-    close()
-    planner.openAddPlaceFromPoi(poi, planner.selectedDayId)
-  }
+    if (!poi) return;
+    close();
+    planner.openAddPlaceFromPoi(poi, planner.selectedDayId);
+  };
 
   return (
     <MSheet open={!!poi} onClose={close} variant="card" material="glass" ariaLabel={poi?.name}>
@@ -105,8 +114,12 @@ export default function MPoiSheet({ planner, shell }: MTripSheetsProps) {
             <div className="flex items-start gap-3">
               <div className="min-w-0 flex-1">
                 <div className="text-[1rem] font-bold leading-snug">{formatPoiName(poi.name)}</div>
-                {category && <div className="mt-[2px] text-[0.6875rem] font-medium text-m-muted">{t(category.labelKey)}</div>}
-                {poi.address && <div className="mt-[2px] font-geist text-[0.6875rem] leading-[1.4] text-m-muted">{poi.address}</div>}
+                {category && (
+                  <div className="mt-[2px] text-[0.6875rem] font-medium text-m-muted">{t(category.labelKey)}</div>
+                )}
+                {poi.address && (
+                  <div className="mt-[2px] font-geist text-[0.6875rem] leading-[1.4] text-m-muted">{poi.address}</div>
+                )}
               </div>
               <button
                 type="button"
@@ -122,7 +135,7 @@ export default function MPoiSheet({ planner, shell }: MTripSheetsProps) {
           <div className="min-h-0 flex-1 overflow-y-auto px-[18px] pb-[18px]">
             {match && match.photos.length > 0 && (
               <div className="-mx-[18px] mt-3 flex snap-x gap-2 overflow-x-auto px-[18px] pb-1">
-                {match.photos.map(url => (
+                {match.photos.map((url) => (
                   <img
                     key={url}
                     src={url}
@@ -185,5 +198,5 @@ export default function MPoiSheet({ planner, shell }: MTripSheetsProps) {
         </>
       )}
     </MSheet>
-  )
+  );
 }

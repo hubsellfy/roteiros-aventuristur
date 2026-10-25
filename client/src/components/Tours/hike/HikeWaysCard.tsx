@@ -1,6 +1,6 @@
-import { Footprints, Layers, MountainSnow, Signpost } from '../../../icons';
 import type { ReactNode } from 'react';
 import { useTranslation } from '../../../i18n';
+import { Footprints, Layers, MountainSnow, Signpost } from '../../../icons';
 import ToggleSwitch from '../../Settings/ToggleSwitch';
 import { Segmented, type SegmentedOption } from '../../shared/dialogParts';
 import { fs } from '../../shared/DialogShell';

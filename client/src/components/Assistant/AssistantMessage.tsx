@@ -1,7 +1,7 @@
 import { ActionBarPrimitive, AuiIf, MessagePrimitive } from '@assistant-ui/react';
 import type { AssistantMessage as StoredMessage } from '@trek/shared';
-import { Check, Copy, FileText, LoaderCircle, Share2 } from '../../icons';
 import { Fragment, useMemo } from 'react';
+import { Check, Copy, FileText, LoaderCircle, Share2 } from '../../icons';
 
 import { useTranslation } from '../../i18n';
 import { chatOf, useAssistantStore } from '../../store/assistantStore';

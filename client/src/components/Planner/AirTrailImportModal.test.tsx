@@ -352,7 +352,7 @@ describe('AirTrailImportModal', () => {
     setForcedOffline(true);
     try {
       render(<AirTrailImportModal {...defaultProps} />);
-      expect(await screen.findByText('This needs a connection. Try again once TREK is back online.')).toBeInTheDocument();
+      expect(await screen.findByText('This needs a connection. Try again once Roteiros Aventuristur is back online.')).toBeInTheDocument();
     } finally {
       _resetNetworkMode();
     }

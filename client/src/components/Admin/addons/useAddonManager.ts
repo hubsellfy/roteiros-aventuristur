@@ -1,6 +1,6 @@
 import type { AdminFeatureToggleResponse } from '@trek/shared';
-import { Bike, Footprints, MountainSnow } from '../../../icons';
 import { useEffect, useEffectEvent, useState } from 'react';
+import { Bike, Footprints, MountainSnow } from '../../../icons';
 
 import { adminApi } from '../../../api/client';
 import { cycleMapAdminApi, hikingMapAdminApi, skiRoutingAdminApi } from '../../../api/tourBaseMaps';

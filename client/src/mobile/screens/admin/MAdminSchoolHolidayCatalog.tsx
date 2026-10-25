@@ -3,12 +3,12 @@ import {
   type SchoolHolidayRegionDetail,
   type SchoolHolidayRegionRequest,
 } from '@trek/shared';
-import { ChevronRight, GraduationCap, Loader2, MapPinned, Plus, Trash2, WifiOff } from '../../../icons';
 import { useState } from 'react';
 import { useSchoolHolidayCatalog } from '../../../components/Admin/useSchoolHolidayCatalog';
 import { CustomDatePicker } from '../../../components/shared/CustomDateTimePicker';
 import CustomSelect from '../../../components/shared/CustomSelect';
 import { useTranslation } from '../../../i18n';
+import { ChevronRight, GraduationCap, Loader2, MapPinned, Plus, Trash2, WifiOff } from '../../../icons';
 import MBadge from '../../components/MBadge';
 import MSheet from '../../components/MSheet';
 import MConfirmSheet from '../settings/MConfirmSheet';

@@ -1,6 +1,6 @@
 import type { TourRouteCard, TourRouteStop } from '@trek/shared';
-import { AlertTriangle, Clock, Flag, MapPin, MountainSnow, type LucideIcon } from '../../../../icons';
 import { createElement, type ReactNode } from 'react';
+import { AlertTriangle, Clock, Flag, MapPin, MountainSnow, type LucideIcon } from '../../../../icons';
 
 import { useTranslation } from '../../../../i18n';
 import {

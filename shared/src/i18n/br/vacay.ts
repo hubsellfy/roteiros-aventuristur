@@ -115,7 +115,8 @@ const vacay: TranslationStrings = {
   'vacay.noData': 'Sem dados',
   'vacay.changeColor': 'Alterar cor',
   'vacay.inviteUser': 'Convidar usuário',
-  'vacay.inviteHint': 'Convide outro usuário Roteiros Aventuristur para compartilhar um calendário de férias combinado.',
+  'vacay.inviteHint':
+    'Convide outro usuário Roteiros Aventuristur para compartilhar um calendário de férias combinado.',
   'vacay.selectUser': 'Selecionar usuário',
   'vacay.sendInvite': 'Enviar convite',
   'vacay.inviteSent': 'Convite enviado',

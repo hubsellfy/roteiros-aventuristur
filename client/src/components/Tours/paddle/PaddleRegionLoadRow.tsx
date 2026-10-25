@@ -1,6 +1,6 @@
 import type { PaddleRegionLoadState } from '@trek/shared';
-import { CloudDownload, Hourglass, Loader2, Spline } from '../../../icons';
 import { useTranslation } from '../../../i18n';
+import { CloudDownload, Hourglass, Loader2, Spline } from '../../../icons';
 import { fs } from '../../shared/DialogShell';
 
 type Translate = ReturnType<typeof useTranslation>['t'];

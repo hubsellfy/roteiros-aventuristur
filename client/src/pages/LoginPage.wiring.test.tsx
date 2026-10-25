@@ -111,7 +111,7 @@ describe('LoginPage — takeoff', () => {
 
     expect(document.querySelector('.takeoff-overlay')).toBeInTheDocument();
     expect(screen.getByTestId('login-world')).toHaveAttribute('data-variant', 'takeoff');
-    expect(screen.getByAltText('TREK')).toHaveAttribute('src', '/logo-light.svg');
+    expect(screen.getByAltText('Roteiros Aventuristur')).toHaveAttribute('src', '/logo-light.svg');
     expect(screen.queryByPlaceholderText(EMAIL_PLACEHOLDER)).toBeNull();
   });
 });
@@ -155,7 +155,7 @@ describe('LoginPage — language switcher', () => {
     expect(screen.getByRole('button', { name: 'Change language' })).toHaveAttribute('aria-expanded', 'true');
     const options = screen.getAllByRole('option');
     expect(options).toHaveLength(SUPPORTED_LANGUAGES.length);
-    expect(screen.getByRole('option', { name: 'Deutsch' })).toHaveAttribute('aria-selected', 'false');
+    expect(screen.getByRole('option', { name: 'Español' })).toHaveAttribute('aria-selected', 'false');
     expect(screen.getByRole('option', { name: 'English' })).toHaveAttribute('aria-selected', 'true');
   });
 
@@ -163,9 +163,9 @@ describe('LoginPage — language switcher', () => {
     fixture.langDropdownOpen = true;
     renderPage();
 
-    fireEvent.click(screen.getByRole('option', { name: 'Français' }));
+    fireEvent.click(screen.getByRole('option', { name: 'Português (Brasil)' }));
 
-    expect(fixture.setLanguageLocal).toHaveBeenCalledWith('fr');
+    expect(fixture.setLanguageLocal).toHaveBeenCalledWith('br');
     expect(fixture.setLangDropdownOpen).toHaveBeenCalledWith(false);
   });
 
@@ -175,9 +175,9 @@ describe('LoginPage — language switcher', () => {
     const documentClick = vi.fn();
     document.addEventListener('click', documentClick);
 
-    fireEvent.click(screen.getByRole('option', { name: 'Español' }));
+    fireEvent.click(screen.getByRole('option', { name: 'English' }));
 
-    expect(fixture.setLanguageLocal).toHaveBeenCalledWith('es');
+    expect(fixture.setLanguageLocal).toHaveBeenCalledWith('en');
     expect(documentClick).not.toHaveBeenCalled();
     document.removeEventListener('click', documentClick);
   });
@@ -186,7 +186,7 @@ describe('LoginPage — language switcher', () => {
     fixture.langDropdownOpen = true;
     renderPage();
 
-    const inactive = hoverRoundTrip(screen.getByRole('option', { name: 'Italiano' }), 'background');
+    const inactive = hoverRoundTrip(screen.getByRole('option', { name: 'Español' }), 'background');
     expect(inactive.hovered).not.toBe(inactive.before);
     expect(inactive.after).toBe(inactive.before);
 

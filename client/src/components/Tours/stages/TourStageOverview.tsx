@@ -1,6 +1,6 @@
 import type { TourListItem } from '@trek/shared';
-import { ArrowDown, ArrowUp, ArrowUpRight, Clock, Loader2, Ruler, Sigma, type LucideIcon } from '../../../icons';
 import { useTranslation } from '../../../i18n';
+import { ArrowDown, ArrowUp, ArrowUpRight, Clock, Loader2, Ruler, Sigma, type LucideIcon } from '../../../icons';
 import { useSettingsStore } from '../../../store/settingsStore';
 import type { Day } from '../../../types';
 import { formatDistance, formatElevation } from '../../../utils/units';

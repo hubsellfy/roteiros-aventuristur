@@ -1,5 +1,7 @@
 import type { TourPoi, WalkTheme } from '@trek/shared';
 import { placesInTour, TOUR_POI_CORRIDORS_M } from '@trek/shared';
+import { useEffect, useRef } from 'react';
+import { useTranslation } from '../../../i18n';
 import {
   Check,
   ChevronDown,
@@ -16,8 +18,6 @@ import {
   X,
   type LucideIcon,
 } from '../../../icons';
-import { useEffect, useRef } from 'react';
-import { useTranslation } from '../../../i18n';
 import { useSettingsStore } from '../../../store/settingsStore';
 import { useTourPoiStore } from '../../../store/tourPoiStore';
 import { formatDistance } from '../../../utils/units';

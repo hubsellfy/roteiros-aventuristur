@@ -19,7 +19,7 @@ describe('AboutTab — marca Aventuristur', () => {
     expect(links).toHaveLength(4);
     expect(links[0]).toHaveAttribute(
       'href',
-      'https://github.com/hubsellfy/roteiros-aventuristur/tree/abc1234def5678abc1234def5678abc1234def56',
+      'https://github.com/hubsellfy/roteiros-aventuristur/tree/abc1234def5678abc1234def5678abc1234def56'
     );
     expect(links[1]).toHaveAttribute('href', 'https://github.com/hubsellfy/roteiros-aventuristur/blob/main/LICENSE');
     expect(links[2]).toHaveAttribute('href', '/privacidade');

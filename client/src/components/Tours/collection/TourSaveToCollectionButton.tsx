@@ -1,5 +1,5 @@
-import { BookmarkPlus } from '../../../icons';
 import { useTranslation } from '../../../i18n';
+import { BookmarkPlus } from '../../../icons';
 import { useAddonStore } from '../../../store/addonStore';
 import { BarButton } from '../../Planner/planParts';
 import { DialogButton } from '../../shared/DialogShell';

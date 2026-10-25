@@ -7,9 +7,7 @@
 export const MAX_RETENTION_MONTHS = 120;
 
 export type RetentionConfig =
-  | { kind: 'disabled' }
-  | { kind: 'invalid'; reason: string }
-  | { kind: 'enabled'; months: number; dryRun: boolean };
+  { kind: 'disabled' } | { kind: 'invalid'; reason: string } | { kind: 'enabled'; months: number; dryRun: boolean };
 
 const TRUE_VALUES = new Set(['1', 'true', 'on', 'yes']);
 const FALSE_VALUES = new Set(['', '0', 'false', 'off', 'no']);
@@ -23,7 +21,8 @@ const FALSE_VALUES = new Set(['', '0', 'false', 'off', 'no']);
 export function parseRetentionConfig(env: { RETENTION_MONTHS?: string; RETENTION_DRY_RUN?: string }): RetentionConfig {
   const rawMonths = env.RETENTION_MONTHS?.trim() ?? '';
   if (rawMonths === '') return { kind: 'disabled' };
-  if (!/^\d+$/.test(rawMonths)) return { kind: 'invalid', reason: `RETENTION_MONTHS="${rawMonths}" is not a whole number` };
+  if (!/^\d+$/.test(rawMonths))
+    return { kind: 'invalid', reason: `RETENTION_MONTHS="${rawMonths}" is not a whole number` };
   const months = Number(rawMonths);
   if (months < 1 || months > MAX_RETENTION_MONTHS) {
     return { kind: 'invalid', reason: `RETENTION_MONTHS=${months} is outside 1..${MAX_RETENTION_MONTHS}` };

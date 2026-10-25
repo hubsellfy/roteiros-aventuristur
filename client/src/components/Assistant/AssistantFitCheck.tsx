@@ -1,6 +1,6 @@
-import { CircleCheck, TriangleAlert } from '../../icons';
 import { useMemo } from 'react';
 import { useShallow } from 'zustand/react/shallow';
+import { CircleCheck, TriangleAlert } from '../../icons';
 
 import { useTranslation } from '../../i18n';
 import { useTripStore } from '../../store/tripStore';

@@ -1,6 +1,6 @@
 import type { TourPackingLink } from '@trek/shared';
-import { Backpack, Check, type LucideIcon, Package, PowerOff } from '../../../icons';
 import { useTranslation } from '../../../i18n';
+import { Backpack, Check, type LucideIcon, Package, PowerOff } from '../../../icons';
 import { tintOf, WhiteBadge } from '../../Planner/planParts';
 import { fs } from '../../shared/DialogShell';
 import { TourNotice } from '../tourParts';

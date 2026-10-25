@@ -1,6 +1,6 @@
-import { Car, Hotel, Ticket } from '../../icons';
 import React from 'react';
 import { useTranslation } from '../../i18n';
+import { Car, Hotel, Ticket } from '../../icons';
 import type { Accommodation, Reservation } from '../../types';
 import { fs } from '../shared/DialogShell';
 import { Tooltip } from '../shared/Tooltip';

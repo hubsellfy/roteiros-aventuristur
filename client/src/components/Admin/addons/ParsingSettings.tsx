@@ -1,7 +1,7 @@
 import { asLlmVision, LLM_VISION_MODES, type LlmVision } from '@trek/shared';
-import { Check, RefreshCw } from '../../../icons';
 import React, { useId } from 'react';
 import { useTranslation } from '../../../i18n';
+import { Check, RefreshCw } from '../../../icons';
 import { ProviderMark } from '../../Settings/ai/AiConnectPanel';
 import { SETTINGS_BUTTON, SETTINGS_BUTTON_PRIMARY, SettingsHint, StatusPill } from '../../Settings/settingsKit';
 import { DialogSection, fs } from '../../shared/DialogShell';

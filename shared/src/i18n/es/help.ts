@@ -7,7 +7,8 @@ const help: TranslationStrings = {
   'help.contents': 'Contenido',
   'help.noResults': 'No hay páginas que coincidan.',
   'help.errorTitle': 'No se ha podido cargar esta página',
-  'help.errorBody': 'La ayuda se carga desde la wiki de Roteiros Aventuristur. Comprueba tu conexión y vuelve a intentarlo.',
+  'help.errorBody':
+    'La ayuda se carga desde la wiki de Roteiros Aventuristur. Comprueba tu conexión y vuelve a intentarlo.',
 
   // center
   'help.center.button': 'Ayuda para esta pantalla',
@@ -674,7 +675,8 @@ const help: TranslationStrings = {
     'Solo el propietario puede invitar y quitar personas; un miembro puede salir por su cuenta de una lista compartida.',
   // export-list
   'help.guide.export-list.title': 'Exportar una lista a un archivo',
-  'help.guide.export-list.goal': 'Pasa una lista a alguien de otro servidor Roteiros Aventuristur, o ábrela en una aplicación de mapas.',
+  'help.guide.export-list.goal':
+    'Pasa una lista a alguien de otro servidor Roteiros Aventuristur, o ábrela en una aplicación de mapas.',
   'help.guide.export-list.step.1': 'Haz clic en Exportar, en la cabecera de la lista.',
   'help.guide.export-list.step.2':
     'Elige «Lista de Roteiros Aventuristur» para usar la lista en otro Roteiros Aventuristur, con etiquetas y estados, o GPX para OsmAnd, Organic Maps, un Garmin y otras aplicaciones que leen puntos de ruta.',
@@ -892,7 +894,8 @@ const help: TranslationStrings = {
   'help.guide.link-trip.tip.2': 'Las entradas de un día solo cuentan una vez, aunque varios viajes incluyan ese día.',
   // share-public
   'help.guide.share-public.title': 'Compartir la travesía públicamente',
-  'help.guide.share-public.goal': 'Comparte un enlace de solo lectura con personas que no tienen cuenta en Roteiros Aventuristur.',
+  'help.guide.share-public.goal':
+    'Comparte un enlace de solo lectura con personas que no tienen cuenta en Roteiros Aventuristur.',
   'help.guide.share-public.step.1':
     'Abre «Ajustes de la travesía» con ⋯ en la cabecera y baja hasta «Compartir público».',
   'help.guide.share-public.step.2': 'Haz clic en «Crear enlace para compartir».',
@@ -3786,7 +3789,8 @@ const help: TranslationStrings = {
     'Un reparto personalizado también se puede indicar en porcentaje: cambia «Introducir partes como» a %, y las partes tienen que sumar el 100 % para poder guardar el gasto.',
   // expense-currency
   'help.guide.expense-currency.title': 'Introducir un gasto en otra moneda',
-  'help.guide.expense-currency.goal': 'Introduce el importe del recibo y Roteiros Aventuristur guarda el tipo de cambio.',
+  'help.guide.expense-currency.goal':
+    'Introduce el importe del recibo y Roteiros Aventuristur guarda el tipo de cambio.',
   'help.guide.expense-currency.step.1':
     'Abre «Añadir gasto». Escribe el nombre en la parte superior del diálogo e introduce en «Importe total» el importe exacto del recibo, sin convertirlo.',
   'help.guide.expense-currency.step.2':
@@ -4367,8 +4371,10 @@ const help: TranslationStrings = {
     '«Explorar lugares en el mapa» muestra la píldora de categorías para buscar lugares cercanos. «Difuminar códigos de reserva» oculta los números de confirmación hasta que pasas el cursor por encima o los tocas. «Optimizar la ruta desde el alojamiento» hace que el día empiece y termine en tu hotel.',
   'help.guide.web-push-device.step.2':
     'En la tarjeta «Notificaciones» de arriba, la columna Push define qué eventos se envían a tus dispositivos.',
-  'help.guide.connect-airtrail.goal': 'Haz que Roteiros Aventuristur importe y sincronice los vuelos de tu propio AirTrail.',
-  'help.guide.connect-dawarich.goal': 'Haz que Roteiros Aventuristur sepa por dónde has ido realmente, a partir de tu propio Dawarich.',
+  'help.guide.connect-airtrail.goal':
+    'Haz que Roteiros Aventuristur importe y sincronice los vuelos de tu propio AirTrail.',
+  'help.guide.connect-dawarich.goal':
+    'Haz que Roteiros Aventuristur sepa por dónde has ido realmente, a partir de tu propio Dawarich.',
   'help.guide.tour-connect-wanderer.goal':
     'Haz que Roteiros Aventuristur lea las rutas de tu propio wanderer para importarlas como excursiones.',
   'help.guide.tour-wanderer-watch.title': 'Recibir un aviso cuando cambien tus rutas de wanderer',
@@ -6062,7 +6068,8 @@ const help: TranslationStrings = {
   'help.ctx.collections.bullet.7':
     'Excursiones guardadas: las excursiones que guardaste desde un viaje son las primeras filas de una lista, con su dificultad, su tipo, el viaje del que proceden y sus medidas. «Añadir a un viaje» crea una excursión nueva a partir de una, y el icono de la papelera la quita de la lista.',
   'help.guide.move-to-list.title': 'Mover o duplicar lugares en otra lista',
-  'help.guide.copy-to-trip.tip.2': 'Los lugares que el viaje ya tiene se omiten, y Roteiros Aventuristur indica cuántos se han omitido.',
+  'help.guide.copy-to-trip.tip.2':
+    'Los lugares que el viaje ya tiene se omiten, y Roteiros Aventuristur indica cuántos se han omitido.',
   'help.guide.accept-list-invite.tip.2':
     'Haz clic en «Compartida», arriba de la lista, para ver sus miembros. Desde ahí, «Salir de la lista» te permite volver a salir.',
   'help.guide.tour-collection-add-to-trip.goal':

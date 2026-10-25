@@ -12,7 +12,8 @@ const wandererWatch: TranslationStrings = {
   'wanderer.watch.lastRun': 'Last looked {date}',
   'wanderer.watch.neverRun': 'Not looked yet',
   'wanderer.watch.paused': 'Paused until {time}',
-  'wanderer.watch.pausedHint': 'wanderer did not answer. Roteiros Aventuristur waits longer after each failure before it asks again.',
+  'wanderer.watch.pausedHint':
+    'wanderer did not answer. Roteiros Aventuristur waits longer after each failure before it asks again.',
   'wanderer.watch.blocked': 'Token refused',
   'wanderer.watch.blockedHint':
     'wanderer refused the API token. The check resumes once a connection test passes or a new token is saved.',

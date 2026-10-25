@@ -1,6 +1,6 @@
-import { ChevronRight, Settings2, Sparkles } from '../../../icons';
 import React from 'react';
 import { useTranslation } from '../../../i18n';
+import { ChevronRight, Settings2, Sparkles } from '../../../icons';
 import { StatusPill } from '../../Settings/settingsKit';
 import { fs } from '../../shared/DialogShell';
 import AddonSubRow from '../AddonSubRow';

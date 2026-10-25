@@ -1,7 +1,7 @@
-import { Injectable, type OnApplicationBootstrap } from '@nestjs/common';
 import { logError, logInfo } from '../audit/audit-log.logger';
 import { CronRegistrarService } from '../scheduling/cron-registrar.service';
 import { RetentionService } from './retention.service';
+import { Injectable, type OnApplicationBootstrap } from '@nestjs/common';
 
 /**
  * Daily retention sweep (04:10, clear of the 03:00 purge and the backup window).
@@ -26,7 +26,9 @@ export class RetentionJob implements OnApplicationBootstrap {
       return;
     }
     this.registrar.register('trip-retention', '10 4 * * *', () => this.tick());
-    logInfo(`Retention scheduled: trips erased ${config.months} month(s) after their end date${config.dryRun ? ' (dry run: nothing is erased)' : ''}`);
+    logInfo(
+      `Retention scheduled: trips erased ${config.months} month(s) after their end date${config.dryRun ? ' (dry run: nothing is erased)' : ''}`,
+    );
   }
 
   async tick(): Promise<void> {
@@ -35,7 +37,9 @@ export class RetentionJob implements OnApplicationBootstrap {
     try {
       const r = await this.retention.sweep(config.months, config.dryRun);
       if (r.found > 0) {
-        logInfo(`Retention: ${r.found} expired (before ${r.cutoff}), ${r.deleted} erased, ${r.failed} failed${r.dryRun ? ', dry run' : ''}`);
+        logInfo(
+          `Retention: ${r.found} expired (before ${r.cutoff}), ${r.deleted} erased, ${r.failed} failed${r.dryRun ? ', dry run' : ''}`,
+        );
       }
     } catch (err: unknown) {
       logError(`Retention: ${err instanceof Error ? err.message : err}`);

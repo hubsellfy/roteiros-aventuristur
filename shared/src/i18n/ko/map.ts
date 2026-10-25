@@ -42,7 +42,8 @@ const map: TranslationStrings = {
   'map.webgl2.terrain': '3D에는 WebGL2가 필요하지만 이 브라우저는 지원하지 않습니다. 지도는 2D로 유지됩니다.',
   'poi.ask': '질문하기',
   'assistant.placeholder': '여행에 대해 물어보세요…',
-  'assistant.welcome': '안녕하세요! 레스토랑과 즐길 거리를 추천하고, 구글 평점과 리뷰를 확인하고, 일정에 장소를 추가할 수 있어요. 무엇을 계획할까요?',
+  'assistant.welcome':
+    '안녕하세요! 레스토랑과 즐길 거리를 추천하고, 구글 평점과 리뷰를 확인하고, 일정에 장소를 추가할 수 있어요. 무엇을 계획할까요?',
   'assistant.suggest1': '이 근처에서 점심 먹을 곳은?',
   'assistant.suggest2': '자유 오후 일정을 짜줘',
   'assistant.suggest3': '평점이 높은 명소',

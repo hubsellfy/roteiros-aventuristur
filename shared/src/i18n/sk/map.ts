@@ -46,7 +46,8 @@ const map: TranslationStrings = {
   'map.webgl2.terrain': '3D potrebuje WebGL2, ktoré tento prehliadač neponúka. Mapa zostáva v 2D.',
   'poi.ask': 'Opýtať sa',
   'assistant.placeholder': 'Opýtajte sa na svoju cestu…',
-  'assistant.welcome': 'Ahoj! Viem odporučiť reštaurácie a aktivity, pozrieť hodnotenia a recenzie z Googlu a pridať miesta do vášho plánu. Čo chcete plánovať?',
+  'assistant.welcome':
+    'Ahoj! Viem odporučiť reštaurácie a aktivity, pozrieť hodnotenia a recenzie z Googlu a pridať miesta do vášho plánu. Čo chcete plánovať?',
   'assistant.suggest1': 'Kde sa tu v blízkosti naobedovať?',
   'assistant.suggest2': 'Naplánuj mi voľné popoludnie',
   'assistant.suggest3': 'Najlepšie hodnotené atrakcie',

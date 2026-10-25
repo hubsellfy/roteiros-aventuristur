@@ -1,6 +1,6 @@
 import type { TourListItem } from '@trek/shared';
-import { Gauge } from '../../../icons';
 import { useTranslation } from '../../../i18n';
+import { Gauge } from '../../../icons';
 import { useSettingsStore } from '../../../store/settingsStore';
 import { fs } from '../../shared/DialogShell';
 import { Tooltip } from '../../shared/Tooltip';

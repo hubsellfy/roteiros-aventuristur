@@ -1,6 +1,6 @@
-import { CalendarDays, CalendarRange } from '../../../../icons';
 import { tourDayChoices, type TourDayHow, type TourDayQuestion } from '../../../../components/Tours/stages/stageSpread';
 import { useTranslation } from '../../../../i18n';
+import { CalendarDays, CalendarRange } from '../../../../icons';
 import MConfirmSheet from '../../settings/MConfirmSheet';
 
 interface MTourDayChoiceSheetProps {

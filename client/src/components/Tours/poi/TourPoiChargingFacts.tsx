@@ -1,7 +1,7 @@
 import type { TourPoiCharging } from '@trek/shared';
-import { Bike, Plug } from '../../../icons';
 import type { ReactElement } from 'react';
 import { useTranslation } from '../../../i18n';
+import { Bike, Plug } from '../../../icons';
 import { SoftPill, WhiteBadge } from '../../Planner/planParts';
 import { Tooltip } from '../../shared/Tooltip';
 

@@ -219,7 +219,7 @@ describe('JourneyPublicPage', () => {
     });
     // One footer, the shared frame's: "Shared via TREK", the credit and the GitHub link
     const footer = screen.getByRole('contentinfo');
-    expect(within(footer).getByText('TREK')).toBeInTheDocument();
+    expect(within(footer).getByText('Roteiros Aventuristur')).toBeInTheDocument();
     expect(within(footer).getByText(/Made with/)).toBeInTheDocument();
     expect(within(footer).getByText('GitHub')).toBeInTheDocument();
     expect(screen.getAllByText(/Made with/)).toHaveLength(1);
@@ -453,17 +453,16 @@ describe('JourneyPublicPage', () => {
 
     // Language options should appear
     await waitFor(() => {
-      expect(screen.getByText('Deutsch')).toBeInTheDocument();
+      expect(screen.getByText('Português (Brasil)')).toBeInTheDocument();
       expect(screen.getByText('Español')).toBeInTheDocument();
-      expect(screen.getByText('Français')).toBeInTheDocument();
     });
 
-    // Click Deutsch to switch language
-    await user.click(screen.getByText('Deutsch'));
+    // Click Español to switch language
+    await user.click(screen.getByText('Español'));
 
     // The picker should close and settings store should be updated
     const settings = useSettingsStore.getState().settings;
-    expect(settings.language).toBe('de');
+    expect(settings.language).toBe('es');
   });
 
   // FE-PAGE-PUBLICJOURNEY-017

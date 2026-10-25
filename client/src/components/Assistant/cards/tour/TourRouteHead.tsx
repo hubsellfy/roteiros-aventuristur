@@ -1,6 +1,6 @@
 import type { TourRouteCard } from '@trek/shared';
-import { CalendarDays, Clock, MoveHorizontal, TrendingDown, TrendingUp, type LucideIcon } from '../../../../icons';
 import { createElement } from 'react';
+import { CalendarDays, Clock, MoveHorizontal, TrendingDown, TrendingUp, type LucideIcon } from '../../../../icons';
 
 import { useTranslation } from '../../../../i18n';
 import { SoftPill, WhiteBadge } from '../../../Planner/planParts';

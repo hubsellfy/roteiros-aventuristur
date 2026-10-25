@@ -1,8 +1,8 @@
 import type { TourListItem } from '@trek/shared';
-import { Bike, Footprints, Mountain, Route } from '../../icons';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { paddleBench } from '../../../tests/helpers/paddleCheck';
 import { fireEvent, render, screen } from '../../../tests/helpers/render';
+import { Bike, Footprints, Mountain, Route } from '../../icons';
 import { useTourVisitStore } from '../../store/tourVisitStore';
 import TourDayRowFacts, { TourDayRowIcon, TourDayRowPills } from './TourDayRowFacts';
 import { tourDayRowIcon } from './tourDayRowIcon';

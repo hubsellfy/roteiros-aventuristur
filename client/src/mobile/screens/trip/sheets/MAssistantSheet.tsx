@@ -1,13 +1,13 @@
-import { useEffect, useRef, useState } from 'react'
-import { Loader2, Send, Sparkles, X } from '../../../../icons'
-import MSheet from '../../../components/MSheet'
-import type { MTripSheetsProps } from '../MTripShell'
-import { useTranslation } from '../../../../i18n'
-import { useAssistantChat } from '../../../../hooks/useAssistantChat'
-import { INNER_CLS } from './MTripSheetUi'
-import MAssistantCard from './MAssistantCard'
+import { useEffect, useRef, useState } from 'react';
+import { useAssistantChat } from '../../../../hooks/useAssistantChat';
+import { useTranslation } from '../../../../i18n';
+import { Loader2, Send, Sparkles, X } from '../../../../icons';
+import MSheet from '../../../components/MSheet';
+import type { MTripSheetsProps } from '../MTripShell';
+import MAssistantCard from './MAssistantCard';
+import { INNER_CLS } from './MTripSheetUi';
 
-const SUGGESTIONS = ['assistant.suggest1', 'assistant.suggest2', 'assistant.suggest3'] as const
+const SUGGESTIONS = ['assistant.suggest1', 'assistant.suggest2', 'assistant.suggest3'] as const;
 
 /**
  * Chat of the travel assistant, opened by the leading "Pergunte" pill of the map.
@@ -15,24 +15,24 @@ const SUGGESTIONS = ['assistant.suggest1', 'assistant.suggest2', 'assistant.sugg
  * recommends them as cards; adding one to the itinerary is the traveller's tap.
  */
 export default function MAssistantSheet({ planner, shell }: MTripSheetsProps) {
-  const { t } = useTranslation()
-  const open = shell.sheet?.id === 'assistant'
-  const { turns, loading, send } = useAssistantChat(planner.tripId, planner.language, t('assistant.error'))
-  const [draft, setDraft] = useState('')
-  const endRef = useRef<HTMLDivElement>(null)
-  const canAdd = planner.can('place_edit', planner.trip)
+  const { t } = useTranslation();
+  const open = shell.sheet?.id === 'assistant';
+  const { turns, loading, send } = useAssistantChat(planner.tripId, planner.language, t('assistant.error'));
+  const [draft, setDraft] = useState('');
+  const endRef = useRef<HTMLDivElement>(null);
+  const canAdd = planner.can('place_edit', planner.trip);
 
   useEffect(() => {
-    endRef.current?.scrollIntoView?.({ behavior: 'smooth', block: 'end' })
-  }, [turns.length, loading])
+    endRef.current?.scrollIntoView?.({ behavior: 'smooth', block: 'end' });
+  }, [turns.length, loading]);
 
   const submit = (text: string) => {
-    if (!text.trim() || loading) return
-    setDraft('')
-    void send(text)
-  }
+    if (!text.trim() || loading) return;
+    setDraft('');
+    void send(text);
+  };
   const dayNumber = (dayId: number | null) =>
-    dayId == null ? null : planner.days.find(d => d.id === dayId)?.day_number ?? null
+    dayId == null ? null : (planner.days.find((d) => d.id === dayId)?.day_number ?? null);
 
   return (
     <MSheet open={open} onClose={shell.closeSheet} variant="bottom" material="glass" ariaLabel={t('poi.ask')}>
@@ -56,7 +56,7 @@ export default function MAssistantSheet({ planner, shell }: MTripSheetsProps) {
           </div>
           {turns.length === 0 && (
             <div className="flex flex-wrap gap-2">
-              {SUGGESTIONS.map(key => (
+              {SUGGESTIONS.map((key) => (
                 <button
                   key={key}
                   type="button"
@@ -68,8 +68,11 @@ export default function MAssistantSheet({ planner, shell }: MTripSheetsProps) {
               ))}
             </div>
           )}
-          {turns.map(turn => (
-            <div key={turn.id} className={`flex flex-col gap-2 ${turn.role === 'user' ? 'items-end' : 'items-stretch'}`}>
+          {turns.map((turn) => (
+            <div
+              key={turn.id}
+              className={`flex flex-col gap-2 ${turn.role === 'user' ? 'items-end' : 'items-stretch'}`}
+            >
               <div
                 className={`max-w-[88%] whitespace-pre-wrap rounded-[14px] px-3 py-[9px] font-geist text-[0.8125rem] leading-[1.5] ${
                   turn.role === 'user' ? 'bg-m-act text-m-actfg' : INNER_CLS
@@ -77,20 +80,24 @@ export default function MAssistantSheet({ planner, shell }: MTripSheetsProps) {
               >
                 {turn.text}
               </div>
-              {turn.cards.map(card => (
+              {turn.cards.map((card) => (
                 <MAssistantCard
                   key={`${turn.id}-${card.ref}`}
                   card={card}
                   language={planner.language}
                   dayNumber={dayNumber(card.dayId)}
                   canAdd={canAdd}
-                  onAdd={c => planner.addAssistantPlace(c, c.dayId)}
+                  onAdd={(c) => planner.addAssistantPlace(c, c.dayId)}
                 />
               ))}
             </div>
           ))}
           {loading && (
-            <div className={`flex w-fit items-center gap-2 rounded-[14px] px-3 py-[9px] ${INNER_CLS}`} role="status" aria-label={t('poi.ask')}>
+            <div
+              className={`flex w-fit items-center gap-2 rounded-[14px] px-3 py-[9px] ${INNER_CLS}`}
+              role="status"
+              aria-label={t('poi.ask')}
+            >
               <Loader2 size={14} strokeWidth={2} className="animate-spin" />
             </div>
           )}
@@ -99,11 +106,14 @@ export default function MAssistantSheet({ planner, shell }: MTripSheetsProps) {
 
         <form
           className="flex flex-none items-center gap-2"
-          onSubmit={e => { e.preventDefault(); submit(draft) }}
+          onSubmit={(e) => {
+            e.preventDefault();
+            submit(draft);
+          }}
         >
           <input
             value={draft}
-            onChange={e => setDraft(e.target.value)}
+            onChange={(e) => setDraft(e.target.value)}
             maxLength={2000}
             aria-label={t('poi.ask')}
             placeholder={t('assistant.placeholder')}
@@ -120,5 +130,5 @@ export default function MAssistantSheet({ planner, shell }: MTripSheetsProps) {
         </form>
       </div>
     </MSheet>
-  )
+  );
 }

@@ -1,6 +1,6 @@
 import type { PaddleRouteLeg } from '@trek/shared';
-import { AlertTriangle, RotateCcw, Sparkles, Spline, Waves } from '../../../icons';
 import { useTranslation } from '../../../i18n';
+import { AlertTriangle, RotateCcw, Sparkles, Spline, Waves } from '../../../icons';
 import type { PaddleLegAnswer } from '../../../repo/paddleRouteRepo';
 import { useSettingsStore } from '../../../store/settingsStore';
 import { formatDistance } from '../../../utils/units';

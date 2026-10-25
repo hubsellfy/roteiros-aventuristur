@@ -1,5 +1,5 @@
-import { ArrowRight, CalendarDays, TriangleAlert } from '../../../../icons';
 import type { CSSProperties, ReactNode } from 'react';
+import { ArrowRight, CalendarDays, TriangleAlert } from '../../../../icons';
 
 import { useTranslation } from '../../../../i18n';
 import { SoftPill, WhiteBadge } from '../../../Planner/planParts';

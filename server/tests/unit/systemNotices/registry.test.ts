@@ -69,9 +69,9 @@ describe('registry integrity', () => {
     }
   });
 
-  it('the original project\'s release and donation notices are not shown by the Aventuristur fork', () => {
-    expect(SYSTEM_NOTICES.some(n => n.id === 'release-notes')).toBe(false);
-    expect(SYSTEM_NOTICES.some(n => n.id === 'thank-you-support')).toBe(false);
+  it("the original project's release and donation notices are not shown by the Aventuristur fork", () => {
+    expect(SYSTEM_NOTICES.some((n) => n.id === 'release-notes')).toBe(false);
+    expect(SYSTEM_NOTICES.some((n) => n.id === 'thank-you-support')).toBe(false);
   });
 
   it('the 4.0.0 release notice is retired and its id stays reserved', () => {

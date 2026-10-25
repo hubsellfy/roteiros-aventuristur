@@ -1,6 +1,6 @@
-import { MountainSnow } from '../../../icons';
 import { useId } from 'react';
 import { useTranslation } from '../../../i18n';
+import { MountainSnow } from '../../../icons';
 import {
   DialogButton,
   DialogFooter,

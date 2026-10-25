@@ -1,5 +1,5 @@
-import { AlertTriangle, ArrowRight, Check, Clock, Loader2, MoveHorizontal, Shuffle, TrendingUp } from '../../../icons';
 import { useTranslation } from '../../../i18n';
+import { AlertTriangle, ArrowRight, Check, Clock, Loader2, MoveHorizontal, Shuffle, TrendingUp } from '../../../icons';
 import { useSettingsStore } from '../../../store/settingsStore';
 import type { DistanceUnit } from '../../../types';
 import { formatDistance, formatElevation } from '../../../utils/units';

@@ -6,7 +6,8 @@ const help: TranslationStrings = {
   'help.contents': 'Contents',
   'help.noResults': 'No matching pages.',
   'help.errorTitle': "Couldn't load this page",
-  'help.errorBody': 'The help content is fetched from the Roteiros Aventuristur wiki. Check your connection and try again.',
+  'help.errorBody':
+    'The help content is fetched from the Roteiros Aventuristur wiki. Check your connection and try again.',
 
   // ── Help center (the contextual panel behind the ? in the navbar) ──────────
   'help.center.button': 'Help for this screen',
@@ -156,7 +157,8 @@ const help: TranslationStrings = {
   'help.guide.calendar-feed.title': 'Subscribe to all trips in your calendar',
   'help.guide.calendar-feed.goal': 'See the days and bookings of every active trip in your calendar app, kept in sync.',
   'help.guide.calendar-feed.step.1': 'Click the calendar icon next to the view toggle.',
-  'help.guide.calendar-feed.step.2': 'Click Enable calendar subscription. Roteiros Aventuristur creates a private feed link.',
+  'help.guide.calendar-feed.step.2':
+    'Click Enable calendar subscription. Roteiros Aventuristur creates a private feed link.',
   'help.guide.calendar-feed.step.3':
     'Click Add to Google Calendar or Add to Apple Calendar / Outlook. For any other calendar app, open Or copy a link manually and copy the link from there.',
   'help.guide.calendar-feed.result':
@@ -747,7 +749,8 @@ const help: TranslationStrings = {
   'help.guide.copy-to-trip.step.3': 'Pick the trip. Use the search box to filter a long list.',
   'help.guide.copy-to-trip.tip.1':
     'Viewers of a shared list can do this too. It copies the places from the list and does not change the list.',
-  'help.guide.copy-to-trip.tip.2': 'A place the trip already has is skipped, and Roteiros Aventuristur shows how many were skipped.',
+  'help.guide.copy-to-trip.tip.2':
+    'A place the trip already has is skipped, and Roteiros Aventuristur shows how many were skipped.',
   'help.guide.copy-to-trip.result':
     "The places are added to that trip's place list with name, description, category, notes, price, coordinates, photo and tags. Nothing changes in the collection.",
   'help.guide.share-list.title': 'Share a list with someone',
@@ -774,7 +777,8 @@ const help: TranslationStrings = {
   'help.guide.accept-list-invite.result':
     'The list appears under Shared in the rail and opens with its places. Changes its members make show up live.',
   'help.guide.export-list.title': 'Export a list as a file',
-  'help.guide.export-list.goal': 'Give a list to someone on another Roteiros Aventuristur server, or open it in a map app.',
+  'help.guide.export-list.goal':
+    'Give a list to someone on another Roteiros Aventuristur server, or open it in a map app.',
   'help.guide.export-list.step.1': 'Click Export in the hero of the list.',
   'help.guide.export-list.step.2':
     'Pick Roteiros Aventuristur list to use the list in another Roteiros Aventuristur, with labels and status, or GPX for OsmAnd, Organic Maps, a Garmin and other apps that read waypoints.',
@@ -784,7 +788,8 @@ const help: TranslationStrings = {
     'Ratings, members and uploaded photos are not exported, on purpose; they belong to this Roteiros Aventuristur, not to the list.',
   'help.guide.export-list.result': 'The file downloads. Any member of a shared list may export it.',
   'help.guide.import-file.title': 'Import a list from a file',
-  'help.guide.import-file.goal': 'Import a Roteiros Aventuristur list file or a GPX file, as a new list or into an existing list.',
+  'help.guide.import-file.goal':
+    'Import a Roteiros Aventuristur list file or a GPX file, as a new list or into an existing list.',
   'help.guide.import-file.step.1': 'Click the import button with the upload arrow next to New list in the lists rail.',
   'help.guide.import-file.step.2':
     'Choose the file. Before Roteiros Aventuristur imports anything, it shows what is in the file: the name, how many places and how many labels.',
@@ -1325,7 +1330,8 @@ const help: TranslationStrings = {
     'With the spread on the workbench, click Download this spread at the right end of the zoom bar. The file contains the design, not the photos.',
   'help.guide.studio-spread-file.step.2':
     'In the other book, open Pages and click Import next to Add spread, then pick the file.',
-  'help.guide.studio-spread-file.tip.1': 'If a file is not a spread design, Roteiros Aventuristur rejects it and shows the reason.',
+  'help.guide.studio-spread-file.tip.1':
+    'If a file is not a spread design, Roteiros Aventuristur rejects it and shows the reason.',
   'help.guide.studio-spread-file.result':
     'The spread is imported with its frames and text styles. Drop the photos of the new journey into the frames.',
 
@@ -1466,7 +1472,8 @@ const help: TranslationStrings = {
   'help.guide.travel-map-prefs.tip.2':
     'An admin can set the defaults for everyone; what you switch here applies to you.',
   'help.guide.theme-scheme.title': 'Set the theme and the accent colour',
-  'help.guide.theme-scheme.goal': 'Make Roteiros Aventuristur light, dark or follow your device, in the colour you like.',
+  'help.guide.theme-scheme.goal':
+    'Make Roteiros Aventuristur light, dark or follow your device, in the colour you like.',
   'help.guide.theme-scheme.step.1': 'Under Theme, set Color Mode to Light, Dark or Auto. Auto follows your device.',
   'help.guide.theme-scheme.step.2':
     'Choose a Color scheme: Default, High contrast, Indigo, Teal, Rose, Amber, Violet or Custom.',
@@ -1534,7 +1541,8 @@ const help: TranslationStrings = {
   'help.guide.notification-channels.tip.2':
     'The admin can pre-fill a default ntfy server for everyone; you still choose your own topic.',
   'help.guide.web-push-device.title': 'Get push notifications on this device',
-  'help.guide.web-push-device.goal': 'See Roteiros Aventuristur notifications on your phone or computer even while Roteiros Aventuristur is closed.',
+  'help.guide.web-push-device.goal':
+    'See Roteiros Aventuristur notifications on your phone or computer even while Roteiros Aventuristur is closed.',
   'help.guide.web-push-device.step.1':
     'Under Push notifications on this device, click Turn on for this device and allow notifications when the browser asks. Send test checks that one arrives.',
   'help.guide.web-push-device.step.2':
@@ -1543,7 +1551,8 @@ const help: TranslationStrings = {
     'The card shows On for this device, and the events switched on under Push arrive even while Roteiros Aventuristur is closed.',
   'help.guide.web-push-device.tip.1':
     'Push works per browser: repeat it on every phone and computer on which you want notifications. Turn off for this device stops it on that device only.',
-  'help.guide.web-push-device.tip.2': 'On iPhone and iPad, add Roteiros Aventuristur to the Home Screen first and open it from there.',
+  'help.guide.web-push-device.tip.2':
+    'On iPhone and iPad, add Roteiros Aventuristur to the Home Screen first and open it from there.',
   'help.guide.web-push-device.tip.3':
     'Push needs Roteiros Aventuristur opened over HTTPS. If notifications are blocked, allow them in the browser settings and try again.',
   'help.guide.photo-providers.title': 'Connect a photo library',
@@ -1600,7 +1609,8 @@ const help: TranslationStrings = {
     'An instance on a private address may need the admin to allow internal networks.',
   'help.guide.tour-connect-wanderer.tip.3': 'Disconnect, on the right, removes the token again.',
   'help.guide.tour-wanderer-watch.title': 'Get notified when your wanderer trails change',
-  'help.guide.tour-wanderer-watch.goal': 'Have Roteiros Aventuristur look for changes to the trails you imported, in the background.',
+  'help.guide.tour-wanderer-watch.goal':
+    'Have Roteiros Aventuristur look for changes to the trails you imported, in the background.',
   'help.guide.tour-wanderer-watch.step.1':
     'In the wanderer card, switch on Check my trails for changes. It needs a saved connection first.',
   'help.guide.tour-wanderer-watch.step.2':
@@ -1661,7 +1671,8 @@ const help: TranslationStrings = {
     'The trips open without a connection. Changes you make are saved in a queue and sent when you are online again.',
   'help.guide.offline-prepare.tip.1':
     'Map tiles take the most space; switch them off to keep only trip data and documents.',
-  'help.guide.offline-prepare.tip.2': 'Install Roteiros Aventuristur as an app from the browser for the smoothest offline start.',
+  'help.guide.offline-prepare.tip.2':
+    'Install Roteiros Aventuristur as an app from the browser for the smoothest offline start.',
   'help.guide.offline-conflicts.title': 'Decide which version is kept in a sync conflict',
   'help.guide.offline-conflicts.goal':
     'Choose how Roteiros Aventuristur resolves a conflict between a change made offline and a change made elsewhere.',
@@ -2033,7 +2044,8 @@ const help: TranslationStrings = {
     'Under Transit Provider, choose Transitous (free), keyless and strongest in Europe, or Google, which uses the Google key. The choice saves at once.',
   'help.guide.places-transit.step.2':
     'Under Place search provider, choose which service Roteiros Aventuristur asks when the TREK index and OpenStreetMap find nothing: Automatic (Google if a key exists, then Amap), Google Places, Amap (高德地图) or OpenStreetMap.',
-  'help.guide.places-transit.result': 'Every search box and every transit route in Roteiros Aventuristur uses this choice.',
+  'help.guide.places-transit.result':
+    'Every search box and every transit route in Roteiros Aventuristur uses this choice.',
   'help.guide.places-transit.tip.1':
     'A choice without its key shows a warning here. Place search then uses only the TREK index and OpenStreetMap, and transit uses only Transitous.',
   'help.guide.places-transit.tip.2': 'Google transit routes are billed per request; Transitous is not.',
@@ -2162,7 +2174,8 @@ const help: TranslationStrings = {
   'help.guide.mcp-tokens-admin.tip.2':
     'Switching the MCP addon off stops every client at once and hides this tab, but deletes nothing: the tokens work again once it is back on.',
   'help.guide.release-history.title': 'Check for a new release',
-  'help.guide.release-history.goal': 'Know whether your Roteiros Aventuristur is current and what the next version brings.',
+  'help.guide.release-history.goal':
+    'Know whether your Roteiros Aventuristur is current and what the next version brings.',
   'help.guide.release-history.step.1':
     'When a newer release exists, Update available shows under the page header with the version you run. View on GitHub opens the release, and How to Update shows the commands for Docker or the update guide for other installs.',
   'help.guide.release-history.step.2':
@@ -2718,7 +2731,8 @@ const help: TranslationStrings = {
   'help.guide.day-note.tip.1': 'Links in a note open in a new tab, and a single line break stays a line break.',
   'help.guide.day-note.tip.2': 'Notes are per day. Put a note for the whole trip in Collab.',
   'help.guide.day-route.title': 'Show and optimize the day’s route',
-  'help.guide.day-route.goal': 'See the route between the stops, pick how you travel, and let Roteiros Aventuristur sort the order.',
+  'help.guide.day-route.goal':
+    'See the route between the stops, pick how you travel, and let Roteiros Aventuristur sort the order.',
   'help.guide.day-route.step.1':
     'Open the day and click Route in the route bar under its stops: the route between the stops is drawn on the map, and the connectors between the stops show the time and distance of each leg.',
   'help.guide.day-route.step.2':
@@ -4189,7 +4203,8 @@ const help: TranslationStrings = {
   'help.guide.split-expense.tip.4':
     'A custom split can also be entered in percent: switch Enter shares as to %, and the shares have to make 100 % together before the expense saves.',
   'help.guide.expense-currency.title': 'Enter an expense in another currency',
-  'help.guide.expense-currency.goal': 'Enter the amount on the receipt, and Roteiros Aventuristur saves the exchange rate.',
+  'help.guide.expense-currency.goal':
+    'Enter the amount on the receipt, and Roteiros Aventuristur saves the exchange rate.',
   'help.guide.expense-currency.step.1':
     'Open Add expense. Type the name at the top of the dialog and enter the amount in Total amount exactly as it is on the receipt, not a converted amount.',
   'help.guide.expense-currency.step.2':
@@ -4855,7 +4870,8 @@ const help: TranslationStrings = {
   'help.guide.roadtrip-alternatives.tip.2':
     'No motorway, No tolls and No ferry come from a second engine with its own speed model, so their times cannot be compared with the others.',
   'help.guide.roadtrip-limits.title': 'Set the car and the driving limits',
-  'help.guide.roadtrip-limits.goal': 'Tell Roteiros Aventuristur what vehicle you drive and how far you want to drive without a break.',
+  'help.guide.roadtrip-limits.goal':
+    'Tell Roteiros Aventuristur what vehicle you drive and how far you want to drive without a break.',
   'help.guide.roadtrip-limits.step.1':
     'Driving settings is under the search in the right column. Its badges show what is set; click it to open.',
   'help.guide.roadtrip-limits.step.2':
@@ -4975,7 +4991,8 @@ const help: TranslationStrings = {
     'The route’s stops are added after the last stop of that day, and the route in the rail and on the map goes through them.',
   'help.guide.roadtrip-google-import.tip.1':
     'Roteiros Aventuristur calculates its own route between the stops; it does not copy Google’s road.',
-  'help.guide.roadtrip-google-import.tip.2': 'The link needs at least two stops Roteiros Aventuristur can place, and at most 30.',
+  'help.guide.roadtrip-google-import.tip.2':
+    'The link needs at least two stops Roteiros Aventuristur can place, and at most 30.',
   'help.guide.roadtrip-google-import.tip.3':
     'The import needs a connection, and permission to edit both places and days.',
   'help.guide.roadtrip-hazards.title': 'Show current warnings on the map',
@@ -5745,7 +5762,8 @@ const help: TranslationStrings = {
     'Click What to look for and tick the kinds you want, up to six at a time: Viewpoints, Summits, Huts and shelters, Drinking water, Food and more. The list offers what fits the tour’s type, and a tour starts with three of them ticked.',
   'help.guide.tour-along-search.step.3':
     'Under Within this distance of the route, pick how far from the line to look: 250 m, 500 m, 1 km or 2 km.',
-  'help.guide.tour-along-search.step.4': 'Click Search along the tour. Roteiros Aventuristur only searches: the tour does not change.',
+  'help.guide.tour-along-search.step.4':
+    'Click Search along the tour. Roteiros Aventuristur only searches: the tour does not change.',
   'help.guide.tour-along-search.step.5':
     'The places found are listed with their distance from the route and drawn on the map in their colour. A star marks the best known ones, and In the tour those that are a stop already. The button now reads Search again.',
   'help.guide.tour-along-search.result':
@@ -5945,7 +5963,8 @@ const help: TranslationStrings = {
   'help.guide.tour-hike-trail-details.tip.3':
     'Nothing in the card changes the tour, and it needs a connection. An imported hike shows the same card in its view, without a routing limit.',
   'help.guide.tour-hike-round.title': 'Find a round hike of about a given length',
-  'help.guide.tour-hike-round.goal': 'Let Roteiros Aventuristur suggest loops of the length you want, starting from one stop of a hike.',
+  'help.guide.tour-hike-round.goal':
+    'Let Roteiros Aventuristur suggest loops of the length you want, starting from one stop of a hike.',
   'help.guide.tour-hike-round.step.1':
     'With the hike open, click Round hike from the start in the head of the Waypoints card. From another stop, open its More actions and choose Round hike from here.',
   'help.guide.tour-hike-round.step.2':
@@ -6159,7 +6178,8 @@ const help: TranslationStrings = {
   'help.ctx.trip-tour-bike.bullet.4':
     'On the MTB profile the same card shows the trail grades (mtb:scale) where mappers added them. A way without a grade is unknown, not easy.',
   'help.guide.tour-bike-profile.title': 'Plan a bike tour for your kind of riding',
-  'help.guide.tour-bike-profile.goal': 'Start a bike tour and let Roteiros Aventuristur route it for touring, road, gravel or MTB.',
+  'help.guide.tour-bike-profile.goal':
+    'Start a bike tour and let Roteiros Aventuristur route it for touring, road, gravel or MTB.',
   'help.guide.tour-bike-profile.step.1': 'On the Tours tab, click Plan new tour at the top of the left rail.',
   'help.guide.tour-bike-profile.step.2': 'Open the Tour type field and pick Bike tour.',
   'help.guide.tour-bike-profile.step.3':

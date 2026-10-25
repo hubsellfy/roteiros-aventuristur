@@ -1,5 +1,5 @@
-import { Check } from '../../icons';
 import type { ReactNode } from 'react';
+import { Check } from '../../icons';
 
 import { fs } from '../shared/DialogShell';
 import { Tooltip } from '../shared/Tooltip';

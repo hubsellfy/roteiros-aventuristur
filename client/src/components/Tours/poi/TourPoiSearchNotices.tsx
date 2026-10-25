@@ -1,5 +1,5 @@
-import { AlertTriangle, Expand, RefreshCw, WifiOff } from '../../../icons';
 import { useTranslation } from '../../../i18n';
+import { AlertTriangle, Expand, RefreshCw, WifiOff } from '../../../icons';
 import { formatDistance } from '../../../utils/units';
 import { TOUR_POI_LOOKS } from '../../Map/poiCategories';
 import { fs } from '../../shared/DialogShell';

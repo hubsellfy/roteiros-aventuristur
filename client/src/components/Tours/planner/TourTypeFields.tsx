@@ -5,9 +5,9 @@ import {
   type PaddleBoatType,
   type PaddleWaterContext,
 } from '@trek/shared';
-import { Info } from '../../../icons';
 import { useState } from 'react';
 import { useTranslation } from '../../../i18n';
+import { Info } from '../../../icons';
 import { SoftPill } from '../../Planner/planParts';
 import { INPUT, LABEL, Segmented } from '../../shared/dialogParts';
 import { fs } from '../../shared/DialogShell';

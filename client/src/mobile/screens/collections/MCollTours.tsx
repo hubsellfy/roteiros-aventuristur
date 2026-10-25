@@ -1,5 +1,4 @@
 import type { CollectionTourItem, CollectionTourTarget } from '@trek/shared';
-import { ArrowRight, Check, CopyPlus, Loader2, Route, Trash2 } from '../../../icons';
 import { createElement } from 'react';
 import ConfirmDialog from '../../../components/shared/ConfirmDialog';
 import { fs } from '../../../components/shared/DialogShell';
@@ -17,6 +16,7 @@ import {
 import { measureBadges } from '../../../components/Tours/library/tourMeasureBadges';
 import { tourDayRowIcon } from '../../../components/Tours/tourDayRowIcon';
 import { useTranslation } from '../../../i18n';
+import { ArrowRight, Check, CopyPlus, Loader2, Route, Trash2 } from '../../../icons';
 import { useSettingsStore } from '../../../store/settingsStore';
 import MSheet from '../../components/MSheet';
 import { CancelPill, Eyebrow, PrimaryPill, SheetFooter, SheetHeader } from './MCollSheetKit';

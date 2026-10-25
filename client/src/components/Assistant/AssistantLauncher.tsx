@@ -1,5 +1,5 @@
-import { Sparkles } from '../../icons';
 import { useEffect, useRef } from 'react';
+import { Sparkles } from '../../icons';
 
 import { useTranslation } from '../../i18n';
 import { assistantScopeOf } from '../../store/assistantChatKey';

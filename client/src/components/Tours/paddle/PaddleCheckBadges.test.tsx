@@ -172,7 +172,7 @@ const COVERAGE: Coverage[] = [
     id: 'PCB-013',
     data: 'limited',
     word: 'Cut short',
-    info: 'TREK shows only part of the objects here; the area holds more. Check the water yourself.',
+    info: 'Roteiros Aventuristur shows only part of the objects here; the area holds more. Check the water yourself.',
   },
   {
     id: 'PCB-014',

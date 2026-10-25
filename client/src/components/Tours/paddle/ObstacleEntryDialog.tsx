@@ -1,7 +1,7 @@
 import type { TourObstacleEntry } from '@trek/shared';
-import { ExternalLink } from '../../../icons';
 import { useId } from 'react';
 import { useTranslation } from '../../../i18n';
+import { ExternalLink } from '../../../icons';
 import { useSettingsStore } from '../../../store/settingsStore';
 import { formatDistance } from '../../../utils/units';
 import { DialogHeader, DialogShell, DialogTile, NEUTRAL_TINT, PILL } from '../../shared/DialogShell';

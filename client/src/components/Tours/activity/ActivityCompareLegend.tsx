@@ -1,6 +1,6 @@
-import { GitCompareArrows, X } from '../../../icons';
 import type { ReactNode } from 'react';
 import { useTranslation } from '../../../i18n';
+import { GitCompareArrows, X } from '../../../icons';
 import { useTourActivityCompareStore } from '../../../store/tourActivityCompareStore';
 import { MAP_CARD_GLASS } from '../../Map/mapControlShadow';
 import { Eyebrow } from '../../Planner/bookings/bookingParts';

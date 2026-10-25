@@ -1,7 +1,7 @@
 import { compareCodeUnits } from '@trek/shared';
-import { AlertTriangle, Info, Loader2, WifiOff } from '../../../icons';
 import { useShallow } from 'zustand/react/shallow';
 import { useTranslation } from '../../../i18n';
+import { AlertTriangle, Info, Loader2, WifiOff } from '../../../icons';
 import { usePaddleObstacleStore } from '../../../store/paddleObstacleStore';
 import { TourNotice } from '../tourParts';
 

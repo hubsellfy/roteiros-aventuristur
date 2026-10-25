@@ -1,6 +1,6 @@
 import type { WalkRemainder } from '@trek/shared';
-import { Hourglass } from '../../../icons';
 import { useTranslation } from '../../../i18n';
+import { Hourglass } from '../../../icons';
 import { SoftPill } from '../../Planner/planParts';
 import { Tooltip } from '../../shared/Tooltip';
 import { walkRemainingText } from './walkRemaining';

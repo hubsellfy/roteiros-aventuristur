@@ -1,6 +1,6 @@
 import type { CollectionCardLabel, CollectionCardList, CollectionCardPlace, CollectionStatus } from '@trek/shared';
-import { Star } from '../../../../icons';
 import type { CSSProperties } from 'react';
+import { Star } from '../../../../icons';
 
 import { useTranslation } from '../../../../i18n';
 import { safeHexColor } from '../../../../utils/safeColor';

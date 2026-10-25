@@ -1,5 +1,14 @@
 import type { PaddleRegion, PaddleRegionPending } from '@trek/shared';
 import {
+  AUTO_LOAD_MODES,
+  autoLoadSizes,
+  formatMegabytes,
+  progressPercent,
+  regionStatusTone,
+} from '../../../components/Admin/paddle/paddleRegionsModel';
+import { usePaddleRegionsAdmin } from '../../../components/Admin/paddle/usePaddleRegionsAdmin';
+import { useTranslation } from '../../../i18n';
+import {
   Ban,
   Check,
   ChevronRight,
@@ -15,15 +24,6 @@ import {
   Waves,
   WifiOff,
 } from '../../../icons';
-import {
-  AUTO_LOAD_MODES,
-  autoLoadSizes,
-  formatMegabytes,
-  progressPercent,
-  regionStatusTone,
-} from '../../../components/Admin/paddle/paddleRegionsModel';
-import { usePaddleRegionsAdmin } from '../../../components/Admin/paddle/usePaddleRegionsAdmin';
-import { useTranslation } from '../../../i18n';
 import MBadge from '../../components/MBadge';
 import MChip from '../../components/MChip';
 import MConfirmSheet from '../settings/MConfirmSheet';

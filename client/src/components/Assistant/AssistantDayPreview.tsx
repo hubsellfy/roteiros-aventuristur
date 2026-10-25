@@ -1,7 +1,7 @@
 import type { AssistantChangeEffect, AssistantMessage } from '@trek/shared';
-import { ArrowRightLeft, Minus, Sparkles } from '../../icons';
 import { useMemo } from 'react';
 import { useShallow } from 'zustand/react/shallow';
+import { ArrowRightLeft, Minus, Sparkles } from '../../icons';
 
 import { useTranslation } from '../../i18n';
 import { changeEffects } from '../../store/assistantMapModel';

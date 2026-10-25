@@ -1,6 +1,6 @@
-import { Backpack, Link2, ListChecks, Loader2, Unlink } from '../../../icons';
 import { useId, type ReactNode } from 'react';
 import { useTranslation } from '../../../i18n';
+import { Backpack, Link2, ListChecks, Loader2, Unlink } from '../../../icons';
 import {
   DialogButton,
   DialogFooter,

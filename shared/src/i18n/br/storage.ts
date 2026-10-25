@@ -18,7 +18,8 @@ const storage: TranslationStrings = {
   'storage.field.primary': 'Backend primário',
   'storage.field.replicas': 'Réplicas',
   'storage.title': 'Armazenamento',
-  'storage.description': 'Onde o Roteiros Aventuristur guarda arquivos, fotos e backups enviados. Nada muda até você salvar.',
+  'storage.description':
+    'Onde o Roteiros Aventuristur guarda arquivos, fotos e backups enviados. Nada muda até você salvar.',
   'storage.loading': 'Carregando…',
   'storage.saved': 'Configuração de armazenamento salva',
   'storage.save': 'Salvar alterações',

@@ -1,3 +1,5 @@
+import { type HTMLAttributes, type MouseEvent, useRef, useState } from 'react';
+import { useNavigate } from 'react-router';
 import {
   Ellipsis,
   History,
@@ -11,8 +13,6 @@ import {
   Trash2,
   X,
 } from '../../icons';
-import { type HTMLAttributes, type MouseEvent, useRef, useState } from 'react';
-import { useNavigate } from 'react-router';
 
 import { useTranslation } from '../../i18n';
 import { assistantScopeOf } from '../../store/assistantChatKey';

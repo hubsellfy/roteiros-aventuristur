@@ -1,16 +1,14 @@
-import { HttpException, Injectable, Logger } from '@nestjs/common';
-import { DailyLimit } from './daily-limit';
-import type { RoteiroCard, RoteiroChatRequest, RoteiroChatResponse } from '@trek/shared';
-import { MapsService } from '../maps/maps.service';
-import { DaysService } from '../days/days.service';
-import { TripsService } from '../trips/trips.service';
-import { LlmConfigResolver } from '../llm-parse/llm-config.resolver';
-import type { ResolvedLlmConfig } from '../llm-parse/llm-config';
-import { safeFetchLlm } from '../../utils/ssrfGuard';
 import { readEnv } from '../../app-config';
-import {
-  ROTEIRO_TOOLS, applyDetails, toCard, toKnownPlace, type KnownPlace,
-} from './roteiro-ia.tools';
+import { safeFetchLlm } from '../../utils/ssrfGuard';
+import { DaysService } from '../days/days.service';
+import type { ResolvedLlmConfig } from '../llm-parse/llm-config';
+import { LlmConfigResolver } from '../llm-parse/llm-config.resolver';
+import { MapsService } from '../maps/maps.service';
+import { TripsService } from '../trips/trips.service';
+import { DailyLimit } from './daily-limit';
+import { ROTEIRO_TOOLS, applyDetails, toCard, toKnownPlace, type KnownPlace } from './roteiro-ia.tools';
+import { HttpException, Injectable, Logger } from '@nestjs/common';
+import type { RoteiroCard, RoteiroChatRequest, RoteiroChatResponse } from '@trek/shared';
 
 const MAX_STEPS = 6;
 const MAX_TOOL_CHARS = 6000;
@@ -23,7 +21,11 @@ export interface ChatMessage {
   tool_calls?: ToolCall[];
   tool_call_id?: string;
 }
-export interface ToolCall { id: string; type: 'function'; function: { name: string; arguments: string } }
+export interface ToolCall {
+  id: string;
+  type: 'function';
+  function: { name: string; arguments: string };
+}
 
 /** One conversation turn: the places the model has seen and the cards it chose to show. */
 export interface TurnState {
@@ -94,19 +96,27 @@ export class RoteiroChatService {
     const remaining = this.spend(userId);
     const language = body.language ?? 'pt-BR';
     const state: TurnState = {
-      userId, tripId: body.tripId, language,
-      known: new Map(), cards: new Map(), nextRef: 1,
+      userId,
+      tripId: body.tripId,
+      language,
+      known: new Map(),
+      cards: new Map(),
+      nextRef: 1,
     };
 
     const messages: ChatMessage[] = [
       { role: 'system', content: systemPrompt(language, new Date().toISOString().slice(0, 10)) },
-      ...body.messages.map(m => ({ role: m.role, content: m.content }) as ChatMessage),
+      ...body.messages.map((m) => ({ role: m.role, content: m.content }) as ChatMessage),
     ];
 
     for (let step = 0; step < MAX_STEPS; step++) {
       const reply = await this.complete(config, messages, step < MAX_STEPS - 1 ? { tools: ROTEIRO_TOOLS } : {});
       if (!reply.tool_calls?.length) {
-        return { reply: (reply.content ?? '').trim() || this.fallbackReply(language), cards: [...state.cards.values()], remaining };
+        return {
+          reply: (reply.content ?? '').trim() || this.fallbackReply(language),
+          cards: [...state.cards.values()],
+          remaining,
+        };
       }
       messages.push({ role: 'assistant', content: reply.content ?? null, tool_calls: reply.tool_calls });
       for (const call of reply.tool_calls) {
@@ -128,7 +138,9 @@ export class RoteiroChatService {
     messages: ChatMessage[],
     opts: { tools?: readonly unknown[]; toolChoice?: unknown; temperature?: number },
   ): Promise<{ content: string | null; tool_calls?: ToolCall[] }> {
-    const base = (config.baseUrl ?? (config.provider === 'local' ? 'http://localhost:11434/v1' : 'https://api.openai.com/v1')).replace(/\/+$/, '');
+    const base = (
+      config.baseUrl ?? (config.provider === 'local' ? 'http://localhost:11434/v1' : 'https://api.openai.com/v1')
+    ).replace(/\/+$/, '');
     let res: Response;
     try {
       res = await safeFetchLlm(`${base}/chat/completions`, {
@@ -153,7 +165,9 @@ export class RoteiroChatService {
       this.log.error(`assistant provider answered ${res.status}: ${detail.slice(0, 300)}`);
       throw err('O serviço de IA recusou o pedido. Avise o administrador se isso se repetir.', 502);
     }
-    const data = (await res.json().catch(() => null)) as { choices?: { message?: { content?: string | null; tool_calls?: ToolCall[] } }[] } | null;
+    const data = (await res.json().catch(() => null)) as {
+      choices?: { message?: { content?: string | null; tool_calls?: ToolCall[] } }[];
+    } | null;
     const message = data?.choices?.[0]?.message;
     if (!message) throw err('O serviço de IA respondeu em um formato inesperado.', 502);
     return { content: message.content ?? null, tool_calls: message.tool_calls };
@@ -168,11 +182,16 @@ export class RoteiroChatService {
     }
     try {
       switch (call.function.name) {
-        case 'get_trip': return JSON.stringify(await this.getTrip(state));
-        case 'search_places': return JSON.stringify(await this.searchPlaces(state, args));
-        case 'place_details': return JSON.stringify(await this.placeDetails(state, args));
-        case 'recommend_place': return JSON.stringify(await this.recommend(state, args));
-        default: return JSON.stringify({ error: `unknown tool ${call.function.name}` });
+        case 'get_trip':
+          return JSON.stringify(await this.getTrip(state));
+        case 'search_places':
+          return JSON.stringify(await this.searchPlaces(state, args));
+        case 'place_details':
+          return JSON.stringify(await this.placeDetails(state, args));
+        case 'recommend_place':
+          return JSON.stringify(await this.recommend(state, args));
+        default:
+          return JSON.stringify({ error: `unknown tool ${call.function.name}` });
       }
     } catch (e) {
       this.log.warn(`assistant tool ${call.function.name} failed: ${e instanceof Error ? e.message : String(e)}`);
@@ -187,14 +206,18 @@ export class RoteiroChatService {
       title: trip?.title ?? null,
       start_date: trip?.start_date ?? null,
       end_date: trip?.end_date ?? null,
-      days: days.map(d => {
-        const assignments = (Array.isArray(d.assignments) ? d.assignments : []) as { place?: { name?: string; lat?: number; lng?: number } }[];
+      days: days.map((d) => {
+        const assignments = (Array.isArray(d.assignments) ? d.assignments : []) as {
+          place?: { name?: string; lat?: number; lng?: number };
+        }[];
         return {
           day_id: d.id,
           day_number: d.day_number,
           date: d.date ?? null,
-          places: assignments.map(a => a.place?.name).filter(Boolean),
-          first_place_coords: assignments[0]?.place ? { lat: assignments[0].place.lat, lng: assignments[0].place.lng } : null,
+          places: assignments.map((a) => a.place?.name).filter(Boolean),
+          first_place_coords: assignments[0]?.place
+            ? { lat: assignments[0].place.lat, lng: assignments[0].place.lng }
+            : null,
         };
       }),
     };
@@ -219,10 +242,17 @@ export class RoteiroChatService {
     const lng = Number(args.near_lng);
     const bias = Number.isFinite(lat) && Number.isFinite(lng) ? { lat, lng, radius: 20000 } : undefined;
     const found = await this.maps.searchPlaces(state.userId, query, state.language, bias, { googleOnly: true });
-    const places = [...new Set(found.places.map(p => this.remember(state, p)).filter((p): p is KnownPlace => p !== null))].slice(0, 6);
+    const places = [
+      ...new Set(found.places.map((p) => this.remember(state, p)).filter((p): p is KnownPlace => p !== null)),
+    ].slice(0, 6);
     return {
-      results: places.map(p => ({
-        ref: p.ref, name: p.name, address: p.address, rating: p.rating, rating_count: p.ratingCount, open_now: p.openNow,
+      results: places.map((p) => ({
+        ref: p.ref,
+        name: p.name,
+        address: p.address,
+        rating: p.rating,
+        rating_count: p.ratingCount,
+        open_now: p.openNow,
       })),
     };
   }
@@ -230,9 +260,16 @@ export class RoteiroChatService {
   async placeDetails(state: TurnState, args: Record<string, unknown>) {
     const place = typeof args.ref === 'string' ? state.known.get(args.ref) : undefined;
     if (!place) return { error: 'unknown ref; call search_places first' };
-    if (!place.googlePlaceId) return { name: place.name, address: place.address, note: 'No Google details for this place.' };
-    if (await this.maps.detailsDisabled()) return { name: place.name, note: 'Place details are turned off on this server.' };
-    const { place: details } = await this.maps.getPlaceDetailsExpanded(state.userId, place.googlePlaceId, state.language, false);
+    if (!place.googlePlaceId)
+      return { name: place.name, address: place.address, note: 'No Google details for this place.' };
+    if (await this.maps.detailsDisabled())
+      return { name: place.name, note: 'Place details are turned off on this server.' };
+    const { place: details } = await this.maps.getPlaceDetailsExpanded(
+      state.userId,
+      place.googlePlaceId,
+      state.language,
+      false,
+    );
     if (!details) return { name: place.name, note: 'Google returned no details for this place.' };
     return applyDetails(place, details);
   }
@@ -244,7 +281,7 @@ export class RoteiroChatService {
     if (args.day_id != null) {
       const wanted = Number(args.day_id);
       const { days } = (await this.days.list(state.tripId)) as unknown as { days: { id: number }[] };
-      if (days.some(d => d.id === wanted)) dayId = wanted;
+      if (days.some((d) => d.id === wanted)) dayId = wanted;
     }
     const reason = typeof args.reason === 'string' && args.reason.trim() ? args.reason.trim().slice(0, 240) : null;
     state.cards.set(place.ref, toCard(place, dayId, reason));

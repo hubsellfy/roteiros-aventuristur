@@ -1,6 +1,6 @@
 import type { AssistantWeatherDay } from '@trek/shared';
-import { Droplet } from '../../icons';
 import { createElement } from 'react';
+import { Droplet } from '../../icons';
 
 import { useTranslation } from '../../i18n';
 import { chatOf, useAssistantStore } from '../../store/assistantStore';

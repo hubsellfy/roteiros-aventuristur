@@ -6,8 +6,8 @@ import {
   type BookLineOrnament,
   bookLineStyled,
 } from '@trek/shared';
-import { ArrowLeftRight } from '../../icons';
 import type { ReactNode } from 'react';
+import { ArrowLeftRight } from '../../icons';
 
 import { useStudioStore } from '../../store/studioStore';
 import { ornamentInUse } from './inspector/inspectorModel';

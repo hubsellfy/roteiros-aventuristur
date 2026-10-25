@@ -1,7 +1,7 @@
 import type { TourListItem } from '@trek/shared';
-import { FileDown, Footprints, Library, Loader2, PenLine, Plus } from '../../../icons';
 import type { ReactNode } from 'react';
 import { useTranslation } from '../../../i18n';
+import { FileDown, Footprints, Library, Loader2, PenLine, Plus } from '../../../icons';
 import { PopoverItem } from '../../Packing/PackingPopover';
 import { BarButton } from '../../Planner/planParts';
 import { PopoverListPanel } from '../../shared/dialogParts';

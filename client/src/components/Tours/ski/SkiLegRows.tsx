@@ -1,6 +1,6 @@
 import type { SkiColourScheme, SkiRouteOkLeg, SkiRouteSegment } from '@trek/shared';
-import { AlertTriangle, CableCar, Footprints, MountainSnow, Spline, Sun } from '../../../icons';
 import { useTranslation } from '../../../i18n';
+import { AlertTriangle, CableCar, Footprints, MountainSnow, Spline, Sun } from '../../../icons';
 import { fs } from '../../shared/DialogShell';
 import type { SkiLegProblem } from '../planner/skiRouting';
 import { formatTourDuration } from '../planner/tourDurationInput';

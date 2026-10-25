@@ -1,6 +1,6 @@
-import { ClipboardPaste, ExternalLink, Globe, Loader2 } from '../../../icons';
 import React, { useId } from 'react';
 import { useTranslation } from '../../../i18n';
+import { ClipboardPaste, ExternalLink, Globe, Loader2 } from '../../../icons';
 import { CHATGPT_USAGE_URL, providerLabel } from '../../Assistant/providerCatalog';
 import { fs } from '../../shared/DialogShell';
 import { INPUT } from '../../shared/dialogParts';

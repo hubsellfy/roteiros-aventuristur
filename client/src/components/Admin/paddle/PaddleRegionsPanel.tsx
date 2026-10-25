@@ -1,7 +1,7 @@
 import type { PaddleRegion, PaddleRegionCatalogEntry } from '@trek/shared';
-import { Check, ChevronRight, Loader2, Plus, RefreshCw, Search, Trash2, Waves, WifiOff } from '../../../icons';
 import { useId } from 'react';
 import { useTranslation } from '../../../i18n';
+import { Check, ChevronRight, Loader2, Plus, RefreshCw, Search, Trash2, Waves, WifiOff } from '../../../icons';
 import {
   SettingRows,
   SETTINGS_BUTTON,

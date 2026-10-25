@@ -1,6 +1,6 @@
 import type { PaddleGeometry, PaddleObstacleKind } from '@trek/shared';
-import { MapPinPlus } from '../../../icons';
 import { useTranslation } from '../../../i18n';
+import { MapPinPlus } from '../../../icons';
 import { fs } from '../../shared/DialogShell';
 import { placeOf } from './paddleObstaclePlace';
 

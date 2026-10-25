@@ -1,6 +1,6 @@
 import type { BookDesignCard, BookPageSetup, BookSpread } from '@trek/shared';
-import { ArrowRight, Check, TriangleAlert } from '../../../../icons';
 import { type FocusEvent, useState } from 'react';
+import { ArrowRight, Check, TriangleAlert } from '../../../../icons';
 
 import { useTranslation } from '../../../../i18n';
 import { SpreadThumb } from '../../../Studio/SpreadThumb';

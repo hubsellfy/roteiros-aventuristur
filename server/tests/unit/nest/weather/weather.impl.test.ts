@@ -1237,15 +1237,18 @@ describe('withOpenMeteoKey', () => {
   });
 
   it('moves forecast requests to the customer host and adds the key', () => {
-    expect(withOpenMeteoKey(forecast, { apiKey: 'abc123' }))
-      .toBe('https://customer-api.open-meteo.com/v1/forecast?latitude=1&longitude=2&apikey=abc123');
+    expect(withOpenMeteoKey(forecast, { apiKey: 'abc123' })).toBe(
+      'https://customer-api.open-meteo.com/v1/forecast?latitude=1&longitude=2&apikey=abc123',
+    );
   });
 
   it('moves archive requests to the customer archive host, which can be overridden', () => {
-    expect(withOpenMeteoKey(archive, { apiKey: 'abc123' }))
-      .toBe('https://customer-archive-api.open-meteo.com/v1/archive?latitude=1&longitude=2&apikey=abc123');
-    expect(withOpenMeteoKey(archive, { apiKey: 'abc123', archiveHost: 'archive.example.test' }))
-      .toBe('https://archive.example.test/v1/archive?latitude=1&longitude=2&apikey=abc123');
+    expect(withOpenMeteoKey(archive, { apiKey: 'abc123' })).toBe(
+      'https://customer-archive-api.open-meteo.com/v1/archive?latitude=1&longitude=2&apikey=abc123',
+    );
+    expect(withOpenMeteoKey(archive, { apiKey: 'abc123', archiveHost: 'archive.example.test' })).toBe(
+      'https://archive.example.test/v1/archive?latitude=1&longitude=2&apikey=abc123',
+    );
   });
 
   it('encodes the key so it cannot break out of the query string', () => {

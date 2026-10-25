@@ -80,7 +80,8 @@ const oauth: TranslationStrings = {
   'oauth.authorize.loading': 'Carregando…',
   'oauth.authorize.errorTitle': 'Erro de autorização',
   'oauth.authorize.loginTitle': 'Entre para continuar',
-  'oauth.authorize.loginDescription': '{client} quer acessar sua conta do Roteiros Aventuristur. Entre primeiro, por favor.',
+  'oauth.authorize.loginDescription':
+    '{client} quer acessar sua conta do Roteiros Aventuristur. Entre primeiro, por favor.',
   'oauth.authorize.loginButton': 'Entrar no Roteiros Aventuristur',
   'oauth.authorize.requestLabel': 'Solicitação de autorização',
   'oauth.authorize.requestDescription': 'Este aplicativo está solicitando acesso à sua conta do Roteiros Aventuristur.',

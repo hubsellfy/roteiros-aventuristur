@@ -6,9 +6,9 @@ import {
   type PaddleLayout,
   type PaddleTimeEstimate,
 } from '@trek/shared';
-import { AlertTriangle, Timer } from '../../../icons';
 import { useState, type ReactNode } from 'react';
 import { useTranslation } from '../../../i18n';
+import { AlertTriangle, Timer } from '../../../icons';
 import { useSettingsStore } from '../../../store/settingsStore';
 import { formatDistance } from '../../../utils/units';
 import { SoftPill } from '../../Planner/planParts';

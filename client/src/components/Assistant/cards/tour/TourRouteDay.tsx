@@ -1,6 +1,6 @@
 import type { TourRouteCard, TourRouteSchedule } from '@trek/shared';
-import { Clock, Droplet, Sunrise, Sunset } from '../../../../icons';
 import { createElement } from 'react';
+import { Clock, Droplet, Sunrise, Sunset } from '../../../../icons';
 
 import { useTranslation } from '../../../../i18n';
 import { SoftPill } from '../../../Planner/planParts';

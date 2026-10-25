@@ -1,4 +1,7 @@
 import { wandererDifficultyToSac, type WandererImportPreview, type WandererTrailSummary } from '@trek/shared';
+import type { ReactNode } from 'react';
+import { Link } from 'react-router';
+import { useTranslation } from '../../../i18n';
 import {
   AlertTriangle,
   ArrowLeft,
@@ -16,9 +19,6 @@ import {
   User,
   type LucideIcon,
 } from '../../../icons';
-import type { ReactNode } from 'react';
-import { Link } from 'react-router';
-import { useTranslation } from '../../../i18n';
 import { useSettingsStore } from '../../../store/settingsStore';
 import { formatDistance, formatElevation } from '../../../utils/units';
 import { BarButton, WhiteBadge } from '../../Planner/planParts';

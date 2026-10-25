@@ -1,7 +1,7 @@
 import type { BookElement, BookSpread, BookTextElement, BookTheme } from '@trek/shared';
 import { MAX_BOOK_TEXT_SIZE, formatBookCoords } from '@trek/shared';
-import { AlignCenter, AlignJustify, AlignLeft, AlignRight, Italic } from '../../../icons';
 import type { ReactNode } from 'react';
+import { AlignCenter, AlignJustify, AlignLeft, AlignRight, Italic } from '../../../icons';
 
 import { italicTitle } from '../fontPicker';
 import { Choice, Line, NumField, Section } from '../StudioControls';

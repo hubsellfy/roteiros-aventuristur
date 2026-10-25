@@ -254,12 +254,14 @@ const dashboard: TranslationStrings = {
   'dashboard.plan.style.familia': 'Suurepärane peredele',
   'dashboard.plan.style.romantica': 'Romantiline põgenemine',
   'dashboard.plan.generate': 'Loo reis',
-  'dashboard.plan.disclaimer': 'Tehisintellekti pakutud marsruut Google\'i kohtadega. Kinnita kellaajad ja hinnad kohapeal.',
+  'dashboard.plan.disclaimer':
+    "Tehisintellekti pakutud marsruut Google'i kohtadega. Kinnita kellaajad ja hinnad kohapeal.",
   'dashboard.plan.errDestination': 'Sisesta sihtkoht.',
   'dashboard.plan.errDates': 'Vali ärasõidu ja tagasituleku kuupäevad.',
   'dashboard.plan.errDays': 'Koostaja planeerib kuni {limit} päeva pikkuseid reise.',
   'dashboard.plan.pendingTitle': 'Koostan sinu marsruuti',
-  'dashboard.plan.working': 'Tehisintellekt valib parimaid kohti. See võib võtta mõne minuti ja võid rakendusest lahkuda.',
+  'dashboard.plan.working':
+    'Tehisintellekt valib parimaid kohti. See võib võtta mõne minuti ja võid rakendusest lahkuda.',
   'dashboard.plan.failed': 'Ma ei suutnud seda marsruuti lõpetada.',
   'dashboard.plan.retry': 'Proovi uuesti',
   'dashboard.plan.remove': 'Eemalda',

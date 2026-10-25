@@ -1,4 +1,9 @@
 import type { TourListItem } from '@trek/shared';
+import { createElement, useEffect, useMemo, useRef, useState } from 'react';
+import Markdown from 'react-markdown';
+import remarkBreaks from 'remark-breaks';
+import remarkGfm from 'remark-gfm';
+import { translateApiError, useTranslation } from '../../i18n';
 import {
   AlertTriangle,
   ArrowDown,
@@ -22,11 +27,6 @@ import {
   Ruler,
   Upload,
 } from '../../icons';
-import { createElement, useEffect, useMemo, useRef, useState } from 'react';
-import Markdown from 'react-markdown';
-import remarkBreaks from 'remark-breaks';
-import remarkGfm from 'remark-gfm';
-import { translateApiError, useTranslation } from '../../i18n';
 import { useSettingsStore } from '../../store/settingsStore';
 import { useTripStore } from '../../store/tripStore';
 import type { Assignment, AssignmentsMap, Day, DistanceUnit, Place, TripFile } from '../../types';

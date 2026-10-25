@@ -1,6 +1,6 @@
-import { Check, MapPinned, Search, X } from '../../../icons';
 import { useId, useMemo, useState } from 'react';
 import { useTranslation } from '../../../i18n';
+import { Check, MapPinned, Search, X } from '../../../icons';
 import { useSettingsStore } from '../../../store/settingsStore';
 import { formatDistance } from '../../../utils/units';
 import { SoftPill } from '../../Planner/planParts';

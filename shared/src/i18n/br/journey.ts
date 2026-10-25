@@ -852,7 +852,8 @@ const journey: TranslationStrings = {
   'journey.dayImport.routeRetry': 'Salvar a rota de novo',
   'journey.dayImport.stale':
     'O Dawarich não respondeu: {reason} Mostrando as paradas da última sincronização em {date}.',
-  'journey.dayImport.staleNever': 'O Dawarich não respondeu: {reason} Mostrando as paradas que o Roteiros Aventuristur já conhece.',
+  'journey.dayImport.staleNever':
+    'O Dawarich não respondeu: {reason} Mostrando as paradas que o Roteiros Aventuristur já conhece.',
   'journey.dayImport.truncated': 'O Dawarich enviou só parte deste dia. Podem faltar paradas.',
   'journey.dayImport.empty': 'O Dawarich não encontrou paradas neste dia.',
   'journey.prep.lastSuccess': 'Última busca {time}.',

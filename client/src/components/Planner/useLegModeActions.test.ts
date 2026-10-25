@@ -1,8 +1,8 @@
 // FE-PLANNER-LEGMODE-001 to -006: the per-leg travel mode behind the desktop day
 // plan's connector menu and the phone timeline's.
 import { act, renderHook, waitFor } from '@testing-library/react';
-import { RotateCcw, TramFront } from '../../icons';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
+import { RotateCcw, TramFront } from '../../icons';
 
 import { assignmentsApi } from '../../api/client';
 import { routeModeIcon } from './routeModes';

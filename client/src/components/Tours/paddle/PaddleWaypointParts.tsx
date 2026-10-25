@@ -1,7 +1,7 @@
 import { DEFAULT_PORTAGE_EXTRA_MINUTES, MAX_PADDLE_STOP_MINUTES, type PaddleLock, type PaddleRole } from '@trek/shared';
-import { ChevronDown, Loader2, X } from '../../../icons';
 import { useCallback, useState, type ReactNode } from 'react';
 import { useTranslation } from '../../../i18n';
+import { ChevronDown, Loader2, X } from '../../../icons';
 import { useSettingsStore } from '../../../store/settingsStore';
 import { formatDistance } from '../../../utils/units';
 import { Segmented } from '../../shared/dialogParts';

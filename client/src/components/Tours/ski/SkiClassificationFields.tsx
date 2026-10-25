@@ -1,6 +1,6 @@
 import { SKI_DISCIPLINES, SKI_TECHNIQUES, type SkiDiscipline, type SkiTechnique } from '@trek/shared';
-import { Info } from '../../../icons';
 import { useTranslation } from '../../../i18n';
+import { Info } from '../../../icons';
 import { LABEL, Segmented } from '../../shared/dialogParts';
 import { InfoDot, TourNotice } from '../tourParts';
 import { skiChoiceMissing, type SkiChoice } from './skiChoice';

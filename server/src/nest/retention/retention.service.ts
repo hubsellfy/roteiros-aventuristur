@@ -1,14 +1,15 @@
-import { Injectable } from '@nestjs/common';
-import path from 'path';
-import { InjectRepository } from '@mikro-orm/nestjs';
+import { readEnv } from '../../app-config';
 import { Trips } from '../../db/entities/Trips.entity';
 import type { TripsRepository, ExpiredTripRow } from '../../db/repositories/Trips.repository';
+import { logError, logInfo } from '../audit/audit-log.logger';
+import { AuditService } from '../audit/audit.service';
 import { StorageService } from '../storage/storage.service';
 import { TripsService } from '../trips/trips.service';
-import { AuditService } from '../audit/audit.service';
-import { readEnv } from '../../app-config';
-import { logError, logInfo } from '../audit/audit-log.logger';
 import { parseRetentionConfig, retentionCutoff, type RetentionConfig } from './retention.impl';
+import { InjectRepository } from '@mikro-orm/nestjs';
+import { Injectable } from '@nestjs/common';
+
+import path from 'path';
 
 export interface RetentionResult {
   cutoff: string;
@@ -74,7 +75,12 @@ export class RetentionService {
     await this.audit.writeAudit({
       userId: null,
       action: 'trip.retention_delete',
-      details: { tripId: trip.id, endDate: trip.end_date, retentionMonths: months, files: files.length + photos.length },
+      details: {
+        tripId: trip.id,
+        endDate: trip.end_date,
+        retentionMonths: months,
+        files: files.length + photos.length,
+      },
     });
     this.trips.broadcast(String(trip.id), 'trip:deleted', { id: trip.id }, undefined);
     logInfo(`Retention: trip #${trip.id} (ended ${trip.end_date}) erased with ${files.length + photos.length} file(s)`);

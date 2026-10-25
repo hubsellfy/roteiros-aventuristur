@@ -1,5 +1,5 @@
-import { BedDouble, Clock, type LucideIcon, MapPin, Ticket, TriangleAlert, X } from '../../icons';
 import { useEffect, useState } from 'react';
+import { BedDouble, Clock, type LucideIcon, MapPin, Ticket, TriangleAlert, X } from '../../icons';
 
 import { useNetworkMode } from '../../hooks/useNetworkMode';
 import { useTranslation } from '../../i18n';

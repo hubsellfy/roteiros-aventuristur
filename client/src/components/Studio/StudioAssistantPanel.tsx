@@ -1,9 +1,9 @@
 import '../../styles/studio-assistant.css';
 import '../Assistant/assistant.css';
 
-import { ImageIcon, MessageSquare } from '../../icons';
 import { type KeyboardEvent, useCallback, useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router';
+import { ImageIcon, MessageSquare } from '../../icons';
 
 import { useTranslation } from '../../i18n';
 import { useAssistantStore } from '../../store/assistantStore';

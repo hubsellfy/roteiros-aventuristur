@@ -1,5 +1,5 @@
-import { Check, Trash2 } from '../../../../icons';
 import type { ReactNode } from 'react';
+import { Check, Trash2 } from '../../../../icons';
 
 import { SPLIT_COLORS } from '../../../../components/Budget/BudgetPanel.constants';
 import { BookingCodeInput } from '../../../../components/shared/BookingCode';

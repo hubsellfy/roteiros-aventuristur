@@ -1,6 +1,6 @@
-import { Loader2, Plug, Save, Unplug } from '../../icons';
 import React from 'react';
 import { useTranslation } from '../../i18n';
+import { Loader2, Plug, Save, Unplug } from '../../icons';
 import { EditorField, GRID_2, INPUT } from '../shared/dialogParts';
 import { fs } from '../shared/DialogShell';
 import WandererMark from '../Tours/wanderer/WandererMark';

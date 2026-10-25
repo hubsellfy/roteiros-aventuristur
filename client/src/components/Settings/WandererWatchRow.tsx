@@ -1,6 +1,6 @@
-import { BellRing } from '../../icons';
 import React from 'react';
 import { useTranslation } from '../../i18n';
+import { BellRing } from '../../icons';
 import { fs } from '../shared/DialogShell';
 import { Tooltip } from '../shared/Tooltip';
 import { InfoDot } from '../Tours/tourParts';

@@ -1,7 +1,7 @@
 import type { TourListItem } from '@trek/shared';
-import { ArrowDown, ArrowRight, ArrowUp, Clock, Moon, Ruler, Sunrise, type LucideIcon } from '../../../icons';
 import type { ReactNode } from 'react';
 import { useTranslation } from '../../../i18n';
+import { ArrowDown, ArrowRight, ArrowUp, Clock, Moon, Ruler, Sunrise, type LucideIcon } from '../../../icons';
 import { useSettingsStore } from '../../../store/settingsStore';
 import { formatDistance, formatElevation } from '../../../utils/units';
 import { SoftPill, WhiteBadge } from '../../Planner/planParts';

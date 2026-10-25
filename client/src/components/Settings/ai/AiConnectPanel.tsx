@@ -1,7 +1,7 @@
 import type { AiApiKeyKind, AiConnectionScope, AiParsingPrefill } from '@trek/shared';
-import { ChevronRight, KeyRound, Loader2, Server, ShieldCheck } from '../../../icons';
 import React, { useId, useState } from 'react';
 import { useTranslation } from '../../../i18n';
+import { ChevronRight, KeyRound, Loader2, Server, ShieldCheck } from '../../../icons';
 import { useAssistantStore } from '../../../store/assistantStore';
 import { AI_PROVIDERS, API_KEY_KINDS, providerLabel } from '../../Assistant/providerCatalog';
 import { fs } from '../../shared/DialogShell';

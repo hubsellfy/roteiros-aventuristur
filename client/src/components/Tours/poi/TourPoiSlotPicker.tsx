@@ -1,7 +1,7 @@
 import type { TourPoi } from '@trek/shared';
 import { insertionPreview, isClosedLoop, straightDetourM, type InsertionSlot } from '@trek/shared';
-import { ChevronDown, CornerDownRight, Flag, Info, Plus } from '../../../icons';
 import { useTranslation } from '../../../i18n';
+import { ChevronDown, CornerDownRight, Flag, Info, Plus } from '../../../icons';
 import { formatDistance } from '../../../utils/units';
 import { PopoverItem } from '../../Packing/PackingPopover';
 import { SoftPill, WhiteBadge } from '../../Planner/planParts';

@@ -1,7 +1,7 @@
 import type { TourListItem } from '@trek/shared';
-import { Activity } from '../../../icons';
 import { describe, expect, it } from 'vitest';
 import { render, screen } from '../../../../tests/helpers/render';
+import { Activity } from '../../../icons';
 import TourDayRowFacts, { TourDayRowPills } from '../TourDayRowFacts';
 import { tourDayRowIcon } from '../tourDayRowIcon';
 import { movingTimeLabel } from '../tourFacts';

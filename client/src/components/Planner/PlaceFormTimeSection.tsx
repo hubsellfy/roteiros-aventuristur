@@ -1,6 +1,6 @@
 import type { TourListItem } from '@trek/shared';
-import { AlertTriangle } from '../../icons';
 import { useId, useMemo } from 'react';
+import { AlertTriangle } from '../../icons';
 
 import type { Assignment } from '../../types';
 import CustomTimePicker from '../shared/CustomTimePicker';

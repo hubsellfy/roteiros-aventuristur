@@ -1,7 +1,7 @@
 import { horseAccessTone, type HorseRoute } from '@trek/shared';
-import { AlertTriangle, ArrowLeft, ArrowLeftRight, ArrowRight, Link2, Spline } from '../../../icons';
 import { useId } from 'react';
 import { useTranslation } from '../../../i18n';
+import { AlertTriangle, ArrowLeft, ArrowLeftRight, ArrowRight, Link2, Spline } from '../../../icons';
 import type { DistanceUnit } from '../../../types';
 import { formatDistance } from '../../../utils/units';
 import { SoftPill } from '../../Planner/planParts';

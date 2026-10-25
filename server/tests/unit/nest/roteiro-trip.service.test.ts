@@ -1,18 +1,26 @@
-import { describe, it, expect, vi, beforeEach } from 'vitest';
+import { RoteiroChatService } from '../../../src/nest/roteiro-ia/roteiro-chat.service';
+import type { KnownPlace } from '../../../src/nest/roteiro-ia/roteiro-ia.tools';
+import { RoteiroTripService, parseItinerary } from '../../../src/nest/roteiro-ia/roteiro-trip.service';
 import { HttpException } from '@nestjs/common';
+
+import { describe, it, expect, vi, beforeEach } from 'vitest';
 
 const safeFetchLlm = vi.fn();
 const limits = vi.hoisted(() => ({ plan: 5 }));
 vi.mock('../../../src/app-config', async () => {
   const actual = await vi.importActual<typeof import('../../../src/app-config')>('../../../src/app-config');
-  return { ...actual, readEnv: () => ({ ...actual.readEnv(), integrations: { ...actual.readEnv().integrations, assistantDailyLimit: 40, assistantPlanDailyLimit: limits.plan } }) };
+  return {
+    ...actual,
+    readEnv: () => ({
+      ...actual.readEnv(),
+      integrations: { ...actual.readEnv().integrations, assistantDailyLimit: 40, assistantPlanDailyLimit: limits.plan },
+    }),
+  };
 });
-vi.mock('../../../src/nest/database/request-context', () => ({ withRequestContext: (_orm: unknown, fn: () => unknown) => fn() }));
+vi.mock('../../../src/nest/database/request-context', () => ({
+  withRequestContext: (_orm: unknown, fn: () => unknown) => fn(),
+}));
 vi.mock('../../../src/utils/ssrfGuard', () => ({ safeFetchLlm: (...a: unknown[]) => safeFetchLlm(...a) }));
-
-import { RoteiroChatService } from '../../../src/nest/roteiro-ia/roteiro-chat.service';
-import { RoteiroTripService, parseItinerary } from '../../../src/nest/roteiro-ia/roteiro-trip.service';
-import type { KnownPlace } from '../../../src/nest/roteiro-ia/roteiro-ia.tools';
 
 const PLACES = [
   { name: 'Praça', address: 'Centro', lat: -25.5, lng: -48.5, google_place_id: 'g1', rating: 4.5, rating_count: 10 },
@@ -20,18 +28,32 @@ const PLACES = [
   { name: 'Parque', address: 'Rua C', lat: -25.52, lng: -48.52, google_place_id: 'g3', rating: 4.4, rating_count: 40 },
 ];
 
-const json = (body: unknown) => ({ ok: true, status: 200, json: async () => body, text: async () => JSON.stringify(body) });
+const json = (body: unknown) => ({
+  ok: true,
+  status: 200,
+  json: async () => body,
+  text: async () => JSON.stringify(body),
+});
 const answer = (message: Record<string, unknown>) => json({ choices: [{ message }] });
 const toolCall = (name: string, args: Record<string, unknown>, id = 'c1') => ({
-  id, type: 'function', function: { name, arguments: JSON.stringify(args) },
+  id,
+  type: 'function',
+  function: { name, arguments: JSON.stringify(args) },
 });
 
 const REQUEST = {
-  destination: 'Paranaguá', origin: 'Curitiba', startDate: '2026-12-01', endDate: '2026-12-02',
-  budget: 2000, budgetMode: 'person' as const, travelers: 2, style: 'equilibrado' as const, language: 'pt-BR',
+  destination: 'Paranaguá',
+  origin: 'Curitiba',
+  startDate: '2026-12-01',
+  endDate: '2026-12-02',
+  budget: 2000,
+  budgetMode: 'person' as const,
+  travelers: 2,
+  style: 'equilibrado' as const,
+  language: 'pt-BR',
 };
 
-const flush = () => new Promise(resolve => setTimeout(resolve, 0));
+const flush = () => new Promise((resolve) => setTimeout(resolve, 0));
 
 function make(opts: { config?: unknown; generating?: boolean; canCreate?: boolean } = {}) {
   const maps = {
@@ -39,9 +61,10 @@ function make(opts: { config?: unknown; generating?: boolean; canCreate?: boolea
     detailsDisabled: vi.fn().mockResolvedValue(true),
     getPlaceDetailsExpanded: vi.fn(),
   };
-  const config = opts.config === undefined
-    ? { provider: 'openai', model: 'm', baseUrl: 'https://openrouter.ai/api/v1', apiKey: 'k', multimodal: false }
-    : opts.config;
+  const config =
+    opts.config === undefined
+      ? { provider: 'openai', model: 'm', baseUrl: 'https://openrouter.ai/api/v1', apiKey: 'k', multimodal: false }
+      : opts.config;
   const llm = { resolve: vi.fn().mockResolvedValue(config) };
   const tripsRepo = {
     hasGenerating: vi.fn().mockResolvedValue(!!opts.generating),
@@ -55,33 +78,84 @@ function make(opts: { config?: unknown; generating?: boolean; canCreate?: boolea
     can: vi.fn().mockResolvedValue(opts.canCreate !== false),
     create: vi.fn().mockResolvedValue({ tripId: 42 }),
   };
-  const days = { list: vi.fn().mockResolvedValue({ days: [{ id: 100, day_number: 1, notes: null, title: null }, { id: 101, day_number: 2, notes: null, title: null }] }), update: vi.fn() };
-  const places = { create: vi.fn().mockImplementation(async (_t: string, b: { name: string }) => ({ id: b.name.length })) };
+  const days = {
+    list: vi.fn().mockResolvedValue({
+      days: [
+        { id: 100, day_number: 1, notes: null, title: null },
+        { id: 101, day_number: 2, notes: null, title: null },
+      ],
+    }),
+    update: vi.fn(),
+  };
+  const places = {
+    create: vi.fn().mockImplementation(async (_t: string, b: { name: string }) => ({ id: b.name.length })),
+  };
   const assignments = { createAssignment: vi.fn() };
   const assistant = new RoteiroChatService(maps as never, days as never, trips as never, llm as never);
-  const svc = new RoteiroTripService(assistant, trips as never, days as never, places as never, assignments as never, tripsRepo as never, uow as never, {} as never, llm as never);
+  const svc = new RoteiroTripService(
+    assistant,
+    trips as never,
+    days as never,
+    places as never,
+    assignments as never,
+    tripsRepo as never,
+    uow as never,
+    {} as never,
+    llm as never,
+  );
   return { svc, maps, trips, tripsRepo, places, assignments, llm };
 }
 
 const user = { id: 1, role: 'user' };
-const status = async (fn: () => Promise<unknown>) => { try { await fn(); } catch (e) { return (e as HttpException).getStatus(); } return 0; };
+const status = async (fn: () => Promise<unknown>) => {
+  try {
+    await fn();
+  } catch (e) {
+    return (e as HttpException).getStatus();
+  }
+  return 0;
+};
 
 const goodSubmit = {
   title: 'Paranaguá em 2 dias',
   days: [
-    { day_number: 1, title: 'Centro', items: [{ ref: 'p2', time: '14:00', duration_minutes: 90, note: 'Vá cedo' }, { ref: 'p1', time: '09:00' }] },
+    {
+      day_number: 1,
+      title: 'Centro',
+      items: [
+        { ref: 'p2', time: '14:00', duration_minutes: 90, note: 'Vá cedo' },
+        { ref: 'p1', time: '09:00' },
+      ],
+    },
     { day_number: 2, items: [{ ref: 'p3', time: '10:00' }] },
   ],
 };
 
 describe('parseItinerary', () => {
-  const known = new Map<string, KnownPlace>([['p1', {} as KnownPlace], ['p2', {} as KnownPlace]]);
+  const known = new Map<string, KnownPlace>([
+    ['p1', {} as KnownPlace],
+    ['p2', {} as KnownPlace],
+  ]);
 
   it('accepts a full plan and sorts the stops by time', () => {
-    const r = parseItinerary({ days: [{ day_number: 1, items: [{ ref: 'p2', time: '14:00' }, { ref: 'p1', time: '09:00', duration_minutes: 5 }] }] }, 1, known);
+    const r = parseItinerary(
+      {
+        days: [
+          {
+            day_number: 1,
+            items: [
+              { ref: 'p2', time: '14:00' },
+              { ref: 'p1', time: '09:00', duration_minutes: 5 },
+            ],
+          },
+        ],
+      },
+      1,
+      known,
+    );
     expect(typeof r).toBe('object');
     if (typeof r === 'string') return;
-    expect(r.days[0].items.map(i => i.ref)).toEqual(['p1', 'p2']);
+    expect(r.days[0].items.map((i) => i.ref)).toEqual(['p1', 'p2']);
     expect(r.days[0].items[0].duration).toBe(15);
   });
 
@@ -91,8 +165,24 @@ describe('parseItinerary', () => {
     [{ days: [{ day_number: 1, items: [{ ref: 'zz', time: '09:00' }] }] }, 'never returned'],
     [{ days: [{ day_number: 1, items: [{ ref: 'p1', time: '9h' }] }] }, 'HH:MM'],
     [{ days: [{ day_number: 1, items: [] }] }, 'no places'],
-    [{ days: [{ day_number: 1, items: [{ ref: 'p1', time: '09:00' }] }, { day_number: 1, items: [{ ref: 'p2', time: '09:00' }] }] }, 'twice'],
-    [{ days: [{ day_number: 1, items: [{ ref: 'p1', time: '09:00' }] }, { day_number: 2, items: [{ ref: 'p1', time: '10:00' }] }] }, 'used twice'],
+    [
+      {
+        days: [
+          { day_number: 1, items: [{ ref: 'p1', time: '09:00' }] },
+          { day_number: 1, items: [{ ref: 'p2', time: '09:00' }] },
+        ],
+      },
+      'twice',
+    ],
+    [
+      {
+        days: [
+          { day_number: 1, items: [{ ref: 'p1', time: '09:00' }] },
+          { day_number: 2, items: [{ ref: 'p1', time: '10:00' }] },
+        ],
+      },
+      'used twice',
+    ],
     [{ days: [{ day_number: 1, items: [{ ref: 'p1', time: '09:00' }] }] }, 'cover all 2 days'],
   ])('refuses a bad submission %#', (args, reason) => {
     const r = parseItinerary(args as Record<string, unknown>, 2, known);
@@ -102,22 +192,49 @@ describe('parseItinerary', () => {
 });
 
 describe('RoteiroTripService', () => {
-  beforeEach(() => { safeFetchLlm.mockReset(); limits.plan = 5; });
+  beforeEach(() => {
+    safeFetchLlm.mockReset();
+    limits.plan = 5;
+  });
 
   it('creates the trip card at once, marks it as generating and builds the plan in the background', async () => {
     const { svc, trips, tripsRepo, places, assignments } = make();
     safeFetchLlm
-      .mockResolvedValueOnce(answer({ content: null, tool_calls: [toolCall('search_places', { query: 'pontos turísticos' })] }))
-      .mockResolvedValueOnce(answer({ content: null, tool_calls: [toolCall('submit_itinerary', { ...goodSubmit, days: [goodSubmit.days[0], { day_number: 2, items: [{ ref: 'p3', time: '10:00' }] }] })] }));
+      .mockResolvedValueOnce(
+        answer({ content: null, tool_calls: [toolCall('search_places', { query: 'pontos turísticos' })] }),
+      )
+      .mockResolvedValueOnce(
+        answer({
+          content: null,
+          tool_calls: [
+            toolCall('submit_itinerary', {
+              ...goodSubmit,
+              days: [goodSubmit.days[0], { day_number: 2, items: [{ ref: 'p3', time: '10:00' }] }],
+            }),
+          ],
+        }),
+      );
     const res = await svc.start(user, REQUEST);
     expect(res).toEqual({ tripId: 42, remaining: 4 });
-    expect(trips.create).toHaveBeenCalledWith(1, expect.objectContaining({ title: 'Paranaguá', currency: 'BRL', start_date: '2026-12-01', end_date: '2026-12-02' }));
+    expect(trips.create).toHaveBeenCalledWith(
+      1,
+      expect.objectContaining({
+        title: 'Paranaguá',
+        currency: 'BRL',
+        start_date: '2026-12-01',
+        end_date: '2026-12-02',
+      }),
+    );
     expect(tripsRepo.setAiState).toHaveBeenNthCalledWith(1, 42, 'generating', JSON.stringify(REQUEST));
     await vi.waitFor(() => expect(assignments.createAssignment).toHaveBeenCalledTimes(3));
     // Day 1 is ordered by time: Praça (09:00) before Museu (14:00).
-    expect(places.create.mock.calls.map(c => c[1].name)).toEqual(['Praça', 'Museu', 'Parque']);
+    expect(places.create.mock.calls.map((c) => c[1].name)).toEqual(['Praça', 'Museu', 'Parque']);
     expect(places.create.mock.calls[0][1]).toMatchObject({ place_time: '09:00', google_place_id: 'g1' });
-    expect(places.create.mock.calls[1][1]).toMatchObject({ place_time: '14:00', duration_minutes: 90, notes: 'Vá cedo' });
+    expect(places.create.mock.calls[1][1]).toMatchObject({
+      place_time: '14:00',
+      duration_minutes: 90,
+      notes: 'Vá cedo',
+    });
     expect(tripsRepo.setTitle).toHaveBeenCalledWith(42, 'Paranaguá em 2 dias');
     expect(tripsRepo.setAiState).toHaveBeenLastCalledWith(42, null);
   });
@@ -126,9 +243,32 @@ describe('RoteiroTripService', () => {
     const { svc, assignments } = make();
     safeFetchLlm
       .mockResolvedValueOnce(answer({ content: null, tool_calls: [toolCall('search_places', { query: 'x' })] }))
-      .mockResolvedValueOnce(answer({ content: null, tool_calls: [toolCall('submit_itinerary', { days: [{ day_number: 1, items: [{ ref: 'p1', time: '09:00' }] }] }, 's1')] }))
+      .mockResolvedValueOnce(
+        answer({
+          content: null,
+          tool_calls: [
+            toolCall('submit_itinerary', { days: [{ day_number: 1, items: [{ ref: 'p1', time: '09:00' }] }] }, 's1'),
+          ],
+        }),
+      )
       .mockResolvedValueOnce(answer({ content: 'pronto' }))
-      .mockResolvedValueOnce(answer({ content: null, tool_calls: [toolCall('submit_itinerary', { days: [{ day_number: 1, items: [{ ref: 'p1', time: '09:00' }] }, { day_number: 2, items: [{ ref: 'p2', time: '09:00' }] }] }, 's2')] }));
+      .mockResolvedValueOnce(
+        answer({
+          content: null,
+          tool_calls: [
+            toolCall(
+              'submit_itinerary',
+              {
+                days: [
+                  { day_number: 1, items: [{ ref: 'p1', time: '09:00' }] },
+                  { day_number: 2, items: [{ ref: 'p2', time: '09:00' }] },
+                ],
+              },
+              's2',
+            ),
+          ],
+        }),
+      );
     await svc.start(user, REQUEST);
     await vi.waitFor(() => expect(assignments.createAssignment).toHaveBeenCalledTimes(2));
     const fourth = JSON.parse((safeFetchLlm.mock.calls[3][1] as { body: string }).body).messages;

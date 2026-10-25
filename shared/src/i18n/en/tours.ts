@@ -123,7 +123,8 @@ const tours: TranslationStrings = {
   'tours.planner.safetyInfoLabel': 'About safety',
   'tours.planner.addPoint': 'Add point',
   'tours.planner.addPointActive': 'Click the map',
-  'tours.planner.emptyHint': 'Turn on Add point and click the map. From two points on, Roteiros Aventuristur works out the route.',
+  'tours.planner.emptyHint':
+    'Turn on Add point and click the map. From two points on, Roteiros Aventuristur works out the route.',
   'tours.planner.walkingEstimated': 'Estimated walking time',
   'tours.planner.walkingEstimatedShort': 'Est. walking time',
   'tours.planner.walkingEstimatedInfoLabel': 'How the walking time is estimated',
@@ -326,7 +327,8 @@ const tours: TranslationStrings = {
   'tours.walkImport.tooFewPositions': 'A walk needs at least two stops with a position.',
   'tours.walkImport.replacesDraft': 'Loading the walk replaces the unsaved changes in the planner.',
   'tours.walkImport.defaultName': 'Walk from Google Maps',
-  'tours.walkImport.draftNotice': 'From a Google Maps walking route. Roteiros Aventuristur planned the way between the stops itself.',
+  'tours.walkImport.draftNotice':
+    'From a Google Maps walking route. Roteiros Aventuristur planned the way between the stops itself.',
   'tours.walkImport.offline': 'Reading a link needs a connection.',
   'tours.walkImport.failed': 'The link could not be read just now. Try again in a moment.',
   'tours.walkImport.refusal.not_google_maps':
@@ -1064,7 +1066,8 @@ const tours: TranslationStrings = {
   'tours.paddle.obstacles.partial':
     'Obstacle data covers only part of the route (as of {date}). Check the rest yourself.',
   'tours.paddle.obstacles.none': 'No obstacle data for this area. Check weirs, locks and portages here yourself.',
-  'tours.paddle.obstacles.offline': 'Without a connection Roteiros Aventuristur loads no obstacle data. Check the water yourself.',
+  'tours.paddle.obstacles.offline':
+    'Without a connection Roteiros Aventuristur loads no obstacle data. Check the water yourself.',
   'tours.paddle.obstacles.error': 'The obstacle data could not be loaded. Check the water yourself.',
   'tours.paddle.obstacle.kind.weir': 'Weir',
   'tours.paddle.obstacle.kind.dam': 'Dam',
@@ -1222,7 +1225,8 @@ const tours: TranslationStrings = {
   'tours.paddle.note.rapidsHint':
     'The route runs through moving water here. Scout it first and carry around if in doubt.',
   'tours.paddle.note.gapHint': 'The water data has a gap here, bridged with a straight line. Check it on site.',
-  'tours.paddle.failed.not_on_water': 'One end of this leg is not on water Roteiros Aventuristur knows. Move it onto the river or lake.',
+  'tours.paddle.failed.not_on_water':
+    'One end of this leg is not on water Roteiros Aventuristur knows. Move it onto the river or lake.',
   'tours.paddle.failed.no_region': 'No water data for this area yet. An administrator can add the region.',
   'tours.paddle.failed.building': 'The water data for this region is still being prepared. Try again in a few minutes.',
   'tours.paddle.failed.no_water_path': 'Roteiros Aventuristur found no way on the water between these points.',
@@ -1476,7 +1480,8 @@ const tours: TranslationStrings = {
   'tours.planner.nothingToSave': 'Nothing to save yet. Change the tour first.',
   'tours.detail.openInTours': 'Open in Tours tab',
   'tours.planner.status.routingGeneric': 'Calculating route…',
-  'tours.planner.emptyHintPlacing': 'Click the map to set points. From two points on, Roteiros Aventuristur works out the route.',
+  'tours.planner.emptyHintPlacing':
+    'Click the map to set points. From two points on, Roteiros Aventuristur works out the route.',
   'tours.ski.drawStraight': 'Draw straight',
   'tours.horse.routes.stale': 'The list shows the view you searched. Search again for this one.',
   'tours.horse.dialog.adoptGapHint':

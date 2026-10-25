@@ -5,9 +5,9 @@ import {
   type PaddleBoatType,
   type PaddleWaterContext,
 } from '@trek/shared';
-import { Info } from '../../icons';
 import { useId } from 'react';
 import { useTranslation } from '../../i18n';
+import { Info } from '../../icons';
 import { LABEL, Segmented } from '../shared/dialogParts';
 import { DialogSection } from '../shared/DialogShell';
 import type { GpxImportChoicesState } from './gpxImportChoices';

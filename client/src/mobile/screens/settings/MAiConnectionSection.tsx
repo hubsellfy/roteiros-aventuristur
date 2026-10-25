@@ -1,5 +1,4 @@
 import type { AiConnectionView } from '@trek/shared';
-import { ChevronDown, Loader2, LogOut, MessageCircle, Sparkles, Unplug } from '../../../icons';
 import React, { useState } from 'react';
 import { useAssistantCostEstimates, useAssistantMapFollow } from '../../../components/Assistant/useAssistantMapFollow';
 import DemoLock from '../../../components/Demo/DemoLock';
@@ -9,6 +8,7 @@ import { aiSectionText, CONNECTION_STATUS } from '../../../components/Settings/a
 import { useAiConnections } from '../../../components/Settings/ai/useAiConnections';
 import { StatusPill } from '../../../components/Settings/settingsKit';
 import { useTranslation } from '../../../i18n';
+import { ChevronDown, Loader2, LogOut, MessageCircle, Sparkles, Unplug } from '../../../icons';
 import MToggle from '../../components/MToggle';
 import MConfirmSheet from './MConfirmSheet';
 import MSetPickerSheet from './MSetPickerSheet';

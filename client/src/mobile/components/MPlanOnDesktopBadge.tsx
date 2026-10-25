@@ -1,5 +1,5 @@
-import { Monitor } from '../../icons';
 import { useTranslation } from '../../i18n';
+import { Monitor } from '../../icons';
 
 /**
  * The one way the phone says "this is planned on a bigger screen": the road

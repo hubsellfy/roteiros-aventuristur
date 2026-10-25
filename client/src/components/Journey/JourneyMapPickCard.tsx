@@ -1,7 +1,7 @@
 import type { JourneyMapPlace, JourneyMapStay } from '@trek/shared';
-import { CalendarRange, ChevronLeft, ChevronRight, Clock, MapPin, NotebookPen, X } from '../../icons';
 import { useEffect, useState } from 'react';
 import { useTranslation } from '../../i18n';
+import { CalendarRange, ChevronLeft, ChevronRight, Clock, MapPin, NotebookPen, X } from '../../icons';
 import { SoftPill, WhiteBadge } from '../Planner/planParts';
 import { fs } from '../shared/DialogShell';
 import type { JourneyMapMark } from './journeyMapMarks';

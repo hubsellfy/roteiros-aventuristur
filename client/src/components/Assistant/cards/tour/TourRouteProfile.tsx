@@ -1,6 +1,6 @@
 import type { TourRouteCard } from '@trek/shared';
-import { Clock, Mountain, MoveHorizontal, TrendingUp } from '../../../../icons';
 import { useMemo } from 'react';
+import { Clock, Mountain, MoveHorizontal, TrendingUp } from '../../../../icons';
 
 import { useTranslation } from '../../../../i18n';
 import { useSettingsStore } from '../../../../store/settingsStore';
