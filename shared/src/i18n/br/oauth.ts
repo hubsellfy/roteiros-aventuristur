@@ -12,7 +12,7 @@ const oauth: TranslationStrings = {
   'oauth.scope.group.collab': 'Colaboração',
   'oauth.scope.group.notifications': 'Notificações',
   'oauth.scope.group.vacay': 'Férias',
-  'oauth.scope.group.geo': 'Geo',
+  'oauth.scope.group.geo': 'Geo', // same-as-en
   'oauth.scope.group.weather': 'Clima',
   'oauth.scope.group.journey': 'Jornada',
   'oauth.scope.trips:read.label': 'Ver viagens e itinerários',
@@ -76,39 +76,48 @@ const oauth: TranslationStrings = {
   'oauth.scope.journey:share.label': 'Gerenciar links de jornadas',
   'oauth.scope.journey:share.description':
     'Criar, atualizar e revogar links de compartilhamento públicos para jornadas',
-  'oauth.authorize.authorizing': 'Authorizing…', // en-fallback
-  'oauth.authorize.loading': 'Loading…', // en-fallback
-  'oauth.authorize.errorTitle': 'Erro de autorização', // en-fallback
-  'oauth.authorize.loginTitle': 'Entre para continuar', // en-fallback
-  'oauth.authorize.loginDescription': '{client} quer acessar sua conta do Roteiros Aventuristur. Entre primeiro.', // en-fallback
-  'oauth.authorize.loginButton': 'Entrar no Roteiros Aventuristur', // en-fallback
-  'oauth.authorize.requestLabel': 'Pedido de autorização', // en-fallback
-  'oauth.authorize.requestDescription': 'Este aplicativo está pedindo acesso à sua conta do Roteiros Aventuristur.', // en-fallback
-  'oauth.authorize.trustNote': 'Conceda acesso apenas a aplicativos em que você confia. Seus dados ficam no seu servidor.', // en-fallback
-  'oauth.authorize.selectScope': 'Selecione pelo menos uma permissão', // en-fallback
-  'oauth.authorize.approveOneScope': 'Aprovar ({count} permissão)', // en-fallback
-  'oauth.authorize.approveManyScopes': 'Aprovar ({count} permissões)', // en-fallback
-  'oauth.authorize.approveAccess': 'Aprovar acesso', // en-fallback
-  'oauth.authorize.deny': 'Negar', // en-fallback
-  'oauth.authorize.choosePermissions': 'Escolha quais permissões conceder', // en-fallback
-  'oauth.authorize.permissionsRequested': 'Permissões solicitadas', // en-fallback
-  'oauth.authorize.alwaysIncluded': 'Sempre incluído', // en-fallback
-  'oauth.authorize.alwaysTool.listTrips': 'Listar suas viagens para que a IA descubra os IDs das viagens', // en-fallback
-  'oauth.authorize.alwaysTool.getTripSummary': 'Ler o resumo de uma viagem, necessário para usar qualquer outra ferramenta', // en-fallback
+  'oauth.authorize.authorizing': 'Autorizando…',
+  'oauth.authorize.loading': 'Carregando…',
+  'oauth.authorize.errorTitle': 'Erro de autorização',
+  'oauth.authorize.loginTitle': 'Entre para continuar',
+  'oauth.authorize.loginDescription':
+    '{client} quer acessar sua conta do Roteiros Aventuristur. Entre primeiro, por favor.',
+  'oauth.authorize.loginButton': 'Entrar no Roteiros Aventuristur',
+  'oauth.authorize.requestLabel': 'Solicitação de autorização',
+  'oauth.authorize.requestDescription': 'Este aplicativo está solicitando acesso à sua conta do Roteiros Aventuristur.',
+  'oauth.authorize.verifiedHost': 'Domínio verificado: {host}',
+  'oauth.authorize.trustNote':
+    'Conceda acesso apenas a aplicativos em que você confia. Seus dados ficam no seu servidor.',
+  'oauth.authorize.selectScope': 'Selecione pelo menos um escopo',
+  'oauth.authorize.approveScopes': 'Aprovar ({count} escopos)',
+  'oauth.authorize.approveScopes.one': 'Aprovar ({count} escopo)',
+  'oauth.authorize.approveAccess': 'Aprovar acesso',
+  'oauth.authorize.deny': 'Negar',
+  'oauth.authorize.choosePermissions': 'Escolha quais permissões conceder',
+  'oauth.authorize.permissionsRequested': 'Permissões solicitadas',
+  'oauth.authorize.alwaysIncluded': 'Sempre incluído',
+  'oauth.authorize.alwaysTool.listTrips': 'Listar suas viagens para que a IA descubra os IDs das viagens',
+  'oauth.authorize.alwaysTool.getTripSummary':
+    'Ler o resumo de uma viagem, necessário para usar qualquer outra ferramenta',
   'oauth.scope.group.files': 'Arquivos',
   'oauth.scope.group.settings': 'Configurações',
   'oauth.scope.files:read.label': 'Ver arquivos da viagem',
-  'oauth.scope.files:read.description': 'Listar os documentos de uma viagem: nomes, tamanhos, quem enviou e a que estão vinculados',
+  'oauth.scope.files:read.description':
+    'Listar os documentos de uma viagem: nomes, tamanhos, quem enviou e a que estão vinculados',
   'oauth.scope.files:write.label': 'Gerenciar arquivos da viagem',
-  'oauth.scope.files:write.description': 'Renomear e descrever arquivos, vinculá-los a reservas e lugares, favoritá-los e movê-los para a lixeira',
+  'oauth.scope.files:write.description':
+    'Renomear e descrever arquivos, vinculá-los a reservas e lugares, favoritá-los e movê-los para a lixeira',
   'oauth.scope.files:content.label': 'Ler o conteúdo dos arquivos',
-  'oauth.scope.files:content.description': 'Ler o conteúdo de um documento enviado, como um PDF de reserva ou um bilhete',
+  'oauth.scope.files:content.description':
+    'Ler o conteúdo de um documento enviado, como um PDF de reserva ou um bilhete',
   'oauth.scope.settings:read.label': 'Ver suas preferências',
   'oauth.scope.settings:read.description': 'Ler unidades, formato de hora, idioma, moeda padrão e página inicial',
   'oauth.scope.settings:write.label': 'Alterar suas preferências',
-  'oauth.scope.settings:write.description': 'Alterar unidades, formato de hora, idioma, moeda padrão e página inicial. Nunca as chaves de API salvas',
-  'oauth.scope.group.plugins': 'Plugins',
+  'oauth.scope.settings:write.description':
+    'Alterar unidades, formato de hora, idioma, moeda padrão e página inicial. Nunca as chaves de API salvas',
+  'oauth.scope.group.plugins': 'Plugins', // same-as-en
   'oauth.scope.plugins:use.label': 'Executar ferramentas de plugins',
-  'oauth.scope.plugins:use.description': 'Permite que este cliente chame ferramentas publicadas pelos plugins que um administrador instalou e aprovou. Cada plugin age com as permissões que já recebeu, não com os escopos deste token',
+  'oauth.scope.plugins:use.description':
+    'Permite que este cliente chame ferramentas publicadas pelos plugins que um administrador instalou e aprovou. Cada plugin age com as permissões que já recebeu, não com os escopos deste token',
 };
 export default oauth;

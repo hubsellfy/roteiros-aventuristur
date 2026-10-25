@@ -1,3 +1,3 @@
-export * from './names.generated'
-export type { IconProps, IconComponent } from './makeIcon'
-export type { IconComponent as LucideIcon } from './makeIcon'
+export { createLucideIcon } from './makeIcon';
+export type { IconComponent, IconNode, IconProps, IconComponent as LucideIcon } from './makeIcon';
+export * from './names.generated';

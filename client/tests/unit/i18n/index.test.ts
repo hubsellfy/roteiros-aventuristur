@@ -43,7 +43,9 @@ describe('barrel re-exports', () => {
 describe('getLocaleForLanguage', () => {
   it('FE-COMP-I18N-002: returns correct locale for known languages', () => {
     expect(getLocaleForLanguage('en')).toBe('en-US')
-    expect(getLocaleForLanguage('es')).toBe('es-ES')
+    expect(getLocaleForLanguage('de')).toBe('de-DE')
+    expect(getLocaleForLanguage('zh-TW')).toBe('zh-TW')
+    expect(getLocaleForLanguage('ar')).toBe('ar-SA')
     expect(getLocaleForLanguage('br')).toBe('pt-BR')
   })
 
@@ -56,8 +58,9 @@ describe('getLocaleForLanguage', () => {
 
 describe('getIntlLanguage', () => {
   it('FE-COMP-I18N-004: returns language code for known supported languages', () => {
-    expect(getIntlLanguage('es')).toBe('es')
-    expect(getIntlLanguage('en')).toBe('en')
+    expect(getIntlLanguage('de')).toBe('de')
+    expect(getIntlLanguage('fr')).toBe('fr')
+    expect(getIntlLanguage('zh-TW')).toBe('zh-TW')
   })
 
   it('FE-COMP-I18N-005: maps br to pt-BR', () => {
@@ -78,8 +81,8 @@ describe('isRtlLanguage', () => {
 
   it('FE-COMP-I18N-008: returns false for all other supported languages', () => {
     expect(isRtlLanguage('en')).toBe(false)
-    expect(isRtlLanguage('es')).toBe(false)
-    expect(isRtlLanguage('br')).toBe(false)
+    expect(isRtlLanguage('de')).toBe(false)
+    expect(isRtlLanguage('zh-TW')).toBe(false)
   })
 })
 
@@ -88,10 +91,10 @@ describe('isRtlLanguage', () => {
 describe('SUPPORTED_LANGUAGES', () => {
   it('FE-COMP-I18N-009: contains expected entries with value/label shape', () => {
     expect(Array.isArray(SUPPORTED_LANGUAGES)).toBe(true)
-    expect(SUPPORTED_LANGUAGES).toHaveLength(3)
+    expect(new Set(SUPPORTED_LANGUAGES.map(l => l.value)).size).toBe(SUPPORTED_LANGUAGES.length)
     expect(SUPPORTED_LANGUAGES).toContainEqual(expect.objectContaining({ value: 'en', label: 'English' }))
-    expect(SUPPORTED_LANGUAGES).toContainEqual(expect.objectContaining({ value: 'br', label: 'Português (Brasil)' }))
     expect(SUPPORTED_LANGUAGES).toContainEqual(expect.objectContaining({ value: 'es', label: 'Español' }))
+    expect(SUPPORTED_LANGUAGES).toContainEqual(expect.objectContaining({ value: 'br', label: 'Português (Brasil)' }))
   })
 })
 
@@ -108,9 +111,9 @@ describe('detectBrowserLanguage', () => {
     expect(detectBrowserLanguage()).toBe('es')
   })
 
-  it('FE-COMP-I18N-017: region-tagged exact match (es-ES) returns es', () => {
-    Object.defineProperty(navigator, 'languages', { value: ['es-ES'], configurable: true })
-    expect(detectBrowserLanguage()).toBe('es')
+  it('FE-COMP-I18N-017: region-tagged exact match (en-US) returns en', () => {
+    Object.defineProperty(navigator, 'languages', { value: ['en-US'], configurable: true })
+    expect(detectBrowserLanguage()).toBe('en')
   })
 
   it('FE-COMP-I18N-018: prefix match (es-MX → es)', () => {
@@ -192,7 +195,7 @@ describe('TranslationProvider + useTranslation integration', () => {
   })
 
   it('FE-COMP-I18N-012: TranslationProvider sets document.documentElement.lang', () => {
-    seedStore(useSettingsStore, { settings: buildSettings({ language: 'es' }) })
+    seedStore(useSettingsStore, { settings: buildSettings({ language: 'de' }) })
 
     function TestComponent() {
       useTranslation()
@@ -203,7 +206,7 @@ describe('TranslationProvider + useTranslation integration', () => {
       React.createElement(TranslationProvider, null, React.createElement(TestComponent))
     )
 
-    expect(document.documentElement.lang).toBe('es')
+    expect(document.documentElement.lang).toBe('de')
   })
 
   it('FE-COMP-I18N-013: TranslationProvider sets dir=rtl for Arabic', () => {

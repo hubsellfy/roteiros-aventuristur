@@ -13,7 +13,8 @@ const docsync: TranslationStrings = {
   'docsync.newFolderPlaceholder': 'Nombre de la nueva carpeta',
   'docsync.syncNow': 'Sincronizar ahora',
   'docsync.unlink': 'Desconectar',
-  'docsync.confirmUnlink': 'Los documentos siguen en Roteiros Aventuristur y en el gestor. Solo desaparece el vínculo entre ambos.',
+  'docsync.confirmUnlink':
+    'Los documentos siguen en Roteiros Aventuristur y en el gestor. Solo desaparece el vínculo entre ambos.',
   'docsync.syncEnabled': 'Sincronizar automáticamente',
   'docsync.deletePolicy': 'Cuando se elimina un documento',
   'docsync.deleteUnlink': 'Conservar ambas copias',
@@ -65,12 +66,13 @@ const docsync: TranslationStrings = {
   'docsync.state.conflict': 'Conflicto',
   'docsync.state.rejected_type': 'Tipo no permitido',
   'docsync.state.too_large': 'Demasiado grande',
-  'docsync.state.error': 'Error',
+  'docsync.state.error': 'Error', // same-as-en // same-as-en
   'docsync.state.remote_missing': 'Falta en el proveedor',
   'docsync.state.local_deleted': 'Eliminado en Roteiros Aventuristur',
   'docsync.state.scope_drift': 'Fuera de la carpeta',
 
-  'docsync.conflict.resolve': "Resolver {count}",
+  'docsync.conflict.resolve': 'Resolver {count}',
+  'docsync.conflict.resolve.one': 'Resolver {count}',
 
   'docsync.conflict.title': 'Las dos copias han cambiado',
   'docsync.conflict.keepTrek': 'Conservar la versión de Roteiros Aventuristur',
@@ -87,7 +89,8 @@ const docsync: TranslationStrings = {
   'docsync.error.forbidden': 'Esta cuenta no tiene permiso para hacerlo.',
   'docsync.error.not_found': 'No se encontró en el proveedor.',
   'docsync.error.scope_missing': 'La carpeta conectada ya no existe.',
-  'docsync.error.rate_limited': 'El proveedor está limitando las peticiones. Roteiros Aventuristur lo intentará más tarde.',
+  'docsync.error.rate_limited':
+    'El proveedor está limitando las peticiones. Roteiros Aventuristur lo intentará más tarde.',
   'docsync.error.too_large': 'El archivo supera el tamaño que acepta el proveedor.',
   'docsync.error.unsupported_type': 'El proveedor no acepta este tipo de archivo.',
   'docsync.error.quota_exceeded': 'El proveedor se ha quedado sin espacio.',
@@ -150,12 +153,14 @@ const docsync: TranslationStrings = {
   'docsync.connect.testing': 'Intentando conectar',
   'docsync.connect.okAs': 'Conectado, sesión iniciada como {account}',
   'docsync.connect.insecureHint': 'Para una instancia de tu propia red con un certificado autofirmado.',
-  'docsync.connect.about.paperless': 'Roteiros Aventuristur archiva este viaje con su propia etiqueta y no toca el resto de tu archivo.',
+  'docsync.connect.about.paperless':
+    'Roteiros Aventuristur archiva este viaje con su propia etiqueta y no toca el resto de tu archivo.',
   'docsync.connect.about.papra':
     'Elige la organización a la que pertenece este viaje. Roteiros Aventuristur lo archiva dentro con su propia etiqueta.',
   'docsync.connect.about.nextcloud':
     'Usa una contraseña de aplicación, no la de tu cuenta: funciona con el doble factor y puedes revocarla por separado.',
-  'docsync.connect.about.opencloud': 'Roteiros Aventuristur recibe su propio espacio para este viaje, separado de todo lo demás.',
+  'docsync.connect.about.opencloud':
+    'Roteiros Aventuristur recibe su propio espacio para este viaje, separado de todo lo demás.',
   'docsync.connect.about.synologydrive':
     'Mejor una cuenta DSM que solo llegue a la carpeta compartida que debe usar este viaje.',
 
@@ -178,7 +183,8 @@ const docsync: TranslationStrings = {
   'docsync.issues.error': 'La transferencia no se completó.',
 
   'docsync.error.unknown_provider': 'Este proveedor no está disponible en esta instancia.',
-  'docsync.error.provider_disabled': 'En pausa: un administrador ha desactivado este proveedor. La sincronización se reanuda en cuanto vuelva a activarse.',
+  'docsync.error.provider_disabled':
+    'En pausa: un administrador ha desactivado este proveedor. La sincronización se reanuda en cuanto vuelva a activarse.',
   'docsync.binding.reconnect': 'Volver a conectar',
 };
 

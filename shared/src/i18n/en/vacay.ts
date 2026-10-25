@@ -89,6 +89,7 @@ const vacay: TranslationStrings = {
   'vacay.carryOverHint': 'Automatically carry remaining vacation days into the next year',
   'vacay.carriedOverPrevPeriod': 'from previous period',
   'vacay.compUsedCount': '{count} comp / flex',
+  'vacay.compUsedCount.one': '{count} comp / flex',
   'vacay.yearType': 'Vacation year',
   'vacay.yearTypeHint': 'When your leave year starts — entitlement, usage and carry-over follow it',
   'vacay.yearTypeCalendar': 'Calendar',
@@ -133,7 +134,8 @@ const vacay: TranslationStrings = {
   'vacay.fuseInfo5': 'The fusion can be dissolved at any time by either party. Your entries will be preserved.',
   'vacay.sharedCalendars': 'Shared Calendars',
   'vacay.shareCalendar': 'Share calendar',
-  'vacay.shareCalendarHint': 'Let another Roteiros Aventuristur user see your vacation calendar. View only — no merge, no editing.',
+  'vacay.shareCalendarHint':
+    'Let another Roteiros Aventuristur user see your vacation calendar. View only — no merge, no editing.',
   'vacay.sharedWithYou': 'Shared with you',
   'vacay.youShareWith': 'You share with',
   'vacay.viewOnly': 'view only',

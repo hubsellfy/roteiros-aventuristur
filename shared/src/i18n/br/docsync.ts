@@ -13,7 +13,8 @@ const docsync: TranslationStrings = {
   'docsync.newFolderPlaceholder': 'Nome da nova pasta',
   'docsync.syncNow': 'Sincronizar agora',
   'docsync.unlink': 'Desconectar',
-  'docsync.confirmUnlink': 'Os documentos continuam no Roteiros Aventuristur e no repositório. Só o vínculo entre eles acaba.',
+  'docsync.confirmUnlink':
+    'Os documentos continuam no Roteiros Aventuristur e no repositório. Só o vínculo entre eles acaba.',
   'docsync.syncEnabled': 'Sincronizar automaticamente',
   'docsync.deletePolicy': 'Quando um documento é excluído',
   'docsync.deleteUnlink': 'Manter as duas cópias',
@@ -70,7 +71,8 @@ const docsync: TranslationStrings = {
   'docsync.state.local_deleted': 'Excluído no Roteiros Aventuristur',
   'docsync.state.scope_drift': 'Saiu da pasta',
 
-  'docsync.conflict.resolve': "Resolver {count}",
+  'docsync.conflict.resolve': 'Resolver {count}',
+  'docsync.conflict.resolve.one': 'Resolver {count}',
 
   'docsync.conflict.title': 'As duas cópias mudaram',
   'docsync.conflict.keepTrek': 'Manter a versão do Roteiros Aventuristur',
@@ -87,7 +89,8 @@ const docsync: TranslationStrings = {
   'docsync.error.forbidden': 'Esta conta não tem permissão para fazer isso.',
   'docsync.error.not_found': 'Não encontrado no provedor.',
   'docsync.error.scope_missing': 'A pasta conectada não existe mais.',
-  'docsync.error.rate_limited': 'O provedor está limitando o ritmo. O Roteiros Aventuristur vai tentar de novo mais tarde.',
+  'docsync.error.rate_limited':
+    'O provedor está limitando o ritmo. O Roteiros Aventuristur vai tentar de novo mais tarde.',
   'docsync.error.too_large': 'O arquivo é maior do que o provedor aceita.',
   'docsync.error.unsupported_type': 'O provedor não aceita esse tipo de arquivo.',
   'docsync.error.quota_exceeded': 'O provedor está sem espaço.',
@@ -109,7 +112,8 @@ const docsync: TranslationStrings = {
   'docsync.empty.title': 'Nada conectado ainda',
   'docsync.empty.hintOwner':
     'Escolha um repositório à esquerda. O Roteiros Aventuristur guarda a própria cópia de tudo, então nada se perde se ele sumir.',
-  'docsync.empty.hintMember': 'Quem é dono da viagem configura isso. Os documentos ficam no Roteiros Aventuristur de todo jeito.',
+  'docsync.empty.hintMember':
+    'Quem é dono da viagem configura isso. Os documentos ficam no Roteiros Aventuristur de todo jeito.',
 
   // Como cada produto organiza as coisas. Aparece antes de alguém conectar,
   // porque é o que a próxima tela vai pedir.
@@ -149,18 +153,21 @@ const docsync: TranslationStrings = {
   'docsync.connect.testing': 'Tentando acessar',
   'docsync.connect.okAs': 'Acessado, conectado como {account}',
   'docsync.connect.insecureHint': 'Para uma instância na sua própria rede com certificado autoassinado.',
-  'docsync.connect.about.paperless': 'O Roteiros Aventuristur arquiva esta viagem na etiqueta dela e nunca mexe no resto do seu acervo.',
+  'docsync.connect.about.paperless':
+    'O Roteiros Aventuristur arquiva esta viagem na etiqueta dela e nunca mexe no resto do seu acervo.',
   'docsync.connect.about.papra':
     'Escolha a organização a que esta viagem pertence. O Roteiros Aventuristur a arquiva na etiqueta dela dentro dessa organização.',
   'docsync.connect.about.nextcloud':
     'Use uma senha de aplicativo, não a senha da sua conta: ela sobrevive ao dois fatores e pode ser revogada sozinha.',
-  'docsync.connect.about.opencloud': 'O Roteiros Aventuristur ganha um espaço próprio para esta viagem, separado de todo o resto.',
+  'docsync.connect.about.opencloud':
+    'O Roteiros Aventuristur ganha um espaço próprio para esta viagem, separado de todo o resto.',
   'docsync.connect.about.synologydrive':
     'De preferência uma conta DSM que alcance só a pasta compartilhada que esta viagem deve usar.',
 
   // ── Escolhendo o destino ───────────────────────────────────────────────────
   'docsync.scope.title': 'Onde esta viagem deve ficar no {provider}?',
-  'docsync.scope.intro': 'Só o que está aqui dentro é sincronizado. Todo o resto do seu repositório fica fora do Roteiros Aventuristur.',
+  'docsync.scope.intro':
+    'Só o que está aqui dentro é sincronizado. Todo o resto do seu repositório fica fora do Roteiros Aventuristur.',
   'docsync.scope.createTitle': 'Criar um novo',
   'docsync.scope.createAction': 'Criar',
   'docsync.scope.pickTitle': 'Ou use um que você já tem',
@@ -176,7 +183,8 @@ const docsync: TranslationStrings = {
   'docsync.issues.error': 'A transferência não foi concluída.',
 
   'docsync.error.unknown_provider': 'Este provedor não está disponível nesta instância.',
-  'docsync.error.provider_disabled': 'Pausado: um administrador desativou este provedor. A sincronização continua assim que ele for reativado.',
+  'docsync.error.provider_disabled':
+    'Pausado: um administrador desativou este provedor. A sincronização continua assim que ele for reativado.',
   'docsync.binding.reconnect': 'Voltar a ligar',
 };
 

@@ -1,14 +1,14 @@
-import { describe, expect, it } from 'vitest';
-import { MemoryRouter } from 'react-router';
 import { render, screen } from '@testing-library/react';
+import { MemoryRouter } from 'react-router';
+import { describe, expect, it } from 'vitest';
+import { LEGAL_CONTACT_EMAIL, LEGAL_DOCUMENTS } from '../brand/legalContent';
 import LegalPage from './LegalPage';
-import { LEGAL_DOCUMENTS, LEGAL_CONTACT_EMAIL } from '../brand/legalContent';
 
 function renderPage(kind: 'privacidade' | 'termos') {
   return render(
     <MemoryRouter>
       <LegalPage kind={kind} />
-    </MemoryRouter>,
+    </MemoryRouter>
   );
 }
 
@@ -24,7 +24,10 @@ describe('LegalPage', () => {
   it('mostra os termos de uso e o link para a outra página', () => {
     renderPage('termos');
     expect(screen.getByRole('heading', { level: 1, name: LEGAL_DOCUMENTS.termos.title })).toBeInTheDocument();
-    expect(screen.getByRole('link', { name: LEGAL_DOCUMENTS.privacidade.title })).toHaveAttribute('href', '/privacidade');
+    expect(screen.getByRole('link', { name: LEGAL_DOCUMENTS.privacidade.title })).toHaveAttribute(
+      'href',
+      '/privacidade'
+    );
   });
 
   it('avisa que o texto está em revisão jurídica enquanto não for aprovado', () => {

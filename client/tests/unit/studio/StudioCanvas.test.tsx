@@ -39,7 +39,7 @@ describe('StudioCanvas', () => {
     expect(screen.getAllByTitle('Girar')).toHaveLength(4)
     expect(screen.getByTitle('Girar à esquerda')).toBeInTheDocument()
     expect(screen.getByTitle('Girar à direita')).toBeInTheDocument()
-    expect(screen.getByTitle('Trazer para a frente')).toBeInTheDocument()
+    expect(screen.getByTitle('Trazer para frente')).toBeInTheDocument()
     expect(screen.getByTitle('Enviar para trás')).toBeInTheDocument()
     expect(screen.getByTitle('Bloquear')).toBeInTheDocument()
     expect(screen.getByTitle('Excluir')).toBeInTheDocument()

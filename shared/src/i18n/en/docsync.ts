@@ -13,7 +13,8 @@ const docsync: TranslationStrings = {
   'docsync.newFolderPlaceholder': 'New folder name',
   'docsync.syncNow': 'Sync now',
   'docsync.unlink': 'Disconnect',
-  'docsync.confirmUnlink': 'Documents stay in Roteiros Aventuristur and at the store. Only the pairing between them goes.',
+  'docsync.confirmUnlink':
+    'Documents stay in Roteiros Aventuristur and at the store. Only the pairing between them goes.',
   'docsync.syncEnabled': 'Sync automatically',
   'docsync.deletePolicy': 'When a document is deleted',
   'docsync.deleteUnlink': 'Keep both copies',
@@ -69,7 +70,8 @@ const docsync: TranslationStrings = {
   'docsync.state.local_deleted': 'Deleted in Roteiros Aventuristur',
   'docsync.state.scope_drift': 'Moved out of the folder',
 
-  'docsync.conflict.resolve': "Resolve {count}",
+  'docsync.conflict.resolve': 'Resolve {count}',
+  'docsync.conflict.resolve.one': 'Resolve {count}',
 
   'docsync.conflict.title': 'Both copies changed',
   'docsync.conflict.keepTrek': 'Keep the Roteiros Aventuristur version',
@@ -153,12 +155,14 @@ const docsync: TranslationStrings = {
     'Pick the organisation this trip belongs to. Roteiros Aventuristur files it under its own tag inside it.',
   'docsync.connect.about.nextcloud':
     'Use an app password, not your account password: it survives two-factor and you can revoke it on its own.',
-  'docsync.connect.about.opencloud': 'Roteiros Aventuristur gets its own space for this trip, separate from everything else.',
+  'docsync.connect.about.opencloud':
+    'Roteiros Aventuristur gets its own space for this trip, separate from everything else.',
   'docsync.connect.about.synologydrive': 'Best a DSM account that only reaches the shared folder this trip should use.',
 
   // ── Picking the container ──────────────────────────────────────────────────
   'docsync.scope.title': 'Where should this trip live in {provider}?',
-  'docsync.scope.intro': 'Only what is in here is synced. Everything else in your store stays out of Roteiros Aventuristur.',
+  'docsync.scope.intro':
+    'Only what is in here is synced. Everything else in your store stays out of Roteiros Aventuristur.',
   'docsync.scope.createTitle': 'Make a new one',
   'docsync.scope.createAction': 'Create',
   'docsync.scope.pickTitle': 'Or use one you already have',
@@ -174,7 +178,8 @@ const docsync: TranslationStrings = {
   'docsync.issues.error': 'The transfer did not go through.',
 
   'docsync.error.unknown_provider': 'This provider is not available on this instance.',
-  'docsync.error.provider_disabled': 'Paused: an administrator has switched this provider off. Syncing resumes once it is back on.',
+  'docsync.error.provider_disabled':
+    'Paused: an administrator has switched this provider off. Syncing resumes once it is back on.',
   'docsync.binding.reconnect': 'Reconnect',
 };
 

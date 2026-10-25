@@ -9,6 +9,7 @@ import { describe, it, expect, beforeEach, vi } from 'vitest';
 import { render, screen, fireEvent, cleanup } from '../../tests/helpers/render';
 import { resetAllStores, seedStore } from '../../tests/helpers/store';
 import { useSettingsStore } from '../store/settingsStore';
+import { SUPPORTED_LANGUAGES } from '../i18n';
 import LoginPage from './LoginPage';
 import { useLogin } from './login/useLogin';
 
@@ -153,7 +154,7 @@ describe('LoginPage — language switcher', () => {
 
     expect(screen.getByRole('button', { name: 'Change language' })).toHaveAttribute('aria-expanded', 'true');
     const options = screen.getAllByRole('option');
-    expect(options).toHaveLength(3);
+    expect(options).toHaveLength(SUPPORTED_LANGUAGES.length);
     expect(screen.getByRole('option', { name: 'Español' })).toHaveAttribute('aria-selected', 'false');
     expect(screen.getByRole('option', { name: 'English' })).toHaveAttribute('aria-selected', 'true');
   });
@@ -174,9 +175,9 @@ describe('LoginPage — language switcher', () => {
     const documentClick = vi.fn();
     document.addEventListener('click', documentClick);
 
-    fireEvent.click(screen.getByRole('option', { name: 'Español' }));
+    fireEvent.click(screen.getByRole('option', { name: 'English' }));
 
-    expect(fixture.setLanguageLocal).toHaveBeenCalledWith('es');
+    expect(fixture.setLanguageLocal).toHaveBeenCalledWith('en');
     expect(documentClick).not.toHaveBeenCalled();
     document.removeEventListener('click', documentClick);
   });
@@ -185,7 +186,7 @@ describe('LoginPage — language switcher', () => {
     fixture.langDropdownOpen = true;
     renderPage();
 
-    const inactive = hoverRoundTrip(screen.getByRole('option', { name: 'Português (Brasil)' }), 'background');
+    const inactive = hoverRoundTrip(screen.getByRole('option', { name: 'Español' }), 'background');
     expect(inactive.hovered).not.toBe(inactive.before);
     expect(inactive.after).toBe(inactive.before);
 
@@ -247,7 +248,7 @@ describe('LoginPage — password form', () => {
     expect(input).toHaveAttribute('type', 'password');
 
     const buttons = screen.getAllByRole('button');
-    const toggle = buttons.find((b) => b.getAttribute('type') === 'button' && b.querySelector('svg') && b.style.right === '12px')!;
+    const toggle = buttons.find((b) => b.getAttribute('type') === 'button' && b.querySelector('svg') && b.style.insetInlineEnd === '12px')!;
     fireEvent.click(toggle);
 
     const updater = vi.mocked(fixture.setShowPassword).mock.calls[0][0] as (v: boolean) => boolean;

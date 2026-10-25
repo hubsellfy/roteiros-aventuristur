@@ -1,6 +1,6 @@
 export type LegalKind = 'privacidade' | 'termos';
 
-export interface LegalSection {
+interface LegalSection {
   title: string;
   paragraphs?: string[];
   items?: string[];
@@ -17,7 +17,7 @@ export const LEGAL_VERSION = 'outubro de 2026';
 /** Flip to true only after the lawyer of Aventuristur has approved both texts. */
 export const LEGAL_REVIEW_APPROVED = false;
 export const LEGAL_CONTACT_EMAIL = 'comercial@aventuristur.com';
-export const LEGAL_COMPANY = '36.016.458 JEFFERSON JOSE GONCALVES DA SILVA (Aventuristur), CNPJ 36.016.458/0001-86';
+const LEGAL_COMPANY = '36.016.458 JEFFERSON JOSE GONCALVES DA SILVA (Aventuristur), CNPJ 36.016.458/0001-86';
 
 const PRIVACY: LegalDocument = {
   kind: 'privacidade',
@@ -105,7 +105,9 @@ const PRIVACY: LegalDocument = {
     },
     {
       title: 'Mudanças nesta política',
-      paragraphs: [`Esta é a versão de ${LEGAL_VERSION}. Quando houver mudanças relevantes, avisaremos no aplicativo ou por e-mail.`],
+      paragraphs: [
+        `Esta é a versão de ${LEGAL_VERSION}. Quando houver mudanças relevantes, avisaremos no aplicativo ou por e-mail.`,
+      ],
     },
   ],
 };

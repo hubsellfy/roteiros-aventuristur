@@ -1,6 +1,7 @@
-import { describe, it, expect, vi } from 'vitest';
 import { isNoticeVersionActive } from '../../../src/systemNotices/service.js';
 import type { SystemNotice } from '../../../src/systemNotices/types.js';
+
+import { describe, it, expect, vi } from 'vitest';
 
 const notice = (extra: Partial<SystemNotice>): SystemNotice => ({
   id: 'window-test',

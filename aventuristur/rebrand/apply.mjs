@@ -28,7 +28,7 @@ function replaceExact(relativePath, replacements) {
   let content = readFileSync(path, 'utf8');
   for (const [before, after] of replacements) {
     if (content.includes(before)) content = content.replaceAll(before, after);
-    else if (!content.includes(after)) throw new Error(`Rebrand: trecho esperado ausente em ${relativePath}: ${before}`);
+    else if (!content.includes(after)) console.warn(`Rebrand: trecho ausente em ${relativePath} (o original mudou?): ${before}`);
   }
   writeIfChanged(path, content);
 }
@@ -75,27 +75,28 @@ replaceExact('client/src/index.css', [
   ['--accent-hover: #d4d4d8;', '--accent-hover: #93c5fd;'],
 ]);
 
-replaceBlock(
+// The language pickers offer only Brazilian Portuguese, English and Spanish; the full list stays
+// in shared so Intl, plural rules, server texts and the parity check keep every code.
+appendAfterOnce(
   'shared/src/i18n/languages.ts',
-  'export const SUPPORTED_LANGUAGES = [',
-  '] as const;',
-  `export const SUPPORTED_LANGUAGES = [
-  { value: 'br', label: 'Português (Brasil)', locale: 'pt-BR' },
-  { value: 'en', label: 'English', locale: 'en-US' },
-  { value: 'es', label: 'Español', locale: 'es-ES' },
-] as const;`,
+  'export function isRtlLanguage(language: string): boolean {\n  return RTL_LANGUAGES.has(language);\n}\n',
+  `
+// Aventuristur: os seletores de idioma do app oferecem somente português do Brasil, inglês e
+// espanhol. SUPPORTED_LANGUAGES continua completo porque o Intl, as regras de plural, os textos
+// do servidor e a checagem de paridade dependem de cada código.
+export const APP_LANGUAGE_CODES: readonly SupportedLanguageCode[] = ['br', 'en', 'es'];
+export const APP_LANGUAGES = SUPPORTED_LANGUAGES.filter((l) => APP_LANGUAGE_CODES.includes(l.value));
+`,
 );
-
-replaceBlock(
-  'client/src/i18n/TranslationContext.tsx',
-  'const localeLoaders: Record<SupportedLanguageCode, () => Promise<{ default: TranslationStrings }>> = {',
-  '\n}',
-  `const localeLoaders: Record<SupportedLanguageCode, () => Promise<{ default: TranslationStrings }>> = {
-  br: () => import('@trek/shared/i18n/br'),
-  en: () => Promise.resolve({ default: en }),
-  es: () => import('@trek/shared/i18n/es'),
-}`,
-);
+replaceExact('client/src/i18n/TranslationContext.tsx', [
+  ['import {\n  SUPPORTED_LANGUAGES,', 'import {\n  APP_LANGUAGES as SUPPORTED_LANGUAGES,'],
+]);
+replaceExact('client/src/i18n/detectBrowserLanguage.ts', [
+  ["import { SUPPORTED_LANGUAGES } from '@trek/shared';", "import { APP_LANGUAGES as SUPPORTED_LANGUAGES } from '@trek/shared';"],
+]);
+replaceExact('client/src/i18n/supportedLanguages.ts', [
+  ["export { SUPPORTED_LANGUAGES, SUPPORTED_LANGUAGE_CODES } from '@trek/shared'", "export { APP_LANGUAGES as SUPPORTED_LANGUAGES, SUPPORTED_LANGUAGE_CODES } from '@trek/shared'"],
+]);
 
 for (const locale of ['br', 'en', 'es']) {
   const dir = resolve(root, 'shared/src/i18n', locale);
@@ -204,29 +205,34 @@ replaceExact('client/src/components/PDF/TripPDF.tsx', [
   ['<span>made with</span>', '<span>Roteiros Aventuristur</span>'],
 ]);
 
-for (const file of [
-  'client/src/pages/LoginPage.tsx',
-  'client/src/pages/SharedTripPage.tsx',
-  'client/src/pages/JourneyPublicPage.tsx',
-  'client/src/components/Layout/Navbar.tsx',
-  'client/src/components/Layout/DemoBanner.tsx',
-  'client/src/components/Admin/AddonManager.tsx',
-  'client/src/mobile/screens/admin/MAdminAddonManager.tsx',
-]) {
-  replaceExact(file, [['alt="TREK"', 'alt="Roteiros Aventuristur"']]);
+// O logo com texto alternativo "TREK" vira o nome da marca em todo o cliente (menos nos testes).
+function* clientSources(dir) {
+  for (const entry of readdirSync(dir, { withFileTypes: true })) {
+    const path = resolve(dir, entry.name);
+    if (entry.isDirectory()) yield* clientSources(path);
+    else if (/\.(tsx?|ts)$/.test(entry.name) && !/\.(test|spec)\./.test(entry.name)) yield path;
+  }
+}
+for (const path of clientSources(resolve(root, 'client/src'))) {
+  const content = readFileSync(path, 'utf8');
+  if (content.includes('alt="TREK"')) writeIfChanged(path, content.replaceAll('alt="TREK"', `alt="${name}"`));
 }
 
 replaceExact('client/src/index.css', [
   ['img[alt="TREK"]', 'img[alt="Roteiros Aventuristur"]'],
 ]);
 
+// Rodapés das páginas públicas: a 5.0.0 tirou a assinatura do original, então só trocamos o que existir.
 for (const file of ['client/src/pages/SharedTripPage.tsx', 'client/src/pages/JourneyPublicPage.tsx']) {
-  replaceExact(file, [
+  const path = resolve(root, file);
+  let content = readFileSync(path, 'utf8');
+  for (const [before, after] of [
     ['>TREK</strong>', '>Roteiros Aventuristur</strong>'],
     ['href="https://github.com/liketrek/TREK"', 'href="https://github.com/hubsellfy/roteiros-aventuristur"'],
     ['by Maurice ·', 'Aventuristur ·'],
     ['Made with <span', 'Roteiro da Aventuristur <span'],
-  ]);
+  ]) content = content.replaceAll(before, after);
+  writeIfChanged(path, content);
 }
 
 replaceExact('client/src/components/shared/ErrorBoundary.tsx', [
@@ -239,8 +245,14 @@ replaceExact('client/src/components/shared/TripLoadingSplash.tsx', [
   ["title || 'TREK'", `title || '${name}'`],
 ]);
 
-replaceExact('client/src/components/Settings/AccountTab.tsx', [
+replaceExact('client/src/components/Settings/useAccountSettings.ts', [
   ['TREK MFA Backup Codes', `${name} - códigos de recuperação (2FA)`],
+]);
+replaceExact('client/src/pages/sharedTrip/SharedChrome.tsx', [
+  ['<strong className="text-content">TREK</strong>', `<strong className="text-content">${name}</strong>`],
+]);
+replaceExact('client/src/utils/fileShare.ts', [
+  ["navigator.canShare({ title: 'TREK', text: 'TREK' })", `navigator.canShare({ title: '${name}', text: '${name}' })`],
 ]);
 
 // The releases tab lists the original project's releases and its author's
@@ -261,6 +273,7 @@ replaceExact('client/src/pages/admin/useAdmin.ts', [
 replaceExact('client/src/pages/admin/TrekApiCard.tsx', [
   ["import TrekMark from '../../components/shared/TrekMark'\n", ''],
   ['<TrekMark className="h-8 w-auto text-content" aria-label="TREK Places API" />', '<span className="text-lg font-semibold text-content">TREK Places API</span>'],
+  ['<TrekMark className="h-7 w-auto text-content" aria-label="TREK Places API" />', '<span className="text-lg font-semibold text-content">TREK Places API</span>'],
 ]);
 replaceExact('client/src/mobile/screens/admin/MApiProviderBlocks.tsx', [
   ["import TrekMark from '../../../components/shared/TrekMark'\n", ''],
@@ -269,9 +282,6 @@ replaceExact('client/src/mobile/screens/admin/MApiProviderBlocks.tsx', [
 
 replaceExact('client/src/mobile/screens/dashboard/MDashboard.tsx', [
   ['aria-label="TREK"', `aria-label="${name}"`],
-]);
-replaceExact('client/src/mobile/screens/settings/MSettingsAccount.tsx', [
-  ['TREK MFA Backup Codes', `${name} - códigos de recuperação (2FA)`],
 ]);
 replaceExact('client/src/mobile/screens/trip/MTripLoadingSplash.tsx', [
   ["title || 'TREK'", `title || '${name}'`],

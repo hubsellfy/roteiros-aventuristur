@@ -22,7 +22,8 @@ const storage: TranslationStrings = {
 
   // Panel chrome
   'storage.title': 'Storage',
-  'storage.description': 'Where Roteiros Aventuristur keeps uploaded files, photos and backups. Nothing changes until you save.',
+  'storage.description':
+    'Where Roteiros Aventuristur keeps uploaded files, photos and backups. Nothing changes until you save.',
   'storage.loading': 'Loading…',
   'storage.saved': 'Storage configuration saved',
   'storage.save': 'Save changes',
@@ -37,7 +38,7 @@ const storage: TranslationStrings = {
   'storage.backends.add': 'Add backend',
   'storage.backends.usedBy': 'Used by: {categories}',
   'storage.backends.unused': 'Not assigned to any category',
-  'storage.backends.envReadOnly': 'Defined by an environment variable — read-only',
+  'storage.backends.envReadOnly': 'Defined by an environment variable (read-only)',
   'storage.source.built-in': 'Built-in',
   'storage.source.env': 'Environment',
   'storage.source.settings': 'Settings',
@@ -126,7 +127,8 @@ const storage: TranslationStrings = {
   'storage.sync.error': 'Sync failed: {error}',
   'storage.sync.prompt': 'Existing objects are not replicated yet — sync now?',
   'storage.sync.dismiss': 'Dismiss',
-  'storage.usage.line': '{objects} objects · {size}',
+  'storage.usage.line': '{count} objects · {size}',
+  'storage.usage.line.one': '{count} object · {size}',
   'storage.usage.computed': 'Usage computed {age}',
   'storage.usage.never': 'Usage not computed yet',
   'storage.usage.refresh': 'Refresh',
@@ -135,7 +137,8 @@ const storage: TranslationStrings = {
 
   // Category migration (copy → flip → delta sweep)
   'storage.migrate.promptTitle': 'Move existing objects to the new backend?',
-  'storage.migrate.promptLine': '{category}: {objects} objects ({size}) from {from} to {to}',
+  'storage.migrate.promptLine': '{category}: {count} objects ({size}) from {from} to {to}',
+  'storage.migrate.promptLine.one': '{category}: {count} object ({size}) from {from} to {to}',
   'storage.migrate.promptLineUnknown': '{category}: unknown size (no usage scan yet) from {from} to {to}',
   'storage.migrate.move': 'Move existing objects',
   'storage.migrate.routeOnly': 'Just route new writes',
@@ -144,7 +147,8 @@ const storage: TranslationStrings = {
   'storage.migrate.doneFailures': '{failed} failed — those objects were not copied to the new backend',
   'storage.migrate.failed': 'Move failed: {error} — the category was not switched',
   'storage.migrate.cancelled': 'Move cancelled — nothing was switched',
-  'storage.migrate.reclaimable': '{objects} objects ({size}) remain on {from} — reclaim manually',
+  'storage.migrate.reclaimable': '{count} objects ({size}) remain on {from}, reclaim manually',
+  'storage.migrate.reclaimable.one': '{count} object ({size}) remains on {from}, reclaim manually',
   'storage.migrate.cancel': 'Cancel move',
   'storage.migrate.promptCancel': 'Cancel',
   'storage.migrate.queued': 'Queued: {categories}',

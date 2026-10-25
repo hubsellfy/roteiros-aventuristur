@@ -24,10 +24,16 @@ const login: TranslationStrings = {
   'login.oidc.noEmail': 'Nenhum e-mail recebido do provedor.',
   'login.oidc.tokenFailed': 'Falha na autenticação.',
   'login.oidc.invalidState': 'Sessão inválida. Tente novamente.',
+  'login.oidc.emailNotVerified':
+    'Seu provedor de login não confirmou este endereço de e-mail, por isso ele não pode ser vinculado a uma conta existente.',
+  'login.oidc.emailLinkBlocked':
+    'Não foi possível vincular este login à conta existente com este e-mail. Peça ao administrador para confirmar o endereço.',
   'login.demoFailed': 'Falha no login de demonstração',
   'login.oidcSignIn': 'Entrar com {name}',
   'login.oidcOnly': 'Login por senha desativado. Use o provedor SSO.',
   'login.oidcLoggedOut': 'Você foi desconectado. Entre novamente usando o provedor SSO.',
+  'login.oidcRedirecting': 'Redirecionando para {name}…',
+  'login.oidcRedirectSlow': 'Ainda aqui? Continuar para {name}',
   'login.demoHint': 'Experimente a demonstração — sem cadastro',
   'login.mfaTitle': 'Autenticação em duas etapas',
   'login.mfaSubtitle': 'Digite o código de 6 dígitos do seu app autenticador.',
@@ -67,9 +73,9 @@ const login: TranslationStrings = {
   'login.resetPasswordFailed': 'Falha na redefinição. O link pode ter expirado.',
   'login.passkey.signIn': 'Entrar com uma passkey',
   'login.passkey.failed': 'Falha ao entrar com passkey. Tente novamente.',
-  'login.insecureCookie.title': 'O login não se mantém por HTTP',
+  'login.insecureCookie.title': 'O login não vai se manter por HTTP',
   'login.insecureCookie.body':
-    'Você está conectado por HTTP simples, então o navegador descarta o cookie de sessão seguro do Roteiros Aventuristur e a próxima requisição falha com "Access token required". Solução: use HTTPS ou, em um servidor doméstico, defina COOKIE_SECURE=false.',
+    'Você está se conectando por HTTP simples, então seu navegador descarta o cookie de sessão seguro do Roteiros Aventuristur e a próxima requisição falha com "Access token required". Solução: use HTTPS ou, em um home lab, defina COOKIE_SECURE=false.',
   'login.insecureCookie.link': 'Abrir o guia de solução de problemas',
 };
 export default login;

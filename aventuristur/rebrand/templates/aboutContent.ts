@@ -1,4 +1,4 @@
-export const SOURCE_URL = 'https://github.com/hubsellfy/roteiros-aventuristur';
+const SOURCE_URL = 'https://github.com/hubsellfy/roteiros-aventuristur';
 export const LICENSE_URL = `${SOURCE_URL}/blob/main/LICENSE`;
 
 const COMMIT_SHA = /^[0-9a-f]{7,40}$/;
@@ -15,7 +15,7 @@ export function sourceUrl(): string {
   return sha ? `${SOURCE_URL}/tree/${sha}` : SOURCE_URL;
 }
 
-export const ABOUT_COPY = {
+const ABOUT_COPY = {
   br: {
     title: 'Sobre o Roteiros Aventuristur',
     description: 'Planeje e acompanhe sua viagem em um roteiro compartilhado, no computador ou no celular.',
