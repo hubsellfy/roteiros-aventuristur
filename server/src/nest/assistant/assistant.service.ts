@@ -1,4 +1,5 @@
 import { HttpException, Injectable, Logger } from '@nestjs/common';
+import { DailyLimit } from './daily-limit';
 import type { AssistantCard, AssistantChatRequest, AssistantChatResponse } from '@trek/shared';
 import { MapsService } from '../maps/maps.service';
 import { DaysService } from '../days/days.service';
@@ -14,16 +15,18 @@ import {
 const MAX_STEPS = 6;
 const MAX_TOOL_CHARS = 6000;
 
-interface ChatMessage {
+export type AssistantLlmConfig = NonNullable<ReturnType<LlmConfigResolver['resolve']>>;
+
+export interface ChatMessage {
   role: 'system' | 'user' | 'assistant' | 'tool';
   content: string | null;
   tool_calls?: ToolCall[];
   tool_call_id?: string;
 }
-interface ToolCall { id: string; type: 'function'; function: { name: string; arguments: string } }
+export interface ToolCall { id: string; type: 'function'; function: { name: string; arguments: string } }
 
 /** One conversation turn: the places the model has seen and the cards it chose to show. */
-interface TurnState {
+export interface TurnState {
   userId: number;
   tripId: number;
   language: string;
@@ -32,9 +35,9 @@ interface TurnState {
   nextRef: number;
 }
 
-const err = (message: string, status: number) => new HttpException({ error: message }, status);
+export const err = (message: string, status: number) => new HttpException({ error: message }, status);
 
-const isPortuguese = (language: string) => language.toLowerCase().startsWith('pt');
+export const isPortuguese = (language: string) => language.toLowerCase().startsWith('pt');
 
 function systemPrompt(language: string, today: string): string {
   const pt = isPortuguese(language);
@@ -57,8 +60,7 @@ function systemPrompt(language: string, today: string): string {
 @Injectable()
 export class AssistantService {
   private readonly log = new Logger(AssistantService.name);
-  /** userId -> { day, count }. Resets with the day and on restart: a cost guard, not a quota ledger. */
-  private readonly usage = new Map<number, { day: string; count: number }>();
+  private readonly limit = new DailyLimit();
 
   constructor(
     private readonly maps: MapsService,
@@ -74,20 +76,11 @@ export class AssistantService {
 
   /** Counts one message against the traveller's day. Returns how many are left, or null when unlimited. */
   private spend(userId: number): number | null {
-    const limit = this.dailyLimit();
-    if (limit === 0) return null;
-    const day = new Date().toISOString().slice(0, 10);
-    const entry = this.usage.get(userId);
-    const current = entry && entry.day === day ? entry : { day, count: 0 };
-    if (current.count >= limit) {
-      throw err(
-        'Você usou todas as mensagens do assistente por hoje. Volte amanhã ou fale com um consultor da Aventuristur.',
-        429,
-      );
-    }
-    current.count += 1;
-    this.usage.set(userId, current);
-    return limit - current.count;
+    return this.limit.spend(
+      userId,
+      this.dailyLimit(),
+      'Você usou todas as mensagens do assistente por hoje. Volte amanhã ou fale com um consultor da Aventuristur.',
+    );
   }
 
   async chat(userId: number, body: AssistantChatRequest): Promise<AssistantChatResponse> {
@@ -112,7 +105,7 @@ export class AssistantService {
     ];
 
     for (let step = 0; step < MAX_STEPS; step++) {
-      const reply = await this.complete(config, messages, step < MAX_STEPS - 1);
+      const reply = await this.complete(config, messages, step < MAX_STEPS - 1 ? { tools: ASSISTANT_TOOLS } : {});
       if (!reply.tool_calls?.length) {
         return { reply: (reply.content ?? '').trim() || this.fallbackReply(language), cards: [...state.cards.values()], remaining };
       }
@@ -131,10 +124,10 @@ export class AssistantService {
       : 'I could not finish that search. Could you rephrase or try again?';
   }
 
-  private async complete(
-    config: NonNullable<ReturnType<LlmConfigResolver['resolve']>>,
+  async complete(
+    config: AssistantLlmConfig,
     messages: ChatMessage[],
-    allowTools: boolean,
+    opts: { tools?: readonly unknown[]; toolChoice?: unknown; temperature?: number },
   ): Promise<{ content: string | null; tool_calls?: ToolCall[] }> {
     const base = (config.baseUrl ?? (config.provider === 'local' ? 'http://localhost:11434/v1' : 'https://api.openai.com/v1')).replace(/\/+$/, '');
     let res: Response;
@@ -148,8 +141,8 @@ export class AssistantService {
         body: JSON.stringify({
           model: config.model,
           messages,
-          temperature: 0.4,
-          ...(allowTools ? { tools: ASSISTANT_TOOLS, tool_choice: 'auto' } : {}),
+          temperature: opts.temperature ?? 0.4,
+          ...(opts.tools ? { tools: opts.tools, tool_choice: opts.toolChoice ?? 'auto' } : {}),
         }),
       });
     } catch (e) {
@@ -210,7 +203,7 @@ export class AssistantService {
     };
   }
 
-  private remember(state: TurnState, raw: Record<string, unknown>): KnownPlace | null {
+  remember(state: TurnState, raw: Record<string, unknown>): KnownPlace | null {
     const googleId = typeof raw.google_place_id === 'string' ? raw.google_place_id : null;
     if (googleId) {
       for (const k of state.known.values()) if (k.googlePlaceId === googleId) return k;
@@ -222,7 +215,7 @@ export class AssistantService {
     return place;
   }
 
-  private async searchPlaces(state: TurnState, args: Record<string, unknown>) {
+  async searchPlaces(state: TurnState, args: Record<string, unknown>) {
     const query = typeof args.query === 'string' ? args.query.trim().slice(0, 200) : '';
     if (!query) return { error: 'query is required' };
     const lat = Number(args.near_lat);
@@ -237,7 +230,7 @@ export class AssistantService {
     };
   }
 
-  private async placeDetails(state: TurnState, args: Record<string, unknown>) {
+  async placeDetails(state: TurnState, args: Record<string, unknown>) {
     const place = typeof args.ref === 'string' ? state.known.get(args.ref) : undefined;
     if (!place) return { error: 'unknown ref; call search_places first' };
     if (!place.googlePlaceId) return { name: place.name, address: place.address, note: 'No Google details for this place.' };

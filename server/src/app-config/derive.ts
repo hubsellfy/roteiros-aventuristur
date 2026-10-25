@@ -293,6 +293,10 @@ export function deriveIntegrations(raw: RawEnv) {
     assistantDailyLimit: raw.ASSISTANT_DAILY_LIMIT === undefined || raw.ASSISTANT_DAILY_LIMIT === '' || !Number.isFinite(Number(raw.ASSISTANT_DAILY_LIMIT))
       ? 40
       : Math.max(0, Math.floor(Number(raw.ASSISTANT_DAILY_LIMIT))),
+    /** Itineraries one traveller may have the AI build per day. 0 means no limit. */
+    assistantPlanDailyLimit: raw.ASSISTANT_PLAN_DAILY_LIMIT === undefined || raw.ASSISTANT_PLAN_DAILY_LIMIT === '' || !Number.isFinite(Number(raw.ASSISTANT_PLAN_DAILY_LIMIT))
+      ? 5
+      : Math.max(0, Math.floor(Number(raw.ASSISTANT_PLAN_DAILY_LIMIT))),
     // Windows spells it Path; every other platform PATH. Split here so callers
     // get a list and never re-implement the delimiter.
     searchPath: (raw.PATH || raw.Path || '')

@@ -335,4 +335,56 @@ describe('useDashboard', () => {
     act(() => result.current.setTripFilter('archive'));
     expect(result.current.gridTrips[0].cover_image).toBe('/uploads/covers/new-rome.jpg');
   });
+
+  it('FE-HOOK-DASH-027: a trip whose itinerary is being built waits outside the lists and turns into a card when done', async () => {
+    const BUILDING = buildTrip({ id: 201, title: 'Gramado', start_date: '2027-12-10', end_date: '2027-12-14', ai_status: 'generating' });
+    let ready = false;
+    server.use(
+      http.get('/api/trips', ({ request }) => {
+        const archived = new URL(request.url).searchParams.get('archived');
+        if (archived) return HttpResponse.json({ trips: [] });
+        return HttpResponse.json({ trips: ready ? [{ ...BUILDING, ai_status: null }] : [BUILDING] });
+      }),
+    );
+    const { result } = await mountLoaded();
+
+    expect(result.current.pendingPlans.map(t => t.title)).toEqual(['Gramado']);
+    expect(result.current.spotlight).toBeNull();
+
+    ready = true;
+    await act(() => result.current.refreshTrips());
+    expect(result.current.pendingPlans).toEqual([]);
+    expect(result.current.spotlight?.title).toBe('Gramado');
+  });
+
+  it('FE-HOOK-DASH-028: retrying a failed plan marks it as building again, removing deletes the trip', async () => {
+    const FAILED = buildTrip({ id: 202, title: 'Lisboa', ai_status: 'failed' });
+    tripsHandler([FAILED]);
+    let retried = 0;
+    let deleted = 0;
+    server.use(
+      http.post('/api/assistant/trip-plan/202/retry', () => { retried += 1; return HttpResponse.json({ tripId: 202, remaining: 3 }, { status: 202 }); }),
+      http.delete('/api/trips/202', () => { deleted += 1; return HttpResponse.json({ success: true }); }),
+    );
+    const { result } = await mountLoaded();
+
+    await act(() => result.current.retryPlan(202));
+    expect(retried).toBe(1);
+    expect(result.current.pendingPlans[0].ai_status).toBe('generating');
+
+    await act(() => result.current.removePlan(202));
+    expect(deleted).toBe(1);
+    expect(result.current.pendingPlans).toEqual([]);
+  });
+
+  it('FE-HOOK-DASH-029: a refused retry keeps the plan as failed and says why', async () => {
+    const FAILED = buildTrip({ id: 203, title: 'Porto', ai_status: 'failed' });
+    tripsHandler([FAILED]);
+    server.use(http.post('/api/assistant/trip-plan/203/retry', () => HttpResponse.json({ error: 'Você já tem um roteiro sendo montado.' }, { status: 409 })));
+    const { result } = await mountLoaded();
+
+    await act(() => result.current.retryPlan(203));
+    expect(result.current.pendingPlans[0].ai_status).toBe('failed');
+    expect(toastCalls.some(([m, type]) => type === 'error' && m.includes('roteiro sendo montado'))).toBe(true);
+  });
 });

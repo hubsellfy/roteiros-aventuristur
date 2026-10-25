@@ -2,8 +2,8 @@ import { isEffectivelyOffline } from '../sync/networkMode'
 import axios, { AxiosInstance } from 'axios'
 import type { z } from 'zod'
 import type { Day, Place, Trip } from '../types'
-import type { TransitProvider, AssistantChatRequest, AssistantChatResponse } from '@trek/shared'
-import { assistantChatResponseSchema } from '@trek/shared'
+import type { TransitProvider, AssistantChatRequest, AssistantChatResponse, AssistantTripPlanRequest, AssistantTripPlanResponse } from '@trek/shared'
+import { assistantChatResponseSchema, assistantTripPlanResponseSchema } from '@trek/shared'
 import { randomId } from '../utils/randomId'
 import {
   weatherResultSchema, type WeatherResult,
@@ -1216,6 +1216,13 @@ export const assistantApi = {
   chat: (body: AssistantChatRequest): Promise<AssistantChatResponse> =>
     apiClient.post('/assistant/chat', body, { timeout: 120_000 })
       .then(r => checkInDev(assistantChatResponseSchema, r.data as AssistantChatResponse, 'assistant.chat')),
+  /** Creates the trip card at once; the itinerary is built in the background (the trip's `ai_status` says where it stands). */
+  createTripPlan: (body: AssistantTripPlanRequest): Promise<AssistantTripPlanResponse> =>
+    apiClient.post('/assistant/trip-plan', body)
+      .then(r => checkInDev(assistantTripPlanResponseSchema, r.data as AssistantTripPlanResponse, 'assistant.tripPlan')),
+  retryTripPlan: (tripId: number): Promise<AssistantTripPlanResponse> =>
+    apiClient.post(`/assistant/trip-plan/${tripId}/retry`)
+      .then(r => checkInDev(assistantTripPlanResponseSchema, r.data as AssistantTripPlanResponse, 'assistant.tripPlan')),
 }
 
 export const mapsApi = {

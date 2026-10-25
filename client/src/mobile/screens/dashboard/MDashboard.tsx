@@ -25,6 +25,7 @@ import MSheet from '../../components/MSheet'
 import MUserMenu from './MUserMenu'
 import { useMobileDashOrder, useMobileDashVisibility, MobileDashWidget } from './MDashWidgets'
 import MNewTripSheet from './MNewTripSheet'
+import TripPlanner from '../../../components/Dashboard/TripPlanner'
 import type { MobileDashToken } from '@trek/shared'
 
 // Localized short date for the pills; the year only shows when it isn't the
@@ -60,6 +61,7 @@ export default function MDashboard(): React.ReactElement {
     showForm, setShowForm, editingTrip, setEditingTrip,
     deleteTrip, setDeleteTrip, copyTrip, setCopyTrip, applyCoverUpdate,
     handleCreate, handleUpdate, confirmDelete, handleArchive, handleUnarchive, confirmCopy,
+    pendingPlans, refreshTrips, retryPlan, removePlan,
   } = useDashboard()
 
   const user = useAuthStore(s => s.user)
@@ -269,6 +271,8 @@ export default function MDashboard(): React.ReactElement {
             </button>
           </div>
         )}
+
+        <TripPlanner pending={pendingPlans} onCreated={refreshTrips} onRetry={retryPlan} onRemove={removePlan} />
 
         {spotlight && (
           <MSpotlightCard

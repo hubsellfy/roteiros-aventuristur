@@ -49,6 +49,8 @@ export const tripSchema = z.object({
   cover_image: z.string().nullable().optional(),
   is_archived: z.number(),
   reminder_days: z.number(),
+  /** AI itinerary builder: 'generating' while it works, 'failed' when it gave up, absent for an ordinary trip. */
+  ai_status: z.enum(['generating', 'failed']).nullable().optional(),
   created_at: z.string().optional(),
   updated_at: z.string().optional(),
   // computed in TRIP_SELECT (list/get)
