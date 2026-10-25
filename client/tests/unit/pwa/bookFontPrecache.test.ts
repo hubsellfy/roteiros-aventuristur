@@ -33,8 +33,8 @@ describe('reading a font file name', () => {
 
 describe('the precache', () => {
   it('FE-SW-FONTS-002: keeps the faces the app draws, whatever their subset and format', () => {
-    expect(keepInPrecache(asset('poppins-latin-500-normal-abc.woff'))).toBe(true);
-    expect(keepInPrecache(asset('poppins-devanagari-700-normal-abc.woff2'))).toBe(true);
+    expect(keepInPrecache(asset('inter-tight-latin-500-normal-abc.woff'))).toBe(true);
+    expect(keepInPrecache(asset('inter-tight-latin-700-normal-abc.woff2'))).toBe(true);
     expect(keepInPrecache(asset('museomoderno-latin-800-normal-abc.woff2'))).toBe(true);
     expect(keepInPrecache(asset('geist-sans-latin-600-normal-abc.woff2'))).toBe(true);
     expect(keepInPrecache(asset('index-abc.js'))).toBe(true);

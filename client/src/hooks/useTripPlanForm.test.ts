@@ -53,7 +53,7 @@ describe('useTripPlanForm', () => {
       hook.result.current.setEndDate('2026-12-30');
     });
     await act(() => hook.result.current.submit());
-    expect(hook.result.current.error).toBe('dashboard.plan.errDays:{"max":14}');
+    expect(hook.result.current.error).toBe('dashboard.plan.errDays:{"limit":14}');
     expect(createTripPlan).not.toHaveBeenCalled();
   });
 

@@ -9,7 +9,7 @@ import { server } from '../../../tests/helpers/msw/server'
 import { useSettingsStore } from '../../store/settingsStore'
 import { useAuthStore } from '../../store/authStore'
 import * as maplibregl from 'maplibre-gl'
-import { DEFAULT_MAP_ZOOM } from '../../constants/mapDefaults'
+import { DEFAULT_MAP_LAT, DEFAULT_MAP_LNG, DEFAULT_MAP_ZOOM } from '../../constants/mapDefaults'
 import { MAP_LAYER_SWITCHER_INSET } from './MapLayerSwitcher'
 import type { GeoPosition, TrackingMode } from '../../hooks/useGeolocation'
 import type { PluginMapLayer, PluginMapLayerFeature, PluginMapMarker } from '../../api/client'
@@ -766,7 +766,8 @@ describe('MapViewGL', () => {
       await act(async () => {})
 
       const { center, zoom } = mapOptions()
-      expect(center).toEqual([0, 0])
+      // The Aventuristur map opens over Brazil (constants/mapDefaults.ts).
+      expect(center).toEqual([DEFAULT_MAP_LNG, DEFAULT_MAP_LAT])
       expect(zoom).toBe(DEFAULT_MAP_ZOOM)
     })
   })
@@ -1592,7 +1593,8 @@ describe('MapViewGL', () => {
     const expected = document.createElement('div')
     expected.innerHTML = '<div style="position:relative;width:26px;height:26px;border-radius:50%;background:#B45309;border:2px solid #fff;box-shadow:0 1px 5px rgba(0,0,0,0.3);display:flex;align-items:center;justify-content:center;box-sizing:border-box;overflow:hidden;">'
       + `${pinGlyph(Coffee)}</div>`
-    expect(glMarkers.created[0].element.innerHTML).toBe(expected.innerHTML)
+    // The disc itself; the Aventuristur pin adds the place's name beside it (a span after the disc).
+    expect(glMarkers.created[0].element.firstElementChild?.outerHTML).toBe(expected.innerHTML)
   })
 
   it('FE-COMP-MAPVIEWGL-105: a plugin POI pin and its hover card use its checked colour and icon, and its details stay text', async () => {

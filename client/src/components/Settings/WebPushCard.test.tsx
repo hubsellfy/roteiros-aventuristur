@@ -36,7 +36,7 @@ describe('WebPushCard', () => {
   it('FE-COMP-WEBPUSHCARD-001: explains itself and offers to switch on', async () => {
     render(<WebPushCard />)
     expect(screen.getByText('Push notifications on this device')).toBeInTheDocument()
-    expect(screen.getByText(/Shows TREK notifications on this device/)).toBeInTheDocument()
+    expect(screen.getByText(/Shows Roteiros Aventuristur notifications on this device/)).toBeInTheDocument()
     expect(screen.queryByRole('status')).not.toBeInTheDocument()
 
     const turnOn = screen.getByRole('button', { name: 'Turn on for this device' })
@@ -58,9 +58,9 @@ describe('WebPushCard', () => {
   })
 
   it('FE-COMP-WEBPUSHCARD-003: a state that cannot be switched shows its sentence and no buttons', () => {
-    hookState.current = state({ state: 'ios-install', canSwitch: false, stateText: 'Add TREK to the Home Screen first.' })
+    hookState.current = state({ state: 'ios-install', canSwitch: false, stateText: 'Add Roteiros Aventuristur to the Home Screen first.' })
     render(<WebPushCard />)
-    expect(screen.getByRole('status')).toHaveTextContent('Add TREK to the Home Screen first.')
+    expect(screen.getByRole('status')).toHaveTextContent('Add Roteiros Aventuristur to the Home Screen first.')
     expect(screen.queryByRole('button')).not.toBeInTheDocument()
   })
 

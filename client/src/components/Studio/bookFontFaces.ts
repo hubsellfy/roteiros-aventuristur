@@ -3,9 +3,10 @@
  *
  * The catalogue in @trek/shared (book-fonts.data.ts) names the families, the
  * weights each ships and the weights it has a real italic for; this is where
- * those faces arrive, one import per face. Poppins 300 to 700 and
- * MuseoModerno 400, 700 and 800 come with the app chrome in main.tsx and are
- * not repeated here: importing a face twice only duplicates every rule.
+ * those faces arrive, one import per face. MuseoModerno 400, 700 and 800
+ * come with the app chrome in main.tsx and are not repeated here: importing
+ * a face twice only duplicates every rule. Poppins is loaded here whole,
+ * because the Roteiros Aventuristur chrome is set in Inter Tight instead.
  *
  * Pulled in by StudioShell rather than by main.tsx: nothing outside the editor
  * is set in Lora or Anton, so the rules travel with the Studio chunk and cost
@@ -30,6 +31,11 @@
  */
 import '@fontsource/poppins/100.css'
 import '@fontsource/poppins/200.css'
+import '@fontsource/poppins/300.css'
+import '@fontsource/poppins/400.css'
+import '@fontsource/poppins/500.css'
+import '@fontsource/poppins/600.css'
+import '@fontsource/poppins/700.css'
 import '@fontsource/poppins/800.css'
 import '@fontsource/poppins/900.css'
 

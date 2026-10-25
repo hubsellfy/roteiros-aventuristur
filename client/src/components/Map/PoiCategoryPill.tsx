@@ -178,7 +178,7 @@ export default function PoiCategoryPill({ categories, active, onToggle, loadingK
           </button>
         )}
         {categories.core.map(segment)}
-        {categories.plugin.length > 0 && !fullWidth && (
+        {categories.plugin.length > 0 && (
           <hr
             aria-orientation="vertical"
             aria-label={t('poi.pluginCategories')}

@@ -1,6 +1,6 @@
-import * as LucideIcons from '../../icons'
+import * as LucideIcons from 'lucide-react'
 import { resolvePluginIcon } from '../shared/PluginIcon'
-import type { LucideIcon } from '../../icons'
+import type { LucideIcon } from 'lucide-react'
 import { BOOK_DESIGN_ICONS } from '@trek/shared'
 
 /**

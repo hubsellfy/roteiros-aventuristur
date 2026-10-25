@@ -132,7 +132,7 @@ describe('RetentionService.sweep', () => {
     expect(storage.delete).toHaveBeenCalledWith('photos', 'p.jpg');
     expect(storage.delete).toHaveBeenCalledWith('covers', 'c.jpg');
     expect(tripsService.remove).toHaveBeenCalledWith(7, 0, 'admin');
-    expect(storage.delete.mock.invocationCallOrder.at(-1)!).toBeLessThan(
+    expect(storage.delete.mock.invocationCallOrder.at(-1) ?? Number.NaN).toBeLessThan(
       tripsService.remove.mock.invocationCallOrder[0],
     );
     expect(audit.writeAudit).toHaveBeenCalledWith(

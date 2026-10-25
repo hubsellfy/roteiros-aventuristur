@@ -58,7 +58,7 @@ export function usePlaceDetails(
       return;
     }
     if (detailsCache.has(cacheKey)) {
-      setDetails(detailsCache.get(cacheKey));
+      setDetails(detailsCache.get(cacheKey) ?? null);
       return;
     }
     const cached = getSessionCache(cacheKey);
@@ -69,10 +69,12 @@ export function usePlaceDetails(
     }
     mapsApi
       .details(detailId, language, undefined, expanded)
-      .then((data: { place: PlaceDetails }) => {
-        detailsCache.set(cacheKey, data.place);
-        setSessionCache(cacheKey, data.place);
-        setDetails(data.place);
+      .then((data) => {
+        const place = data.place as PlaceDetails | null;
+        if (!place) return;
+        detailsCache.set(cacheKey, place);
+        setSessionCache(cacheKey, place);
+        setDetails(place);
       })
       .catch(() => {});
   }, [detailId, language, cacheKey, expanded]);

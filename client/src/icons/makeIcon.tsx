@@ -7,6 +7,7 @@ import {
   type SVGProps,
 } from 'react';
 import { ICONSAX } from './iconsaxData.generated';
+import { LUCIDE_CLASS_ALIASES } from './lucideClassAliases';
 
 export interface IconProps extends Omit<SVGProps<SVGSVGElement>, 'ref'> {
   size?: number | string;
@@ -23,7 +24,7 @@ export type IconComponent = ForwardRefExoticComponent<IconProps & RefAttributes<
  * lucide-react (`size`, `color`, `className`, `style`), para trocar a biblioteca sem mexer nas telas.
  * O SVG vem de `iconsaxData.generated.ts` (conteúdo estático gerado no build, nunca de entrada do usuário).
  */
-const kebab = (name: string) => name.replace(/([a-z0-9])([A-Z])/g, '$1-$2').toLowerCase();
+const kebab = (name: string) => LUCIDE_CLASS_ALIASES[name] ?? name.replace(/([a-z0-9])([A-Z])/g, '$1-$2').toLowerCase();
 
 export function makeIcon(name: string): IconComponent {
   const entry = ICONSAX[name];

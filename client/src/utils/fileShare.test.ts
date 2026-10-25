@@ -62,7 +62,7 @@ describe('canShareText', () => {
     const canShare = vi.fn(() => true);
     stubShare(vi.fn(), canShare);
     expect(canShareText()).toBe(true);
-    expect(canShare).toHaveBeenCalledWith({ title: 'TREK', text: 'TREK' });
+    expect(canShare).toHaveBeenCalledWith({ title: 'Roteiros Aventuristur', text: 'Roteiros Aventuristur' });
     canShare.mockReturnValue(false);
     expect(canShareText()).toBe(false);
     stubShare(vi.fn(), undefined);

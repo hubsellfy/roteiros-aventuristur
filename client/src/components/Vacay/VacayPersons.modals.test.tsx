@@ -79,7 +79,7 @@ describe('VacayPersons modals', () => {
     render(<VacayPersons />)
 
     openInvite()
-    const modal = await screen.findByText('Invite another TREK user to share a combined vacation calendar.')
+    const modal = await screen.findByText('Invite another Roteiros Aventuristur user to share a combined vacation calendar.')
     // The dialog frame only closes on a press that starts and ends on the backdrop.
     const backdrop = modal.closest('.fixed') as HTMLElement
     fireEvent.mouseDown(backdrop)

@@ -10,7 +10,11 @@ function lookup(googlePlaceId: string, lat: number, lng: number, name: string, l
   if (cached) return cached;
   const promise = mapsApi
     .placeEnrichment({ placeId: googlePlaceId, lat, lng, name, lang })
-    .then((res) => res.photos.find((p) => p.source === 'google' || p.source === 'cached')?.url ?? null);
+    .then(
+      (res) =>
+        res.photos.find((p: { source: string; url: string }) => p.source === 'google' || p.source === 'cached')?.url ??
+        null
+    );
   // A failure (no key, quota, offline) is not remembered, so the next card tries again.
   promise.catch(() => photoCache.delete(key));
   photoCache.set(key, promise);

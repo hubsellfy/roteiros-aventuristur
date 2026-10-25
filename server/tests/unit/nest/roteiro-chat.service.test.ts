@@ -281,7 +281,8 @@ describe('assistant tools helpers', () => {
   });
 
   it('applyDetails keeps previous values when details are sparse', () => {
-    const place = toKnownPlace('p1', { ...PLACE, website: 'https://w' })!;
+    const place = toKnownPlace('p1', { ...PLACE, website: 'https://w' });
+    if (!place) throw new Error('place expected');
     const out = applyDetails(place, {});
     expect(out).toMatchObject({ rating: 4.6, rating_count: 120, website: 'https://w', reviews: [] });
     expect(toCard(place, null, null)).toMatchObject({ dayId: null, topReview: null });

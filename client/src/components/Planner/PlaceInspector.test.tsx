@@ -330,7 +330,7 @@ describe('PlaceInspector', () => {
     const p = buildPlace({ id: 200, google_place_id: 'ChIJ001' });
     render(<PlaceInspector {...defaultProps} place={p} />);
     await waitFor(() => {
-      expect(vi.mocked(mapsApi.details)).toHaveBeenCalledWith('ChIJ001', expect.any(String));
+      expect(vi.mocked(mapsApi.details)).toHaveBeenCalledWith('ChIJ001', expect.any(String), undefined, expect.anything());
     });
   });
 

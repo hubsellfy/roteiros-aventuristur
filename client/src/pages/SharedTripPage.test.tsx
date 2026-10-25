@@ -365,10 +365,10 @@ describe('SharedTripPage', () => {
       fireEvent.click(langButton);
 
       // Language options should now be visible
-      expect(screen.getByRole('button', { name: /deutsch/i })).toBeInTheDocument();
+      expect(screen.getByRole('button', { name: /português/i })).toBeInTheDocument();
 
       // Select a different language
-      fireEvent.click(screen.getByRole('button', { name: /deutsch/i }));
+      fireEvent.click(screen.getByRole('button', { name: /português/i }));
 
       // Dropdown should close — Español is no longer visible
       expect(screen.queryByRole('button', { name: /español/i })).toBeNull();
@@ -1471,7 +1471,7 @@ describe('SharedTripPage', () => {
       await open('langhover-token', payload());
 
       fireEvent.click(screen.getByRole('button', { name: /english/i }));
-      const option = screen.getByRole('button', { name: /deutsch/i });
+      const option = screen.getByRole('button', { name: /português/i });
 
       fireEvent.mouseEnter(option);
       expect(option.style.background).toBe('var(--bg-hover)');

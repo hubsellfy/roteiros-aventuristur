@@ -186,13 +186,13 @@ describe('MMehrSheet', () => {
 
     it('FE-MOB-MEHR-015: is not there until the assistant has a connection to use', () => {
       renderSheet()
-      expect(screen.queryByRole('button', { name: /Ask TREK/ })).not.toBeInTheDocument()
+      expect(screen.queryByRole('button', { name: /Ask Roteiros Aventuristur/ })).not.toBeInTheDocument()
     })
 
     it('FE-MOB-MEHR-016: leads the sheet and opens the chat in place of it', () => {
       useAssistantStore.setState({ status: { available: true } as AiStatusResponse })
       const { shell } = renderSheet()
-      fireEvent.click(screen.getByRole('button', { name: /Ask TREK/ }))
+      fireEvent.click(screen.getByRole('button', { name: /Ask Roteiros Aventuristur/ }))
       expect(shell.closeSheet).toHaveBeenCalledTimes(1)
       expect(useAssistantStore.getState().window).toEqual({ open: true, minimized: false })
     })
@@ -216,7 +216,7 @@ describe('MMehrSheet', () => {
       })
       renderSheet()
       expect(screen.getByText('1 thing to check in your plan')).toBeInTheDocument()
-      fireEvent.click(screen.getByRole('button', { name: /Ask TREK/ }))
+      fireEvent.click(screen.getByRole('button', { name: /Ask Roteiros Aventuristur/ }))
       expect(screen.queryByText('1 thing to check in your plan')).not.toBeInTheDocument()
     })
   })

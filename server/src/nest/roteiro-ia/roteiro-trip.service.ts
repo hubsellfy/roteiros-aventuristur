@@ -376,7 +376,8 @@ export class RoteiroTripService implements OnApplicationBootstrap {
         if (day.title)
           await this.days.update(dayRow.id, { notes: dayRow.notes, title: dayRow.title }, { title: day.title });
         for (const item of day.items) {
-          const known = state.known.get(item.ref)!;
+          const known = state.known.get(item.ref);
+          if (!known) continue;
           const place = await this.places.create(String(tripId), {
             name: known.name,
             lat: known.lat,

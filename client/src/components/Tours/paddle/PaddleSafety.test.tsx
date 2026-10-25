@@ -9,7 +9,7 @@ import { PaddleSafetyDialog, PaddleSafetyRow } from './PaddleSafety';
 const SHORT = 'Paddling has risks. Check water, rules and weather yourself.';
 const TITLE = 'Safety on the water';
 const TEXT =
-  'Paddling carries risks. Maps, route suggestions and notes can be incomplete or out of date. Before the tour, check the current local conditions, the rules for using the water and the weather. Take suitable safety measures. TREK supports your planning and does not replace your own check and responsible decision.';
+  'Paddling carries risks. Maps, route suggestions and notes can be incomplete or out of date. Before the tour, check the current local conditions, the rules for using the water and the weather. Take suitable safety measures. Roteiros Aventuristur supports your planning and does not replace your own check and responsible decision.';
 
 /** The footer's Close, told apart from the round close of the head band by its words. */
 function footerClose(dialog: HTMLElement): HTMLElement {

@@ -33,7 +33,7 @@ function findGoogleMatch(poi: Poi, language: string): Promise<GoogleMatch | null
   const lookup = (async (): Promise<GoogleMatch | null> => {
     const query = [poi.name, poi.address].filter(Boolean).join(' ');
     const found = await mapsApi.search(query, language, { lat: poi.lat, lng: poi.lng, radius: 500 }, 'google');
-    const hit = found.places.find((p) => p.google_place_id);
+    const hit = found.places.find((p: { google_place_id?: string }) => p.google_place_id);
     if (!hit?.google_place_id) return null;
     // Google's own pictures only: the other sources the enrichment fans out to
     // (Wikimedia and friends) are licensed images that would need a credit line.
@@ -41,9 +41,9 @@ function findGoogleMatch(poi: Poi, language: string): Promise<GoogleMatch | null
       .placeEnrichment({ placeId: hit.google_place_id, lat: poi.lat, lng: poi.lng, name: poi.name, lang: language })
       .catch(() => null);
     const photos = (enrichment?.photos ?? [])
-      .filter((p) => p.source === 'google' || p.source === 'cached')
+      .filter((p: { source: string }) => p.source === 'google' || p.source === 'cached')
       .slice(0, MAX_PHOTOS)
-      .map((p) => p.url);
+      .map((p: { url: string }) => p.url);
     return { googleId: hit.google_place_id, photos };
   })();
   // A failed lookup (no Google key, quota, offline) is not remembered, so the

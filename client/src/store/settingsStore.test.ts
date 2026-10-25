@@ -180,17 +180,17 @@ describe('language detection with a session', () => {
   })
 
   it('SETTINGS-LANG-008: a cold start with nothing stored boots in the browser language', async () => {
-    speak('ko-KR', 'en')
+    speak('es-ES', 'en')
     vi.resetModules()
     const fresh = await import('./settingsStore')
-    expect(fresh.DEFAULT_SETTINGS.language).toBe('ko')
+    expect(fresh.DEFAULT_SETTINGS.language).toBe('es')
   })
 
   it('SETTINGS-LANG-009: an account without a language takes the browser language, nothing is saved', async () => {
-    speak('ko-KR')
+    speak('es-ES')
     vi.mocked(settingsApi.get).mockResolvedValue({ settings: {} } as never)
     await useSettingsStore.getState().loadSettings()
-    expect(useSettingsStore.getState().settings.language).toBe('ko')
+    expect(useSettingsStore.getState().settings.language).toBe('es')
     expect(localStorage.getItem('app_language')).toBeNull()
     expect(settingsApi.set).not.toHaveBeenCalledWith('language', expect.anything())
   })

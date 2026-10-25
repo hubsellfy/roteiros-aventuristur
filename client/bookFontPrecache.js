@@ -9,7 +9,7 @@ import { BOOK_FONT_FACES, BOOK_FONTS_PRECACHED } from '@trek/shared';
  * most of it for faces no book of theirs is set in. So the book's faces are
  * held to this:
  *
- * - The faces the app itself draws (Poppins and MuseoModerno for the chrome,
+ * - The faces the app itself draws (Inter Tight, Indie Flower and MuseoModerno for the chrome,
  *   imported in src/main.tsx) stay exactly as they were.
  * - The faces the book shipped with before the catalogue grew
  *   (`BOOK_FONTS_PRECACHED`) keep their latin woff2, so a book set in them
@@ -25,14 +25,18 @@ import { BOOK_FONT_FACES, BOOK_FONTS_PRECACHED } from '@trek/shared';
 
 /** The faces src/main.tsx imports for the app chrome, which the book shares; bookFontPrecache.test.ts checks this copy. */
 export const APP_FACES = {
-  poppins: [300, 400, 500, 600, 700],
+  'indie-flower': [400],
+  'inter-tight': [300, 400, 500, 600, 700],
   museomoderno: [400, 700, 800],
 };
 
-/** The book packages, longest name first, so `dm-serif-display` is never read as `dm-…`. */
-const BOOK_PACKAGES = [...new Set(Object.values(BOOK_FONT_FACES).map((f) => f.pkg))].sort(
-  (a, b) => b.length - a.length
-);
+/**
+ * The book packages and the app's own, longest name first, so `dm-serif-display` is never read as `dm-…` and the
+ * chrome's `inter-tight` is never read as the book's `inter`.
+ */
+const BOOK_PACKAGES = [
+  ...new Set([...Object.values(BOOK_FONT_FACES).map((f) => f.pkg), ...Object.keys(APP_FACES)]),
+].sort((a, b) => b.length - a.length);
 
 const PRECACHED = new Map(
   Object.entries(BOOK_FONTS_PRECACHED).map(([id, weights]) => [BOOK_FONT_FACES[id].pkg, new Set(weights)])

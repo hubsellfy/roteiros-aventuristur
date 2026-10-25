@@ -348,7 +348,7 @@ describe('PaddleRegionsPanel water network (PAD-11)', () => {
   it('FE-ADMIN-PADDLEREG-025: hides the size limit unless loading is automatic, and shows nothing before the setting is read', () => {
     show({ autoLoad: { settings: { mode: 'off', max_mb: 500 }, saving: false, save: vi.fn() } });
     expect(screen.queryByText('Largest region loaded automatically')).not.toBeInTheDocument();
-    expect(screen.getByText(/TREK loads nothing by itself/)).toBeInTheDocument();
+    expect(screen.getByText(/Roteiros Aventuristur loads nothing by itself/)).toBeInTheDocument();
   });
 
   it('FE-ADMIN-PADDLEREG-026: lists the requests, the open ones first, to load or decline', () => {

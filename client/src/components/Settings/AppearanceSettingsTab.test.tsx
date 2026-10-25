@@ -270,14 +270,15 @@ describe('AppearanceSettingsTab – dashboard widgets', () => {
     const updateSetting = seedAppearance();
     render(<AppearanceSettingsTab />);
 
-    // Currency exists on both devices; the second occurrence is the mobile row.
+    // Currency exists on both devices; the second occurrence is the mobile row,
+    // which starts off in this app (the owner's call, #21), so one tap turns it on.
     const currencyToggles = screen.getAllByRole('button', { name: 'Currency' });
     await user.click(currencyToggles[1]);
 
     await waitFor(
       () => expect(lastAppearance(updateSetting).dashboard).toMatchObject({
         desktop: { currency: true },
-        mobile: { currency: false },
+        mobile: { currency: true },
       }),
       PERSIST,
     );

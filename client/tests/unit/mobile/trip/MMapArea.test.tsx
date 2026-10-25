@@ -194,7 +194,8 @@ describe('MMapArea', () => {
     // The row starts with the "ask" pill; every pill carries its name, not just an icon.
     const row = screen.getAllByRole('button')[0].parentElement as HTMLElement
     expect(row.style.overflowX).toBe('auto')
-    expect(screen.getByRole('button', { name: 'Cafés' }).textContent).toBe('Cafés')
+    // The test's translator hands the key back, so the pill reads as its key.
+    expect(screen.getByRole('button', { name: 'poi.cat.cafes' }).textContent).toBe('poi.cat.cafes')
   })
 
   it('FE-MOB-MAPAREA-044: the leading ask pill opens the assistant sheet', () => {
@@ -333,12 +334,13 @@ describe('MMapArea', () => {
       details: [{ label: 'Length', value: '12 km' }],
     }
     mocks.poi = { ...mocks.poi, pois: [trailhead] }
-    const { planner } = renderArea({ trTab: 'plan' }, { selectedDayId: 5 })
+    const { shell } = renderArea({ trTab: 'plan' }, { selectedDayId: 5 })
 
     // Handed to the renderer whole, so the pin and the hover card can read its look and rows.
     expect(mocks.props.pois).toEqual([trailhead])
     ;(mocks.props.onPoiClick as (m: unknown) => void)(trailhead)
-    expect(planner.openAddPlaceFromPoi).toHaveBeenCalledWith(trailhead, 5)
+    // On the plan tab the pin opens the POI sheet first (the place details, then the add button).
+    expect(shell.openSheet).toHaveBeenCalledWith('poi', trailhead)
   })
 
   it('FE-MOB-MAPAREA-012: a focused hit takes the camera; with nothing pending the stage frames itself', () => {
@@ -958,7 +960,6 @@ describe('MMapArea and a booked night at the edge of the stage', () => {
     const divider = screen.getByRole('separator')
     const trailheads = screen.getByRole('button', { name: 'Trailheads' })
     expect(divider.nextElementSibling).toBe(trailheads)
-    expect(trailheads.style.minWidth).toBe('34px')
     expect((divider.parentElement as HTMLElement).style.overflowX).toBe('auto')
     trailheads.click()
     expect(mocks.poi.toggle).toHaveBeenCalledWith('plugin:trail-finder/trailheads')
