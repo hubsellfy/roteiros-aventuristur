@@ -54,7 +54,8 @@ import NightPauseTooltip from './NightPauseTooltip'
 import ClusteredPois from './ClusteredPois'
 import { NightPauseDrag } from './NightPauseDrag'
 import type { DayBoundaryControls } from './dayBoundaryDrag'
-import { POI_CATEGORY_BY_KEY, type Poi } from './poiCategories'
+import { formatPoiName } from '../../utils/formatPoiName'
+import { POI_CATEGORY_BY_KEY, POI_LABEL_MIN_ZOOM, type Poi } from './poiCategories'
 import { resolveTrackColor, hasManualTrackColor } from './trackColors'
 import DawarichTrailLayer from './DawarichTrailLayer'
 import { OFM_POSITRON, DEFAULT_MAP_CENTER, DEFAULT_MAP_ZOOM, MAP_MAX_ZOOM, SATELLITE_TILE_URL, SATELLITE_TILE_MAXZOOM, AMAP_SATELLITE, attributionForTile } from '../../constants/mapDefaults'
@@ -771,9 +772,15 @@ export const MapView = memo(function MapView({
    */
   const isGcjBasemap = basemap.kind === 'raster' && isGcj02Basemap(basemap.url)
   const gcjCrs = useMemo(() => crsForBasemap(isGcjBasemap), [isGcjBasemap])
+  const [mapZoom, setMapZoom] = useState(0)
+  // From a neighbourhood-level zoom on, every pin carries its name without being
+  // tapped, as Google Maps does. Further out the names would pile up into noise.
+  const poiLabels = mapZoom >= POI_LABEL_MIN_ZOOM
   const poiMarkers = useMemo(() => (pois as Poi[]).map((poi: Poi) => (
     <Marker
-      key={`poi-${poi.osm_id}`}
+      // A tooltip's `permanent` option is read once, so crossing the threshold
+      // has to rebuild the marker.
+      key={`poi-${poi.osm_id}-${poiLabels ? 'label' : 'plain'}`}
       alt={poi.name}
       position={[poi.lat, poi.lng]}
       icon={createPoiIcon(poi.category, poi.brand_wikidata)}
@@ -792,9 +799,9 @@ export const MapView = memo(function MapView({
         },
       }}
     >
-      <Tooltip direction="top" offset={[0, -10]} opacity={1} className="map-tooltip">{poi.name}</Tooltip>
+      <Tooltip direction="top" offset={[0, -10]} opacity={1} className="map-tooltip" permanent={poiLabels}>{formatPoiName(poi.name)}</Tooltip>
     </Marker>
-  )), [pois, onPoiClick, onPoiDropOnRoute])
+  )), [pois, onPoiClick, onPoiDropOnRoute, poiLabels])
   const visibleReservations = useMemo(() => (
     visibleRouteReservations(reservations, { visibleConnectionIds, showTransitRoutes, selectedDayId, days, scopeConnectionsToDay })
   ), [reservations, visibleConnectionIds, showTransitRoutes, selectedDayId, days, scopeConnectionsToDay])
@@ -832,7 +839,6 @@ export const MapView = memo(function MapView({
   // Hover state for the single tooltip overlay (replaces per-marker <Tooltip>)
   const [hoveredPlace, setHoveredPlace] = useState<MapHoverInfo | null>(null)
   const [tooltipPos, setTooltipPos] = useState<{ x: number; y: number } | null>(null)
-  const [mapZoom, setMapZoom] = useState(0)
   const mapMovingRef = useRef(false)
 
   const handleMarkerHover = useCallback((place: MapHoverInfo, x: number, y: number) => {

@@ -26,5 +26,6 @@ const inspector: TranslationStrings = {
   'inspector.trackColor': 'Цвет маршрута',
   'inspector.trackColorAuto': 'Автоматический цвет',
   'inspector.trackColorCustom': 'Выбрать свой цвет',
+  'inspector.reviews': 'Отзывы',
 };
 export default inspector;

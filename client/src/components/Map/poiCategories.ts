@@ -38,6 +38,9 @@ export const ROADTRIP_POI_CATEGORIES: PoiCategory[] = CORRIDOR_CATEGORIES.map(
   ({ key, labelKey, Icon, color }) => ({ key, labelKey, Icon, color }),
 )
 
+/** Below this zoom the pin names would overlap into noise, so only the icons show. */
+export const POI_LABEL_MIN_ZOOM = 14
+
 export const POI_CATEGORY_BY_KEY: Record<string, PoiCategory> = Object.fromEntries(
   [...POI_CATEGORIES, ...ROADTRIP_POI_CATEGORIES].map(c => [c.key, c]),
 )

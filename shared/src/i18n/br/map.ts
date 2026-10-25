@@ -28,5 +28,7 @@ const map: TranslationStrings = {
   'map.attribution': 'Créditos do mapa',
   'map.overview.unrouted': 'Não foi possível calcular {count} troço(s), por isso as distâncias estão incompletas.',
   'map.overview.dayUnrouted': 'Não foi possível calcular {count} troço(s) deste dia',
+  'poi.ask': 'Pergunte',
+  'poi.askSoon': 'Em breve você poderá conversar aqui com o assistente de viagens.',
 };
 export default map;

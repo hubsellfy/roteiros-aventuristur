@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { ExternalLink, Navigation, Phone, Plus, Star, X } from '../../../../icons'
+import { ExternalLink, Navigation, Phone, Plus, X } from '../../../../icons'
 import MSheet from '../../../components/MSheet'
 import type { MTripSheetsProps } from '../MTripShell'
 import { useTranslation, getIntlLanguage } from '../../../../i18n'
@@ -8,12 +8,18 @@ import { usePlaceDetails } from '../../../../hooks/usePlaceDetails'
 import { POI_CATEGORY_BY_KEY, type Poi } from '../../../../components/Map/poiCategories'
 import { getNavigationTargets, openNavigationTarget } from '../../../../components/Planner/placeNavigation'
 import { NavigationMenu } from '../../../../components/shared/NavigationMenu'
+import { formatPoiName } from '../../../../utils/formatPoiName'
 import { safeHttpUrl } from '../../../../utils/safeUrl'
-import { ActionCircle, Eyebrow, INNER_CLS } from './MTripSheetUi'
+import { ActionCircle } from './MTripSheetUi'
+import MGoogleInfo from './MGoogleInfo'
+
+// Photos shown in the strip of a card: enough to get a feel for the place
+// without turning a tap into a gallery download.
+const MAX_PHOTOS = 6
 
 interface GoogleMatch {
   googleId: string
-  photoUrl: string | null
+  photos: string[]
 }
 
 // One lookup per establishment and language for the whole session: the search
@@ -29,8 +35,16 @@ function findGoogleMatch(poi: Poi, language: string): Promise<GoogleMatch | null
     const found = await mapsApi.search(query, language, { lat: poi.lat, lng: poi.lng, radius: 500 }, 'google')
     const hit = found.places.find(p => p.google_place_id)
     if (!hit?.google_place_id) return null
-    const photo = await mapsApi.placePhoto(hit.google_place_id, poi.lat, poi.lng, poi.name).catch(() => null)
-    return { googleId: hit.google_place_id, photoUrl: photo?.photoUrl ?? null }
+    // Google's own pictures only: the other sources the enrichment fans out to
+    // (Wikimedia and friends) are licensed images that would need a credit line.
+    const enrichment = await mapsApi
+      .placeEnrichment({ placeId: hit.google_place_id, lat: poi.lat, lng: poi.lng, name: poi.name, lang: language })
+      .catch(() => null)
+    const photos = (enrichment?.photos ?? [])
+      .filter(p => p.source === 'google' || p.source === 'cached')
+      .slice(0, MAX_PHOTOS)
+      .map(p => p.url)
+    return { googleId: hit.google_place_id, photos }
   })()
   // A failed lookup (no Google key, quota, offline) is not remembered, so the
   // next open tries again instead of showing an empty card for the session.
@@ -65,10 +79,7 @@ export default function MPoiSheet({ planner, shell }: MTripSheetsProps) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [poi?.osm_id, language])
 
-  const details = usePlaceDetails(match?.googleId, null, language)
-  // weekdayDescriptions[0] is Monday; Date#getDay() starts on Sunday.
-  const todayIndex = (new Date().getDay() + 6) % 7
-
+  const details = usePlaceDetails(match?.googleId, null, language, true)
   const category = poi ? POI_CATEGORY_BY_KEY[poi.category] : undefined
   const navTargets = getNavigationTargets(poi ? { name: poi.name, lat: poi.lat, lng: poi.lng } : null, details?.google_maps_url)
   const website = safeHttpUrl(poi?.website) ?? safeHttpUrl(details?.website)
@@ -92,14 +103,8 @@ export default function MPoiSheet({ planner, shell }: MTripSheetsProps) {
         <>
           <div className="flex-none px-[18px] pt-4">
             <div className="flex items-start gap-3">
-              {match?.photoUrl && (
-                <div
-                  className="h-[52px] w-[52px] flex-none rounded-[16px] border-[1.5px] border-[color:var(--m-avbr)] bg-cover bg-center"
-                  style={{ backgroundImage: `url('${match.photoUrl}')` }}
-                />
-              )}
               <div className="min-w-0 flex-1">
-                <div className="text-[1rem] font-bold leading-snug">{poi.name}</div>
+                <div className="text-[1rem] font-bold leading-snug">{formatPoiName(poi.name)}</div>
                 {category && <div className="mt-[2px] text-[0.6875rem] font-medium text-m-muted">{t(category.labelKey)}</div>}
                 {poi.address && <div className="mt-[2px] font-geist text-[0.6875rem] leading-[1.4] text-m-muted">{poi.address}</div>}
               </div>
@@ -115,15 +120,21 @@ export default function MPoiSheet({ planner, shell }: MTripSheetsProps) {
           </div>
 
           <div className="min-h-0 flex-1 overflow-y-auto px-[18px] pb-[18px]">
-            {details?.rating ? (
-              <div className={`mt-3 flex items-center gap-[6px] rounded-[14px] px-3 py-[10px] text-[0.8125rem] font-semibold ${INNER_CLS}`}>
-                <Star size={14} fill="#facc15" color="#facc15" className="flex-none" />
-                {details.rating.toFixed(1)}
-                {details.rating_count ? (
-                  <span className="font-normal text-m-muted">({details.rating_count.toLocaleString(getIntlLanguage(language))})</span>
-                ) : null}
+            {match && match.photos.length > 0 && (
+              <div className="-mx-[18px] mt-3 flex snap-x gap-2 overflow-x-auto px-[18px] pb-1">
+                {match.photos.map(url => (
+                  <img
+                    key={url}
+                    src={url}
+                    alt={poi.name}
+                    loading="lazy"
+                    className="h-[120px] w-[160px] flex-none snap-start rounded-[14px] object-cover"
+                  />
+                ))}
               </div>
-            ) : null}
+            )}
+
+            <MGoogleInfo details={details} language={language} />
 
             {phone && (
               <a href={`tel:${phone}`} className="mt-3 flex items-center gap-[7px] text-[0.78125rem] font-medium">
@@ -132,20 +143,8 @@ export default function MPoiSheet({ planner, shell }: MTripSheetsProps) {
               </a>
             )}
 
-            {details?.opening_hours?.length ? (
-              <div className={`mt-[10px] rounded-[14px] px-3 py-[10px] ${INNER_CLS}`}>
-                <Eyebrow className="mb-[4px]">{t('inspector.openingHours')}</Eyebrow>
-                {details.opening_hours.map((line, i) => (
-                  <div key={line} className={`font-geist text-[0.75rem] leading-[1.6] ${i === todayIndex ? 'font-bold' : 'text-m-muted'}`}>
-                    {line}
-                  </div>
-                ))}
-              </div>
-            ) : poi.opening_hours ? (
-              <div className={`mt-[10px] rounded-[14px] px-3 py-[10px] ${INNER_CLS}`}>
-                <Eyebrow className="mb-[4px]">{t('inspector.openingHours')}</Eyebrow>
-                <div className="font-geist text-[0.75rem] leading-[1.6] text-m-muted">{poi.opening_hours}</div>
-              </div>
+            {!details?.opening_hours?.length && poi.opening_hours ? (
+              <div className="mt-[10px] font-geist text-[0.75rem] leading-[1.6] text-m-muted">{poi.opening_hours}</div>
             ) : null}
 
             <div className="mt-4 flex items-center gap-2">

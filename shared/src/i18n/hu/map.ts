@@ -28,5 +28,7 @@ const map: TranslationStrings = {
   'map.attribution': 'Térkép forrásai',
   'map.overview.unrouted': '{count} szakaszt nem sikerült kiszámítani, a távolságok hiányosak.',
   'map.overview.dayUnrouted': 'Ennek a napnak {count} szakaszát nem sikerült kiszámítani',
+  'poi.ask': 'Kérdezz',
+  'poi.askSoon': 'Hamarosan itt csevegheted az utazási asszisztenssel.',
 };
 export default map;

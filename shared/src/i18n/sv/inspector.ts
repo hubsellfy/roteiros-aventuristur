@@ -26,5 +26,6 @@ const inspector: TranslationStrings = {
   'inspector.trackColor': 'Spårfärg',
   'inspector.trackColorAuto': 'Automatisk färg',
   'inspector.trackColorCustom': 'Välj egen färg',
+  'inspector.reviews': 'Recensioner',
 };
 export default inspector;

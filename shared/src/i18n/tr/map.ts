@@ -28,5 +28,7 @@ const map: TranslationStrings = {
   'map.attribution': 'Harita kaynakları',
   'map.overview.unrouted': '{count} etap hesaplanamadı, bu yüzden mesafeler eksik.',
   'map.overview.dayUnrouted': 'Bu günün {count} etabı hesaplanamadı',
+  'poi.ask': 'Sor',
+  'poi.askSoon': 'Yakında burada seyahat asistanıyla sohbet edebileceksiniz.',
 };
 export default map;

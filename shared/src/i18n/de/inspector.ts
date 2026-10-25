@@ -26,5 +26,6 @@ const inspector: TranslationStrings = {
   'inspector.trackColor': 'Streckenfarbe',
   'inspector.trackColorAuto': 'Automatische Farbe',
   'inspector.trackColorCustom': 'Eigene Farbe wählen',
+  'inspector.reviews': 'Bewertungen',
 };
 export default inspector;

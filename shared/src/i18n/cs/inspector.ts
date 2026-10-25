@@ -26,5 +26,6 @@ const inspector: TranslationStrings = {
   'inspector.trackColor': 'Barva trasy',
   'inspector.trackColorAuto': 'Automatická barva',
   'inspector.trackColorCustom': 'Vybrat vlastní barvu',
+  'inspector.reviews': 'Recenze',
 };
 export default inspector;

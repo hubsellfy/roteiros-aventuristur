@@ -26,5 +26,6 @@ const inspector: TranslationStrings = {
   'inspector.trackColor': 'Warna jalur',
   'inspector.trackColorAuto': 'Warna otomatis',
   'inspector.trackColorCustom': 'Pilih warna kustom',
+  'inspector.reviews': 'Ulasan',
 };
 export default inspector;

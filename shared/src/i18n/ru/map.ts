@@ -28,5 +28,7 @@ const map: TranslationStrings = {
   'map.attribution': 'Источники карты',
   'map.overview.unrouted': 'Не удалось построить {count} участок(ов), поэтому расстояния неполные.',
   'map.overview.dayUnrouted': 'Не удалось построить {count} участок(ов) этого дня',
+  'poi.ask': 'Спросить',
+  'poi.askSoon': 'Скоро здесь можно будет общаться с туристическим помощником.',
 };
 export default map;

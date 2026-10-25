@@ -28,5 +28,7 @@ const map: TranslationStrings = {
   'map.attribution': 'Nguồn bản đồ',
   'map.overview.unrouted': 'Không thể tính {count} chặng, nên khoảng cách chưa đầy đủ.',
   'map.overview.dayUnrouted': 'Không thể tính {count} chặng của ngày này',
+  'poi.ask': 'Hỏi',
+  'poi.askSoon': 'Sắp tới bạn có thể trò chuyện với trợ lý du lịch tại đây.',
 };
 export default map;

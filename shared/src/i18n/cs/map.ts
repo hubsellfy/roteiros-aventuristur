@@ -28,5 +28,7 @@ const map: TranslationStrings = {
   'map.attribution': 'Zdroje mapy',
   'map.overview.unrouted': '{count} úsek(ů) se nepodařilo spočítat, vzdálenosti jsou neúplné.',
   'map.overview.dayUnrouted': '{count} úsek(ů) tohoto dne se nepodařilo spočítat',
+  'poi.ask': 'Zeptejte se',
+  'poi.askSoon': 'Brzy zde budete moci chatovat s cestovním asistentem.',
 };
 export default map;

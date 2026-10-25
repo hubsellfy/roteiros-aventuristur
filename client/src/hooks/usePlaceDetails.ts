@@ -9,7 +9,7 @@ export interface PlaceDetails {
   lng?: number | null
   rating?: number | null
   rating_count?: number | null
-  reviews?: { text?: string | null }[] | null
+  reviews?: { author?: string | null; rating?: number | null; text?: string | null; time?: string | null }[] | null
   opening_hours?: string[] | null
   opening_periods?: OpeningPeriod[] | null
   opening_special_days?: PlaceOpeningHours['specialDays'] | null
@@ -37,20 +37,20 @@ function setSessionCache(key: string, value: unknown) {
  * rating, opening hours, website. Shared by the desktop inspector and the phone
  * sheet; cached in memory and in sessionStorage so reopening a place is free.
  */
-export function usePlaceDetails(googlePlaceId?: string | null, osmId?: string | null, language?: string) {
+export function usePlaceDetails(googlePlaceId?: string | null, osmId?: string | null, language?: string, expanded = false) {
   const [details, setDetails] = useState<PlaceDetails | null>(null)
   const detailId = googlePlaceId || osmId
-  const cacheKey = `gdetails_${detailId}_${language}`
+  const cacheKey = `gdetails_${detailId}_${language}${expanded ? '_x' : ''}`
   useEffect(() => {
     if (!detailId) { setDetails(null); return }
     if (detailsCache.has(cacheKey)) { setDetails(detailsCache.get(cacheKey)); return }
     const cached = getSessionCache(cacheKey)
     if (cached) { detailsCache.set(cacheKey, cached); setDetails(cached); return }
-    mapsApi.details(detailId, language).then((data: { place: PlaceDetails }) => {
+    mapsApi.details(detailId, language, undefined, expanded).then((data: { place: PlaceDetails }) => {
       detailsCache.set(cacheKey, data.place)
       setSessionCache(cacheKey, data.place)
       setDetails(data.place)
     }).catch(() => {})
-  }, [detailId, language, cacheKey])
+  }, [detailId, language, cacheKey, expanded])
   return details
 }

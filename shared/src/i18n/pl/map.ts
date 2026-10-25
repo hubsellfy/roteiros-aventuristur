@@ -28,5 +28,7 @@ const map: TranslationStrings = {
   'map.attribution': 'Źródła mapy',
   'map.overview.unrouted': 'Nie udało się wyznaczyć {count} odcinka/odcinków, więc odległości są niepełne.',
   'map.overview.dayUnrouted': 'Nie udało się wyznaczyć {count} odcinka/odcinków tego dnia',
+  'poi.ask': 'Zapytaj',
+  'poi.askSoon': 'Wkrótce będziesz mógł tu rozmawiać z asystentem podróży.',
 };
 export default map;

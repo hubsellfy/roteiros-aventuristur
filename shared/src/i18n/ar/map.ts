@@ -28,5 +28,7 @@ const map: TranslationStrings = {
   'map.attribution': 'مصادر الخريطة',
   'map.overview.unrouted': 'تعذّر حساب {count} مرحلة، لذا المسافات غير مكتملة.',
   'map.overview.dayUnrouted': 'تعذّر حساب {count} مرحلة من هذا اليوم',
+  'poi.ask': 'اسأل',
+  'poi.askSoon': 'سيمكنك قريبًا التحدث مع مساعد السفر هنا.',
 };
 export default map;

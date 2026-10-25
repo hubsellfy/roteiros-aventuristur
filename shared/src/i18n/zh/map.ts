@@ -28,5 +28,7 @@ const map: TranslationStrings = {
   'map.attribution': '地图来源',
   'map.overview.unrouted': '有 {count} 段无法计算路线，因此距离不完整。',
   'map.overview.dayUnrouted': '本日有 {count} 段无法计算路线',
+  'poi.ask': '提问',
+  'poi.askSoon': '很快你就可以在这里与旅行助手聊天。',
 };
 export default map;

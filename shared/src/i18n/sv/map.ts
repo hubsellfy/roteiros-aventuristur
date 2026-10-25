@@ -28,5 +28,7 @@ const map: TranslationStrings = {
   'map.attribution': 'Kartkällor',
   'map.overview.unrouted': '{count} delsträcka/or kunde inte beräknas, så avstånden är ofullständiga.',
   'map.overview.dayUnrouted': '{count} delsträcka/or för den här dagen kunde inte beräknas',
+  'poi.ask': 'Fråga',
+  'poi.askSoon': 'Snart kan du chatta med reseassistenten här.',
 };
 export default map;

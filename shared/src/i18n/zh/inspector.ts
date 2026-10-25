@@ -26,5 +26,6 @@ const inspector: TranslationStrings = {
   'inspector.trackColor': '轨迹颜色',
   'inspector.trackColorAuto': '自动颜色',
   'inspector.trackColorCustom': '选择自定义颜色',
+  'inspector.reviews': '评价',
 };
 export default inspector;

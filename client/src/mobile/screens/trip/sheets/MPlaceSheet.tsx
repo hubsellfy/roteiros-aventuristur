@@ -2,9 +2,10 @@ import { useMemo, useRef, useState } from 'react'
 import DawarichIcon from '../../../../components/shared/DawarichIcon'
 import {
   Bookmark, Camera, ChevronRight, ExternalLink, Loader2, Map as MapIcon, Navigation, Paperclip,
-  Pencil, Phone, Plus, Route, Star, Trash2, Upload, X,
+  Pencil, Phone, Plus, Route, Trash2, Upload, X,
 } from '../../../../icons'
 import { usePlaceDetails } from '../../../../hooks/usePlaceDetails'
+import MGoogleInfo from './MGoogleInfo'
 import MSheet from '../../../components/MSheet'
 import type { MTripSheetsProps } from '../MTripShell'
 import { useTranslation, translateApiError, getIntlLanguage } from '../../../../i18n'
@@ -65,9 +66,7 @@ export default function MPlaceSheet({ planner, shell }: MTripSheetsProps) {
     setColorPickerOpen(false)
   }
 
-  const googleDetails = usePlaceDetails(place?.google_place_id, place?.osm_id, planner.language)
-  // weekdayDescriptions[0] is Monday; Date#getDay() starts on Sunday.
-  const todayIndex = (new Date().getDay() + 6) % 7
+  const googleDetails = usePlaceDetails(place?.google_place_id, place?.osm_id, planner.language, true)
 
   const category = place?.category
     ?? planner.categories.find(c => c.id === place?.category_id)
@@ -341,34 +340,7 @@ export default function MPlaceSheet({ planner, shell }: MTripSheetsProps) {
               </a>
             )}
 
-            {/* Aventuristur: the phone sheet now shows what Google knows about the
-                place (rating, opening hours), as the desktop inspector does. */}
-            {googleDetails && (googleDetails.rating || googleDetails.opening_hours?.length) && (
-              <div className={`mt-[10px] rounded-[14px] px-3 py-[10px] ${INNER_CLS}`}>
-                {googleDetails.rating ? (
-                  <div className="flex items-center gap-[6px] text-[0.8125rem] font-semibold">
-                    <Star size={14} fill="#facc15" color="#facc15" className="flex-none" />
-                    {googleDetails.rating.toFixed(1)}
-                    {googleDetails.rating_count ? (
-                      <span className="font-normal text-m-muted">({googleDetails.rating_count.toLocaleString(getIntlLanguage(planner.language))})</span>
-                    ) : null}
-                  </div>
-                ) : null}
-                {googleDetails.opening_hours?.length ? (
-                  <>
-                    <Eyebrow className={`mb-[4px] ${googleDetails.rating ? 'mt-[10px]' : ''}`}>{t('inspector.openingHours')}</Eyebrow>
-                    {googleDetails.opening_hours.map((line: string, i: number) => (
-                      <div
-                        key={line}
-                        className={`font-geist text-[0.75rem] leading-[1.6] ${i === todayIndex ? 'font-bold' : 'text-m-muted'}`}
-                      >
-                        {line}
-                      </div>
-                    ))}
-                  </>
-                ) : null}
-              </div>
-            )}
+            <MGoogleInfo details={googleDetails} language={planner.language} />
 
             {/* Collaborative rating (#1435) — tap a star to cast/clear your vote. */}
             <div className={`mt-[10px] rounded-[14px] px-3 py-[10px] ${INNER_CLS}`}>

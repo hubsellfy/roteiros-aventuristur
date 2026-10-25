@@ -28,5 +28,7 @@ const map: TranslationStrings = {
   'map.attribution': 'Πηγές χάρτη',
   'map.overview.unrouted': '{count} σκέλος/η δεν μπόρεσαν να υπολογιστούν, οι αποστάσεις είναι ελλιπείς.',
   'map.overview.dayUnrouted': '{count} σκέλος/η αυτής της ημέρας δεν μπόρεσαν να υπολογιστούν',
+  'poi.ask': 'Ρωτήστε',
+  'poi.askSoon': 'Σύντομα θα μπορείτε να συνομιλείτε εδώ με τον βοηθό ταξιδιών.',
 };
 export default map;
