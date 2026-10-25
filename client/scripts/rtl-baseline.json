@@ -92,7 +92,7 @@
   "pages/AtlasPage.tsx": 2,
   "pages/JourneyDetailPage.tsx": 1,
   "pages/JourneyPublicPage.tsx": 3,
-  "pages/LoginPage.tsx": 23,
+  "pages/LoginPage.tsx": 6,
   "pages/TripPlannerPage.tsx": 11,
   "pages/VacayPage.tsx": 1,
   "pages/admin/AdminNotificationsTab.tsx": 1,
