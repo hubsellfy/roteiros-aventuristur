@@ -29,6 +29,15 @@ const map: TranslationStrings = {
   'map.overview.unrouted': 'Não foi possível calcular {count} troço(s), por isso as distâncias estão incompletas.',
   'map.overview.dayUnrouted': 'Não foi possível calcular {count} troço(s) deste dia',
   'poi.ask': 'Pergunte',
-  'poi.askSoon': 'Em breve você poderá conversar aqui com o assistente de viagens.',
+  'assistant.placeholder': 'Pergunte sobre a sua viagem…',
+  'assistant.welcome': 'Olá! Posso sugerir restaurantes e passeios, consultar notas e avaliações do Google e adicionar lugares ao seu roteiro. O que vamos planejar?',
+  'assistant.suggest1': 'Onde almoçar perto daqui?',
+  'assistant.suggest2': 'Monte uma tarde livre para mim',
+  'assistant.suggest3': 'Atrações mais bem avaliadas',
+  'assistant.error': 'Não consegui responder agora. Tente novamente.',
+  'assistant.addToDay': 'Adicionar ao dia {n}',
+  'assistant.addToTrip': 'Adicionar ao roteiro',
+  'assistant.added': 'Adicionado',
+  'assistant.source': 'Dados do Google Maps',
 };
 export default map;

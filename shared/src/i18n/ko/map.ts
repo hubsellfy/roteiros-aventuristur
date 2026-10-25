@@ -29,6 +29,15 @@ const map: TranslationStrings = {
   'map.overview.unrouted': '{count}개 구간의 경로를 계산할 수 없어 거리가 불완전합니다.',
   'map.overview.dayUnrouted': '이 날의 {count}개 구간 경로를 계산할 수 없습니다',
   'poi.ask': '질문하기',
-  'poi.askSoon': '곧 여기에서 여행 도우미와 대화할 수 있습니다.',
+  'assistant.placeholder': '여행에 대해 물어보세요…',
+  'assistant.welcome': '안녕하세요! 레스토랑과 즐길 거리를 추천하고, 구글 평점과 리뷰를 확인하고, 일정에 장소를 추가할 수 있어요. 무엇을 계획할까요?',
+  'assistant.suggest1': '이 근처에서 점심 먹을 곳은?',
+  'assistant.suggest2': '자유 오후 일정을 짜줘',
+  'assistant.suggest3': '평점이 높은 명소',
+  'assistant.error': '지금은 답변하지 못했어요. 다시 시도해 주세요.',
+  'assistant.addToDay': '{n}일차에 추가',
+  'assistant.addToTrip': '일정에 추가',
+  'assistant.added': '추가됨',
+  'assistant.source': 'Google 지도 데이터',
 };
 export default map;

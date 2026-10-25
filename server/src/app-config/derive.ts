@@ -289,6 +289,10 @@ export function deriveIntegrations(raw: RawEnv) {
      * rejects a fractional value.
      */
     llmTimeoutMs: Math.floor(positiveNumberOr(raw.LLM_TIMEOUT_MS, 900_000)),
+    /** Messages one traveller may send the travel assistant per day. 0 means no limit. */
+    assistantDailyLimit: raw.ASSISTANT_DAILY_LIMIT === undefined || raw.ASSISTANT_DAILY_LIMIT === '' || !Number.isFinite(Number(raw.ASSISTANT_DAILY_LIMIT))
+      ? 40
+      : Math.max(0, Math.floor(Number(raw.ASSISTANT_DAILY_LIMIT))),
     // Windows spells it Path; every other platform PATH. Split here so callers
     // get a list and never re-implement the delimiter.
     searchPath: (raw.PATH || raw.Path || '')

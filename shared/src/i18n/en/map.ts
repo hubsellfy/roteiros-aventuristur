@@ -29,6 +29,15 @@ const map: TranslationStrings = {
   'map.overview.unrouted': '{count} leg(s) could not be routed, so the distances are incomplete.',
   'map.overview.dayUnrouted': '{count} leg(s) of this day could not be routed',
   'poi.ask': 'Ask',
-  'poi.askSoon': 'Soon you will be able to chat with the travel assistant here.',
+  'assistant.placeholder': 'Ask about your trip…',
+  'assistant.welcome': 'Hi! I can suggest restaurants and things to do, check Google ratings and reviews, and add places to your itinerary. What would you like to plan?',
+  'assistant.suggest1': 'Where to have lunch near here?',
+  'assistant.suggest2': 'Plan a free afternoon for me',
+  'assistant.suggest3': 'Best-rated attractions',
+  'assistant.error': 'I could not answer right now. Please try again.',
+  'assistant.addToDay': 'Add to day {n}',
+  'assistant.addToTrip': 'Add to itinerary',
+  'assistant.added': 'Added',
+  'assistant.source': 'Data from Google Maps',
 };
 export default map;

@@ -29,6 +29,15 @@ const map: TranslationStrings = {
   'map.overview.unrouted': '{count} Etappe(n) konnten nicht berechnet werden, die Entfernungen sind unvollständig.',
   'map.overview.dayUnrouted': '{count} Etappe(n) dieses Tages konnten nicht berechnet werden',
   'poi.ask': 'Fragen',
-  'poi.askSoon': 'Bald kannst du hier mit dem Reiseassistenten chatten.',
+  'assistant.placeholder': 'Frag zu deiner Reise…',
+  'assistant.welcome': 'Hallo! Ich kann Restaurants und Aktivitäten vorschlagen, Google-Bewertungen und Rezensionen prüfen und Orte zu deiner Reiseroute hinzufügen. Was möchtest du planen?',
+  'assistant.suggest1': 'Wo kann ich hier in der Nähe zu Mittag essen?',
+  'assistant.suggest2': 'Plane mir einen freien Nachmittag',
+  'assistant.suggest3': 'Am besten bewertete Attraktionen',
+  'assistant.error': 'Ich konnte gerade nicht antworten. Bitte versuche es erneut.',
+  'assistant.addToDay': 'Zu Tag {n} hinzufügen',
+  'assistant.addToTrip': 'Zur Reiseroute hinzufügen',
+  'assistant.added': 'Hinzugefügt',
+  'assistant.source': 'Daten von Google Maps',
 };
 export default map;

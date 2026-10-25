@@ -29,6 +29,15 @@ const map: TranslationStrings = {
   'map.overview.unrouted': '{count} ruas tidak dapat dihitung, jadi jaraknya belum lengkap.',
   'map.overview.dayUnrouted': '{count} ruas pada hari ini tidak dapat dihitung',
   'poi.ask': 'Tanya',
-  'poi.askSoon': 'Segera Anda dapat mengobrol dengan asisten perjalanan di sini.',
+  'assistant.placeholder': 'Tanya tentang perjalananmu…',
+  'assistant.welcome': 'Halo! Saya bisa menyarankan restoran dan kegiatan, memeriksa rating dan ulasan Google, serta menambahkan tempat ke itinerarimu. Apa yang ingin kamu rencanakan?',
+  'assistant.suggest1': 'Makan siang di dekat sini di mana?',
+  'assistant.suggest2': 'Rencanakan sore santai untukku',
+  'assistant.suggest3': 'Atraksi dengan rating terbaik',
+  'assistant.error': 'Saya belum bisa menjawab sekarang. Coba lagi.',
+  'assistant.addToDay': 'Tambahkan ke hari {n}',
+  'assistant.addToTrip': 'Tambahkan ke itinerari',
+  'assistant.added': 'Ditambahkan',
+  'assistant.source': 'Data dari Google Maps',
 };
 export default map;

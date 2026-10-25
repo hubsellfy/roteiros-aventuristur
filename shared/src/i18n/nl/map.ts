@@ -29,6 +29,15 @@ const map: TranslationStrings = {
   'map.overview.unrouted': '{count} etappe(s) konden niet worden berekend, de afstanden zijn onvolledig.',
   'map.overview.dayUnrouted': '{count} etappe(s) van deze dag konden niet worden berekend',
   'poi.ask': 'Vraag',
-  'poi.askSoon': 'Binnenkort kun je hier chatten met de reisassistent.',
+  'assistant.placeholder': 'Stel een vraag over je reis…',
+  'assistant.welcome': 'Hoi! Ik kan restaurants en activiteiten voorstellen, Google-beoordelingen en reviews opzoeken en plaatsen aan je reisschema toevoegen. Wat wil je plannen?',
+  'assistant.suggest1': 'Waar kan ik hier in de buurt lunchen?',
+  'assistant.suggest2': 'Plan een vrije middag voor me',
+  'assistant.suggest3': 'Best beoordeelde attracties',
+  'assistant.error': 'Ik kon nu niet antwoorden. Probeer het opnieuw.',
+  'assistant.addToDay': 'Toevoegen aan dag {n}',
+  'assistant.addToTrip': 'Toevoegen aan reisschema',
+  'assistant.added': 'Toegevoegd',
+  'assistant.source': 'Gegevens van Google Maps',
 };
 export default map;

@@ -29,6 +29,15 @@ const map: TranslationStrings = {
   'map.overview.unrouted': '{count} delsträcka/or kunde inte beräknas, så avstånden är ofullständiga.',
   'map.overview.dayUnrouted': '{count} delsträcka/or för den här dagen kunde inte beräknas',
   'poi.ask': 'Fråga',
-  'poi.askSoon': 'Snart kan du chatta med reseassistenten här.',
+  'assistant.placeholder': 'Fråga om din resa…',
+  'assistant.welcome': 'Hej! Jag kan föreslå restauranger och aktiviteter, kolla Googles betyg och recensioner och lägga till platser i din resplan. Vad vill du planera?',
+  'assistant.suggest1': 'Var kan man äta lunch här i närheten?',
+  'assistant.suggest2': 'Planera en ledig eftermiddag åt mig',
+  'assistant.suggest3': 'Bäst betygsatta sevärdheter',
+  'assistant.error': 'Jag kunde inte svara just nu. Försök igen.',
+  'assistant.addToDay': 'Lägg till dag {n}',
+  'assistant.addToTrip': 'Lägg till i resplanen',
+  'assistant.added': 'Tillagd',
+  'assistant.source': 'Data från Google Maps',
 };
 export default map;

@@ -29,6 +29,15 @@ const map: TranslationStrings = {
   'map.overview.unrouted': 'Не удалось построить {count} участок(ов), поэтому расстояния неполные.',
   'map.overview.dayUnrouted': 'Не удалось построить {count} участок(ов) этого дня',
   'poi.ask': 'Спросить',
-  'poi.askSoon': 'Скоро здесь можно будет общаться с туристическим помощником.',
+  'assistant.placeholder': 'Спросите о своей поездке…',
+  'assistant.welcome': 'Здравствуйте! Я могу предложить рестораны и развлечения, посмотреть оценки и отзывы Google и добавить места в маршрут. Что хотите спланировать?',
+  'assistant.suggest1': 'Где пообедать поблизости?',
+  'assistant.suggest2': 'Спланируй мне свободный день после обеда',
+  'assistant.suggest3': 'Самые высоко оценённые достопримечательности',
+  'assistant.error': 'Сейчас не удалось ответить. Попробуйте ещё раз.',
+  'assistant.addToDay': 'Добавить в день {n}',
+  'assistant.addToTrip': 'Добавить в маршрут',
+  'assistant.added': 'Добавлено',
+  'assistant.source': 'Данные Google Карт',
 };
 export default map;

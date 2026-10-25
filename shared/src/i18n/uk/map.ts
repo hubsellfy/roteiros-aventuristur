@@ -29,6 +29,15 @@ const map: TranslationStrings = {
   'map.overview.unrouted': 'Не вдалося прокласти {count} відрізок(ів), тому відстані неповні.',
   'map.overview.dayUnrouted': 'Не вдалося прокласти {count} відрізок(ів) цього дня',
   'poi.ask': 'Запитати',
-  'poi.askSoon': 'Незабаром тут можна буде спілкуватися з помічником для подорожей.',
+  'assistant.placeholder': 'Запитайте про свою подорож…',
+  'assistant.welcome': 'Вітаю! Я можу запропонувати ресторани та розваги, переглянути оцінки й відгуки Google і додати місця до маршруту. Що хочете спланувати?',
+  'assistant.suggest1': 'Де пообідати поруч?',
+  'assistant.suggest2': 'Сплануй мені вільну другу половину дня',
+  'assistant.suggest3': 'Найвище оцінені пам’ятки',
+  'assistant.error': 'Зараз не вдалося відповісти. Спробуйте ще раз.',
+  'assistant.addToDay': 'Додати до дня {n}',
+  'assistant.addToTrip': 'Додати до маршруту',
+  'assistant.added': 'Додано',
+  'assistant.source': 'Дані Google Карт',
 };
 export default map;

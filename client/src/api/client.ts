@@ -2,7 +2,8 @@ import { isEffectivelyOffline } from '../sync/networkMode'
 import axios, { AxiosInstance } from 'axios'
 import type { z } from 'zod'
 import type { Day, Place, Trip } from '../types'
-import type { TransitProvider } from '@trek/shared'
+import type { TransitProvider, AssistantChatRequest, AssistantChatResponse } from '@trek/shared'
+import { assistantChatResponseSchema } from '@trek/shared'
 import { randomId } from '../utils/randomId'
 import {
   weatherResultSchema, type WeatherResult,
@@ -1208,6 +1209,13 @@ async function pluginSearchPlaces(
   } finally {
     clearTimeout(timer)
   }
+}
+
+/** The travel assistant behind the map's "Pergunte" pill. Slow on purpose: it may search and read several places. */
+export const assistantApi = {
+  chat: (body: AssistantChatRequest): Promise<AssistantChatResponse> =>
+    apiClient.post('/assistant/chat', body, { timeout: 120_000 })
+      .then(r => checkInDev(assistantChatResponseSchema, r.data as AssistantChatResponse, 'assistant.chat')),
 }
 
 export const mapsApi = {

@@ -18,6 +18,7 @@ export * from './airport/airport.schema';
 export * from './config/config.schema';
 export * from './system-notice/system-notice.schema';
 export * from './maps/maps.schema';
+export * from './assistant/assistant.schema';
 export * from './maps/place-shadow.schema';
 export * from './maps/route-usage.schema';
 export * from './category/category.schema';

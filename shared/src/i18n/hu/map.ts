@@ -29,6 +29,15 @@ const map: TranslationStrings = {
   'map.overview.unrouted': '{count} szakaszt nem sikerült kiszámítani, a távolságok hiányosak.',
   'map.overview.dayUnrouted': 'Ennek a napnak {count} szakaszát nem sikerült kiszámítani',
   'poi.ask': 'Kérdezz',
-  'poi.askSoon': 'Hamarosan itt csevegheted az utazási asszisztenssel.',
+  'assistant.placeholder': 'Kérdezz az utazásodról…',
+  'assistant.welcome': 'Szia! Tudok éttermeket és programokat javasolni, megnézem a Google értékeléseit és véleményeit, és hozzáadhatok helyeket az útitervedhez. Mit szeretnél megtervezni?',
+  'assistant.suggest1': 'Hol lehet ebédelni a közelben?',
+  'assistant.suggest2': 'Tervezz nekem egy szabad délutánt',
+  'assistant.suggest3': 'A legjobbra értékelt látnivalók',
+  'assistant.error': 'Most nem tudtam válaszolni. Próbáld újra.',
+  'assistant.addToDay': 'Hozzáadás a(z) {n}. naphoz',
+  'assistant.addToTrip': 'Hozzáadás az útitervhez',
+  'assistant.added': 'Hozzáadva',
+  'assistant.source': 'Google Térkép adatai',
 };
 export default map;

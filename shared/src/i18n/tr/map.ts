@@ -29,6 +29,15 @@ const map: TranslationStrings = {
   'map.overview.unrouted': '{count} etap hesaplanamadı, bu yüzden mesafeler eksik.',
   'map.overview.dayUnrouted': 'Bu günün {count} etabı hesaplanamadı',
   'poi.ask': 'Sor',
-  'poi.askSoon': 'Yakında burada seyahat asistanıyla sohbet edebileceksiniz.',
+  'assistant.placeholder': 'Seyahatin hakkında sor…',
+  'assistant.welcome': 'Merhaba! Restoran ve etkinlik önerebilir, Google puanlarını ve yorumlarını kontrol edebilir ve yerleri gezi planına ekleyebilirim. Neyi planlamak istersin?',
+  'assistant.suggest1': 'Buraya yakın nerede öğle yemeği yenir?',
+  'assistant.suggest2': 'Bana serbest bir öğleden sonra planla',
+  'assistant.suggest3': 'En yüksek puanlı yerler',
+  'assistant.error': 'Şu anda yanıt veremedim. Lütfen tekrar dene.',
+  'assistant.addToDay': '{n}. güne ekle',
+  'assistant.addToTrip': 'Gezi planına ekle',
+  'assistant.added': 'Eklendi',
+  'assistant.source': 'Google Haritalar verileri',
 };
 export default map;

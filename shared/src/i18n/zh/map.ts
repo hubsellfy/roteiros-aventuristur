@@ -29,6 +29,15 @@ const map: TranslationStrings = {
   'map.overview.unrouted': '有 {count} 段无法计算路线，因此距离不完整。',
   'map.overview.dayUnrouted': '本日有 {count} 段无法计算路线',
   'poi.ask': '提问',
-  'poi.askSoon': '很快你就可以在这里与旅行助手聊天。',
+  'assistant.placeholder': '询问你的行程…',
+  'assistant.welcome': '你好！我可以推荐餐厅和活动、查看 Google 评分和评论，并把地点添加到你的行程中。你想规划什么？',
+  'assistant.suggest1': '这附近哪里可以吃午饭？',
+  'assistant.suggest2': '帮我安排一个自由的下午',
+  'assistant.suggest3': '评分最高的景点',
+  'assistant.error': '暂时无法回答，请重试。',
+  'assistant.addToDay': '添加到第 {n} 天',
+  'assistant.addToTrip': '添加到行程',
+  'assistant.added': '已添加',
+  'assistant.source': '数据来自 Google 地图',
 };
 export default map;
