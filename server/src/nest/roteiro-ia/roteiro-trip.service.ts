@@ -4,7 +4,7 @@ import { AssignmentsService } from '../assignments/assignments.service';
 import { withRequestContext } from '../database/request-context';
 import { UnitOfWork } from '../database/unit-of-work';
 import { DaysService } from '../days/days.service';
-import { LlmConfigResolver } from '../llm-parse/llm-config.resolver';
+import { LlmConfigResolver } from '../llm-parse/llm-config.contract';
 import { PlacesService } from '../places/places.service';
 import { TripsService } from '../trips/trips.service';
 import { DailyLimit } from './daily-limit';

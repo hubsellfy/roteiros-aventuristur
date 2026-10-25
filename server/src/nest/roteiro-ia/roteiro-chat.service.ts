@@ -1,8 +1,7 @@
 import { readEnv } from '../../app-config';
 import { safeFetchLlm } from '../../utils/ssrfGuard';
 import { DaysService } from '../days/days.service';
-import type { ResolvedLlmConfig } from '../llm-parse/llm-config';
-import { LlmConfigResolver } from '../llm-parse/llm-config.resolver';
+import { LlmConfigResolver, type ResolvedLlmConfig } from '../llm-parse/llm-config.contract';
 import { MapsService } from '../maps/maps.service';
 import { TripsService } from '../trips/trips.service';
 import { DailyLimit } from './daily-limit';

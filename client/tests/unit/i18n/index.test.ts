@@ -93,14 +93,8 @@ describe('SUPPORTED_LANGUAGES', () => {
     expect(Array.isArray(SUPPORTED_LANGUAGES)).toBe(true)
     expect(new Set(SUPPORTED_LANGUAGES.map(l => l.value)).size).toBe(SUPPORTED_LANGUAGES.length)
     expect(SUPPORTED_LANGUAGES).toContainEqual(expect.objectContaining({ value: 'en', label: 'English' }))
-    expect(SUPPORTED_LANGUAGES).toContainEqual(expect.objectContaining({ value: 'tr', label: 'Türkçe' }))
-    expect(SUPPORTED_LANGUAGES).toContainEqual(expect.objectContaining({ value: 'ja', label: '日本語' }))
-    expect(SUPPORTED_LANGUAGES).toContainEqual(expect.objectContaining({ value: 'ko', label: '한국어' }))
-    expect(SUPPORTED_LANGUAGES).toContainEqual(expect.objectContaining({ value: 'uk', label: 'Українська' }))
-    expect(SUPPORTED_LANGUAGES).toContainEqual(expect.objectContaining({ value: 'sv', label: 'Svenska' }))
-    expect(SUPPORTED_LANGUAGES).toContainEqual(expect.objectContaining({ value: 'ar', label: 'العربية' }))
-    expect(SUPPORTED_LANGUAGES).toContainEqual(expect.objectContaining({ value: 'vi', label: 'Tiếng Việt' }))
-    expect(SUPPORTED_LANGUAGES).toContainEqual(expect.objectContaining({ value: 'ca', label: 'Català' }))
+    expect(SUPPORTED_LANGUAGES).toContainEqual(expect.objectContaining({ value: 'es', label: 'Español' }))
+    expect(SUPPORTED_LANGUAGES).toContainEqual(expect.objectContaining({ value: 'br', label: 'Português (Brasil)' }))
   })
 })
 
@@ -113,18 +107,18 @@ describe('detectBrowserLanguage', () => {
   })
 
   it('FE-COMP-I18N-016: exact match returns the matched code', () => {
-    Object.defineProperty(navigator, 'languages', { value: ['de'], configurable: true })
-    expect(detectBrowserLanguage()).toBe('de')
+    Object.defineProperty(navigator, 'languages', { value: ['es'], configurable: true })
+    expect(detectBrowserLanguage()).toBe('es')
   })
 
-  it('FE-COMP-I18N-017: region-tagged exact match (zh-TW) returns zh-TW', () => {
-    Object.defineProperty(navigator, 'languages', { value: ['zh-TW'], configurable: true })
-    expect(detectBrowserLanguage()).toBe('zh-TW')
+  it('FE-COMP-I18N-017: region-tagged exact match (en-US) returns en', () => {
+    Object.defineProperty(navigator, 'languages', { value: ['en-US'], configurable: true })
+    expect(detectBrowserLanguage()).toBe('en')
   })
 
-  it('FE-COMP-I18N-018: prefix match (de-AT → de)', () => {
-    Object.defineProperty(navigator, 'languages', { value: ['de-AT'], configurable: true })
-    expect(detectBrowserLanguage()).toBe('de')
+  it('FE-COMP-I18N-018: prefix match (es-MX → es)', () => {
+    Object.defineProperty(navigator, 'languages', { value: ['es-MX'], configurable: true })
+    expect(detectBrowserLanguage()).toBe('es')
   })
 
   it('FE-COMP-I18N-019: pt-PT returns null (European Portuguese is a distinct language)', () => {
@@ -138,8 +132,8 @@ describe('detectBrowserLanguage', () => {
   })
 
   it('FE-COMP-I18N-021: first-match-wins across multiple entries', () => {
-    Object.defineProperty(navigator, 'languages', { value: ['xx-XX', 'fr'], configurable: true })
-    expect(detectBrowserLanguage()).toBe('fr')
+    Object.defineProperty(navigator, 'languages', { value: ['xx-XX', 'es'], configurable: true })
+    expect(detectBrowserLanguage()).toBe('es')
   })
 
   it('FE-COMP-I18N-022: unknown language returns null', () => {

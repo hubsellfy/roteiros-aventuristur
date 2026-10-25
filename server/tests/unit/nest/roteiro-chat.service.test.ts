@@ -274,6 +274,50 @@ describe('RoteiroChatService', () => {
 });
 
 describe('assistant tools helpers', () => {
+  it('answers place details for unknown refs, places without Google data and empty Google answers', async () => {
+    const { svc, maps } = make();
+    const state = { userId: 1, tripId: 1, language: 'pt-BR', known: new Map(), cards: new Map(), nextRef: 1 };
+    const details = (args: Record<string, unknown>) =>
+      (svc as unknown as { placeDetails: (s: unknown, a: unknown) => Promise<Record<string, unknown>> }).placeDetails(
+        state,
+        args,
+      );
+    expect(await details({ ref: 5 })).toEqual({ error: 'unknown ref; call search_places first' });
+    state.known.set('p1', {
+      ref: 'p1',
+      name: 'Praça',
+      address: 'Centro',
+      lat: 1,
+      lng: 2,
+      googlePlaceId: null,
+    } as never);
+    expect(await details({ ref: 'p1' })).toMatchObject({ note: 'No Google details for this place.' });
+    state.known.set('p2', { ref: 'p2', name: 'Cantina', address: 'Rua', lat: 1, lng: 2, googlePlaceId: 'g2' } as never);
+    maps.getPlaceDetailsExpanded.mockResolvedValueOnce({ place: null });
+    expect(await details({ ref: 'p2' })).toMatchObject({ note: 'Google returned no details for this place.' });
+  });
+
+  it('recommends a place without a day or reason, and ignores an unknown ref', async () => {
+    const { svc } = make();
+    const state = { userId: 1, tripId: 1, language: 'pt-BR', known: new Map(), cards: new Map(), nextRef: 1 };
+    const recommend = (args: Record<string, unknown>) =>
+      (svc as unknown as { recommend: (s: unknown, a: unknown) => Promise<Record<string, unknown>> }).recommend(
+        state,
+        args,
+      );
+    expect(await recommend({})).toEqual({ error: 'unknown ref; call search_places first' });
+    state.known.set('p1', {
+      ref: 'p1',
+      name: 'Praça',
+      address: 'Centro',
+      lat: 1,
+      lng: 2,
+      googlePlaceId: null,
+    } as never);
+    expect(await recommend({ ref: 'p1', reason: '   ' })).toMatchObject({ shown: true, day_id: null });
+    expect(state.cards.has('p1')).toBe(true);
+  });
+
   it('rejects records without a name or coordinates and parses string coordinates', () => {
     expect(toKnownPlace('p1', { name: 'A' })).toBeNull();
     expect(toKnownPlace('p1', { lat: 1, lng: 2 })).toBeNull();

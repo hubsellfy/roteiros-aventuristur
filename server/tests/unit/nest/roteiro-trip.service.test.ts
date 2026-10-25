@@ -319,6 +319,20 @@ describe('RoteiroTripService', () => {
     expect(await status(() => svc.retry(1, 42))).toBe(404);
   });
 
+  it('refuses a retry while another plan is being built and keeps the singular wording for one traveller', async () => {
+    const { svc, tripsRepo, trips } = make({ generating: true });
+    tripsRepo.findAiState.mockResolvedValue({ user_id: 1, ai_status: 'failed', ai_request: JSON.stringify(REQUEST) });
+    expect(await status(() => svc.retry(1, 42))).toBe(409);
+
+    const solo = make();
+    safeFetchLlm.mockReturnValue(new Promise(() => {}));
+    await solo.svc.start(user, { ...REQUEST, travelers: 1, origin: 'Curitiba' });
+    const created = solo.trips.create.mock.calls[0][1] as { description?: string };
+    expect(created.description).toContain('1 viajante');
+    expect(created.description).toContain('saindo de Curitiba');
+    expect(trips.create).not.toHaveBeenCalled();
+  });
+
   it('marks work interrupted by a restart as failed', async () => {
     const { svc, tripsRepo } = make();
     await svc.onApplicationBootstrap();
