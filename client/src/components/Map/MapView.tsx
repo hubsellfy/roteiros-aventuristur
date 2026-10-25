@@ -865,6 +865,11 @@ export const MapView = memo(function MapView({
   // tapped, as Google Maps does. Further out the names would pile up into noise.
   const poiLabels = mapZoom >= POI_LABEL_MIN_ZOOM
   const [labeledPois, setLabeledPois] = useState<Set<string | number>>(() => new Set())
+  // The picker reports on every pass; an unchanged answer must not be a new
+  // object, or the state change re-runs the picker and the render never settles.
+  const keepLabeledPois = useCallback((next: Set<string | number>) => {
+    setLabeledPois(prev => (prev.size === next.size && [...next].every(id => prev.has(id)) ? prev : next))
+  }, [])
   const poiMarkers = useMemo(() => (pois as Poi[]).map((poi: Poi) => (
     <Marker
       // A tooltip's `permanent` option is read once, so crossing the threshold
@@ -1164,7 +1169,7 @@ export const MapView = memo(function MapView({
       <SelectionController follow={followSelection} places={places} selectedPlaceId={selectedPlaceId} dayPlaces={dayPlaces} selectedPlace={selectedPlace} paddingOpts={paddingOpts} />
       <MapClickHandler onClick={onMapClick} />
       <MapContextMenuHandler onContextMenu={onMapContextMenu} />
-      <PoiLabelPicker pois={pois as Poi[]} enabled={poiLabels} onChange={setLabeledPois} />
+      <PoiLabelPicker pois={pois as Poi[]} enabled={poiLabels} onChange={keepLabeledPois} />
       <CameraHoverGuard movingRef={mapMovingRef} onMoveStart={clearHover} onZoom={setMapZoom} />
       <ViewportController onViewportChange={onViewportChange} />
       <PoiDropTarget onPoiDropOnRoute={onPoiDropOnRoute} />
