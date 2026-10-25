@@ -1142,7 +1142,6 @@
   "src/components/shared/TrackColorPicker.test.tsx",
   "src/components/shared/TrackColorPicker.tsx",
   "src/components/shared/TrekIcon.tsx",
-  "src/components/shared/TrekMark.tsx",
   "src/components/shared/TripLoadingSplash.test.tsx",
   "src/components/shared/TripLoadingSplash.tsx",
   "src/components/shared/categoryIcons.ts",
