@@ -53,7 +53,7 @@ describe('useTripPlanForm', () => {
     await act(() => hook.result.current.submit())
     expect(createTripPlan).toHaveBeenCalledWith({
       destination: 'Gramado', origin: 'Curitiba', startDate: '2026-12-10', endDate: '2026-12-12',
-      budget: 1500.5, budgetMode: 'person', travelers: 2, style: 'equilibrado', language: 'pt-BR',
+      budget: 1500.5, budgetMode: 'person', travelers: 2, style: 'economico', language: 'pt-BR',
     })
     expect(onCreated).toHaveBeenCalled()
     expect(toast.success).toHaveBeenCalledWith('dashboard.toast.created')

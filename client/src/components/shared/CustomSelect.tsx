@@ -148,7 +148,7 @@ export default function CustomSelect({
           width: '100%', display: 'flex', alignItems: 'center', gap: 8,
           padding: pill ? '12px 18px' : sm ? '8px 12px' : '8px 14px', borderRadius: pill ? 999 : 10,
           border: '1px solid var(--border-primary)',
-          background: 'var(--bg-input)', color: 'var(--text-primary)',
+          background: pill ? 'var(--bg-card)' : 'var(--bg-input)', color: 'var(--text-primary)',
           fontSize: pill ? 'calc(15px * var(--fs-scale-body, 1))' : 'calc(13px * var(--fs-scale-body, 1))', fontWeight: 500, fontFamily: 'inherit',
           cursor: disabled ? 'default' : 'pointer', outline: 'none', textAlign: 'left',
           transition: 'border-color 0.15s', overflow: 'hidden', minWidth: 0,
@@ -196,7 +196,7 @@ export default function CustomSelect({
           backdropFilter: 'blur(24px) saturate(180%)',
           WebkitBackdropFilter: 'blur(24px) saturate(180%)',
           border: '1px solid var(--border-primary)',
-          borderRadius: 10,
+          borderRadius: pill ? 24 : 10,
           boxShadow: '0 8px 32px rgba(0,0,0,0.12)',
           overflow: 'hidden',
           animation: 'trek-menu-enter 200ms cubic-bezier(0.23, 1, 0.32, 1)',
@@ -232,7 +232,7 @@ export default function CustomSelect({
             // like it belongs to. On a phone that meant a flick past either end of
             // the list moved the page instead (#2078).
             overscrollBehavior: 'contain',
-            padding: '4px',
+            padding: pill ? '8px' : '4px',
           }}>
             {filtered.length === 0 ? (
               <div style={{ padding: '10px 12px', fontSize: 'calc(12px * var(--fs-scale-body, 1))', color: 'var(--text-faint)', textAlign: 'center' }}>—</div>
@@ -257,9 +257,9 @@ export default function CustomSelect({
                     onClick={() => { onChange(option.value); setOpen(false); setSearch('') }}
                     style={{
                       width: '100%', display: 'flex', alignItems: 'center', gap: 8,
-                      padding: '7px 10px', borderRadius: 6,
+                      padding: pill ? '11px 16px' : '7px 10px', borderRadius: pill ? 999 : 6,
                       border: 'none', background: isSelected ? 'var(--bg-hover)' : 'transparent',
-                      color: 'var(--text-primary)', fontSize: 'calc(13px * var(--fs-scale-body, 1))', fontFamily: 'inherit',
+                      color: 'var(--text-primary)', fontSize: pill ? 'calc(15px * var(--fs-scale-body, 1))' : 'calc(13px * var(--fs-scale-body, 1))', fontFamily: 'inherit',
                       cursor: 'pointer', textAlign: 'left', transition: 'background 0.1s',
                     }}
                     onMouseEnter={e => e.currentTarget.style.background = 'var(--bg-hover)'}
