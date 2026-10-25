@@ -1,5 +1,6 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { act, render, screen } from '../../../helpers/render'
+import { fireEvent } from '@testing-library/react'
 import { buildPlanner, buildShell } from '../../../helpers/mobileTrip'
 import { buildAssignment, buildPlace } from '../../../helpers/factories'
 import type { AccessSpur, RoadtripDay } from '@trek/shared/roadtrip'
@@ -185,11 +186,21 @@ beforeEach(() => {
 })
 
 describe('MMapArea', () => {
-  it('FE-MOB-MAPAREA-001: the POI bar takes the full width between the screen margins', () => {
+  it('FE-MOB-MAPAREA-001: the POI bar takes the full width between the screen margins and scrolls sideways', () => {
     renderArea()
 
-    const segment = screen.getAllByRole('button')[0]
-    expect(segment.style.flexGrow).toBe('1')
+    // The row starts with the "ask" pill; every pill carries its name, not just an icon.
+    const row = screen.getAllByRole('button')[0].parentElement as HTMLElement
+    expect(row.style.overflowX).toBe('auto')
+    expect(screen.getByRole('button', { name: 'Cafés' }).textContent).toBe('Cafés')
+  })
+
+  it('FE-MOB-MAPAREA-044: the leading ask pill opens the assistant sheet', () => {
+    const { shell } = renderArea()
+
+    fireEvent.click(screen.getAllByRole('button')[0])
+
+    expect(shell.openSheet).toHaveBeenCalledWith('assistant')
   })
 
   it('FE-MOB-MAPAREA-002: the compass rides the same bottom offset as the locate button', () => {
@@ -305,13 +316,14 @@ describe('MMapArea', () => {
     expect(planner.openAddPlaceFromPoi).not.toHaveBeenCalled()
   })
 
-  it('FE-MOB-MAPAREA-011: on the plan tab it stays the plain place form, carrying the day', () => {
-    const { planner } = renderArea({ trTab: 'plan' }, { selectedDayId: 5 })
+  it('FE-MOB-MAPAREA-011: on the plan tab a pin opens its card first, not the place form', () => {
+    const { planner, shell } = renderArea({ trTab: 'plan' }, { selectedDayId: 5 })
 
     const marker = { osm_id: 'e1', name: 'Café', lat: 53.3, lng: 9.6, category: 'cafe' }
     ;(mocks.props.onPoiClick as (m: unknown) => void)(marker)
 
-    expect(planner.openAddPlaceFromPoi).toHaveBeenCalledWith(marker, 5)
+    expect(shell.openSheet).toHaveBeenCalledWith('poi', marker)
+    expect(planner.openAddPlaceFromPoi).not.toHaveBeenCalled()
     expect(planner.handlePoiClick).not.toHaveBeenCalled()
   })
 
