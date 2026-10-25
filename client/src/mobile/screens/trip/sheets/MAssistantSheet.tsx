@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { SafeMarkdown } from '../../../../components/shared/SafeMarkdown';
 import { useAssistantChat } from '../../../../hooks/useAssistantChat';
 import { useTranslation } from '../../../../i18n';
 import { Loader2, Send, Sparkles, X } from '../../../../icons';
@@ -6,6 +7,10 @@ import MSheet from '../../../components/MSheet';
 import type { MTripSheetsProps } from '../MTripShell';
 import MAssistantCard from './MAssistantCard';
 import { INNER_CLS } from './MTripSheetUi';
+
+// The assistant writes light markdown: keep paragraphs close and lists compact inside the bubble.
+const CHAT_MD_CLS =
+  '[&_p]:m-0 [&_p+p]:mt-2 [&_ul]:my-1 [&_ul]:ps-4 [&_ol]:my-1 [&_ol]:ps-4 [&_li]:my-0 [&_strong]:font-bold';
 
 const SUGGESTIONS = ['assistant.suggest1', 'assistant.suggest2', 'assistant.suggest3'] as const;
 
@@ -17,7 +22,12 @@ const SUGGESTIONS = ['assistant.suggest1', 'assistant.suggest2', 'assistant.sugg
 export default function MAssistantSheet({ planner, shell }: MTripSheetsProps) {
   const { t } = useTranslation();
   const open = shell.sheet?.id === 'assistant';
-  const { turns, loading, send } = useAssistantChat(planner.tripId, planner.language, t('assistant.error'));
+  const { turns, loading, send } = useAssistantChat(
+    planner.tripId,
+    planner.language,
+    t('assistant.error'),
+    planner.selectedDayId
+  );
   const [draft, setDraft] = useState('');
   const endRef = useRef<HTMLDivElement>(null);
   const canAdd = planner.can('place_edit', planner.trip);
@@ -74,11 +84,11 @@ export default function MAssistantSheet({ planner, shell }: MTripSheetsProps) {
               className={`flex flex-col gap-2 ${turn.role === 'user' ? 'items-end' : 'items-stretch'}`}
             >
               <div
-                className={`max-w-[88%] whitespace-pre-wrap rounded-[14px] px-3 py-[9px] font-geist text-[0.8125rem] leading-[1.5] ${
-                  turn.role === 'user' ? 'bg-m-act text-m-actfg' : INNER_CLS
+                className={`max-w-[88%] rounded-[14px] px-3 py-[9px] font-geist text-[0.8125rem] leading-[1.5] ${
+                  turn.role === 'user' ? 'whitespace-pre-wrap bg-m-act text-m-actfg' : `${INNER_CLS} ${CHAT_MD_CLS}`
                 } ${turn.failed ? 'text-m-muted' : ''}`}
               >
-                {turn.text}
+                {turn.role === 'user' ? turn.text : <SafeMarkdown>{turn.text}</SafeMarkdown>}
               </div>
               {turn.cards.map((card) => (
                 <MAssistantCard

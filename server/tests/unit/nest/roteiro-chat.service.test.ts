@@ -1,4 +1,4 @@
-import { RoteiroChatService } from '../../../src/nest/roteiro-ia/roteiro-chat.service';
+import { RoteiroChatService, describeTrip, listsPlacesInText } from '../../../src/nest/roteiro-ia/roteiro-chat.service';
 import { RoteiroIaController } from '../../../src/nest/roteiro-ia/roteiro-ia.controller';
 import { applyDetails, toCard, toKnownPlace } from '../../../src/nest/roteiro-ia/roteiro-ia.tools';
 import { HttpException } from '@nestjs/common';
@@ -353,5 +353,87 @@ describe('RoteiroIaController', () => {
     expect(start).toHaveBeenCalledWith(user, { destination: 'Gramado' });
     expect(await c.retryTripPlan(user as never, 9)).toEqual({ tripId: 9, remaining: 3 });
     expect(retry).toHaveBeenCalledWith(5, 9);
+  });
+});
+
+describe('conversational chat', () => {
+  beforeEach(() => safeFetchLlm.mockReset());
+
+  it('puts the trip, the open day and the stops in the system prompt', async () => {
+    const { svc } = make();
+    safeFetchLlm.mockResolvedValueOnce(answer({ content: 'Oi!' }));
+    await svc.chat(1, { ...body, context: { dayId: 7 } });
+    const sent = JSON.parse((safeFetchLlm.mock.calls[0][1] as RequestInit).body as string);
+    const system = sent.messages[0].content as string;
+    expect(system).toContain('Paraná');
+    expect(system).toContain('day_id 7 [OPEN NOW]: Hotel');
+    expect(system).toContain('MUST call search_places');
+  });
+
+  it('measures "nearby" from the last stop of the open day when the model gives no coordinates', async () => {
+    const { svc, maps } = make();
+    safeFetchLlm
+      .mockResolvedValueOnce(answer({ content: null, tool_calls: [toolCall('search_places', { query: 'almoço' })] }))
+      .mockResolvedValueOnce(answer({ content: 'Achei uns lugares.' }));
+    await svc.chat(1, { ...body, context: { dayId: 7 } });
+    expect(maps.searchPlaces).toHaveBeenCalledWith(
+      1,
+      'almoço',
+      'pt-BR',
+      { lat: 1, lng: 2, radius: 5000 },
+      { googleOnly: true },
+    );
+  });
+
+  it('sends the model back to the tools once when it lists venues in the text', async () => {
+    const { svc, maps } = make();
+    safeFetchLlm
+      .mockResolvedValueOnce(answer({ content: '1. **Bella Brasa** - Rua A\n2. **Di Pietro** - Rua B' }))
+      .mockResolvedValueOnce(answer({ content: null, tool_calls: [toolCall('search_places', { query: 'almoço' })] }))
+      .mockResolvedValueOnce(answer({ content: 'Veja as opções abaixo.' }));
+    const res = await svc.chat(1, body);
+    expect(maps.searchPlaces).toHaveBeenCalledTimes(1);
+    expect(res.reply).toBe('Veja as opções abaixo.');
+    const second = JSON.parse((safeFetchLlm.mock.calls[1][1] as RequestInit).body as string);
+    expect(second.messages.at(-1).content).toContain('Do not list places in text');
+  });
+
+  it('accepts a list in the text after one nudge instead of looping', async () => {
+    const { svc } = make();
+    const list = '- Bella Brasa\n- Di Pietro';
+    safeFetchLlm.mockResolvedValueOnce(answer({ content: list })).mockResolvedValueOnce(answer({ content: list }));
+    const res = await svc.chat(1, body);
+    expect(res.reply).toBe(list);
+    expect(safeFetchLlm).toHaveBeenCalledTimes(2);
+  });
+});
+
+describe('describeTrip and listsPlacesInText', () => {
+  const trip = {
+    title: null,
+    start_date: null,
+    end_date: null,
+    days: [
+      { day_id: 1, day_number: 1, date: null, places: [{ name: 'Museu', time: '09:00', lat: 1, lng: 2 }] },
+      { day_id: 2, day_number: 2, date: '2026-12-02', places: [] },
+    ],
+  };
+
+  it('marks the open day, says when a day is empty and anchors on the last stop', () => {
+    const open = describeTrip(trip, 1);
+    expect(open.text).toContain('Trip: untitled (? to ?)');
+    expect(open.text).toContain('Day 1, day_id 1 [OPEN NOW]: 09:00 Museu');
+    expect(open.text).toContain('nothing planned yet');
+    expect(open.anchor).toEqual({ lat: 1, lng: 2 });
+  });
+
+  it('has no anchor when nothing is planned anywhere', () => {
+    expect(describeTrip({ ...trip, days: [trip.days[1]] }, 2).anchor).toBeNull();
+  });
+
+  it('spots a bulleted or numbered list but not a plain sentence', () => {
+    expect(listsPlacesInText('1) A\n2) B')).toBe(true);
+    expect(listsPlacesInText('Vá ao Museu e depois almoce perto.')).toBe(false);
+    expect(listsPlacesInText('- só um item')).toBe(false);
   });
 });

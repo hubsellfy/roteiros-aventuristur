@@ -44,6 +44,13 @@ export default function MAssistantCard({ card, language, dayNumber, canAdd, onAd
             {card.ratingCount != null && <span>({card.ratingCount.toLocaleString(language)})</span>}
           </div>
         )}
+        {card.openNow != null && (
+          <div
+            className={`mt-[3px] font-geist text-caption font-semibold ${card.openNow ? 'text-m-act' : 'text-m-muted'}`}
+          >
+            {card.openNow ? t('assistant.place.openNow') : t('assistant.place.closed')}
+          </div>
+        )}
         {card.address && (
           <div className="mt-[2px] font-geist text-[0.6875rem] leading-[1.4] text-m-muted">{card.address}</div>
         )}
