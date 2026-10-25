@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { Activity, FolderTree, HardDrive } from '../../../icons'
+import { Activity, FolderTree, HardDrive } from 'lucide-react'
 import {
   STORAGE_CATEGORIES,
   type StorageBackend,

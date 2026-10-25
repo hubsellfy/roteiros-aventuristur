@@ -3,7 +3,7 @@ import { adminApi } from '../../api/client'
 import { useTranslation } from '../../i18n'
 import { usePermissionsStore, PermissionLevel } from '../../store/permissionsStore'
 import { useToast } from '../shared/Toast'
-import { Save, Loader2, RotateCcw } from '../../icons'
+import { Save, Loader2, RotateCcw } from 'lucide-react'
 import CustomSelect from '../shared/CustomSelect'
 
 interface PermissionEntry {

@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
-import { ArrowRight, Bookmark, Loader2, Plus, X } from '../../../../icons'
+import { ArrowRight, Bookmark, Loader2, Plus, X } from 'lucide-react'
 import MSheet from '../../../components/MSheet'
 import MIconBtn from '../../../components/MIconBtn'
 import { useTranslation } from '../../../../i18n'

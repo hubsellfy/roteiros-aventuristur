@@ -19,7 +19,7 @@ import {
   Star,
   Sun,
   Wifi,
-} from '../../icons'
+} from 'lucide-react'
 import type { MapsPlaceEnrichmentResult, PlaceFact, PlaceHours, PlacePhotoCandidate, PlaceRating } from '@trek/shared'
 import { mapsApi } from '../../api/client'
 import { resolveOpenNow, resolvePlaceTimeZone, placeWeekdayIndex } from './placeOpenState'

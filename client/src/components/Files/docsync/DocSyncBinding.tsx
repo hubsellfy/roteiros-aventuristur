@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import {
   AlertTriangle, Check, ChevronDown, Clock, Copy, FolderOpen, Link2Off, RefreshCw,
-} from '../../../icons'
+} from 'lucide-react'
 import ConfirmDialog from '../../shared/ConfirmDialog'
 import CustomSelect from '../../shared/CustomSelect'
 import ToggleSwitch from '../../Settings/ToggleSwitch'

@@ -1,4 +1,4 @@
-import { Plus, NotebookPen, Image, MapPin } from '../../../icons'
+import { Plus, NotebookPen, Image, MapPin } from 'lucide-react'
 import { useTranslation } from '../../../i18n'
 import { useJourney } from '../../../pages/journey/useJourney'
 import type { Journey } from '../../../store/journeyStore'

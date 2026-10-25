@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { Download, Link2, Trash2 } from '../../../../icons'
+import { Download, Link2, Trash2 } from 'lucide-react'
 import MSheet from '../../../components/MSheet'
 import MListRow from '../../../components/MListRow'
 import MConfirmSheet from '../../settings/MConfirmSheet'

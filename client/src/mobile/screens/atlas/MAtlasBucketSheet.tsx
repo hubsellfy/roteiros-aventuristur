@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { getIntlLanguage } from '../../../i18n'
-import { Calendar, ChevronDown, ChevronLeft, ChevronRight, MapPin, Plus, Search, Star, Trash2, X } from '../../../icons'
+import { Calendar, ChevronDown, ChevronLeft, ChevronRight, MapPin, Plus, Search, Star, Trash2, X } from 'lucide-react'
 import MSheet from '../../components/MSheet'
 import MIconBtn from '../../components/MIconBtn'
 import { A2_TO_A3 } from '../../../pages/atlas/atlasModel'

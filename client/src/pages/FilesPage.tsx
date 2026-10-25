@@ -3,7 +3,7 @@ import { Link } from 'react-router'
 import PageShell from '../components/Layout/PageShell'
 import { PageSpinner } from '../components/shared/Spinner'
 import FileManager from '../components/Files/FileManager'
-import { ArrowLeft } from '../icons'
+import { ArrowLeft } from 'lucide-react'
 import { useTranslation } from '../i18n'
 import { useFiles } from './files/useFiles'
 

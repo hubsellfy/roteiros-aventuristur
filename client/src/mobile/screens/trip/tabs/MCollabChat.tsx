@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
-import { ArrowUp, ChevronUp, ImagePlus, Loader2, Reply, Trash2 } from '../../../../icons'
+import { ArrowUp, ChevronUp, ImagePlus, Loader2, Reply, Trash2 } from 'lucide-react'
 import MDancingTrek from '../../../components/MDancingTrek'
 import { useChatImages, MAX_CHAT_IMAGES } from '../../../../components/Collab/useChatImages'
 import { collabApi } from '../../../../api/client'

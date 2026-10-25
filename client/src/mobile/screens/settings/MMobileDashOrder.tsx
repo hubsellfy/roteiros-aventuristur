@@ -1,4 +1,4 @@
-import { ChevronUp, ChevronDown } from '../../../icons'
+import { ChevronUp, ChevronDown } from 'lucide-react'
 import { useTranslation } from '../../../i18n'
 import { useAddonStore } from '../../../store/addonStore'
 import { resolveMobileDashOrder } from '../dashboard/MDashWidgets'

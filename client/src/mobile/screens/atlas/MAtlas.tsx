@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 import { useSearchParams } from 'react-router'
-import { X } from '../../../icons'
+import { X } from 'lucide-react'
 import { useAtlas } from '../../../pages/atlas/useAtlas'
 import MIconBtn from '../../components/MIconBtn'
 import MSheet from '../../components/MSheet'

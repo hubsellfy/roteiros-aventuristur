@@ -1,6 +1,6 @@
 import type React from 'react'
 import { useState, useMemo, useEffect, useLayoutEffect, useRef, useCallback } from 'react'
-import { Pencil, Trash2, ExternalLink, Navigation, CalendarDays, Bookmark } from '../../icons'
+import { Pencil, Trash2, ExternalLink, Navigation, CalendarDays, Bookmark } from 'lucide-react'
 import { useTranslation } from '../../i18n'
 import { useToast } from '../shared/Toast'
 import { useContextMenu } from '../shared/ContextMenu'

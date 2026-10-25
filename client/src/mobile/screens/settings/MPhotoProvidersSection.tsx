@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react'
-import { Camera, Save, RefreshCw } from '../../../icons'
+import { Camera, Save, RefreshCw } from 'lucide-react'
 import { useTranslation } from '../../../i18n'
 import { useToast } from '../../../components/shared/Toast'
 import apiClient from '../../../api/client'

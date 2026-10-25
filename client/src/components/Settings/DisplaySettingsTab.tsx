@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react'
-import { Languages, Map, ChevronDown, Check, Rocket } from '../../icons'
+import { Languages, Map, ChevronDown, Check, Rocket } from 'lucide-react'
 import { SUPPORTED_LANGUAGES, useTranslation } from '../../i18n'
 import { useSettingsStore, DEFAULT_SETTINGS } from '../../store/settingsStore'
 import { useToast } from '../shared/Toast'

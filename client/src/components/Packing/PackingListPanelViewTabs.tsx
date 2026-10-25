@@ -1,4 +1,4 @@
-import { Users, UserRound } from '../../icons'
+import { Users, UserRound } from 'lucide-react'
 import type { PackingState } from './usePackingListPanel'
 
 /**

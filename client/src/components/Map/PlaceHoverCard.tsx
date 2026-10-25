@@ -1,5 +1,5 @@
 import React from 'react'
-import { Star } from '../../icons'
+import { Star } from 'lucide-react'
 import { getCategoryIcon } from '../shared/categoryIcons'
 
 /**

@@ -6,7 +6,7 @@
  * with a confirm-coloured check.
  */
 import { useState } from 'react'
-import { Check, ChevronDown, ChevronRight, Minus } from '../../../icons'
+import { Check, ChevronDown, ChevronRight, Minus } from 'lucide-react'
 import { getScopesByGroup } from '../../../api/oauthScopes'
 import { useTranslation } from '../../../i18n'
 

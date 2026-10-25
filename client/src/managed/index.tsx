@@ -1,5 +1,5 @@
 import type { ReactElement } from 'react'
-import type { LucideIcon } from '../icons'
+import type { LucideIcon } from 'lucide-react'
 
 /**
  * The attachment point for surfaces that only exist on a centrally administered

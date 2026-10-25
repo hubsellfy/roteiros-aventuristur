@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react'
 import { createPortal } from 'react-dom'
-import { Clock, ChevronUp, ChevronDown } from '../../icons'
+import { Clock, ChevronUp, ChevronDown } from 'lucide-react'
 import { useSettingsStore } from '../../store/settingsStore'
 import { formatClockTime, parseMeridiemTime } from '../../utils/formatters'
 import { useAnchoredPosition } from '../../hooks/useAnchoredPosition'

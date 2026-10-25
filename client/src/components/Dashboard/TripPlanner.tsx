@@ -1,6 +1,6 @@
 import React from 'react'
 import { TRIP_PLAN_STYLES } from '@trek/shared'
-import { ArrowRight, MapPin, Navigation, RefreshCw, Sparkles, Trash2, Wallet } from '../../icons'
+import { ArrowRight, MapPin, Navigation, RefreshCw, Sparkles, Trash2, Wallet } from 'lucide-react'
 import { useTranslation } from '../../i18n'
 import { useTripPlanForm } from '../../hooks/useTripPlanForm'
 import { CustomDatePicker } from '../shared/CustomDateTimePicker'

@@ -1,4 +1,4 @@
-import { MapPin, X } from '../../../../icons'
+import { MapPin, X } from 'lucide-react'
 import MSheet from '../../../components/MSheet'
 import MIconBtn from '../../../components/MIconBtn'
 import { getCategoryIcon } from '../../../../components/shared/categoryIcons'

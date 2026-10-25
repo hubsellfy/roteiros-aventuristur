@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
-import { ChevronDown, Clock, Pencil } from '../../icons'
+import { ChevronDown, Clock, Pencil } from 'lucide-react'
 import { useVacayStore } from '../../store/vacayStore'
 import { useAuthStore } from '../../store/authStore'
 import { useTranslation } from '../../i18n'

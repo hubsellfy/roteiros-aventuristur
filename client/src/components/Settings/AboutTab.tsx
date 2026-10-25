@@ -1,4 +1,4 @@
-import { ExternalLink, Info } from '../../icons';
+import { ExternalLink, Info } from 'lucide-react';
 import React from 'react';
 import { useTranslation } from '../../i18n';
 import { aboutCopy, buildCommit, LICENSE_URL, sourceUrl } from '../../brand/aboutContent';

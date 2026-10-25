@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { ChevronDown, Check, Layers, Tag, CheckSquare, Star, Plus, ArrowDownUp, DownloadCloud } from '../../icons'
+import { ChevronDown, Check, Layers, Tag, CheckSquare, Star, Plus, ArrowDownUp, DownloadCloud } from 'lucide-react'
 import type { StatusFilter, CollectionSortMode } from '../../store/collectionStore'
 import type { TranslationFn } from '../../types'
 import { getCategoryIcon } from '../shared/categoryIcons'

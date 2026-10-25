@@ -1,4 +1,4 @@
-import { Copy, Link2, Trash2, UserPlus } from '../../../icons'
+import { Copy, Link2, Trash2, UserPlus } from 'lucide-react'
 import type { TranslationFn } from '../../../types'
 import type { useAdmin } from '../../../pages/admin/useAdmin'
 import MAdminPermissionsPanel from './MAdminPermissionsPanel'

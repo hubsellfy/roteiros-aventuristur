@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router'
 import { useAuthStore } from '../../store/authStore'
 import { useInAppNotificationStore } from '../../store/inAppNotificationStore'
 import { useTranslation } from '../../i18n'
-import { Bell, Settings, Shield, LogOut } from '../../icons'
+import { Bell, Settings, Shield, LogOut } from 'lucide-react'
 
 // Mobile-only: a slim strip at the very top of the dashboard with the
 // notification + profile icons (right-aligned). Scrolls with the page.

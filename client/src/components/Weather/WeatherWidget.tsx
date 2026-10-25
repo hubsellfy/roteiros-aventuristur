@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Sun, Cloud, CloudRain, CloudSnow, CloudDrizzle, CloudLightning, Wind } from '../../icons'
+import { Sun, Cloud, CloudRain, CloudSnow, CloudDrizzle, CloudLightning, Wind } from 'lucide-react'
 import { fetchWeather } from '../../services/weatherQueue'
 import { useSettingsStore } from '../../store/settingsStore'
 

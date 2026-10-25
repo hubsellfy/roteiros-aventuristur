@@ -1,6 +1,6 @@
 // FE-COMP-DAYIMPACT-001 to FE-COMP-DAYIMPACT-006
 import { describe, it, expect } from 'vitest'
-import { BedDouble, CalendarCheck, MapPin } from '../../icons'
+import { BedDouble, CalendarCheck, MapPin } from 'lucide-react'
 import { render, screen } from '../../../tests/helpers/render'
 import DayImpactList from './DayImpactList'
 import MDayImpactList from '../../mobile/components/MDayImpactList'

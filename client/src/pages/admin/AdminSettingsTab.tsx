@@ -1,7 +1,7 @@
 import React from 'react'
 import { adminApi, authApi } from '../../api/client'
 import { getApiErrorMessage } from '../../types'
-import { Eye, EyeOff, Save, CheckCircle, XCircle, Loader2, RefreshCw, AlertTriangle } from '../../icons'
+import { Eye, EyeOff, Save, CheckCircle, XCircle, Loader2, RefreshCw, AlertTriangle } from 'lucide-react'
 import ToggleSwitch from '../../components/Settings/ToggleSwitch'
 import CustomSelect from '../../components/shared/CustomSelect'
 import GoogleOptions from './GoogleOptions'

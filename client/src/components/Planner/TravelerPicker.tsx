@@ -1,4 +1,4 @@
-import { Check, Users } from '../../icons'
+import { Check, Users } from 'lucide-react'
 import type { ReservationTraveler } from '@trek/shared'
 import { SPLIT_COLORS } from '../Budget/BudgetPanel.constants'
 import type { TripMember } from '../Budget/BudgetPanelMemberChips'

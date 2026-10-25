@@ -1,5 +1,5 @@
 import React from 'react'
-import { MapPin } from '../../icons'
+import { MapPin } from 'lucide-react'
 import { useTranslation } from '../../i18n/TranslationContext'
 import { Tooltip } from '../shared/Tooltip'
 import AnchoredPopover from './AnchoredPopover'

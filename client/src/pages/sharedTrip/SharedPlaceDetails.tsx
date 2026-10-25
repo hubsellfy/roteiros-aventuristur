@@ -1,4 +1,4 @@
-import { Clock, ExternalLink, FileText, Globe, MapPin, Phone } from '../../icons'
+import { Clock, ExternalLink, FileText, Globe, MapPin, Phone } from 'lucide-react'
 import { useTranslation } from '../../i18n'
 import { getGoogleMapsUrlForPlace } from '../../components/Planner/placeGoogleMaps'
 import { formatDurationMinutes, isHttpUrl } from './sharedTripModel'

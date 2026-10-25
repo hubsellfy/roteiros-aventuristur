@@ -1,5 +1,5 @@
 import { createElement } from 'react'
-import { ParkingSquare } from '../../icons'
+import { ParkingSquare } from 'lucide-react'
 import { renderIconMarkup } from '../../utils/iconMarkup'
 import { isServiceStopType, serviceColor } from './roadtripModel'
 import { STOP_KIND_BY_KEY } from './stopKinds'

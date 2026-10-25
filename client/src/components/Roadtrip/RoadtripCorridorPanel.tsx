@@ -2,7 +2,7 @@ import GoogleRouteImport from './GoogleRouteImport'
 import React, { useMemo, useState } from 'react'
 import {
   Search, Plus, RotateCw, AlertTriangle, X, BedDouble, MapPin, ChevronDown,
-} from '../../icons'
+} from 'lucide-react'
 import { useTranslation } from '../../i18n/TranslationContext'
 import { Tooltip } from '../shared/Tooltip'
 import EmptyState from '../shared/EmptyState'

@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { MapPin, X } from '../../icons'
+import { MapPin, X } from 'lucide-react'
 import { mapsApi } from '../../api/client'
 import { useTranslation } from '../../i18n'
 import { useLocationBias } from '../../hooks/useLocationBias'

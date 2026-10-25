@@ -1,5 +1,5 @@
 import type { CSSProperties } from 'react'
-import { BedDouble, type LucideIcon } from '../../icons'
+import { BedDouble, type LucideIcon } from 'lucide-react'
 import { formatClockTime } from '../../utils/formatters'
 import { parseClock, serviceColor, type ScheduleEntry } from './roadtripModel'
 import type { TranslationFn } from '../../types'

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { ParkingSquare, Hourglass, AlertTriangle, BedDouble } from '../../icons'
+import { ParkingSquare, Hourglass, AlertTriangle, BedDouble } from 'lucide-react'
 import Modal from '../shared/Modal'
 import CustomTimePicker from '../shared/CustomTimePicker'
 import StayPortals from './StayPortals'

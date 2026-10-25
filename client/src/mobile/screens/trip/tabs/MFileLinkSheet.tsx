@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react'
-import { Check, Link2, Loader2, MapPin, Ticket, TrainFront } from '../../../../icons'
-import type { LucideIcon } from '../../../../icons'
+import { Check, Link2, Loader2, MapPin, Ticket, TrainFront } from 'lucide-react'
+import type { LucideIcon } from 'lucide-react'
 import MSheet from '../../../components/MSheet'
 import { filesApi } from '../../../../api/client'
 import type { TripFile } from '../../../../types'

@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react'
-import { ChevronDown, Settings2 } from '../../../icons'
+import { ChevronDown, Settings2 } from 'lucide-react'
 import { adminApi } from '../../../api/client'
 import { useTranslation } from '../../../i18n'
 import { useToast } from '../../../components/shared/Toast'

@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react'
-import { MapPin } from '../../../../icons'
+import { MapPin } from 'lucide-react'
 import MSheet from '../../../components/MSheet'
 import type { MTripSheetsProps } from '../MTripShell'
 import { useTranslation } from '../../../../i18n'

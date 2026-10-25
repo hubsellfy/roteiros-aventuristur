@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router'
-import { ArrowLeft, CheckCheck, Trash2 } from '../../../icons'
+import { ArrowLeft, CheckCheck, Trash2 } from 'lucide-react'
 import MDancingTrek from '../../components/MDancingTrek'
 import { useTranslation } from '../../../i18n'
 import { useInAppNotifications } from '../../../pages/inAppNotifications/useInAppNotifications'

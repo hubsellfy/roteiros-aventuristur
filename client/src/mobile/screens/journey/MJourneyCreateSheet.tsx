@@ -1,4 +1,4 @@
-import { Feather, Calendar, MapPin, Check, X } from '../../../icons'
+import { Feather, Calendar, MapPin, Check, X } from 'lucide-react'
 import MSheet from '../../components/MSheet'
 import MIconBtn from '../../components/MIconBtn'
 import { useTranslation } from '../../../i18n'

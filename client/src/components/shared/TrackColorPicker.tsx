@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react'
-import { Pipette, RotateCcw } from '../../icons'
+import { Pipette, RotateCcw } from 'lucide-react'
 import { TRACK_COLORS } from '@trek/shared'
 import { useTranslation } from '../../i18n'
 

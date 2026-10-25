@@ -15,7 +15,7 @@ import {
   Trash2,
   User,
   X,
-} from '../../../icons'
+} from 'lucide-react'
 import { useNavigate, useSearchParams } from 'react-router'
 import { startRegistration } from '@simplewebauthn/browser'
 import { escapeHtml } from '@trek/shared'

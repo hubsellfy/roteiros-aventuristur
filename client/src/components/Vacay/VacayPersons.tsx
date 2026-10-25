@@ -1,6 +1,6 @@
 import { createPortal } from 'react-dom'
 import { useState, useEffect, type HTMLAttributes } from 'react'
-import { UserPlus, Check, Loader2, Clock, X } from '../../icons'
+import { UserPlus, Check, Loader2, Clock, X } from 'lucide-react'
 import { useVacayStore } from '../../store/vacayStore'
 import { useAuthStore } from '../../store/authStore'
 import { useTranslation } from '../../i18n'

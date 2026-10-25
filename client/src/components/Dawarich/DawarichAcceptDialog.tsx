@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from 'react'
-import { Gauge, Hourglass, CircleDashed, Star } from '../../icons'
+import { Gauge, Hourglass, CircleDashed, Star } from 'lucide-react'
 import type { DawarichAccept, DawarichSuggestion, DawarichSuggestionTarget } from '@trek/shared'
 import { DAWARICH_BUCKET_MATCH_MIN_MINUTES, DAWARICH_BUCKET_MATCH_RADIUS_M } from '@trek/shared'
 import { useTranslation } from '../../i18n'

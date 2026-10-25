@@ -1,5 +1,5 @@
 import { createPortal } from 'react-dom'
-import { CalendarDays, Pencil, Trash2, ChevronDown, Check, Eye } from '../../icons'
+import { CalendarDays, Pencil, Trash2, ChevronDown, Check, Eye } from 'lucide-react'
 import type { SidebarState } from './usePlacesSidebar'
 
 export function MobileDayPickerSheet(S: SidebarState) {

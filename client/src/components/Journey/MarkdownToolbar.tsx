@@ -1,4 +1,4 @@
-import { Bold, Italic, Heading2, Link, Quote, List, ListOrdered, Minus } from '../../icons'
+import { Bold, Italic, Heading2, Link, Quote, List, ListOrdered, Minus } from 'lucide-react'
 
 interface Props {
   textareaRef: React.RefObject<HTMLTextAreaElement | null>

@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
-import { FolderPlus, Loader2, Search } from '../../../icons'
+import { FolderPlus, Loader2, Search } from 'lucide-react'
 import Modal from '../../shared/Modal'
 import { useTranslation } from '../../../i18n/TranslationContext'
 import type { DocSyncConnection, DocSyncScope, useDocSync } from './useDocSync'

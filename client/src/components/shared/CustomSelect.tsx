@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react'
 import { createPortal } from 'react-dom'
-import { ChevronDown, Check } from '../../icons'
+import { ChevronDown, Check } from 'lucide-react'
 import { useAnchoredPosition, scrollAnchorIntoView } from '../../hooks/useAnchoredPosition'
 
 interface SelectOption {

@@ -1,6 +1,6 @@
 import React, { useEffect, useCallback, useRef } from 'react'
 import { createPortal } from 'react-dom'
-import { X } from '../../icons'
+import { X } from 'lucide-react'
 import { lockBodyScroll } from '../../utils/bodyScrollLock'
 
 const sizeClasses: Record<string, string> = {

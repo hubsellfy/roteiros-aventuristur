@@ -1,5 +1,5 @@
-import type { LucideIcon } from '../../../../icons'
-import { BarChart3, Link2, MessageCircle, StickyNote } from '../../../../icons'
+import type { LucideIcon } from 'lucide-react'
+import { BarChart3, Link2, MessageCircle, StickyNote } from 'lucide-react'
 import type { MTabScreenProps } from './tabModel'
 import { TabScroller } from './tabChrome'
 import MCollabChat from './MCollabChat'

@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from 'react'
-import { RefreshCw, Camera, X, Play } from '../../icons'
+import { RefreshCw, Camera, X, Play } from 'lucide-react'
 import { normalizeImageFiles } from '../../utils/convertHeic'
 import { isVideoFile } from '../../utils/videoPoster'
 import { useJourneyStore } from '../../store/journeyStore'

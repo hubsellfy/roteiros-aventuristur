@@ -1,4 +1,4 @@
-import { Calendar, ChevronLeft, ChevronRight, Keyboard } from '../../icons';
+import { Calendar, ChevronLeft, ChevronRight, Keyboard } from 'lucide-react';
 import { localIsoDate } from '../../utils/localDate';
 import React, { useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';

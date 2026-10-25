@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
-import { ExternalLink, Download, X, ChevronLeft, ChevronRight, Play } from '../../icons'
+import { ExternalLink, Download, X, ChevronLeft, ChevronRight, Play } from 'lucide-react'
 import { useTranslation } from '../../i18n'
 import type { TripFile } from '../../types'
 import { getAuthUrl } from '../../api/authUrl'

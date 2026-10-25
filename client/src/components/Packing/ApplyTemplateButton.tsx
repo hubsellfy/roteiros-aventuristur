@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { Package } from '../../icons'
+import { Package } from 'lucide-react'
 import { packingApi } from '../../api/client'
 import { useTripStore } from '../../store/tripStore'
 import { useToast } from '../shared/Toast'

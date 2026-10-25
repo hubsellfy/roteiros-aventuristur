@@ -1,4 +1,4 @@
-import { UserRound } from '../../icons'
+import { UserRound } from 'lucide-react'
 import { useTranslation } from '../../i18n'
 
 /**

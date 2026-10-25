@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { AlertTriangle, Check, RotateCw, Spline, Trash2 } from '../../icons'
+import { AlertTriangle, Check, RotateCw, Spline, Trash2 } from 'lucide-react'
 import Modal from '../shared/Modal'
 import EmptyState from '../shared/EmptyState'
 import { useTranslation } from '../../i18n/TranslationContext'

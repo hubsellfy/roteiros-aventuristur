@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router'
 import {
   ArrowLeft, BookOpen, Check, ChevronDown, Download, Maximize2, Minus, Plus,
   Redo2, Sparkles, Undo2,
-} from '../../icons'
+} from 'lucide-react'
 import { useJourneyStudio } from '../../pages/journeyStudio/useJourneyStudio'
 import { PAGE_PRESET_ORDER, PAGE_PRESETS } from './pagePresets'
 import { foliosOf } from './bookSheets'

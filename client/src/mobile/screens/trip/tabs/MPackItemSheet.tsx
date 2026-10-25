@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { Check, Copy, HandHelping, Share2, UserRound, Users } from '../../../../icons'
+import { Check, Copy, HandHelping, Share2, UserRound, Users } from 'lucide-react'
 import MSheet from '../../../components/MSheet'
 import { Eyebrow, FIELD_CLS, FormSheetFooter, FormSheetHeader } from '../sheets/PlSheetChrome'
 import { avatarSrc } from '../../../../utils/avatarSrc'

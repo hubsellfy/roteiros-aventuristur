@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react'
 import { adminApi } from '../../api/client'
 import { useToast } from '../shared/Toast'
 import { useTranslation } from '../../i18n'
-import { Plus, Trash2, Edit2, Package, X, Check, ChevronDown, ChevronRight, FolderPlus } from '../../icons'
+import { Plus, Trash2, Edit2, Package, X, Check, ChevronDown, ChevronRight, FolderPlus } from 'lucide-react'
 
 interface TemplateCategory { id: number; template_id: number; name: string; sort_order: number }
 interface TemplateItem { id: number; category_id: number; name: string; sort_order: number }

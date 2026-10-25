@@ -1,7 +1,7 @@
 import {
   Laugh, Smile, Meh, Frown,
   Sun, CloudSun, Cloud, CloudRain, CloudLightning, Snowflake,
-} from '../../icons'
+} from 'lucide-react'
 
 export const GRADIENTS = [
   'linear-gradient(135deg, #0F172A 0%, #6366F1 45%, #EC4899 100%)',

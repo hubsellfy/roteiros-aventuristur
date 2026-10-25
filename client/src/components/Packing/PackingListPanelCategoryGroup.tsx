@@ -5,7 +5,7 @@ import { useTranslation } from '../../i18n'
 import {
   Trash2, Plus, ChevronDown, ChevronRight,
   X, Pencil, Check, MoreHorizontal, CheckCheck, RotateCcw, UserPlus,
-} from '../../icons'
+} from 'lucide-react'
 import type { PackingItem, PackingBag } from '../../types'
 import { katColor } from './packingListPanel.helpers'
 import type { TripMember, CategoryAssignee } from './usePackingListPanel'

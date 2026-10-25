@@ -1,4 +1,4 @@
-import { Ban } from '../../icons'
+import { Ban } from 'lucide-react'
 import { NOTE_COLORS } from '@trek/shared'
 import { useTranslation } from '../../i18n'
 

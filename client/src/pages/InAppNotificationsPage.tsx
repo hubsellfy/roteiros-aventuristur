@@ -1,5 +1,5 @@
 import React from 'react'
-import { CheckCheck, Trash2 } from '../icons'
+import { CheckCheck, Trash2 } from 'lucide-react'
 import { useTranslation } from '../i18n'
 import PageShell from '../components/Layout/PageShell'
 import EmptyState from '../components/shared/EmptyState'

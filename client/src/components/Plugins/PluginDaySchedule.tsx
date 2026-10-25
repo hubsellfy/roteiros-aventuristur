@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
-import { Zap } from '../../icons'
+import { Zap } from 'lucide-react'
 import { pluginsApi, type PluginDayScheduleItem, type PluginDayTint } from '../../api/client'
 
 /**

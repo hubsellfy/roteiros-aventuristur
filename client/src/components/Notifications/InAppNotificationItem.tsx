@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router'
-import { User, Check, X, ArrowRight, Trash2, CheckCheck } from '../../icons'
+import { User, Check, X, ArrowRight, Trash2, CheckCheck } from 'lucide-react'
 import { useTranslation } from '../../i18n'
 import { useInAppNotificationStore, InAppNotification } from '../../store/inAppNotificationStore'
 import { useSettingsStore } from '../../store/settingsStore'

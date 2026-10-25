@@ -1,4 +1,4 @@
-import { CalendarPlus, CalendarRange, Plus, Trash2 } from '../../../../icons'
+import { CalendarPlus, CalendarRange, Plus, Trash2 } from 'lucide-react'
 import MSheet from '../../../components/MSheet'
 import { ReorderStack } from '../plan/MPlanTimelineRows'
 import { INNER_CLS, TileHeader } from './MTripSheetUi'

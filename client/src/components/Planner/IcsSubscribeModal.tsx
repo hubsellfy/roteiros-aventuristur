@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from 'react'
 import { createPortal } from 'react-dom'
-import { X, RefreshCw, Calendar, Power } from '../../icons'
+import { X, RefreshCw, Calendar, Power } from 'lucide-react'
 import { SubscribeLinks } from './SubscribeLinks'
 
 interface IcsSubscribeModalProps {

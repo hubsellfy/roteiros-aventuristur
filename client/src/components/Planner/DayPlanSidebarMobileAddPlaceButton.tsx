@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Plus, X, MapPin } from '../../icons'
+import { Plus, X, MapPin } from 'lucide-react'
 import { useTranslation } from '../../i18n'
 import type { Place, AssignmentsMap } from '../../types'
 

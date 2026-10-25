@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Loader2, RotateCcw, Trash2 } from '../../../../icons'
+import { Loader2, RotateCcw, Trash2 } from 'lucide-react'
 import MSheet from '../../../components/MSheet'
 import MConfirmSheet from '../../settings/MConfirmSheet'
 import { filesApi } from '../../../../api/client'

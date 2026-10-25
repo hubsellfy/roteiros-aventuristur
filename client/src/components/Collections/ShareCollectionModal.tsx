@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useState } from 'react'
 import { avatarSrc } from '../../utils/avatarSrc'
-import { UserPlus, UserMinus, Loader2, Clock, Crown, LogOut } from '../../icons'
+import { UserPlus, UserMinus, Loader2, Clock, Crown, LogOut } from 'lucide-react'
 import type { CollectionMember, CollectionRole } from '@trek/shared'
 import Modal from '../shared/Modal'
 import CustomSelect from '../shared/CustomSelect'

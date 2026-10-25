@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Check, Copy, ExternalLink } from '../../icons'
+import { Check, Copy, ExternalLink } from 'lucide-react'
 import { useTranslation } from '../../i18n/TranslationContext'
 import { trivagoSearchHref, campingSearchHref } from './stayPortalLinks'
 import { copyText } from '../../utils/clipboard'

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Check, Pencil, Plus, Tag, Trash2 } from '../../../icons'
+import { Check, Pencil, Plus, Tag, Trash2 } from 'lucide-react'
 import type { CollectionLabelUpdateRequest } from '@trek/shared'
 import type { TranslationFn } from '../../../types'
 import type { LabelOption } from '../../../pages/collections/collectionsModel'

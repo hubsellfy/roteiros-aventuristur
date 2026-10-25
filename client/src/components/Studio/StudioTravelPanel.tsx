@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { Check, RouteOff } from '../../icons'
+import { Check, RouteOff } from 'lucide-react'
 import type { BookElement, BookMetric, BookPageSetup, JourneyStats } from '@trek/shared'
 import { BOOK_METRICS } from '@trek/shared'
 import { useStudioStore } from '../../store/studioStore'

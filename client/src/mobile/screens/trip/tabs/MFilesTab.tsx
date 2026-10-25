@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState, type ChangeEvent, type ClipboardEvent } from 'react'
-import { Link, Loader2, MoreVertical, Star } from '../../../../icons'
+import { Link, Loader2, MoreVertical, Star } from 'lucide-react'
 import MDancingTrek from '../../../components/MDancingTrek'
 import { useTranslation, translateApiError } from '../../../../i18n'
 import { filesApi } from '../../../../api/client'

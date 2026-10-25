@@ -1,5 +1,5 @@
 import React from 'react'
-import { Check, ChevronDown } from '../../icons'
+import { Check, ChevronDown } from 'lucide-react'
 import { useTranslation } from '../../i18n/TranslationContext'
 import { DROPDOWN_LIST, DROPDOWN_ROW, DROPDOWN_TRIGGER, useDropdown } from './railDropdown'
 import { FS } from './typeScale'

@@ -3,8 +3,8 @@ import {
   ArrowRight, BedDouble, CalendarDays, CalendarRange, ChevronRight, Compass, LogIn, LogOut,
   MapPin, Pencil, PencilLine, Route, Ticket, TrainFront, Undo2,
   Car, Footprints, Zap, RotateCcw, TramFront,
-} from '../../../../icons'
-import type { LucideIcon } from '../../../../icons'
+} from 'lucide-react'
+import type { LucideIcon } from 'lucide-react'
 import { useContextMenu, ContextMenu } from '../../../../components/shared/ContextMenu'
 import MarkdownText from '../../../../components/shared/MarkdownText'
 import { fmtTransitDuration } from '../../../../components/Planner/transitDisplay'

@@ -1,5 +1,5 @@
 import { createElement } from 'react'
-import { AlertTriangle, ArrowUpRight } from '../../icons'
+import { AlertTriangle, ArrowUpRight } from 'lucide-react'
 import { renderIconMarkup } from '../../utils/iconMarkup'
 import './hazardPopup.css'
 import type { RoadtripHazard } from '@trek/shared'

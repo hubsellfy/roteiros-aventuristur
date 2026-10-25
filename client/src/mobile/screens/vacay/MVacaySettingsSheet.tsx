@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
-import { ArrowRightLeft, Building2, Calendar, CalendarRange, CalendarX, ChevronDown, Globe, GraduationCap, Loader2, Plus, Trash2, Unlink, X } from '../../../icons'
+import { ArrowRightLeft, Building2, Calendar, CalendarRange, CalendarX, ChevronDown, Globe, GraduationCap, Loader2, Plus, Trash2, Unlink, X } from 'lucide-react'
 import MSheet from '../../components/MSheet'
 import MIconBtn from '../../components/MIconBtn'
 import MToggle from '../../components/MToggle'

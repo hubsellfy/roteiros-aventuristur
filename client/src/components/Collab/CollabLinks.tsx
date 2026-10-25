@@ -1,6 +1,6 @@
 import { CSSProperties, FormEvent, useEffect, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
-import { ExternalLink, Link2, Pencil, Pin, Plus, Trash2, X } from '../../icons'
+import { ExternalLink, Link2, Pencil, Pin, Plus, Trash2, X } from 'lucide-react'
 import { collabApi } from '../../api/client'
 import { addListener, removeListener } from '../../api/websocket'
 import { useTranslation } from '../../i18n'

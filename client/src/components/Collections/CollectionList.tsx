@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useRef } from 'react'
-import { Check, MapPin } from '../../icons'
+import { Check, MapPin } from 'lucide-react'
 import type { CollectionPlace, CollectionStatus, CollectionLabel } from '@trek/shared'
 import type { TranslationFn } from '../../types'
 import PlaceAvatar from '../shared/PlaceAvatar'

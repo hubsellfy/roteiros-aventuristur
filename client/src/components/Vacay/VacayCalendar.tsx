@@ -7,7 +7,7 @@ import { inGridWindow, windowMonths } from '../../vacay/yearWindow'
 import { tripsApi } from '../../api/client'
 import VacayMonthCard from './VacayMonthCard'
 import type { VacayEntry } from '../../types'
-import { Building2, MousePointer2 } from '../../icons'
+import { Building2, MousePointer2 } from 'lucide-react'
 
 type VacayMode = 'vacation' | 'company'
 type HoverTip = { date: string; top: number; left: number }

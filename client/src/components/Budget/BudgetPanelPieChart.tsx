@@ -1,4 +1,4 @@
-import { Wallet } from '../../icons'
+import { Wallet } from 'lucide-react'
 
 interface PieSegment {
   label: string

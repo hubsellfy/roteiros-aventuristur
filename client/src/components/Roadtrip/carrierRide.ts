@@ -1,4 +1,4 @@
-import { Bus, Car, Plane, Sailboat, Ship, Train, type LucideIcon } from '../../icons'
+import { Bus, Car, Plane, Sailboat, Ship, Train, type LucideIcon } from 'lucide-react'
 import { formatClock, formatDurationShort, parseClock, type ScheduleEntry, type ScheduleWarning } from './roadtripModel'
 import { formatClockTime } from '../../utils/formatters'
 import { stripAirportCode } from '../../utils/flightLegs'

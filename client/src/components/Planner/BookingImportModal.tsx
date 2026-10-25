@@ -1,6 +1,6 @@
 import { createPortal } from 'react-dom'
 import { useState, useRef, useEffect } from 'react'
-import { Upload, X } from '../../icons'
+import { Upload, X } from 'lucide-react'
 import { useTranslation } from '../../i18n'
 import { reservationsApi, healthApi } from '../../api/client'
 import { useBackgroundTasksStore } from '../../store/backgroundTasksStore'

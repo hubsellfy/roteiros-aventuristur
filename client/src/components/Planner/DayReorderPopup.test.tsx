@@ -1,7 +1,7 @@
 // FE-PLANNER-DAYREORDER-001 to FE-PLANNER-DAYREORDER-028
 import { render, screen, fireEvent } from '../../../tests/helpers/render'
 import userEvent from '@testing-library/user-event'
-import { MapPin } from '../../icons'
+import { MapPin } from 'lucide-react'
 import { buildDay } from '../../../tests/helpers/factories'
 import { DayReorderPopup } from './DayReorderPopup'
 import { setForcedOffline } from '../../sync/networkMode'

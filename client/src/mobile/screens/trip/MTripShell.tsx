@@ -4,7 +4,7 @@ import { findFocusDayId } from '../../../components/Planner/today'
 import {
   CalendarDays, ChevronDown, ChevronLeft, Download, FileDown, List, Map as MapIcon, MoreHorizontal,
   FolderSync, Plane, Plus, Rows3, Route, SlidersHorizontal, Trash2, Upload,
-} from '../../../icons'
+} from 'lucide-react'
 import { useTripPlanner } from '../../../pages/tripPlanner/useTripPlanner'
 import { pickDockTabs } from './dockTabs'
 import MBadge from '../../components/MBadge'

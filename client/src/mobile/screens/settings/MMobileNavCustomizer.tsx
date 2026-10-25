@@ -1,4 +1,4 @@
-import { ChevronUp, ChevronDown, ChevronsUp, ChevronsDown, Lock } from '../../../icons'
+import { ChevronUp, ChevronDown, ChevronsUp, ChevronsDown, Lock } from 'lucide-react'
 import { useTranslation } from '../../../i18n'
 import { useMobileNavEditor, type MobileNavValue, type NavZone } from '../../../components/Settings/useMobileNavEditor'
 import { MOBILE_NAV_MAX_BAR, type NavItemDef } from '../../../components/Layout/navItems'

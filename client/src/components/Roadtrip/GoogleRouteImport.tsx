@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { MoreHorizontal, Link2 } from '../../icons'
+import { MoreHorizontal, Link2 } from 'lucide-react'
 import { useTranslation } from '../../i18n/TranslationContext'
 import { useTripStore } from '../../store/tripStore'
 import { googleRouteRepo } from '../../repo/googleRouteRepo'

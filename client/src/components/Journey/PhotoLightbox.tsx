@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback, useRef } from 'react'
-import { ChevronLeft, ChevronRight, X } from '../../icons'
+import { ChevronLeft, ChevronRight, X } from 'lucide-react'
 import VideoPlayer from './VideoPlayerLazy'
 
 interface LightboxPhoto {

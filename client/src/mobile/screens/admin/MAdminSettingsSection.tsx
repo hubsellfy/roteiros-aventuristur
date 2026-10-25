@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { AlertTriangle, ChevronDown, RefreshCw } from '../../../icons'
+import { AlertTriangle, ChevronDown, RefreshCw } from 'lucide-react'
 import { adminApi, authApi } from '../../../api/client'
 import { getApiErrorMessage } from '../../../types'
 import { placesGoogleOnlyHint } from '../../../utils/placeSource'

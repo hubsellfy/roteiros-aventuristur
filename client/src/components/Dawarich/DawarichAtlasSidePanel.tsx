@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Globe2, Star } from '../../icons'
+import { Globe2, Star } from 'lucide-react'
 import { useTranslation } from '../../i18n'
 import { useAddonStore } from '../../store/addonStore'
 import { Tooltip } from '../shared/Tooltip'

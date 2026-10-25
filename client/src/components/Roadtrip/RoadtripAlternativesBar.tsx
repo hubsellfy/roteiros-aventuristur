@@ -1,5 +1,5 @@
 import React from 'react'
-import { Shuffle, X, AlertTriangle, Info, Loader2 } from '../../icons'
+import { Shuffle, X, AlertTriangle, Info, Loader2 } from 'lucide-react'
 import { useTranslation } from '../../i18n/TranslationContext'
 import { Tooltip } from '../shared/Tooltip'
 import { useSettingsStore } from '../../store/settingsStore'

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Plus, Trash2, Loader2 } from '../../icons'
+import { Plus, Trash2, Loader2 } from 'lucide-react'
 import Modal from '../shared/Modal'
 import type { CollectionLabel, CollectionLabelUpdateRequest } from '@trek/shared'
 import type { TranslationFn } from '../../types'

@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Check, ChevronDown, ChevronUp } from '../../../icons'
+import { Check, ChevronDown, ChevronUp } from 'lucide-react'
 import type { Category, TranslationFn } from '../../../types'
 import { categoryMeta, NO_CATEGORY_META, tint } from './collectionsMobileModel'
 

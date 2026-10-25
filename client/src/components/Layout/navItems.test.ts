@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { LayoutGrid } from '../../icons'
+import { LayoutGrid } from 'lucide-react'
 import { buildNavItems, splitMobileNav, type NavItemDef } from './navItems'
 
 const item = (id: string): NavItemDef => ({ id, to: `/${id}`, label: id, icon: LayoutGrid })

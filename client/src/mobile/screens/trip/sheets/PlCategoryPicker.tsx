@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Ban, Check, Plus } from '../../../../icons'
+import { Ban, Check, Plus } from 'lucide-react'
 import { getCategoryIcon } from '../../../../components/shared/categoryIcons'
 import { FIELD_CLS } from './PlSheetChrome'
 import type { Category } from '../../../../types'

@@ -1,7 +1,7 @@
 import { createPortal } from 'react-dom'
 import { useEffect, useRef, useState } from 'react'
 import { useNavigate } from 'react-router'
-import { Loader2, CheckCircle2, AlertCircle, AlertTriangle, X } from '../../icons'
+import { Loader2, CheckCircle2, AlertCircle, AlertTriangle, X } from 'lucide-react'
 import { useTranslation } from '../../i18n'
 import { addListener, removeListener } from '../../api/websocket'
 import { reservationsApi, healthApi } from '../../api/client'

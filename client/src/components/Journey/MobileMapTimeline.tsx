@@ -1,5 +1,5 @@
 import { useRef, useState, useEffect, useCallback, useMemo } from 'react'
-import { Plus } from '../../icons'
+import { Plus } from 'lucide-react'
 import JourneyMap from './JourneyMap'
 import JourneyEntryCover from './JourneyEntryCover'
 import JourneyDayScrubber from './JourneyDayScrubber'

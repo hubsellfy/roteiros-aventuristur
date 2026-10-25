@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from 'react'
-import { BarChart3, Check, Clock, Lock, Plus, Trash2, X } from '../../../../icons'
+import { BarChart3, Check, Clock, Lock, Plus, Trash2, X } from 'lucide-react'
 import Markdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import remarkBreaks from 'remark-breaks'

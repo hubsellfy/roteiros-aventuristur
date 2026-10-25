@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
-import { AlertCircle, ArrowRight, Check, Loader2, Plus } from '../../../icons'
+import { AlertCircle, ArrowRight, Check, Loader2, Plus } from 'lucide-react'
 import Modal from '../../shared/Modal'
 import { useTranslation } from '../../../i18n/TranslationContext'
 import { DOCUMENT_PROVIDER_ICONS } from '../../shared/DocumentProviderIcons'

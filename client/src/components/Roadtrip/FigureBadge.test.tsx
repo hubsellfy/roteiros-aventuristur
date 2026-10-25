@@ -1,7 +1,7 @@
 import React from 'react'
 import { describe, expect, it, vi } from 'vitest'
 import { fireEvent, render, screen } from '@testing-library/react'
-import { Footprints } from '../../icons'
+import { Footprints } from 'lucide-react'
 import FigureBadge from './FigureBadge'
 
 // FE-FIGURE-BADGE-001 to FE-FIGURE-BADGE-005

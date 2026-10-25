@@ -4,7 +4,7 @@ import {
   Bookmark, Check, CheckCheck, CheckSquare, ChevronDown, Copy, CopyPlus,
   FolderInput, Layers, List, Loader2, Map as MapIcon, Pencil, Plus, Search, Share2,
   Tag, Tags, Trash2, X,
-} from '../../../icons'
+} from 'lucide-react'
 import type { CollectionStatus } from '@trek/shared'
 import MDancingTrek, { type TrekScene } from '../../components/MDancingTrek'
 import { useCollections } from '../../../pages/collections/useCollections'

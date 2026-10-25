@@ -1,5 +1,5 @@
 import { useState, useRef } from 'react'
-import { Sunrise, Sunset } from '../../icons'
+import { Sunrise, Sunset } from 'lucide-react'
 import { useTranslation } from '../../i18n/TranslationContext'
 import { dayWindow } from './dayWindow'
 import CustomTimePicker from '../shared/CustomTimePicker'

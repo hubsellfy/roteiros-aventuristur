@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { Car, Ticket, Utensils } from '../../icons'
+import { Car, Ticket, Utensils } from 'lucide-react'
 import { bookingClock, bookingIcon, dayBookings } from './stopBookings'
 import type { Reservation } from '../../types'
 

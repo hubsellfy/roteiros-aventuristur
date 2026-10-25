@@ -1,5 +1,5 @@
 import { useState, useEffect, useMemo } from 'react'
-import { type LucideIcon, CalendarOff, AlertCircle, Building2, Unlink, ArrowRightLeft, Globe, Loader2, Plus, Trash2, CalendarDays, CalendarRange, GraduationCap } from '../../icons'
+import { type LucideIcon, CalendarOff, AlertCircle, Building2, Unlink, ArrowRightLeft, Globe, Loader2, Plus, Trash2, CalendarDays, CalendarRange, GraduationCap } from 'lucide-react'
 import { useVacayStore } from '../../store/vacayStore'
 import { getIntlLanguage, useTranslation } from '../../i18n'
 import { useToast } from '../shared/Toast'

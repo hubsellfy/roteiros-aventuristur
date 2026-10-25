@@ -1,5 +1,5 @@
 import { useState, useRef } from 'react'
-import { Plus } from '../../icons'
+import { Plus } from 'lucide-react'
 import { CustomDatePicker } from '../shared/CustomDateTimePicker'
 import { normalizePastedAmount } from './BudgetPanel.helpers'
 

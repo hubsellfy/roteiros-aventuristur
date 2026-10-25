@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react'
-import { Search, Bookmark, ArrowRight, Loader2, Plus } from '../../icons'
+import { Search, Bookmark, ArrowRight, Loader2, Plus } from 'lucide-react'
 import Modal from '../shared/Modal'
 import { useToast } from '../shared/Toast'
 import { useTranslation } from '../../i18n'

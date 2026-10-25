@@ -1,5 +1,5 @@
 import React from 'react'
-import { Plus, Layers, Users, Upload } from '../../icons'
+import { Plus, Layers, Users, Upload } from 'lucide-react'
 import type { Collection } from '@trek/shared'
 import type { TranslationFn } from '../../types'
 import { ALL_SAVED } from '../../store/collectionStore'

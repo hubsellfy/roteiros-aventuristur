@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import type { AssistantCard } from '@trek/shared'
-import { ExternalLink, Plus, Star } from '../../../../icons'
+import { ExternalLink, Plus, Star } from 'lucide-react'
 import { useTranslation } from '../../../../i18n'
 import { useGooglePlacePhoto } from '../../../../hooks/useGooglePlacePhoto'
 import { safeHttpUrl } from '../../../../utils/safeUrl'

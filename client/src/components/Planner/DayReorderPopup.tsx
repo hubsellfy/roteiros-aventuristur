@@ -1,5 +1,5 @@
 import { useEffect, useId, useLayoutEffect, useRef, useState } from 'react'
-import { GripVertical, ArrowUp, ArrowDown, Trash2, AlertTriangle } from '../../icons'
+import { GripVertical, ArrowUp, ArrowDown, Trash2, AlertTriangle } from 'lucide-react'
 import Modal from '../shared/Modal'
 import Tooltip from '../shared/Tooltip'
 import DayImpactList from '../shared/DayImpactList'

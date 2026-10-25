@@ -3,7 +3,7 @@ import React, { useId, useState } from 'react'
 import {
   Clock, Fuel, CalendarClock, SlidersHorizontal, ChevronRight, Coins, Signpost, Ship, Check,
   Car, Zap, BatteryCharging, BatteryFull, BatteryWarning, Gauge, Route, Sparkles, Link2, Palette,
-} from '../../icons'
+} from 'lucide-react'
 import Modal from '../shared/Modal'
 import { useTranslation } from '../../i18n/TranslationContext'
 import { useSettingsStore } from '../../store/settingsStore'

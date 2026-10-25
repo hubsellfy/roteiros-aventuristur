@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { Bookmark, Calendar, ChevronDown, ChevronUp, Eye, Pencil, Trash2 } from '../../../../icons'
+import { Bookmark, Calendar, ChevronDown, ChevronUp, Eye, Pencil, Trash2 } from 'lucide-react'
 import MSheet from '../../../components/MSheet'
 import type { MTripSheetsProps } from '../MTripShell'
 import { useTranslation } from '../../../../i18n'

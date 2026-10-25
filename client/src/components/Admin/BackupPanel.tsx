@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { backupApi } from '../../api/client'
 import { useToast } from '../shared/Toast'
-import { Download, Trash2, Plus, RefreshCw, RotateCcw, Upload, Clock, Check, HardDrive, AlertTriangle } from '../../icons'
+import { Download, Trash2, Plus, RefreshCw, RotateCcw, Upload, Clock, Check, HardDrive, AlertTriangle } from 'lucide-react'
 import { useTranslation } from '../../i18n'
 import { useSettingsStore } from '../../store/settingsStore'
 import CustomSelect from '../shared/CustomSelect'

@@ -1,5 +1,5 @@
 import { Suspense } from 'react'
-import { AlertTriangle, Clock, Info } from '../../icons'
+import { AlertTriangle, Clock, Info } from 'lucide-react'
 import { Tooltip } from '../shared/Tooltip'
 import { useSettingsStore } from '../../store/settingsStore'
 import { MapView } from './MapView'

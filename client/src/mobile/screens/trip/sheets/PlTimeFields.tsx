@@ -1,5 +1,5 @@
 import { useMemo } from 'react'
-import { AlertTriangle } from '../../../../icons'
+import { AlertTriangle } from 'lucide-react'
 import { Eyebrow } from './PlSheetChrome'
 import CustomTimePicker from '../../../../components/shared/CustomTimePicker'
 import type { Assignment } from '../../../../types'

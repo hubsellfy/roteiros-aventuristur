@@ -1,5 +1,5 @@
 import { createPortal } from 'react-dom'
-import { Ticket, FileText, ExternalLink, Footprints, ArrowRight, Pencil } from '../../icons'
+import { Ticket, FileText, ExternalLink, Footprints, ArrowRight, Pencil } from 'lucide-react'
 import Markdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import remarkBreaks from 'remark-breaks'

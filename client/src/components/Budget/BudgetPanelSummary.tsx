@@ -1,5 +1,5 @@
 import type { Dispatch, SetStateAction } from 'react'
-import { Wallet, Info, ChevronDown, ChevronRight, TrendingUp, TrendingDown, PieChart as PieChartIcon } from '../../icons'
+import { Wallet, Info, ChevronDown, ChevronRight, TrendingUp, TrendingDown, PieChart as PieChartIcon } from 'lucide-react'
 import type { BudgetItem } from '../../types'
 import { currencyDecimals } from '../../utils/formatters'
 import { SYMBOLS } from './BudgetPanel.constants'

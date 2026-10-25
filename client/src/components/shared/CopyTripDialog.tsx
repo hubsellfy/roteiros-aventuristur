@@ -1,6 +1,6 @@
 import React, { useEffect, useCallback } from 'react'
 import { createPortal } from 'react-dom'
-import { Check, X } from '../../icons'
+import { Check, X } from 'lucide-react'
 import { useTranslation } from '../../i18n'
 
 interface CopyTripDialogProps {

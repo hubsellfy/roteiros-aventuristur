@@ -1,4 +1,4 @@
-import { CalendarMinus } from '../../icons'
+import { CalendarMinus } from 'lucide-react'
 import type { ImpactLine, ImpactTone } from '../../utils/dayImpactLines'
 
 /** The class names one shell draws the list with. */

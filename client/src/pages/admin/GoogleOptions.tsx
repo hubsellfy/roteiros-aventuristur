@@ -1,5 +1,5 @@
 import React from 'react'
-import { ChevronRight } from '../../icons'
+import { ChevronRight } from 'lucide-react'
 
 interface GoogleOptionsProps {
   /** "Google options" — the heading of the fold. */

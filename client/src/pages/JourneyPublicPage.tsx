@@ -20,7 +20,7 @@ import {
   Sun,
   ThumbsDown,
   ThumbsUp,
-} from '../icons';
+} from 'lucide-react';
 import { DAY_COLORS } from '../components/Journey/dayColors';
 import JournalBody from '../components/Journey/JournalBody';
 import JourneyMap from '../components/Journey/JourneyMap';

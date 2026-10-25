@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
-import { Minus, Quote, Search, Square, X } from '../../icons'
+import { Minus, Quote, Search, Square, X } from 'lucide-react'
 import type { BookElement, BookPageSetup, BookShapeId } from '@trek/shared'
 import { useStudioStore } from '../../store/studioStore'
 import { FRAME_SHAPES, HOLED_SHAPES, SHAPE_GROUPS, SHAPE_PATHS } from './shapes'

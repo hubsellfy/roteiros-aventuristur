@@ -1,5 +1,5 @@
 import { useMemo } from 'react'
-import { ChevronRight } from '../../icons'
+import { ChevronRight } from 'lucide-react'
 import { formatLocationName } from '../../utils/formatters'
 import { useTranslation } from '../../i18n'
 import JourneyMap from './JourneyMapAuto'

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useLayoutEffect, useRef } from 'react'
 import { createPortal } from 'react-dom'
-import { LucideIcon } from '../../icons'
+import { LucideIcon } from 'lucide-react'
 
 interface MenuItem {
   label?: string

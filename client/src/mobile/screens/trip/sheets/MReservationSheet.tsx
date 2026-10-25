@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
-import { Check, ExternalLink, FileText, Hotel, Link2, ParkingSquare, Plus, Ticket, Users, Utensils } from '../../../../icons'
+import { Check, ExternalLink, FileText, Hotel, Link2, ParkingSquare, Plus, Ticket, Users, Utensils } from 'lucide-react'
 import MSheet from '../../../components/MSheet'
 import { useAddonStore } from '../../../../store/addonStore'
 import { useTranslation } from '../../../../i18n'

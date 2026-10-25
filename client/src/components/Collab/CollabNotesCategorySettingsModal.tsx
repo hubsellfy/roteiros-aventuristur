@@ -1,6 +1,6 @@
 import { createPortal } from 'react-dom'
 import { useState } from 'react'
-import { Plus, Trash2, X } from '../../icons'
+import { Plus, Trash2, X } from 'lucide-react'
 import { FONT, NOTE_COLORS } from './CollabNotes.constants'
 import { EditableCatName } from './CollabNotesEditableCatName'
 

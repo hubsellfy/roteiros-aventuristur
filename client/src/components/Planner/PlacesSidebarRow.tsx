@@ -1,7 +1,7 @@
 import React from 'react'
 import Markdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
-import { Plus, Check, Star } from '../../icons'
+import { Plus, Check, Star } from 'lucide-react'
 import PlaceAvatar from '../shared/PlaceAvatar'
 import { getCategoryIcon } from '../shared/categoryIcons'
 import { resolveTrackColor } from '../Map/trackColors'

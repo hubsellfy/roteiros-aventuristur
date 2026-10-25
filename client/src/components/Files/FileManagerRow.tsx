@@ -1,4 +1,4 @@
-import { Trash2, ExternalLink, Download, MapPin, Ticket, StickyNote, Star, RotateCcw, Pencil } from '../../icons'
+import { Trash2, ExternalLink, Download, MapPin, Ticket, StickyNote, Star, RotateCcw, Pencil } from 'lucide-react'
 import type { TripFile } from '../../types'
 import type { FileManagerState } from './useFileManager'
 import { TRANSPORT_TYPES } from './FileManager.constants'

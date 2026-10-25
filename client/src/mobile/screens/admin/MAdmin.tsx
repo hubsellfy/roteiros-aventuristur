@@ -21,8 +21,8 @@ import {
   UserCog,
   UserPlus,
   Users,
-} from '../../../icons'
-import type { LucideIcon } from '../../../icons'
+} from 'lucide-react'
+import type { LucideIcon } from 'lucide-react'
 import { adminApi } from '../../../api/client'
 import { useTranslation } from '../../../i18n'
 import { useCountUp } from '../../../hooks/useCountUp'

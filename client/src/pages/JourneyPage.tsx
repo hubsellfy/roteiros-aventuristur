@@ -4,7 +4,7 @@ import { useTranslation, TransHtml } from '../i18n'
 import {
   Plus, Search, Sparkles, Calendar, MapPin,
   Check, X, ChevronRight,
-} from '../icons'
+} from 'lucide-react'
 import type { Journey } from '../store/journeyStore'
 import { computeJourneyLifecycle } from '../utils/journeyLifecycle'
 import { useJourney } from './journey/useJourney'

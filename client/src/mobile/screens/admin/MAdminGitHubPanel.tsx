@@ -1,5 +1,5 @@
 import { useState, useEffect, type ReactNode } from 'react'
-import { Tag, Calendar, ExternalLink, ChevronDown, ChevronUp, Loader2, Heart, Coffee, Bug, Lightbulb, BookOpen } from '../../../icons'
+import { Tag, Calendar, ExternalLink, ChevronDown, ChevronUp, Loader2, Heart, Coffee, Bug, Lightbulb, BookOpen } from 'lucide-react'
 import { getLocaleForLanguage, useTranslation } from '../../../i18n'
 import apiClient from '../../../api/client'
 import { MAdminButton, MAdminCard } from './MAdminUi'

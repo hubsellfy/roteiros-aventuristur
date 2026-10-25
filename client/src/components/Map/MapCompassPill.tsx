@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Navigation } from '../../icons'
+import { Navigation } from 'lucide-react'
 
 export interface CompassMap {
   getBearing: () => number

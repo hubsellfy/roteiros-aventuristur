@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react'
-import { AlertTriangle, Loader2, MapPin, Plus, Search, WifiOff, X } from '../../../../icons'
+import { AlertTriangle, Loader2, MapPin, Plus, Search, WifiOff, X } from 'lucide-react'
 import MSheet from '../../../components/MSheet'
 import MChip from '../../../components/MChip'
 import MIconBtn from '../../../components/MIconBtn'

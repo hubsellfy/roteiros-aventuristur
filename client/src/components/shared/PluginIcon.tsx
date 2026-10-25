@@ -1,6 +1,6 @@
 import type { CSSProperties } from 'react'
-import * as LucideIcons from '../../icons'
-import { Blocks, type LucideIcon } from '../../icons'
+import * as LucideIcons from 'lucide-react'
+import { Blocks, type LucideIcon } from 'lucide-react'
 
 // Lucide names are PascalCase. Restricting the lookup to that shape keeps a manifest
 // from reaching lucide's non-icon exports (`createLucideIcon`, `icons`, `default`,

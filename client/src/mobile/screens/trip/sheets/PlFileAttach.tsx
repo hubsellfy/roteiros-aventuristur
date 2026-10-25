@@ -1,5 +1,5 @@
 import { useRef } from 'react'
-import { Paperclip, X } from '../../../../icons'
+import { Paperclip, X } from 'lucide-react'
 import type { TripPlanner } from '../MTripShell'
 
 interface PlFileAttachProps {

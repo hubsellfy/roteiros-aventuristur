@@ -1,6 +1,6 @@
 // FE-W4FMH-001 to FE-W4FMH-012
 import { describe, it, expect, vi, beforeEach } from 'vitest'
-import { File as FileIcon, FileText, FileImage, FileVideo, Plane, Train, Bus, Car, CarTaxiFront, Bike, Ship, Sailboat, Route } from '../../icons'
+import { File as FileIcon, FileText, FileImage, FileVideo, Plane, Train, Bus, Car, CarTaxiFront, Bike, Ship, Sailboat, Route } from 'lucide-react'
 
 const downloadFile = vi.fn(async (_url: string, _name: string) => {})
 vi.mock('../../utils/fileDownload', () => ({ downloadFile: (url: string, name: string) => downloadFile(url, name) }))

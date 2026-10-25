@@ -6,7 +6,7 @@ import {
   SlidersHorizontal, ArrowUpDown, CircleDot, MoreHorizontal, RotateCw, ArrowRight, Database, Users, LayoutDashboard,
   Radio, Luggage, Globe, Image, CalendarDays, Bell, Info, History, PauseCircle,
   Wallet, Puzzle, MapPin, ListChecks, Pencil, Tag, FileText, Route, Navigation, Clock, LocateFixed, Palette, Bot,
-} from '../../../icons'
+} from 'lucide-react'
 import PluginIcon from '../../../components/shared/PluginIcon'
 import { adminApi } from '../../../api/client'
 import { useInstanceSettings } from '../../../components/Admin/useInstanceSettings'

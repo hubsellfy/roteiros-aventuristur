@@ -1,4 +1,4 @@
-import { FolderSync, Star, Trash2 } from '../../icons'
+import { FolderSync, Star, Trash2 } from 'lucide-react'
 import type { FileManagerState } from './useFileManager'
 
 export function FileManagerToolbar(S: FileManagerState) {

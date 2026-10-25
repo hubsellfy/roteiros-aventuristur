@@ -1,5 +1,5 @@
 import { createPortal } from 'react-dom'
-import { ExternalLink, Download, X } from '../../icons'
+import { ExternalLink, Download, X } from 'lucide-react'
 import { openFile as openFileUrl } from '../../utils/fileDownload'
 import type { FileManagerState } from './useFileManager'
 import { triggerDownload } from './FileManager.helpers'

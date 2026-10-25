@@ -1,5 +1,5 @@
 import React, { ChangeEvent } from 'react'
-import { Lock, KeyRound, CheckCircle2, AlertTriangle, Eye, EyeOff } from '../icons'
+import { Lock, KeyRound, CheckCircle2, AlertTriangle, Eye, EyeOff } from 'lucide-react'
 import { useTranslation } from '../i18n'
 import { useResetPassword } from './resetPassword/useResetPassword'
 

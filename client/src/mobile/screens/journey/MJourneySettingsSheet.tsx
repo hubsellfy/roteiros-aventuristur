@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router'
 import {
   X, Image, Plus, Trash2, UserPlus, Link as LinkIcon,
   List, Grid3x3, MapPin, Route, Archive, ArchiveRestore, Undo2,
-} from '../../../icons'
+} from 'lucide-react'
 import MSheet from '../../components/MSheet'
 import MIconBtn from '../../components/MIconBtn'
 import MToggle from '../../components/MToggle'

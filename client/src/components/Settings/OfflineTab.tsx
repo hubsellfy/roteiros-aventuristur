@@ -11,7 +11,7 @@
  * `MSettingsOffline`; this file is the desktop markup over it.
  */
 import React from 'react'
-import { RefreshCw, Trash2, Database, CloudOff, Download, Check, GitMerge, Map as MapIcon, AlertTriangle } from '../../icons'
+import { RefreshCw, Trash2, Database, CloudOff, Download, Check, GitMerge, Map as MapIcon, AlertTriangle } from 'lucide-react'
 import Section from './Section'
 import ToggleSwitch from './ToggleSwitch'
 import { useOfflineSettings, offlineNoticeKey, isOfflineNoticeWarning } from './useOfflineSettings'

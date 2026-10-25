@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { flushSync } from 'react-dom';
 import { useNavigate } from 'react-router';
-import { Info, AlertTriangle, AlertOctagon, X, ChevronLeft, ChevronRight, Coffee } from '../../icons';
-import * as LucideIcons from '../../icons';
+import { Info, AlertTriangle, AlertOctagon, X, ChevronLeft, ChevronRight, Coffee } from 'lucide-react';
+import * as LucideIcons from 'lucide-react';
 import remarkGfm from 'remark-gfm';
 import rehypeSanitize from 'rehype-sanitize';
 import { useSystemNoticeStore } from '../../store/systemNoticeStore.js';

@@ -1,8 +1,8 @@
 import {
   SmilePlus, Smile, Meh, Frown,
   Sun, CloudSun, Cloud, CloudRain, CloudLightning, Snowflake,
-} from '../../../icons'
-import type { LucideIcon } from '../../../icons'
+} from 'lucide-react'
+import type { LucideIcon } from 'lucide-react'
 import type { CSSProperties } from 'react'
 import { pickGradient } from '../../../pages/journeyDetail/JourneyDetailPage.helpers'
 

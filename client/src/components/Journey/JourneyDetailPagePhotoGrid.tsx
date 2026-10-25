@@ -1,4 +1,4 @@
-import { Image, Play } from '../../icons'
+import { Image, Play } from 'lucide-react'
 import type { JourneyPhoto } from '../../store/journeyStore'
 import { photoUrl, posterlessVideo } from '../../pages/journeyDetail/JourneyDetailPage.helpers'
 

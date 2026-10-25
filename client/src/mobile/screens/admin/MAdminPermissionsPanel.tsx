@@ -3,7 +3,7 @@ import { adminApi } from '../../../api/client'
 import { useTranslation } from '../../../i18n'
 import { usePermissionsStore, PermissionLevel } from '../../../store/permissionsStore'
 import { useToast } from '../../../components/shared/Toast'
-import { Save, RotateCcw } from '../../../icons'
+import { Save, RotateCcw } from 'lucide-react'
 import { MAdminButton, MAdminCard } from './MAdminUi'
 
 interface PermissionEntry {

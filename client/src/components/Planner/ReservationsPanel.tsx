@@ -10,7 +10,7 @@ import {
   Calendar, Hash, CheckCircle2, Circle, Pencil, Trash2, Plus, ChevronDown, ChevronRight, Users,
   ExternalLink, Lightbulb, Link2, Clock, ArrowRight, AlertCircle, Download,
   TramFront, Footprints, StickyNote, ParkingSquare,
-} from '../../icons'
+} from 'lucide-react'
 import { openFile } from '../../utils/fileDownload'
 import { safeExternalHref } from '../../utils/safeUrl'
 import { TransitTitle, TransitLegChips, TransitMetaBadges, fmtTransitDuration } from './transitDisplay'

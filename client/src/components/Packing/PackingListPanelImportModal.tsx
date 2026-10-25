@@ -1,5 +1,5 @@
 import { createPortal } from 'react-dom'
-import { FileDown } from '../../icons'
+import { FileDown } from 'lucide-react'
 import type { PackingState } from './usePackingListPanel'
 
 export function BulkImportModal(S: PackingState) {

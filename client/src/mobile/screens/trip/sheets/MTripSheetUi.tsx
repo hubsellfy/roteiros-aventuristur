@@ -1,5 +1,5 @@
 import { ReactNode, Ref } from 'react'
-import { X } from '../../../../icons'
+import { X } from 'lucide-react'
 import MIconBtn from '../../../components/MIconBtn'
 import { formatTime } from '../../../../utils/formatters'
 

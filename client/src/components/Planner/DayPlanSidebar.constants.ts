@@ -3,7 +3,7 @@ import {
   Coffee, Ticket, Star, Heart, Camera, Flag, Lightbulb, AlertTriangle,
   ShoppingBag, Bookmark, Hotel, Utensils, Users, Sailboat, Bike, CarTaxiFront, Route, TramFront,
   Wine, ParkingSquare, Fuel, Footprints, Mountain, Waves, Sun, Umbrella, Music, Landmark, Gift,
-} from '../../icons'
+} from 'lucide-react'
 
 export const RES_ICONS = { flight: Plane, hotel: Hotel, restaurant: Utensils, train: Train, car: Car, cruise: Ship, bus: Bus, ferry: Sailboat, bicycle: Bike, taxi: CarTaxiFront, transit: TramFront, transport_other: Route, event: Ticket, tour: Users, parking: ParkingSquare, other: FileText }
 

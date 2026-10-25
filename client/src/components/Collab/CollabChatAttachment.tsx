@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { X } from '../../icons'
+import { X } from 'lucide-react'
 import { useTranslation } from '../../i18n'
 
 export function CollabChatAttachment({ attachment }: { attachment: { url: string; original_name?: string; mime_type?: string } }) {

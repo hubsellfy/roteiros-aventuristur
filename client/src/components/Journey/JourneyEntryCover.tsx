@@ -1,4 +1,4 @@
-import { MapPin, Play, Plus } from '../../icons'
+import { MapPin, Play, Plus } from 'lucide-react'
 import { useTranslation } from '../../i18n'
 import { moodMeta, weatherMeta } from '../../mobile/screens/journey/mobileJourneyMeta'
 import { posterlessVideo } from '../../pages/journeyDetail/JourneyDetailPage.helpers'

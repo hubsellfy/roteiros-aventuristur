@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router'
 import {
   ArrowRight, ArrowRightLeft, Bookmark, Calendar, ChevronDown, ChevronRight,
   Clock, Hotel, LogIn, LogOut, MapPin, Plane, Plus, RefreshCw, Ticket, Utensils, X,
-} from '../../../icons'
+} from 'lucide-react'
 import { useTranslation } from '../../../i18n'
 import { useSettingsStore } from '../../../store/settingsStore'
 import { useAddonStore } from '../../../store/addonStore'

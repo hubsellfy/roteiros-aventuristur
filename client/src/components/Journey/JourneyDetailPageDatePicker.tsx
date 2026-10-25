@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { localIsoDate } from '../../utils/localDate'
-import { ArrowLeft, ChevronRight, Calendar } from '../../icons'
+import { ArrowLeft, ChevronRight, Calendar } from 'lucide-react'
 import { useTranslation } from '../../i18n'
 
 /**

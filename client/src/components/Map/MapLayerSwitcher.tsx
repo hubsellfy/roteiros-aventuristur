@@ -1,4 +1,4 @@
-import { Map as MapIcon, Satellite } from '../../icons'
+import { Map as MapIcon, Satellite } from 'lucide-react'
 import { useTranslation } from '../../i18n'
 import { Tooltip } from '../shared/Tooltip'
 import { MAP_CONTROL_SHADOW } from './mapControlShadow'

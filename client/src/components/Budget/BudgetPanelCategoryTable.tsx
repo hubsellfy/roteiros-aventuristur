@@ -1,5 +1,5 @@
 import { Fragment, type CSSProperties, type Dispatch, type SetStateAction } from 'react'
-import { Trash2, Pencil, GripVertical } from '../../icons'
+import { Trash2, Pencil, GripVertical } from 'lucide-react'
 import type { BudgetItem } from '../../types'
 import { usePluginViewContributions, PluginCardFooter } from '../Plugins/PluginContributions'
 import { currencyDecimals } from '../../utils/formatters'

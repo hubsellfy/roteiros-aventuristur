@@ -1,5 +1,5 @@
 import React from 'react'
-import { CalendarDays, Route } from '../../icons'
+import { CalendarDays, Route } from 'lucide-react'
 import { useTranslation } from '../../i18n/TranslationContext'
 
 interface RoadtripModeSwitchProps {

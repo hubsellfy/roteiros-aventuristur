@@ -1,5 +1,5 @@
-import { BedDouble, BedSingle, CalendarCheck, CalendarClock, CalendarMinus, CalendarPlus, MapPin, StickyNote, Ticket, Type } from '../icons'
-import type { LucideIcon } from '../icons'
+import { BedDouble, BedSingle, CalendarCheck, CalendarClock, CalendarMinus, CalendarPlus, MapPin, StickyNote, Ticket, Type } from 'lucide-react'
+import type { LucideIcon } from 'lucide-react'
 import type { Day } from '../types'
 import type { DayContent, DayDeleteImpact, StayImpact } from './dayDeleteImpact'
 import type { TripRangeImpact } from './tripRangeImpact'

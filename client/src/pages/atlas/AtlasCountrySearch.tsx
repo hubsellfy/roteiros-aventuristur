@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react'
-import { Search, X, ChevronRight, MapPin, Loader2 } from '../../icons'
+import { Search, X, ChevronRight, MapPin, Loader2 } from 'lucide-react'
 import type { TranslationFn } from '../../types'
 import type { AtlasPlaceHit } from './atlasModel'
 

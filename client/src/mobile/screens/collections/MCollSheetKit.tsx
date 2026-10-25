@@ -1,5 +1,5 @@
 import { ReactNode } from 'react'
-import { X } from '../../../icons'
+import { X } from 'lucide-react'
 
 /** Shared sheet scaffolding of the collections sheets (opaque floating cards). */
 
