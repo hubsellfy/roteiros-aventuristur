@@ -520,8 +520,9 @@ describe('upsertConnection required fields', () => {
 
 describe('enabledProviderIds', () => {
   it('names only the providers an admin switched on, in the order the shelf shows them', async () => {
-    // Every document provider ships OFF, so an empty answer on a fresh install
-    // is the correct one and a non-empty one would be a policy change.
+    // Upstream ships every document provider OFF; this fork's last migration turns
+    // them all on, so the test starts from the upstream state.
+    await updateRows(await orm(), DocumentProviders, {}, { enabled: 0 });
     expect(await svc.enabledProviderIds()).toEqual([]);
     await updateRows(await orm(), DocumentProviders, { id: { $in: ['nextcloud', 'paperless'] } }, { enabled: 1 });
     expect(await svc.enabledProviderIds()).toEqual(['paperless', 'nextcloud']);

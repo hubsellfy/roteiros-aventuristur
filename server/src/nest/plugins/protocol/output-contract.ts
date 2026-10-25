@@ -67,7 +67,8 @@ export const PLUGIN_ENTITY_CONTRACT = {
       'reminder_sent_for',
     ],
     // The sole credential of the anonymous calendar feed.
-    withheld: ['feed_token'],
+    // Aventuristur: the AI itinerary builder's own bookkeeping, nothing a plugin needs.
+    withheld: ['feed_token', 'ai_status', 'ai_request'],
     wholeRow: true,
     derived: ['day_count', 'place_count', 'is_owner', 'owner_username', 'shared_count'],
   },

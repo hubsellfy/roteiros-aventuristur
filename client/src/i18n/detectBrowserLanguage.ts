@@ -1,4 +1,4 @@
-import { SUPPORTED_LANGUAGES } from '@trek/shared';
+import { APP_LANGUAGES as SUPPORTED_LANGUAGES } from '@trek/shared';
 
 // Its own module so the settings store can run it at startup without importing
 // the translation context, which imports the store.

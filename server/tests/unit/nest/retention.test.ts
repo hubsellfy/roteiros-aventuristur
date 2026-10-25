@@ -10,7 +10,7 @@ vi.mock('../../../src/nest/audit/audit-log.logger', () => logMock);
 import { parseRetentionConfig, retentionCutoff } from '../../../src/nest/retention/retention.impl';
 import { RetentionService } from '../../../src/nest/retention/retention.service';
 import { RetentionJob } from '../../../src/nest/retention/retention.job';
-import type { DatabaseService } from '../../../src/nest/database/database.service';
+import type { TripsRepository } from '../../../src/db/repositories/Trips.repository';
 import type { StorageService } from '../../../src/nest/storage/storage.service';
 import type { TripsService } from '../../../src/nest/trips/trips.service';
 import type { AuditService } from '../../../src/nest/audit/audit.service';
@@ -53,22 +53,18 @@ describe('retentionCutoff', () => {
 
 function makeService(opts: { trips?: unknown[]; files?: Record<number, string[]>; photos?: Record<number, string[]>; deleteFails?: boolean } = {}) {
   const trips = opts.trips ?? [];
-  const all = vi.fn((sql: string, ...params: unknown[]) => {
-    if (sql.includes('FROM trips')) return trips;
-    if (sql.includes('FROM trip_files')) return (opts.files?.[Number(params[0])] ?? []).map((filename) => ({ filename }));
-    if (sql.includes('FROM photos')) return (opts.photos?.[Number(params[0])] ?? []).map((filename) => ({ filename }));
-    return [];
-  });
+  const listEndedBefore = vi.fn(async (_cutoff: string) => trips);
+  const listStoredFileNames = vi.fn(async (id: number) => ({ files: opts.files?.[id] ?? [], photos: opts.photos?.[id] ?? [] }));
   const storage = { delete: vi.fn(async () => { if (opts.deleteFails) throw new Error('disk error'); }) };
   const tripsService = { remove: vi.fn(), broadcast: vi.fn() };
   const audit = { writeAudit: vi.fn() };
   const service = new RetentionService(
-    { all } as unknown as DatabaseService,
+    { listEndedBefore, listStoredFileNames } as unknown as TripsRepository,
     storage as unknown as StorageService,
     tripsService as unknown as TripsService,
     audit as unknown as AuditService,
   );
-  return { service, all, storage, tripsService, audit };
+  return { service, listEndedBefore, storage, tripsService, audit };
 }
 
 const NOW = new Date('2027-10-24T12:00:00Z');
@@ -76,10 +72,10 @@ const expiredTrip = { id: 7, title: 'Lisboa', end_date: '2026-09-01', cover_imag
 
 describe('RetentionService.sweep', () => {
   it('queries trips that ended before the cutoff', async () => {
-    const { service, all } = makeService();
+    const { service, listEndedBefore } = makeService();
     const result = await service.sweep(12, true, NOW);
     expect(result).toEqual({ cutoff: '2026-10-24', dryRun: true, found: 0, deleted: 0, failed: 0 });
-    expect(all.mock.calls[0][1]).toBe('2026-10-24');
+    expect(listEndedBefore).toHaveBeenCalledWith('2026-10-24');
   });
 
   it('erases nothing on a dry run', async () => {

@@ -3,6 +3,7 @@ import {
   cacheKey,
   getWeather,
   getDetailedWeather,
+  withOpenMeteoKey,
   ApiError,
   type WeatherResult,
 } from '../../../../src/nest/weather/weather.impl';
@@ -1221,5 +1222,33 @@ describe('size cap on the Open-Meteo body', () => {
 
     const result = await getWeather('44.40', '9.43', date, 'en');
     expect(result.temp).toBe(15);
+  });
+});
+
+// ── withOpenMeteoKey ─────────────────────────────────────────────────────────
+
+describe('withOpenMeteoKey', () => {
+  const forecast = 'https://api.open-meteo.com/v1/forecast?latitude=1&longitude=2';
+  const archive = 'https://archive-api.open-meteo.com/v1/archive?latitude=1&longitude=2';
+
+  it('leaves the URL untouched without a key', () => {
+    expect(withOpenMeteoKey(forecast, {})).toBe(forecast);
+    expect(withOpenMeteoKey(archive, { apiKey: '   ' })).toBe(archive);
+  });
+
+  it('moves forecast requests to the customer host and adds the key', () => {
+    expect(withOpenMeteoKey(forecast, { apiKey: 'abc123' }))
+      .toBe('https://customer-api.open-meteo.com/v1/forecast?latitude=1&longitude=2&apikey=abc123');
+  });
+
+  it('moves archive requests to the customer archive host, which can be overridden', () => {
+    expect(withOpenMeteoKey(archive, { apiKey: 'abc123' }))
+      .toBe('https://customer-archive-api.open-meteo.com/v1/archive?latitude=1&longitude=2&apikey=abc123');
+    expect(withOpenMeteoKey(archive, { apiKey: 'abc123', archiveHost: 'archive.example.test' }))
+      .toBe('https://archive.example.test/v1/archive?latitude=1&longitude=2&apikey=abc123');
+  });
+
+  it('encodes the key so it cannot break out of the query string', () => {
+    expect(withOpenMeteoKey(forecast, { apiKey: 'a&b=c' })).toContain('&apikey=a%26b%3Dc');
   });
 });

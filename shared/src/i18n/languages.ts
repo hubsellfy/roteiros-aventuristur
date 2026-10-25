@@ -1,7 +1,31 @@
 export const SUPPORTED_LANGUAGES = [
-  { value: 'br', label: 'Português (Brasil)', locale: 'pt-BR' },
+  { value: 'de', label: 'Deutsch', locale: 'de-DE' },
   { value: 'en', label: 'English', locale: 'en-US' },
   { value: 'es', label: 'Español', locale: 'es-ES' },
+  { value: 'et', label: 'Eesti', locale: 'et-EE' },
+  { value: 'fr', label: 'Français', locale: 'fr-FR' },
+  { value: 'hu', label: 'Magyar', locale: 'hu-HU' },
+  { value: 'nl', label: 'Nederlands', locale: 'nl-NL' },
+  { value: 'br', label: 'Português (Brasil)', locale: 'pt-BR' },
+  { value: 'cs', label: 'Česky', locale: 'cs-CZ' },
+  { value: 'sk', label: 'Slovenčina', locale: 'sk-SK' },
+  { value: 'pl', label: 'Polski', locale: 'pl-PL' },
+  { value: 'ru', label: 'Русский', locale: 'ru-RU' },
+  { value: 'zh', label: '简体中文', locale: 'zh-CN' },
+  { value: 'zh-TW', label: '繁體中文', locale: 'zh-TW' },
+  { value: 'it', label: 'Italiano', locale: 'it-IT' },
+  { value: 'tr', label: 'Türkçe', locale: 'tr-TR' },
+  { value: 'ar', label: 'العربية', locale: 'ar-SA' },
+  { value: 'az', label: 'Azərbaycanca', locale: 'az-AZ' },
+  { value: 'id', label: 'Bahasa Indonesia', locale: 'id-ID' },
+  { value: 'ja', label: '日本語', locale: 'ja-JP' },
+  { value: 'ko', label: '한국어', locale: 'ko-KR' },
+  { value: 'th', label: 'ไทย', locale: 'th-TH' },
+  { value: 'uk', label: 'Українська', locale: 'uk-UA' },
+  { value: 'gr', label: 'Ελληνικά', locale: 'el-GR' },
+  { value: 'sv', label: 'Svenska', locale: 'sv-SE' },
+  { value: 'vi', label: 'Tiếng Việt', locale: 'vi-VN' },
+  { value: 'ca', label: 'Català', locale: 'ca-ES' },
 ] as const;
 
 export type SupportedLanguageCode = (typeof SUPPORTED_LANGUAGES)[number]['value'];
@@ -34,8 +58,8 @@ export function isRtlLanguage(language: string): boolean {
   return RTL_LANGUAGES.has(language);
 }
 
-// Aventuristur: o app oferece somente português do Brasil, inglês e espanhol nos seletores.
-// SUPPORTED_LANGUAGES continua completo porque o Intl, as regras de plural e a checagem de
-// paridade dos textos dependem de cada código.
+// Aventuristur: os seletores de idioma do app oferecem somente português do Brasil, inglês e
+// espanhol. SUPPORTED_LANGUAGES continua completo porque o Intl, as regras de plural, os textos
+// do servidor e a checagem de paridade dependem de cada código.
 export const APP_LANGUAGE_CODES: readonly SupportedLanguageCode[] = ['br', 'en', 'es'];
 export const APP_LANGUAGES = SUPPORTED_LANGUAGES.filter((l) => APP_LANGUAGE_CODES.includes(l.value));

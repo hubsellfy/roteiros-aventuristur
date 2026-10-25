@@ -75,27 +75,28 @@ replaceExact('client/src/index.css', [
   ['--accent-hover: #d4d4d8;', '--accent-hover: #93c5fd;'],
 ]);
 
-replaceBlock(
+// The language pickers offer only Brazilian Portuguese, English and Spanish; the full list stays
+// in shared so Intl, plural rules, server texts and the parity check keep every code.
+appendAfterOnce(
   'shared/src/i18n/languages.ts',
-  'export const SUPPORTED_LANGUAGES = [',
-  '] as const;',
-  `export const SUPPORTED_LANGUAGES = [
-  { value: 'br', label: 'Português (Brasil)', locale: 'pt-BR' },
-  { value: 'en', label: 'English', locale: 'en-US' },
-  { value: 'es', label: 'Español', locale: 'es-ES' },
-] as const;`,
+  'export function isRtlLanguage(language: string): boolean {\n  return RTL_LANGUAGES.has(language);\n}\n',
+  `
+// Aventuristur: os seletores de idioma do app oferecem somente português do Brasil, inglês e
+// espanhol. SUPPORTED_LANGUAGES continua completo porque o Intl, as regras de plural, os textos
+// do servidor e a checagem de paridade dependem de cada código.
+export const APP_LANGUAGE_CODES: readonly SupportedLanguageCode[] = ['br', 'en', 'es'];
+export const APP_LANGUAGES = SUPPORTED_LANGUAGES.filter((l) => APP_LANGUAGE_CODES.includes(l.value));
+`,
 );
-
-replaceBlock(
-  'client/src/i18n/TranslationContext.tsx',
-  'const localeLoaders: Record<SupportedLanguageCode, () => Promise<{ default: TranslationStrings }>> = {',
-  '\n}',
-  `const localeLoaders: Record<SupportedLanguageCode, () => Promise<{ default: TranslationStrings }>> = {
-  br: () => import('@trek/shared/i18n/br'),
-  en: () => Promise.resolve({ default: en }),
-  es: () => import('@trek/shared/i18n/es'),
-}`,
-);
+replaceExact('client/src/i18n/TranslationContext.tsx', [
+  ['import {\n  SUPPORTED_LANGUAGES,', 'import {\n  APP_LANGUAGES as SUPPORTED_LANGUAGES,'],
+]);
+replaceExact('client/src/i18n/detectBrowserLanguage.ts', [
+  ["import { SUPPORTED_LANGUAGES } from '@trek/shared';", "import { APP_LANGUAGES as SUPPORTED_LANGUAGES } from '@trek/shared';"],
+]);
+replaceExact('client/src/i18n/supportedLanguages.ts', [
+  ["export { SUPPORTED_LANGUAGES, SUPPORTED_LANGUAGE_CODES } from '@trek/shared'", "export { APP_LANGUAGES as SUPPORTED_LANGUAGES, SUPPORTED_LANGUAGE_CODES } from '@trek/shared'"],
+]);
 
 for (const locale of ['br', 'en', 'es']) {
   const dir = resolve(root, 'shared/src/i18n', locale);

@@ -9,9 +9,9 @@ vi.mock('../../../src/app-config', async () => {
 });
 vi.mock('../../../src/utils/ssrfGuard', () => ({ safeFetchLlm: (...a: unknown[]) => safeFetchLlm(...a) }));
 
-import { AssistantService } from '../../../src/nest/assistant/assistant.service';
-import { applyDetails, toCard, toKnownPlace } from '../../../src/nest/assistant/assistant.tools';
-import { AssistantController } from '../../../src/nest/assistant/assistant.controller';
+import { RoteiroChatService } from '../../../src/nest/roteiro-ia/roteiro-chat.service';
+import { applyDetails, toCard, toKnownPlace } from '../../../src/nest/roteiro-ia/roteiro-ia.tools';
+import { RoteiroIaController } from '../../../src/nest/roteiro-ia/roteiro-ia.controller';
 
 const PLACE = {
   name: 'Cantina Bella', address: 'Rua A, 10', lat: -25.5, lng: -48.5,
@@ -29,7 +29,7 @@ const toolCall = (name: string, args: Record<string, unknown>, id = 'c1') => ({
 function make(overrides: { config?: unknown; canAccess?: boolean } = {}) {
   const maps = {
     searchPlaces: vi.fn().mockResolvedValue({ places: [PLACE], source: 'google' }),
-    detailsDisabled: vi.fn().mockReturnValue(false),
+    detailsDisabled: vi.fn().mockResolvedValue(false),
     getPlaceDetailsExpanded: vi.fn().mockResolvedValue({
       place: {
         rating: 4.7, rating_count: 130, open_now: true, summary: 'Massas artesanais',
@@ -39,18 +39,20 @@ function make(overrides: { config?: unknown; canAccess?: boolean } = {}) {
     }),
   };
   const days = {
-    list: vi.fn().mockReturnValue({
+    list: vi.fn().mockResolvedValue({
       days: [{ id: 7, day_number: 1, date: '2026-12-01', assignments: [{ place: { name: 'Hotel', lat: 1, lng: 2 } }] }],
     }),
   };
-  const trips = { canAccessTrip: vi.fn().mockReturnValue(overrides.canAccess === false ? null : { user_id: 1 }) };
-  const db = { get: vi.fn().mockReturnValue({ title: 'Paraná', start_date: '2026-12-01', end_date: '2026-12-05' }) };
+  const trips = {
+    canAccessTrip: vi.fn().mockResolvedValue(overrides.canAccess === false ? null : { user_id: 1 }),
+    getRaw: vi.fn().mockResolvedValue({ title: 'Paraná', start_date: '2026-12-01', end_date: '2026-12-05' }),
+  };
   const config = overrides.config === undefined
     ? { provider: 'openai', model: 'm', baseUrl: 'https://openrouter.ai/api/v1/', apiKey: 'k', multimodal: false }
     : overrides.config;
-  const llm = { resolve: vi.fn().mockReturnValue(config) };
-  const svc = new AssistantService(maps as never, days as never, trips as never, db as never, llm as never);
-  return { svc, maps, days, trips, db, llm };
+  const llm = { resolve: vi.fn().mockResolvedValue(config) };
+  const svc = new RoteiroChatService(maps as never, days as never, trips as never, llm as never);
+  return { svc, maps, days, trips, llm };
 }
 
 const body = { tripId: 1, language: 'pt-BR', messages: [{ role: 'user' as const, content: 'onde almoçar?' }] };
@@ -60,7 +62,7 @@ async function status(fn: () => Promise<unknown>) {
   return 0;
 }
 
-describe('AssistantService', () => {
+describe('RoteiroChatService', () => {
   beforeEach(() => { safeFetchLlm.mockReset(); limits.daily = 40; });
 
   it('returns the model text when no tool is needed', async () => {
@@ -206,22 +208,22 @@ describe('assistant tools helpers', () => {
   });
 });
 
-describe('AssistantController', () => {
+describe('RoteiroIaController', () => {
   it('passes the user id and body to the service', async () => {
     const chat = vi.fn().mockResolvedValue({ reply: 'x', cards: [], remaining: null });
-    const c = new AssistantController({ chat } as never, {} as never);
+    const c = new RoteiroIaController({ chat } as never, {} as never);
     await c.chat({ id: 5 } as never, body as never);
     expect(chat).toHaveBeenCalledWith(5, body);
   });
 
-  it('starts and retries itinerary plans for the signed-in user', () => {
-    const start = vi.fn().mockReturnValue({ tripId: 9, remaining: 4 });
-    const retry = vi.fn().mockReturnValue({ tripId: 9, remaining: 3 });
-    const c = new AssistantController({} as never, { start, retry } as never);
+  it('starts and retries itinerary plans for the signed-in user', async () => {
+    const start = vi.fn().mockResolvedValue({ tripId: 9, remaining: 4 });
+    const retry = vi.fn().mockResolvedValue({ tripId: 9, remaining: 3 });
+    const c = new RoteiroIaController({} as never, { start, retry } as never);
     const user = { id: 5, role: 'user' };
-    expect(c.createTripPlan(user as never, { destination: 'Gramado' } as never)).toEqual({ tripId: 9, remaining: 4 });
+    expect(await c.createTripPlan(user as never, { destination: 'Gramado' } as never)).toEqual({ tripId: 9, remaining: 4 });
     expect(start).toHaveBeenCalledWith(user, { destination: 'Gramado' });
-    expect(c.retryTripPlan(user as never, 9)).toEqual({ tripId: 9, remaining: 3 });
+    expect(await c.retryTripPlan(user as never, 9)).toEqual({ tripId: 9, remaining: 3 });
     expect(retry).toHaveBeenCalledWith(5, 9);
   });
 });

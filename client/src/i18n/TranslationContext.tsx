@@ -3,7 +3,7 @@ import { useSettingsStore } from '../store/settingsStore'
 import en from '@trek/shared/i18n/en'
 import type { SupportedLanguageCode } from '@trek/shared'
 import {
-  SUPPORTED_LANGUAGES,
+  APP_LANGUAGES as SUPPORTED_LANGUAGES,
   getLocaleForLanguage,
   getIntlLanguage,
   isRtlLanguage,
@@ -19,9 +19,33 @@ export { SUPPORTED_LANGUAGES }
 // One explicit dynamic import per locale — Vite code-splits a separate chunk per locale.
 // Only the active locale is fetched; en is always available synchronously as the fallback.
 const localeLoaders: Record<SupportedLanguageCode, () => Promise<{ default: TranslationStrings }>> = {
-  br: () => import('@trek/shared/i18n/br'),
-  en: () => Promise.resolve({ default: en }),
-  es: () => import('@trek/shared/i18n/es'),
+  en:      () => Promise.resolve({ default: en }),
+  de:      () => import('@trek/shared/i18n/de'),
+  es:      () => import('@trek/shared/i18n/es'),
+  et:      () => import('@trek/shared/i18n/et'),
+  fr:      () => import('@trek/shared/i18n/fr'),
+  hu:      () => import('@trek/shared/i18n/hu'),
+  it:      () => import('@trek/shared/i18n/it'),
+  tr:      () => import('@trek/shared/i18n/tr'),
+  ru:      () => import('@trek/shared/i18n/ru'),
+  zh:      () => import('@trek/shared/i18n/zh'),
+  'zh-TW': () => import('@trek/shared/i18n/zh-TW'),
+  nl:      () => import('@trek/shared/i18n/nl'),
+  id:      () => import('@trek/shared/i18n/id'),
+  ar:      () => import('@trek/shared/i18n/ar'),
+  az:      () => import('@trek/shared/i18n/az'),
+  br:      () => import('@trek/shared/i18n/br'),
+  cs:      () => import('@trek/shared/i18n/cs'),
+  sk:      () => import('@trek/shared/i18n/sk'),
+  pl:      () => import('@trek/shared/i18n/pl'),
+  ja:      () => import('@trek/shared/i18n/ja'),
+  ko:      () => import('@trek/shared/i18n/ko'),
+  th:      () => import('@trek/shared/i18n/th'),
+  uk:      () => import('@trek/shared/i18n/uk'),
+  gr:      () => import('@trek/shared/i18n/gr'),
+  sv:      () => import('@trek/shared/i18n/sv'),
+  vi:      () => import('@trek/shared/i18n/vi'),
+  ca:      () => import('@trek/shared/i18n/ca'),
 }
 
 // Re-export pure helpers that live in shared so downstream consumers can import them

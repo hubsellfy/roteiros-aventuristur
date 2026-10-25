@@ -171,6 +171,7 @@ describe('Document sync e2e (real guards + real services + temp SQLite)', () => 
     tripId = createTrip(db as never, ownerId, { title: 'Japan', start_date: '2026-10-01', end_date: '2026-10-07' }).id;
     await addTripMember(orm, tripId, memberId);
     // Providers are off by default, exactly as a fresh install ships them.
+    await updateRows(orm, DocumentProviders, {}, { enabled: 0 });
     await updateRows(orm, DocumentProviders, { id: { $in: ['paperless', 'nextcloud'] } }, { enabled: 1 });
 
     app = await build();
