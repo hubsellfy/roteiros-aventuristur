@@ -209,8 +209,19 @@ describe('assistant tools helpers', () => {
 describe('AssistantController', () => {
   it('passes the user id and body to the service', async () => {
     const chat = vi.fn().mockResolvedValue({ reply: 'x', cards: [], remaining: null });
-    const c = new AssistantController({ chat } as never);
+    const c = new AssistantController({ chat } as never, {} as never);
     await c.chat({ id: 5 } as never, body as never);
     expect(chat).toHaveBeenCalledWith(5, body);
+  });
+
+  it('starts and retries itinerary plans for the signed-in user', () => {
+    const start = vi.fn().mockReturnValue({ tripId: 9, remaining: 4 });
+    const retry = vi.fn().mockReturnValue({ tripId: 9, remaining: 3 });
+    const c = new AssistantController({} as never, { start, retry } as never);
+    const user = { id: 5, role: 'user' };
+    expect(c.createTripPlan(user as never, { destination: 'Gramado' } as never)).toEqual({ tripId: 9, remaining: 4 });
+    expect(start).toHaveBeenCalledWith(user, { destination: 'Gramado' });
+    expect(c.retryTripPlan(user as never, 9)).toEqual({ tripId: 9, remaining: 3 });
+    expect(retry).toHaveBeenCalledWith(5, 9);
   });
 });
