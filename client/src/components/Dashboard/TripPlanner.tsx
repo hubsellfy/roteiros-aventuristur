@@ -65,12 +65,12 @@ export default function TripPlanner({ pending, onCreated, onRetry, onRemove }: T
         <div
           role="img"
           aria-hidden
-          className="relative h-40 bg-cover bg-center md:h-52"
-          style={{ backgroundImage: 'url(/images/criador-roteiro-ceu.jpg)' }}
+          className="relative h-52 bg-cover bg-[position:70%_25%] md:h-64"
+          style={{ backgroundImage: 'url(/images/app-topo-viajante.jpg)' }}
         >
           <h2
             id="trip-planner-title"
-            className="absolute inset-x-0 top-5 px-6 text-center text-[1.75rem] font-normal leading-none text-white [text-shadow:0_2px_14px_rgba(10,60,120,0.45)] md:top-6 md:text-[2.25rem]"
+            className="absolute inset-x-0 top-6 max-w-[58%] px-6 text-start text-[2.25rem] font-normal leading-[1.05] text-white [text-shadow:0_2px_14px_rgba(10,60,120,0.45)] md:top-8 md:text-[3rem]"
             style={{ fontFamily: "'Indie Flower', cursive" }}
           >
             {t('dashboard.plan.title')}

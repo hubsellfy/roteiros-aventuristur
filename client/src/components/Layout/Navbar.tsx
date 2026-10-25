@@ -148,7 +148,8 @@ export default function Navbar({ tripTitle, tripId, onBack, showBack, onSettings
 
         <Link to="/dashboard" className="flex items-center transition-colors flex-shrink-0">
           <img src={dark ? '/icons/icon-white.svg' : '/icons/icon-dark.svg'} alt="Roteiros Aventuristur" className="sm:hidden" style={{ height: 22, width: 22 }} />
-          <img src="/logo-icon.svg" alt="Roteiros Aventuristur" className="hidden sm:block" style={{ height: 34 }} />
+          <img src="/logo-icon.svg" alt="Roteiros Aventuristur" className="hidden sm:block dark:sm:hidden" style={{ height: 34 }} />
+          <img src="/logo-icon-dark.svg" alt="" aria-hidden className="hidden dark:sm:block" style={{ height: 34 }} />
         </Link>
 
         {/* Prerelease badge. Beside the logo it names the build, and it stays out
