@@ -177,6 +177,7 @@ export default defineConfig({
         'src/nest/receipt-scan/**/*.ts': { statements: 99, branches: 99, functions: 99, lines: 99 },
         'src/nest/reservation-import/**/*.ts': { statements: 61, branches: 55, functions: 41, lines: 61 },
         'src/nest/reservations/**/*.ts': { statements: 92, branches: 83, functions: 96, lines: 96 },
+        'src/nest/retention/**/*.ts': { statements: 80, branches: 80, functions: 80, lines: 80 },
         // New domain in this change. Measured over its own suites at
         // 94.0/81.1/100/99.1 and pinned under that: the subset run does not
         // load the controller the way the full run does, so the real figure is
@@ -185,6 +186,7 @@ export default defineConfig({
         // hiding in the 80 catch-all, where 557 new lines could shed twenty
         // points against the headroom of the domains beside them.
         'src/nest/roadtrip/**/*.ts': { statements: 88, branches: 80, functions: 95, lines: 95 },
+        'src/nest/roteiro-ia/**/*.ts': { statements: 80, branches: 80, functions: 80, lines: 80 },
         'src/nest/route-usage/**/*.ts': { statements: 84, branches: 66, functions: 77, lines: 83 },
         'src/nest/scheduling/**/*.ts': { statements: 99, branches: 92, functions: 99, lines: 99 },
         'src/nest/school-holidays/**/*.ts': { statements: 97, branches: 95, functions: 99, lines: 97 },

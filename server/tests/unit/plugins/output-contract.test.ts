@@ -67,7 +67,7 @@ describe('the contract table', () => {
   });
 
   it('OUTCONTRACT-UNIT-004 a trip withholds its feed token and a user exposes four fields', () => {
-    expect(contractOf('trip').withheld).toEqual(['feed_token']);
+    expect(contractOf('trip').withheld).toEqual(['feed_token', 'ai_status', 'ai_request']);
     expect(pluginEntityFields('user')).toEqual(['id', 'username', 'display_name', 'avatar']);
   });
 

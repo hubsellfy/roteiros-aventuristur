@@ -35,6 +35,8 @@
     "src/nest/plugins/contributions/plugin-pois.service.ts": 4,
     "src/nest/public-api/public-api-request.ts": 3,
     "src/nest/reservations/reservations.mcp.ts": 4,
+    "src/nest/roteiro-ia/daily-limit.ts": 1,
+    "src/nest/roteiro-ia/roteiro-chat.service.ts": 1,
     "src/nest/tokens/token.service.ts": 2,
     "src/nest/vacay/vacay.controller.ts": 1,
     "src/nest/vacay/vacay.mcp.ts": 1

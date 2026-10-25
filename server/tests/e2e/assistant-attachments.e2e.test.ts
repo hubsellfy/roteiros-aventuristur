@@ -330,7 +330,7 @@ describe('Trip assistant: attached files', () => {
       .join('');
     expect(line).toBe(
       'I could not find a booking in AirBnB Buchung.txt. AI reading is not set up for imports here, so only ' +
-        'TREK’s own reader looked at it. What should I do with the file?',
+        'Roteiros Aventuristur’s own reader looked at it. What should I do with the file?',
     );
     expect(ofType(turn.chunks, 'data-trek-follow-ups')[0].data.questions).toEqual([
       'Keep it in Files',

@@ -311,12 +311,15 @@ describe('Unified album-link management', () => {
     addAlbumLink(testDb, trip.id, user.id, 'immich', 'album-enabled');
 
     // Disable the immich provider
+    // The fork enables every provider, so all of them go off here.
     await updateRows(orm(), PhotoProviders, { id: 'immich' }, { enabled: 0 });
+    await updateRows(orm(), PhotoProviders, { id: 'synologyphotos' }, { enabled: 0 });
 
     const res = await request(app).get(albumLinksUrl(trip.id)).set('Cookie', authCookie(user.id));
 
     // Re-enable for future tests
     await updateRows(orm(), PhotoProviders, { id: 'immich' }, { enabled: 1 });
+    await updateRows(orm(), PhotoProviders, { id: 'synologyphotos' }, { enabled: 1 });
 
     expect(res.status).toBe(400); // no providers enabled → error
   });

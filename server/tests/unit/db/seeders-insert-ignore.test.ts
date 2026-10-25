@@ -70,12 +70,12 @@ describe('seeders that leave existing rows alone', () => {
     ]);
   });
 
-  it('SEEDIGN-004: DocumentProviderSeeder seeds providers disabled and fields once', async () => {
+  it('SEEDIGN-004: DocumentProviderSeeder seeds providers (enabled in the fork) and fields once', async () => {
     await new DocumentProviderSeeder().run(orm.em);
     const providers = await count('document_providers');
     const fields = await count('document_provider_fields');
     expect(providers).toBeGreaterThan(0);
-    expect(await rawQuery(orm, 'SELECT DISTINCT enabled FROM document_providers')).toEqual([{ enabled: 0 }]);
+    expect(await rawQuery(orm, 'SELECT DISTINCT enabled FROM document_providers')).toEqual([{ enabled: 1 }]); // the fork's migration enables every provider
 
     await new DocumentProviderSeeder().run(orm.em);
     expect(await count('document_providers')).toBe(providers);

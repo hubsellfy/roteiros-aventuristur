@@ -84,6 +84,7 @@
     "src/nest/roadtrip/roadtrip-preferences.controller.ts": 2,
     "src/nest/roadtrip/roadtrip-search.controller.ts": 1,
     "src/nest/roadtrip/roadtrip.controller.ts": 7,
+    "src/nest/roteiro-ia/roteiro-ia.controller.ts": 3,
     "src/nest/route-usage/route-usage.controller.ts": 3,
     "src/nest/school-holidays/school-holidays.controller.ts": 8,
     "src/nest/share/share.controller.ts": 5,

@@ -106,6 +106,11 @@ describe('MCP authentication', () => {
   // MCP handler checks if the 'mcp' addon is enabled first (403 if not),
   // then checks auth (401). In test DB the addon may be disabled.
 
+  // The fork enables every addon by default, so the addon-off cases switch it off.
+  beforeEach(async () => {
+    await setAddonEnabled(t, 'mcp', false);
+  });
+
   it('MCP-001 — POST /mcp without auth returns 403 (addon disabled before auth check)', async () => {
     const res = await request(app).post('/mcp').send({ jsonrpc: '2.0', method: 'initialize', id: 1 });
     // MCP handler checks addon enabled before verifying auth; addon is disabled in test DB

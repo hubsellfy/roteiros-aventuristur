@@ -166,13 +166,11 @@ describe('demo tool gate over the whole registry', () => {
     expect(result.isError).toBeUndefined();
   });
 
-  it('DEMOGATE-005: with every addon on, only the photo-library tools stay detached, so the sweep above covers the rest', async () => {
+  it('DEMOGATE-005: with every addon and provider on (the fork default), every listed tool is attached', async () => {
     const { user } = createUser(testDb);
     const tools = await captureTools(registry, { userId: user.id, scopes: null, isStaticToken: false });
     const missing = toolListings.map((t) => t.name).filter((name) => !tools.has(name));
-    // These three wait for a connected Immich or Synology provider
-    // (anyPhotoProviderEnabled), and all three are reads.
-    expect(missing.sort()).toEqual(['list_provider_album_photos', 'list_provider_albums', 'search_provider_photos']);
+    expect(missing).toEqual([]);
   });
 
   it('DEMOGATE-006: the scope mode and the read-only annotation agree on every declarative tool', async () => {
@@ -183,7 +181,7 @@ describe('demo tool gate over the whole registry', () => {
       const access = listing.access;
       if (access === undefined || typeof access === 'function') continue;
       const tool = tools.get(listing.name);
-      if (!tool) continue; // the detached photo-library reads of DEMOGATE-005
+      if (!tool) continue; // a listed tool that is not attached
       const readOnly = tool.annotations?.readOnlyHint === true;
       if (access.mode === 'read' && !readOnly) mismatched.push(`${listing.name}: mode read, not annotated read-only`);
       if ((access.mode === 'write' || access.mode === 'delete') && readOnly) {
