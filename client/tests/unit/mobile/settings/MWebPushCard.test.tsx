@@ -35,7 +35,7 @@ describe('MWebPushCard', () => {
   it('FE-MOB-WEBPUSH-001: explains itself and offers to switch on', async () => {
     render(<MWebPushCard />);
     expect(screen.getByText('Push notifications on this device')).toBeInTheDocument();
-    expect(screen.getByText(/Shows TREK notifications on this device/)).toBeInTheDocument();
+    expect(screen.getByText(/Shows Roteiros Aventuristur notifications on this device/)).toBeInTheDocument();
     expect(screen.queryByRole('status')).not.toBeInTheDocument();
 
     const turnOn = screen.getByRole('button', { name: 'Turn on for this device' });

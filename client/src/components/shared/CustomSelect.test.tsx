@@ -269,7 +269,7 @@ describe('CustomSelect', () => {
     render(<CustomSelect ariaLabel="Disabled fruit" value="apple" onChange={onChange} size="sm" disabled options={[{ value: 'apple', label: 'Apple', badge: '3', icon: <span data-testid="fruit-icon" /> }]} />);
     const trigger = screen.getByRole('button', { name: 'Disabled fruit' });
     expect(trigger).toBeDisabled();
-    expect(trigger.style.padding).toBe('8px 12px');
+    expect(trigger.style.padding).toBe('9px 16px');
     expect(within(trigger).getByText('3')).toBeInTheDocument();
     expect(within(trigger).getByTestId('fruit-icon')).toBeInTheDocument();
     await user.tab();

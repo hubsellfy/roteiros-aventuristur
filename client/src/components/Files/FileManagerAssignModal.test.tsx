@@ -294,7 +294,7 @@ describe('AssignModal reservation list', () => {
     expect(screen.getByText('files.assignBooking')).toBeInTheDocument()
     expect(screen.getByText('files.assignTransport')).toBeInTheDocument()
     expect(iconOf('Hotel Lutetia')).toMatch(/ticket/)
-    expect(iconOf('TGV 8712')).toMatch(/lucide-train/)
+    expect(iconOf('TGV 8712')).toMatch(/lucide-tram-front/)
     expect(iconOf('AF1234')).toMatch(/plane/)
   })
 

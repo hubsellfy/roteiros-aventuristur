@@ -823,7 +823,7 @@ describe('TourPlannerRail', () => {
     act(() => { toggleTourPlacing() })
     expect(screen.getByTestId('tour-planner-empty-state')).toHaveTextContent('Turn on Add point and click the map.')
     act(() => { toggleTourPlacing() })
-    expect(screen.getByTestId('tour-planner-empty-state')).toHaveTextContent('From two points on, TREK works out the route.')
+    expect(screen.getByTestId('tour-planner-empty-state')).toHaveTextContent('From two points on, Roteiros Aventuristur works out the route.')
     rerender(<TourPlannerRail planner={planner({ mode: { type: 'new-draft' }, waypoints: [{ id: 'first', lat: 48, lng: 11, role: 'start' }] })} />)
     expect(screen.queryByTestId('tour-planner-empty-state')).not.toBeInTheDocument()
     expect(screen.queryByRole('button', { name: 'Plan new tour' })).not.toBeInTheDocument()
@@ -1005,7 +1005,7 @@ describe('TourPlannerRail', () => {
   })
 
   it('TOUR-PLANNER-RAIL-022: an unsaved walk read from Google Maps says so, and a saved one no longer does (CW-07)', () => {
-    const notice = 'From a Google Maps walking route. TREK planned the way between the stops itself.'
+    const notice = 'From a Google Maps walking route. Roteiros Aventuristur planned the way between the stops itself.'
     const { rerender } = render(<TourPlannerRail planner={planner({ draftSource: 'google_maps', hasUnsavedChanges: true, mode: { type: 'new-draft' } })} />)
     expect(screen.getByText(notice)).toBeInTheDocument()
 

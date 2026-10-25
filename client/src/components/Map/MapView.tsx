@@ -838,8 +838,7 @@ export const MapView = memo(function MapView({
   const isGcjBasemap = !tourRaster && basemap.kind === 'raster' && isGcj02Basemap(basemap.url)
   const gcjCrs = useMemo(() => crsForBasemap(isGcjBasemap), [isGcjBasemap])
   const [mapZoom, setMapZoom] = useState(0)
-  // From a neighbourhood-level zoom on, every pin carries its name without being
-  // tapped, as Google Maps does. Further out the names would pile up into noise.
+  // From a neighbourhood-level zoom on, every pin carries its name, as in Google Maps.
   const poiLabels = mapZoom >= POI_LABEL_MIN_ZOOM
   const [labeledPois, setLabeledPois] = useState<Set<string | number>>(() => new Set())
   const poiMarkers = useMemo(() => (pois as Poi[]).map((poi: Poi) => (

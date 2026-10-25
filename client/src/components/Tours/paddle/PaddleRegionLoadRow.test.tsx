@@ -35,7 +35,7 @@ describe('PaddleRegionLoadRow', () => {
     );
     const row = screen.getByTestId('tour-planner-region-load');
     expect(row).toHaveTextContent('has been requested');
-    expect(row).toHaveTextContent('larger than TREK loads by itself');
+    expect(row).toHaveTextContent('larger than Roteiros Aventuristur loads by itself');
   });
 
   it('FE-PADDLE-REGION-LOAD-ROW-003: shows the queue before the read starts, and no button once the data is there', () => {
