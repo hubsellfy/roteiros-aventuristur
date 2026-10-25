@@ -56,6 +56,7 @@ import { NightPauseDrag } from './NightPauseDrag'
 import type { DayBoundaryControls } from './dayBoundaryDrag'
 import { formatPoiName } from '../../utils/formatPoiName'
 import { POI_CATEGORY_BY_KEY, POI_LABEL_MIN_ZOOM, type Poi } from './poiCategories'
+import { pickVisibleLabels } from './poiLabelLayout'
 import { resolveTrackColor, hasManualTrackColor } from './trackColors'
 import DawarichTrailLayer from './DawarichTrailLayer'
 import { OFM_POSITRON, DEFAULT_MAP_CENTER, DEFAULT_MAP_ZOOM, MAP_MAX_ZOOM, SATELLITE_TILE_URL, SATELLITE_TILE_MAXZOOM, AMAP_SATELLITE, attributionForTile } from '../../constants/mapDefaults'
@@ -254,6 +255,29 @@ function createPoiIcon(category: string, brandWikidata?: string | null) {
   })
   poiIconCache.set(category, icon)
   return icon
+}
+
+// Decides which pins may carry a permanent name: only those whose tag would not
+// cover another tag or pin, recomputed whenever the camera settles.
+function PoiLabelPicker({ pois, enabled, onChange }: { pois: Poi[]; enabled: boolean; onChange: (ids: Set<string | number>) => void }) {
+  const map = useMap()
+  useEffect(() => {
+    if (!enabled) { onChange(new Set()); return }
+    const update = () => {
+      const bounds = map.getBounds().pad(0.1)
+      const candidates = pois
+        .filter(p => bounds.contains([p.lat, p.lng]))
+        .map(p => {
+          const pt = map.latLngToContainerPoint([p.lat, p.lng])
+          return { id: p.osm_id, name: formatPoiName(p.name), x: pt.x, y: pt.y }
+        })
+      onChange(pickVisibleLabels(candidates))
+    }
+    update()
+    map.on('moveend zoomend', update)
+    return () => { map.off('moveend zoomend', update) }
+  }, [map, pois, enabled, onChange])
+  return null
 }
 
 // Clears the hover tooltip the moment the camera starts moving and suppresses
@@ -776,11 +800,12 @@ export const MapView = memo(function MapView({
   // From a neighbourhood-level zoom on, every pin carries its name without being
   // tapped, as Google Maps does. Further out the names would pile up into noise.
   const poiLabels = mapZoom >= POI_LABEL_MIN_ZOOM
+  const [labeledPois, setLabeledPois] = useState<Set<string | number>>(() => new Set())
   const poiMarkers = useMemo(() => (pois as Poi[]).map((poi: Poi) => (
     <Marker
       // A tooltip's `permanent` option is read once, so crossing the threshold
       // has to rebuild the marker.
-      key={`poi-${poi.osm_id}-${poiLabels ? 'label' : 'plain'}`}
+      key={`poi-${poi.osm_id}-${labeledPois.has(poi.osm_id) ? 'label' : 'plain'}`}
       alt={poi.name}
       position={[poi.lat, poi.lng]}
       icon={createPoiIcon(poi.category, poi.brand_wikidata)}
@@ -799,9 +824,9 @@ export const MapView = memo(function MapView({
         },
       }}
     >
-      <Tooltip direction="top" offset={[0, -10]} opacity={1} className="map-tooltip" permanent={poiLabels}>{formatPoiName(poi.name)}</Tooltip>
+      <Tooltip direction="top" offset={[0, -10]} opacity={1} className="map-tooltip" permanent={labeledPois.has(poi.osm_id)}>{formatPoiName(poi.name)}</Tooltip>
     </Marker>
-  )), [pois, onPoiClick, onPoiDropOnRoute, poiLabels])
+  )), [pois, onPoiClick, onPoiDropOnRoute, labeledPois])
   const visibleReservations = useMemo(() => (
     visibleRouteReservations(reservations, { visibleConnectionIds, showTransitRoutes, selectedDayId, days, scopeConnectionsToDay })
   ), [reservations, visibleConnectionIds, showTransitRoutes, selectedDayId, days, scopeConnectionsToDay])
@@ -1170,6 +1195,7 @@ export const MapView = memo(function MapView({
       <SelectionController places={places} selectedPlaceId={selectedPlaceId} dayPlaces={dayPlaces} selectedPlace={selectedPlace} paddingOpts={paddingOpts} />
       <MapClickHandler onClick={onMapClick} />
       <MapContextMenuHandler onContextMenu={onMapContextMenu} />
+      <PoiLabelPicker pois={pois as Poi[]} enabled={poiLabels} onChange={setLabeledPois} />
       <CameraHoverGuard movingRef={mapMovingRef} onMoveStart={clearHover} onZoom={setMapZoom} />
       <ViewportController onViewportChange={onViewportChange} />
       <PoiDropTarget onPoiDropOnRoute={onPoiDropOnRoute} />
