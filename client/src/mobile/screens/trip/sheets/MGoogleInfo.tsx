@@ -63,7 +63,7 @@ export default function MGoogleInfo({ details, language }: { details: PlaceDetai
           ) : null}
           {openNow != null && (
             <span
-              className={`ml-auto rounded-full px-[9px] py-[3px] text-[0.6875rem] font-semibold ${openNow ? 'bg-[color:var(--m-st-ok-bg,rgba(34,197,94,0.15))] text-[#22c55e]' : 'bg-[color:var(--m-st-danger-bg,rgba(239,68,68,0.15))] text-[#ef4444]'}`}
+              className={`ms-auto rounded-full px-[9px] py-[3px] text-[0.6875rem] font-semibold ${openNow ? 'bg-[color:var(--m-st-ok-bg,rgba(34,197,94,0.15))] text-[#22c55e]' : 'bg-[color:var(--m-st-danger-bg,rgba(239,68,68,0.15))] text-[#ef4444]'}`}
             >
               {openNow ? t('inspector.opened') : t('inspector.closed')}
             </span>
@@ -81,7 +81,7 @@ export default function MGoogleInfo({ details, language }: { details: PlaceDetai
               return (
                 <div key={line} className={`contents ${today ? 'font-bold' : 'text-m-muted'}`}>
                   <span>{day}</span>
-                  <span className="text-right">{hours}</span>
+                  <span className="text-end">{hours}</span>
                 </div>
               );
             })}
@@ -101,7 +101,7 @@ export default function MGoogleInfo({ details, language }: { details: PlaceDetai
                 <div className="flex items-center gap-2">
                   <span className="min-w-0 truncate text-[0.75rem] font-semibold">{r.author}</span>
                   {r.rating ? <Stars value={r.rating} /> : null}
-                  {r.time ? <span className="ml-auto flex-none text-[0.6875rem] text-m-muted">{r.time}</span> : null}
+                  {r.time ? <span className="ms-auto flex-none text-[0.6875rem] text-m-muted">{r.time}</span> : null}
                 </div>
                 <p className="mt-[4px] line-clamp-5 font-geist text-[0.75rem] leading-[1.5] text-m-muted [overflow-wrap:anywhere]">
                   {r.text}

@@ -49,7 +49,7 @@ export default function MAssistantCard({ card, language, dayNumber, canAdd, onAd
         )}
         {card.reason && <div className="mt-[6px] font-geist text-[0.78125rem] leading-[1.5]">{card.reason}</div>}
         {card.topReview && (
-          <blockquote className="mt-[6px] border-l-2 border-[color:var(--m-inbr)] pl-2 font-geist text-[0.71875rem] italic leading-[1.5] text-m-muted">
+          <blockquote className="mt-[6px] border-s-2 border-[color:var(--m-inbr)] ps-2 font-geist text-[0.71875rem] italic leading-[1.5] text-m-muted">
             “{card.topReview.text}” — {card.topReview.author}
           </blockquote>
         )}

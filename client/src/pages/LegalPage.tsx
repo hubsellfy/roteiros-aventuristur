@@ -34,7 +34,7 @@ export default function LegalPage({ kind }: { kind: LegalKind }) {
               </p>
             ))}
             {section.items && (
-              <ul className="ml-5 list-disc space-y-1 text-content-secondary">
+              <ul className="ms-5 list-disc space-y-1 text-content-secondary">
                 {section.items.map((item) => (
                   <li key={item}>{item}</li>
                 ))}

@@ -478,7 +478,7 @@ function createPoiMarkerElement(poi: Pick<Poi, 'category' | 'icon' | 'color'>, b
     const label = document.createElement('span')
     label.className = 'poi-pin-label'
     label.textContent = name
-    label.style.cssText = 'position:absolute;left:30px;top:50%;transform:translateY(-50%);max-width:130px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font:600 11px/1.2 system-ui,sans-serif;color:#fff;text-shadow:0 0 3px #000,0 0 3px #000,0 1px 2px #000;pointer-events:none;display:none;'
+    label.style.cssText = 'position:absolute;inset-inline-start:30px;top:50%;transform:translateY(-50%);max-width:130px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font:600 11px/1.2 system-ui,sans-serif;color:#fff;text-shadow:0 0 3px #000,0 0 3px #000,0 1px 2px #000;pointer-events:none;display:none;'
     el.appendChild(label)
   }
   return el

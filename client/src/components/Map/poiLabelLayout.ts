@@ -16,13 +16,13 @@ const PIN_HALF = 15;
 const GAP = 4;
 
 interface Box {
-  left: number;
-  right: number;
+  minX: number;
+  maxX: number;
   top: number;
   bottom: number;
 }
 
-const overlaps = (a: Box, b: Box) => a.left < b.right && a.right > b.left && a.top < b.bottom && a.bottom > b.top;
+const overlaps = (a: Box, b: Box) => a.minX < b.maxX && a.maxX > b.minX && a.top < b.bottom && a.bottom > b.top;
 
 /**
  * Picks which pins may show a permanent name without covering another name or
@@ -32,8 +32,8 @@ const overlaps = (a: Box, b: Box) => a.left < b.right && a.right > b.left && a.t
  */
 export function pickVisibleLabels(candidates: LabelCandidate[]): Set<string | number> {
   const pinBoxes = candidates.map<Box>((c) => ({
-    left: c.x - PIN_HALF,
-    right: c.x + PIN_HALF,
+    minX: c.x - PIN_HALF,
+    maxX: c.x + PIN_HALF,
     top: c.y - PIN_HALF,
     bottom: c.y + PIN_HALF,
   }));
@@ -42,8 +42,8 @@ export function pickVisibleLabels(candidates: LabelCandidate[]): Set<string | nu
   candidates.forEach((c, i) => {
     const width = c.name.length * CHAR_WIDTH + LABEL_PADDING;
     const box: Box = {
-      left: c.x - width / 2 - GAP,
-      right: c.x + width / 2 + GAP,
+      minX: c.x - width / 2 - GAP,
+      maxX: c.x + width / 2 + GAP,
       top: c.y - LABEL_RISE - LABEL_HEIGHT - GAP,
       bottom: c.y - LABEL_RISE + GAP,
     };

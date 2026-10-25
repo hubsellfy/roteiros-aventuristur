@@ -189,7 +189,7 @@ export default function MPoiSheet({ planner, shell }: MTripSheetsProps) {
                 </ActionCircle>
               )}
               {canAdd && (
-                <ActionCircle onClick={addToTrip} label={t('common.add')} primary className="ml-auto">
+                <ActionCircle onClick={addToTrip} label={t('common.add')} primary className="ms-auto">
                   <Plus size={15} strokeWidth={2} />
                 </ActionCircle>
               )}

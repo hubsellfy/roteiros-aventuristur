@@ -138,7 +138,7 @@ html .trek-dash .seg button.on {
 
 /* ── Campos e botões de formulário ────────────────────────────────────── */
 html select.form-input {
-  padding-right: 36px;
+  padding-inline-end: 36px;
 }
 
 /* ── Celular (.m-root): mesmos tokens do site, superfícies sólidas em vez de vidro ───── */
@@ -240,10 +240,10 @@ html.dark .border-b {
   border-bottom-width: 0.5px;
 }
 html.dark .border-l {
-  border-left-width: 0.5px;
+  border-inline-start-width: 0.5px;
 }
 html.dark .border-r {
-  border-right-width: 0.5px;
+  border-inline-end-width: 0.5px;
 }
 html.dark .trek-dash .atlas-card,
 html.dark .trek-dash .btn-secondary,
@@ -319,10 +319,10 @@ html .border-b {
   border-bottom-width: 0.5px;
 }
 html .border-l {
-  border-left-width: 0.5px;
+  border-inline-start-width: 0.5px;
 }
 html .border-r {
-  border-right-width: 0.5px;
+  border-inline-end-width: 0.5px;
 }
 html .trek-dash .atlas-card,
 html .trek-dash .btn-secondary,

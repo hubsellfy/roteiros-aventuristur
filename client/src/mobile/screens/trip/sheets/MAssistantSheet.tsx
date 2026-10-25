@@ -61,7 +61,7 @@ export default function MAssistantSheet({ planner, shell }: MTripSheetsProps) {
                   key={key}
                   type="button"
                   onClick={() => submit(t(key))}
-                  className={`rounded-full px-3 py-[7px] text-left font-geist text-[0.75rem] ${INNER_CLS}`}
+                  className={`rounded-full px-3 py-[7px] text-start font-geist text-[0.75rem] ${INNER_CLS}`}
                 >
                   {t(key)}
                 </button>

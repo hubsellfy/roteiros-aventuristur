@@ -20,8 +20,7 @@ export const ABOUT_COPY = {
     title: 'Sobre o Roteiros Aventuristur',
     description: 'Planeje e acompanhe sua viagem em um roteiro compartilhado, no computador ou no celular.',
     origin: 'baseado no TREK (AGPL-3.0)',
-    warranty:
-      'Este software é fornecido sem garantias. Para assuntos da sua viagem, fale com a equipe da Aventuristur.',
+    warranty: 'Este software é fornecido sem garantias. Para assuntos da sua viagem, fale com a equipe da Aventuristur.',
     source: 'Código-fonte',
     license: 'Licença AGPL-3.0',
   },

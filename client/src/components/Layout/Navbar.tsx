@@ -134,7 +134,7 @@ export default function Navbar({ tripTitle, tripId, onBack, showBack, onSettings
       <div
         className={`flex items-center gap-3 flex-1 basis-0 ${tripTitle ? 'min-w-0' : 'min-w-max'}`}
         // On the home screen the logo starts where the cards below it start (the page is 1800px wide, centred, with 48px side padding).
-        style={location.pathname === '/dashboard' ? { paddingLeft: 'max(32px, calc((100vw - 1800px) / 2 + 32px))' } : undefined}
+        style={location.pathname === '/dashboard' ? { paddingInlineStart: 'max(32px, calc((100vw - 1800px) / 2 + 32px))' } : undefined}
       >
         {showBack && !tripTitle && (
           <button type="button" onClick={onBack}

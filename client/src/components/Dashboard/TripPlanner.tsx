@@ -23,7 +23,7 @@ const fieldCls =
   'flex min-w-0 items-center gap-3 rounded-full border border-edge bg-surface-card px-[18px] py-3 text-content transition-colors focus-within:border-accent';
 const inputCls =
   'min-w-0 flex-1 !bg-transparent !shadow-none text-[0.9375rem] text-content outline-none placeholder:text-content-faint';
-const labelCls = 'mb-1.5 ml-1 block text-[0.6875rem] font-semibold uppercase tracking-[0.08em] text-content-muted';
+const labelCls = 'mb-1.5 ms-1 block text-[0.6875rem] font-semibold uppercase tracking-[0.08em] text-content-muted';
 
 function Field({ label, children }: { label: string; children: React.ReactNode }): React.ReactElement {
   return (
@@ -203,7 +203,7 @@ export default function TripPlanner({ pending, onCreated, onRetry, onRemove }: T
 
       {pending.length > 0 && (
         <div className="mt-4">
-          <h3 className="mb-2 ml-1 text-[0.6875rem] font-semibold uppercase tracking-[0.08em] text-content-muted">
+          <h3 className="mb-2 ms-1 text-[0.6875rem] font-semibold uppercase tracking-[0.08em] text-content-muted">
             {t('dashboard.plan.pendingTitle')}
           </h3>
           <ul className="flex flex-col gap-3">
