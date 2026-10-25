@@ -394,13 +394,13 @@ describe('MDashboard', () => {
     expect(setShowForm).toHaveBeenCalledWith(true);
   });
 
-  it('FE-MOB-DASH-026: the mobile widgets render in the configured block order', () => {
+  it('FE-MOB-DASH-026: currency and time zones stay off the home screen, the other widgets render', () => {
     mocks.dash = buildDash();
     render(<MDashboard />);
 
     // The widget panels bring their own translations rather than the mocked hook's t.
-    expect(screen.getByText('Currency')).toBeInTheDocument();
-    expect(screen.getByText('Timezones')).toBeInTheDocument();
+    expect(screen.queryByText('Currency')).not.toBeInTheDocument();
+    expect(screen.queryByText('Timezones')).not.toBeInTheDocument();
     expect(screen.getByText('Upcoming reservations')).toBeInTheDocument();
   });
 
