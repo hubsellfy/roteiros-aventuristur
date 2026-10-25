@@ -59,6 +59,53 @@ export const ASSISTANT_TOOLS = [
   },
 ] as const;
 
+/** What the itinerary builder may call: the two read tools of the chat, plus the final submission. */
+export const TRIP_PLAN_TOOLS = [
+  ASSISTANT_TOOLS[1],
+  ASSISTANT_TOOLS[2],
+  {
+    type: 'function',
+    function: {
+      name: 'submit_itinerary',
+      description: 'Deliver the finished itinerary. Call it exactly once, when every day has its places. Only use `ref` values returned by search_places.',
+      parameters: {
+        type: 'object',
+        properties: {
+          title: { type: 'string', description: 'Short trip title, e.g. "Gramado no Natal Luz". Max 60 characters.' },
+          days: {
+            type: 'array',
+            items: {
+              type: 'object',
+              properties: {
+                day_number: { type: 'integer', description: '1 for the first day of the trip.' },
+                title: { type: 'string', description: 'Short theme of the day, e.g. "Centro histórico". Max 50 characters.' },
+                items: {
+                  type: 'array',
+                  items: {
+                    type: 'object',
+                    properties: {
+                      ref: { type: 'string' },
+                      time: { type: 'string', description: 'Start time as HH:MM, 24h.' },
+                      duration_minutes: { type: 'integer', description: 'How long the visit takes, 15 to 480.' },
+                      note: { type: 'string', description: 'One short practical tip about this stop (max 160 characters). No prices.' },
+                    },
+                    required: ['ref', 'time'],
+                    additionalProperties: false,
+                  },
+                },
+              },
+              required: ['day_number', 'items'],
+              additionalProperties: false,
+            },
+          },
+        },
+        required: ['days'],
+        additionalProperties: false,
+      },
+    },
+  },
+] as const;
+
 /** A place the model can refer to by `ref` during one conversation turn. */
 export interface KnownPlace {
   ref: string;

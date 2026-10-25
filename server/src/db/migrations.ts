@@ -5294,6 +5294,21 @@ function runMigrations(db: Database.Database): void {
       db.prepare('UPDATE document_providers SET enabled = 1').run();
       db.prepare("INSERT OR REPLACE INTO app_settings (key, value) VALUES ('bag_tracking_enabled', 'true')").run();
     },
+    // Aventuristur: criador de roteiro com IA. ai_status marca a viagem enquanto o roteiro é
+    // montado em segundo plano ('generating') ou quando a montagem falhou ('failed'); NULL é
+    // uma viagem comum. ai_request guarda o pedido do cliente para "Tentar de novo".
+    () => {
+      for (const stmt of [
+        'ALTER TABLE trips ADD COLUMN ai_status TEXT',
+        'ALTER TABLE trips ADD COLUMN ai_request TEXT',
+      ]) {
+        try {
+          db.exec(stmt);
+        } catch (err: any) {
+          if (!err.message?.includes('duplicate column name')) throw err;
+        }
+      }
+    },
   ];
 
   if (currentVersion < migrations.length) {

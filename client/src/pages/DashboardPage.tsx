@@ -22,6 +22,7 @@ import {
 } from '../icons'
 import { IcsSubscribeModal } from '../components/Planner/IcsSubscribeModal'
 import CollectionsWidget from '../components/Dashboard/CollectionsWidget'
+import TripPlanner from '../components/Dashboard/TripPlanner'
 import PluginWidgets from '../components/Plugins/PluginWidgets'
 import PluginFrame from '../components/Plugins/PluginFrame'
 import { TripCardBadges, useTripCardBadges } from '../components/Plugins/TripCardBadges'
@@ -120,6 +121,7 @@ function DashboardPageDesktop(): React.ReactElement {
     deleteTrip, setDeleteTrip, copyTrip, setCopyTrip, applyCoverUpdate,
     handleCreate, handleUpdate, confirmDelete, handleArchive, handleUnarchive, confirmCopy,
     allSubOpen, setAllSubOpen,
+    pendingPlans, refreshTrips, retryPlan, removePlan,
   } = useDashboard()
 
   // Dashboard widget visibility (from the appearance config). Phones never reach this
@@ -165,6 +167,7 @@ function DashboardPageDesktop(): React.ReactElement {
                 </button>
               </div>
             )}
+            <TripPlanner pending={pendingPlans} onCreated={refreshTrips} onRetry={retryPlan} onRemove={removePlan} />
             {/* The hero and the cards below stand in for themselves while the trips load.
                 Without them the page rendered its finished empty state: no hero, no
                 cards, and a stats row reading zero, which reads as "your trips are

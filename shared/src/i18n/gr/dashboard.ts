@@ -208,5 +208,38 @@ const dashboard: TranslationStrings = {
   'dashboard.aria.addTimezone': 'Add timezone', // en-fallback
   'dashboard.aria.removeTimezone': 'Remove {city}', // en-fallback
   'dashboard.dayCountRequired': 'Ο αριθμός ημερών είναι υποχρεωτικός',
+  'dashboard.plan.title': 'Πού πάμε;',
+  'dashboard.plan.subtitle': 'Πείτε μας τα βασικά και η ΤΝ φτιάχνει πρόγραμμα ημέρα προς ημέρα με πραγματικά μέρη.',
+  'dashboard.plan.destination': 'Προορισμός',
+  'dashboard.plan.destinationPh': 'Για παράδειγμα: Λισαβόνα, Ορλάντο, Τόκιο...',
+  'dashboard.plan.origin': 'Αναχώρηση από',
+  'dashboard.plan.originPh': 'Πόλη αναχώρησης (προαιρετικό)',
+  'dashboard.plan.dates': 'Ημερομηνίες ταξιδιού',
+  'dashboard.plan.budget': 'Προϋπολογισμός (R$)',
+  'dashboard.plan.budgetPh': 'Προαιρετικό',
+  'dashboard.plan.perPerson': 'Ανά άτομο',
+  'dashboard.plan.total': 'Όλο το ταξίδι',
+  'dashboard.plan.travelers': 'Ταξιδιώτες',
+  'dashboard.plan.travelersOne': '1 ταξιδιώτης',
+  'dashboard.plan.travelersMany': '{count} ταξιδιώτες',
+  'dashboard.plan.style': 'Στυλ ταξιδιού',
+  'dashboard.plan.style.equilibrado': 'Ισορροπημένο (καλή σχέση ποιότητας-τιμής)',
+  'dashboard.plan.style.economico': 'Οικονομικό',
+  'dashboard.plan.style.aventura': 'Περιπέτεια και φύση',
+  'dashboard.plan.style.luxo': 'Πολυτέλεια και premium',
+  'dashboard.plan.style.familia': 'Ιδανικό για οικογένειες',
+  'dashboard.plan.style.romantica': 'Ρομαντική απόδραση',
+  'dashboard.plan.generate': 'Δημιουργία ταξιδιού',
+  'dashboard.plan.disclaimer':
+    'Πρόγραμμα που πρότεινε η ΤΝ με μέρη από το Google. Επιβεβαιώστε ώρες και τιμές σε κάθε μέρος.',
+  'dashboard.plan.errDestination': 'Συμπληρώστε τον προορισμό.',
+  'dashboard.plan.errDates': 'Επιλέξτε ημερομηνίες μετάβασης και επιστροφής.',
+  'dashboard.plan.errDays': 'Ο δημιουργός σχεδιάζει ταξίδια έως {max} ημερών.',
+  'dashboard.plan.pendingTitle': 'Δημιουργούμε το πρόγραμμά σας',
+  'dashboard.plan.working':
+    'Η ΤΝ επιλέγει τα καλύτερα μέρη. Μπορεί να πάρει λίγα λεπτά και μπορείτε να βγείτε από την εφαρμογή.',
+  'dashboard.plan.failed': 'Δεν κατάφερα να ολοκληρώσω αυτό το πρόγραμμα.',
+  'dashboard.plan.retry': 'Δοκιμάστε ξανά',
+  'dashboard.plan.remove': 'Αφαίρεση',
 };
 export default dashboard;

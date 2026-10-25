@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useNavigate, useSearchParams } from 'react-router'
-import { tripsApi, authApi, reservationsApi } from '../../api/client'
+import { tripsApi, authApi, reservationsApi, assistantApi } from '../../api/client'
 import { tripRepo } from '../../repo/tripRepo'
 import { useAuthStore } from '../../store/authStore'
 import { useTranslation } from '../../i18n'
@@ -24,6 +24,8 @@ import {
  * DashboardPage component is a pure wiring container that renders what this
  * returns. Behaviour is identical to the previous in-component logic.
  */
+const PLAN_POLL_MS = 4000
+
 export function useDashboard() {
   const [trips, setTrips] = useState<DashboardTrip[]>([])
   const [archivedTrips, setArchivedTrips] = useState<DashboardTrip[]>([])
@@ -93,18 +95,60 @@ export function useDashboard() {
     loadTrips()
   }
 
+  // Trips whose AI itinerary is still being built (or failed) wait in the planner
+  // section instead of the lists below, which only show ready trips.
+  const pendingPlans = trips.filter(t => t.ai_status)
+  const readyTrips = trips.filter(t => !t.ai_status)
+  const anyBuilding = pendingPlans.some(t => t.ai_status === 'generating')
+
+  // Quiet reload (no spinner, no error toast) while an itinerary is being built, so
+  // the card turns into a normal trip the moment the server finishes it.
+  const refreshTrips = async () => {
+    try {
+      const { trips, archivedTrips } = await tripRepo.list()
+      setTrips(sortTrips(trips))
+      setArchivedTrips(sortTrips(archivedTrips))
+    } catch {
+      // The next tick tries again.
+    }
+  }
+
+  useEffect(() => {
+    if (!anyBuilding) return
+    const timer = setInterval(() => { void refreshTrips() }, PLAN_POLL_MS)
+    return () => clearInterval(timer)
+  }, [anyBuilding])
+
+  const retryPlan = async (id: number) => {
+    try {
+      await assistantApi.retryTripPlan(id)
+      setTrips(prev => prev.map(t => t.id === id ? { ...t, ai_status: 'generating' } : t))
+    } catch (err: unknown) {
+      toast.error(getApiErrorMessage(err, t('dashboard.toast.createError')))
+    }
+  }
+
+  const removePlan = async (id: number) => {
+    try {
+      await tripsApi.delete(id)
+      setTrips(prev => prev.filter(t => t.id !== id))
+    } catch {
+      toast.error(t('dashboard.toast.deleteError'))
+    }
+  }
+
   const today = localIsoToday()
   // A trip the hero features on its own merit: one that is running, else the next
   // one coming up. Only that one is taken out of the grid below, so the same trip
   // isn't shown twice.
-  const featured = trips.find(t => t.start_date && t.end_date && t.start_date <= today && t.end_date >= today)
-    || trips.find(t => t.start_date && t.start_date >= today)
+  const featured = readyTrips.find(t => t.start_date && t.end_date && t.start_date <= today && t.end_date >= today)
+    || readyTrips.find(t => t.start_date && t.start_date >= today)
     || null
   // With neither, the hero still shows something rather than sitting empty — but
   // that trip is only borrowed for the header and must stay in the grid, or a user
   // whose trips are all finished (or undated) sees "No trips yet". #1706
-  const spotlight = featured || trips[0] || null
-  const rest = featured ? trips.filter(t => t.id !== featured.id) : trips
+  const spotlight = featured || readyTrips[0] || null
+  const rest = featured ? readyTrips.filter(t => t.id !== featured.id) : readyTrips
 
   // Pull the spotlight trip's members + places so the boarding pass can show
   // real buddies and place thumbnails instead of placeholders.
@@ -202,6 +246,7 @@ export function useDashboard() {
     demoMode, locale, t, navigate,
     // data + derived
     spotlight, heroBundle, stats, upcoming, gridTrips, isLoading,
+    pendingPlans, refreshTrips, retryPlan, removePlan,
     loadError: loadError || authCheckFailed, retryLoad,
     // ui state
     tripFilter, setTripFilter, viewMode, toggleViewMode,

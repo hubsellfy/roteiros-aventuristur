@@ -125,6 +125,8 @@ export const envSchema = z.object({
   LLM_TIMEOUT_MS: integer(1, 2_147_483_647, 'must be a whole number of milliseconds between 1 and 2147483647'),
   // Messages per traveller per day for the travel assistant; 0 turns the limit off.
   ASSISTANT_DAILY_LIMIT: integer(0, 100_000, 'must be a whole number of messages between 0 and 100000'),
+  // Itineraries the AI builder may create per traveller per day; 0 turns the limit off.
+  ASSISTANT_PLAN_DAILY_LIMIT: integer(0, 1000, 'must be a whole number of itineraries between 0 and 1000'),
   KITINERARY_EXTRACTOR_PATH: anyString,
   // The OS search path. Not configuration anybody sets for TREK — it is here so
   // the kitinerary probe can resolve its binary to an absolute path itself

@@ -63,3 +63,41 @@ export const assistantChatResponseSchema = z.object({
   remaining: z.number().int().nullable(),
 });
 export type AssistantChatResponse = z.infer<typeof assistantChatResponseSchema>;
+
+/**
+ * AI itinerary builder — POST /api/assistant/trip-plan.
+ *
+ * The request creates the trip at once (so its card shows up in the list) and
+ * the itinerary is filled in the background; `ai_status` on the trip says
+ * where it stands. The AI only proposes places: the server writes the trip,
+ * the places and the days through the ordinary services.
+ */
+
+export const TRIP_PLAN_MAX_DAYS = 14;
+export const TRIP_PLAN_STYLES = ['equilibrado', 'economico', 'aventura', 'luxo', 'familia', 'romantica'] as const;
+export type TripPlanStyle = (typeof TRIP_PLAN_STYLES)[number];
+
+const isoDate = z.string().regex(/^\d{4}-\d{2}-\d{2}$/);
+
+export const assistantTripPlanRequestSchema = z.object({
+  destination: z.string().trim().min(2).max(120),
+  /** Where the traveller leaves from; only mentioned in the arrival day. */
+  origin: z.string().trim().max(120).nullable().optional(),
+  startDate: isoDate,
+  endDate: isoDate,
+  /** Budget in reais. Guidance for the price level of the places, never a quote. */
+  budget: z.number().min(0).max(10_000_000).nullable().optional(),
+  budgetMode: z.enum(['person', 'total']).optional(),
+  travelers: z.number().int().min(1).max(12),
+  style: z.enum(TRIP_PLAN_STYLES),
+  /** BCP 47 language of the itinerary, e.g. "pt-BR". */
+  language: z.string().min(2).max(35).optional(),
+});
+export type AssistantTripPlanRequest = z.infer<typeof assistantTripPlanRequestSchema>;
+
+export const assistantTripPlanResponseSchema = z.object({
+  tripId: z.number().int().positive(),
+  /** Itineraries the traveller may still create today; null when there is no limit. */
+  remaining: z.number().int().nullable(),
+});
+export type AssistantTripPlanResponse = z.infer<typeof assistantTripPlanResponseSchema>;
