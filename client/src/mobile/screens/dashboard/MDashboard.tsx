@@ -78,8 +78,8 @@ export default function MDashboard(): React.ReactElement {
   const anyPluginActive = usePluginStore(s => s.plugins).length > 0
   const badgesFor = useTripCardBadges(gridTrips.map(trip => trip.id), anyPluginActive)
 
-  // Mobile-only dashboard arrangement: the featured trip stays on top, then the
-  // trip list + widgets render in the user's chosen order (Settings → Appearance).
+  // Mobile-only dashboard arrangement: planner and filter row on top, then the trip list and
+  // widgets in the user's chosen order (Settings → Appearance).
   const dashOrder = useMobileDashOrder()
   const dashVisible = useMobileDashVisibility()
 
@@ -125,14 +125,8 @@ export default function MDashboard(): React.ReactElement {
 
   const showEmpty = tripFilter === 'planned' && !spotlight && gridTrips.length === 0 && !isLoading && !loadError
 
-  // One dashboard block by token: 'trips' is the filter row + trip list; the
-  // rest are the inline widgets (rendered only when their toggle is on).
-  const renderBlock = (id: MobileDashToken): React.ReactNode => {
-    if (id !== 'trips') {
-      return dashVisible[id] ? <MobileDashWidget id={id} upcoming={upcoming} /> : null
-    }
-    return (
-      <>
+  const filterRow = (
+    <>
         <div className="mt-[14px] flex items-center gap-[7px]">
           {/* The chips scroll inside their own box on narrow viewports or large
               system font scales; without it this row was the widest thing on
@@ -169,7 +163,17 @@ export default function MDashboard(): React.ReactElement {
             {viewMode === 'grid' ? <List size={15} strokeWidth={2} /> : <LayoutGrid size={15} strokeWidth={2} />}
           </button>
         </div>
+    </>
+  )
 
+  // One dashboard block by token: 'trips' is the filter row + trip list; the
+  // rest are the inline widgets (rendered only when their toggle is on).
+  const renderBlock = (id: MobileDashToken): React.ReactNode => {
+    if (id !== 'trips') {
+      return dashVisible[id] ? <MobileDashWidget id={id} upcoming={upcoming} /> : null
+    }
+    return (
+      <>
         {showEmpty && (
           <div className="mt-[10px] flex flex-col items-center rounded-[20px] border border-[color:var(--m-gbr)] bg-[color:var(--m-glass)] px-4 py-8 text-center">
             <MDancingTrek scene="dashboard" size={96} className="mb-2" />
@@ -272,6 +276,8 @@ export default function MDashboard(): React.ReactElement {
         )}
 
         <TripPlanner pending={pendingPlans} onCreated={refreshTrips} onRetry={retryPlan} onRemove={removePlan} />
+
+        {filterRow}
 
         {spotlight && (
           <MSpotlightCard

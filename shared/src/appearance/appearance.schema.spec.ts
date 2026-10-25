@@ -64,6 +64,16 @@ describe('normalizeAppearance', () => {
     expect(out.dashboard.mobile.tripsTotal).toBe(true);
   });
 
+  it('starts the currency and time zone widgets hidden on mobile, but keeps a saved choice', () => {
+    const fresh = normalizeAppearance({ schemeId: 'teal' });
+    expect(fresh.dashboard.mobile.currency).toBe(false);
+    expect(fresh.dashboard.mobile.timezones).toBe(false);
+    expect(fresh.dashboard.desktop.currency).toBe(true);
+    const saved = normalizeAppearance({ dashboard: { mobile: { currency: true, timezones: true } } });
+    expect(saved.dashboard.mobile.currency).toBe(true);
+    expect(saved.dashboard.mobile.timezones).toBe(true);
+  });
+
   it('round-trips the collections widget flag on desktop + mobile and defaults a legacy blob to true', () => {
     // explicit off on both devices survives normalization
     const off = normalizeAppearance({ dashboard: { desktop: { collections: false }, mobile: { collections: false } } });
