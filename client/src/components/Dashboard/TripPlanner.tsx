@@ -102,8 +102,8 @@ export default function TripPlanner({ pending, onCreated, onRetry, onRemove }: T
           <div className="md:col-span-2">
             <span className={labelCls}>{t('dashboard.plan.dates')}</span>
             <div className="grid grid-cols-2 gap-3">
-              <CustomDatePicker value={form.startDate} onChange={form.changeStart} placeholder={t('dashboard.startDate')} hideManualEntry pill />
-              <CustomDatePicker value={form.endDate} onChange={form.setEndDate} placeholder={t('dashboard.endDate')} min={form.startDate || undefined} hideManualEntry pill />
+              <CustomDatePicker value={form.startDate} onChange={form.changeStart} placeholder={t('dashboard.startDate')} hideManualEntry />
+              <CustomDatePicker value={form.endDate} onChange={form.setEndDate} placeholder={t('dashboard.endDate')} min={form.startDate || undefined} hideManualEntry />
             </div>
           </div>
 
@@ -122,7 +122,7 @@ export default function TripPlanner({ pending, onCreated, onRetry, onRemove }: T
               </label>
               <div className="w-[9.5rem] flex-none">
                 <CustomSelect
-                  pill
+                  muted
                   value={form.budgetMode}
                   onChange={v => form.setBudgetMode(v === 'total' ? 'total' : 'person')}
                   options={[
@@ -134,12 +134,12 @@ export default function TripPlanner({ pending, onCreated, onRetry, onRemove }: T
             </div>
           </Field>
           <Field label={t('dashboard.plan.travelers')}>
-            <CustomSelect pill value={form.travelers} onChange={v => form.setTravelers(Number(v))} options={travelerOptions} />
+            <CustomSelect muted value={form.travelers} onChange={v => form.setTravelers(Number(v))} options={travelerOptions} />
           </Field>
 
           <div className="md:col-span-2">
             <Field label={t('dashboard.plan.style')}>
-              <CustomSelect pill value={form.style} onChange={v => form.setStyle(TRIP_PLAN_STYLES.find(x => x === v) ?? 'economico')} options={styleOptions} />
+              <CustomSelect muted value={form.style} onChange={v => form.setStyle(TRIP_PLAN_STYLES.find(x => x === v) ?? 'economico')} options={styleOptions} />
             </Field>
           </div>
         </div>

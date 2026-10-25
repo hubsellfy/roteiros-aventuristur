@@ -23,7 +23,7 @@ interface CustomDatePickerProps {
   borderless?: boolean;
   /** Hides the small keyboard button beside the trigger (typing is still possible in the popup). */
   hideManualEntry?: boolean;
-  /** Fully rounded trigger, for forms laid out with pill-shaped fields. */
+  /** Fully rounded trigger (the app's standard shape); pass false for a squarer one. */
   pill?: boolean;
   /** Read-only contexts (a shared journey, a locked form) — same as CustomTimePicker. */
   disabled?: boolean;
@@ -41,7 +41,7 @@ export function CustomDatePicker({
   compact = false,
   borderless = false,
   hideManualEntry = false,
-  pill = false,
+  pill = true,
   disabled = false,
   min,
   max,
@@ -426,7 +426,7 @@ export function CustomDatePicker({
               zIndex: 99999,
               background: 'var(--bg-card)',
               border: '1px solid var(--border-primary)',
-              borderRadius: 14,
+              borderRadius: pill ? 24 : 14,
               boxShadow: '0 8px 32px rgba(0,0,0,0.12)',
               padding: 12,
               width: 268,

@@ -127,8 +127,8 @@ export default function CustomTimePicker({ value, onChange, placeholder = '00:00
     <div ref={ref} style={{ position: 'relative', ...style }}>
       <div style={{
         width: '100%', display: 'flex', alignItems: 'center', gap: 0,
-        borderRadius: 10, border: '1px solid var(--border-primary)',
-        background: 'var(--bg-input)', overflow: 'hidden',
+        borderRadius: 999, border: '1px solid var(--border-primary)',
+        background: 'var(--bg-card)', overflow: 'hidden',
         transition: 'border-color 0.15s',
       }}>
         <input
@@ -142,7 +142,7 @@ export default function CustomTimePicker({ value, onChange, placeholder = '00:00
           disabled={disabled}
           style={{
             flex: 1, border: 'none', outline: 'none', background: 'transparent',
-            padding: '8px 10px 8px 14px', fontSize: 'calc(13px * var(--fs-scale-body, 1))', fontFamily: 'inherit',
+            padding: '8px 10px 8px 18px', fontSize: 'calc(13px * var(--fs-scale-body, 1))', fontFamily: 'inherit',
             color: value ? 'var(--text-primary)' : 'var(--text-faint)',
             minWidth: 0,
           }}
@@ -172,7 +172,7 @@ export default function CustomTimePicker({ value, onChange, placeholder = '00:00
             : { top: 0, left: 0 }),
           zIndex: 99999,
           background: 'var(--bg-card)', border: '1px solid var(--border-primary)',
-          borderRadius: 12, boxShadow: '0 8px 32px rgba(0,0,0,0.12)',
+          borderRadius: 24, boxShadow: '0 8px 32px rgba(0,0,0,0.12)',
           padding: 12, display: 'flex', alignItems: 'center', gap: 6,
           animation: 'selectIn 0.15s ease-out',
           backdropFilter: 'blur(24px)', WebkitBackdropFilter: 'blur(24px)',
