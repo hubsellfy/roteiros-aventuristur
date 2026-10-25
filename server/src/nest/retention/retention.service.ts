@@ -1,13 +1,11 @@
 import { readEnv } from '../../app-config';
-import { Trips } from '../../db/entities/Trips.entity';
-import type { TripsRepository, ExpiredTripRow } from '../../db/repositories/Trips.repository';
+import { TripsAventuristurRepository, type ExpiredTripRow } from '../../db/repositories/TripsAventuristur.repository';
 import { logError, logInfo } from '../audit/audit-log.logger';
 import { AuditService } from '../audit/audit.service';
 import { StorageService } from '../storage/storage.service';
 import { TripsService } from '../trips/trips.service';
 import { parseRetentionConfig, retentionCutoff, type RetentionConfig } from './retention.impl';
-import { InjectRepository } from '@mikro-orm/nestjs';
-import { Injectable } from '@nestjs/common';
+import { Inject, Injectable } from '@nestjs/common';
 
 import path from 'path';
 
@@ -29,7 +27,7 @@ export interface RetentionResult {
 @Injectable()
 export class RetentionService {
   constructor(
-    @InjectRepository(Trips) private readonly tripsRepo: TripsRepository,
+    @Inject(TripsAventuristurRepository) private readonly tripsRepo: TripsAventuristurRepository,
     private readonly storage: StorageService,
     private readonly trips: TripsService,
     private readonly audit: AuditService,

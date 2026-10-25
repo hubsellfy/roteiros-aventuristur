@@ -1,6 +1,5 @@
 import { readEnv } from '../../app-config';
-import { Trips } from '../../db/entities/Trips.entity';
-import type { TripsRepository } from '../../db/repositories/Trips.repository';
+import { TripsAventuristurRepository } from '../../db/repositories/TripsAventuristur.repository';
 import { AssignmentsService } from '../assignments/assignments.service';
 import { withRequestContext } from '../database/request-context';
 import { UnitOfWork } from '../database/unit-of-work';
@@ -19,7 +18,6 @@ import {
 } from './roteiro-chat.service';
 import { TRIP_PLAN_TOOLS, type KnownPlace } from './roteiro-ia.tools';
 import { MikroORM } from '@mikro-orm/core';
-import { InjectRepository } from '@mikro-orm/nestjs';
 import { Injectable, Logger, OnApplicationBootstrap } from '@nestjs/common';
 import type { RoteiroTripPlanRequest, RoteiroTripPlanResponse, TripPlanStyle } from '@trek/shared';
 import { TRIP_PLAN_MAX_DAYS } from '@trek/shared';
@@ -155,7 +153,7 @@ export class RoteiroTripService implements OnApplicationBootstrap {
     private readonly days: DaysService,
     private readonly places: PlacesService,
     private readonly assignments: AssignmentsService,
-    @InjectRepository(Trips) private readonly tripsRepo: TripsRepository,
+    private readonly tripsRepo: TripsAventuristurRepository,
     private readonly uow: UnitOfWork,
     private readonly orm: MikroORM,
     private readonly llm: LlmConfigResolver,

@@ -2,7 +2,7 @@
  * Aventuristur retention routine: configuration parsing, the cutoff date, the sweep
  * (files first, trip last, nothing erased on a dry run) and the cron job gate.
  */
-import type { TripsRepository } from '../../../src/db/repositories/Trips.repository';
+import type { TripsAventuristurRepository } from '../../../src/db/repositories/TripsAventuristur.repository';
 import type { AuditService } from '../../../src/nest/audit/audit.service';
 import { parseRetentionConfig, retentionCutoff } from '../../../src/nest/retention/retention.impl';
 import { RetentionJob } from '../../../src/nest/retention/retention.job';
@@ -91,7 +91,7 @@ function makeService(
   const tripsService = { remove: vi.fn(), broadcast: vi.fn() };
   const audit = { writeAudit: vi.fn() };
   const service = new RetentionService(
-    { listEndedBefore, listStoredFileNames } as unknown as TripsRepository,
+    { listEndedBefore, listStoredFileNames } as unknown as TripsAventuristurRepository,
     storage as unknown as StorageService,
     tripsService as unknown as TripsService,
     audit as unknown as AuditService,

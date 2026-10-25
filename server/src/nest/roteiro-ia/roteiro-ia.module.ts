@@ -1,4 +1,5 @@
 import { Trips } from '../../db/entities/Trips.entity';
+import { TripsAventuristurRepository } from '../../db/repositories/TripsAventuristur.repository';
 import { AssignmentsDomainModule } from '../assignments/assignments-domain.module';
 import { DaysModule } from '../days/days.module';
 import { LlmParseModule } from '../llm-parse/llm-parse.module';
@@ -8,6 +9,7 @@ import { TripsModule } from '../trips/trips.module';
 import { RoteiroChatService } from './roteiro-chat.service';
 import { RoteiroIaController } from './roteiro-ia.controller';
 import { RoteiroTripService } from './roteiro-trip.service';
+import { EntityManager } from '@mikro-orm/core';
 import { MikroOrmModule } from '@mikro-orm/nestjs';
 import { Module } from '@nestjs/common';
 
@@ -26,6 +28,14 @@ import { Module } from '@nestjs/common';
     AssignmentsDomainModule,
   ],
   controllers: [RoteiroIaController],
-  providers: [RoteiroChatService, RoteiroTripService],
+  providers: [
+    RoteiroChatService,
+    RoteiroTripService,
+    {
+      provide: TripsAventuristurRepository,
+      useFactory: (em: EntityManager) => new TripsAventuristurRepository(em),
+      inject: [EntityManager],
+    },
+  ],
 })
 export class RoteiroIaModule {}
