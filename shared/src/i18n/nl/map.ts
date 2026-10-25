@@ -28,5 +28,7 @@ const map: TranslationStrings = {
   'map.attribution': 'Kaartvermeldingen',
   'map.overview.unrouted': '{count} etappe(s) konden niet worden berekend, de afstanden zijn onvolledig.',
   'map.overview.dayUnrouted': '{count} etappe(s) van deze dag konden niet worden berekend',
+  'poi.ask': 'Vraag',
+  'poi.askSoon': 'Binnenkort kun je hier chatten met de reisassistent.',
 };
 export default map;

@@ -1,8 +1,8 @@
-// FE-COMP-POIPILL-001 to FE-COMP-POIPILL-008
+// FE-COMP-POIPILL-001 to FE-COMP-POIPILL-009
 import React from 'react'
 import { describe, it, expect, vi } from 'vitest'
 import { render, screen } from '../../../tests/helpers/render'
-import { fireEvent } from '@testing-library/react'
+import { fireEvent, cleanup } from '@testing-library/react'
 import PoiCategoryPill from './PoiCategoryPill'
 import { POI_CATEGORIES } from './poiCategories'
 
@@ -58,20 +58,27 @@ describe('PoiCategoryPill', () => {
     expect(onSearchArea).toHaveBeenCalled()
   })
 
-  // The phone map hands the bar the whole width between the screen margins, so
-  // its segments end up the size of everything else the thumb aims at there.
-  it('FE-COMP-POIPILL-007: fullWidth stretches the bar and spreads the segments', () => {
+  // The phone map shows Google-style pills: separate, icon plus name, scrolling sideways.
+  it('FE-COMP-POIPILL-007: fullWidth shows each category as a labelled pill in a scrolling row', () => {
     pill({ fullWidth: true })
     const button = screen.getAllByRole('button')[0]
-    expect(button.style.flexGrow).toBe('1')
-    expect(button.style.width).toBe('auto')
-    expect((button.parentElement as HTMLElement).style.display).toBe('flex')
+    expect(button.textContent).toBe(button.getAttribute('aria-label'))
+    expect((button.parentElement as HTMLElement).style.overflowX).toBe('auto')
+  })
+
+  it('FE-COMP-POIPILL-009: the leading ask pill opens the assistant, on the phone layout only', () => {
+    const onAsk = vi.fn()
+    pill({ fullWidth: true, onAsk })
+    fireEvent.click(screen.getAllByRole('button')[0])
+    expect(onAsk).toHaveBeenCalled()
+    cleanup()
+    pill({ onAsk })
+    expect(screen.queryByText('Ask')).toBeNull()
   })
 
   it('FE-COMP-POIPILL-008: without it the bar stays content-width, as the desktop map floats it', () => {
     pill()
     const button = screen.getAllByRole('button')[0]
-    expect(button.style.flexGrow).toBe('')
     expect(button.style.width).toBe('34px')
     expect((button.parentElement as HTMLElement).style.display).toBe('inline-flex')
   })

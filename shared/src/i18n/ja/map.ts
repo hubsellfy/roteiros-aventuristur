@@ -28,5 +28,7 @@ const map: TranslationStrings = {
   'map.attribution': '地図のクレジット',
   'map.overview.unrouted': '{count}区間のルートを計算できなかったため、距離は不完全です。',
   'map.overview.dayUnrouted': 'この日の{count}区間のルートを計算できませんでした',
+  'poi.ask': '質問する',
+  'poi.askSoon': 'まもなく、ここで旅行アシスタントとチャットできるようになります。',
 };
 export default map;

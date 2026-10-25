@@ -28,5 +28,7 @@ const map: TranslationStrings = {
   'map.attribution': 'Джерела карти',
   'map.overview.unrouted': 'Не вдалося прокласти {count} відрізок(ів), тому відстані неповні.',
   'map.overview.dayUnrouted': 'Не вдалося прокласти {count} відрізок(ів) цього дня',
+  'poi.ask': 'Запитати',
+  'poi.askSoon': 'Незабаром тут можна буде спілкуватися з помічником для подорожей.',
 };
 export default map;

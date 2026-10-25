@@ -28,5 +28,7 @@ const map: TranslationStrings = {
   'map.attribution': 'Kredit peta',
   'map.overview.unrouted': '{count} ruas tidak dapat dihitung, jadi jaraknya belum lengkap.',
   'map.overview.dayUnrouted': '{count} ruas pada hari ini tidak dapat dihitung',
+  'poi.ask': 'Tanya',
+  'poi.askSoon': 'Segera Anda dapat mengobrol dengan asisten perjalanan di sini.',
 };
 export default map;
