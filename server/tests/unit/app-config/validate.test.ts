@@ -47,6 +47,7 @@ describe('validateEnvAtBoot', () => {
         DEFAULT_LANGUAGE: 'en',
         APP_URL: 'https://trek.example.com',
         ALLOWED_ORIGINS: 'https://trek.example.com',
+        SITE_AUTH_ORIGIN: 'https://aventuristur.com',
         LOG_LEVEL: 'debug',
         TRUST_PROXY: '2',
         OIDC_ISSUER: 'https://auth.example.com/realms/trek',
@@ -57,6 +58,13 @@ describe('validateEnvAtBoot', () => {
         TREK_PLUGIN_PERMISSIONS: 'on',
       }),
     ).not.toThrow();
+  });
+
+  it('accepts only an exact HTTPS site origin, with localhost HTTP for local development', () => {
+    expect(() => validateEnvAtBoot({ SITE_AUTH_ORIGIN: 'https://aventuristur.com' })).not.toThrow();
+    expect(() => validateEnvAtBoot({ SITE_AUTH_ORIGIN: 'http://localhost:3100' })).not.toThrow();
+    expect(() => validateEnvAtBoot({ SITE_AUTH_ORIGIN: 'https://aventuristur.com/path' })).toThrow();
+    expect(() => validateEnvAtBoot({ SITE_AUTH_ORIGIN: 'http://aventuristur.com' })).toThrow();
   });
 
   it('refuses an LLM ceiling that would silently become a zero timeout', () => {
@@ -170,6 +178,7 @@ describe('validateEnvAtBoot', () => {
     const notSecret = new Set([
       'VAPID_PUBLIC_KEY', // the public half, which every subscribing browser receives
       'TREK_PLUGIN_ALLOW_PRIVATE_EGRESS', // a switch about private networks, not a private value
+      'SITE_AUTH_ORIGIN', // public website address, not an authentication credential
     ]);
     const schemaKeys = Object.keys(schemaShape);
     const flagged = schemaKeys.filter((key) => looksSecret(key) && !notSecret.has(key));

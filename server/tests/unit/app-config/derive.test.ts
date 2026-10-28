@@ -66,6 +66,13 @@ describe('deriveHttp', () => {
     expect(deriveHttp({}).wsOrigins).toBeNull();
   });
 
+  it('SITE_AUTH_ORIGIN is trimmed and optional', () => {
+    expect(deriveHttp({ SITE_AUTH_ORIGIN: ' https://aventuristur.com ' }).siteAuthOrigin).toBe(
+      'https://aventuristur.com',
+    );
+    expect(deriveHttp({}).siteAuthOrigin).toBeUndefined();
+  });
+
   it('TRUST_PROXY: numeric hop count wins, 1 only as fallback (globalMiddleware, httpConfig token)', () => {
     expect(deriveHttpBoot({ TRUST_PROXY: '2' }).trustProxy).toBe(2);
     // 0 is a valid hop count ("trust no proxy"), not a missing value.

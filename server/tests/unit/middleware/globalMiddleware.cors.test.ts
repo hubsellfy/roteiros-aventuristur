@@ -10,19 +10,25 @@ import { describe, it, expect } from 'vitest';
  * An app with ALLOWED_ORIGINS set, and the error mapping TrekExceptionFilter
  * applies to a plain error (statusCode, else 500).
  */
-function appWithAllowlist(corsOrigins: string[] | null) {
+function appWithAllowlist(corsOrigins: string[] | null, siteAuthOrigin?: string) {
   const app = express();
   // The middleware reads ALLOWED_ORIGINS once, when it is applied.
   const before = process.env.ALLOWED_ORIGINS;
+  const beforeSiteAuth = process.env.SITE_AUTH_ORIGIN;
   if (corsOrigins) process.env.ALLOWED_ORIGINS = corsOrigins.join(',');
   else delete process.env.ALLOWED_ORIGINS;
+  if (siteAuthOrigin) process.env.SITE_AUTH_ORIGIN = siteAuthOrigin;
+  else delete process.env.SITE_AUTH_ORIGIN;
   try {
     applyGlobalMiddleware(app, { http: httpConfig() });
   } finally {
     if (before === undefined) delete process.env.ALLOWED_ORIGINS;
     else process.env.ALLOWED_ORIGINS = before;
+    if (beforeSiteAuth === undefined) delete process.env.SITE_AUTH_ORIGIN;
+    else process.env.SITE_AUTH_ORIGIN = beforeSiteAuth;
   }
   app.post('/api/auth/login', (_req, res) => res.json({ ok: true }));
+  app.post('/api/auth/site/login', (_req, res) => res.json({ ok: true }));
   app.use((err: { statusCode?: number; message?: string }, _req: Request, res: Response, _next: NextFunction) => {
     const status = err.statusCode || 500;
     res.status(status).json({ error: status < 500 ? err.message : 'Internal server error' });
@@ -83,6 +89,37 @@ describe('CORS without ALLOWED_ORIGINS', () => {
       .send({});
     expect(res.status).toBe(200);
     expect(res.headers['access-control-allow-origin']).toBe('https://anything.example');
+  });
+});
+
+describe('SITE_AUTH_ORIGIN credentialed CORS', () => {
+  const app = appWithAllowlist(null, 'https://aventuristur.com');
+
+  it('allows the configured site to preflight JSON login with credentials', async () => {
+    const res = await request(app)
+      .options('/api/auth/site/login')
+      .set('Origin', 'https://aventuristur.com')
+      .set('Access-Control-Request-Method', 'POST')
+      .set('Access-Control-Request-Headers', 'content-type');
+    expect(res.status).toBe(204);
+    expect(res.headers['access-control-allow-origin']).toBe('https://aventuristur.com');
+    expect(res.headers['access-control-allow-credentials']).toBe('true');
+  });
+
+  it('does not grant the site origin access to other app routes', async () => {
+    const res = await request(app).post('/api/auth/login').set('Origin', 'https://aventuristur.com').send({});
+    expect(res.status).toBe(403);
+    expect(res.headers['access-control-allow-origin']).toBeUndefined();
+  });
+
+  it('refuses a different origin on the site auth route', async () => {
+    const res = await request(app)
+      .options('/api/auth/site/login')
+      .set('Origin', 'https://evil.example')
+      .set('Access-Control-Request-Method', 'POST')
+      .set('Access-Control-Request-Headers', 'content-type');
+    expect(res.status).toBe(403);
+    expect(res.headers['access-control-allow-origin']).toBeUndefined();
   });
 });
 

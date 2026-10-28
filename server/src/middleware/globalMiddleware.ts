@@ -10,6 +10,7 @@ import {
   runWithCorrelation,
 } from '../nest/common/request-correlation';
 import { isSameHostOrigin } from '../nest/common/same-origin';
+import { isSiteAuthCorsRequest } from './site-auth-cors';
 import type { ConfigType } from '@nestjs/config';
 
 import compression from 'compression';
@@ -190,6 +191,7 @@ export function applyGlobalMiddleware(
   );
 
   const allowedOrigins = liveHttp.corsOrigins;
+  const siteAuthOrigin = liveHttp.siteAuthOrigin;
 
   // With ALLOWED_ORIGINS set, a request from anywhere else is refused outright.
   // Two things keep that from hitting the instance's own pages (#2543): a request
@@ -197,22 +199,34 @@ export function applyGlobalMiddleware(
   // a refusal is a 403 naming the cause instead of an unhandled error, which the
   // exception filter turned into a bare 500 on the login screen.
   const warnedOrigins = new Set<string>();
-  const corsOptions: cors.CorsOptions | cors.CorsOptionsDelegate<Request> = allowedOrigins
-    ? (req: Request, callback: (err: Error | null, options?: cors.CorsOptions) => void) => {
-        const origin = req.headers.origin;
-        if (!origin || allowedOrigins.includes(origin) || isSameHostOrigin(origin, req.headers.host)) {
-          callback(null, { origin: true, credentials: true });
-          return;
+  const corsOptions: cors.CorsOptions | cors.CorsOptionsDelegate<Request> =
+    allowedOrigins || siteAuthOrigin
+      ? (req: Request, callback: (err: Error | null, options?: cors.CorsOptions) => void) => {
+          const origin = req.headers.origin;
+          const isSiteAuthPath = req.path.startsWith('/api/auth/site/');
+          if (origin && origin === siteAuthOrigin) {
+            if (isSiteAuthCorsRequest(req.method, req.path, req.headers['access-control-request-method'])) {
+              callback(null, { origin: true, credentials: true });
+              return;
+            }
+            callback(Object.assign(new Error('Not allowed by CORS'), { statusCode: 403 }));
+            return;
+          }
+          if (origin && isSiteAuthPath && !isSameHostOrigin(origin, req.headers.host)) {
+            callback(Object.assign(new Error('Not allowed by CORS'), { statusCode: 403 }));
+            return;
+          }
+          if (!origin || allowedOrigins?.includes(origin) || isSameHostOrigin(origin, req.headers.host)) {
+            callback(null, { origin: true, credentials: true });
+            return;
+          }
+          if (!warnedOrigins.has(origin) && warnedOrigins.size < 50) {
+            warnedOrigins.add(origin);
+            logWarn(`CORS: refused origin ${origin} for host ${req.headers.host ?? '(none)'}`);
+          }
+          callback(Object.assign(new Error('Not allowed by CORS'), { statusCode: 403 }));
         }
-        if (!warnedOrigins.has(origin) && warnedOrigins.size < 50) {
-          warnedOrigins.add(origin);
-          logWarn(
-            `CORS: refused origin ${origin} for host ${req.headers.host ?? '(none)'}; add it to ALLOWED_ORIGINS if it is yours`,
-          );
-        }
-        callback(Object.assign(new Error('Not allowed by CORS'), { statusCode: 403 }));
-      }
-    : { origin: isProduction ? false : true, credentials: true };
+      : { origin: isProduction ? false : true, credentials: true };
 
   const shouldForceHttps = liveHttp.forceHttps;
   // HSTS is worth enabling any time we're serving production traffic,

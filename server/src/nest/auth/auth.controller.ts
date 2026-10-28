@@ -106,7 +106,7 @@ export class AuthController {
     }
   }
 
-  @Get('me')
+  @Get(['me', 'site/me'])
   @MfaExempt('the client needs to know who it is to render the setup screen')
   async me(@CurrentUser() user: User) {
     const loaded = await this.auth.getCurrentUser(user.id);
@@ -116,7 +116,7 @@ export class AuthController {
     return { user: loaded };
   }
 
-  @Put('me/password')
+  @Put(['me/password', 'site/me/password'])
   async changePassword(
     @CurrentUser() user: User,
     @Body() body: ChangePasswordDto,
