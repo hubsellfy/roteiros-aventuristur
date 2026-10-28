@@ -316,6 +316,77 @@ describe('RoteiroTripService', () => {
     expect(JSON.stringify(fourth)).toContain('Call submit_itinerary');
   });
 
+  it('keeps unique places when the model repeats a place in or across days', async () => {
+    const { svc, places, assignments, tripsRepo } = make();
+    safeFetchLlm
+      .mockResolvedValueOnce(answer({ content: null, tool_calls: [toolCall('search_places', { query: 'atrações' })] }))
+      .mockResolvedValueOnce(
+        answer({
+          content: null,
+          tool_calls: [
+            toolCall('submit_itinerary', {
+              days: [
+                {
+                  day_number: 1,
+                  items: [
+                    { ref: 'p1', time: '09:00' },
+                    { ref: 'p1', time: '10:00' },
+                  ],
+                },
+                {
+                  day_number: 2,
+                  items: [
+                    { ref: 'p1', time: '09:00' },
+                    { ref: 'p2', time: '10:00' },
+                  ],
+                },
+              ],
+            }),
+          ],
+        }),
+      );
+    await svc.start(user, REQUEST);
+    await vi.waitFor(() => expect(assignments.createAssignment).toHaveBeenCalledTimes(2));
+    expect(places.create.mock.calls.map((call) => call[1].name)).toEqual(['Praça', 'Museu']);
+    expect(tripsRepo.setAiState).toHaveBeenLastCalledWith(42, null);
+  });
+
+  it('does not offer accepted places again when searching for missing days', async () => {
+    const { svc, assignments } = make();
+    safeFetchLlm
+      .mockResolvedValueOnce(answer({ content: null, tool_calls: [toolCall('search_places', { query: 'atrações' })] }))
+      .mockResolvedValueOnce(
+        answer({
+          content: null,
+          tool_calls: [
+            toolCall('submit_itinerary', { days: [{ day_number: 1, items: [{ ref: 'p1', time: '09:00' }] }] }),
+          ],
+        }),
+      )
+      .mockResolvedValueOnce(
+        answer({ content: null, tool_calls: [toolCall('search_places', { query: 'mais atrações' }, 'more')] }),
+      )
+      .mockResolvedValueOnce(
+        answer({
+          content: null,
+          tool_calls: [
+            toolCall('submit_itinerary', { days: [{ day_number: 2, items: [{ ref: 'p2', time: '10:00' }] }] }),
+          ],
+        }),
+      );
+    await svc.start(user, REQUEST);
+    await vi.waitFor(() => expect(assignments.createAssignment).toHaveBeenCalledTimes(2));
+    const messages = JSON.parse((safeFetchLlm.mock.calls[3][1] as { body: string }).body).messages as {
+      tool_call_id?: string;
+      content: string;
+    }[];
+    const result = messages.find((message) => message.tool_call_id === 'more');
+    if (!result) throw new Error('place search feedback missing');
+    const refs = (JSON.parse(result.content).results as { ref: string }[]).map((place) => place.ref);
+    expect(refs).toContain('p2');
+    expect(refs).not.toContain('p1');
+  });
+
   it('keeps valid days in memory, rejects reused or unknown places and saves only after correction', async () => {
     const { svc, days, places, assignments } = make();
     days.list.mockResolvedValue({

@@ -1355,7 +1355,7 @@ describe('Trip cover upload parity', () => {
   });
 });
 
-function mockPlanner() {
+function mockPlanner(repeatPlace = false) {
   const assistant = nestApp.get(RoteiroChatService);
   vi.spyOn(nestApp.get(LlmConfigResolver), 'resolve').mockResolvedValue({
     provider: 'openai',
@@ -1395,7 +1395,13 @@ function mockPlanner() {
         function: {
           name: 'submit_itinerary',
           arguments: JSON.stringify({
-            days: numbers.map((n) => ({ day_number: n, items: [{ ref: `p${n}`, time: '10:00' }] })),
+            days: numbers.map((n) => ({
+              day_number: n,
+              items: [
+                ...(repeatPlace && n === 4 ? [{ ref: 'p1', time: '09:00' }] : []),
+                { ref: `p${n}`, time: '10:00' },
+              ],
+            })),
           }),
         },
       },
@@ -1425,8 +1431,8 @@ async function startPlan() {
 
 describe('AI itinerary with a real database', () => {
   afterEach(() => vi.restoreAllMocks());
-  it('saves all six days after accepting two batches', async () => {
-    mockPlanner();
+  it('saves all six days after accepting two batches and removing a repeated place', async () => {
+    mockPlanner(true);
     const { tripId, userId } = await startPlan();
     await vi.waitFor(async () => expect((await findRow(orm, Trips, { id: tripId }))?.ai_status).toBeNull(), {
       timeout: 10000,
