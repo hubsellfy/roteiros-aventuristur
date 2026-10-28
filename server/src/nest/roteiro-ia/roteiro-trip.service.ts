@@ -164,22 +164,37 @@ function collectSubmission(
     }
     seen.add(number);
     if (draft.days.has(number)) continue;
-    const verdict = parseItinerary({ days: [{ ...record, day_number: 1 }] }, 1, known);
+    // A repeated place should not discard the other, distinct places in a day.
+    // Only deduplicate known refs; malformed or unknown places still fail validation.
+    const dayRefs = new Set(used);
+    const duplicateRefs = new Set<string>();
+    const items = Array.isArray(record.items)
+      ? record.items.filter((item: unknown) => {
+          if (!item || typeof item !== 'object' || Array.isArray(item)) return true;
+          const ref = (item as Record<string, unknown>).ref;
+          if (typeof ref !== 'string' || !known.has(ref)) return true;
+          if (dayRefs.has(ref)) {
+            duplicateRefs.add(ref);
+            return false;
+          }
+          dayRefs.add(ref);
+          return true;
+        })
+      : record.items;
+    if (duplicateRefs.size) {
+      issues.push({
+        day: number,
+        code: 'duplicate_ref',
+        message: `ref "${[...duplicateRefs][0]}" is already used; repeated places were omitted`,
+      });
+    }
+    const verdict = parseItinerary({ days: [{ ...record, items, day_number: 1 }] }, 1, known);
     if (typeof verdict === 'string') {
       const message = verdict === 'day 1 has no places' ? `day ${number} has no places` : verdict;
       issues.push({ day: number, code: issueCode(verdict), message: message.slice(0, 160) });
       continue;
     }
     const day = { ...verdict.days[0], dayNumber: number };
-    const duplicate = day.items.find((item) => used.has(item.ref));
-    if (duplicate) {
-      issues.push({
-        day: number,
-        code: 'duplicate_ref',
-        message: `ref "${duplicate.ref}" is already used by another day`,
-      });
-      continue;
-    }
     draft.days.set(number, day);
     for (const item of day.items) used.add(item.ref);
   }
@@ -414,7 +429,7 @@ export class RoteiroTripService implements OnApplicationBootstrap {
             });
           }
         } else {
-          out = await this.runReadTool(state, call.function.name, call.function.arguments);
+          out = await this.runReadTool(state, call.function.name, call.function.arguments, draft);
         }
         messages.push({ role: 'tool', tool_call_id: call.id, content: out.slice(0, MAX_TOOL_CHARS) });
         if (done) break;
@@ -429,7 +444,7 @@ export class RoteiroTripService implements OnApplicationBootstrap {
     );
   }
 
-  private async runReadTool(state: TurnState, name: string, rawArgs: string): Promise<string> {
+  private async runReadTool(state: TurnState, name: string, rawArgs: string, draft: PlanDraft): Promise<string> {
     let args: Record<string, unknown>;
     try {
       args = rawArgs ? JSON.parse(rawArgs) : {};
@@ -437,7 +452,19 @@ export class RoteiroTripService implements OnApplicationBootstrap {
       return JSON.stringify({ error: 'arguments were not valid JSON' });
     }
     try {
-      if (name === 'search_places') return JSON.stringify(await this.assistant.searchPlaces(state, args));
+      if (name === 'search_places') {
+        const result = await this.assistant.searchPlaces(state, args);
+        if (!('results' in result) || !result.results) return JSON.stringify(result);
+        const used = new Set([...draft.days.values()].flatMap((day) => day.items.map((item) => item.ref)));
+        const results = result.results.filter((place) => !used.has(place.ref));
+        return JSON.stringify({
+          ...result,
+          results,
+          ...(results.length === 0 && used.size > 0
+            ? { hint: 'No unused places in these results. Search for different types of places or nearby areas.' }
+            : {}),
+        });
+      }
       if (name === 'place_details') return JSON.stringify(await this.assistant.placeDetails(state, args));
       return JSON.stringify({ error: `unknown tool ${name}` });
     } catch (e) {
