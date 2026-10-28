@@ -72,7 +72,7 @@ export const TRIP_PLAN_TOOLS = [
     function: {
       name: 'submit_itinerary',
       description:
-        'Deliver the finished itinerary. Call it exactly once, when every day has its places. Only use `ref` values returned by search_places.',
+        'Submit one or more planned days. Accepted days are kept; call again for missing days. Only use unused `ref` values returned by search_places.',
       parameters: {
         type: 'object',
         properties: {

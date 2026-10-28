@@ -103,7 +103,7 @@ function make(opts: { config?: unknown; generating?: boolean; canCreate?: boolea
     {} as never,
     llm as never,
   );
-  return { svc, maps, trips, tripsRepo, places, assignments, llm };
+  return { svc, maps, trips, tripsRepo, days, places, assignments, llm };
 }
 
 const user = { id: 1, role: 'user' };
@@ -161,6 +161,8 @@ describe('parseItinerary', () => {
 
   it.each([
     [{}, 'days must be'],
+    [{ days: [null] }, 'each day must be an object'],
+    [{ days: [{ day_number: 1, items: [null] }] }, 'each place must be an object'],
     [{ days: [{ day_number: 3, items: [] }] }, 'between 1 and 2'],
     [{ days: [{ day_number: 1, items: [{ ref: 'zz', time: '09:00' }] }] }, 'never returned'],
     [{ days: [{ day_number: 1, items: [{ ref: 'p1', time: '9h' }] }] }, 'HH:MM'],
@@ -239,7 +241,38 @@ describe('RoteiroTripService', () => {
     expect(tripsRepo.setAiState).toHaveBeenLastCalledWith(42, null);
   });
 
-  it('gives the refusal back to the model and accepts the corrected submission', async () => {
+  it('completes a six-day trip when the model submits the days in two valid batches', async () => {
+    const { svc, maps, days, assignments, tripsRepo } = make();
+    const sixPlaces = Array.from({ length: 6 }, (_, i) => ({
+      name: `Place ${i + 1}`,
+      address: 'Centro',
+      lat: -25.5 - i / 100,
+      lng: -48.5,
+      google_place_id: `g${i + 1}`,
+      rating: 4.5,
+      rating_count: 100,
+    }));
+    maps.searchPlaces.mockResolvedValue({ places: sixPlaces, source: 'google' });
+    days.list.mockResolvedValue({
+      days: Array.from({ length: 6 }, (_, i) => ({ id: 100 + i, day_number: i + 1, notes: null, title: null })),
+    });
+    const planDay = (n: number) => ({ day_number: n, items: [{ ref: `p${n}`, time: '10:00' }] });
+    safeFetchLlm
+      .mockResolvedValue(answer({ content: null, tool_calls: [] }))
+      .mockResolvedValueOnce(answer({ content: null, tool_calls: [toolCall('search_places', { query: 'atrações' })] }))
+      .mockResolvedValueOnce(
+        answer({ content: null, tool_calls: [toolCall('submit_itinerary', { days: [1, 2, 3].map(planDay) })] }),
+      )
+      .mockResolvedValueOnce(
+        answer({ content: null, tool_calls: [toolCall('submit_itinerary', { days: [4, 5, 6].map(planDay) })] }),
+      );
+
+    await svc.start(user, { ...REQUEST, startDate: '2026-12-29', endDate: '2027-01-03' });
+    await vi.waitFor(() => expect(assignments.createAssignment).toHaveBeenCalledTimes(6));
+    expect(tripsRepo.setAiState).toHaveBeenLastCalledWith(42, null);
+  });
+
+  it('tells the model which submitted days were kept and which remain', async () => {
     const { svc, assignments } = make();
     safeFetchLlm
       .mockResolvedValueOnce(answer({ content: null, tool_calls: [toolCall('search_places', { query: 'x' })] }))
@@ -271,9 +304,199 @@ describe('RoteiroTripService', () => {
       );
     await svc.start(user, REQUEST);
     await vi.waitFor(() => expect(assignments.createAssignment).toHaveBeenCalledTimes(2));
-    const fourth = JSON.parse((safeFetchLlm.mock.calls[3][1] as { body: string }).body).messages;
-    expect(JSON.stringify(fourth)).toContain('cover all 2 days');
+    const fourth = JSON.parse((safeFetchLlm.mock.calls[3][1] as { body: string }).body).messages as {
+      role: string;
+      tool_call_id?: string;
+      content: string;
+    }[];
+    const feedback = fourth.find((message) => message.tool_call_id === 's1');
+    expect(feedback).toBeDefined();
+    if (!feedback) throw new Error('partial submission feedback missing');
+    expect(JSON.parse(feedback.content)).toMatchObject({ accepted_days: [1], missing_days: [2], used_refs: ['p1'] });
     expect(JSON.stringify(fourth)).toContain('Call submit_itinerary');
+  });
+
+  it('keeps valid days in memory, rejects reused or unknown places and saves only after correction', async () => {
+    const { svc, days, places, assignments } = make();
+    days.list.mockResolvedValue({
+      days: Array.from({ length: 3 }, (_, i) => ({ id: 100 + i, day_number: i + 1, notes: null, title: null })),
+    });
+    let resolveFinal: (value: ReturnType<typeof answer>) => void = () => {};
+    const pendingFinal = new Promise<ReturnType<typeof answer>>((resolve) => {
+      resolveFinal = resolve;
+    });
+    safeFetchLlm
+      .mockResolvedValueOnce(answer({ content: null, tool_calls: [toolCall('search_places', { query: 'atrações' })] }))
+      .mockResolvedValueOnce(
+        answer({
+          content: null,
+          tool_calls: [
+            toolCall(
+              'submit_itinerary',
+              {
+                days: [
+                  { day_number: 1, items: [{ ref: 'p1', time: '09:00' }] },
+                  { day_number: 2, items: [{ ref: 'p1', time: '10:00' }] },
+                  { day_number: 3, items: [{ ref: 'p99', time: '11:00' }] },
+                ],
+              },
+              'partial',
+            ),
+          ],
+        }),
+      )
+      .mockReturnValueOnce(pendingFinal);
+
+    await svc.start(user, { ...REQUEST, endDate: '2026-12-03' });
+    await vi.waitFor(() => expect(safeFetchLlm).toHaveBeenCalledTimes(3));
+    expect(places.create).not.toHaveBeenCalled();
+    expect(assignments.createAssignment).not.toHaveBeenCalled();
+    const messages = JSON.parse((safeFetchLlm.mock.calls[2][1] as { body: string }).body).messages as {
+      tool_call_id?: string;
+      content: string;
+    }[];
+    const feedbackMessage = messages.find((message) => message.tool_call_id === 'partial');
+    expect(feedbackMessage).toBeDefined();
+    if (!feedbackMessage) throw new Error('partial submission feedback missing');
+    const feedback = JSON.parse(feedbackMessage.content);
+    expect(feedback).toMatchObject({ accepted_days: [1], missing_days: [2, 3], used_refs: ['p1'] });
+    expect(feedback.errors).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({ day: 2, error: expect.stringContaining('already used') }),
+        expect.objectContaining({ day: 3, error: expect.stringContaining('never returned') }),
+      ]),
+    );
+    resolveFinal(
+      answer({
+        content: null,
+        tool_calls: [
+          toolCall('submit_itinerary', {
+            days: [
+              { day_number: 2, items: [{ ref: 'p2', time: '10:00' }] },
+              { day_number: 3, items: [{ ref: 'p3', time: '11:00' }] },
+            ],
+          }),
+        ],
+      }),
+    );
+    await vi.waitFor(() => expect(assignments.createAssignment).toHaveBeenCalledTimes(3));
+    expect(places.create.mock.calls.map((call) => call[1].name)).toEqual(['Praça', 'Museu', 'Parque']);
+  });
+
+  it('does not save any places when a partial itinerary never becomes complete', async () => {
+    const { svc, tripsRepo, places, assignments } = make();
+    safeFetchLlm.mockResolvedValue(answer({ content: null, tool_calls: [] })).mockResolvedValueOnce(
+      answer({
+        content: null,
+        tool_calls: [
+          toolCall('submit_itinerary', {
+            days: [{ day_number: 1, items: [{ ref: 'p1', time: '09:00' }] }],
+          }),
+        ],
+      }),
+    );
+    await svc.start(user, REQUEST);
+    await vi.waitFor(() => expect(tripsRepo.setAiState).toHaveBeenCalledWith(42, 'failed'));
+    expect(places.create).not.toHaveBeenCalled();
+    expect(assignments.createAssignment).not.toHaveBeenCalled();
+  });
+
+  it('retains accepted days after an empty day and malformed JSON, then accepts a correction', async () => {
+    const { svc, assignments } = make();
+    safeFetchLlm
+      .mockResolvedValueOnce(
+        answer({
+          content: null,
+          tool_calls: [
+            toolCall(
+              'submit_itinerary',
+              {
+                days: [
+                  { day_number: 1, items: [{ ref: 'p1', time: '09:00' }] },
+                  { day_number: 2, items: [] },
+                ],
+              },
+              'partial',
+            ),
+          ],
+        }),
+      )
+      .mockResolvedValueOnce(
+        answer({
+          content: null,
+          tool_calls: [
+            {
+              id: 'malformed',
+              type: 'function',
+              function: { name: 'submit_itinerary', arguments: '{' },
+            },
+          ],
+        }),
+      )
+      .mockResolvedValueOnce(
+        answer({
+          content: null,
+          tool_calls: [
+            toolCall('submit_itinerary', {
+              days: [{ day_number: 2, items: [{ ref: 'p2', time: '10:00' }] }],
+            }),
+          ],
+        }),
+      );
+    await svc.start(user, REQUEST);
+    await vi.waitFor(() => expect(assignments.createAssignment).toHaveBeenCalledTimes(2));
+    const messages = JSON.parse((safeFetchLlm.mock.calls[2][1] as { body: string }).body).messages as {
+      tool_call_id?: string;
+      content: string;
+    }[];
+    const first = messages.find((message) => message.tool_call_id === 'partial');
+    const malformed = messages.find((message) => message.tool_call_id === 'malformed');
+    if (!first || !malformed) throw new Error('submission feedback missing');
+    expect(JSON.parse(first.content)).toMatchObject({
+      accepted_days: [1],
+      missing_days: [2],
+      errors: [{ day: 2, error: 'day 2 has no places' }],
+    });
+    expect(JSON.parse(malformed.content)).toMatchObject({
+      accepted_days: [1],
+      missing_days: [2],
+      errors: [{ error: 'arguments were not valid JSON' }],
+    });
+  });
+
+  it('allows another place search after a forced submission references an unknown place', async () => {
+    const { svc, days, assignments } = make();
+    days.list.mockResolvedValue({ days: [{ id: 100, day_number: 1, notes: null, title: null }] });
+    for (let i = 0; i < 14; i++) safeFetchLlm.mockResolvedValueOnce(answer({ content: 'planning' }));
+    safeFetchLlm
+      .mockResolvedValueOnce(
+        answer({
+          content: null,
+          tool_calls: [
+            toolCall('submit_itinerary', {
+              days: [{ day_number: 1, items: [{ ref: 'p99', time: '09:00' }] }],
+            }),
+          ],
+        }),
+      )
+      .mockResolvedValueOnce(answer({ content: null, tool_calls: [toolCall('search_places', { query: 'atrações' })] }))
+      .mockResolvedValueOnce(
+        answer({
+          content: null,
+          tool_calls: [
+            toolCall('submit_itinerary', {
+              days: [{ day_number: 1, items: [{ ref: 'p1', time: '09:00' }] }],
+            }),
+          ],
+        }),
+      );
+    await svc.start(user, { ...REQUEST, endDate: REQUEST.startDate });
+    await vi.waitFor(() => expect(assignments.createAssignment).toHaveBeenCalledTimes(1));
+    const forced = JSON.parse((safeFetchLlm.mock.calls[14][1] as { body: string }).body);
+    const recovery = JSON.parse((safeFetchLlm.mock.calls[15][1] as { body: string }).body);
+    expect(forced.tools).toHaveLength(1);
+    expect(recovery.tools).toHaveLength(3);
+    expect(recovery.tool_choice).toBe('auto');
   });
 
   it('marks the trip as failed and gives the use back when the AI breaks', async () => {
