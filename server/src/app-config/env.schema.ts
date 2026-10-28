@@ -50,6 +50,15 @@ const url = optionalWith((v) => {
     return false;
   }
 }, 'must be a valid URL (with protocol)');
+const siteAuthOrigin = optionalWith((v) => {
+  try {
+    const parsed = new URL(v);
+    const localHttp = parsed.protocol === 'http:' && ['localhost', '127.0.0.1', '[::1]'].includes(parsed.hostname);
+    return (parsed.protocol === 'https:' || localHttp) && parsed.origin === v;
+  } catch {
+    return false;
+  }
+}, 'must be an exact HTTPS origin (HTTP is allowed only for localhost development)');
 const duration = optionalWith((v) => parseDurationMs(v) != null, 'must be a duration like "1h", "7d" or "30d"');
 const oneOf = (values: string[]) =>
   optionalWith((v) => values.includes(v.toLowerCase()), `must be one of: ${values.join(', ')}`);
@@ -67,6 +76,7 @@ export const envSchema = z.object({
   APP_VERSION: anyString,
   APP_URL: url,
   ALLOWED_ORIGINS: anyString,
+  SITE_AUTH_ORIGIN: siteAuthOrigin,
   // Candidates lowercased so mixed-case codes (zh-TW) validate case-insensitively.
   DEFAULT_LANGUAGE: oneOf(SUPPORTED_LANGUAGE_CODES.map((c) => c.toLowerCase())),
 

@@ -1,3 +1,4 @@
+import { readEnv } from '../../app-config';
 import type { User } from '../../types';
 import { AuditService } from '../audit/audit.service';
 import { getClientIp } from '../audit/client-ip';
@@ -21,6 +22,7 @@ const FORGOT_MIN_LATENCY_MS = 350;
 const GENERIC_FORGOT_RESPONSE = { ok: true };
 
 const delay = (ms: number) => new Promise((r) => setTimeout(r, ms));
+const isSiteAuthRequest = (req: Request) => typeof req.path === 'string' && req.path.startsWith('/api/auth/site/');
 
 /**
  * Public auth endpoints (no session required) — byte-identical to the legacy
@@ -50,7 +52,7 @@ export class AuthPublicController {
     }
   }
 
-  @Get('app-config')
+  @Get(['app-config', 'site/app-config'])
   @MfaExempt('bootstrap config, read before the client knows whether it must set up MFA')
   @UseGuards(OptionalJwtGuard)
   appConfig(@Req() req: Request) {
@@ -66,7 +68,7 @@ export class AuthPublicController {
     return { token: result.token, user: result.user };
   }
 
-  @Get('invite/:token')
+  @Get(['invite/:token', 'site/invite/:token'])
   @Public('the invite token IS the credential')
   async invite(@Param('token') token: string, @Req() req: Request) {
     await this.limit('login', req, 10);
@@ -79,7 +81,7 @@ export class AuthPublicController {
     };
   }
 
-  @Post('register')
+  @Post(['register', 'site/register'])
   @Public('creating the account that would carry the session')
   @HttpCode(201)
   async register(@Body() body: RegisterDto, @Req() req: Request, @Res({ passthrough: true }) res: Response) {
@@ -92,10 +94,13 @@ export class AuthPublicController {
       details: result.auditDetails,
     });
     this.auth.setAuthCookie(res, result.token!, req);
+    if (isSiteAuthRequest(req)) {
+      return { user: result.user, ...(willDropSecureCookie(req) ? { insecureCookie: true } : {}) };
+    }
     return { token: result.token, user: result.user };
   }
 
-  @Post('login')
+  @Post(['login', 'site/login'])
   @Public('the login itself')
   @HttpCode(200)
   async login(@Body() body: LoginDto, @Req() req: Request, @Res({ passthrough: true }) res: Response) {
@@ -119,6 +124,12 @@ export class AuthPublicController {
       return { mfa_required: true, mfa_token: result.mfa_token };
     }
     this.auth.setAuthCookie(res, result.token!, req, result.remember);
+    if (isSiteAuthRequest(req)) {
+      return {
+        user: result.user,
+        ...(willDropSecureCookie(req) ? { insecureCookie: true } : {}),
+      };
+    }
     return {
       token: result.token,
       user: result.user,
@@ -128,7 +139,7 @@ export class AuthPublicController {
     };
   }
 
-  @Post('forgot-password')
+  @Post(['forgot-password', 'site/forgot-password'])
   @Public('reached by somebody who cannot log in')
   @HttpCode(200)
   async forgotPassword(@Body() body: ForgotPasswordDto, @Req() req: Request) {
@@ -139,7 +150,9 @@ export class AuthPublicController {
 
     const outcome = await this.auth.requestPasswordReset(rawEmail, ip);
     if (outcome.reason === 'issued' && outcome.tokenForDelivery && outcome.userEmail) {
-      const origin = this.auth.getAppUrl();
+      const origin = isSiteAuthRequest(req)
+        ? readEnv().http.siteAuthOrigin || this.auth.getAppUrl()
+        : this.auth.getAppUrl();
       const url = `${origin.replace(/\/$/, '')}/reset-password?token=${encodeURIComponent(outcome.tokenForDelivery)}`;
       await this.audit.writeAudit({
         userId: outcome.userId,
@@ -176,7 +189,7 @@ export class AuthPublicController {
     return GENERIC_FORGOT_RESPONSE;
   }
 
-  @Post('reset-password')
+  @Post(['reset-password', 'site/reset-password'])
   @Public('the reset token IS the credential')
   @HttpCode(200)
   async resetPassword(@Body() body: ResetPasswordDto, @Req() req: Request) {
@@ -201,7 +214,7 @@ export class AuthPublicController {
     return { success: true };
   }
 
-  @Post('mfa/verify-login')
+  @Post(['mfa/verify-login', 'site/mfa/verify-login'])
   @Public('second factor of a login that has no session yet')
   @HttpCode(200)
   async verifyMfaLogin(
@@ -218,6 +231,12 @@ export class AuthPublicController {
       details: { mfa: true },
     });
     this.auth.setAuthCookie(res, result.token!, req, result.remember);
+    if (isSiteAuthRequest(req)) {
+      return {
+        user: result.user,
+        ...(willDropSecureCookie(req) ? { insecureCookie: true } : {}),
+      };
+    }
     return { token: result.token, user: result.user };
   }
 

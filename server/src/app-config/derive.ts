@@ -79,6 +79,8 @@ export function deriveHttp(raw: RawEnv) {
     allowedOriginsRaw: raw.ALLOWED_ORIGINS,
     /** globalMiddleware CORS variant: trim + drop empty entries. */
     corsOrigins: csvListFiltered(raw.ALLOWED_ORIGINS),
+    /** Exact origin allowed to use the site's credentialed auth routes. */
+    siteAuthOrigin: raw.SITE_AUTH_ORIGIN?.trim() || undefined,
     /** websocket variant: trim only — an empty entry stays (and can never match an Origin header). */
     wsOrigins: csvList(raw.ALLOWED_ORIGINS),
     forceHttps: parseBool(raw.FORCE_HTTPS) === true,

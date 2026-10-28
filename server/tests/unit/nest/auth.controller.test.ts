@@ -170,6 +170,25 @@ describe('AuthPublicController', () => {
     expect(setAuthCookie).toHaveBeenCalled();
   });
 
+  it('site login, registration and MFA set the cookie without returning a bearer token', async () => {
+    const setAuthCookie = vi.fn();
+    const c = apc(
+      asvc({
+        registerUser: vi.fn().mockReturnValue({ token: 'register-token', user, auditUserId: 1, auditDetails: {} }),
+        loginUser: vi.fn().mockReturnValue({ token: 'login-token', user }),
+        verifyMfaLogin: vi.fn().mockReturnValue({ token: 'mfa-token', user, auditUserId: 1 }),
+        setAuthCookie,
+      } as Partial<AuthService>),
+      rl(),
+    );
+    const siteReq = (path: string) => ({ ...req, path }) as Request;
+
+    expect(await c.register(anyBody(), siteReq('/api/auth/site/register'), res)).toEqual({ user });
+    expect(await c.login(anyBody(), siteReq('/api/auth/site/login'), res)).toEqual({ user });
+    expect(await c.verifyMfaLogin(anyBody(), siteReq('/api/auth/site/mfa/verify-login'), res)).toEqual({ user });
+    expect(setAuthCookie).toHaveBeenCalledTimes(3);
+  });
+
   it('invite 429 when rate-limited', async () => {
     const s = rl();
     await s.check('login', '9.9.9.9', 10, 15 * 60 * 1000, Date.now()); // not exhausted yet
@@ -224,6 +243,32 @@ describe('AuthPublicController', () => {
     );
     expect(await c.forgotPassword({ email: 'a@b.c' }, req)).toEqual({ ok: true });
     expect(sendPasswordResetEmail).toHaveBeenCalledWith('a@b.c', 'https://x/reset-password?token=rt', 1);
+  }, 10000);
+
+  it('site password recovery returns reset links to the public website', async () => {
+    const previousOrigin = process.env.SITE_AUTH_ORIGIN;
+    process.env.SITE_AUTH_ORIGIN = 'https://aventuristur.com';
+    const sendPasswordResetEmail = vi.fn().mockResolvedValue({ delivered: true });
+    try {
+      const c = apc(
+        asvc({
+          requestPasswordReset: vi
+            .fn()
+            .mockReturnValue({ reason: 'issued', tokenForDelivery: 'rt', userEmail: 'a@b.c', userId: 1 }),
+          sendPasswordResetEmail,
+        } as Partial<AuthService>),
+        rl(),
+      );
+      expect(
+        await c.forgotPassword({ email: 'a@b.c' }, { ...req, path: '/api/auth/site/forgot-password' } as Request),
+      ).toEqual({
+        ok: true,
+      });
+    } finally {
+      if (previousOrigin === undefined) delete process.env.SITE_AUTH_ORIGIN;
+      else process.env.SITE_AUTH_ORIGIN = previousOrigin;
+    }
+    expect(sendPasswordResetEmail).toHaveBeenCalledWith('a@b.c', 'https://aventuristur.com/reset-password?token=rt', 1);
   }, 10000);
 
   it('reset-password: error audits a fail, mfa branch, success', async () => {
