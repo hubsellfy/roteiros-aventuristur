@@ -2,6 +2,8 @@ import { act, renderHook } from '@testing-library/react';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
 const createTripPlan = vi.fn();
+const track = vi.fn();
+vi.mock('./useAppAnalytics', () => ({ useAppAnalytics: () => track }));
 vi.mock('../api/client', () => ({ roteiroApi: { createTripPlan: (...a: unknown[]) => createTripPlan(...a) } }));
 const toast = { success: vi.fn(), error: vi.fn() };
 vi.mock('../components/shared/Toast', () => ({ useToast: () => toast }));
@@ -26,6 +28,7 @@ function filled(onCreated = vi.fn()) {
 describe('useTripPlanForm', () => {
   beforeEach(() => {
     createTripPlan.mockReset();
+    track.mockReset();
     toast.success.mockReset();
   });
 
@@ -77,6 +80,7 @@ describe('useTripPlanForm', () => {
       style: 'economico',
       language: 'pt-BR',
     });
+    expect(track).toHaveBeenCalledExactlyOnceWith('trip_plan_requested');
     expect(onCreated).toHaveBeenCalled();
     expect(toast.success).toHaveBeenCalledWith('dashboard.toast.created');
     expect(hook.result.current.destination).toBe('');
@@ -89,6 +93,7 @@ describe('useTripPlanForm', () => {
     act(() => hook.result.current.setEndDate('2026-12-12'));
     await act(() => hook.result.current.submit());
     expect(hook.result.current.error).toBe('Você já tem um roteiro sendo montado.');
+    expect(track).not.toHaveBeenCalled();
     expect(onCreated).not.toHaveBeenCalled();
   });
 

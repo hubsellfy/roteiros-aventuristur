@@ -302,5 +302,9 @@ const dashboard: TranslationStrings = {
   'dashboard.plan.failed': 'Nie udało mi się dokończyć tego planu.',
   'dashboard.plan.retry': 'Spróbuj ponownie',
   'dashboard.plan.remove': 'Usuń',
+  'appAnalytics.title': 'Pomiar użycia',
+  'appAnalytics.description':
+    'Czy zezwolić Google Analytics na pomiar otwarć planera i próśb o plan podróży? Szczegóły podróży nie są przesyłane. Wybór można zmienić w każdej chwili.',
+  'appAnalytics.unavailable': 'Pomiar jest niedostępny lub został odrzucony w witrynie.',
 };
 export default dashboard;

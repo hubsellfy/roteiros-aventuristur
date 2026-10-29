@@ -246,5 +246,9 @@ const dashboard: TranslationStrings = {
   'dashboard.plan.failed': 'この旅程を完成できませんでした。',
   'dashboard.plan.retry': 'もう一度試す',
   'dashboard.plan.remove': '削除',
+  'appAnalytics.title': '利用状況の計測',
+  'appAnalytics.description':
+    'Google Analytics にプランナーの起動と旅程のリクエストを計測させますか？旅行の詳細は送信されません。選択はいつでも変更できます。',
+  'appAnalytics.unavailable': '計測を利用できないか、ウェブサイトで拒否されています。',
 };
 export default dashboard;

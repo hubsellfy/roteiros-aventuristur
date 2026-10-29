@@ -282,5 +282,9 @@ const dashboard: TranslationStrings = {
   'dashboard.plan.failed': 'Tento plán sa nepodarilo dokončiť.',
   'dashboard.plan.retry': 'Skúsiť znova',
   'dashboard.plan.remove': 'Odstrániť',
+  'appAnalytics.title': 'Meranie používania',
+  'appAnalytics.description':
+    'Povoliť Google Analytics merať otvorenia plánovača a žiadosti o itinerár? Podrobnosti o ceste sa neposielajú. Voľbu možno kedykoľvek zmeniť.',
+  'appAnalytics.unavailable': 'Meranie nie je dostupné alebo bolo na webe odmietnuté.',
 };
 export default dashboard;

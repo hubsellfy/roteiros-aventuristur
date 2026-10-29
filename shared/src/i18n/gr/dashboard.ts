@@ -270,5 +270,9 @@ const dashboard: TranslationStrings = {
   'dashboard.plan.failed': 'Δεν κατάφερα να ολοκληρώσω αυτό το πρόγραμμα.',
   'dashboard.plan.retry': 'Δοκιμάστε ξανά',
   'dashboard.plan.remove': 'Αφαίρεση',
+  'appAnalytics.title': 'Μέτρηση χρήσης',
+  'appAnalytics.description':
+    'Να επιτρέπεται στο Google Analytics να μετρά τα ανοίγματα του σχεδιαστή και τα αιτήματα δρομολογίων; Οι λεπτομέρειες ταξιδιού δεν αποστέλλονται. Μπορείτε να αλλάξετε την επιλογή οποτεδήποτε.',
+  'appAnalytics.unavailable': 'Η μέτρηση δεν είναι διαθέσιμη ή απορρίφθηκε στον ιστότοπο.',
 };
 export default dashboard;

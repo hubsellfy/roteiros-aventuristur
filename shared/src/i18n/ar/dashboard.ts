@@ -333,5 +333,9 @@ const dashboard: TranslationStrings = {
   'dashboard.plan.failed': 'لم أتمكن من إكمال هذا البرنامج.',
   'dashboard.plan.retry': 'حاول مرة أخرى',
   'dashboard.plan.remove': 'إزالة',
+  'appAnalytics.title': 'قياس الاستخدام',
+  'appAnalytics.description':
+    'هل تسمح لـ Google Analytics بقياس فتح المخطط وطلبات مسار الرحلة؟ لا تُرسل تفاصيل الرحلة. يمكنك تغيير اختيارك في أي وقت.',
+  'appAnalytics.unavailable': 'القياس غير متاح أو تم رفضه على الموقع.',
 };
 export default dashboard;

@@ -40,6 +40,7 @@ const PRIVACY: LegalDocument = {
         'Documentos e arquivos que você ou a equipe anexarem à viagem, como vouchers e bilhetes. Não anexe documentos de identidade, como passaporte, sem necessidade.',
         'Conversas e anotações compartilhadas na viagem (mensagens, notas e enquetes).',
         'Dados técnicos de funcionamento e segurança: registros de acesso, endereço IP e dispositivo, usados para proteger a conta e corrigir falhas.',
+        'Se você aceitar a medição opcional, eventos de abertura do planejador e de solicitação de roteiro, eventos automáticos de sessão e interação na página de medição, identificadores de medição e informações técnicas do navegador.',
       ],
     },
     {
@@ -49,12 +50,13 @@ const PRIVACY: LegalDocument = {
         'Criar e proteger sua conta, enviar convite, redefinição de senha e avisos da viagem por e-mail.',
         'Atender seu pedido de cotação ou serviço contratado com a Aventuristur e dar suporte.',
         'Manter a segurança do aplicativo e cumprir obrigações legais.',
+        'Com sua escolha, entender o uso do planejador e melhorar o aplicativo.',
       ],
     },
     {
       title: 'Base legal',
       paragraphs: [
-        'Tratamos os dados para executar o serviço que você pediu à Aventuristur e os procedimentos preliminares a ele (LGPD, art. 7º, V), para cumprir obrigações legais (art. 7º, II) e, no caso dos dados técnicos de segurança, com base no legítimo interesse de proteger o aplicativo e as contas (art. 7º, IX).',
+        'Tratamos os dados para executar o serviço que você pediu à Aventuristur e os procedimentos preliminares a ele (LGPD, art. 7º, V), para cumprir obrigações legais (art. 7º, II) e, no caso dos dados técnicos de segurança, com base no legítimo interesse de proteger o aplicativo e as contas (art. 7º, IX). A medição opcional de uso depende do seu consentimento, que pode ser revogado nas preferências do aplicativo.',
       ],
     },
     {
@@ -69,6 +71,7 @@ const PRIVACY: LegalDocument = {
         'Busca de lugares: os textos que você digita na busca de lugares são enviados à API de lugares do projeto TREK (places.liketrek.com), de onde o aplicativo foi derivado, e a serviços do OpenStreetMap (Nominatim e Overpass).',
         'Previsão do tempo: a localização do lugar e as datas consultadas são enviadas ao Open-Meteo.',
         'Rotas, mapa, câmbio, feriados e transporte público: OSRM (FOSSGIS), OpenFreeMap, Frankfurter, date.nager.at e Transitous. Esses serviços recebem apenas as coordenadas, moedas ou datas necessárias à consulta, sem identificar você.',
+        'Google Analytics: somente se você aceitar a medição, recebe eventos de uso e informações técnicas por uma página isolada do site da Aventuristur. Não enviamos destino, datas, orçamento, nomes, documentos ou o conteúdo dos roteiros nesses eventos.',
       ],
     },
     {
@@ -100,7 +103,7 @@ const PRIVACY: LegalDocument = {
     {
       title: 'Cookies e armazenamento no aparelho',
       paragraphs: [
-        'O aplicativo usa cookies e armazenamento no aparelho apenas para manter você conectado, lembrar suas preferências e permitir abrir o roteiro sem internet. Não usamos cookies de publicidade neste aplicativo.',
+        'O aplicativo usa cookies e armazenamento no aparelho para manter você conectado, lembrar suas preferências e permitir abrir o roteiro sem internet. A medição de uso é opcional e só começa depois que você aceitar; você pode alterar essa escolha no painel do planejador. Se você tiver recusado a medição no site da Aventuristur, a recusa também é respeitada pela ponte de medição. Não usamos cookies de publicidade neste aplicativo.',
       ],
     },
     {

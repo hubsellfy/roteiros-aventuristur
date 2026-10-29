@@ -299,5 +299,9 @@ const dashboard: TranslationStrings = {
   'dashboard.plan.failed': 'Не удалось завершить этот маршрут.',
   'dashboard.plan.retry': 'Повторить',
   'dashboard.plan.remove': 'Удалить',
+  'appAnalytics.title': 'Измерение использования',
+  'appAnalytics.description':
+    'Разрешить Google Analytics измерять открытия планировщика и запросы маршрута? Подробности поездки не отправляются. Выбор можно изменить в любое время.',
+  'appAnalytics.unavailable': 'Измерение недоступно или было отклонено на сайте.',
 };
 export default dashboard;

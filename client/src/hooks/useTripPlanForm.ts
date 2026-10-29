@@ -4,6 +4,7 @@ import { roteiroApi } from '../api/client';
 import { useToast } from '../components/shared/Toast';
 import { useTranslation } from '../i18n';
 import { getApiErrorMessage } from '../utils/apiError';
+import { useAppAnalytics } from './useAppAnalytics';
 
 const MS_PER_DAY = 86_400_000;
 
@@ -20,6 +21,7 @@ export function planSpanDays(start: string, end: string): number {
 export function useTripPlanForm(onCreated: () => void) {
   const { t, locale } = useTranslation();
   const toast = useToast();
+  const track = useAppAnalytics();
   const [destination, setDestination] = useState('');
   const [origin, setOrigin] = useState('');
   const [startDate, setStartDate] = useState('');
@@ -71,6 +73,7 @@ export function useTripPlanForm(onCreated: () => void) {
         style,
         language: locale,
       });
+      track('trip_plan_requested');
       toast.success(t('dashboard.toast.created'));
       setDestination('');
       setOrigin('');

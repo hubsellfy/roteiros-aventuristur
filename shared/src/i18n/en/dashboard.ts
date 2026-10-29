@@ -265,5 +265,9 @@ const dashboard: TranslationStrings = {
   'dashboard.plan.failed': 'I could not finish this itinerary.',
   'dashboard.plan.retry': 'Try again',
   'dashboard.plan.remove': 'Remove',
+  'appAnalytics.title': 'Usage measurement',
+  'appAnalytics.description':
+    'Allow Google Analytics to measure planner openings and itinerary requests? Trip details are not sent. You can change this choice at any time.',
+  'appAnalytics.unavailable': 'Measurement is unavailable or was declined on the website.',
 };
 export default dashboard;

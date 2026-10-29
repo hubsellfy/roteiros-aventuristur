@@ -245,5 +245,9 @@ const dashboard: TranslationStrings = {
   'dashboard.plan.failed': '이 일정을 완성하지 못했어요.',
   'dashboard.plan.retry': '다시 시도',
   'dashboard.plan.remove': '삭제',
+  'appAnalytics.title': '사용량 측정',
+  'appAnalytics.description':
+    'Google Analytics가 플래너 열기와 일정 요청을 측정하도록 허용하시겠습니까? 여행 세부 정보는 전송되지 않습니다. 이 선택은 언제든 변경할 수 있습니다.',
+  'appAnalytics.unavailable': '측정을 사용할 수 없거나 웹사이트에서 거부했습니다.',
 };
 export default dashboard;

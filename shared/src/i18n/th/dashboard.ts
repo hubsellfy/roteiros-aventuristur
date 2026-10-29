@@ -242,5 +242,9 @@ const dashboard: TranslationStrings = {
   'dashboard.plan.failed': 'ไม่สามารถทำแผนเดินทางนี้ให้เสร็จได้',
   'dashboard.plan.retry': 'ลองอีกครั้ง',
   'dashboard.plan.remove': 'ลบ',
+  'appAnalytics.title': 'การวัดการใช้งาน',
+  'appAnalytics.description':
+    'อนุญาตให้ Google Analytics วัดการเปิดตัววางแผนและคำขอแผนการเดินทางหรือไม่ โดยไม่มีการส่งรายละเอียดการเดินทาง คุณเปลี่ยนตัวเลือกนี้ได้ทุกเมื่อ',
+  'appAnalytics.unavailable': 'การวัดไม่พร้อมใช้งานหรือถูกปฏิเสธบนเว็บไซต์',
 };
 export default dashboard;
