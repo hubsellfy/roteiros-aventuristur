@@ -37,10 +37,11 @@ describe('app analytics consent and isolation', () => {
   it('sends only named events to the isolated frame after explicit consent and readiness', () => {
     const view = mount();
     fireEvent.click(screen.getByText('vacay.accept'));
-    const frame = view.container.querySelector('iframe')!;
+    const frame = view.container.querySelector('iframe');
+    if (!frame || !frame.contentWindow) throw new Error('Expected the measurement frame');
     expect(frame).toHaveAttribute('sandbox', 'allow-scripts allow-same-origin');
     expect(frame).toHaveAttribute('referrerPolicy', 'no-referrer');
-    const target = frame.contentWindow!;
+    const target = frame.contentWindow;
     const send = vi.spyOn(target, 'postMessage');
     fireEvent.click(screen.getByText('Request'));
     fireEvent.load(frame);
@@ -79,7 +80,8 @@ describe('app analytics consent and isolation', () => {
   it('removes the frame when the site has declined measurement', () => {
     localStorage.setItem('aventuristur-app-analytics-consent', 'accepted');
     const view = mount();
-    const target = view.container.querySelector('iframe')!.contentWindow!;
+    const target = view.container.querySelector('iframe')?.contentWindow;
+    if (!target) throw new Error('Expected the measurement frame');
     fireEvent(
       window,
       new MessageEvent('message', {
