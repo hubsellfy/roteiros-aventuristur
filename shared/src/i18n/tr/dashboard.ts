@@ -265,8 +265,9 @@ const dashboard: TranslationStrings = {
   'dashboard.plan.failed': 'Bu rotayı tamamlayamadım.',
   'dashboard.plan.retry': 'Tekrar dene',
   'dashboard.plan.remove': 'Kaldır',
-  'appAnalytics.title': "Kullanım ölçümü",
-  'appAnalytics.description': "Google Analytics planlayıcının açılmasını ve rota isteklerini ölçsün mü? Seyahat ayrıntıları gönderilmez. Bu seçimi istediğiniz zaman değiştirebilirsiniz.",
-  'appAnalytics.unavailable': "Ölçüm kullanılamıyor veya web sitesinde reddedildi.",
+  'appAnalytics.title': 'Kullanım ölçümü',
+  'appAnalytics.description':
+    'Google Analytics planlayıcının açılmasını ve rota isteklerini ölçsün mü? Seyahat ayrıntıları gönderilmez. Bu seçimi istediğiniz zaman değiştirebilirsiniz.',
+  'appAnalytics.unavailable': 'Ölçüm kullanılamıyor veya web sitesinde reddedildi.',
 };
 export default dashboard;

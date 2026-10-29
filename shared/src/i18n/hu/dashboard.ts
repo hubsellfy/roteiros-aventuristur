@@ -268,8 +268,9 @@ const dashboard: TranslationStrings = {
   'dashboard.plan.failed': 'Nem sikerült befejezni ezt az útitervet.',
   'dashboard.plan.retry': 'Újra',
   'dashboard.plan.remove': 'Eltávolítás',
-  'appAnalytics.title': "Használat mérése",
-  'appAnalytics.description': "Engedélyezi, hogy a Google Analytics mérje a tervező megnyitását és az útitervkéréseket? Az utazás részleteit nem küldjük el. A döntés bármikor módosítható.",
-  'appAnalytics.unavailable': "A mérés nem érhető el, vagy a webhelyen elutasították.",
+  'appAnalytics.title': 'Használat mérése',
+  'appAnalytics.description':
+    'Engedélyezi, hogy a Google Analytics mérje a tervező megnyitását és az útitervkéréseket? Az utazás részleteit nem küldjük el. A döntés bármikor módosítható.',
+  'appAnalytics.unavailable': 'A mérés nem érhető el, vagy a webhelyen elutasították.',
 };
 export default dashboard;

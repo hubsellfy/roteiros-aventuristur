@@ -249,8 +249,9 @@ const dashboard: TranslationStrings = {
   'dashboard.plan.failed': 'Saya tidak dapat menyelesaikan rencana ini.',
   'dashboard.plan.retry': 'Coba lagi',
   'dashboard.plan.remove': 'Hapus',
-  'appAnalytics.title': "Pengukuran penggunaan",
-  'appAnalytics.description': "Izinkan Google Analytics mengukur pembukaan perencana dan permintaan rencana perjalanan? Detail perjalanan tidak dikirim. Anda dapat mengubah pilihan ini kapan saja.",
-  'appAnalytics.unavailable': "Pengukuran tidak tersedia atau ditolak di situs web.",
+  'appAnalytics.title': 'Pengukuran penggunaan',
+  'appAnalytics.description':
+    'Izinkan Google Analytics mengukur pembukaan perencana dan permintaan rencana perjalanan? Detail perjalanan tidak dikirim. Anda dapat mengubah pilihan ini kapan saja.',
+  'appAnalytics.unavailable': 'Pengukuran tidak tersedia atau ditolak di situs web.',
 };
 export default dashboard;

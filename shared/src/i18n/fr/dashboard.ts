@@ -269,8 +269,9 @@ const dashboard: TranslationStrings = {
   'dashboard.plan.failed': 'Je n’ai pas pu terminer cet itinéraire.',
   'dashboard.plan.retry': 'Réessayer',
   'dashboard.plan.remove': 'Retirer',
-  'appAnalytics.title': "Mesure de l’utilisation",
-  'appAnalytics.description': "Autoriser Google Analytics à mesurer les ouvertures du planificateur et les demandes d’itinéraire ? Les détails du voyage ne sont pas envoyés. Vous pouvez changer ce choix à tout moment.",
-  'appAnalytics.unavailable': "La mesure est indisponible ou a été refusée sur le site.",
+  'appAnalytics.title': 'Mesure de l’utilisation',
+  'appAnalytics.description':
+    'Autoriser Google Analytics à mesurer les ouvertures du planificateur et les demandes d’itinéraire ? Les détails du voyage ne sont pas envoyés. Vous pouvez changer ce choix à tout moment.',
+  'appAnalytics.unavailable': 'La mesure est indisponible ou a été refusée sur le site.',
 };
 export default dashboard;

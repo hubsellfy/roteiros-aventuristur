@@ -264,8 +264,9 @@ const dashboard: TranslationStrings = {
   'dashboard.plan.failed': 'Jag kunde inte göra klart den här planen.',
   'dashboard.plan.retry': 'Försök igen',
   'dashboard.plan.remove': 'Ta bort',
-  'appAnalytics.title': "Användningsmätning",
-  'appAnalytics.description': "Tillåt Google Analytics att mäta när planeraren öppnas och resplaner begärs? Resans detaljer skickas inte. Du kan ändra ditt val när som helst.",
-  'appAnalytics.unavailable': "Mätning är inte tillgänglig eller har avböjts på webbplatsen.",
+  'appAnalytics.title': 'Användningsmätning',
+  'appAnalytics.description':
+    'Tillåt Google Analytics att mäta när planeraren öppnas och resplaner begärs? Resans detaljer skickas inte. Du kan ändra ditt val när som helst.',
+  'appAnalytics.unavailable': 'Mätning är inte tillgänglig eller har avböjts på webbplatsen.',
 };
 export default dashboard;

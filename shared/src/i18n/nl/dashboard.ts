@@ -267,8 +267,9 @@ const dashboard: TranslationStrings = {
   'dashboard.plan.failed': 'Ik kon deze route niet afmaken.',
   'dashboard.plan.retry': 'Opnieuw proberen',
   'dashboard.plan.remove': 'Verwijderen',
-  'appAnalytics.title': "Gebruiksmeting",
-  'appAnalytics.description': "Google Analytics toestemming geven om het openen van de planner en routeverzoeken te meten? Reisdetails worden niet verzonden. Je kunt deze keuze altijd wijzigen.",
-  'appAnalytics.unavailable': "Meting is niet beschikbaar of is op de website geweigerd.",
+  'appAnalytics.title': 'Gebruiksmeting',
+  'appAnalytics.description':
+    'Google Analytics toestemming geven om het openen van de planner en routeverzoeken te meten? Reisdetails worden niet verzonden. Je kunt deze keuze altijd wijzigen.',
+  'appAnalytics.unavailable': 'Meting is niet beschikbaar of is op de website geweigerd.',
 };
 export default dashboard;
