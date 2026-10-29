@@ -272,6 +272,7 @@ const dashboard: TranslationStrings = {
   'appAnalytics.title': 'Misurazione dell’utilizzo',
   'appAnalytics.description':
     'Consentire a Google Analytics di misurare le aperture del pianificatore e le richieste di itinerario? I dettagli del viaggio non vengono inviati. Puoi cambiare scelta in qualsiasi momento.',
+  'appAnalytics.registrationNote': 'Include anche le registrazioni completate.',
   'appAnalytics.unavailable': 'La misurazione non è disponibile o è stata rifiutata sul sito.',
 };
 export default dashboard;

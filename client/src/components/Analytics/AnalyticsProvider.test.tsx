@@ -23,15 +23,27 @@ describe('app analytics consent and isolation', () => {
 
   it('does not load a frame before consent or on a disabled route', () => {
     const view = mount();
-    expect(screen.getByText('appAnalytics.description')).toBeInTheDocument();
+    expect(screen.getByText(/appAnalytics\.description/)).toBeInTheDocument();
     expect(view.container.querySelector('iframe')).toBeNull();
     fireEvent.click(screen.getByText('vacay.decline'));
     expect(view.container.querySelector('iframe')).toBeNull();
-    expect(localStorage.getItem('aventuristur-app-analytics-consent')).toBe('declined');
+    expect(localStorage.getItem('aventuristur-app-analytics-consent-v2')).toBe('declined');
     view.unmount();
-    localStorage.setItem('aventuristur-app-analytics-consent', 'accepted');
+    localStorage.setItem('aventuristur-app-analytics-consent-v2', 'accepted');
     const privatePage = mount(false);
     expect(privatePage.container.querySelector('iframe')).toBeNull();
+  });
+
+  it('asks again for old acceptance while preserving an old refusal', () => {
+    localStorage.setItem('aventuristur-app-analytics-consent', 'accepted');
+    const view = mount();
+    expect(screen.getByText(/appAnalytics\.registrationNote/)).toBeInTheDocument();
+    expect(view.container.querySelector('iframe')).toBeNull();
+    view.unmount();
+    localStorage.setItem('aventuristur-app-analytics-consent', 'declined');
+    const declined = mount();
+    expect(declined.container.querySelector('iframe')).toBeNull();
+    expect(screen.queryByText(/appAnalytics\.registrationNote/)).not.toBeInTheDocument();
   });
 
   it('sends only named events to the isolated frame after explicit consent and readiness', () => {
@@ -45,7 +57,10 @@ describe('app analytics consent and isolation', () => {
     const send = vi.spyOn(target, 'postMessage');
     fireEvent.click(screen.getByText('Request'));
     fireEvent.load(frame);
-    expect(send).toHaveBeenCalledWith({ type: 'aventuristur-analytics-start' }, 'https://aventuristur.com');
+    expect(send).toHaveBeenCalledWith(
+      { type: 'aventuristur-analytics-start', registrationConsent: true },
+      'https://aventuristur.com'
+    );
     fireEvent(
       window,
       new MessageEvent('message', {
@@ -74,11 +89,11 @@ describe('app analytics consent and isolation', () => {
     fireEvent.click(screen.getByText('appAnalytics.title'));
     fireEvent.click(screen.getByText('vacay.decline'));
     expect(view.container.querySelector('iframe')).toBeNull();
-    expect(localStorage.getItem('aventuristur-app-analytics-consent')).toBe('declined');
+    expect(localStorage.getItem('aventuristur-app-analytics-consent-v2')).toBe('declined');
   });
 
   it('removes the frame when the site has declined measurement', () => {
-    localStorage.setItem('aventuristur-app-analytics-consent', 'accepted');
+    localStorage.setItem('aventuristur-app-analytics-consent-v2', 'accepted');
     const view = mount();
     const target = view.container.querySelector('iframe')?.contentWindow;
     if (!target) throw new Error('Expected the measurement frame');

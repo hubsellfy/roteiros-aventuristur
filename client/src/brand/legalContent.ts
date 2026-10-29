@@ -40,7 +40,7 @@ const PRIVACY: LegalDocument = {
         'Documentos e arquivos que você ou a equipe anexarem à viagem, como vouchers e bilhetes. Não anexe documentos de identidade, como passaporte, sem necessidade.',
         'Conversas e anotações compartilhadas na viagem (mensagens, notas e enquetes).',
         'Dados técnicos de funcionamento e segurança: registros de acesso, endereço IP e dispositivo, usados para proteger a conta e corrigir falhas.',
-        'Se você aceitar a medição opcional, eventos de abertura do planejador e de solicitação de roteiro, eventos automáticos de sessão e interação na página de medição, identificadores de medição e informações técnicas do navegador.',
+        'Se você aceitar a medição opcional, eventos de cadastro concluído, abertura do planejador e solicitação de roteiro, eventos automáticos de sessão e interação na página de medição, identificadores de medição e informações técnicas do navegador.',
       ],
     },
     {

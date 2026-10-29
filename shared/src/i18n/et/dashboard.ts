@@ -268,6 +268,7 @@ const dashboard: TranslationStrings = {
   'appAnalytics.title': 'Kasutuse mõõtmine',
   'appAnalytics.description':
     'Kas lubada Google Analyticsil mõõta planeerija avamisi ja reisiplaani päringuid? Reisi üksikasju ei saadeta. Valikut saab igal ajal muuta.',
+  'appAnalytics.registrationNote': 'See hõlmab ka lõpetatud registreerimisi.',
   'appAnalytics.unavailable': 'Mõõtmine pole saadaval või sellest keelduti veebilehel.',
 };
 export default dashboard;

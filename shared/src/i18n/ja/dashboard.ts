@@ -249,6 +249,7 @@ const dashboard: TranslationStrings = {
   'appAnalytics.title': '利用状況の計測',
   'appAnalytics.description':
     'Google Analytics にプランナーの起動と旅程のリクエストを計測させますか？旅行の詳細は送信されません。選択はいつでも変更できます。',
+  'appAnalytics.registrationNote': '完了したアカウント登録も含まれます。',
   'appAnalytics.unavailable': '計測を利用できないか、ウェブサイトで拒否されています。',
 };
 export default dashboard;

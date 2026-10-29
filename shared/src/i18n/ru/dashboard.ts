@@ -302,6 +302,7 @@ const dashboard: TranslationStrings = {
   'appAnalytics.title': 'Измерение использования',
   'appAnalytics.description':
     'Разрешить Google Analytics измерять открытия планировщика и запросы маршрута? Подробности поездки не отправляются. Выбор можно изменить в любое время.',
+  'appAnalytics.registrationNote': 'Также учитываются завершённые регистрации.',
   'appAnalytics.unavailable': 'Измерение недоступно или было отклонено на сайте.',
 };
 export default dashboard;

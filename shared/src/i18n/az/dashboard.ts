@@ -271,6 +271,7 @@ const dashboard: TranslationStrings = {
   'appAnalytics.title': 'İstifadənin ölçülməsi',
   'appAnalytics.description':
     'Google Analytics planlayıcının açılmasını və marşrut sorğularını ölçsün? Səyahət təfərrüatları göndərilmir. Seçiminizi istənilən vaxt dəyişə bilərsiniz.',
+  'appAnalytics.registrationNote': 'Tamamlanmış qeydiyyatlar da daxildir.',
   'appAnalytics.unavailable': 'Ölçmə əlçatan deyil və ya saytda rədd edilib.',
 };
 export default dashboard;

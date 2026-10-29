@@ -243,6 +243,7 @@ const dashboard: TranslationStrings = {
   'appAnalytics.title': '使用情況衡量',
   'appAnalytics.description':
     '允許 Google Analytics 衡量規劃工具的開啟次數和行程請求嗎？不會傳送旅行詳情。您可以隨時變更此選擇。',
+  'appAnalytics.registrationNote': '也包括已完成的註冊。',
   'appAnalytics.unavailable': '衡量功能無法使用，或已在網站上被拒絕。',
 };
 export default dashboard;
