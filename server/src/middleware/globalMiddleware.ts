@@ -393,7 +393,8 @@ export function applyGlobalMiddleware(
           // 'self' so the app can embed same-origin, sandboxed plugin frames
           // (/plugin-frame/*). Those frames are sandboxed WITHOUT allow-same-origin,
           // so they run at an opaque origin and get their own locked-down CSP.
-          frameSrc: ["'self'"],
+          // Apenas a ponte de medição do site institucional é incorporada, em iframe isolado.
+          frameSrc: ["'self'", 'https://aventuristur.com'],
           frameAncestors: ["'self'"],
           // Restrict <form> submission targets (form-action has no default-src
           // fallback, so it must be set explicitly).

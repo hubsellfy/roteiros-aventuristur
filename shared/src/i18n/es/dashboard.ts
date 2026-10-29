@@ -267,5 +267,8 @@ const dashboard: TranslationStrings = {
   'dashboard.plan.failed': 'No pude terminar este itinerario.',
   'dashboard.plan.retry': 'Intentar de nuevo',
   'dashboard.plan.remove': 'Quitar',
+  'appAnalytics.title': "Medición de uso",
+  'appAnalytics.description': "¿Permitir que Google Analytics mida las aperturas del planificador y las solicitudes de itinerarios? No se envían los detalles del viaje. Puedes cambiar esta elección cuando quieras.",
+  'appAnalytics.unavailable': "La medición no está disponible o se rechazó en el sitio web.",
 };
 export default dashboard;

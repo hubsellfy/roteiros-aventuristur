@@ -37,6 +37,7 @@ import HelpPanel from './components/Help/HelpPanel'
 // Notice action registrations (side-effect imports):
 import './pages/Trips/noticeActions.js'
 import { managedRoutes } from './managed'
+import { AnalyticsProvider } from './components/Analytics/AnalyticsProvider'
 
 // Every page below loads on demand. The entry chunk used to carry all twenty of
 // them eagerly, so opening /dashboard also paid for the planner, the journal, the
@@ -154,15 +155,17 @@ function ProtectedRoute({ children, adminRequired = false, addonId }: ProtectedR
   // instance across a navigation and the error would follow the user around.
   return (
     <MobileShell isPhone={isPhone}>
-      <RouteMemory />
-      <ErrorBoundary
-        key={location.pathname}
-        boundaryId="route"
-        level="route"
-        variant={isPhone ? 'mobile' : 'desktop'}
-      >
-        {children}
-      </ErrorBoundary>
+      <AnalyticsProvider enabled={location.pathname === '/dashboard'}>
+        <RouteMemory />
+        <ErrorBoundary
+          key={location.pathname}
+          boundaryId="route"
+          level="route"
+          variant={isPhone ? 'mobile' : 'desktop'}
+        >
+          {children}
+        </ErrorBoundary>
+      </AnalyticsProvider>
     </MobileShell>
   )
 }

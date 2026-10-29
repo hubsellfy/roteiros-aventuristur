@@ -1,0 +1,94 @@
+import { fireEvent, render, screen } from '@testing-library/react';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
+import { useAppAnalytics } from '../../hooks/useAppAnalytics';
+import { AnalyticsProvider } from './AnalyticsProvider';
+
+vi.mock('../../i18n', () => ({ useTranslation: () => ({ t: (key: string) => key }) }));
+
+function RequestEvent() {
+  const track = useAppAnalytics();
+  return <button onClick={() => track('trip_plan_requested')}>Request</button>;
+}
+
+function mount(enabled = true) {
+  return render(
+    <AnalyticsProvider enabled={enabled}>
+      <RequestEvent />
+    </AnalyticsProvider>
+  );
+}
+
+describe('app analytics consent and isolation', () => {
+  beforeEach(() => localStorage.clear());
+
+  it('does not load a frame before consent or on a disabled route', () => {
+    const view = mount();
+    expect(screen.getByText('appAnalytics.description')).toBeInTheDocument();
+    expect(view.container.querySelector('iframe')).toBeNull();
+    fireEvent.click(screen.getByText('vacay.decline'));
+    expect(view.container.querySelector('iframe')).toBeNull();
+    expect(localStorage.getItem('aventuristur-app-analytics-consent')).toBe('declined');
+    view.unmount();
+    localStorage.setItem('aventuristur-app-analytics-consent', 'accepted');
+    const privatePage = mount(false);
+    expect(privatePage.container.querySelector('iframe')).toBeNull();
+  });
+
+  it('sends only named events to the isolated frame after explicit consent and readiness', () => {
+    const view = mount();
+    fireEvent.click(screen.getByText('vacay.accept'));
+    const frame = view.container.querySelector('iframe')!;
+    expect(frame).toHaveAttribute('sandbox', 'allow-scripts allow-same-origin');
+    expect(frame).toHaveAttribute('referrerPolicy', 'no-referrer');
+    const target = frame.contentWindow!;
+    const send = vi.spyOn(target, 'postMessage');
+    fireEvent.click(screen.getByText('Request'));
+    fireEvent.load(frame);
+    expect(send).toHaveBeenCalledWith({ type: 'aventuristur-analytics-start' }, 'https://aventuristur.com');
+    fireEvent(
+      window,
+      new MessageEvent('message', {
+        origin: 'https://evil.example',
+        source: target,
+        data: { type: 'aventuristur-analytics-status', status: 'ready' },
+      })
+    );
+    expect(send).toHaveBeenCalledTimes(1);
+    fireEvent(
+      window,
+      new MessageEvent('message', {
+        origin: 'https://aventuristur.com',
+        source: target,
+        data: { type: 'aventuristur-analytics-status', status: 'ready' },
+      })
+    );
+    expect(send).toHaveBeenCalledWith(
+      { type: 'aventuristur-analytics-event', event: 'planner_open' },
+      'https://aventuristur.com'
+    );
+    expect(send).toHaveBeenCalledWith(
+      { type: 'aventuristur-analytics-event', event: 'trip_plan_requested' },
+      'https://aventuristur.com'
+    );
+    fireEvent.click(screen.getByText('appAnalytics.title'));
+    fireEvent.click(screen.getByText('vacay.decline'));
+    expect(view.container.querySelector('iframe')).toBeNull();
+    expect(localStorage.getItem('aventuristur-app-analytics-consent')).toBe('declined');
+  });
+
+  it('removes the frame when the site has declined measurement', () => {
+    localStorage.setItem('aventuristur-app-analytics-consent', 'accepted');
+    const view = mount();
+    const target = view.container.querySelector('iframe')!.contentWindow!;
+    fireEvent(
+      window,
+      new MessageEvent('message', {
+        origin: 'https://aventuristur.com',
+        source: target,
+        data: { type: 'aventuristur-analytics-status', status: 'site-consent-denied' },
+      })
+    );
+    expect(view.container.querySelector('iframe')).toBeNull();
+    expect(screen.getByRole('status')).toHaveTextContent('appAnalytics.unavailable');
+  });
+});

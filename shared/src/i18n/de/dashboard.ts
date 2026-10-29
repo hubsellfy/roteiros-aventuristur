@@ -269,5 +269,8 @@ const dashboard: TranslationStrings = {
   'dashboard.plan.failed': 'Ich konnte diese Route nicht fertigstellen.',
   'dashboard.plan.retry': 'Erneut versuchen',
   'dashboard.plan.remove': 'Entfernen',
+  'appAnalytics.title': "Nutzungsmessung",
+  'appAnalytics.description': "Darf Google Analytics das Öffnen des Planers und Reiseplananfragen messen? Reisedetails werden nicht gesendet. Sie können diese Wahl jederzeit ändern.",
+  'appAnalytics.unavailable': "Die Messung ist nicht verfügbar oder wurde auf der Website abgelehnt.",
 };
 export default dashboard;
