@@ -272,6 +272,7 @@ const dashboard: TranslationStrings = {
   'appAnalytics.title': 'Nutzungsmessung',
   'appAnalytics.description':
     'Darf Google Analytics das Öffnen des Planers und Reiseplananfragen messen? Reisedetails werden nicht gesendet. Sie können diese Wahl jederzeit ändern.',
+  'appAnalytics.registrationNote': 'Dazu gehören auch abgeschlossene Registrierungen.',
   'appAnalytics.unavailable': 'Die Messung ist nicht verfügbar oder wurde auf der Website abgelehnt.',
 };
 export default dashboard;

@@ -271,6 +271,7 @@ const dashboard: TranslationStrings = {
   'appAnalytics.title': 'Használat mérése',
   'appAnalytics.description':
     'Engedélyezi, hogy a Google Analytics mérje a tervező megnyitását és az útitervkéréseket? Az utazás részleteit nem küldjük el. A döntés bármikor módosítható.',
+  'appAnalytics.registrationNote': 'A befejezett regisztrációkat is tartalmazza.',
   'appAnalytics.unavailable': 'A mérés nem érhető el, vagy a webhelyen elutasították.',
 };
 export default dashboard;

@@ -245,6 +245,7 @@ const dashboard: TranslationStrings = {
   'appAnalytics.title': 'การวัดการใช้งาน',
   'appAnalytics.description':
     'อนุญาตให้ Google Analytics วัดการเปิดตัววางแผนและคำขอแผนการเดินทางหรือไม่ โดยไม่มีการส่งรายละเอียดการเดินทาง คุณเปลี่ยนตัวเลือกนี้ได้ทุกเมื่อ',
+  'appAnalytics.registrationNote': 'รวมถึงการลงทะเบียนที่เสร็จสมบูรณ์ด้วย',
   'appAnalytics.unavailable': 'การวัดไม่พร้อมใช้งานหรือถูกปฏิเสธบนเว็บไซต์',
 };
 export default dashboard;

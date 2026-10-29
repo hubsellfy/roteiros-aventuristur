@@ -268,6 +268,7 @@ const dashboard: TranslationStrings = {
   'appAnalytics.title': 'Usage measurement',
   'appAnalytics.description':
     'Allow Google Analytics to measure planner openings and itinerary requests? Trip details are not sent. You can change this choice at any time.',
+  'appAnalytics.registrationNote': 'It also includes completed registrations.',
   'appAnalytics.unavailable': 'Measurement is unavailable or was declined on the website.',
 };
 export default dashboard;

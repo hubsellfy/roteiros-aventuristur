@@ -4,14 +4,17 @@ import { AnalyticsContext, type AnalyticsEvent } from '../../hooks/useAppAnalyti
 import { useTranslation } from '../../i18n';
 
 type Choice = 'accepted' | 'declined';
-const STORAGE_KEY = 'aventuristur-app-analytics-consent';
+const LEGACY_STORAGE_KEY = 'aventuristur-app-analytics-consent';
+const STORAGE_KEY = 'aventuristur-app-analytics-consent-v2';
 const BRIDGE_ORIGIN = 'https://aventuristur.com';
 const BRIDGE_URL = `${BRIDGE_ORIGIN}/medicao-app-interno`;
 
 function readChoice(): Choice | null {
   try {
     const value = localStorage.getItem(STORAGE_KEY);
-    return value === 'accepted' || value === 'declined' ? value : null;
+    if (value === 'accepted' || value === 'declined') return value;
+    // Preserve prior refusals; an old acceptance did not cover registrations.
+    return localStorage.getItem(LEGACY_STORAGE_KEY) === 'declined' ? 'declined' : null;
   } catch {
     return null;
   }
@@ -108,7 +111,10 @@ export function AnalyticsProvider({ enabled, children }: { enabled: boolean; chi
           title={t('appAnalytics.title')}
           hidden
           onLoad={() =>
-            frame.current?.contentWindow?.postMessage({ type: 'aventuristur-analytics-start' }, BRIDGE_ORIGIN)
+            frame.current?.contentWindow?.postMessage(
+              { type: 'aventuristur-analytics-start', registrationConsent: true },
+              BRIDGE_ORIGIN
+            )
           }
         />
       )}
@@ -117,7 +123,9 @@ export function AnalyticsProvider({ enabled, children }: { enabled: boolean; chi
           {choice === null || showPreferences ? (
             <section aria-label={t('appAnalytics.title')} className="rounded-xl border border-edge bg-surface-card p-4">
               <p className="font-semibold">{t('appAnalytics.title')}</p>
-              <p className="mt-1 text-content-secondary">{t('appAnalytics.description')}</p>
+              <p className="mt-1 text-content-secondary">
+                {t('appAnalytics.description')} {t('appAnalytics.registrationNote')}
+              </p>
               <a href="/privacidade" target="_blank" rel="noopener noreferrer" className="text-accent-on underline">
                 {LEGAL_DOCUMENTS.privacidade.title}
               </a>

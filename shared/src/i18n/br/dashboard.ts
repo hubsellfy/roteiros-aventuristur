@@ -268,6 +268,7 @@ const dashboard: TranslationStrings = {
   'appAnalytics.title': 'Medição de uso',
   'appAnalytics.description':
     'Permitir que o Google Analytics meça aberturas do planejador e pedidos de roteiro? Os detalhes da viagem não são enviados. Você pode mudar essa escolha quando quiser.',
+  'appAnalytics.registrationNote': 'Também inclui cadastros concluídos.',
   'appAnalytics.unavailable': 'A medição está indisponível ou foi recusada no site.',
 };
 export default dashboard;

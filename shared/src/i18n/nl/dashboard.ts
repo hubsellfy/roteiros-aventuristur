@@ -270,6 +270,7 @@ const dashboard: TranslationStrings = {
   'appAnalytics.title': 'Gebruiksmeting',
   'appAnalytics.description':
     'Google Analytics toestemming geven om het openen van de planner en routeverzoeken te meten? Reisdetails worden niet verzonden. Je kunt deze keuze altijd wijzigen.',
+  'appAnalytics.registrationNote': 'Dit omvat ook voltooide registraties.',
   'appAnalytics.unavailable': 'Meting is niet beschikbaar of is op de website geweigerd.',
 };
 export default dashboard;

@@ -304,6 +304,7 @@ const dashboard: TranslationStrings = {
   'appAnalytics.title': 'Вимірювання використання',
   'appAnalytics.description':
     'Дозволити Google Analytics вимірювати відкриття планувальника та запити маршруту? Деталі подорожі не надсилаються. Вибір можна змінити будь-коли.',
+  'appAnalytics.registrationNote': 'Також враховуються завершені реєстрації.',
   'appAnalytics.unavailable': 'Вимірювання недоступне або його відхилено на сайті.',
 };
 export default dashboard;

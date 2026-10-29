@@ -251,6 +251,7 @@ const dashboard: TranslationStrings = {
   'appAnalytics.title': 'Đo lường mức sử dụng',
   'appAnalytics.description':
     'Cho phép Google Analytics đo số lần mở công cụ lập kế hoạch và yêu cầu lịch trình? Chi tiết chuyến đi không được gửi. Bạn có thể thay đổi lựa chọn bất cứ lúc nào.',
+  'appAnalytics.registrationNote': 'Điều này cũng bao gồm các lượt đăng ký đã hoàn tất.',
   'appAnalytics.unavailable': 'Không thể đo lường hoặc bạn đã từ chối trên trang web.',
 };
 export default dashboard;

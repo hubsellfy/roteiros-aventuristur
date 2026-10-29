@@ -305,6 +305,7 @@ const dashboard: TranslationStrings = {
   'appAnalytics.title': 'Pomiar użycia',
   'appAnalytics.description':
     'Czy zezwolić Google Analytics na pomiar otwarć planera i próśb o plan podróży? Szczegóły podróży nie są przesyłane. Wybór można zmienić w każdej chwili.',
+  'appAnalytics.registrationNote': 'Obejmuje również zakończone rejestracje.',
   'appAnalytics.unavailable': 'Pomiar jest niedostępny lub został odrzucony w witrynie.',
 };
 export default dashboard;

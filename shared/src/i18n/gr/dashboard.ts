@@ -273,6 +273,7 @@ const dashboard: TranslationStrings = {
   'appAnalytics.title': 'Μέτρηση χρήσης',
   'appAnalytics.description':
     'Να επιτρέπεται στο Google Analytics να μετρά τα ανοίγματα του σχεδιαστή και τα αιτήματα δρομολογίων; Οι λεπτομέρειες ταξιδιού δεν αποστέλλονται. Μπορείτε να αλλάξετε την επιλογή οποτεδήποτε.',
+  'appAnalytics.registrationNote': 'Περιλαμβάνει επίσης ολοκληρωμένες εγγραφές.',
   'appAnalytics.unavailable': 'Η μέτρηση δεν είναι διαθέσιμη ή απορρίφθηκε στον ιστότοπο.',
 };
 export default dashboard;

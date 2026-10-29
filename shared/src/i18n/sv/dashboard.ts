@@ -267,6 +267,7 @@ const dashboard: TranslationStrings = {
   'appAnalytics.title': 'Användningsmätning',
   'appAnalytics.description':
     'Tillåt Google Analytics att mäta när planeraren öppnas och resplaner begärs? Resans detaljer skickas inte. Du kan ändra ditt val när som helst.',
+  'appAnalytics.registrationNote': 'Det omfattar även slutförda registreringar.',
   'appAnalytics.unavailable': 'Mätning är inte tillgänglig eller har avböjts på webbplatsen.',
 };
 export default dashboard;

@@ -269,6 +269,7 @@ const dashboard: TranslationStrings = {
   'appAnalytics.title': 'Mesura de l’ús',
   'appAnalytics.description':
     'Vols permetre que Google Analytics mesuri les obertures del planificador i les sol·licituds d’itineraris? No s’envien els detalls del viatge. Pots canviar aquesta opció en qualsevol moment.',
+  'appAnalytics.registrationNote': 'També inclou els registres completats.',
   'appAnalytics.unavailable': 'La mesura no està disponible o s’ha rebutjat al lloc web.',
 };
 export default dashboard;

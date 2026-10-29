@@ -336,6 +336,7 @@ const dashboard: TranslationStrings = {
   'appAnalytics.title': 'قياس الاستخدام',
   'appAnalytics.description':
     'هل تسمح لـ Google Analytics بقياس فتح المخطط وطلبات مسار الرحلة؟ لا تُرسل تفاصيل الرحلة. يمكنك تغيير اختيارك في أي وقت.',
+  'appAnalytics.registrationNote': 'يشمل ذلك أيضًا عمليات التسجيل المكتملة.',
   'appAnalytics.unavailable': 'القياس غير متاح أو تم رفضه على الموقع.',
 };
 export default dashboard;

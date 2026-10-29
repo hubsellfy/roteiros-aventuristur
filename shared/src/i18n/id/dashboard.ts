@@ -252,6 +252,7 @@ const dashboard: TranslationStrings = {
   'appAnalytics.title': 'Pengukuran penggunaan',
   'appAnalytics.description':
     'Izinkan Google Analytics mengukur pembukaan perencana dan permintaan rencana perjalanan? Detail perjalanan tidak dikirim. Anda dapat mengubah pilihan ini kapan saja.',
+  'appAnalytics.registrationNote': 'Ini juga mencakup pendaftaran yang selesai.',
   'appAnalytics.unavailable': 'Pengukuran tidak tersedia atau ditolak di situs web.',
 };
 export default dashboard;

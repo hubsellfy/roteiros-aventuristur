@@ -283,6 +283,7 @@ const dashboard: TranslationStrings = {
   'appAnalytics.title': 'Měření používání',
   'appAnalytics.description':
     'Povolit Google Analytics měřit otevření plánovače a žádosti o itinerář? Podrobnosti o cestě se neposílají. Volbu lze kdykoli změnit.',
+  'appAnalytics.registrationNote': 'Zahrnuje také dokončené registrace.',
   'appAnalytics.unavailable': 'Měření není dostupné nebo bylo na webu odmítnuto.',
 };
 export default dashboard;
