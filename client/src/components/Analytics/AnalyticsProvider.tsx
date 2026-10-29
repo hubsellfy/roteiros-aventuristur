@@ -125,7 +125,7 @@ export function AnalyticsProvider({ enabled, children }: { enabled: boolean; chi
                 <button
                   type="button"
                   onClick={() => choose('accepted')}
-                  className="rounded-lg bg-accent px-4 py-2 text-accent-on"
+                  className="rounded-lg bg-accent px-4 py-2 text-accent-text"
                 >
                   {t('vacay.accept')}
                 </button>
