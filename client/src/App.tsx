@@ -9,6 +9,7 @@ import { usePluginStore } from './store/pluginStore'
 // every other route redirects here first — a chunk round trip in front of the login
 // form would slow down the single screen that has to be there immediately.
 import LoginPage from './pages/LoginPage'
+import PublicSiteAuthRedirect from './pages/PublicSiteAuthRedirect'
 import { ToastContainer } from './components/shared/Toast'
 import SaveToCollectionModal from './components/Collections/SaveToCollectionModal'
 import MSaveToCollectionSheet from './components/Collections/MSaveToCollectionSheet'
@@ -430,10 +431,24 @@ export default function App() {
       <Suspense fallback={<RouteFallback />}>
         <Routes>
           <Route path="/" element={<RootRedirect />} />
-          <Route path="/login" element={<PublicRoute redirectAuthed><LoginPage /></PublicRoute>} />
+          <Route
+            path="/login"
+            element={
+              <PublicRoute redirectAuthed>
+                <PublicSiteAuthRedirect mode="login" fallback={<LoginPage />} />
+              </PublicRoute>
+            }
+          />
           <Route path="/shared/:token" element={<PublicRoute><SharedTripPage /></PublicRoute>} />
           <Route path="/public/journey/:token" element={<PublicRoute><JourneyPublicPage /></PublicRoute>} />
-          <Route path="/register" element={<PublicRoute redirectAuthed><LoginPage /></PublicRoute>} />
+          <Route
+            path="/register"
+            element={
+              <PublicRoute redirectAuthed>
+                <PublicSiteAuthRedirect mode="register" />
+              </PublicRoute>
+            }
+          />
           <Route path="/forgot-password" element={<PublicRoute><ForgotPasswordPage /></PublicRoute>} />
           <Route path="/reset-password" element={<PublicRoute><ResetPasswordPage /></PublicRoute>} />
           <Route path="/privacidade" element={<PublicRoute><LegalPage kind="privacidade" /></PublicRoute>} />
