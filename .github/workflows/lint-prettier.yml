@@ -1,7 +1,7 @@
 name: Lint & Prettier
 on:
   pull_request:
-    branches: [main, dev]
+    branches: [main, dev, 'codex/trek-501-base']
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}

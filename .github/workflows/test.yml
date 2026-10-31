@@ -107,7 +107,7 @@ on:
   push:
     branches: [main, dev]
   pull_request:
-    branches: [main, dev]
+    branches: [main, dev, 'codex/trek-501-base']
   workflow_dispatch:
 
 # A newer push to the same branch/PR supersedes the running one — cancel it
