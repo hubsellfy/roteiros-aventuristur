@@ -238,6 +238,17 @@ describe('AnthropicMessagesClient', () => {
     expect([0, 1, 2, 3].map((i) => dig(body, 'messages', i, 'role'))).toEqual(['user', 'assistant', 'user', undefined]);
   });
 
+  it('ANTH-009: requires a tool call when the caller has narrowed the available tools', async () => {
+    const http = fetchAnswering(streamResponse(STREAM));
+    await run(
+      new AnthropicMessagesClient('claude-sonnet', 'sk-ant-key', http.fetcher).stream(
+        { ...REQUEST, toolChoice: 'required' },
+        signal(),
+      ),
+    );
+    expect(http.body()).toMatchObject({ tool_choice: { type: 'any' } });
+  });
+
   it('ANTH-006: marks the end of the history and the end of what came before the question for the cache', async () => {
     const http = fetchAnswering(streamResponse(STREAM));
     await run(new AnthropicMessagesClient('m', 'k', http.fetcher).stream(REQUEST, signal()));
@@ -687,6 +698,13 @@ describe('OpenAiResponsesClient', () => {
     expect(dig(body, 'tools', 0)).toMatchObject({ type: 'namespace', name: 'trek', description: 'TREK trip tools' });
     expect(dig(body, 'tools', 0, 'tools', 0)).toMatchObject({ type: 'function', name: 'create_place', strict: false });
     expect(dig(body, 'input', 0)).toEqual({ type: 'message', role: 'developer', content: 'Trip: Japan, 3 days' });
+  });
+
+  it('OARS-009: requires a function call when the caller narrowed the tools', async () => {
+    const request = { ...REQUEST, toolChoice: 'required' as const };
+    const http = fetchAnswering(streamResponse(STREAM));
+    await run(new OpenAiResponsesClient('gpt-6.1-sol', tokens('at-1'), http.fetcher).stream(request, signal()));
+    expect(http.body()).toMatchObject({ tool_choice: 'required' });
   });
 
   it('OARS-002: streams text, yields the call, then usage, the items to replay and the finish', async () => {

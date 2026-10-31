@@ -91,7 +91,7 @@ function make(opts: { config?: unknown; generating?: boolean; canCreate?: boolea
     create: vi.fn().mockImplementation(async (_t: string, b: { name: string }) => ({ id: b.name.length })),
   };
   const assignments = { createAssignment: vi.fn() };
-  const assistant = new RoteiroChatService(maps as never, days as never, trips as never, llm as never);
+  const assistant = new RoteiroChatService(maps as never, days as never, trips as never, llm as never, {} as never);
   const svc = new RoteiroTripService(
     assistant,
     trips as never,
@@ -584,7 +584,6 @@ describe('RoteiroTripService', () => {
     expect(await status(() => make().svc.start(user, { ...REQUEST, endDate: '2026-11-30' }))).toBe(400);
     expect(await status(() => make().svc.start(user, { ...REQUEST, startDate: '2026-13-45' }))).toBe(400);
     expect(await status(() => make({ config: null }).svc.start(user, REQUEST))).toBe(503);
-    expect(await status(() => make({ config: { provider: 'anthropic' } }).svc.start(user, REQUEST))).toBe(503);
     expect(await status(() => make({ canCreate: false }).svc.start(user, REQUEST))).toBe(403);
     expect(await status(() => make({ generating: true }).svc.start(user, REQUEST))).toBe(409);
   });

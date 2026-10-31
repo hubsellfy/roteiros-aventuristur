@@ -1,4 +1,5 @@
 import { safeFetch, safeFetchLlm } from '../../utils/ssrfGuard';
+import type { ResolvedLlmConfig } from '../llm-parse/llm-config';
 import type { AiChatClient } from './ai-chat-client.interface';
 import { AI_BASE_URLS } from './ai-connections.constants';
 import type { ResolvedAiConnection } from './ai-connections.types';
@@ -33,6 +34,17 @@ export function openAiWantsResponses(model: string): boolean {
   return /^(o\d|gpt-([5-9]|\d{2,}))/.test(model) && !/-chat/.test(model);
 }
 
+/** An explicitly configured OpenAI URL still uses the first-party adapter only when it names api.openai.com. */
+export function isFirstPartyOpenAiBaseUrl(baseUrl?: string): boolean {
+  if (!baseUrl) return true;
+  try {
+    const url = new URL(baseUrl);
+    return url.protocol === 'https:' && url.hostname === 'api.openai.com' && /^\/v1\/?$/.test(url.pathname);
+  } catch {
+    return false;
+  }
+}
+
 /**
  * The chat client for a resolved connection: Anthropic's Messages API, the
  * Responses API for a ChatGPT plan and OpenAI's reasoning models, and Chat
@@ -42,6 +54,38 @@ export function openAiWantsResponses(model: string): boolean {
 @Injectable()
 export class AiChatClientService {
   constructor(private readonly chatgpt: ChatgptAuthService) {}
+
+  /** Adapts the legacy Aventuristur LLM setting to TREK's guarded provider clients. */
+  createForLlmConfig(config: ResolvedLlmConfig): AiChatClient {
+    if (config.provider === 'anthropic') {
+      return new AnthropicMessagesClient(config.model, config.apiKey ?? '', cloudFetch);
+    }
+    if (config.provider === 'openai' && isFirstPartyOpenAiBaseUrl(config.baseUrl)) {
+      return this.create({
+        id: 0,
+        scope: 'instance',
+        kind: 'openai',
+        model: config.model,
+        baseUrl: null,
+        host: new URL(AI_BASE_URLS.openai).host,
+        paidBy: 'instance',
+        status: 'ok',
+        credential: { type: 'api_key', apiKey: config.apiKey ?? null },
+      });
+    }
+    const baseUrl = (config.baseUrl ?? 'http://localhost:11434/v1').replace(/\/+$/, '');
+    return this.create({
+      id: 0,
+      scope: 'instance',
+      kind: 'custom',
+      model: config.model,
+      baseUrl,
+      host: new URL(baseUrl).host,
+      paidBy: 'instance',
+      status: 'ok',
+      credential: { type: 'api_key', apiKey: config.apiKey ?? null },
+    });
+  }
 
   create(connection: ResolvedAiConnection): AiChatClient {
     const { credential, kind, model } = connection;

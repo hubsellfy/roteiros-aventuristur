@@ -50,6 +50,8 @@ export interface AiChatRequest {
   context?: string;
   messages: AiChatMessage[];
   tools: AiToolSpec[];
+  /** When every offered function must be called; callers may narrow the tools to one first. */
+  toolChoice?: 'auto' | 'required';
   /** Keeps a conversation on the provider's prompt cache (the thread id). */
   cacheKey?: string;
   /** Lets the model search the web with its provider's own search; a client without one ignores it. */

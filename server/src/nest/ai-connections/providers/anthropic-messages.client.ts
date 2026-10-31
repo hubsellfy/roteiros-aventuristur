@@ -168,6 +168,7 @@ export class AnthropicMessagesClient implements AiChatClient {
               })),
               ...(request.webSearch ? [WEB_SEARCH_TOOL] : []),
             ],
+            ...(request.toolChoice === 'required' ? { tool_choice: { type: 'any' } } : {}),
           }
         : {}),
     };

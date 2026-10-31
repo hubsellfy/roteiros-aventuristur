@@ -1,5 +1,12 @@
 import { readEnv } from '../../app-config';
 import { safeFetchLlm } from '../../utils/ssrfGuard';
+import type { AiChatEvent, AiProviderState, AiToolSpec } from '../ai-connections/ai-chat-client.interface';
+import {
+  AiChatClientService,
+  isFirstPartyOpenAiBaseUrl,
+  openAiWantsResponses,
+} from '../ai-connections/ai-chat-client.service';
+import { AiProviderError } from '../ai-connections/providers/provider-errors';
 import { DaysService } from '../days/days.service';
 import { LlmConfigResolver, type ResolvedLlmConfig } from '../llm-parse/llm-config.contract';
 import { MapsService } from '../maps/maps.service';
@@ -19,6 +26,7 @@ export interface ChatMessage {
   content: string | null;
   tool_calls?: ToolCall[];
   tool_call_id?: string;
+  providerState?: AiProviderState | null;
 }
 export interface ToolCall {
   id: string;
@@ -107,6 +115,7 @@ export class RoteiroChatService {
     private readonly days: DaysService,
     private readonly trips: TripsService,
     private readonly llm: LlmConfigResolver,
+    private readonly aiClients: AiChatClientService,
   ) {}
 
   private dailyLimit(): number {
@@ -127,10 +136,6 @@ export class RoteiroChatService {
 
     const config = await this.llm.resolve(userId);
     if (!config) throw err('O assistente ainda não está configurado neste servidor.', 503);
-    if (config.provider === 'anthropic') {
-      throw err('O assistente usa provedores compatíveis com OpenAI (OpenAI, OpenRouter ou servidor local).', 503);
-    }
-
     const remaining = this.spend(userId);
     const language = body.language ?? 'pt-BR';
     const state: TurnState = {
@@ -158,7 +163,7 @@ export class RoteiroChatService {
         if (!nudged && state.cards.size === 0 && step < MAX_STEPS - 1 && listsPlacesInText(reply.content ?? '')) {
           // The model wrote venues from memory. Send it back to the tools once.
           nudged = true;
-          messages.push({ role: 'assistant', content: reply.content ?? null });
+          messages.push({ role: 'assistant', content: reply.content ?? null, providerState: reply.providerState });
           messages.push({
             role: 'user',
             content:
@@ -172,7 +177,12 @@ export class RoteiroChatService {
           remaining,
         };
       }
-      messages.push({ role: 'assistant', content: reply.content ?? null, tool_calls: reply.tool_calls });
+      messages.push({
+        role: 'assistant',
+        content: reply.content ?? null,
+        tool_calls: reply.tool_calls,
+        providerState: reply.providerState,
+      });
       for (const call of reply.tool_calls) {
         const result = await this.runTool(state, call);
         messages.push({ role: 'tool', tool_call_id: call.id, content: result.slice(0, MAX_TOOL_CHARS) });
@@ -191,7 +201,13 @@ export class RoteiroChatService {
     config: RoteiroLlmConfig,
     messages: ChatMessage[],
     opts: { tools?: readonly unknown[]; toolChoice?: unknown; temperature?: number },
-  ): Promise<{ content: string | null; tool_calls?: ToolCall[] }> {
+  ): Promise<{ content: string | null; tool_calls?: ToolCall[]; providerState?: AiProviderState }> {
+    if (
+      config.provider === 'anthropic' ||
+      (config.provider === 'openai' && openAiWantsResponses(config.model) && isFirstPartyOpenAiBaseUrl(config.baseUrl))
+    ) {
+      return this.completeWithProviderAdapter(config, messages, opts);
+    }
     const base = (
       config.baseUrl ?? (config.provider === 'local' ? 'http://localhost:11434/v1' : 'https://api.openai.com/v1')
     ).replace(/\/+$/, '');
@@ -225,6 +241,114 @@ export class RoteiroChatService {
     const message = data?.choices?.[0]?.message;
     if (!message) throw err('O serviço de IA respondeu em um formato inesperado.', 502);
     return { content: message.content ?? null, tool_calls: message.tool_calls };
+  }
+
+  private async completeWithProviderAdapter(
+    config: RoteiroLlmConfig,
+    messages: ChatMessage[],
+    opts: { tools?: readonly unknown[]; toolChoice?: unknown; temperature?: number },
+  ): Promise<{ content: string | null; tool_calls?: ToolCall[]; providerState?: AiProviderState }> {
+    const client = this.aiClients.createForLlmConfig(config);
+    const system = messages.find((message) => message.role === 'system')?.content ?? '';
+    const history = messages
+      .filter((message) => message.role !== 'system')
+      .map((message, index, all) => this.toProviderMessage(message, index, all));
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), 120_000);
+    const content: string[] = [];
+    const toolCalls: ToolCall[] = [];
+    let providerState: AiProviderState | undefined;
+    try {
+      const request = {
+        system,
+        messages: history,
+        ...(opts.toolChoice ? { toolChoice: 'required' as const } : {}),
+        tools: (opts.tools ?? []).flatMap((tool) => {
+          const spec = this.toProviderTool(tool);
+          return spec ? [spec] : [];
+        }),
+      };
+      const collectEvents = (
+        Array as unknown as {
+          fromAsync<T>(source: AsyncIterable<T>): Promise<T[]>;
+        }
+      ).fromAsync;
+      const events = await collectEvents<AiChatEvent>(client.stream(request, controller.signal));
+      for (const event of events) {
+        if (event.type === 'text-delta') content.push(event.delta);
+        else if (event.type === 'tool-call') {
+          toolCalls.push({
+            id: event.call.id,
+            type: 'function',
+            function: { name: event.call.name, arguments: JSON.stringify(event.call.args) },
+          });
+        } else if (event.type === 'provider-state') providerState = event.state;
+      }
+      return {
+        content: content.join('') || null,
+        ...(toolCalls.length ? { tool_calls: toolCalls } : {}),
+        providerState,
+      };
+    } catch (error) {
+      const detail = error instanceof AiProviderError ? `${error.code} (${error.status})` : 'request failed';
+      this.log.error(`assistant provider adapter failed: ${detail}`);
+      throw err('Não foi possível falar com o serviço de IA agora. Tente novamente em instantes.', 502);
+    } finally {
+      clearTimeout(timer);
+    }
+  }
+
+  private toProviderMessage(
+    message: ChatMessage,
+    index: number,
+    all: ChatMessage[],
+  ): import('../ai-connections/ai-chat-client.interface').AiChatMessage {
+    if (message.role === 'user') return { role: 'user', text: message.content ?? '' };
+    if (message.role === 'assistant') {
+      return {
+        role: 'assistant',
+        text: message.content ?? '',
+        toolCalls: (message.tool_calls ?? []).map((call) => {
+          let args: Record<string, unknown> = {};
+          try {
+            const parsed: unknown = JSON.parse(call.function.arguments);
+            if (parsed && typeof parsed === 'object' && !Array.isArray(parsed))
+              args = parsed as Record<string, unknown>;
+          } catch {
+            // The adapter will replay an empty argument object if prior history was malformed.
+          }
+          return { id: call.id, name: call.function.name, args };
+        }),
+        providerState: message.providerState,
+      };
+    }
+    const call = all
+      .slice(0, index)
+      .flatMap((prior) => (prior.role === 'assistant' ? (prior.tool_calls ?? []) : []))
+      .find((prior) => prior.id === message.tool_call_id);
+    return {
+      role: 'tool',
+      toolCallId: message.tool_call_id ?? '',
+      name: call?.function.name ?? 'tool',
+      output: message.content ?? '',
+    };
+  }
+
+  private toProviderTool(raw: unknown): AiToolSpec | null {
+    if (!raw || typeof raw !== 'object' || Array.isArray(raw)) return null;
+    const fn = (raw as { function?: unknown }).function;
+    if (!fn || typeof fn !== 'object' || Array.isArray(fn)) return null;
+    const value = fn as Record<string, unknown>;
+    const parameters = value.parameters;
+    if (
+      typeof value.name !== 'string' ||
+      typeof value.description !== 'string' ||
+      !parameters ||
+      typeof parameters !== 'object' ||
+      Array.isArray(parameters)
+    )
+      return null;
+    return { name: value.name, description: value.description, parameters: parameters as Record<string, unknown> };
   }
 
   private async runTool(state: TurnState, call: ToolCall): Promise<string> {

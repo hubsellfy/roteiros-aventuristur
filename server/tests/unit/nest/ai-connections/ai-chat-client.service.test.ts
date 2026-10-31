@@ -3,7 +3,11 @@
  * OpenAI reasoning model behind an API key takes its function tools only on the
  * Responses API, so it goes there like a ChatGPT plan does (#2792).
  */
-import { AiChatClientService, openAiWantsResponses } from '../../../../src/nest/ai-connections/ai-chat-client.service';
+import {
+  AiChatClientService,
+  isFirstPartyOpenAiBaseUrl,
+  openAiWantsResponses,
+} from '../../../../src/nest/ai-connections/ai-chat-client.service';
 import { AiConnectionsModule } from '../../../../src/nest/ai-connections/ai-connections.module';
 import type { ResolvedAiConnection } from '../../../../src/nest/ai-connections/ai-connections.types';
 import { AnthropicMessagesClient } from '../../../../src/nest/ai-connections/providers/anthropic-messages.client';
@@ -75,5 +79,25 @@ describe('AiChatClientService', () => {
     for (const model of ['gpt-4.1', 'gpt-4o', 'gpt-4o-mini', 'gpt-5-chat-latest', 'omni-moderation-latest']) {
       expect(openAiWantsResponses(model), model).toBe(false);
     }
+  });
+
+  it('AICL-003: the Aventuristur legacy config uses the matching TREK adapters safely', () => {
+    const clients = t.get(AiChatClientService);
+    expect(
+      clients.createForLlmConfig({ provider: 'openai', model: 'gpt-6.1-sol', vision: 'off', apiKey: 'key' }),
+    ).toBeInstanceOf(OpenAiResponsesClient);
+    expect(
+      clients.createForLlmConfig({ provider: 'anthropic', model: 'claude-sonnet-5-5', vision: 'off', apiKey: 'key' }),
+    ).toBeInstanceOf(AnthropicMessagesClient);
+    expect(
+      clients.createForLlmConfig({
+        provider: 'local',
+        model: 'llama3',
+        vision: 'off',
+        baseUrl: 'http://ollama:11434/v1',
+      }),
+    ).toBeInstanceOf(OpenAiChatClient);
+    expect(isFirstPartyOpenAiBaseUrl('https://api.openai.com/v1')).toBe(true);
+    expect(isFirstPartyOpenAiBaseUrl('https://openrouter.ai/api/v1')).toBe(false);
   });
 });
