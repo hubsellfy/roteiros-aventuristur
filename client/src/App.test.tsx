@@ -14,6 +14,19 @@ import App from './App'
 
 // ── Mock page components ───────────────────────────────────────────────────────
 vi.mock('./pages/LoginPage', () => ({ default: () => <div>Login</div> }))
+vi.mock('./pages/PublicSiteAuthRedirect', async () => {
+  const { useLocation } = await vi.importActual<typeof import('react-router')>('react-router')
+  function MockPublicSiteAuthRedirect({ mode, fallback }: { mode: string; fallback?: React.ReactNode }) {
+    const location = useLocation()
+    const query = new URLSearchParams(location.search)
+    return mode === 'login' && (query.has('oidc_code') || query.has('oidc_error'))
+      ? <>{fallback}</>
+      : <div>Public site {mode}</div>
+  }
+  return {
+    default: MockPublicSiteAuthRedirect,
+  }
+})
 vi.mock('./pages/DashboardPage', () => ({ default: () => <div>Dashboard</div> }))
 vi.mock('./pages/TripPlannerPage', () => ({ default: () => <div>TripPlanner</div> }))
 vi.mock('./pages/FilesPage', () => ({ default: () => <div>Files</div> }))
@@ -72,10 +85,10 @@ beforeEach(() => {
 // ── RootRedirect ───────────────────────────────────────────────────────────────
 
 describe('RootRedirect', () => {
-  it('FE-COMP-APP-001: / redirects to /login when not authenticated', async () => {
+  it('FE-COMP-APP-001: / reaches public site login when not authenticated', async () => {
     seedAuth({ isAuthenticated: false })
     renderApp('/')
-    await waitFor(() => expect(screen.getByText('Login')).toBeInTheDocument())
+    await waitFor(() => expect(screen.getByText('Public site login')).toBeInTheDocument())
   })
 
   it('FE-COMP-APP-002: / redirects to /dashboard when authenticated', async () => {
@@ -194,10 +207,10 @@ describe('RootRedirect — startup destination', () => {
 // ── ProtectedRoute — unauthenticated ──────────────────────────────────────────
 
 describe('ProtectedRoute — unauthenticated', () => {
-  it('FE-COMP-APP-004: /dashboard redirects to /login with redirect param when not authenticated', async () => {
+  it('FE-COMP-APP-004: /dashboard reaches public site login with its return target', async () => {
     seedAuth({ isAuthenticated: false })
     renderApp('/dashboard')
-    await waitFor(() => expect(screen.getByText('Login')).toBeInTheDocument())
+    await waitFor(() => expect(screen.getByText('Public site login')).toBeInTheDocument())
   })
 
   // A session that ran out should return you to the page you were on. Pressing
@@ -216,10 +229,10 @@ describe('ProtectedRoute — unauthenticated', () => {
     await waitFor(() => expect(currentPath()).toBe('/login'))
   })
 
-  it('FE-COMP-APP-005: /trips/42 redirects to /login when not authenticated', async () => {
+  it('FE-COMP-APP-005: /trips/42 reaches public site login when not authenticated', async () => {
     seedAuth({ isAuthenticated: false })
     renderApp('/trips/42')
-    await waitFor(() => expect(screen.getByText('Login')).toBeInTheDocument())
+    await waitFor(() => expect(screen.getByText('Public site login')).toBeInTheDocument())
   })
 })
 
@@ -295,11 +308,15 @@ describe('ProtectedRoute — admin role check', () => {
 // ── Public routes ──────────────────────────────────────────────────────────────
 
 describe('Public routes', () => {
-  // Synchronous on purpose: LoginPage is the one page still statically imported,
-  // so this also holds the line against someone making it lazy later.
-  it('FE-COMP-APP-012: /login is accessible without authentication', async () => {
+  it('FE-COMP-APP-012: /login sends signed-out visitors to public site auth', async () => {
     seedAuth({ isAuthenticated: false })
     renderApp('/login')
+    expect(screen.getByText('Public site login')).toBeInTheDocument()
+  })
+
+  it('FE-COMP-APP-012e: OIDC callback stays in the app login flow', async () => {
+    seedAuth({ isAuthenticated: false })
+    renderApp('/login?oidc_code=callback-code')
     expect(screen.getByText('Login')).toBeInTheDocument()
   })
 
@@ -309,10 +326,10 @@ describe('Public routes', () => {
     expect(await screen.findByText('SharedTrip')).toBeInTheDocument()
   })
 
-  it('FE-COMP-APP-014: unknown routes redirect to / which then redirects to /login', async () => {
+  it('FE-COMP-APP-014: unknown routes redirect to / which then reaches public site login', async () => {
     seedAuth({ isAuthenticated: false })
     renderApp('/does-not-exist')
-    await waitFor(() => expect(screen.getByText('Login')).toBeInTheDocument())
+    await waitFor(() => expect(screen.getByText('Public site login')).toBeInTheDocument())
   })
 })
 
@@ -345,24 +362,24 @@ describe('PublicRoute — already authenticated', () => {
     expect(screen.queryByText('Login')).not.toBeInTheDocument()
   })
 
-  it('FE-COMP-APP-012c: /login with a ?redirect= target is left to useLogin (OAuth consent handoff), not bounced', async () => {
+  it('FE-COMP-APP-012c: /login with a ?redirect= target keeps the handoff for public site auth', async () => {
     // The consent page parks its URL in ?redirect= when it needs a login; that
     // flow must reach the form even for an authenticated visitor, so the guard
     // stays out of the way whenever a redirect target is present.
     seedAuthedOnDashboard()
     const target = '/login?redirect=' + encodeURIComponent('/oauth/consent?client_id=x')
     renderApp(target)
-    await waitFor(() => expect(screen.getByText('Login')).toBeInTheDocument())
+    await waitFor(() => expect(screen.getByText('Public site login')).toBeInTheDocument())
     expect(currentPath()).toBe(target)
   })
 
-  it('FE-COMP-APP-012d: /register?invite= reaches the form so the token can be validated', async () => {
+  it('FE-COMP-APP-012d: /register?invite= reaches public site auth with the invite token', async () => {
     // An invite link is the one way someone joins a trip they were invited to
     // from an account they are already signed into; bouncing it would swallow
     // the token silently.
     seedAuthedOnDashboard()
     renderApp('/register?invite=abc123')
-    await waitFor(() => expect(screen.getByText('Login')).toBeInTheDocument())
+    await waitFor(() => expect(screen.getByText('Public site register')).toBeInTheDocument())
     expect(currentPath()).toBe('/register?invite=abc123')
   })
 })

@@ -42,6 +42,11 @@ Este arquivo lista o que muda em relação ao original. O resto do código é do
 - O assistente e o gerador próprios também reconhecem `br`, código que o app usa para português brasileiro, além de `pt` e `pt-BR`.
 - A migração de plugins e o cache offline de rotas devem ser testados sobre dados existentes antes de qualquer publicação. A migração foi exercitada em banco temporário com as migrações específicas do Aventuristur já registradas.
 
+## 8. Acesso pelo site Aventuristur
+
+- Os endereços `/login` e `/register` do app encaminham para as páginas públicas do site Aventuristur, que exibem o menu e o rodapé institucionais. O endereço de retorno ao app e o token de convite são preservados; o app continua recebendo callbacks OIDC diretamente.
+- Em desenvolvimento local, o destino usa `http://127.0.0.1:3100`. Em produção, usa `https://aventuristur.com`; `VITE_PUBLIC_SITE_ORIGIN` permite definir outra origem no build.
+
 ## Como as alterações são mantidas
 
 A cada versão nova do TREK: atualizar a base, rodar `node aventuristur/rebrand/apply.mjs`, reaplicar os patches de `aventuristur/patches/`, rodar os testes e conferir `check.mjs`.
