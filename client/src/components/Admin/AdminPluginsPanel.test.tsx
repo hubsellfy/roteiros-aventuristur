@@ -182,7 +182,7 @@ describe('AdminPluginsPanel — row ⋯ menu is never clipped (#1523)', () => {
 
     expect(menu.style.top).toBe('138px')   // trigger bottom (134) + 4
     expect(menu.style.bottom).toBe('')
-    expect(menu.style.right).toBe('66px')  // viewport (1200) - trigger right (1134)
+    expect(menu.style.insetInlineEnd).toBe('66px') // viewport (1200) - trigger right (1134)
   })
 
   it('FE-COMP-PLUGINS-MENU-004: flips upward for a row near the bottom — the #1523 case', async () => {
