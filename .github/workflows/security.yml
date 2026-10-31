@@ -16,7 +16,7 @@ name: Security Scan
 #     docker-image job, which a red scan cannot hide.
 on:
   pull_request:
-    branches: [main, dev]
+    branches: [main, dev, 'codex/trek-501-base']
   push:
     branches: [main, dev]
 

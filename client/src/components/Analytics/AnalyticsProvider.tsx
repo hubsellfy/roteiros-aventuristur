@@ -1,6 +1,11 @@
 import { useCallback, useEffect, useLayoutEffect, useRef, useState, type ReactNode } from 'react';
 import { LEGAL_DOCUMENTS } from '../../brand/legalContent';
-import { AnalyticsContext, type AnalyticsEvent } from '../../hooks/useAppAnalytics';
+import {
+  AnalyticsContext,
+  AnalyticsPreferencesContext,
+  AnalyticsUnavailableContext,
+  type AnalyticsEvent,
+} from '../../hooks/useAppAnalytics';
 import { useTranslation } from '../../i18n';
 
 type Choice = 'accepted' | 'declined';
@@ -22,12 +27,14 @@ function readChoice(): Choice | null {
 
 export function AnalyticsProvider({ enabled, children }: { enabled: boolean; children: ReactNode }) {
   const { t } = useTranslation();
-  const [choice, setChoice] = useState<Choice | null>(readChoice);
+  // First visits stay private by default; preferences are available in account settings.
+  const [choice, setChoice] = useState<Choice>(() => readChoice() ?? 'declined');
   const [showPreferences, setShowPreferences] = useState(false);
   const [bridgeError, setBridgeError] = useState(false);
   const frame = useRef<HTMLIFrameElement>(null);
   const ready = useRef(false);
   const pending = useRef<AnalyticsEvent[]>([]);
+  const openPreferences = useCallback(() => setShowPreferences(true), []);
 
   const send = useCallback(
     (event: AnalyticsEvent) => {
@@ -83,11 +90,20 @@ export function AnalyticsProvider({ enabled, children }: { enabled: boolean; chi
 
   useEffect(() => {
     const onStorage = (event: StorageEvent) => {
-      if (event.key === STORAGE_KEY) setChoice(readChoice());
+      if (event.key === STORAGE_KEY) setChoice(readChoice() ?? 'declined');
     };
     window.addEventListener('storage', onStorage);
     return () => window.removeEventListener('storage', onStorage);
   }, []);
+
+  useEffect(() => {
+    if (!showPreferences) return;
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setShowPreferences(false);
+    };
+    window.addEventListener('keydown', closeOnEscape);
+    return () => window.removeEventListener('keydown', closeOnEscape);
+  }, [showPreferences]);
 
   const choose = (value: Choice) => {
     try {
@@ -101,64 +117,79 @@ export function AnalyticsProvider({ enabled, children }: { enabled: boolean; chi
   };
 
   return (
-    <AnalyticsContext.Provider value={send}>
-      {enabled && choice === 'accepted' && !bridgeError && (
-        <iframe
-          ref={frame}
-          src={BRIDGE_URL}
-          sandbox="allow-scripts allow-same-origin"
-          referrerPolicy="no-referrer"
-          title={t('appAnalytics.title')}
-          hidden
-          onLoad={() =>
-            frame.current?.contentWindow?.postMessage(
-              { type: 'aventuristur-analytics-start', registrationConsent: true },
-              BRIDGE_ORIGIN
-            )
-          }
-        />
-      )}
-      {enabled && (
-        <div className="mx-auto max-w-5xl px-4 pt-3 text-content">
-          {choice === null || showPreferences ? (
-            <section aria-label={t('appAnalytics.title')} className="rounded-xl border border-edge bg-surface-card p-4">
-              <p className="font-semibold">{t('appAnalytics.title')}</p>
-              <p className="mt-1 text-content-secondary">
-                {t('appAnalytics.description')} {t('appAnalytics.registrationNote')}
-              </p>
-              <a href="/privacidade" target="_blank" rel="noopener noreferrer" className="text-accent-on underline">
-                {LEGAL_DOCUMENTS.privacidade.title}
-              </a>
-              <div className="mt-3 flex flex-wrap gap-3">
-                <button
-                  type="button"
-                  onClick={() => choose('accepted')}
-                  className="rounded-lg bg-accent px-4 py-2 text-accent-text"
-                >
-                  {t('vacay.accept')}
-                </button>
-                <button
-                  type="button"
-                  onClick={() => choose('declined')}
-                  className="rounded-lg border border-edge px-4 py-2"
-                >
-                  {t('vacay.decline')}
-                </button>
-              </div>
-            </section>
-          ) : (
-            <button type="button" onClick={() => setShowPreferences(true)} className="text-content-muted underline">
-              {t('appAnalytics.title')}
-            </button>
+    <AnalyticsPreferencesContext.Provider value={openPreferences}>
+      <AnalyticsUnavailableContext.Provider value={bridgeError}>
+        <AnalyticsContext.Provider value={send}>
+          {enabled && choice === 'accepted' && !bridgeError && (
+            <iframe
+              ref={frame}
+              src={BRIDGE_URL}
+              sandbox="allow-scripts allow-same-origin"
+              referrerPolicy="no-referrer"
+              title={t('appAnalytics.title')}
+              hidden
+              onLoad={() =>
+                frame.current?.contentWindow?.postMessage(
+                  { type: 'aventuristur-analytics-start', registrationConsent: true },
+                  BRIDGE_ORIGIN
+                )
+              }
+            />
           )}
-          {bridgeError && (
-            <p role="status" className="text-content-muted">
-              {t('appAnalytics.unavailable')}
-            </p>
+          {showPreferences && (
+            <div
+              className="fixed inset-0 z-[var(--z-modal)] flex items-center justify-center overflow-y-auto bg-[var(--overlay)] p-4 text-content"
+              role="presentation"
+              onMouseDown={(event) => {
+                if (event.target === event.currentTarget) setShowPreferences(false);
+              }}
+            >
+              <section
+                aria-labelledby="app-analytics-preferences-title"
+                aria-modal="true"
+                className="w-full max-w-lg rounded-xl border border-edge bg-surface-card p-4 shadow-2xl"
+                role="dialog"
+              >
+                <div className="flex items-center justify-between gap-3">
+                  <h2 id="app-analytics-preferences-title" className="m-0 font-semibold">
+                    {t('appAnalytics.title')}
+                  </h2>
+                  <button
+                    type="button"
+                    onClick={() => setShowPreferences(false)}
+                    className="rounded-lg border border-edge px-3 py-1.5"
+                  >
+                    {t('common.cancel')}
+                  </button>
+                </div>
+                <p className="mt-1 text-content-secondary">
+                  {t('appAnalytics.description')} {t('appAnalytics.registrationNote')}
+                </p>
+                <a href="/privacidade" target="_blank" rel="noopener noreferrer" className="text-accent-on underline">
+                  {LEGAL_DOCUMENTS.privacidade.title}
+                </a>
+                <div className="mt-3 flex flex-wrap gap-3">
+                  <button
+                    type="button"
+                    onClick={() => choose('accepted')}
+                    className="rounded-lg bg-accent px-4 py-2 text-accent-text"
+                  >
+                    {t('vacay.accept')}
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => choose('declined')}
+                    className="rounded-lg border border-edge px-4 py-2"
+                  >
+                    {t('vacay.decline')}
+                  </button>
+                </div>
+              </section>
+            </div>
           )}
-        </div>
-      )}
-      {children}
-    </AnalyticsContext.Provider>
+          {children}
+        </AnalyticsContext.Provider>
+      </AnalyticsUnavailableContext.Provider>
+    </AnalyticsPreferencesContext.Provider>
   );
 }

@@ -312,12 +312,6 @@ export class RoteiroTripService implements OnApplicationBootstrap {
   private async requireConfig(userId: number): Promise<RoteiroLlmConfig> {
     const config = await this.llm.resolve(userId);
     if (!config) throw err('O criador de roteiros ainda não está configurado neste servidor.', 503);
-    if (config.provider === 'anthropic') {
-      throw err(
-        'O criador de roteiros usa provedores compatíveis com OpenAI (OpenAI, OpenRouter ou servidor local).',
-        503,
-      );
-    }
     return config;
   }
 
@@ -395,14 +389,19 @@ export class RoteiroTripService implements OnApplicationBootstrap {
           : { tools: TRIP_PLAN_TOOLS, temperature: 0.4 },
       );
       if (!reply.tool_calls?.length) {
-        messages.push({ role: 'assistant', content: reply.content ?? '' });
+        messages.push({ role: 'assistant', content: reply.content ?? '', providerState: reply.providerState });
         messages.push({
           role: 'user',
           content: 'Call submit_itinerary with the remaining days; search for more places if needed.',
         });
         continue;
       }
-      messages.push({ role: 'assistant', content: reply.content ?? null, tool_calls: reply.tool_calls });
+      messages.push({
+        role: 'assistant',
+        content: reply.content ?? null,
+        tool_calls: reply.tool_calls,
+        providerState: reply.providerState,
+      });
       let done: Itinerary | null = null;
       for (const call of reply.tool_calls) {
         if (Date.now() > deadline) throw new Error('time budget exceeded');

@@ -23,6 +23,7 @@ import PasswordChecklist from '../../../components/shared/PasswordChecklist'
 import { fmtDate, usePasskeys } from '../../../components/Settings/usePasskeys'
 import { stripTrailingSlashes, useAccountSettings } from '../../../components/Settings/useAccountSettings'
 import AccountDemoLock from '../../../components/Settings/AccountDemoLock'
+import { useAnalyticsUnavailable, useOpenAnalyticsPreferences } from '../../../hooks/useAppAnalytics'
 
 /**
  * "Account" section — AccountTab parity: profile + avatar, password change,
@@ -30,6 +31,8 @@ import AccountDemoLock from '../../../components/Settings/AccountDemoLock'
  */
 export default function MSettingsAccount() {
   const { t } = useTranslation()
+  const openAnalyticsPreferences = useOpenAnalyticsPreferences()
+  const analyticsUnavailable = useAnalyticsUnavailable()
   const {
     user,
     demoMode,
@@ -292,6 +295,14 @@ export default function MSettingsAccount() {
 
       <MPasskeysCard demoMode={demoMode} />
       </AccountDemoLock>
+
+      <MSetCard title={t('appAnalytics.title')} icon={Shield} className="mt-3">
+        <p className="text-caption leading-relaxed text-m-muted">{t('appAnalytics.description')} {t('appAnalytics.registrationNote')}</p>
+        {analyticsUnavailable && <p role="status" className="mt-2 text-caption text-m-muted">{t('appAnalytics.unavailable')}</p>}
+        <MSetButton className="mt-3" variant="ghost" onClick={openAnalyticsPreferences}>
+          {t('appAnalytics.title')}
+        </MSetButton>
+      </MSetCard>
 
       <MConfirmSheet
         open={showDeleteConfirm === 'blocked'}

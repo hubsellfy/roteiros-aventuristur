@@ -181,6 +181,12 @@ const docsync: TranslationStrings = {
   'docsync.error.provider_disabled':
     'Paused: an administrator has switched this provider off. Syncing resumes once it is back on.',
   'docsync.binding.reconnect': 'Reconnect',
+  'docsync.connection.title': 'Connection',
+  'docsync.connection.hint': 'The address and login Roteiros Aventuristur uses for this store.',
+  'docsync.connection.edit': 'Edit connection',
+  'docsync.connection.remove': 'Remove connection',
+  'docsync.connection.confirmRemove':
+    'Roteiros Aventuristur forgets the address and login for this store, and every sync of this trip through it stops. Documents stay in Roteiros Aventuristur and at the store.',
 };
 
 export default docsync;

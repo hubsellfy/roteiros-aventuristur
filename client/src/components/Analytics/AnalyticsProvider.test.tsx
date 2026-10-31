@@ -1,13 +1,21 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
-import { useAppAnalytics } from '../../hooks/useAppAnalytics';
+import { useAnalyticsUnavailable, useAppAnalytics, useOpenAnalyticsPreferences } from '../../hooks/useAppAnalytics';
 import { AnalyticsProvider } from './AnalyticsProvider';
 
 vi.mock('../../i18n', () => ({ useTranslation: () => ({ t: (key: string) => key }) }));
 
 function RequestEvent() {
   const track = useAppAnalytics();
-  return <button onClick={() => track('trip_plan_requested')}>Request</button>;
+  const openPreferences = useOpenAnalyticsPreferences();
+  const unavailable = useAnalyticsUnavailable();
+  return (
+    <>
+      <button onClick={() => track('trip_plan_requested')}>Request</button>
+      <button onClick={openPreferences}>Open preferences</button>
+      {unavailable && <p role="status">appAnalytics.unavailable</p>}
+    </>
+  );
 }
 
 function mount(enabled = true) {
@@ -21,10 +29,12 @@ function mount(enabled = true) {
 describe('app analytics consent and isolation', () => {
   beforeEach(() => localStorage.clear());
 
-  it('does not load a frame before consent or on a disabled route', () => {
+  it('keeps the dashboard clear before consent and does not load a frame', () => {
     const view = mount();
-    expect(screen.getByText(/appAnalytics\.description/)).toBeInTheDocument();
+    expect(screen.queryByText(/appAnalytics\.description/)).not.toBeInTheDocument();
     expect(view.container.querySelector('iframe')).toBeNull();
+    fireEvent.click(screen.getByText('Open preferences'));
+    expect(screen.getByText(/appAnalytics\.description/)).toBeInTheDocument();
     fireEvent.click(screen.getByText('vacay.decline'));
     expect(view.container.querySelector('iframe')).toBeNull();
     expect(localStorage.getItem('aventuristur-app-analytics-consent-v2')).toBe('declined');
@@ -34,11 +44,13 @@ describe('app analytics consent and isolation', () => {
     expect(privatePage.container.querySelector('iframe')).toBeNull();
   });
 
-  it('asks again for old acceptance while preserving an old refusal', () => {
+  it('keeps an old acceptance private until renewed and preserves an old refusal', () => {
     localStorage.setItem('aventuristur-app-analytics-consent', 'accepted');
     const view = mount();
-    expect(screen.getByText(/appAnalytics\.registrationNote/)).toBeInTheDocument();
+    expect(screen.queryByText(/appAnalytics\.registrationNote/)).not.toBeInTheDocument();
     expect(view.container.querySelector('iframe')).toBeNull();
+    fireEvent.click(screen.getByText('Open preferences'));
+    expect(screen.getByText(/appAnalytics\.registrationNote/)).toBeInTheDocument();
     view.unmount();
     localStorage.setItem('aventuristur-app-analytics-consent', 'declined');
     const declined = mount();
@@ -48,6 +60,7 @@ describe('app analytics consent and isolation', () => {
 
   it('sends only named events to the isolated frame after explicit consent and readiness', () => {
     const view = mount();
+    fireEvent.click(screen.getByText('Open preferences'));
     fireEvent.click(screen.getByText('vacay.accept'));
     const frame = view.container.querySelector('iframe');
     if (!frame || !frame.contentWindow) throw new Error('Expected the measurement frame');
@@ -86,7 +99,7 @@ describe('app analytics consent and isolation', () => {
       { type: 'aventuristur-analytics-event', event: 'trip_plan_requested' },
       'https://aventuristur.com'
     );
-    fireEvent.click(screen.getByText('appAnalytics.title'));
+    fireEvent.click(screen.getByText('Open preferences'));
     fireEvent.click(screen.getByText('vacay.decline'));
     expect(view.container.querySelector('iframe')).toBeNull();
     expect(localStorage.getItem('aventuristur-app-analytics-consent-v2')).toBe('declined');

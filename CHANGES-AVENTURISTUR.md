@@ -35,6 +35,13 @@ Este arquivo lista o que muda em relação ao original. O resto do código é do
 
 - Política de privacidade e termos de uso do app (páginas públicas), e rotina de retenção de viagens após 12 meses do retorno. Veja `aventuristur/docs/`.
 
+## 7. Atualização para o TREK 5.0.1
+
+- A base incorpora as correções do TREK 5.0.1, preservando o gerador de roteiros, as páginas, a identidade visual e a medição condicionada ao consentimento do Aventuristur.
+- A confirmação individual de plugins fora da faixa de versões foi adaptada ao painel de plugins existente, sem trocar a organização dos filtros e das informações de segurança.
+- O assistente e o gerador próprios também reconhecem `br`, código que o app usa para português brasileiro, além de `pt` e `pt-BR`.
+- A migração de plugins e o cache offline de rotas devem ser testados sobre dados existentes antes de qualquer publicação. A migração foi exercitada em banco temporário com as migrações específicas do Aventuristur já registradas.
+
 ## Como as alterações são mantidas
 
 A cada versão nova do TREK: atualizar a base, rodar `node aventuristur/rebrand/apply.mjs`, reaplicar os patches de `aventuristur/patches/`, rodar os testes e conferir `check.mjs`.

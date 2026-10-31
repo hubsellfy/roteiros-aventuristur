@@ -72,8 +72,9 @@ function make(overrides: { config?: unknown; canAccess?: boolean } = {}) {
       ? { provider: 'openai', model: 'm', baseUrl: 'https://openrouter.ai/api/v1/', apiKey: 'k', multimodal: false }
       : overrides.config;
   const llm = { resolve: vi.fn().mockResolvedValue(config) };
-  const svc = new RoteiroChatService(maps as never, days as never, trips as never, llm as never);
-  return { svc, maps, days, trips, llm };
+  const aiClients = { createForLlmConfig: vi.fn() };
+  const svc = new RoteiroChatService(maps as never, days as never, trips as never, llm as never, aiClients as never);
+  return { svc, maps, days, trips, llm, aiClients };
 }
 
 const body = { tripId: 1, language: 'pt-BR', messages: [{ role: 'user' as const, content: 'onde almoçar?' }] };
@@ -216,10 +217,69 @@ describe('RoteiroChatService', () => {
     expect(res.reply).toContain('could not finish');
   });
 
+  it('treats the app language code br as Brazilian Portuguese', async () => {
+    const { svc } = make();
+    safeFetchLlm.mockResolvedValueOnce(answer({ content: ' ' }));
+    const res = await svc.chat(1, { ...body, language: 'br' });
+    expect(res.reply).toContain('Não consegui');
+    const payload = JSON.parse((safeFetchLlm.mock.calls[0][1] as { body: string }).body);
+    expect(payload.messages[0].content).toContain('português do Brasil');
+  });
+
   it('404s for a trip the user cannot open and 503s when no AI is configured', async () => {
     expect(await status(() => make({ canAccess: false }).svc.chat(1, body))).toBe(404);
     expect(await status(() => make({ config: null }).svc.chat(1, body))).toBe(503);
-    expect(await status(() => make({ config: { provider: 'anthropic', model: 'm' } }).svc.chat(1, body))).toBe(503);
+  });
+
+  it('routes Anthropic through the provider adapter', async () => {
+    const config = { provider: 'anthropic', model: 'claude', apiKey: 'test' };
+    const { svc, aiClients } = make({ config });
+    aiClients.createForLlmConfig.mockReturnValue({
+      stream: async function* () {
+        yield { type: 'text-delta', delta: 'Olá!' };
+        yield { type: 'finish', reason: 'stop' };
+      },
+    });
+    const result = await svc.chat(1, body);
+    expect(result.reply).toBe('Olá!');
+    expect(aiClients.createForLlmConfig).toHaveBeenCalledWith(config);
+  });
+
+  it('routes first-party reasoning models through Responses and keeps provider replay state', async () => {
+    const config = { provider: 'openai', model: 'gpt-5.2', apiKey: 'test' };
+    const { svc, aiClients } = make({ config });
+    const state = { adapter: 'openai-responses', items: [{ type: 'reasoning' }] };
+    let nativeRequest: unknown;
+    aiClients.createForLlmConfig.mockReturnValue({
+      stream: async function* (request: unknown) {
+        nativeRequest = request;
+        yield { type: 'tool-call', call: { id: 'call-1', name: 'search_places', args: { query: 'praia' } } };
+        yield { type: 'provider-state', state };
+        yield { type: 'finish', reason: 'tool-calls' };
+      },
+    });
+    const result = await svc.complete(
+      config as never,
+      [
+        { role: 'system', content: 'prompt' },
+        { role: 'user', content: 'buscar' },
+      ],
+      {
+        tools: [
+          {
+            type: 'function',
+            function: { name: 'search_places', description: 'Search', parameters: { type: 'object' } },
+          },
+        ],
+        toolChoice: { type: 'function', function: { name: 'search_places' } },
+      },
+    );
+    expect(result.tool_calls?.[0]).toMatchObject({
+      id: 'call-1',
+      function: { name: 'search_places', arguments: '{"query":"praia"}' },
+    });
+    expect(result.providerState).toEqual(state);
+    expect(nativeRequest).toMatchObject({ toolChoice: 'required' });
   });
 
   it('maps provider failures to 502', async () => {

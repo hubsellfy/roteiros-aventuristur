@@ -111,7 +111,7 @@ function toolsOf(request: AiChatRequest, kind: AiConnectionKind): Record<string,
     });
   }
   if (request.webSearch) tools.push({ type: 'web_search' });
-  return tools.length > 0 ? { tools, tool_choice: 'auto', parallel_tool_calls: true } : {};
+  return tools.length > 0 ? { tools, tool_choice: request.toolChoice ?? 'auto', parallel_tool_calls: true } : {};
 }
 
 /** The pages an output message cites, as its text's URL annotations name them. */
@@ -130,20 +130,22 @@ function citedSources(item: Record<string, unknown>): AiSource[] {
 }
 
 /**
- * OpenAI's Responses API on a ChatGPT plan (Sign in with ChatGPT). Within the
- * preview's limits: nothing stored, streamed, no output cap or temperature,
- * the instructions as `instructions`, the tools in one namespace that carries
- * a description. A 401 before the stream starts is answered once with a
- * refreshed token; a second one means the sign-in has to be renewed.
+ * OpenAI's Responses API, on a ChatGPT plan (Sign in with ChatGPT) or, for the
+ * reasoning models, on an OpenAI API key, which take their function tools only
+ * here (#2792). Within the preview's limits: nothing stored, streamed, no
+ * output cap or temperature, the instructions as `instructions`, the tools in
+ * one namespace that carries a description. On a plan, a 401 before the stream
+ * starts is answered once with a refreshed token; a second one means the
+ * sign-in has to be renewed. A key has nothing to refresh.
  */
 export class OpenAiResponsesClient implements AiChatClient {
-  readonly kind = 'chatgpt' as const;
   readonly webSearch = true;
 
   constructor(
     readonly model: string,
     private readonly token: ChatgptTokenSource,
     private readonly fetcher: AiFetch,
+    readonly kind: 'chatgpt' | 'openai' = 'chatgpt',
   ) {}
 
   async *stream(request: AiChatRequest, signal: AbortSignal): AsyncGenerator<AiChatEvent> {
@@ -227,7 +229,7 @@ export class OpenAiResponsesClient implements AiChatClient {
     try {
       return await send(accessToken);
     } catch (err) {
-      if (!(err instanceof AiProviderError) || err.status !== 401) throw err;
+      if (this.kind !== 'chatgpt' || !(err instanceof AiProviderError) || err.status !== 401) throw err;
       return send(await this.token(accessToken));
     }
   }

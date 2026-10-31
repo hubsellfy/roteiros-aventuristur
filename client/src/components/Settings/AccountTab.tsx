@@ -13,6 +13,7 @@ import {
 } from './settingsKit'
 import { stripTrailingSlashes, useAccountSettings } from './useAccountSettings'
 import AccountDemoLock from './AccountDemoLock'
+import { useAnalyticsUnavailable, useOpenAnalyticsPreferences } from '../../hooks/useAppAnalytics'
 
 /** The small turning ring a button shows while its request is on the way. */
 const SPINNER = 'h-3.5 w-3.5 flex-none animate-spin rounded-full border-2 border-current border-t-transparent'
@@ -22,6 +23,8 @@ const EYEBROW = 'm-0 font-geist font-bold uppercase tracking-[.08em] text-conten
 
 export default function AccountTab(): React.ReactElement {
   const { t } = useTranslation()
+  const openAnalyticsPreferences = useOpenAnalyticsPreferences()
+  const analyticsUnavailable = useAnalyticsUnavailable()
   const blockedLabelId = useId()
   const {
     user,
@@ -363,6 +366,14 @@ export default function AccountTab(): React.ReactElement {
       {/* Passkeys */}
       <PasskeysSection demoMode={demoMode} />
       </AccountDemoLock>
+
+      <Section title={t('appAnalytics.title')} icon={ShieldCheck}>
+        <p className="text-content-secondary">{t('appAnalytics.description')} {t('appAnalytics.registrationNote')}</p>
+        {analyticsUnavailable && <p role="status" className="text-content-muted">{t('appAnalytics.unavailable')}</p>}
+        <button type="button" onClick={openAnalyticsPreferences} className={SETTINGS_BUTTON}>
+          {t('appAnalytics.title')}
+        </button>
+      </Section>
 
       {/* Delete Account Blocked */}
       <DialogShell

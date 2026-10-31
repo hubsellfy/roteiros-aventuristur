@@ -182,7 +182,7 @@ describe('AdminPluginsPanel — row ⋯ menu is never clipped (#1523)', () => {
 
     expect(menu.style.top).toBe('138px')   // trigger bottom (134) + 4
     expect(menu.style.bottom).toBe('')
-    expect(menu.style.right).toBe('66px')  // viewport (1200) - trigger right (1134)
+    expect(menu.style.insetInlineEnd).toBe('66px') // viewport (1200) - trigger right (1134)
   })
 
   it('FE-COMP-PLUGINS-MENU-004: flips upward for a row near the bottom — the #1523 case', async () => {
@@ -489,10 +489,10 @@ describe('AdminPluginsPanel — TREK-version compatibility', () => {
     fireEvent.click(await screen.findByText('Discover'))
   }
 
-  it('blocks Install when no published version runs on this TREK, and says why', async () => {
+  it('marks a plugin no published version runs on, and still lets the admin install it', async () => {
     await openDiscover({ trek: '>=4.0.0', hostVersion: '3.3.0', compatible: false, latestCompatible: null })
-    const btn = await screen.findByRole('button', { name: /^incompatible$/i })
-    expect(btn).toBeDisabled()
+    expect(await screen.findByText('Not confirmed for Roteiros Aventuristur 3.3.0 yet')).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: /^install$/i })).toBeEnabled()
   })
 
   it('offers the newest version that DOES run here rather than a dead button', async () => {
@@ -2026,9 +2026,7 @@ describe('AdminPluginsPanel registry cards and dependency chips', () => {
     expect(offer).not.toBeDisabled()
     expect(offer).toHaveAttribute('title', expect.stringContaining('3.5.0'))
 
-    const dead = screen.getByRole('button', { name: /^Incompatible$/ })
-    expect(dead).toBeDisabled()
-    expect(dead.getAttribute('title')).toBeTruthy()
+    expect(screen.getByText(/^Not confirmed for Roteiros Aventuristur .+ yet$/)).toBeInTheDocument()
   })
 
   it('FE-W5PLG-018: an already installed registry entry cannot be installed again', async () => {
@@ -2556,7 +2554,7 @@ describe('AdminPluginsPanel — TREK-range bypass (TREK_PLUGINS_IGNORE_TREK_RANG
     expect(await screen.findByText('Version checks off')).toBeInTheDocument()
   })
 
-  it('FE-PLG-BYPASS-002: offers "Install anyway" for an incompatible entry and asks before installing', async () => {
+  it('FE-PLG-BYPASS-002: offers Install for an incompatible entry and asks before installing', async () => {
     let posted: unknown = null
     bypassPanel([plugin({ id: 'something-else' })], incompatibleEntry())
     server.use(http.post('*/api/admin/plugins/install', async ({ request }) => {
@@ -2566,7 +2564,7 @@ describe('AdminPluginsPanel — TREK-range bypass (TREK_PLUGINS_IGNORE_TREK_RANG
     withToast()
     fireEvent.click(await screen.findByText('Discover'))
 
-    const btn = await screen.findByRole('button', { name: /^install anyway$/i })
+    const btn = await screen.findByRole('button', { name: /^install$/i })
     expect(btn).toBeEnabled()
     fireEvent.click(btn)
 
@@ -2585,7 +2583,7 @@ describe('AdminPluginsPanel — TREK-range bypass (TREK_PLUGINS_IGNORE_TREK_RANG
     server.use(http.post('*/api/admin/plugins/install', () => { posted = true; return HttpResponse.json({ id: 'trek-gotify', version: '2.0.0', trekRangeBypassed: null }) }))
     withToast()
     fireEvent.click(await screen.findByText('Discover'))
-    fireEvent.click(await screen.findByRole('button', { name: /^install anyway$/i }))
+    fireEvent.click(await screen.findByRole('button', { name: /^install$/i }))
 
     const dialog = await screen.findByRole('dialog', { name: /outside its supported trek versions/i })
     fireEvent.click(within(dialog).getByRole('button', { name: /cancel/i }))

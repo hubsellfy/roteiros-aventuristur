@@ -1,5 +1,6 @@
 import { Trips } from '../../db/entities/Trips.entity';
 import { TripsAventuristurRepository } from '../../db/repositories/TripsAventuristur.repository';
+import { AiConnectionsModule } from '../ai-connections/ai-connections.module';
 import { AssignmentsDomainModule } from '../assignments/assignments-domain.module';
 import { DaysModule } from '../days/days.module';
 import { LlmParseModule } from '../llm-parse/llm-parse.module';
@@ -20,6 +21,7 @@ import { Module } from '@nestjs/common';
 @Module({
   imports: [
     MikroOrmModule.forFeature([Trips]),
+    AiConnectionsModule,
     MapsModule,
     DaysModule,
     TripsModule,
