@@ -23,6 +23,7 @@ import PasswordChecklist from '../../../components/shared/PasswordChecklist'
 import { fmtDate, usePasskeys } from '../../../components/Settings/usePasskeys'
 import { stripTrailingSlashes, useAccountSettings } from '../../../components/Settings/useAccountSettings'
 import AccountDemoLock from '../../../components/Settings/AccountDemoLock'
+import { useOpenAnalyticsPreferences } from '../../../hooks/useAppAnalytics'
 
 /**
  * "Account" section — AccountTab parity: profile + avatar, password change,
@@ -30,6 +31,7 @@ import AccountDemoLock from '../../../components/Settings/AccountDemoLock'
  */
 export default function MSettingsAccount() {
   const { t } = useTranslation()
+  const openAnalyticsPreferences = useOpenAnalyticsPreferences()
   const {
     user,
     demoMode,
@@ -292,6 +294,13 @@ export default function MSettingsAccount() {
 
       <MPasskeysCard demoMode={demoMode} />
       </AccountDemoLock>
+
+      <MSetCard title={t('appAnalytics.title')} icon={Shield} className="mt-3">
+        <p className="text-[0.75rem] leading-relaxed text-m-muted">{t('appAnalytics.description')} {t('appAnalytics.registrationNote')}</p>
+        <MSetButton className="mt-3" variant="ghost" onClick={openAnalyticsPreferences}>
+          {t('appAnalytics.title')}
+        </MSetButton>
+      </MSetCard>
 
       <MConfirmSheet
         open={showDeleteConfirm === 'blocked'}
