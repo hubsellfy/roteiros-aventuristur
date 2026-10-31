@@ -1,5 +1,5 @@
 import { safeFetch, safeFetchLlm } from '../../utils/ssrfGuard';
-import type { ResolvedLlmConfig } from '../llm-parse/llm-config';
+import type { ResolvedLlmConfig } from '../llm-parse/llm-config.contract';
 import type { AiChatClient } from './ai-chat-client.interface';
 import { AI_BASE_URLS } from './ai-connections.constants';
 import type { ResolvedAiConnection } from './ai-connections.types';

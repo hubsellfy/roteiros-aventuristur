@@ -296,7 +296,7 @@ export default function MSettingsAccount() {
       </AccountDemoLock>
 
       <MSetCard title={t('appAnalytics.title')} icon={Shield} className="mt-3">
-        <p className="text-[0.75rem] leading-relaxed text-m-muted">{t('appAnalytics.description')} {t('appAnalytics.registrationNote')}</p>
+        <p className="text-caption leading-relaxed text-m-muted">{t('appAnalytics.description')} {t('appAnalytics.registrationNote')}</p>
         <MSetButton className="mt-3" variant="ghost" onClick={openAnalyticsPreferences}>
           {t('appAnalytics.title')}
         </MSetButton>

@@ -1,12 +1,16 @@
 import { readEnv } from '../../app-config';
 import { safeFetchLlm } from '../../utils/ssrfGuard';
-import type { AiChatEvent, AiProviderState, AiToolSpec } from '../ai-connections/ai-chat-client.interface';
+import {
+  AiProviderError,
+  type AiChatEvent,
+  type AiProviderState,
+  type AiToolSpec,
+} from '../ai-connections/ai-chat-client.interface';
 import {
   AiChatClientService,
   isFirstPartyOpenAiBaseUrl,
   openAiWantsResponses,
 } from '../ai-connections/ai-chat-client.service';
-import { AiProviderError } from '../ai-connections/providers/provider-errors';
 import { DaysService } from '../days/days.service';
 import { LlmConfigResolver, type ResolvedLlmConfig } from '../llm-parse/llm-config.contract';
 import { MapsService } from '../maps/maps.service';
