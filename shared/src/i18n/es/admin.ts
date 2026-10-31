@@ -610,7 +610,8 @@ const admin: TranslationStrings = {
   'admin.plugins.rangeBypass.bodyAdminUnknown':
     '«{name}» no indica qué versiones de Roteiros Aventuristur admite, y este servidor ejecuta {host}. Nada indica que se haya probado en este Roteiros Aventuristur, así que puede no funcionar y, en casos raros, un plugin que no encaja puede dañar los datos de Roteiros Aventuristur. Aun así puedes usarlo: tu decisión vale solo para este plugin en esta versión, y Roteiros Aventuristur volverá a preguntar tras una actualización.',
   'admin.plugins.dep.trekAccepted': 'Hecho para Roteiros Aventuristur {range}, en uso bajo tu responsabilidad',
-  'admin.plugins.dep.trekAcceptedUnknown': 'Sin versión de Roteiros Aventuristur indicada, en uso bajo tu responsabilidad',
+  'admin.plugins.dep.trekAcceptedUnknown':
+    'Sin versión de Roteiros Aventuristur indicada, en uso bajo tu responsabilidad',
   'admin.plugins.activateAnyway': 'Activar de todos modos',
   'admin.plugins.untestedChip': 'Aún no confirmado para Roteiros Aventuristur {host}',
   'admin.plugins.accessTitle': 'A qué puede acceder',

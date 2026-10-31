@@ -9,6 +9,7 @@ import { afterEach, describe, expect, it, vi } from 'vitest';
 
 import { tripRepo } from '../../repo/tripRepo';
 import type { Trip } from '../../types';
+import { localIsoDate } from '../../utils/localDate';
 import { rankPickerTrips, useAssistantTripPicker } from './useAssistantTripPicker';
 
 const TODAY = '2026-10-21';
@@ -19,6 +20,12 @@ const trip = (id: number, start: string | null, end: string | null) => ({
   start_date: start,
   end_date: end,
 });
+
+const shiftDate = (date: string, days: number) => {
+  const result = new Date(`${date}T12:00:00`);
+  result.setDate(result.getDate() + days);
+  return result.toISOString().slice(0, 10);
+};
 
 afterEach(() => vi.restoreAllMocks());
 
@@ -61,7 +68,10 @@ describe('useAssistantTripPicker', () => {
   it('FE-AI-PICK-004: loads the trips once and ranks them; a failed load offers none', async () => {
     const list = vi
       .spyOn(tripRepo, 'list')
-      .mockResolvedValueOnce({ trips: [trip(7, '2026-10-01', '2026-10-30') as Trip], archivedTrips: [] });
+      .mockResolvedValueOnce({
+        trips: [trip(7, shiftDate(localIsoDate(), -1), shiftDate(localIsoDate(), 1)) as Trip],
+        archivedTrips: [],
+      });
     const { result } = renderHook(() => useAssistantTripPicker());
     expect(result.current).toBeNull();
     await waitFor(() => expect(result.current).toEqual([{ id: 7, title: 'Trip 7', badge: 'now' }]));

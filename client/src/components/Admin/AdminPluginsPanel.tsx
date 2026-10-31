@@ -678,12 +678,12 @@ const ROW_MENU_MAX_H = 260
 /** Pin a portaled menu to the right edge of its trigger, flipping up when the bottom is tight. */
 function anchorMenu(trigger: HTMLElement | null): CSSProperties {
   const r = trigger?.getBoundingClientRect()
-  if (!r) return { position: 'fixed', top: 0, right: 0, zIndex: 100 }
+  if (!r) return { position: 'fixed', top: 0, insetInlineEnd: 0, zIndex: 100 }
   const spaceBelow = window.innerHeight - r.bottom
   const openUp = spaceBelow < ROW_MENU_MAX_H && r.top > spaceBelow
   return {
     position: 'fixed',
-    right: Math.max(8, window.innerWidth - r.right),
+    insetInlineEnd: Math.max(8, window.innerWidth - r.right),
     ...(openUp ? { bottom: window.innerHeight - r.top + 4 } : { top: r.bottom + 4 }),
     zIndex: 100,
   }

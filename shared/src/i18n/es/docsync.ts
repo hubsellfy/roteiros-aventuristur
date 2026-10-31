@@ -187,7 +187,8 @@ const docsync: TranslationStrings = {
     'En pausa: un administrador ha desactivado este proveedor. La sincronización se reanuda en cuanto vuelva a activarse.',
   'docsync.binding.reconnect': 'Volver a conectar',
   'docsync.connection.title': 'Conexión',
-  'docsync.connection.hint': 'La dirección y el inicio de sesión que Roteiros Aventuristur usa para este almacenamiento.',
+  'docsync.connection.hint':
+    'La dirección y el inicio de sesión que Roteiros Aventuristur usa para este almacenamiento.',
   'docsync.connection.edit': 'Editar conexión',
   'docsync.connection.remove': 'Eliminar conexión',
   'docsync.connection.confirmRemove':
