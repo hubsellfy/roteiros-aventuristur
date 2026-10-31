@@ -1,6 +1,11 @@
 import { useCallback, useEffect, useLayoutEffect, useRef, useState, type ReactNode } from 'react';
 import { LEGAL_DOCUMENTS } from '../../brand/legalContent';
-import { AnalyticsContext, AnalyticsPreferencesContext, type AnalyticsEvent } from '../../hooks/useAppAnalytics';
+import {
+  AnalyticsContext,
+  AnalyticsPreferencesContext,
+  AnalyticsUnavailableContext,
+  type AnalyticsEvent,
+} from '../../hooks/useAppAnalytics';
 import { useTranslation } from '../../i18n';
 
 type Choice = 'accepted' | 'declined';
@@ -113,81 +118,78 @@ export function AnalyticsProvider({ enabled, children }: { enabled: boolean; chi
 
   return (
     <AnalyticsPreferencesContext.Provider value={openPreferences}>
-      <AnalyticsContext.Provider value={send}>
-        {enabled && choice === 'accepted' && !bridgeError && (
-          <iframe
-            ref={frame}
-            src={BRIDGE_URL}
-            sandbox="allow-scripts allow-same-origin"
-            referrerPolicy="no-referrer"
-            title={t('appAnalytics.title')}
-            hidden
-            onLoad={() =>
-              frame.current?.contentWindow?.postMessage(
-                { type: 'aventuristur-analytics-start', registrationConsent: true },
-                BRIDGE_ORIGIN
-              )
-            }
-          />
-        )}
-        {showPreferences && (
-          <div
-            className="fixed inset-0 z-[var(--z-modal)] flex items-center justify-center overflow-y-auto bg-[var(--overlay)] p-4 text-content"
-            role="presentation"
-            onMouseDown={(event) => {
-              if (event.target === event.currentTarget) setShowPreferences(false);
-            }}
-          >
-            <section
-              aria-labelledby="app-analytics-preferences-title"
-              aria-modal="true"
-              className="w-full max-w-lg rounded-xl border border-edge bg-surface-card p-4 shadow-2xl"
-              role="dialog"
+      <AnalyticsUnavailableContext.Provider value={bridgeError}>
+        <AnalyticsContext.Provider value={send}>
+          {enabled && choice === 'accepted' && !bridgeError && (
+            <iframe
+              ref={frame}
+              src={BRIDGE_URL}
+              sandbox="allow-scripts allow-same-origin"
+              referrerPolicy="no-referrer"
+              title={t('appAnalytics.title')}
+              hidden
+              onLoad={() =>
+                frame.current?.contentWindow?.postMessage(
+                  { type: 'aventuristur-analytics-start', registrationConsent: true },
+                  BRIDGE_ORIGIN
+                )
+              }
+            />
+          )}
+          {showPreferences && (
+            <div
+              className="fixed inset-0 z-[var(--z-modal)] flex items-center justify-center overflow-y-auto bg-[var(--overlay)] p-4 text-content"
+              role="presentation"
+              onMouseDown={(event) => {
+                if (event.target === event.currentTarget) setShowPreferences(false);
+              }}
             >
-              <div className="flex items-center justify-between gap-3">
-                <h2 id="app-analytics-preferences-title" className="m-0 font-semibold">
-                  {t('appAnalytics.title')}
-                </h2>
-                <button
-                  type="button"
-                  onClick={() => setShowPreferences(false)}
-                  className="rounded-lg border border-edge px-3 py-1.5"
-                >
-                  {t('common.cancel')}
-                </button>
-              </div>
-              <p className="mt-1 text-content-secondary">
-                {t('appAnalytics.description')} {t('appAnalytics.registrationNote')}
-              </p>
-              <a href="/privacidade" target="_blank" rel="noopener noreferrer" className="text-accent-on underline">
-                {LEGAL_DOCUMENTS.privacidade.title}
-              </a>
-              <div className="mt-3 flex flex-wrap gap-3">
-                <button
-                  type="button"
-                  onClick={() => choose('accepted')}
-                  className="rounded-lg bg-accent px-4 py-2 text-accent-text"
-                >
-                  {t('vacay.accept')}
-                </button>
-                <button
-                  type="button"
-                  onClick={() => choose('declined')}
-                  className="rounded-lg border border-edge px-4 py-2"
-                >
-                  {t('vacay.decline')}
-                </button>
-              </div>
-            </section>
-            {bridgeError && (
-              <p role="status" className="text-content-muted">
-                {t('appAnalytics.unavailable')}
-              </p>
-            )}
-          </div>
-        )}
-        {children}
-      </AnalyticsContext.Provider>
+              <section
+                aria-labelledby="app-analytics-preferences-title"
+                aria-modal="true"
+                className="w-full max-w-lg rounded-xl border border-edge bg-surface-card p-4 shadow-2xl"
+                role="dialog"
+              >
+                <div className="flex items-center justify-between gap-3">
+                  <h2 id="app-analytics-preferences-title" className="m-0 font-semibold">
+                    {t('appAnalytics.title')}
+                  </h2>
+                  <button
+                    type="button"
+                    onClick={() => setShowPreferences(false)}
+                    className="rounded-lg border border-edge px-3 py-1.5"
+                  >
+                    {t('common.cancel')}
+                  </button>
+                </div>
+                <p className="mt-1 text-content-secondary">
+                  {t('appAnalytics.description')} {t('appAnalytics.registrationNote')}
+                </p>
+                <a href="/privacidade" target="_blank" rel="noopener noreferrer" className="text-accent-on underline">
+                  {LEGAL_DOCUMENTS.privacidade.title}
+                </a>
+                <div className="mt-3 flex flex-wrap gap-3">
+                  <button
+                    type="button"
+                    onClick={() => choose('accepted')}
+                    className="rounded-lg bg-accent px-4 py-2 text-accent-text"
+                  >
+                    {t('vacay.accept')}
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => choose('declined')}
+                    className="rounded-lg border border-edge px-4 py-2"
+                  >
+                    {t('vacay.decline')}
+                  </button>
+                </div>
+              </section>
+            </div>
+          )}
+          {children}
+        </AnalyticsContext.Provider>
+      </AnalyticsUnavailableContext.Provider>
     </AnalyticsPreferencesContext.Provider>
   );
 }

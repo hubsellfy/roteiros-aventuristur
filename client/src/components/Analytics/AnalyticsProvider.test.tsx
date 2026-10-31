@@ -1,6 +1,6 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
-import { useAppAnalytics, useOpenAnalyticsPreferences } from '../../hooks/useAppAnalytics';
+import { useAnalyticsUnavailable, useAppAnalytics, useOpenAnalyticsPreferences } from '../../hooks/useAppAnalytics';
 import { AnalyticsProvider } from './AnalyticsProvider';
 
 vi.mock('../../i18n', () => ({ useTranslation: () => ({ t: (key: string) => key }) }));
@@ -8,10 +8,12 @@ vi.mock('../../i18n', () => ({ useTranslation: () => ({ t: (key: string) => key 
 function RequestEvent() {
   const track = useAppAnalytics();
   const openPreferences = useOpenAnalyticsPreferences();
+  const unavailable = useAnalyticsUnavailable();
   return (
     <>
       <button onClick={() => track('trip_plan_requested')}>Request</button>
       <button onClick={openPreferences}>Open preferences</button>
+      {unavailable && <p role="status">appAnalytics.unavailable</p>}
     </>
   );
 }

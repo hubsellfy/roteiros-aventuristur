@@ -201,6 +201,10 @@ export class RoteiroChatService {
       : 'I could not finish that search. Could you rephrase or try again?';
   }
 
+  /**
+   * Provider I/O only; trip mutations happen through the explicit tool handlers, not in this call.
+   * @txStandalone
+   */
   async complete(
     config: RoteiroLlmConfig,
     messages: ChatMessage[],
