@@ -1,9 +1,9 @@
 {
   "src": {
     "@typescript-eslint/no-non-null-assertion": 382,
-    "@typescript-eslint/no-misused-promises": 859,
+    "@typescript-eslint/no-misused-promises": 858,
     "no-console": 88,
-    "complexity": 222,
+    "complexity": 221,
     "@typescript-eslint/no-explicit-any": 146,
     "trek/no-swallowed-catch": 133,
     "max-params": 32,
@@ -30,7 +30,7 @@
     "no-useless-escape": 1
   },
   "suppressed": {
-    "@typescript-eslint/no-explicit-any": 41,
+    "@typescript-eslint/no-explicit-any": 39,
     "react-hooks/exhaustive-deps": 47
   },
   "tests": {
