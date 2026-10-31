@@ -32,6 +32,7 @@ import {
 } from './plugins/pluginModel'
 import { usePluginDetail } from './plugins/usePluginDetail'
 import { usePluginsAdmin } from './plugins/usePluginsAdmin'
+import RangeBypassDialog from './plugins/RangeBypassDialog'
 
 /**
  * Admin → Plugins (#plugins). A full plugin-management surface: a segmented
@@ -751,6 +752,16 @@ function RegistryGrid({ items, onInstall, onOpenDetail, busy, t, installedIds, f
                   <StatusPill icon={<ShieldCheck size={11} className="text-success" />}>{t('admin.plugins.reviewed')}</StatusPill>
                 </span>
               )}
+              {/* Says up front that this one has not been confirmed for the TREK it would run on,
+                  so "Install" never reads as a plain install; the dialog explains the risk. */}
+              {!installed && offer.warn && (
+                // Solid, not the soft pill "Reviewed" uses: it has to stand out on any screenshot.
+                <span className="absolute start-2.5 top-2.5 inline-flex max-w-[62%] items-center gap-1 rounded-full bg-warning px-2 py-[3px] font-geist font-semibold text-[color:var(--surface-card)] shadow-md"
+                  style={fs(11)}>
+                  <AlertTriangle size={11} className="flex-none" />
+                  <span className="truncate">{t('admin.plugins.untestedChip', { host: offer.warn.hostVersion })}</span>
+                </span>
+              )}
               <span className="absolute -bottom-4 start-3.5 z-[1] grid h-10 w-10 place-items-center rounded-[12px] border border-edge-faint bg-surface-card shadow-sm">
                 <PluginIcon name={item.icon} size={20} className="text-content-secondary" />
               </span>
@@ -823,38 +834,6 @@ function WarnNote({ icon, children }: { icon: ReactNode; children: ReactNode }) 
 /** A raised tile for a dialog's head band. */
 function Tile({ children, warn }: { children: ReactNode; warn?: boolean }) {
   return <DialogTile><span className={warn ? 'text-warning' : 'text-content-secondary'}>{children}</span></DialogTile>
-}
-
-/**
- * The TREK_PLUGINS_IGNORE_TREK_RANGE warning (copy and modes from useRangeBypass). Its own
- * component rather than ConfirmDialog because the notice mode has no cancel button.
- */
-function RangeBypassDialog({ copy: { title, body, confirm }, onConfirm, onClose, t }: {
-  copy: { title: string; body: string; confirm: boolean }; onConfirm: () => void; onClose: () => void; t: T
-}) {
-  return (
-    <DialogShell
-      onClose={onClose}
-      labelledBy="plugin-range-bypass-title"
-      width="narrow"
-      header={<DialogHeader tile={<Tile warn><AlertTriangle size={20} /></Tile>} tint={WARN_TINT} labelId="plugin-range-bypass-title" title={title} onClose={onClose} />}
-      footer={(
-        <DialogFooter>
-          <FooterSpacer />
-          {confirm ? (
-            <>
-              <DialogButton onClick={onClose}>{t('common.cancel')}</DialogButton>
-              <DialogButton variant="primary" onClick={onConfirm}>{t('admin.plugins.installAnyway')}</DialogButton>
-            </>
-          ) : (
-            <DialogButton variant="primary" onClick={onClose}>{t('common.ok')}</DialogButton>
-          )}
-        </DialogFooter>
-      )}
-    >
-      <p className="m-0 leading-relaxed text-content-secondary" style={fs(13.5, 'body')}>{body}</p>
-    </DialogShell>
-  )
 }
 
 /** What the runtime recorded for one plugin, newest as the server sends them. */

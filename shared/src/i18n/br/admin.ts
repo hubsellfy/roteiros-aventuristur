@@ -595,7 +595,15 @@ const admin: TranslationStrings = {
     'Fora do seu intervalo Roteiros Aventuristur ({range}) — verificações de versão desligadas',
   'admin.plugins.dep.trekBypassedUnknown':
     'Não declara nenhum intervalo Roteiros Aventuristur — verificações de versão desligadas',
-  'admin.plugins.incompatible': 'Incompatível',
+  'admin.plugins.rangeBypass.titleAdmin': 'Não testado neste Roteiros Aventuristur',
+  'admin.plugins.rangeBypass.bodyAdmin':
+    'Segundo o autor, “{name}” é compatível com o Roteiros Aventuristur {range}, e este servidor roda o {host}. O autor ainda não o confirmou para este Roteiros Aventuristur, então ele pode não funcionar e, em casos raros, um plugin incompatível pode danificar os dados do Roteiros Aventuristur. Você ainda pode usá-lo: sua escolha vale só para este plugin nesta versão, e o Roteiros Aventuristur pergunta de novo depois de uma atualização.',
+  'admin.plugins.rangeBypass.bodyAdminUnknown':
+    '“{name}” não informa com quais versões do Roteiros Aventuristur é compatível, e este servidor roda o {host}. Nada indica que ele foi testado neste Roteiros Aventuristur, então ele pode não funcionar e, em casos raros, um plugin incompatível pode danificar os dados do Roteiros Aventuristur. Você ainda pode usá-lo: sua escolha vale só para este plugin nesta versão, e o Roteiros Aventuristur pergunta de novo depois de uma atualização.',
+  'admin.plugins.dep.trekAccepted': 'Feito para o Roteiros Aventuristur {range}, em uso por sua conta e risco',
+  'admin.plugins.dep.trekAcceptedUnknown': 'Sem versão do Roteiros Aventuristur informada, em uso por sua conta e risco',
+  'admin.plugins.activateAnyway': 'Ativar mesmo assim',
+  'admin.plugins.untestedChip': 'Ainda não confirmado para o Roteiros Aventuristur {host}',
   'admin.plugins.accessTitle': 'O que ele pode acessar',
   'admin.plugins.connectsTitle': 'Conecta-se a',
   'admin.plugins.detailsTitle': 'Detalhes',

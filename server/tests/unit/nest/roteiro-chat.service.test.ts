@@ -216,6 +216,15 @@ describe('RoteiroChatService', () => {
     expect(res.reply).toContain('could not finish');
   });
 
+  it('treats the app language code br as Brazilian Portuguese', async () => {
+    const { svc } = make();
+    safeFetchLlm.mockResolvedValueOnce(answer({ content: ' ' }));
+    const res = await svc.chat(1, { ...body, language: 'br' });
+    expect(res.reply).toContain('Não consegui');
+    const payload = JSON.parse((safeFetchLlm.mock.calls[0][1] as { body: string }).body);
+    expect(payload.messages[0].content).toContain('português do Brasil');
+  });
+
   it('404s for a trip the user cannot open and 503s when no AI is configured', async () => {
     expect(await status(() => make({ canAccess: false }).svc.chat(1, body))).toBe(404);
     expect(await status(() => make({ config: null }).svc.chat(1, body))).toBe(503);

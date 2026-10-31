@@ -40,7 +40,10 @@ export interface TurnState {
 
 export const err = (message: string, status: number) => new HttpException({ error: message }, status);
 
-export const isPortuguese = (language: string) => language.toLowerCase().startsWith('pt');
+export const isPortuguese = (language: string) => {
+  const code = language.toLowerCase();
+  return code === 'br' || code.startsWith('pt');
+};
 
 function systemPrompt(language: string, today: string, snapshot: string): string {
   const pt = isPortuguese(language);
