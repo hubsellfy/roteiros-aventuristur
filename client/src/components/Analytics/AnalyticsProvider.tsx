@@ -22,7 +22,8 @@ function readChoice(): Choice | null {
 
 export function AnalyticsProvider({ enabled, children }: { enabled: boolean; children: ReactNode }) {
   const { t } = useTranslation();
-  const [choice, setChoice] = useState<Choice | null>(readChoice);
+  // First visits stay private by default; people can open preferences from the compact control.
+  const [choice, setChoice] = useState<Choice>(() => readChoice() ?? 'declined');
   const [showPreferences, setShowPreferences] = useState(false);
   const [bridgeError, setBridgeError] = useState(false);
   const frame = useRef<HTMLIFrameElement>(null);
@@ -83,7 +84,7 @@ export function AnalyticsProvider({ enabled, children }: { enabled: boolean; chi
 
   useEffect(() => {
     const onStorage = (event: StorageEvent) => {
-      if (event.key === STORAGE_KEY) setChoice(readChoice());
+      if (event.key === STORAGE_KEY) setChoice(readChoice() ?? 'declined');
     };
     window.addEventListener('storage', onStorage);
     return () => window.removeEventListener('storage', onStorage);
@@ -120,7 +121,7 @@ export function AnalyticsProvider({ enabled, children }: { enabled: boolean; chi
       )}
       {enabled && (
         <div className="mx-auto max-w-5xl px-4 pt-3 text-content">
-          {choice === null || showPreferences ? (
+          {showPreferences ? (
             <section aria-label={t('appAnalytics.title')} className="rounded-xl border border-edge bg-surface-card p-4">
               <p className="font-semibold">{t('appAnalytics.title')}</p>
               <p className="mt-1 text-content-secondary">
