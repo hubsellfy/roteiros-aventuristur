@@ -66,12 +66,10 @@ describe('rankPickerTrips', () => {
 
 describe('useAssistantTripPicker', () => {
   it('FE-AI-PICK-004: loads the trips once and ranks them; a failed load offers none', async () => {
-    const list = vi
-      .spyOn(tripRepo, 'list')
-      .mockResolvedValueOnce({
-        trips: [trip(7, shiftDate(localIsoDate(), -1), shiftDate(localIsoDate(), 1)) as Trip],
-        archivedTrips: [],
-      });
+    const list = vi.spyOn(tripRepo, 'list').mockResolvedValueOnce({
+      trips: [trip(7, shiftDate(localIsoDate(), -1), shiftDate(localIsoDate(), 1)) as Trip],
+      archivedTrips: [],
+    });
     const { result } = renderHook(() => useAssistantTripPicker());
     expect(result.current).toBeNull();
     await waitFor(() => expect(result.current).toEqual([{ id: 7, title: 'Trip 7', badge: 'now' }]));
