@@ -26,7 +26,7 @@ test('#1432 iPad: the places list scrolls under a swipe', async ({ page }) => {
   const createBtn = page.getByRole('button', { name: 'Create New Trip' })
   await expect(createBtn).toBeVisible()
   const title = `iPad 1432 ${Date.now()}`
-  await page.getByPlaceholder('e.g. Summer in Japan').fill(title)
+  await page.getByPlaceholder('For example: Lisbon, Orlando, Tokyo...').fill(title)
   await createBtn.click()
 
   await page.getByText(title).first().click()

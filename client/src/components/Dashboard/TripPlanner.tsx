@@ -1,12 +1,12 @@
-import { TRIP_PLAN_STYLES } from '@trek/shared';
+import { TRIP_PLAN_STYLES, type TripCreateRequest } from '@trek/shared';
 import React from 'react';
 import { useTripPlanForm } from '../../hooks/useTripPlanForm';
 import { useTranslation } from '../../i18n';
 import { ArrowRight, MapPin, Navigation, RefreshCw, Sparkles, Trash2, Wallet } from '../../icons';
 import type { Trip } from '../../types';
-import { CustomDatePicker } from '../shared/CustomDateTimePicker';
 import CustomSelect from '../shared/CustomSelect';
 import { Spinner } from '../shared/Spinner';
+import TripDateFields from './TripDateFields';
 
 interface TripPlannerProps {
   /** Trips whose itinerary is being built or has failed. */
@@ -15,6 +15,7 @@ interface TripPlannerProps {
   onCreated: () => void;
   onRetry: (tripId: number) => void;
   onRemove: (tripId: number) => void;
+  manualCreate?: (data: TripCreateRequest) => Promise<unknown>;
 }
 
 const TRAVELER_OPTIONS = [1, 2, 3, 4, 5, 6, 7, 8];
@@ -39,9 +40,15 @@ function Field({ label, children }: { label: string; children: React.ReactNode }
  * plus the cards of itineraries still being built. One component for the phone
  * and the desktop dashboard, so the logic and the markup live in one place.
  */
-export default function TripPlanner({ pending, onCreated, onRetry, onRemove }: TripPlannerProps): React.ReactElement {
+export default function TripPlanner({
+  pending,
+  onCreated,
+  onRetry,
+  onRemove,
+  manualCreate,
+}: TripPlannerProps): React.ReactElement {
   const { t } = useTranslation();
-  const form = useTripPlanForm(onCreated);
+  const form = useTripPlanForm(onCreated, manualCreate);
 
   const styleOptions = TRIP_PLAN_STYLES.filter((value) => value !== 'equilibrado').map((value) => ({
     value,
@@ -108,22 +115,12 @@ export default function TripPlanner({ pending, onCreated, onRetry, onRemove }: T
             </Field>
 
             <div className="md:col-span-2">
-              <span className={labelCls}>{t('dashboard.plan.dates')}</span>
-              <div className="grid grid-cols-2 gap-3">
-                <CustomDatePicker
-                  value={form.startDate}
-                  onChange={form.changeStart}
-                  placeholder={t('dashboard.startDate')}
-                  hideManualEntry
-                />
-                <CustomDatePicker
-                  value={form.endDate}
-                  onChange={form.setEndDate}
-                  placeholder={t('dashboard.endDate')}
-                  min={form.startDate || undefined}
-                  hideManualEntry
-                />
-              </div>
+              <TripDateFields
+                startDate={form.startDate}
+                endDate={form.endDate}
+                onStartChange={form.changeStart}
+                onEndChange={form.setEndDate}
+              />
             </div>
 
             <Field label={t('dashboard.plan.budget')}>
@@ -189,47 +186,65 @@ export default function TripPlanner({ pending, onCreated, onRetry, onRemove }: T
           >
             {form.submitting ? (
               <Spinner className="h-5 w-5 border-2 border-white/40 border-t-white" />
+            ) : manualCreate ? (
+              <MapPin size={20} strokeWidth={1} />
             ) : (
               <Sparkles size={20} strokeWidth={1} />
             )}
-            {t('dashboard.plan.generate')}
+            {t(manualCreate ? 'dashboard.createTrip' : 'dashboard.plan.generate')}
             {!form.submitting && <ArrowRight size={20} strokeWidth={1} />}
           </button>
-          <p className="mt-3 text-center text-[0.75rem] leading-snug text-content-faint">
-            {t('dashboard.plan.disclaimer')}
-          </p>
+          {!manualCreate && (
+            <p className="mt-3 text-center text-[0.75rem] leading-snug text-content-faint">
+              {t('dashboard.plan.disclaimer')}
+            </p>
+          )}
         </div>
       </form>
 
-      {pending.length > 0 && (
-        <div className="mt-4">
-          <h3 className="mb-2 ms-1 text-[0.6875rem] font-semibold uppercase tracking-[0.08em] text-content-muted">
-            {t('dashboard.plan.pendingTitle')}
-          </h3>
-          <ul className="flex flex-col gap-3">
-            {pending.map((trip) => (
-              <PendingPlanCard
-                key={trip.id}
-                trip={trip}
-                onRetry={() => onRetry(trip.id)}
-                onRemove={() => onRemove(trip.id)}
-              />
-            ))}
-          </ul>
-        </div>
-      )}
+      <PendingPlans pending={pending} onRetry={onRetry} onRemove={onRemove} />
     </section>
   );
+}
+
+/** Keep generation status available on the dashboard independently of the form. */
+export function PendingPlans({
+  pending,
+  onRetry,
+  onRemove,
+  allowRetry = true,
+}: Pick<TripPlannerProps, 'pending' | 'onRetry' | 'onRemove'> & { allowRetry?: boolean }): React.ReactElement | null {
+  const { t } = useTranslation();
+  return pending.length > 0 ? (
+    <div className="mt-4">
+      <h3 className="mb-2 ms-1 text-[0.6875rem] font-semibold uppercase tracking-[0.08em] text-content-muted">
+        {t('dashboard.plan.pendingTitle')}
+      </h3>
+      <ul className="flex flex-col gap-3">
+        {pending.map((trip) => (
+          <PendingPlanCard
+            key={trip.id}
+            trip={trip}
+            onRetry={() => onRetry(trip.id)}
+            onRemove={() => onRemove(trip.id)}
+            allowRetry={allowRetry}
+          />
+        ))}
+      </ul>
+    </div>
+  ) : null;
 }
 
 function PendingPlanCard({
   trip,
   onRetry,
   onRemove,
+  allowRetry,
 }: {
   trip: Trip;
   onRetry: () => void;
   onRemove: () => void;
+  allowRetry: boolean;
 }): React.ReactElement {
   const { t } = useTranslation();
   const failed = trip.ai_status === 'failed';
@@ -253,13 +268,15 @@ function PendingPlanCard({
       </div>
       {failed && (
         <div className="flex flex-none items-center gap-2">
-          <button
-            type="button"
-            onClick={onRetry}
-            className="rounded-full !bg-accent px-4 py-2 text-[0.8125rem] font-semibold !text-white hover:!bg-accent-hover"
-          >
-            {t('dashboard.plan.retry')}
-          </button>
+          {allowRetry && (
+            <button
+              type="button"
+              onClick={onRetry}
+              className="rounded-full !bg-accent px-4 py-2 text-[0.8125rem] font-semibold !text-white hover:!bg-accent-hover"
+            >
+              {t('dashboard.plan.retry')}
+            </button>
+          )}
           <button
             type="button"
             onClick={onRemove}

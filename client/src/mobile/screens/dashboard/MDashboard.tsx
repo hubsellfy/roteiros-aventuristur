@@ -25,7 +25,9 @@ import MSheet from '../../components/MSheet'
 import MUserMenu from './MUserMenu'
 import { useMobileDashOrder, useMobileDashVisibility, MobileDashWidget } from './MDashWidgets'
 import MNewTripSheet from './MNewTripSheet'
-import TripPlanner from '../../../components/Dashboard/TripPlanner'
+import TripPlanner, { PendingPlans } from '../../../components/Dashboard/TripPlanner'
+import CreateTripView from '../../../components/Dashboard/CreateTripView'
+import { useSettingsStore } from '../../../store/settingsStore'
 import type { MobileDashToken } from '@trek/shared'
 
 type TripFilter = 'planned' | 'archive' | 'completed'
@@ -50,10 +52,11 @@ export default function MDashboard(): React.ReactElement {
     showForm, setShowForm, editingTrip, setEditingTrip,
     deleteTrip, setDeleteTrip, copyTrip, setCopyTrip, applyCoverUpdate,
     handleCreate, handleUpdate, confirmDelete, handleArchive, handleUnarchive, confirmCopy,
-    pendingPlans, refreshTrips, retryPlan, removePlan,
+    pendingPlans, retryPlan, removePlan, creationMode, setCreationMode,
   } = useDashboard()
 
   const user = useAuthStore(s => s.user)
+  const defaultCurrency = useSettingsStore(s => s.settings.default_currency) || 'BRL'
   const isAuthenticated = useAuthStore(s => s.isAuthenticated)
   const unread = useInAppNotificationStore(s => s.unreadCount)
   const fetchUnreadCount = useInAppNotificationStore(s => s.fetchUnreadCount)
@@ -73,7 +76,7 @@ export default function MDashboard(): React.ReactElement {
 
   useEffect(() => { if (isAuthenticated) fetchUnreadCount() }, [isAuthenticated, fetchUnreadCount])
 
-  const openCreate = () => { setEditingTrip(null); setShowForm(true) }
+  const openCreate = () => { setEditingTrip(null); setCreationMode('manual') }
   const openEdit = (trip: DashboardTrip) => { setEditingTrip(trip); setShowForm(true) }
 
   const isArchivedFilter = tripFilter === 'archive'
@@ -212,6 +215,12 @@ export default function MDashboard(): React.ReactElement {
     )
   }
 
+  if (creationMode) return (
+    <CreateTripView onBack={() => setCreationMode(null)}>
+      <TripPlanner pending={[]} onCreated={() => setCreationMode(null)} onRetry={id => { void retryPlan(id) }} onRemove={id => { void removePlan(id) }} manualCreate={data => handleCreate({ ...data, currency: defaultCurrency })} />
+    </CreateTripView>
+  )
+
   return (
     <>
       <MGlassBar floating>
@@ -269,7 +278,7 @@ export default function MDashboard(): React.ReactElement {
           </div>
         )}
 
-        <TripPlanner pending={pendingPlans} onCreated={refreshTrips} onRetry={retryPlan} onRemove={removePlan} />
+        <PendingPlans pending={pendingPlans} onRetry={id => { void retryPlan(id) }} onRemove={id => { void removePlan(id) }} allowRetry={false} />
 
         {filterRow}
 

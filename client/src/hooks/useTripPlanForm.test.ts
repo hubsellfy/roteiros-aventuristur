@@ -32,6 +32,58 @@ describe('useTripPlanForm', () => {
     toast.success.mockReset();
   });
 
+  it('creates an empty manual trip with the entered details in its description, without calling AI', async () => {
+    const create = vi.fn().mockResolvedValue({ trip: { id: 1 } });
+    const onCreated = vi.fn();
+    const { result } = renderHook(() => useTripPlanForm(onCreated, create));
+    act(() => {
+      result.current.setDestination(' Gramado ');
+      result.current.setOrigin(' Curitiba ');
+      result.current.setBudget('1500,50');
+      result.current.setBudgetMode('total');
+      result.current.setTravelers(3);
+      result.current.setStyle('aventura');
+    });
+    await act(() => result.current.submit());
+    expect(create).toHaveBeenCalledWith({
+      title: 'Gramado',
+      description:
+        'dashboard.plan.origin: Curitiba\ndashboard.plan.budget: 1500,50 (dashboard.plan.total)\ndashboard.plan.travelers: 3\ndashboard.plan.style: dashboard.plan.style.aventura',
+      start_date: null,
+      end_date: null,
+      day_count: 7,
+    });
+    expect(createTripPlan).not.toHaveBeenCalled();
+    expect(track).not.toHaveBeenCalled();
+    expect(onCreated).toHaveBeenCalledOnce();
+  });
+
+  it('rejects an incomplete date range in manual creation', async () => {
+    const create = vi.fn();
+    const { result } = renderHook(() => useTripPlanForm(vi.fn(), create));
+    act(() => {
+      result.current.setDestination('Gramado');
+      result.current.setEndDate('2027-01-04');
+    });
+    await act(() => result.current.submit());
+    expect(result.current.error).toBe('dashboard.plan.errDates');
+    expect(create).not.toHaveBeenCalled();
+  });
+
+  it('passes selected travel dates to manual creation without requesting AI', async () => {
+    const create = vi.fn().mockResolvedValue({ trip: { id: 1 } });
+    const { result } = renderHook(() => useTripPlanForm(vi.fn(), create));
+    act(() => {
+      result.current.setDestination('Gramado');
+      result.current.changeStart('2027-01-02');
+    });
+    act(() => result.current.setEndDate('2027-01-04'));
+    await act(() => result.current.submit());
+    expect(create).toHaveBeenCalledWith(expect.objectContaining({ start_date: '2027-01-02', end_date: '2027-01-04' }));
+    expect(create.mock.calls[0][0]).not.toHaveProperty('day_count');
+    expect(createTripPlan).not.toHaveBeenCalled();
+  });
+
   it('FE-HOOK-PLAN-001: counts the days of a period, both ends included', () => {
     expect(planSpanDays('2026-12-10', '2026-12-10')).toBe(1);
     expect(planSpanDays('2026-12-10', '2026-12-14')).toBe(5);

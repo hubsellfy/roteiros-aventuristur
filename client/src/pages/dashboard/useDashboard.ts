@@ -48,6 +48,14 @@ export function useDashboard() {
 
   const navigate = useNavigate()
   const [searchParams, setSearchParams] = useSearchParams()
+  const createParam = searchParams.get('create')
+  const creationMode = ['1', 'choice', 'ai', 'manual'].includes(createParam ?? '') ? 'manual' : null
+  const setCreationMode = (mode: 'manual' | null) => {
+    const next = new URLSearchParams(searchParams)
+    if (mode) next.set('create', mode)
+    else next.delete('create')
+    setSearchParams(next)
+  }
   const toast = useToast()
   const { t, locale } = useTranslation()
   const { demoMode, authCheckFailed, loadUser } = useAuthStore()
@@ -59,13 +67,6 @@ export function useDashboard() {
       return next
     })
   }
-
-  useEffect(() => {
-    if (searchParams.get('create') === '1') {
-      setShowForm(true)
-      setSearchParams({}, { replace: true })
-    }
-  }, [searchParams])
 
   useEffect(() => { void loadTrips() }, [])
 
@@ -287,7 +288,7 @@ export function useDashboard() {
     loadError: loadError || authCheckFailed, retryLoad,
     // ui state
     tripFilter, setTripFilter, viewMode, toggleViewMode,
-    showForm, setShowForm, editingTrip, setEditingTrip,
+    showForm, setShowForm, editingTrip, setEditingTrip, creationMode, setCreationMode,
     deleteTrip, setDeleteTrip, copyTrip, setCopyTrip, applyCoverUpdate,
     allSubOpen, setAllSubOpen,
     search,

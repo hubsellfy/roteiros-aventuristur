@@ -340,7 +340,7 @@ describe('DashboardPage (desktop)', () => {
 
     fireEvent.click(container.querySelector('.fab-new-trip') as HTMLElement);
 
-    expect(await screen.findByPlaceholderText('e.g. Summer in Japan')).toHaveValue('');
+    expect(await screen.findByPlaceholderText('For example: Lisbon, Orlando, Tokyo...')).toHaveValue('');
   });
 
   it('FE-PAGE-DESKDASH-022: the all-trips subscribe dialog opens and closes', async () => {

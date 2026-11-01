@@ -99,8 +99,8 @@ describe('DashboardPage', () => {
     });
   });
 
-  describe('FE-PAGE-DASH-005: Create Trip button opens TripFormModal', () => {
-    it('clicking New Trip button opens the trip form modal', async () => {
+  describe('FE-PAGE-DASH-005: Create Trip button opens manual creation', () => {
+    it('opens the manual form directly', async () => {
       const user = userEvent.setup();
       render(<DashboardPage />);
 
@@ -110,7 +110,9 @@ describe('DashboardPage', () => {
 
       await user.click(screen.getAllByRole('button', { name: /new trip/i })[0]);
 
-      // TripFormModal opens — "Create New Trip" appears in heading and submit button
+      expect(screen.queryByRole('button', { name: /create itinerary with ai/i })).not.toBeInTheDocument();
+
+      // The original planner layout now creates a trip without AI.
       await waitFor(() => {
         expect(screen.getAllByText(/create new trip/i).length).toBeGreaterThan(0);
       });
@@ -500,18 +502,15 @@ describe('DashboardPage', () => {
       });
 
       // Fill in the title
-      const titleInput = screen.getByPlaceholderText(/e\.g\. Summer in Japan/i);
+      const titleInput = screen.getByPlaceholderText(/For example: Lisbon/i);
       await user.clear(titleInput);
       await user.type(titleInput, 'New Trip Test');
 
       // Submit the form
-      const submitBtn = screen.getAllByRole('button').find(btn => btn.textContent?.toLowerCase().includes('create'));
-      if (submitBtn) {
-        await user.click(submitBtn);
-        await waitFor(() => {
-          expect(screen.getAllByText('New Trip Test').length).toBeGreaterThan(0);
-        });
-      }
+      await user.click(screen.getByRole('button', { name: /create new trip/i }));
+      await waitFor(() => {
+        expect(screen.getAllByText('New Trip Test').length).toBeGreaterThan(0);
+      });
     });
   });
 

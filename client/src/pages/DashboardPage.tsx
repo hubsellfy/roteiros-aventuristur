@@ -23,7 +23,8 @@ import {
 } from '../icons'
 import { IcsSubscribeModal } from '../components/Planner/IcsSubscribeModal'
 import CollectionsWidget from '../components/Dashboard/CollectionsWidget'
-import TripPlanner from '../components/Dashboard/TripPlanner'
+import TripPlanner, { PendingPlans } from '../components/Dashboard/TripPlanner'
+import CreateTripView from '../components/Dashboard/CreateTripView'
 import { useCurrencyConverter } from '../components/Dashboard/useCurrencyConverter'
 import { useDashboardPlugins } from '../components/Dashboard/useDashboardPlugins'
 import { shortZone, useDashboardTimezones } from '../components/Dashboard/useDashboardTimezones'
@@ -110,12 +111,13 @@ function DashboardPageDesktop(): React.ReactElement {
     deleteTrip, setDeleteTrip, copyTrip, setCopyTrip, applyCoverUpdate,
     handleCreate, handleUpdate, confirmDelete, handleArchive, handleUnarchive, confirmCopy,
     allSubOpen, setAllSubOpen, search,
-    pendingPlans, refreshTrips, retryPlan, removePlan,
+    pendingPlans, retryPlan, removePlan, creationMode, setCreationMode,
   } = useDashboard()
 
   // Dashboard widget visibility (from the appearance config). Phones never reach this
   // component — DashboardPage routes them to MDashboard — so only the desktop set applies.
   const appearanceCfg = useSettingsStore(s => s.settings.appearance)
+  const defaultCurrency = useSettingsStore(s => s.settings.default_currency) || 'BRL'
   const dashCfg = normalizeAppearance(appearanceCfg).dashboard
   const sideWidgets = dashCfg.desktop
   const showCurrency = sideWidgets.currency
@@ -131,6 +133,12 @@ function DashboardPageDesktop(): React.ReactElement {
   // all visible cards; only runs when at least one plugin is active. Fail-safe.
   const { widgetPlugins, badgesFor } = useDashboardPlugins(gridTrips.map(t => t.id))
   const sidebarVisible = dashCfg.desktop.sidebar && (showCurrency || showCollections || showTimezones || showUpcoming || widgetPlugins.length > 0)
+
+  if (creationMode) return (
+    <><Navbar /><CreateTripView onBack={() => setCreationMode(null)}>
+      <TripPlanner pending={[]} onCreated={() => setCreationMode(null)} onRetry={id => { void retryPlan(id) }} onRemove={id => { void removePlan(id) }} manualCreate={data => handleCreate({ ...data, currency: defaultCurrency })} />
+    </CreateTripView></>
+  )
 
   return (
     <>
@@ -154,7 +162,7 @@ function DashboardPageDesktop(): React.ReactElement {
                 </button>
               </div>
             )}
-            <TripPlanner pending={pendingPlans} onCreated={refreshTrips} onRetry={retryPlan} onRemove={removePlan} />
+            <PendingPlans pending={pendingPlans} onRetry={id => { void retryPlan(id) }} onRemove={id => { void removePlan(id) }} allowRetry={false} />
             {/* The hero and the cards below stand in for themselves while the trips load.
                 Without them the page rendered its finished empty state: no hero, no
                 cards, and a stats row reading zero, which reads as "your trips are
@@ -262,7 +270,7 @@ function DashboardPageDesktop(): React.ReactElement {
                   </>
                 )}
                 {tripFilter === 'planned' && !search.active && !isLoading && (
-                  <button type="button" className="add-trip-card" onClick={() => { setEditingTrip(null); setShowForm(true) }}>
+                  <button type="button" className="add-trip-card" onClick={() => { setEditingTrip(null); setCreationMode('manual') }}>
                     <div>
                       <div className="circ"><Plus size={20} /></div>
                       <div className="ttl">{t('dashboard.newTrip')}</div>
@@ -288,7 +296,7 @@ function DashboardPageDesktop(): React.ReactElement {
 
       <button type="button"
         className="fab-new-trip"
-        onClick={() => { setEditingTrip(null); setShowForm(true) }}
+        onClick={() => { setEditingTrip(null); setCreationMode('manual') }}
         aria-label={t('dashboard.newTrip')}
         title={t('dashboard.newTrip')}
       >
