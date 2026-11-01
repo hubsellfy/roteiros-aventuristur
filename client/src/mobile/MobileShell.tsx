@@ -1,5 +1,5 @@
 import { ReactNode } from 'react'
-import { useMatch } from 'react-router'
+import { useLocation, useMatch } from 'react-router'
 import BottomNav from '../components/Layout/BottomNav'
 import ErrorBoundary from '../components/shared/ErrorBoundary'
 import MBottomNav from './components/MBottomNav'
@@ -32,6 +32,8 @@ export default function MobileShell({ isPhone, children }: MobileShellProps) {
   // on iOS Safari a position:fixed nav paints THROUGH the trip overlay's higher
   // stacking context, so the wrong (global) bar shows on top of the trip screen.
   const inTripPlanner = useMatch('/trips/:id')
+  const location = useLocation()
+  const creatingTrip = location.pathname === '/dashboard' && ['1', 'choice', 'ai', 'manual'].includes(new URLSearchParams(location.search).get('create') ?? '')
 
   if (!isPhone) {
     return (
@@ -60,7 +62,7 @@ export default function MobileShell({ isPhone, children }: MobileShellProps) {
           for this breakpoint. */}
       <div aria-hidden className="pointer-events-none fixed inset-0 -z-10 bg-[color:var(--m-bg)] bg-[image:var(--m-scr)]" />
       <div className="flex-1">{children}</div>
-      {!inTripPlanner && <ErrorBoundary boundaryId="chrome:m-bottom-nav" fallback={null}><MBottomNav /></ErrorBoundary>}
+      {!inTripPlanner && !creatingTrip && <ErrorBoundary boundaryId="chrome:m-bottom-nav" fallback={null}><MBottomNav /></ErrorBoundary>}
       <ErrorBoundary boundaryId="chrome:m-toast" fallback={null}><MToastHost /></ErrorBoundary>
       <div id="m-sheet-root" />
     </div>

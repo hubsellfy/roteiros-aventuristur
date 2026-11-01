@@ -102,10 +102,10 @@ describe('useDashboard', () => {
     expect(result.current.gridTrips.map(t => t.title)).toEqual(['Old Rome']);
   });
 
-  it('FE-HOOK-DASH-003: ?create=1 opens the form and clears the query', async () => {
+  it('FE-HOOK-DASH-003: ?create=1 opens manual creation directly', async () => {
     const { result } = await mountLoaded('/dashboard?create=1');
 
-    await waitFor(() => expect(result.current.showForm).toBe(true));
+    await waitFor(() => expect(result.current.creationMode).toBe('manual'));
   });
 
   it('FE-HOOK-DASH-004: a failing trip load raises the error banner and toasts', async () => {

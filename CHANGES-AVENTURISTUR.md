@@ -42,6 +42,12 @@ Este arquivo lista o que muda em relação ao original. O resto do código é do
 - O assistente e o gerador próprios também reconhecem `br`, código que o app usa para português brasileiro, além de `pt` e `pt-BR`.
 - A migração de plugins e o cache offline de rotas devem ser testados sobre dados existentes antes de qualquer publicação. A migração foi exercitada em banco temporário com as migrações específicas do Aventuristur já registradas.
 
+## 8. Criação manual de viagem
+
+- O botão de criar viagem abre diretamente o formulário «Para onde vamos?». A geração automática por IA fica oculta temporariamente; o envio cria uma viagem comum, sem lugares gerados.
+- Cidade de saída, orçamento, número de viajantes e estilo são guardados na descrição da viagem. Eles são anotações: não criam despesas, reservas ou participantes.
+- Roteiros de IA iniciados anteriormente continuam com seu estado visível no painel e podem ser removidos se falharem; a opção de iniciar uma nova tentativa fica oculta.
+
 ## Como as alterações são mantidas
 
 A cada versão nova do TREK: atualizar a base, rodar `node aventuristur/rebrand/apply.mjs`, reaplicar os patches de `aventuristur/patches/`, rodar os testes e conferir `check.mjs`.

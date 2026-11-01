@@ -1,4 +1,4 @@
-import { TRIP_PLAN_MAX_DAYS, type TripPlanStyle } from '@trek/shared';
+import { MAX_TRIP_DAYS, TRIP_PLAN_MAX_DAYS, type TripCreateRequest, type TripPlanStyle } from '@trek/shared';
 import { useState } from 'react';
 import { roteiroApi } from '../api/client';
 import { useToast } from '../components/shared/Toast';
@@ -18,7 +18,7 @@ export function planSpanDays(start: string, end: string): number {
  * created by the server at once; `onCreated` lets the dashboard reload its list
  * so the card shows up while the itinerary is still being built.
  */
-export function useTripPlanForm(onCreated: () => void) {
+export function useTripPlanForm(onCreated: () => void, manualCreate?: (data: TripCreateRequest) => Promise<unknown>) {
   const { t, locale } = useTranslation();
   const toast = useToast();
   const track = useAppAnalytics();
@@ -48,9 +48,10 @@ export function useTripPlanForm(onCreated: () => void) {
 
   const validate = (): string | null => {
     if (destination.trim().length < 2) return t('dashboard.plan.errDestination');
-    if (!startDate || !endDate || endDate < startDate) return t('dashboard.plan.errDates');
-    if (planSpanDays(startDate, endDate) > TRIP_PLAN_MAX_DAYS)
-      return t('dashboard.plan.errDays', { limit: TRIP_PLAN_MAX_DAYS });
+    if ((!manualCreate && (!startDate || !endDate)) || !!startDate !== !!endDate || (startDate && endDate < startDate))
+      return t('dashboard.plan.errDates');
+    const limit = manualCreate ? MAX_TRIP_DAYS : TRIP_PLAN_MAX_DAYS;
+    if (startDate && endDate && planSpanDays(startDate, endDate) > limit) return t('dashboard.plan.errDays', { limit });
     return null;
   };
 
@@ -62,19 +63,39 @@ export function useTripPlanForm(onCreated: () => void) {
     const amount = Number(budget.replace(',', '.'));
     setSubmitting(true);
     try {
-      await roteiroApi.createTripPlan({
-        destination: destination.trim(),
-        origin: origin.trim() || null,
-        startDate,
-        endDate,
-        budget: budget.trim() && Number.isFinite(amount) && amount >= 0 ? amount : null,
-        budgetMode,
-        travelers,
-        style,
-        language: locale,
-      });
-      track('trip_plan_requested');
-      toast.success(t('dashboard.toast.created'));
+      if (manualCreate) {
+        const details = [
+          ...(origin.trim() ? [`${t('dashboard.plan.origin')}: ${origin.trim()}`] : []),
+          ...(budget.trim()
+            ? [
+                `${t('dashboard.plan.budget')}: ${budget.trim()} (${t(budgetMode === 'person' ? 'dashboard.plan.perPerson' : 'dashboard.plan.total')})`,
+              ]
+            : []),
+          `${t('dashboard.plan.travelers')}: ${travelers}`,
+          `${t('dashboard.plan.style')}: ${t(`dashboard.plan.style.${style}`)}`,
+        ];
+        await manualCreate({
+          title: destination.trim(),
+          description: details.join('\n'),
+          start_date: startDate || null,
+          end_date: endDate || null,
+          ...(!startDate ? { day_count: 7 } : {}),
+        });
+      } else {
+        await roteiroApi.createTripPlan({
+          destination: destination.trim(),
+          origin: origin.trim() || null,
+          startDate,
+          endDate,
+          budget: budget.trim() && Number.isFinite(amount) && amount >= 0 ? amount : null,
+          budgetMode,
+          travelers,
+          style,
+          language: locale,
+        });
+        track('trip_plan_requested');
+        toast.success(t('dashboard.toast.created'));
+      }
       setDestination('');
       setOrigin('');
       setBudget('');

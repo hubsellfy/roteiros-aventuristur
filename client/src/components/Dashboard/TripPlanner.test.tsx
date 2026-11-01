@@ -27,7 +27,7 @@ vi.mock('../../hooks/useTripPlanForm', () => ({
 }));
 
 import type { Trip } from '../../types';
-import TripPlanner from './TripPlanner';
+import TripPlanner, { PendingPlans } from './TripPlanner';
 
 const trip = (over: Partial<Trip>): Trip => ({
   id: 1,
@@ -40,6 +40,35 @@ const trip = (over: Partial<Trip>): Trip => ({
 });
 
 describe('TripPlanner', () => {
+  it('shows manual creation without the AI disclaimer', () => {
+    render(
+      <TripPlanner pending={[]} onCreated={vi.fn()} onRetry={vi.fn()} onRemove={vi.fn()} manualCreate={vi.fn()} />
+    );
+    expect(screen.getByRole('button', { name: /dashboard.createTrip/ })).toBeTruthy();
+    expect(screen.queryByText('dashboard.plan.disclaimer')).toBeNull();
+  });
+
+  it('keeps old failed requests removable while retry is hidden', () => {
+    const remove = vi.fn();
+    render(
+      <PendingPlans
+        pending={[trip({ id: 7, ai_status: 'failed' })]}
+        onRetry={vi.fn()}
+        onRemove={remove}
+        allowRetry={false}
+      />
+    );
+    expect(screen.queryByText('dashboard.plan.retry')).toBeNull();
+    fireEvent.click(screen.getByRole('button', { name: 'dashboard.plan.remove' }));
+    expect(remove).toHaveBeenCalledWith(7);
+  });
+  it('keeps failed generation actions available without showing the creation form', () => {
+    const retry = vi.fn();
+    render(<PendingPlans pending={[trip({ id: 7, ai_status: 'failed' })]} onRetry={retry} onRemove={vi.fn()} />);
+    expect(screen.queryByRole('button', { name: /dashboard.plan.generate/ })).toBeNull();
+    fireEvent.click(screen.getByText('dashboard.plan.retry'));
+    expect(retry).toHaveBeenCalledWith(7);
+  });
   it('FE-COMP-PLANNER-001: shows the simulator, its error and no pending list when nothing is being built', () => {
     render(<TripPlanner pending={[]} onCreated={vi.fn()} onRetry={vi.fn()} onRemove={vi.fn()} />);
     expect(screen.getByText('dashboard.plan.title')).toBeTruthy();
