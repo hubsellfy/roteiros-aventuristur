@@ -136,7 +136,7 @@ function DashboardPageDesktop(): React.ReactElement {
 
   if (creationMode) return (
     <><Navbar /><CreateTripView onBack={() => setCreationMode(null)}>
-      <TripPlanner pending={[]} onCreated={() => setCreationMode(null)} onRetry={retryPlan} onRemove={removePlan} manualCreate={data => handleCreate({ ...data, currency: defaultCurrency })} />
+      <TripPlanner pending={[]} onCreated={() => setCreationMode(null)} onRetry={id => { void retryPlan(id) }} onRemove={id => { void removePlan(id) }} manualCreate={data => handleCreate({ ...data, currency: defaultCurrency })} />
     </CreateTripView></>
   )
 
@@ -162,7 +162,7 @@ function DashboardPageDesktop(): React.ReactElement {
                 </button>
               </div>
             )}
-            <PendingPlans pending={pendingPlans} onRetry={retryPlan} onRemove={removePlan} allowRetry={false} />
+            <PendingPlans pending={pendingPlans} onRetry={id => { void retryPlan(id) }} onRemove={id => { void removePlan(id) }} allowRetry={false} />
             {/* The hero and the cards below stand in for themselves while the trips load.
                 Without them the page rendered its finished empty state: no hero, no
                 cards, and a stats row reading zero, which reads as "your trips are

@@ -64,6 +64,8 @@ function buildDash(over: Record<string, unknown> = {}): Record<string, unknown> 
     toggleViewMode: vi.fn(),
     showForm: false,
     setShowForm: vi.fn(),
+    creationMode: null,
+    setCreationMode: vi.fn(),
     editingTrip: null,
     setEditingTrip: vi.fn(),
     deleteTrip: null,
@@ -157,17 +159,17 @@ describe('MDashboard', () => {
     expect(retryLoad).toHaveBeenCalledTimes(1);
   });
 
-  it('FE-MOB-DASH-006: the empty state opens a blank create sheet', () => {
-    const setShowForm = vi.fn();
+  it('FE-MOB-DASH-006: the empty state opens manual trip creation', () => {
+    const setCreationMode = vi.fn();
     const setEditingTrip = vi.fn();
-    mocks.dash = buildDash({ setShowForm, setEditingTrip });
+    mocks.dash = buildDash({ setCreationMode, setEditingTrip });
     render(<MDashboard />);
 
     expect(screen.getByText('dashboard.emptyTitle')).toBeInTheDocument();
     fireEvent.click(screen.getByRole('button', { name: 'dashboard.emptyButton' }));
 
     expect(setEditingTrip).toHaveBeenCalledWith(null);
-    expect(setShowForm).toHaveBeenCalledWith(true);
+    expect(setCreationMode).toHaveBeenCalledWith('manual');
   });
 
   it('FE-MOB-DASH-007: a still-loading dashboard shows no empty state', () => {

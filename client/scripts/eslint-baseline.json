@@ -1,7 +1,7 @@
 {
   "src": {
     "@typescript-eslint/no-non-null-assertion": 382,
-    "@typescript-eslint/no-misused-promises": 858,
+    "@typescript-eslint/no-misused-promises": 856,
     "no-console": 88,
     "complexity": 221,
     "@typescript-eslint/no-explicit-any": 146,
@@ -9,9 +9,9 @@
     "max-params": 32,
     "trek/store-without-selector": 67,
     "react-hooks/refs": 557,
-    "react-hooks/set-state-in-effect": 196,
+    "react-hooks/set-state-in-effect": 195,
     "@typescript-eslint/no-floating-promises": 165,
-    "react-hooks/exhaustive-deps": 115,
+    "react-hooks/exhaustive-deps": 114,
     "@typescript-eslint/no-unused-vars": 125,
     "react-hooks/immutability": 28,
     "max-lines-per-function": 130,

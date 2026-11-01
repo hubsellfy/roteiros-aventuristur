@@ -77,10 +77,12 @@ test('#1809 iPhone: flow screens scroll the document, full-screen ones do not', 
   //    It does not stop a script: window.scrollBy moves an overflow: hidden
   //    viewport in every engine, so the lock is read where it takes effect.
   await page.evaluate(() => window.scrollBy(0, 300))
+  const edit = page.getByRole('button', { name: 'Edit' }).first()
+  await edit.scrollIntoViewIfNeeded()
   const locked = await page.evaluate(readScroll)
   expect(locked.top).toBeGreaterThan(0)
 
-  await page.getByRole('button', { name: 'New Trip' }).click()
+  await edit.click()
   await expect(page.getByRole('dialog')).toBeVisible()
   const lock = await page.evaluate(() => ({
     body: getComputedStyle(document.body).overflowY,

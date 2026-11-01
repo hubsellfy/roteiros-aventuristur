@@ -217,7 +217,7 @@ export default function MDashboard(): React.ReactElement {
 
   if (creationMode) return (
     <CreateTripView onBack={() => setCreationMode(null)}>
-      <TripPlanner pending={[]} onCreated={() => setCreationMode(null)} onRetry={retryPlan} onRemove={removePlan} manualCreate={data => handleCreate({ ...data, currency: defaultCurrency })} />
+      <TripPlanner pending={[]} onCreated={() => setCreationMode(null)} onRetry={id => { void retryPlan(id) }} onRemove={id => { void removePlan(id) }} manualCreate={data => handleCreate({ ...data, currency: defaultCurrency })} />
     </CreateTripView>
   )
 
@@ -278,7 +278,7 @@ export default function MDashboard(): React.ReactElement {
           </div>
         )}
 
-        <PendingPlans pending={pendingPlans} onRetry={retryPlan} onRemove={removePlan} allowRetry={false} />
+        <PendingPlans pending={pendingPlans} onRetry={id => { void retryPlan(id) }} onRemove={id => { void removePlan(id) }} allowRetry={false} />
 
         {filterRow}
 

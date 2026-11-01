@@ -14,11 +14,9 @@ test('desktop: reorder arrows are hidden-and-inert until the row is hovered', as
   await dismissSystemNotices(page)
 
   await page.locator('.add-trip-card').click()
-  const modal = page.locator('.trek-modal-backdrop')
-  await expect(modal).toBeVisible()
   const title = `Reorder ${Date.now()}`
-  await modal.getByPlaceholder('e.g. Summer in Japan').fill(title)
-  await modal.getByRole('button', { name: 'Create New Trip' }).click()
+  await page.getByPlaceholder('For example: Lisbon, Orlando, Tokyo...').fill(title)
+  await page.getByRole('button', { name: 'Create New Trip' }).click()
 
   await page.getByText(title).first().click()
   await expect(page).toHaveURL(/\/trips\/\d+/)
