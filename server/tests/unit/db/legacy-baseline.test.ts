@@ -99,6 +99,7 @@ const UNNUMBERED = [
   'Migration20200101046290_a_removed_member_cannot_rejoin_by_invite_link',
   'Migration20200101046300_an_attached_file_stays_with_its_conversation',
   'Migration20200101046310_an_admin_can_run_a_plugin_outside_its_trek_range',
+  'Migration20200101046320_a_place_knows_where_its_details_came_from',
   // Aventuristur: the two migrations this fork adds after the last upstream one.
   'Migration20260101000100_aventuristur_enable_all_addons',
   'Migration20260101000200_aventuristur_trip_ai_columns',

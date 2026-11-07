@@ -1,6 +1,12 @@
 import { useState } from 'react'
-import { Check, ChevronRight, Library, X } from '../../../icons'
-import { TREK_API_SOURCES as SOURCES, trekApiFacts, trekApiFields } from '../../../components/Admin/trekApiModel'
+import { Check, ChevronRight, Library, Route, Search, X } from '../../../icons'
+import {
+  TREK_API_SOURCES as SOURCES,
+  trekApiAddressFeatures,
+  trekApiFacts,
+  trekApiFields,
+  trekApiRoutingFeatures,
+} from '../../../components/Admin/trekApiModel'
 import { useTranslation } from '../../../i18n'
 
 /**
@@ -116,6 +122,18 @@ export function MTrekApiBlock() {
               items={[t('admin.trekApi.notRatings'), t('admin.trekApi.notPhotos')]}
               note={t('admin.trekApi.notIncludedNote')}
               dashed
+            />
+            <ChipGroup
+              icon={<Search size={13} strokeWidth={2.2} className="text-m-faint" aria-hidden />}
+              label={t('admin.trekApi.quota.service.photon')}
+              items={trekApiAddressFeatures(t)}
+              note={t('admin.trekApi.addressNote')}
+            />
+            <ChipGroup
+              icon={<Route size={13} strokeWidth={2.2} className="text-m-faint" aria-hidden />}
+              label={t('admin.trekApi.quota.service.valhalla')}
+              items={trekApiRoutingFeatures(t)}
+              note={t('admin.trekApi.routingNote')}
             />
             <ChipGroup
               icon={<Library size={13} strokeWidth={2.2} className="text-m-faint" aria-hidden />}

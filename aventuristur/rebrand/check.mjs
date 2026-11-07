@@ -20,6 +20,7 @@ if (dirty && process.argv.includes('--committed')) {
 // 2. "TREK" may stay only where the original project is named on purpose.
 const allowed = [
   /TREK Places API/,
+  /TREK Community/, // Atribuição de dados compartilhados pela comunidade do projeto de origem.
   /TREK_[A-Z_]+/,
   /\bTREK(?= (?:index|API|Places|maintainer|enforces|verifies|will not|cannot|lets|reads|range|versions|is open source)|\\?'s own| \{range\}| \{version\}\+)/,
   /(?<=version range for this )TREK|(?<=tested it on this )TREK|(?<=corrupt )TREK/,

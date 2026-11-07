@@ -29,7 +29,14 @@ const settings: TranslationStrings = {
     'Instans OSRM milik sendiri. Kosong berarti server publik, yang mengizinkan sekitar satu permintaan per detik — cukup untuk sehari, mepet untuk perjalanan darat. Berlaku setelah server dimulai ulang.',
   'settings.valhallaBase': 'Instans Valhalla sendiri',
   'settings.valhallaBaseHint':
-    'Secara bawaan, TREK menggunakan Valhalla publik FOSSGIS untuk menghindari tol, jalan bebas hambatan, dan feri. Masukkan URL Valhalla Anda sendiri di sini untuk menggunakannya sebagai pengganti. Jika hanya instans perutean sendiri yang dikonfigurasi, Valhalla publik tidak digunakan. Setelah memasukkan URL sendiri, mulai ulang server dan muat ulang halaman.',
+    'Valhalla milik Anda sendiri, ditanyakan saat layanan perutean di atas diatur ke sana atau ke Otomatis. Jika hanya instans perutean sendiri yang dikonfigurasi dan tidak ada layanan perutean yang dipilih, tidak ada Valhalla yang ditanyakan. Setelah memasukkan URL, mulai ulang server dan muat ulang halaman.',
+  'settings.valhallaProvider': 'Layanan perutean',
+  'settings.valhallaProviderHint':
+    'Dengan layanan TREK atau Valhalla sendiri, Valhalla menghitung semua rute: hari dan perjalanan darat dengan berjalan kaki, bersepeda, dan bermobil, rute tanpa tol, jalan bebas hambatan, atau feri, serta rute, ketinggian, dan jalur tur. Jika tidak dapat menjawab, OSRM menghitung hari itu sebagai gantinya. Layanan TREK ditanyakan melalui server ini. Dengan Valhalla publik FOSSGIS, OSRM menghitung rute dan Valhalla hanya menjawab apa yang tidak bisa dilakukan OSRM. Otomatis menanyakan layanan TREK, kecuali Valhalla sendiri atau hanya instans perutean sendiri yang diatur.',
+  'settings.valhallaProviderOption.auto': 'Otomatis',
+  'settings.valhallaProviderOption.trek': 'Layanan TREK',
+  'settings.valhallaProviderOption.fossgis': 'Valhalla publik (FOSSGIS)',
+  'settings.valhallaProviderOption.custom': 'Instans Valhalla sendiri',
   'settings.mapHint': 'Template URL untuk tile peta',
   'settings.mapProvider': 'Penyedia peta',
   'settings.mapProviderHint': 'Berlaku untuk peta Trip Planner dan Journey. Atlas selalu menggunakan Leaflet.',

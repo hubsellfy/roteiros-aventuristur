@@ -38,7 +38,14 @@ const settings: TranslationStrings = {
     'Vlastná inštancia OSRM. Prázdne použije verejné servery s limitom približne jedného požiadavku za sekundu — na deň to stačí, na road trip je to málo. Prejaví sa po reštarte servera.',
   'settings.valhallaBase': 'Vlastná inštancia Valhalla',
   'settings.valhallaBaseHint':
-    'TREK v predvolenom nastavení používa verejnú Valhallu FOSSGIS na vyhýbanie sa mýtnym cestám, diaľniciam a trajektom. Sem zadajte URL vlastnej Valhally a používajte ju namiesto verejnej. Ak je nastavená iba vlastná smerovacia inštancia, verejná Valhalla sa nepoužije. Po zadaní vlastnej URL reštartujte server a znovu načítajte stránku.',
+    'Vlastná Valhalla, ktorej sa pýta, keď je smerovacia služba vyššie nastavená na ňu alebo na Automaticky. Ak je nastavená iba vlastná smerovacia inštancia a nie je zvolená žiadna smerovacia služba, žiadna Valhalla sa nepýta. Po zadaní URL reštartujte server a znovu načítajte stránku.',
+  'settings.valhallaProvider': 'Smerovacia služba',
+  'settings.valhallaProviderHint':
+    'So službami TREK alebo vlastnou Valhallou počíta všetky trasy Valhalla: dni a cestné výlety pešo, na bicykli aj autom, trasy bez mýta, diaľnic alebo trajektov a trasy, výšky a cesty výletov. Keď nemôže odpovedať, vypočíta daný deň OSRM. Služby TREK sa pýtajú cez tento server. S verejnou Valhallou FOSSGIS počíta trasy OSRM a Valhalla odpovedá len na to, čo OSRM nevie. Automaticky sa pýta služieb TREK, pokiaľ nie je nastavená vlastná Valhalla alebo iba vlastná smerovacia inštancia.',
+  'settings.valhallaProviderOption.auto': 'Automaticky',
+  'settings.valhallaProviderOption.trek': 'Služby TREK',
+  'settings.valhallaProviderOption.fossgis': 'Verejná Valhalla (FOSSGIS)',
+  'settings.valhallaProviderOption.custom': 'Vlastná inštancia Valhally',
   'settings.mapHint': 'URL šablóna pre mapové dlaždice',
   'settings.mapProvider': 'Poskytovateľ mapy',
   'settings.mapProviderHint': 'Ovplyvňuje mapy v Trip Planneri a Journey. Atlas vždy používa Leaflet.',

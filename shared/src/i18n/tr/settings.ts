@@ -29,7 +29,14 @@ const settings: TranslationStrings = {
     'Kendi OSRM sunucunuz. Boş bırakılırsa saniyede yaklaşık bir istek veren genel sunucular kullanılır: bir gün için yeter, uzun yolculuk için az. Sunucu yeniden başlatıldığında etkin olur.',
   'settings.valhallaBase': 'Kendi Valhalla sunucunuz',
   'settings.valhallaBaseHint':
-    'TREK, ücretli yolları, otoyolları ve feribotları önlemek için varsayılan olarak FOSSGIS’in herkese açık Valhalla hizmetini kullanır. Bunun yerine kendi Valhalla sunucunuzu kullanmak için URL’sini buraya girin. Yalnızca özel bir rota sunucusu yapılandırılmışsa herkese açık Valhalla kullanılmaz. Özel URL girdikten sonra sunucuyu yeniden başlatın ve sayfayı yenileyin.',
+    'Kendi Valhalla sunucunuz; yukarıdaki rota hizmeti ona ya da Otomatik’e ayarlıyken sorulur. Yalnızca kendi rota sunucunuz yapılandırılmışsa ve rota hizmeti seçilmemişse hiçbir Valhalla’ya sorulmaz. URL girdikten sonra sunucuyu yeniden başlatın ve sayfayı yenileyin.',
+  'settings.valhallaProvider': 'Rota hizmeti',
+  'settings.valhallaProviderHint':
+    'TREK hizmetleri veya kendi Valhalla’nızla tüm rotaları Valhalla hesaplar: yürüyerek, bisikletle ve arabayla günler ve yol gezileri, ücretli yollar, otoyollar veya feribotlar olmadan rotalar ile turların rotaları, yükseklikleri ve yolları. Yanıt veremediğinde o günü OSRM hesaplar. TREK hizmetlerine bu sunucu üzerinden sorulur. FOSSGIS’in herkese açık Valhalla’sıyla rotaları OSRM hesaplar ve Valhalla yalnızca OSRM’nin yapamadığını yanıtlar. Otomatik, kendi Valhalla’nız ya da yalnızca kendi rota sunucunuz ayarlanmadıkça TREK hizmetlerine sorar.',
+  'settings.valhallaProviderOption.auto': 'Otomatik',
+  'settings.valhallaProviderOption.trek': 'TREK hizmetleri',
+  'settings.valhallaProviderOption.fossgis': 'Herkese açık Valhalla (FOSSGIS)',
+  'settings.valhallaProviderOption.custom': 'Kendi Valhalla sunucunuz',
   'settings.mapHint': 'Harita kutucukları için URL şablonu',
   'settings.mapProvider': 'Harita Sağlayıcısı',
   'settings.mapProviderHint': 'Seyahat planlayıcı ve Journey haritalarını etkiler. Atlas her zaman Leaflet kullanır.',

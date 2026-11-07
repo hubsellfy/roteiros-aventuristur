@@ -48,6 +48,12 @@ Este arquivo lista o que muda em relação ao original. O resto do código é do
 - Cidade de saída, orçamento, número de viajantes e estilo são guardados na descrição da viagem. Eles são anotações: não criam despesas, reservas ou participantes.
 - Roteiros de IA iniciados anteriormente continuam com seu estado visível no painel e podem ser removidos se falharem; a opção de iniciar uma nova tentativa fica oculta.
 
+## 9. Integração do TREK 5.1.0 (em validação)
+
+- Integra a tag oficial v5.1.0 à base personalizada, mantendo login, identidade visual, criação manual de viagens, IA e controles de privacidade da Aventuristur.
+- A versão 5.1 oferece novos serviços de busca e rotas; a configuração efetiva de produção e o tratamento de dados precisam ser revisados antes de publicar.
+- A migração de banco foi exercitada em banco temporário com as migrações da Aventuristur já aplicadas. Um backup de produção foi criado; restauração e atualização em produção exigem validação adicional.
+
 ## Como as alterações são mantidas
 
 A cada versão nova do TREK: atualizar a base, rodar `node aventuristur/rebrand/apply.mjs`, reaplicar os patches de `aventuristur/patches/`, rodar os testes e conferir `check.mjs`.
