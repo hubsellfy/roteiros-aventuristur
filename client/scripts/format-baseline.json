@@ -993,8 +993,6 @@
   "src/components/Studio/useBookPresence.ts",
   "src/components/Studio/useBookStore.ts",
   "src/components/Studio/useSpreadInteraction.ts",
-  "src/components/SystemNotices/ReleaseNoticeModal.test.tsx",
-  "src/components/SystemNotices/ReleaseNoticeModal.tsx",
   "src/components/SystemNotices/ReleaseNoticeVisuals.tsx",
   "src/components/SystemNotices/SystemNoticeBanner.extra.test.tsx",
   "src/components/SystemNotices/SystemNoticeBanner.test.tsx",

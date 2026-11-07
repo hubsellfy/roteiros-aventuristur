@@ -1,17 +1,28 @@
 import React from 'react'
-import { Check, Library, X } from '../../icons'
+import { Library, MapPin, Route, Search, X } from '../../icons'
 import { fs } from '../../components/shared/DialogShell'
 import { StatusPill } from '../../components/Settings/settingsKit'
 import FoldSummary from './FoldSummary'
+import ServiceIdentityPanel from '../../components/Admin/ServiceIdentityPanel'
+import PlaceContribPanel from '../../components/Admin/PlaceContribPanel'
 import type { TranslationFn } from '../../types'
-import { TREK_API_SOURCES as SOURCES, trekApiFacts, trekApiFields } from '../../components/Admin/trekApiModel'
+import {
+  TREK_API_SOURCES as SOURCES,
+  trekApiAddressFeatures,
+  trekApiFacts,
+  trekApiFields,
+  trekApiRoutingFeatures,
+} from '../../components/Admin/trekApiModel'
 
 interface TrekApiCardProps {
   t: TranslationFn
+  managed?: boolean
 }
 
 /**
- * The TREK Places API, above the Google key because it is the alternative to it.
+ * The TREK API, above the Google key because it is the alternative to it: the
+ * place index, the address search and the routing an installation gets from
+ * the TREK services, each listed with what it answers.
  *
  * Given real weight on the page on purpose: it is what makes a key optional
  * instead of expected. The weight comes from the mark, one line of type and an
@@ -19,12 +30,13 @@ interface TrekApiCardProps {
  * to do and what made it shout over the settings it sat next to.
  *
  * Everything a reader can check is a measured number, not a claim: 73.6 million
- * is the row count of the current index, and "no queries logged" is enforced in
- * three places on the server rather than promised here.
+ * is the row count of the current index, "no queries logged" is enforced in
+ * three places on the server rather than promised here, and the allowance below
+ * the facts is what the service itself reports for this installation.
  */
 const CHIP = 'rounded-full border px-2.5 py-[3px] font-medium'
 
-/** One of the three lists under "more": an icon and a name, chips, a note. */
+/** One of the lists under "more": an icon and a name, chips, a note. */
 function FactGroup({ icon, title, note, children }: { icon: React.ReactNode; title: string; note: string; children: React.ReactNode }) {
   return (
     <div className="flex flex-col gap-2 px-3.5 py-3">
@@ -38,7 +50,7 @@ function FactGroup({ icon, title, note, children }: { icon: React.ReactNode; tit
   )
 }
 
-export default function TrekApiCard({ t }: TrekApiCardProps): React.ReactElement {
+export default function TrekApiCard({ t, managed = false }: TrekApiCardProps): React.ReactElement {
   const fields = trekApiFields(t)
   const facts = trekApiFacts(t)
 
@@ -69,6 +81,9 @@ export default function TrekApiCard({ t }: TrekApiCardProps): React.ReactElement
             </li>
           ))}
         </ul>
+
+        <ServiceIdentityPanel managed={managed} />
+        <PlaceContribPanel />
       </div>
 
       <details className="group border-t border-edge-faint">
@@ -79,10 +94,10 @@ export default function TrekApiCard({ t }: TrekApiCardProps): React.ReactElement
           {/* The fields as chips rather than a paragraph. A list of what you
               get is something you scan, not something you read, and a sentence
               forces the reader to parse commas to answer "is the phone number
-              in there". */}
+              in there". One list per service, under the service's own name. */}
           <FactGroup
-            icon={<Check size={14} strokeWidth={2.4} className="text-success" aria-hidden="true" />}
-            title={t('admin.trekApi.included')}
+            icon={<MapPin size={14} strokeWidth={2.2} className="text-content-muted" aria-hidden="true" />}
+            title={t('admin.trekApi.quota.service.places')}
             note={t('admin.trekApi.includedNote')}
           >
             {fields.map(field => (
@@ -100,6 +115,26 @@ export default function TrekApiCard({ t }: TrekApiCardProps): React.ReactElement
           >
             {[t('admin.trekApi.notRatings'), t('admin.trekApi.notPhotos')].map(item => (
               <li key={item} className={`${CHIP} border-dashed border-edge text-content-faint`}>{item}</li>
+            ))}
+          </FactGroup>
+
+          <FactGroup
+            icon={<Search size={14} strokeWidth={2.2} className="text-content-muted" aria-hidden="true" />}
+            title={t('admin.trekApi.quota.service.photon')}
+            note={t('admin.trekApi.addressNote')}
+          >
+            {trekApiAddressFeatures(t).map(item => (
+              <li key={item} className={`${CHIP} border-edge-faint bg-surface-card text-content-secondary`}>{item}</li>
+            ))}
+          </FactGroup>
+
+          <FactGroup
+            icon={<Route size={14} strokeWidth={2.2} className="text-content-muted" aria-hidden="true" />}
+            title={t('admin.trekApi.quota.service.valhalla')}
+            note={t('admin.trekApi.routingNote')}
+          >
+            {trekApiRoutingFeatures(t).map(item => (
+              <li key={item} className={`${CHIP} border-edge-faint bg-surface-card text-content-secondary`}>{item}</li>
             ))}
           </FactGroup>
 

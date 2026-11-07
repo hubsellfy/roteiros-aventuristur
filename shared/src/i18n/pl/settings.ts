@@ -29,7 +29,14 @@ const settings: TranslationStrings = {
     'Własna instancja OSRM. Puste używa serwerów publicznych, które pozwalają na około jedno zapytanie na sekundę — wystarczy na dzień, mało na road trip. Działa po restarcie serwera.',
   'settings.valhallaBase': 'Własna instancja Valhalli',
   'settings.valhallaBaseHint':
-    'TREK domyślnie używa publicznej Valhalli FOSSGIS do omijania opłat, autostrad i promów. Wpisz tutaj URL własnej Valhalli, aby używać jej zamiast publicznej. Jeśli skonfigurowano tylko własną instancję wyznaczania tras, publiczna Valhalla nie jest używana. Po wpisaniu własnego adresu URL uruchom ponownie serwer i odśwież stronę.',
+    'Własna Valhalla, pytana, gdy usługa wyznaczania tras powyżej jest ustawiona na nią lub na Automatycznie. Jeśli skonfigurowano tylko własną instancję wyznaczania tras i nie wybrano usługi, żadna Valhalla nie jest pytana. Po wpisaniu adresu URL uruchom ponownie serwer i odśwież stronę.',
+  'settings.valhallaProvider': 'Usługa wyznaczania tras',
+  'settings.valhallaProviderHint':
+    'Z usługami TREK lub własną Valhallą wszystkie trasy wyznacza Valhalla: dni i podróże drogowe pieszo, rowerem i samochodem, trasy bez opłat, autostrad i promów oraz trasy, wysokości i ścieżki wycieczek. Gdy nie może odpowiedzieć, ten dzień wyznacza OSRM. Usługi TREK są pytane przez ten serwer. Z publiczną Valhallą FOSSGIS trasy wyznacza OSRM, a Valhalla odpowiada tylko na to, czego OSRM nie potrafi. Automatycznie pyta usługi TREK, chyba że ustawiono własną Valhallę albo tylko własną instancję wyznaczania tras.',
+  'settings.valhallaProviderOption.auto': 'Automatycznie',
+  'settings.valhallaProviderOption.trek': 'Usługi TREK',
+  'settings.valhallaProviderOption.fossgis': 'Publiczna Valhalla (FOSSGIS)',
+  'settings.valhallaProviderOption.custom': 'Własna instancja Valhalli',
   'settings.mapHint': 'Szablon URL dla kafelków mapy',
   'settings.mapProvider': 'Dostawca mapy',
   'settings.mapProviderHint': 'Dotyczy map Trip Planner i Journey. Atlas zawsze używa Leaflet.',
