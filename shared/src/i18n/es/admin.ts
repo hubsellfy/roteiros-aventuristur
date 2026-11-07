@@ -1093,10 +1093,12 @@ const admin: TranslationStrings = {
   'admin.contribute.ineligible.not_production':
     'Solo una instalación de producción puede compartir detalles de lugares.',
   'admin.contribute.ineligible.demo': 'Una instalación de demostración no comparte detalles de lugares.',
-  'admin.contribute.ineligible.index_off': 'Compartir requiere el índice de Roteiros Aventuristur como fuente de lugares.',
+  'admin.contribute.ineligible.index_off':
+    'Compartir requiere el índice de Roteiros Aventuristur como fuente de lugares.',
   'admin.contribute.ineligible.custom_places_url':
     'Esta instalación usa su propia Places API, así que no hay con quién compartir.',
-  'admin.contribute.ineligible.services_off': 'Los servicios de Roteiros Aventuristur están desactivados para esta instalación.',
+  'admin.contribute.ineligible.services_off':
+    'Los servicios de Roteiros Aventuristur están desactivados para esta instalación.',
   'admin.contribute.ineligible.no_key':
     'Esta instalación aún no tiene una clave de servicios. Se solicita automáticamente.',
   'admin.contribute.pause.key_invalid': 'En pausa: el servicio no aceptó la clave de esta instalación.',

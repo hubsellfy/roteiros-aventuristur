@@ -45,6 +45,18 @@ const map: TranslationStrings = {
   'map.baseLayer.topo': 'טופוגרפית',
   'map.webgl2.fallback': 'הדפדפן הזה לא תומך ב-WebGL2, שמפות GL צריכות, ולכן המפות מוצגות עם Leaflet.',
   'map.webgl2.terrain': 'תלת-ממד דורש WebGL2, והדפדפן הזה לא תומך בו. המפה נשארת בדו-ממד.',
+  'assistant.suggest1': 'איפה כדאי לאכול צהריים בקרבת מקום?',
+  'assistant.suggest3': 'אטרקציות בדירוג הגבוה ביותר',
+  'assistant.placeholder': 'שאלו על הטיול שלכם…',
+  'assistant.welcome':
+    'שלום! אפשר לבקש הצעות למסעדות ולאטרקציות, לבדוק דירוגים וביקורות ב-Google ולהוסיף מקומות למסלול. מה תרצו לתכנן?',
+  'poi.ask': 'שאלה',
+  'assistant.source': 'נתונים מ-Google Maps',
+  'assistant.error': 'לא ניתן לענות כרגע. נסו שוב.',
+  'assistant.suggest2': 'תכננו לי אחר צהריים פנוי',
+  'assistant.addToTrip': 'הוספה לטיול',
+  'assistant.addToDay': 'הוספה ליום {day}',
+  'assistant.added': 'נוסף',
 };
 
 export default map;

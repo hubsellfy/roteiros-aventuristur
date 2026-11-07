@@ -693,8 +693,6 @@ const admin: TranslationStrings = {
   'admin.plugins.dep.trekAcceptedUnknown': 'לא הוגדר טווח גרסאות TREK, פועל על אחריותכם',
   'admin.plugins.activateAnyway': 'להפעיל בכל זאת',
   'admin.plugins.untestedChip': 'עדיין לא אושר ל-TREK {host}',
-  'admin.plugins.filters': 'סינון',
-  'admin.plugins.security.short': 'איך התוספים מאובטחים',
   'admin.plugins.accessTitle': 'למה הוא יכול לגשת',
   'admin.plugins.connectsTitle': 'מתחבר אל',
   'admin.plugins.detailsTitle': 'פרטים',

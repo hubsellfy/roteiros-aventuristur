@@ -29,6 +29,7 @@ const inspector: TranslationStrings = {
   'inspector.trackColor': 'צבע המסלול',
   'inspector.trackColorAuto': 'צבע אוטומטי',
   'inspector.trackColorCustom': 'בחירת צבע מותאם',
+  'inspector.reviews': 'ביקורות',
 };
 
 export default inspector;

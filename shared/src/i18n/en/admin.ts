@@ -1048,7 +1048,8 @@ const admin: TranslationStrings = {
   'admin.contribute.ineligible.index_off': 'Sharing needs the TREK index as a place source.',
   'admin.contribute.ineligible.custom_places_url':
     'This installation uses its own Places API, so there is nothing to share with.',
-  'admin.contribute.ineligible.services_off': 'The Roteiros Aventuristur services are switched off for this installation.',
+  'admin.contribute.ineligible.services_off':
+    'The Roteiros Aventuristur services are switched off for this installation.',
   'admin.contribute.ineligible.no_key': 'This installation has no services key yet. It is requested automatically.',
   'admin.contribute.pause.key_invalid': "Paused: the service did not accept this installation's key.",
   'admin.contribute.pause.key_refused':
